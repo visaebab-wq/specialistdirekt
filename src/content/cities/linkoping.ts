@@ -24,56 +24,56 @@ export const city: City = {
   },
   specialtyLocal: {
     neurolog: {
-      metaTitle: "Privat neurolog i Linköping – pris, remiss och boka tid",
+      metaTitle: "Privat neurolog i Linköping – utredning, väntetid och remiss",
       metaDescription:
-        "Privat neurolog i Linköping: migrän, yrsel och domningar, neurologiskt status, vad som påverkar priset och remiss. Kostnadsfri förmedling via Specialistdirekt.",
+        "Träffa en privat neurolog i Linköping vid migrän, yrsel eller domningar. Så går en neurologisk bedömning till, vad som styr priset och när symtom är akuta. Kostnadsfri förmedling.",
       sections: [
         {
           id: "privat-neurolog-linkoping",
-          heading: "Privat neurolog i Linköping – utredning av nervsystemet",
+          heading: "Neurolog i Linköping – privat väg in vid nervbesvär",
           body: [
-            "Vid besvär från nervsystemet finns i Linköping neurologisk kompetens både vid Universitetssjukhuset i Linköping (US) och hos privata mottagningar i Östergötland. En privat mottagning är fristående från regionvården – Specialistdirekt förmedlar kontakt men är inte en vårdgivare och har ingen koppling till US eller Region Östergötland. En **neurolog** utreder sjukdomar i hjärna, ryggmärg och nerver, och en bedömning bygger på ett samtal och ett neurologiskt status där läkaren testar reflexer, känsel, styrka och balans.",
-            "Bland de vanligaste anledningarna att söka neurolog är återkommande **migrän** och svår huvudvärk, **yrsel** och balansbesvär samt **domningar** och stickningar. Vid behov kompletteras bedömningen med undersökningar som MR av hjärnan, EEG eller nervmätning. Läs mer på vår [översikt om neurolog](/specialiteter/neurolog).",
+            "Östergötland har sitt neurologiska nav vid Universitetssjukhuset i Linköping (US), men vill du komma i gång snabbare kan en privat mottagning vara ett alternativ. Specialistdirekt är fristående och saknar koppling till US och Region Östergötland – vi hjälper dig kostnadsfritt att hitta en privat **neurolog** som passar dina besvär. En neurolog utreder symtom och sjukdomar som utgår från hjärna, ryggmärg och de perifera nerverna.",
+            "Grunden i en neurologisk bedömning är samtalet om dina symtom och ett **neurologiskt status**, där läkaren undersöker reflexer, känsel, styrka, koordination och balans. Utifrån det avgör neurologen om något behöver kompletteras, till exempel MR av hjärnan, EEG eller nervmätning (ENeG/EMG). Vill du läsa mer om specialiteten finns vår [översikt om neurolog](/specialiteter/neurolog).",
           ],
           bullets: [
-            "**Migrän och svår huvudvärk** – utredning och förebyggande behandling (allmän information, ingen behandlingsrekommendation här).",
-            "**Yrsel och balansbesvär** – se även [yrsel – vilken läkare?](/artiklar/yrsel-vilken-lakare).",
-            "**Domningar och stickningar** – se [domningar i händer och fötter](/artiklar/domningar-hander-fotter-vilken-lakare).",
-            "**Neurologiskt status** – strukturerad undersökning av reflexer, känsel, styrka och balans.",
+            "**Migrän och återkommande huvudvärk** – en av de vanligaste orsakerna att söka neurolog (allmän information, ingen behandlingsrekommendation här).",
+            "**Yrsel och balansproblem** – läs även [yrsel – vilken läkare?](/artiklar/yrsel-vilken-lakare).",
+            "**Domningar, stickningar och nervsmärta** – se [domningar i händer och fötter](/artiklar/domningar-hander-fotter-vilken-lakare).",
+            "**Kompletterande undersökningar** – MR, EEG eller nervmätning när den kliniska bedömningen behöver stöd.",
           ],
         },
         {
           id: "remiss-och-pris-neurolog-linkoping",
-          heading: "Remiss och vad som påverkar priset",
+          heading: "Remiss och pris i Östergötland",
           body: [
-            "Behöver du remiss? I regionfinansierad vård krävs ofta en remiss från vårdcentralen, medan du hos många privata mottagningar kan boka mer direkt. Vad som gäller varierar – se [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
-            "Priset beror på om det är ett nybesök och vilka undersökningar som tillkommer, till exempel MR. Har du en sjukvårdsförsäkring kan den ibland täcka kostnaden. Hur en privat neurologisk utredning kan gå till beskriver vi i [privat neurolog: utredning](/artiklar/privat-neurolog-utredning).",
+            "Inom den regionfinansierade vården i Östergötland går vägen till neurolog oftast via en remiss från vårdcentralen. Hos flera privata mottagningar kan du i stället skicka en egen vårdbegäran och boka mer direkt. Vad som krävs beror på mottagning och finansiering – vi reder ut det med dig, och du kan läsa mer i [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
+            "Vad en privat neurologutredning kostar styrs främst av om det är ett nybesök eller en uppföljning och vilka undersökningar som tillkommer, som MR. Vi anger inga fasta belopp eftersom de skiljer sig mellan mottagningar – be alltid om ett pris i förväg och kontrollera om en eventuell sjukvårdsförsäkring täcker delar av kostnaden. Hur en utredning kan läggas upp beskriver vi i [privat neurolog: utredning](/artiklar/privat-neurolog-utredning).",
           ],
         },
         {
           id: "nar-akut-neurolog-linkoping",
-          heading: "När neurologiska symtom är akuta",
+          heading: "När neurologiska symtom inte kan vänta",
           body: [
-            "Vissa symtom kräver akut vård. Ring **112** vid plötslig svaghet eller domning i ansikte, arm eller ben, hängande mungipa, sluddrigt tal, akut synbortfall eller en plötslig, mycket svår huvudvärk – det kan vara tecken på stroke. En planerad neurologbedömning är till för besvär som inte är akut livshotande.",
-            "Specialistdirekt ger inte medicinsk rådgivning och bedömer inte hur brådskande dina symtom är. Vid akuta symtom ska du alltid söka akut vård.",
+            "Vissa symtom är akuta och ska aldrig vänta på en planerad tid. Ring **112** direkt vid plötslig svaghet eller domning i ansikte, arm eller ben, hängande mungipa, sluddrigt tal, akut synbortfall eller en plötslig och mycket kraftig huvudvärk – det kan vara tecken på stroke, där varje minut räknas.",
+            "En privat neurologtid är till för besvär som inte är akut livshotande. Specialistdirekt gör ingen medicinsk bedömning eller triage – vid akuta symtom söker du alltid akut vård, och för sjukvårdsrådgivning dygnet runt når du **1177**.",
           ],
         },
       ],
       faqs: [
         {
-          question: "Behöver jag remiss till en privat neurolog i Linköping?",
+          question: "Behöver jag remiss för att träffa en privat neurolog i Linköping?",
           answer:
-            "I offentlig vård krävs ofta en remiss från vårdcentralen, medan du hos många privata mottagningar kan boka tid själv. Reglerna varierar mellan mottagningar och finansiering – vi hjälper dig kostnadsfritt att hitta rätt väg.",
+            "Inom regionvården i Östergötland krävs oftast en remiss från vårdcentralen, medan många privata mottagningar tar emot egen vårdbegäran. Vad som gäller beror på mottagning och finansiering – vi hjälper dig kostnadsfritt att hitta rätt väg in. Se även [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
+        },
+        {
+          question: "Vilka undersökningar kan bli aktuella hos en neurolog?",
+          answer:
+            "Bedömningen utgår från samtal och ett neurologiskt status. Vid behov kompletteras det med MR av hjärnan, EEG eller nervmätning (ENeG/EMG). Vilka undersökningar som blir aktuella avgör neurologen utifrån dina symtom – allt beställs inte rutinmässigt.",
         },
         {
           question: "Kan en neurolog i Linköping hjälpa vid migrän?",
           answer:
-            "Migrän och annan svår återkommande huvudvärk är en av de vanligaste anledningarna att söka neurolog. Neurologen kan utreda besvären och lägga upp en plan tillsammans med dig. Den här sidan ger allmän information och ingen behandlingsrekommendation.",
-        },
-        {
-          question: "När ska jag söka akut i stället för att boka neurolog?",
-          answer:
-            "Ring 112 vid plötslig svaghet eller domning i ansikte, arm eller ben, sluddrigt tal eller en plötslig, mycket svår huvudvärk – det kan vara tecken på stroke. En bokad neurologtid är till för besvär som inte är akuta.",
+            "Ja, återkommande migrän och svår huvudvärk är bland de vanligaste anledningarna att söka neurolog. Neurologen kan utreda vad som ligger bakom och lägga upp en plan tillsammans med dig. Sidan ger allmän information och ingen behandlingsrekommendation.",
         },
       ],
     },
