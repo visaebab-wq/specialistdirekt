@@ -1,0 +1,27 @@
+import type { Faq } from "@/lib/faq";
+import { renderInline } from "@/components/RichText";
+
+// Använder native <details>/<summary> – tillgängligt, fungerar utan JS
+// och är lätt för sökmotorer att läsa. Svaren stöder samma säkra inline-markup
+// som artiklar ([text](/intern/sökväg) och **fet**) så att interna länkar i
+// FAQ-svar blir riktiga <a>-taggar i initial HTML.
+export function FaqList({ items }: { items: Faq[] }) {
+  return (
+    <div className="divide-y divide-ink-200 rounded-2xl border border-ink-200 bg-white">
+      {items.map((faq) => (
+        <details key={faq.question} className="group px-5">
+          <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-5 text-left font-semibold text-ink-800 marker:content-['']">
+            {faq.question}
+            <span
+              aria-hidden
+              className="shrink-0 text-brand-600 transition-transform group-open:rotate-45"
+            >
+              +
+            </span>
+          </summary>
+          <p className="pb-5 text-ink-600 leading-relaxed">{renderInline(faq.answer)}</p>
+        </details>
+      ))}
+    </div>
+  );
+}

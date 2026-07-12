@@ -1,0 +1,117 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbSchema } from "@/lib/structured-data";
+import { site } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: "Om oss",
+  description:
+    "Specialistdirekt är en oberoende förmedlingstjänst som hjälper dig att hitta rätt specialistläkare i Sverige – snabbt, tryggt och kostnadsfritt.",
+  alternates: { canonical: "/om-oss" },
+};
+
+const crumbs = [
+  { name: "Hem", path: "/" },
+  { name: "Om oss", path: "/om-oss" },
+];
+
+const values = [
+  {
+    icon: "🎯",
+    title: "Oberoende",
+    text: "Vi är inte bundna till en enskild klinik. Vårt enda mål är att hitta rätt specialist för dig.",
+  },
+  {
+    icon: "🛡️",
+    title: "Trygghet",
+    text: "Vi förmedlar endast kontakt med legitimerade specialister och hanterar dina uppgifter enligt GDPR.",
+  },
+  {
+    icon: "❤️",
+    title: "Personligt",
+    text: "Bakom varje matchning finns en människa som läser din förfrågan och bryr sig om att det blir rätt.",
+  },
+];
+
+export default function AboutPage() {
+  return (
+    <>
+      <div className="bg-section">
+        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+          <Breadcrumbs items={crumbs} />
+          <h1 className="mt-6 text-4xl font-extrabold tracking-tight text-ink-900">
+            Om Specialistdirekt
+          </h1>
+          <p className="mt-4 max-w-2xl text-lg text-ink-600">
+            Vi gör det enklare och tryggare att hitta rätt specialistvård i Sverige.
+          </p>
+        </div>
+      </div>
+
+      <section className="mx-auto max-w-3xl px-4 py-12 sm:px-6">
+        <div className="space-y-5 text-lg leading-relaxed text-ink-700">
+          <p>
+            Att veta vart man ska vända sig med ett medicinskt besvär kan vara svårt. Vårdköer är
+            långa, och det är inte alltid lätt att hitta just den specialist man behöver.
+            Specialistdirekt grundades {site.foundingYear} för att lösa det problemet.
+          </p>
+          <p>
+            Vi är en oberoende förmedlingstjänst. Du beskriver ditt behov, och vi använder vårt
+            nätverk för att matcha dig med en passande, legitimerad specialist – kostnadsfritt och
+            utan förpliktelser. Du behåller alltid full kontroll och väljer själv om och med vem du
+            går vidare.
+          </p>
+          <p>
+            Vi ställer inga diagnoser och ger ingen medicinsk rådgivning. Vår roll är att vara
+            länken som snabbt och tryggt för dig vidare till rätt vård.
+          </p>
+        </div>
+
+        <h2 className="mt-12 text-2xl font-bold text-ink-900">Det vi står för</h2>
+        <div className="mt-6 grid gap-5 sm:grid-cols-3">
+          {values.map((v) => (
+            <div key={v.title} className="rounded-2xl border border-ink-200 bg-white p-6">
+              <span aria-hidden className="text-3xl">
+                {v.icon}
+              </span>
+              <h3 className="mt-3 font-semibold text-ink-900">{v.title}</h3>
+              <p className="mt-1 text-sm text-ink-600">{v.text}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-12 rounded-3xl border border-ink-200 bg-white p-8">
+          <h2 className="text-xl font-bold text-ink-900">Företagsuppgifter och kontakt</h2>
+          <dl className="mt-5 space-y-4">
+            <div>
+              <dt className="text-sm font-semibold text-ink-900">Tjänst</dt>
+              <dd className="mt-0.5 text-ink-700">{site.name}</dd>
+            </div>
+            <div>
+              <dt className="text-sm font-semibold text-ink-900">E-post</dt>
+              <dd className="mt-0.5">
+                <a href={`mailto:${site.email}`} className="text-brand-700 hover:underline">
+                  {site.email}
+                </a>
+              </dd>
+            </div>
+          </dl>
+          <p className="mt-5 text-ink-600">
+            Kontakt sker tills vidare via e-post eller formuläret på webbplatsen. Vi publicerar för
+            närvarande inget telefonnummer eller någon besöksadress.
+          </p>
+          <Link
+            href="/kontakt"
+            className="mt-6 inline-block rounded-full bg-brand-600 px-6 py-3 text-sm font-semibold text-white hover:bg-brand-700"
+          >
+            Skicka en förfrågan
+          </Link>
+        </div>
+      </section>
+
+      <JsonLd data={breadcrumbSchema(crumbs)} />
+    </>
+  );
+}

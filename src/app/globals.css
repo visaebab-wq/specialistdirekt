@@ -1,26 +1,262 @@
 @import "tailwindcss";
 
+/*
+  Specialistdirekt – designsystem
+  Lugn, förtroendeingivande vårdpalett (teal/blågrönt + varm sand).
+  Ljust tema medvetet (vårdsajter upplevs mer trovärdiga ljusa).
+*/
+
+@theme {
+  --color-brand-50: #f0fdfa;
+  --color-brand-100: #ccfbf1;
+  --color-brand-200: #99f6e4;
+  --color-brand-300: #5eead4;
+  --color-brand-400: #2dd4bf;
+  --color-brand-500: #14b8a6;
+  --color-brand-600: #0d9488;
+  --color-brand-700: #0f766e;
+  --color-brand-800: #115e59;
+  --color-brand-900: #134e4a;
+
+  /* Mörk marinblå för hero, sluttoner och footer (enligt designen). */
+  --color-navy-600: #2b5278;
+  --color-navy-700: #1f4063;
+  --color-navy-800: #18324e;
+  --color-navy-900: #11243a;
+
+  /* Ljus blå sektionsbakgrund. */
+  --color-sky-50: #eaf5fa;
+  --color-sky-100: #d6ecf4;
+
+  --color-ink-50: #f8fafc;
+  --color-ink-100: #f1f5f9;
+  --color-ink-200: #e2e8f0;
+  --color-ink-300: #cbd5e1;
+  --color-ink-500: #64748b;
+  --color-ink-600: #475569;
+  --color-ink-700: #334155;
+  --color-ink-800: #1e293b;
+  --color-ink-900: #0f172a;
+
+  --font-sans: var(--font-sans), system-ui, sans-serif;
+}
+
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0f172a;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Snyggare fokusmarkering för tangentbordsnavigering (tillgänglighet). */
+:focus-visible {
+  outline: 2px solid var(--color-brand-600);
+  outline-offset: 2px;
+}
+
+/* Återanvändbar mjuk sektionsbakgrund. */
+.bg-section {
+  background:
+    radial-gradient(1200px 400px at 100% 0%, var(--color-brand-50), transparent),
+    #ffffff;
+}
+
+.specialist-motion-media {
+  position: relative;
+  isolation: isolate;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  background:
+    radial-gradient(circle at 50% 48%, rgb(94 234 212 / 0.18), transparent 58%),
+    linear-gradient(135deg, var(--color-sky-50), var(--color-brand-50));
+}
+
+.specialist-motion-media::before {
+  content: "";
+  position: absolute;
+  inset: -32%;
+  z-index: 2;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    transparent 42%,
+    rgb(255 255 255 / 0.14) 47%,
+    rgb(94 234 212 / 0.38) 50%,
+    rgb(255 255 255 / 0.14) 53%,
+    transparent 58%,
+    transparent 100%
+  );
+  mix-blend-mode: screen;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.specialist-motion-media::after {
+  content: "";
+  position: absolute;
+  inset: 14%;
+  z-index: 1;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgb(94 234 212 / 0.34), transparent 64%);
+  filter: blur(18px);
+  opacity: 0.42;
+  pointer-events: none;
+}
+
+.specialist-motion-image {
+  position: relative;
+  z-index: 3;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform-origin: center;
+  filter:
+    drop-shadow(0 0 10px rgb(94 234 212 / 0.28))
+    drop-shadow(0 0 20px rgb(15 118 110 / 0.16));
+}
+
+.specialist-map-panel {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 1.25rem;
+  background:
+    radial-gradient(circle at 50% 42%, rgb(94 234 212 / 0.28), transparent 48%),
+    radial-gradient(circle at 68% 70%, rgb(56 189 248 / 0.16), transparent 34%),
+    linear-gradient(145deg, #09243a 0%, #0f3a4d 48%, #effcff 100%);
+  box-shadow:
+    inset 0 0 0 1px rgb(204 251 241 / 0.24),
+    0 18px 44px rgb(15 23 42 / 0.12);
+}
+
+.city-map-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(1.08) contrast(1.08);
+}
+
+.specialist-map-panel::before {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  z-index: 3;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    transparent 43%,
+    rgb(255 255 255 / 0.08) 48%,
+    rgb(94 234 212 / 0.3) 50%,
+    rgb(255 255 255 / 0.08) 52%,
+    transparent 58%,
+    transparent 100%
+  );
+  animation: specialist-scan 4.8s ease-in-out infinite;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.specialist-map-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 65% 38%, rgb(94 234 212 / 0.22), transparent 32%),
+    linear-gradient(180deg, rgb(9 36 58 / 0.06), rgb(9 36 58 / 0.22));
+  filter: none;
+  animation: specialist-glow 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.group:hover .specialist-motion-media::before,
+.group:focus-visible .specialist-motion-media::before {
+  animation: specialist-scan 3.6s ease-in-out infinite;
+}
+
+.group:hover .specialist-motion-media::after,
+.group:focus-visible .specialist-motion-media::after {
+  animation: specialist-glow 2.4s ease-in-out infinite;
+}
+
+.group:hover .specialist-motion-image,
+.group:focus-visible .specialist-motion-image {
+  animation: specialist-float 4.6s ease-in-out infinite;
+}
+
+@keyframes specialist-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    filter:
+      drop-shadow(0 0 9px rgb(94 234 212 / 0.26))
+      drop-shadow(0 0 18px rgb(15 118 110 / 0.14));
+  }
+  50% {
+    transform: translate3d(0, -4px, 0) scale(1.025);
+    filter:
+      drop-shadow(0 0 15px rgb(94 234 212 / 0.46))
+      drop-shadow(0 0 30px rgb(15 118 110 / 0.24));
+  }
+}
+
+@keyframes specialist-glow {
+  0%,
+  100% {
+    opacity: 0.36;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 0.76;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes specialist-scan {
+  0%,
+  12% {
+    opacity: 0;
+    transform: translateX(-58%) rotate(0.001deg);
+  }
+  32%,
+  68% {
+    opacity: 1;
+  }
+  88%,
+  100% {
+    opacity: 0;
+    transform: translateX(58%) rotate(0.001deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .group:hover .specialist-motion-media::before,
+  .group:focus-visible .specialist-motion-media::before,
+  .group:hover .specialist-motion-media::after,
+  .group:focus-visible .specialist-motion-media::after,
+  .group:hover .specialist-motion-image,
+  .group:focus-visible .specialist-motion-image,
+  .specialist-map-panel::before,
+  .specialist-map-panel::after {
+    animation: none;
+  }
 }

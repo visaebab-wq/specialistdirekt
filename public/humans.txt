@@ -1,0 +1,7 @@
+/* TEAM */
+  Specialistdirekt – kostnadsfri förmedling till rätt specialistläkare i Sverige.
+  Kontakt: kontakt@specialistdirekt.se
+
+/* SITE */
+  Språk: Svenska
+  Byggd med: Next.js, React, TypeScript, Tailwind CSS

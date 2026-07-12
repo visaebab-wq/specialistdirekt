@@ -1,0 +1,54 @@
+# Specialistdirekt
+
+> Specialistdirekt är en kostnadsfri, oberoende förmedlingstjänst som hjälper privatpersoner i Sverige att hitta och komma i kontakt med rätt specialistläkare. Användaren beskriver sitt behov i ett formulär, och en koordinator matchar hen med en eller flera passande, legitimerade specialister. Tjänsten ger inte medicinsk rådgivning och ställer inga diagnoser.
+
+## Viktigt att veta
+- Tjänsten är kostnadsfri och utan förpliktelser.
+- Detta är INTE en akuttjänst. Vid livshotande tillstånd ska 112 ringas; för sjukvårdsrådgivning 1177.
+- Personuppgifter hanteras enligt GDPR och delas endast med vald specialist.
+
+## Sidor
+- [Startsida](/): Översikt, så fungerar det och formulär för att hitta specialist.
+- [Så fungerar det](/sa-fungerar-det): Stegen från förfrågan till bokad tid.
+- [Specialiteter](/specialiteter): Lista över medicinska specialiteter som förmedlas.
+- [Om oss](/om-oss): Om förmedlingstjänsten och dess värderingar.
+- [Vanliga frågor](/vanliga-fragor): Svar på vanliga frågor.
+- [Kontakt](/kontakt): Skicka en förfrågan eller kontakta oss direkt.
+- [Integritetspolicy](/integritetspolicy): Hur personuppgifter behandlas enligt GDPR.
+
+## Specialiteter
+- [Kardiolog](/specialiteter/kardiolog): Hjärt- och kärlsjukdomar.
+- [Ortoped](/specialiteter/ortoped): Leder, skelett, muskler och senor.
+- [Hudläkare](/specialiteter/hudlakare): Hud, hår och naglar (dermatologi).
+- [Gynekolog](/specialiteter/gynekolog): Kvinnohälsa och underliv.
+- [Neurolog](/specialiteter/neurolog): Nervsystem, migrän och yrsel.
+- [Psykiater](/specialiteter/psykiater): Psykisk hälsa, ångest och ADHD-utredning.
+- [Ögonläkare](/specialiteter/ogonlakare): Syn och ögonsjukdomar.
+- [ÖNH-specialist](/specialiteter/oron-nasa-hals): Öron, näsa och hals.
+- [Urolog](/specialiteter/urolog): Urinvägar och prostata.
+- [Gastroenterolog](/specialiteter/gastroenterolog): Mage, tarm och matsmältning.
+- [Endokrinolog](/specialiteter/endokrinolog): Hormoner, sköldkörtel och diabetes.
+- [Reumatolog](/specialiteter/reumatolog): Inflammatoriska led- och muskelsjukdomar.
+
+## Artiklar (kunskapsbank)
+- [Hitta rätt specialistläkare – komplett guide](/artiklar/hitta-ratt-specialistlakare-guide): Pelarguide om vägen till rätt specialist i Sverige.
+- [Privat kardiolog: kostnad och väntetid](/artiklar/privat-kardiolog-kostnad): Ungefärliga priser och hur du bokar.
+- [Vilken läkare för knäsmärta?](/artiklar/vilken-lakare-knasmarta): Vårdcentral, ortoped eller fysioterapeut.
+- [Väntetid till specialist och vårdgarantin](/artiklar/vantetid-specialist-vardgaranti): Dina rättigheter och vad du kan göra.
+- [Boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss): Egenremiss steg för steg.
+- [Privat hudläkare: priser](/artiklar/privat-hudlakare-priser): Kostnad och hudkontroll utan kö.
+- [ADHD-utredning som vuxen](/artiklar/adhd-utredning-vuxen): Väntetid, kostnad och väg till utredning.
+- [Privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig): Kostnad och när det lönar sig.
+- [Privat ortoped: kostnad](/artiklar/privat-ortoped-kostnad): Priser och väg till ortoped.
+- [Privat gynekolog](/artiklar/privat-gynekolog-boka): Boka utan remiss och priser.
+- [Privat neurolog](/artiklar/privat-neurolog-utredning): Utredning, väntetid och pris.
+- [Grå starr operation](/artiklar/gra-starr-operation-vantetid): Väntetid och pris per öga.
+- [Ont i magen – vilken läkare?](/artiklar/ont-i-magen-vilken-lakare): Vägen till gastroenterolog.
+- [Ont i ryggen – vilken läkare?](/artiklar/ont-i-ryggen-vilken-lakare): Ortoped, fysioterapeut eller neurolog.
+- [Yrsel – vilken läkare?](/artiklar/yrsel-vilken-lakare): Neurolog, ÖNH eller kardiolog.
+- [Hjärtklappning – vilken läkare?](/artiklar/hjartklappning-vilken-lakare): När du bör söka kardiolog.
+- [Domningar i händer och fötter](/artiklar/domningar-hander-fotter-vilken-lakare): Vägen till neurolog.
+
+## Kontakt
+- E-post: kontakt@specialistdirekt.se
+- Telefon: +46 8 123 45 67
