@@ -7,7 +7,7 @@ export type SpecialtyVisual = {
 
 const specialtyVisuals: Record<string, SpecialtyVisual> = {
   ortoped: {
-    src: "/specialist-neon/ortoped-real-hero.png",
+    src: "/specialist-neon/ortoped-real-hero.webp",
     alt: "Ortoped undersöker ett knä i en modern klinik med röntgenbild i bakgrunden",
   },
 };
