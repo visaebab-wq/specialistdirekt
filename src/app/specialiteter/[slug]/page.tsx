@@ -70,31 +70,28 @@ export default async function SpecialtyPage({
 
   return (
     <>
-      <div className="bg-section">
-        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+      <div className="internal-hero">
+        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:py-16">
           <Breadcrumbs items={crumbs} />
           <div className="mt-6">
-            <p className="text-sm font-semibold uppercase tracking-wide text-brand-600">
-              {specialty.name}
-            </p>
-            <h1 className="mt-1 text-4xl font-extrabold tracking-tight text-ink-900">
+            <p className="internal-hero-kicker">{specialty.name}</p>
+            <h1 className="internal-hero-title">
               Hitta en {specialty.title.toLowerCase()}
             </h1>
           </div>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-600">
-            {specialty.intro}
-          </p>
+          <p className="internal-hero-text">{specialty.intro}</p>
         </div>
       </div>
 
-      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+      <div className="content-shell">
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:py-14">
         <div className="grid gap-12 lg:grid-cols-[1fr_400px]">
           {/* Innehåll */}
-          <article className="prose-headings:text-ink-900">
-            <h2 className="text-2xl font-bold text-ink-900">
+          <article className="article-body readable-card p-6 sm:p-8">
+            <h2 className="article-section-title text-2xl font-bold">
               När kan en {specialty.title.toLowerCase()} hjälpa dig?
             </h2>
-            <p className="mt-3 text-ink-600">
+            <p className="mt-3">
               Det finns många anledningar att träffa en {specialty.title.toLowerCase()}. Vanliga
               exempel är:
             </p>
@@ -112,7 +109,7 @@ export default async function SpecialtyPage({
               ))}
             </ul>
 
-            <div className="mt-8 rounded-2xl border border-ink-200 bg-ink-50 p-6">
+            <div className="soft-info-card mt-8 p-6">
               <h2 className="text-xl font-bold text-ink-900">Så hjälper Specialistdirekt dig</h2>
               <p className="mt-2 text-ink-600">
                 Du behöver inte själv leta efter rätt mottagning. Beskriv ditt behov i formuläret,
@@ -124,7 +121,7 @@ export default async function SpecialtyPage({
             {/* Fördjupning – unikt innehåll för prioriterade specialiteter. */}
             {extra?.sections.map((s) => (
               <section key={s.id} id={s.id} className="mt-10 scroll-mt-24">
-                <h2 className="text-2xl font-bold text-ink-900">{s.heading}</h2>
+                <h2 className="article-section-title text-2xl font-bold">{s.heading}</h2>
                 <Prose paragraphs={s.body} />
                 {s.bullets && s.bullets.length > 0 && (
                   <ul className="mt-4 space-y-2">
@@ -144,7 +141,7 @@ export default async function SpecialtyPage({
               </section>
             ))}
 
-            <div className="mt-8 rounded-2xl border-l-4 border-amber-400 bg-amber-50 p-5 text-sm text-amber-900">
+            <div className="warning-card mt-8 p-5 text-sm">
               <strong>Viktigt:</strong> Specialistdirekt ger inte medicinsk rådgivning och ställer
               inga diagnoser. Vid akuta besvär – ring 112. För sjukvårdsrådgivning, ring 1177.
             </div>
@@ -170,7 +167,7 @@ export default async function SpecialtyPage({
                     <Link
                       key={c.slug}
                       href={`/specialiteter/${specialty.slug}/${c.slug}`}
-                      className="rounded-full border border-ink-200 bg-white px-4 py-2 text-sm font-medium text-ink-700 hover:border-brand-300 hover:text-brand-700"
+                      className="internal-chip"
                     >
                       {specialty.title} i {c.name}
                     </Link>
@@ -189,7 +186,7 @@ export default async function SpecialtyPage({
                     <li key={a.slug}>
                       <Link
                         href={`/artiklar/${a.slug}`}
-                        className="font-medium text-brand-700 hover:underline"
+                      className="font-semibold text-brand-700 hover:underline"
                       >
                         {a.title}
                       </Link>
@@ -207,7 +204,7 @@ export default async function SpecialtyPage({
                     <Link
                       key={r.slug}
                       href={`/specialiteter/${r.slug}`}
-                      className="rounded-full border border-ink-200 bg-white px-4 py-2 text-sm font-medium text-ink-700 hover:border-brand-300 hover:text-brand-700"
+                      className="internal-chip"
                     >
                       {r.title}
                     </Link>
@@ -219,7 +216,7 @@ export default async function SpecialtyPage({
 
           {/* Formulär (sticky på desktop) */}
           <aside className="lg:sticky lg:top-24 lg:self-start">
-            <div className="rounded-3xl border border-ink-200 bg-white p-6 shadow-lg">
+            <div className="form-panel p-6">
               <h2 className="text-lg font-bold text-ink-900">
                 Få kontakt med en {specialty.title.toLowerCase()}
               </h2>
@@ -230,6 +227,7 @@ export default async function SpecialtyPage({
             </div>
           </aside>
         </div>
+      </div>
       </div>
 
       <JsonLd

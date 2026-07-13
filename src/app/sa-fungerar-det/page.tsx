@@ -35,19 +35,18 @@ const details = [
 export default function HowItWorksPage() {
   return (
     <>
-      <div className="bg-section">
-        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+      <div className="internal-hero">
+        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:py-16">
           <Breadcrumbs items={crumbs} />
-          <h1 className="mt-6 text-4xl font-extrabold tracking-tight text-ink-900">
-            Så fungerar det
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg text-ink-600">
+          <h1 className="internal-hero-title mt-6">Så fungerar det</h1>
+          <p className="internal-hero-text">
             Vägen från behov till rätt specialist ska vara enkel. Så här går det till – från det
             att du fyller i formuläret tills du har en tid bokad.
           </p>
         </div>
       </div>
 
+      <div className="content-shell">
       <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
         <HowItWorks />
       </section>
@@ -56,14 +55,14 @@ export default function HowItWorksPage() {
         <h2 className="text-2xl font-bold text-ink-900">Bra att veta</h2>
         <dl className="mt-6 space-y-6">
           {details.map((d) => (
-            <div key={d.q} className="rounded-2xl border border-ink-200 bg-white p-6">
+            <div key={d.q} className="readable-card p-6">
               <dt className="font-semibold text-ink-900">{d.q}</dt>
               <dd className="mt-2 text-ink-600">{d.a}</dd>
             </div>
           ))}
         </dl>
 
-        <div className="mt-12 rounded-3xl bg-brand-700 px-6 py-10 text-center text-white">
+        <div className="mt-12 rounded-3xl bg-navy-800 px-6 py-10 text-center text-white shadow-[0_22px_50px_rgba(15,23,42,0.16)]">
           <h2 className="text-2xl font-bold">Kom igång nu</h2>
           <p className="mx-auto mt-2 max-w-md text-brand-50">
             Det tar bara någon minut att skicka en förfrågan.
@@ -76,6 +75,7 @@ export default function HowItWorksPage() {
           </Link>
         </div>
       </section>
+      </div>
 
       <JsonLd data={[breadcrumbSchema(crumbs), howToSchema(steps)]} />
     </>

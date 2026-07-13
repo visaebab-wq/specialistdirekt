@@ -20,22 +20,21 @@ const crumbs = [
 export default function ContactPage() {
   return (
     <>
-      <div className="bg-section">
-        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+      <div className="internal-hero">
+        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:py-16">
           <Breadcrumbs items={crumbs} />
-          <h1 className="mt-6 text-4xl font-extrabold tracking-tight text-ink-900">
-            Hitta din specialist
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg text-ink-600">
+          <h1 className="internal-hero-title mt-6">Hitta din specialist</h1>
+          <p className="internal-hero-text">
             Fyll i formuläret så matchar vi dig med rätt specialistläkare. Det är kostnadsfritt
             och utan förpliktelser – vi återkommer normalt inom en arbetsdag.
           </p>
         </div>
       </div>
 
+      <div className="content-shell">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
         <div className="grid gap-12 lg:grid-cols-[1fr_420px]">
-          <div>
+          <div className="readable-card p-6 sm:p-8">
             <h2 className="text-2xl font-bold text-ink-900">Andra sätt att nå oss</h2>
             <p className="mt-3 text-ink-600">
               Kontakt sker tills vidare via e-post eller formuläret på webbplatsen. Vi återkommer
@@ -57,20 +56,21 @@ export default function ContactPage() {
               </div>
             </dl>
 
-            <div className="mt-8 rounded-2xl border-l-4 border-red-400 bg-red-50 p-5 text-sm text-red-900">
+            <div className="warning-card mt-8 p-5 text-sm">
               <strong>Akut?</strong> Specialistdirekt är inte en akuttjänst. Vid livshotande
               tillstånd – ring <strong>112</strong>. För sjukvårdsrådgivning, ring{" "}
               <strong>1177</strong>.
             </div>
           </div>
 
-          <div className="rounded-3xl border border-ink-200 bg-white p-6 shadow-lg sm:p-8">
+          <div className="form-panel p-6 sm:p-8">
             <h2 className="text-xl font-bold text-ink-900">Skicka din förfrågan</h2>
             <div className="mt-6">
               <LeadForm />
             </div>
           </div>
         </div>
+      </div>
       </div>
 
       <JsonLd data={breadcrumbSchema(crumbs)} />

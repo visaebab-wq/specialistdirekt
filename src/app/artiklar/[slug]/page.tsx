@@ -70,16 +70,12 @@ export default async function ArticlePage({
 
   return (
     <>
-      <div className="bg-section">
-        <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6">
+      <div className="internal-hero">
+        <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6 lg:py-16">
           <Breadcrumbs items={crumbs} />
-          <p className="mt-6 text-sm font-semibold uppercase tracking-wide text-brand-600">
-            {article.category}
-          </p>
-          <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-ink-900">
-            {article.title}
-          </h1>
-          <p className="mt-4 text-lg text-ink-600">{article.excerpt}</p>
+          <p className="internal-hero-kicker mt-6">{article.category}</p>
+          <h1 className="internal-hero-title">{article.title}</h1>
+          <p className="internal-hero-text">{article.excerpt}</p>
           <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-ink-500">
             <span>
               Uppdaterad <time dateTime={article.updated}>{formatDate(article.updated)}</time>
@@ -92,10 +88,11 @@ export default async function ArticlePage({
         </div>
       </div>
 
+      <div className="content-shell">
       <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
         {/* Snabb sammanfattning – AI-/citatvänligt block högst upp. */}
         {article.summary && article.summary.length > 0 && (
-          <aside className="mb-8 rounded-2xl border border-brand-200 bg-brand-50 p-6">
+          <aside className="soft-info-card mb-8 p-6">
             <h2 className="text-sm font-bold uppercase tracking-wide text-brand-700">
               Snabb sammanfattning
             </h2>
@@ -114,9 +111,9 @@ export default async function ArticlePage({
 
         {/* Pristabell – tydlig prisöversikt (bra för SEO och AI). */}
         {article.priceTable && article.priceTable.length > 0 && (
-          <div className="mb-8 overflow-hidden rounded-2xl border border-ink-200">
+          <div className="readable-card mb-8 overflow-hidden">
             <table className="w-full text-left text-sm">
-              <thead className="bg-ink-50 text-ink-700">
+              <thead className="bg-brand-50 text-ink-800">
                 <tr>
                   <th className="px-4 py-3 font-semibold">Undersökning / tjänst</th>
                   <th className="px-4 py-3 font-semibold">Ungefärlig privat kostnad</th>
@@ -136,7 +133,7 @@ export default async function ArticlePage({
 
         {/* Vem passar detta för? – konverteringsvänligt. */}
         {article.suitableFor && article.suitableFor.length > 0 && (
-          <section className="mb-10 rounded-2xl border border-ink-200 bg-white p-6">
+          <section className="readable-card mb-10 p-6">
             <h2 className="text-lg font-bold text-ink-900">Vem passar detta för?</h2>
             <ul className="mt-3 space-y-2">
               {article.suitableFor.map((s, i) => (
@@ -158,7 +155,7 @@ export default async function ArticlePage({
         {article.sections.length > 2 && (
           <nav
             aria-label="Innehåll"
-            className="mb-10 rounded-2xl border border-ink-200 bg-ink-50 p-5"
+            className="soft-info-card mb-10 p-5"
           >
             <p className="text-sm font-semibold text-ink-800">Innehåll</p>
             <ol className="mt-3 space-y-1.5 text-sm">
@@ -173,12 +170,12 @@ export default async function ArticlePage({
           </nav>
         )}
 
-        <article>
+        <article className="article-body readable-card p-6 sm:p-8">
           <Prose paragraphs={article.intro} />
 
           {/* Internlänkning: artikel → specialitet → formulär, tidigt och tydligt. */}
           {specialty && (
-            <div className="mt-8 flex flex-col gap-4 rounded-2xl border border-brand-200 bg-brand-50 p-6 sm:flex-row sm:items-center sm:justify-between">
+            <div className="soft-info-card mt-8 flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:justify-between">
               <p className="text-ink-700">
                 Söker du en {specialty.title.toLowerCase()}? Vi matchar dig kostnadsfritt – läs
                 mer om{" "}
@@ -201,7 +198,7 @@ export default async function ArticlePage({
 
           {article.sections.map((section) => (
             <section key={section.id} className="mt-10 scroll-mt-24" id={section.id}>
-              <h2 className="text-2xl font-bold text-ink-900">{section.heading}</h2>
+              <h2 className="article-section-title text-2xl font-bold">{section.heading}</h2>
               <Prose paragraphs={section.body} />
               {section.bullets && section.bullets.length > 0 && (
                 <ul className="mt-4 space-y-2">
@@ -222,7 +219,7 @@ export default async function ArticlePage({
           ))}
 
           {/* Ansvarsfriskrivning – YMYL/E-E-A-T och förtroende. */}
-          <div className="mt-10 rounded-2xl border-l-4 border-amber-400 bg-amber-50 p-5 text-sm text-amber-900">
+          <div className="warning-card mt-10 p-5 text-sm">
             <strong>Observera:</strong> Den här artikeln är allmän information och ersätter inte
             individuell medicinsk bedömning. Vid akuta besvär – ring 112. För sjukvårdsrådgivning,
             ring 1177. Specialistdirekt är en kostnadsfri förmedlingstjänst och ger inte medicinsk
@@ -231,7 +228,7 @@ export default async function ArticlePage({
         </article>
 
         {/* CTA till lead-formuläret */}
-        <div className="mt-10 rounded-3xl bg-brand-700 px-6 py-10 text-center text-white">
+        <div className="mt-10 rounded-3xl bg-navy-800 px-6 py-10 text-center text-white shadow-[0_22px_50px_rgba(15,23,42,0.16)]">
           <h2 className="text-2xl font-bold">
             {specialty
               ? `Behöver du en ${specialty.title.toLowerCase()}?`
@@ -260,7 +257,7 @@ export default async function ArticlePage({
 
         {/* Relaterade artiklar */}
         {related.length > 0 && (
-          <section className="mt-12 border-t border-ink-200 pt-8">
+        <section className="mt-12 border-t border-ink-200 pt-8">
             <h2 className="text-xl font-bold text-ink-900">Läs vidare</h2>
             <ul className="mt-4 space-y-3">
               {related.map((r) => (
@@ -276,6 +273,7 @@ export default async function ArticlePage({
             </ul>
           </section>
         )}
+      </div>
       </div>
 
       <JsonLd
