@@ -4,6 +4,7 @@ import { HowItWorks, steps } from "@/components/HowItWorks";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema, howToSchema } from "@/lib/structured-data";
+import { PageVisual } from "@/components/PageVisual";
 
 export const metadata: Metadata = {
   title: "Så fungerar det",
@@ -16,6 +17,11 @@ const crumbs = [
   { name: "Hem", path: "/" },
   { name: "Så fungerar det", path: "/sa-fungerar-det" },
 ];
+
+const visual = {
+  src: "/page-visuals/static-sa-fungerar-det.webp",
+  alt: "Så fungerar Specialistdirekt - realistisk vårdbild med patient och vårdkoordinator",
+};
 
 const details = [
   {
@@ -43,6 +49,7 @@ export default function HowItWorksPage() {
             Vägen från behov till rätt specialist ska vara enkel. Så här går det till – från det
             att du fyller i formuläret tills du har en tid bokad.
           </p>
+          <PageVisual visual={visual} className="mt-10 max-w-3xl" priority />
         </div>
       </div>
 

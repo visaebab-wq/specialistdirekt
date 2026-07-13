@@ -7,6 +7,12 @@ import { MedicalDisclaimer } from "@/components/MedicalDisclaimer";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
 import type { Faq } from "@/lib/faq";
+import { PageVisual } from "@/components/PageVisual";
+
+const visual = {
+  src: "/page-visuals/static-privat-gastroskopi.webp",
+  alt: "Privat gastroskopi - realistisk vårdbild med människa och specialistmottagning",
+};
 
 export const metadata: Metadata = {
   title: "Privat gastroskopi – pris, väntetid och utan remiss",
@@ -68,6 +74,7 @@ export default function PrivatGastroskopiPage() {
             Här går vi igenom när undersökningen behövs, hur den går till, förberedelser, pris och
             väntetid – och hur du hittar en privat mottagning.
           </p>
+          <PageVisual visual={visual} className="mt-10" priority />
         </div>
       </div>
 

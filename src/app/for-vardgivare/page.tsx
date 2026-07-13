@@ -4,6 +4,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/structured-data";
 import { site } from "@/lib/site";
+import { PageVisual } from "@/components/PageVisual";
 
 export const metadata: Metadata = {
   title: "För vårdgivare – ta emot fler patienter",
@@ -16,6 +17,11 @@ const crumbs = [
   { name: "Hem", path: "/" },
   { name: "För vårdgivare", path: "/for-vardgivare" },
 ];
+
+const visual = {
+  src: "/page-visuals/static-for-vardgivare.webp",
+  alt: "Privat mottagning och specialistläkare - realistisk vårdbild med människa",
+};
 
 const benefits = [
   {
@@ -67,6 +73,7 @@ export default function ForProvidersPage() {
             eller driver en mottagning? Anslut dig så skickar vi relevanta patientförfrågningar
             till dig.
           </p>
+          <PageVisual visual={visual} className="mt-10 max-w-3xl" priority />
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href={mailto}

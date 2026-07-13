@@ -7,6 +7,12 @@ import { MedicalDisclaimer } from "@/components/MedicalDisclaimer";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
 import type { Faq } from "@/lib/faq";
+import { PageVisual } from "@/components/PageVisual";
+
+const visual = {
+  src: "/page-visuals/static-privat-koloskopi.webp",
+  alt: "Privat koloskopi - realistisk vårdbild med människa och mag-tarmspecialist",
+};
 
 export const metadata: Metadata = {
   title: "Privat koloskopi – pris, väntetid och utan remiss",
@@ -68,6 +74,7 @@ export default function PrivatKoloskopiPage() {
             när den behövs, hur den går till, laxeringen inför undersökningen, pris och väntetid –
             och hur du hittar en privat mottagning.
           </p>
+          <PageVisual visual={visual} className="mt-10" priority />
         </div>
       </div>
 

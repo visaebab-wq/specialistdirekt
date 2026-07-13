@@ -12,6 +12,8 @@ import { FaqList } from "@/components/FaqList";
 import { Prose, renderInline } from "@/components/RichText";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
+import { PageVisual } from "@/components/PageVisual";
+import { getCitySpecialtyVisual } from "@/lib/medical-visuals";
 
 // Prerendera alla giltiga stad × specialitet-kombinationer vid bygget.
 export function generateStaticParams() {
@@ -39,6 +41,7 @@ export async function generateMetadata({
   const local = city.specialtyLocal?.[slug];
   const title = local?.metaTitle ?? `${specialty.title} i ${city.name} – hitta och boka`;
   const path = `/specialiteter/${slug}/${stad}`;
+  const visual = getCitySpecialtyVisual(specialty, city.slug);
   const description =
     local?.metaDescription ??
     `Hitta en ${specialty.title.toLowerCase()} i ${city.name}. Vi matchar dig kostnadsfritt med rätt specialist inom ${specialty.name.toLowerCase()} i ${city.region}.`;
@@ -51,7 +54,19 @@ export async function generateMetadata({
       ...specialty.keywords.map((k) => `${k} ${city.name.toLowerCase()}`),
     ],
     alternates: { canonical: path },
-    openGraph: { title: `${title} | ${site.name}`, description, url: path, type: "article" },
+    openGraph: {
+      title: `${title} | ${site.name}`,
+      description,
+      url: path,
+      type: "article",
+      images: [{ url: visual.src, alt: visual.alt, width: 1536, height: 844 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} | ${site.name}`,
+      description,
+      images: [{ url: visual.src, alt: visual.alt }],
+    },
   };
 }
 
@@ -82,6 +97,7 @@ export default async function CitySpecialtyPage({
     (s) => s.slug !== specialty.slug && hasCityPages(s.slug),
   );
   const relatedArticles = articlesForSpecialty(specialty.slug);
+  const visual = getCitySpecialtyVisual(specialty, city.slug);
 
   return (
     <>
@@ -97,6 +113,7 @@ export default async function CitySpecialtyPage({
             </h1>
           </div>
           <p className="internal-hero-text">{pairIntro}</p>
+          <PageVisual visual={visual} className="mt-10 max-w-3xl" priority />
         </div>
       </div>
 

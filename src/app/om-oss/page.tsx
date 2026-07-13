@@ -4,6 +4,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/structured-data";
 import { site } from "@/lib/site";
+import { PageVisual } from "@/components/PageVisual";
 
 export const metadata: Metadata = {
   title: "Om oss",
@@ -16,6 +17,11 @@ const crumbs = [
   { name: "Hem", path: "/" },
   { name: "Om oss", path: "/om-oss" },
 ];
+
+const visual = {
+  src: "/page-visuals/static-om-oss.webp",
+  alt: "Specialistdirekt - realistisk vårdbild med människa och vårdteam",
+};
 
 const values = [
   {
@@ -47,6 +53,7 @@ export default function AboutPage() {
           <p className="internal-hero-text">
             Vi gör det enklare och tryggare att hitta rätt specialistvård i Sverige.
           </p>
+          <PageVisual visual={visual} className="mt-10 max-w-3xl" priority />
         </div>
       </div>
 

@@ -5,6 +5,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/structured-data";
 import { site } from "@/lib/site";
+import { getArticleCardVisual } from "@/lib/medical-visuals";
 
 export const metadata: Metadata = {
   title: "Artiklar – guider om specialistvård",
@@ -29,6 +30,7 @@ function formatDate(iso: string) {
 
 export default function ArticlesPage() {
   const [featured, ...rest] = articles;
+  const featuredVisual = getArticleCardVisual(featured, "articles-featured");
 
   return (
     <>
@@ -48,40 +50,66 @@ export default function ArticlesPage() {
         {/* Utvald pelarartikel */}
         <Link
           href={`/artiklar/${featured.slug}`}
-          className="readable-card group block p-8 transition-all hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md"
+          className="readable-card group grid overflow-hidden transition-all hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md lg:grid-cols-[0.95fr_1.25fr]"
         >
-          <span className="text-sm font-semibold uppercase tracking-wide text-brand-600">
-            Utvald guide · {featured.category}
+          <span className="article-card-visual aspect-[1.45] lg:aspect-auto">
+            <img
+              src={featuredVisual.src}
+              alt={featuredVisual.alt}
+              className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+              loading="eager"
+            />
           </span>
-          <h2 className="mt-2 text-2xl font-bold text-ink-900 group-hover:text-brand-700">
-            {featured.title}
-          </h2>
-          <p className="mt-3 max-w-2xl text-ink-600">{featured.excerpt}</p>
-          <span className="mt-4 inline-block text-sm font-medium text-brand-700">
-            Läs guiden →
+          <span className="block p-8">
+            <span className="text-sm font-semibold uppercase tracking-wide text-brand-600">
+              Utvald guide · {featured.category}
+            </span>
+            <h2 className="mt-2 text-2xl font-bold text-ink-900 group-hover:text-brand-700">
+              {featured.title}
+            </h2>
+            <p className="mt-3 max-w-2xl text-ink-600">{featured.excerpt}</p>
+            <span className="mt-4 inline-block text-sm font-medium text-brand-700">
+              Läs guiden →
+            </span>
           </span>
         </Link>
 
         {/* Övriga artiklar */}
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {rest.map((a) => (
-            <Link
-              key={a.slug}
-              href={`/artiklar/${a.slug}`}
-              className="readable-card group flex flex-col p-6 transition-all hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md"
-            >
-              <span className="text-xs font-semibold uppercase tracking-wide text-brand-600">
-                {a.category}
-              </span>
-              <h3 className="mt-2 font-semibold text-ink-900 group-hover:text-brand-700">
-                {a.title}
-              </h3>
-              <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-600">{a.excerpt}</p>
-              <span className="mt-4 text-xs text-ink-500">
-                {formatDate(a.updated)} · {a.readMinutes} min
-              </span>
-            </Link>
-          ))}
+          {rest.map((a) => {
+            const visual = getArticleCardVisual(a, "articles");
+
+            return (
+              <Link
+                key={a.slug}
+                href={`/artiklar/${a.slug}`}
+                className="readable-card group flex flex-col overflow-hidden transition-all hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md"
+              >
+                <span className="article-card-visual aspect-[1.5]">
+                  <img
+                    src={visual.src}
+                    alt={visual.alt}
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </span>
+                <span className="flex flex-1 flex-col p-6">
+                  <span className="text-xs font-semibold uppercase tracking-wide text-brand-600">
+                    {a.category}
+                  </span>
+                  <h3 className="mt-2 font-semibold text-ink-900 group-hover:text-brand-700">
+                    {a.title}
+                  </h3>
+                  <span className="mt-2 flex-1 text-sm leading-relaxed text-ink-600">
+                    {a.excerpt}
+                  </span>
+                  <span className="mt-4 text-xs text-ink-500">
+                    {formatDate(a.updated)} · {a.readMinutes} min
+                  </span>
+                </span>
+              </Link>
+            );
+          })}
         </div>
       </div>
       </div>
@@ -100,6 +128,7 @@ export default function ArticlesPage() {
               "@type": "BlogPosting",
               headline: a.title,
               url: `${site.url}/artiklar/${a.slug}`,
+              image: `${site.url}${getArticleCardVisual(a, "articles").src}`,
               datePublished: a.published,
               dateModified: a.updated,
             })),

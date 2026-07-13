@@ -6,6 +6,12 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/structured-data";
 import { site } from "@/lib/site";
+import { PageVisual } from "@/components/PageVisual";
+
+const visual = {
+  src: "/page-visuals/static-specialiteter.webp",
+  alt: "Specialistvård i Sverige - realistisk vårdbild med läkare och patient",
+};
 
 export const metadata: Metadata = {
   title: "Specialiteter – hitta rätt specialistläkare",
@@ -30,6 +36,7 @@ export default function SpecialtiesPage() {
             Vi förmedlar kontakt med specialistläkare inom en rad områden. Välj en specialitet för
             att läsa mer – eller skicka en förfrågan direkt så hjälper vi dig att hitta rätt.
           </p>
+          <PageVisual visual={visual} className="mt-10 max-w-3xl" priority />
         </div>
       </div>
 

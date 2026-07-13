@@ -4,6 +4,7 @@
 import { site } from "./site";
 import type { Specialty } from "./specialties";
 import type { Article } from "./articles-types";
+import { getArticleVisuals } from "./medical-visuals";
 
 const abs = (path: string) => `${site.url}${path.startsWith("/") ? path : `/${path}`}`;
 
@@ -157,6 +158,7 @@ export function faqSchema(faqs: { question: string; answer: string }[]) {
  */
 export function articleSchema(article: Article) {
   const url = abs(`/artiklar/${article.slug}`);
+  const visuals = getArticleVisuals(article);
   return {
     "@context": "https://schema.org",
     "@type": ["Article", "MedicalWebPage"],
@@ -169,6 +171,7 @@ export function articleSchema(article: Article) {
       ? { abstract: stripInlineMarkup(article.summary.join(" ")) }
       : {}),
     wordCount: article.wordCount,
+    image: visuals.map((visual) => abs(visual.src)),
     keywords: article.keywords.join(", "),
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
     url,

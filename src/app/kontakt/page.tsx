@@ -4,6 +4,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/structured-data";
 import { site } from "@/lib/site";
+import { PageVisual } from "@/components/PageVisual";
 
 export const metadata: Metadata = {
   title: "Kontakt – skicka din förfrågan",
@@ -17,6 +18,11 @@ const crumbs = [
   { name: "Kontakt", path: "/kontakt" },
 ];
 
+const visual = {
+  src: "/page-visuals/static-kontakt.webp",
+  alt: "Kontakt med specialistmottagning - realistisk vårdbild med människa",
+};
+
 export default function ContactPage() {
   return (
     <>
@@ -28,6 +34,7 @@ export default function ContactPage() {
             Fyll i formuläret så matchar vi dig med rätt specialistläkare. Det är kostnadsfritt
             och utan förpliktelser – vi återkommer normalt inom en arbetsdag.
           </p>
+          <PageVisual visual={visual} className="mt-10 max-w-3xl" priority />
         </div>
       </div>
 

@@ -12,6 +12,8 @@ import { Prose, renderInline } from "@/components/RichText";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema, faqSchema, specialtyServiceSchema } from "@/lib/structured-data";
+import { PageVisual } from "@/components/PageVisual";
+import { getSpecialtyVisual } from "@/lib/medical-visuals";
 
 // Prerendera alla specialitetssidor vid bygget – snabbt och SEO-optimerat.
 export function generateStaticParams() {
@@ -32,6 +34,7 @@ export async function generateMetadata({
 
   const title = `${specialty.title} – hitta och boka ${specialty.name.toLowerCase()}`;
   const path = `/specialiteter/${specialty.slug}`;
+  const visual = getSpecialtyVisual(specialty);
   // Kort meta-description (≤155 tecken) – specialty.intro är för lång för SERP.
   const description = `Hitta rätt ${specialty.title.toLowerCase()} i Sverige. ${specialty.short} Kostnadsfri förmedling – beskriv ditt behov.`;
   return {
@@ -44,6 +47,13 @@ export async function generateMetadata({
       description,
       url: path,
       type: "article",
+      images: [{ url: visual.src, alt: visual.alt, width: 1536, height: 844 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} | ${site.name}`,
+      description,
+      images: [{ url: visual.src, alt: visual.alt }],
     },
   };
 }
@@ -67,6 +77,7 @@ export default async function SpecialtyPage({
   const relatedArticles = articlesForSpecialty(specialty.slug);
   const showCities = hasCityPages(specialty.slug);
   const extra = getSpecialtyExtra(specialty.slug);
+  const visual = getSpecialtyVisual(specialty);
 
   return (
     <>
@@ -80,6 +91,7 @@ export default async function SpecialtyPage({
             </h1>
           </div>
           <p className="internal-hero-text">{specialty.intro}</p>
+          <PageVisual visual={visual} className="mt-10 max-w-3xl" priority />
         </div>
       </div>
 

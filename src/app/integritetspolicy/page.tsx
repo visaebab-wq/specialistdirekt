@@ -3,6 +3,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/structured-data";
 import { site } from "@/lib/site";
+import { PageVisual } from "@/components/PageVisual";
 
 export const metadata: Metadata = {
   title: "Integritetspolicy",
@@ -17,6 +18,11 @@ const crumbs = [
   { name: "Integritetspolicy", path: "/integritetspolicy" },
 ];
 
+const visual = {
+  src: "/page-visuals/static-integritetspolicy.webp",
+  alt: "Trygg hantering av personuppgifter i vårdkontakt - realistisk vårdbild",
+};
+
 export default function PrivacyPage() {
   return (
     <>
@@ -28,6 +34,7 @@ export default function PrivacyPage() {
             Din integritet är viktig för oss. Här beskriver vi hur {site.name} behandlar dina
             personuppgifter i enlighet med dataskyddsförordningen (GDPR).
           </p>
+          <PageVisual visual={visual} className="mt-10" priority />
         </div>
       </div>
 

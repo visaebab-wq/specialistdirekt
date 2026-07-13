@@ -8,6 +8,12 @@ import { MedicalDisclaimer } from "@/components/MedicalDisclaimer";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
 import type { Faq } from "@/lib/faq";
+import { PageVisual } from "@/components/PageVisual";
+
+const visual = {
+  src: "/page-visuals/static-privat-gastroenterolog.webp",
+  alt: "Privat gastroenterolog - realistisk vårdbild med människa i specialistmottagning",
+};
 
 export const metadata: Metadata = {
   title: "Privat gastroenterolog – specialist på mage och tarm",
@@ -74,6 +80,7 @@ export default function PrivatGastroenterologPage() {
             Här går vi igenom vad specialisten gör, när du bör söka, hur det fungerar utan remiss
             och vad vården kan kosta – så att du kan ta nästa steg med rätt förväntningar.
           </p>
+          <PageVisual visual={visual} className="mt-10" priority />
         </div>
       </div>
 

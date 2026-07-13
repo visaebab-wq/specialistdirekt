@@ -9,6 +9,7 @@ import { AreaSelector } from "@/components/AreaSelector";
 import { FaqList } from "@/components/FaqList";
 import { JsonLd } from "@/components/JsonLd";
 import { faqSchema, serviceSchema } from "@/lib/structured-data";
+import { getArticleCardVisual } from "@/lib/medical-visuals";
 
 export const metadata: Metadata = {
   description: site.description,
@@ -288,22 +289,38 @@ export default function HomePage() {
             </Link>
           </div>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {articles.slice(0, 3).map((a) => (
-              <Link
-                key={a.slug}
-                href={`/artiklar/${a.slug}`}
-                className="group flex flex-col rounded-2xl border border-sky-100 bg-white p-6 transition-all hover:border-brand-300 hover:shadow-md"
-              >
-                <span className="text-xs font-semibold uppercase tracking-wide text-brand-600">
-                  {a.category}
-                </span>
-                <h3 className="mt-2 font-semibold text-ink-900 group-hover:text-brand-700">
-                  {a.title}
-                </h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-600">{a.excerpt}</p>
-                <span className="mt-4 text-sm font-medium text-brand-700">Läs mer →</span>
-              </Link>
-            ))}
+            {articles.slice(0, 3).map((a) => {
+              const visual = getArticleCardVisual(a, "home");
+
+              return (
+                <Link
+                  key={a.slug}
+                  href={`/artiklar/${a.slug}`}
+                  className="group flex flex-col overflow-hidden rounded-2xl border border-sky-100 bg-white transition-all hover:border-brand-300 hover:shadow-md"
+                >
+                  <span className="article-card-visual aspect-[1.5]">
+                    <img
+                      src={visual.src}
+                      alt={visual.alt}
+                      className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  </span>
+                  <span className="flex flex-1 flex-col p-6">
+                    <span className="text-xs font-semibold uppercase tracking-wide text-brand-600">
+                      {a.category}
+                    </span>
+                    <h3 className="mt-2 font-semibold text-ink-900 group-hover:text-brand-700">
+                      {a.title}
+                    </h3>
+                    <span className="mt-2 flex-1 text-sm leading-relaxed text-ink-600">
+                      {a.excerpt}
+                    </span>
+                    <span className="mt-4 text-sm font-medium text-brand-700">Läs mer →</span>
+                  </span>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>

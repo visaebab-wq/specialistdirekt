@@ -1,4 +1,10 @@
 import Link from "next/link";
+import { PageVisual } from "@/components/PageVisual";
+
+const visual = {
+  src: "/page-visuals/static-not-found.webp",
+  alt: "Specialistdirekt - hjälp att hitta rätt sida och specialistvård",
+};
 
 export default function NotFound() {
   return (
@@ -8,6 +14,7 @@ export default function NotFound() {
       <p className="mt-3 text-ink-600">
         Sidan du letar efter finns inte eller har flyttats. Låt oss hjälpa dig vidare.
       </p>
+      <PageVisual visual={visual} className="mt-8 w-full" />
       <div className="mt-8 flex flex-wrap justify-center gap-3">
         <Link
           href="/"

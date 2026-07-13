@@ -5,6 +5,7 @@ import { FaqList } from "@/components/FaqList";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
+import { PageVisual } from "@/components/PageVisual";
 
 export const metadata: Metadata = {
   title: "Vanliga frågor",
@@ -18,6 +19,11 @@ const crumbs = [
   { name: "Vanliga frågor", path: "/vanliga-fragor" },
 ];
 
+const visual = {
+  src: "/page-visuals/static-vanliga-fragor.webp",
+  alt: "Vanliga frågor om specialistvård - realistisk vårdbild med människa",
+};
+
 export default function FaqPage() {
   return (
     <>
@@ -29,6 +35,7 @@ export default function FaqPage() {
             Här hittar du svar på det som folk oftast undrar. Hittar du inte svaret? Hör av dig så
             hjälper vi dig.
           </p>
+          <PageVisual visual={visual} className="mt-10" priority />
         </div>
       </div>
 

@@ -1,5 +1,12 @@
 "use client";
 
+import { PageVisual } from "@/components/PageVisual";
+
+const visual = {
+  src: "/page-visuals/static-error.webp",
+  alt: "Specialistdirekt - tillfälligt fel med trygg vårdbild",
+};
+
 // Global felgräns. Visas om något oväntat går fel vid rendering.
 export default function Error({ reset }: { error: Error; reset: () => void }) {
   return (
@@ -9,6 +16,7 @@ export default function Error({ reset }: { error: Error; reset: () => void }) {
       <p className="mt-3 text-ink-600">
         Ett oväntat fel uppstod. Försök igen, eller gå tillbaka till startsidan.
       </p>
+      <PageVisual visual={visual} className="mt-8 w-full" />
       <div className="mt-8 flex flex-wrap justify-center gap-3">
         <button
           type="button"
