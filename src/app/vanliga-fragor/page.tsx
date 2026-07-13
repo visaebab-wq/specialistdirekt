@@ -21,23 +21,22 @@ const crumbs = [
 export default function FaqPage() {
   return (
     <>
-      <div className="bg-section">
-        <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6">
+      <div className="internal-hero">
+        <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6 lg:py-16">
           <Breadcrumbs items={crumbs} />
-          <h1 className="mt-6 text-4xl font-extrabold tracking-tight text-ink-900">
-            Vanliga frågor
-          </h1>
-          <p className="mt-4 text-lg text-ink-600">
+          <h1 className="internal-hero-title mt-6">Vanliga frågor</h1>
+          <p className="internal-hero-text">
             Här hittar du svar på det som folk oftast undrar. Hittar du inte svaret? Hör av dig så
             hjälper vi dig.
           </p>
         </div>
       </div>
 
+      <div className="content-shell">
       <section className="mx-auto max-w-3xl px-4 py-12 sm:px-6">
         <FaqList items={faqs} />
 
-        <div className="mt-10 rounded-2xl border border-ink-200 bg-ink-50 p-6 text-center">
+        <div className="soft-info-card mt-10 p-6 text-center">
           <p className="text-ink-700">Har du en annan fråga?</p>
           <Link
             href="/kontakt"
@@ -47,6 +46,7 @@ export default function FaqPage() {
           </Link>
         </div>
       </section>
+      </div>
 
       <JsonLd data={[breadcrumbSchema(crumbs), faqSchema(faqs)]} />
     </>

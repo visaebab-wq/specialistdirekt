@@ -38,20 +38,21 @@ const values = [
 export default function AboutPage() {
   return (
     <>
-      <div className="bg-section">
-        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+      <div className="internal-hero">
+        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:py-16">
           <Breadcrumbs items={crumbs} />
-          <h1 className="mt-6 text-4xl font-extrabold tracking-tight text-ink-900">
+          <h1 className="internal-hero-title mt-6">
             Om Specialistdirekt
           </h1>
-          <p className="mt-4 max-w-2xl text-lg text-ink-600">
+          <p className="internal-hero-text">
             Vi gör det enklare och tryggare att hitta rätt specialistvård i Sverige.
           </p>
         </div>
       </div>
 
+      <div className="content-shell">
       <section className="mx-auto max-w-3xl px-4 py-12 sm:px-6">
-        <div className="space-y-5 text-lg leading-relaxed text-ink-700">
+        <div className="readable-card space-y-5 p-6 text-lg leading-relaxed text-ink-700 sm:p-8">
           <p>
             Att veta vart man ska vända sig med ett medicinskt besvär kan vara svårt. Vårdköer är
             långa, och det är inte alltid lätt att hitta just den specialist man behöver.
@@ -72,7 +73,7 @@ export default function AboutPage() {
         <h2 className="mt-12 text-2xl font-bold text-ink-900">Det vi står för</h2>
         <div className="mt-6 grid gap-5 sm:grid-cols-3">
           {values.map((v) => (
-            <div key={v.title} className="rounded-2xl border border-ink-200 bg-white p-6">
+            <div key={v.title} className="readable-card p-6">
               <span aria-hidden className="text-3xl">
                 {v.icon}
               </span>
@@ -82,7 +83,7 @@ export default function AboutPage() {
           ))}
         </div>
 
-        <div className="mt-12 rounded-3xl border border-ink-200 bg-white p-8">
+        <div className="form-panel mt-12 p-8">
           <h2 className="text-xl font-bold text-ink-900">Företagsuppgifter och kontakt</h2>
           <dl className="mt-5 space-y-4">
             <div>
@@ -110,6 +111,7 @@ export default function AboutPage() {
           </Link>
         </div>
       </section>
+      </div>
 
       <JsonLd data={breadcrumbSchema(crumbs)} />
     </>

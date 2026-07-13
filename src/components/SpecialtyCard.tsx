@@ -5,7 +5,7 @@ export function SpecialtyCard({ specialty }: { specialty: Specialty }) {
   return (
     <Link
       href={`/specialiteter/${specialty.slug}`}
-      className="group flex flex-col rounded-2xl border border-ink-200 bg-white p-5 transition-all hover:border-brand-300 hover:shadow-md"
+      className="readable-card group flex flex-col p-5 transition-all hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md"
     >
       <h3 className="font-semibold text-ink-900 group-hover:text-brand-700">
         {specialty.title}

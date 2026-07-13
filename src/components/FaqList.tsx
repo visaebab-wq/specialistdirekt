@@ -7,7 +7,7 @@ import { renderInline } from "@/components/RichText";
 // FAQ-svar blir riktiga <a>-taggar i initial HTML.
 export function FaqList({ items }: { items: Faq[] }) {
   return (
-    <div className="divide-y divide-ink-200 rounded-2xl border border-ink-200 bg-white">
+    <div className="readable-card divide-y divide-ink-200 bg-white">
       {items.map((faq) => (
         <details key={faq.question} className="group px-5">
           <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-5 text-left font-semibold text-ink-800 marker:content-['']">

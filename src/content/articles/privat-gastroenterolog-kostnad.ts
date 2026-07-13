@@ -47,7 +47,7 @@ export const article: Article = {
   ],
   intro: [
     "Mag- och tarmbesvär kan vara svåra att förstå själv. Det kan handla om återkommande magsmärta, uppblåsthet, diarré, förstoppning, reflux, illamående, blod i avföringen eller oro för att något inte står rätt till.",
-    "Många börjar hos vårdcentralen. Men om besvären återkommer, påverkar vardagen eller kräver vidare utredning kan en gastroenterolog – alltså en specialist inom mag- och tarmsjukdomar – bli aktuell. Är du osäker på vart du ska vända dig kan du läsa vår guide om [ont i magen – vilken läkare?](/artiklar/ont-i-magen-vilken-lakare).",
+    "Många börjar hos vårdcentralen. Men om besvären återkommer, påverkar vardagen eller kräver vidare utredning kan en gastroenterolog – alltså en specialist inom mag- och tarmsjukdomar – bli aktuell. Läs mer om vad en [privat gastroenterolog](/privat-gastroenterolog) gör, eller vår guide om [ont i magen – vilken läkare?](/artiklar/ont-i-magen-vilken-lakare).",
     "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård. Vi är inte en vårdgivare, ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort.",
   ],
   sections: [

@@ -20,20 +20,19 @@ const crumbs = [
 export default function PrivacyPage() {
   return (
     <>
-      <div className="bg-section">
-        <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6">
+      <div className="internal-hero">
+        <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6 lg:py-16">
           <Breadcrumbs items={crumbs} />
-          <h1 className="mt-6 text-4xl font-extrabold tracking-tight text-ink-900">
-            Integritetspolicy
-          </h1>
-          <p className="mt-4 text-ink-600">
+          <h1 className="internal-hero-title mt-6">Integritetspolicy</h1>
+          <p className="internal-hero-text">
             Din integritet är viktig för oss. Här beskriver vi hur {site.name} behandlar dina
             personuppgifter i enlighet med dataskyddsförordningen (GDPR).
           </p>
         </div>
       </div>
 
-      <article className="mx-auto max-w-3xl space-y-8 px-4 py-12 text-ink-700 sm:px-6">
+      <div className="content-shell">
+      <article className="article-body readable-card mx-auto max-w-3xl space-y-8 px-6 py-8 text-ink-700 sm:px-8">
         <section>
           <h2 className="text-xl font-bold text-ink-900">1. Personuppgiftsansvarig</h2>
           <p className="mt-2">
@@ -112,6 +111,7 @@ export default function PrivacyPage() {
           </p>
         </section>
       </article>
+      </div>
 
       <JsonLd data={breadcrumbSchema(crumbs)} />
     </>

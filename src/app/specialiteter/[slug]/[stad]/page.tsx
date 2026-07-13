@@ -85,35 +85,36 @@ export default async function CitySpecialtyPage({
 
   return (
     <>
-      <div className="bg-section">
-        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+      <div className="internal-hero">
+        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:py-16">
           <Breadcrumbs items={crumbs} />
           <div className="mt-6">
-            <p className="text-sm font-semibold uppercase tracking-wide text-brand-600">
+            <p className="internal-hero-kicker">
               {specialty.name} · {city.region}
             </p>
-            <h1 className="mt-1 text-4xl font-extrabold tracking-tight text-ink-900">
+            <h1 className="internal-hero-title">
               {specialty.title} i {city.name}
             </h1>
           </div>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-600">{pairIntro}</p>
+          <p className="internal-hero-text">{pairIntro}</p>
         </div>
       </div>
 
-      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+      <div className="content-shell">
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:py-14">
         <div className="grid gap-12 lg:grid-cols-[1fr_400px]">
-          <article>
-            <h2 className="text-2xl font-bold text-ink-900">
+          <article className="article-body readable-card p-6 sm:p-8">
+            <h2 className="article-section-title text-2xl font-bold">
               Specialistvård i {city.name}
             </h2>
-            <p className="mt-3 leading-relaxed text-ink-700">{city.intro}</p>
+            <p className="mt-3">{city.intro}</p>
             {city.hospitals.length > 0 && (
-              <p className="mt-3 text-ink-700">
+              <p className="mt-3">
                 <strong>Vårdnav i området:</strong> {city.hospitals.join(", ")}.
               </p>
             )}
 
-            <h2 className="mt-8 text-2xl font-bold text-ink-900">
+            <h2 className="article-section-title mt-8 text-2xl font-bold">
               När bör du träffa en {specialty.title.toLowerCase()}?
             </h2>
             <ul className="mt-4 space-y-3">
@@ -133,7 +134,7 @@ export default async function CitySpecialtyPage({
             {/* Fördjupande, unikt lokalt innehåll för prioriterade sidor. */}
             {local?.sections.map((s) => (
               <section key={s.id} id={s.id} className="mt-10 scroll-mt-24">
-                <h2 className="text-2xl font-bold text-ink-900">{s.heading}</h2>
+                <h2 className="article-section-title text-2xl font-bold">{s.heading}</h2>
                 <Prose paragraphs={s.body} />
                 {s.bullets && s.bullets.length > 0 && (
                   <ul className="mt-4 space-y-2">
@@ -164,7 +165,7 @@ export default async function CitySpecialtyPage({
               </section>
             )}
 
-            <div className="mt-8 rounded-2xl border border-ink-200 bg-ink-50 p-6">
+            <div className="soft-info-card mt-8 p-6">
               <h2 className="text-xl font-bold text-ink-900">
                 Så hittar du en {specialty.title.toLowerCase()} i {city.name}
               </h2>
@@ -174,7 +175,7 @@ export default async function CitySpecialtyPage({
                 översikt om{" "}
                 <Link
                   href={`/specialiteter/${specialty.slug}`}
-                  className="font-medium text-brand-700 hover:underline"
+                    className="font-semibold text-brand-700 hover:underline"
                 >
                   {specialty.name.toLowerCase()}
                 </Link>
@@ -182,7 +183,7 @@ export default async function CitySpecialtyPage({
               </p>
             </div>
 
-            <div className="mt-8 rounded-2xl border-l-4 border-amber-400 bg-amber-50 p-5 text-sm text-amber-900">
+            <div className="warning-card mt-8 p-5 text-sm">
               <strong>Viktigt:</strong> Specialistdirekt ger inte medicinsk rådgivning. Vid akuta
               besvär – ring 112. För sjukvårdsrådgivning, ring 1177.
             </div>
@@ -197,7 +198,7 @@ export default async function CitySpecialtyPage({
                   <Link
                     key={c.slug}
                     href={`/specialiteter/${specialty.slug}/${c.slug}`}
-                    className="rounded-full border border-ink-200 bg-white px-4 py-2 text-sm font-medium text-ink-700 hover:border-brand-300 hover:text-brand-700"
+                    className="internal-chip"
                   >
                     {specialty.title} i {c.name}
                   </Link>
@@ -215,7 +216,7 @@ export default async function CitySpecialtyPage({
                   <Link
                     key={s.slug}
                     href={`/specialiteter/${s.slug}/${city.slug}`}
-                    className="rounded-full border border-ink-200 bg-white px-4 py-2 text-sm font-medium text-ink-700 hover:border-brand-300 hover:text-brand-700"
+                    className="internal-chip"
                   >
                     {s.title}
                   </Link>
@@ -231,7 +232,7 @@ export default async function CitySpecialtyPage({
                     <li key={a.slug}>
                       <Link
                         href={`/artiklar/${a.slug}`}
-                        className="font-medium text-brand-700 hover:underline"
+                        className="font-semibold text-brand-700 hover:underline"
                       >
                         {a.title}
                       </Link>
@@ -243,7 +244,7 @@ export default async function CitySpecialtyPage({
           </article>
 
           <aside className="lg:sticky lg:top-24 lg:self-start">
-            <div className="rounded-3xl border border-ink-200 bg-white p-6 shadow-lg">
+            <div className="form-panel p-6">
               <h2 className="text-lg font-bold text-ink-900">
                 Hitta en {specialty.title.toLowerCase()} i {city.name}
               </h2>
@@ -254,6 +255,7 @@ export default async function CitySpecialtyPage({
             </div>
           </aside>
         </div>
+      </div>
       </div>
 
       <JsonLd

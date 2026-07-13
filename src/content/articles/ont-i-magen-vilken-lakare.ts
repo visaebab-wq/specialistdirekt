@@ -41,7 +41,7 @@ export const article: Article = {
   intro: [
     "Ont i magen är ett av de vanligaste skälen till att söka vård, men det är inte alltid självklart vart man ska vända sig. Ska du boka tid på vårdcentralen, vänta ut besvären eller söka en **gastroenterolog**? Svaret beror på hur ont du har, hur länge besvären hållit i sig och om det finns några varningstecken. Den här guiden förklarar **ont i magen – vilken läkare** som passar i olika lägen.",
     "Magtarmkanalen är lång och komplex, och smärta kan komma från magsäcken, tarmarna, gallvägarna eller organ runt omkring. Eftersom orsakerna är så olika spelar det roll var du börjar – rätt första steg sparar både tid och onödiga undersökningar.",
-    "Den här artikeln ger ingen diagnos och ersätter inte en läkarbedömning. Den hjälper dig att förstå vem som gör vad, när det är värt att söka specialist och hur du tar dig dit – med eller utan remiss.",
+    "Den här artikeln ger ingen diagnos och ersätter inte en läkarbedömning. Den hjälper dig att förstå vem som gör vad, när det är värt att söka en [mag- och tarmspecialist](/privat-gastroenterolog) och hur du tar dig dit – med eller utan remiss. Är ditt främsta besvär uppblåsthet kan du också läsa om [uppblåst mage](/artiklar/uppblast-mage).",
   ],
   sections: [
     {

@@ -32,24 +32,23 @@ export default function ArticlesPage() {
 
   return (
     <>
-      <div className="bg-section">
-        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+      <div className="internal-hero">
+        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:py-16">
           <Breadcrumbs items={crumbs} />
-          <h1 className="mt-6 text-4xl font-extrabold tracking-tight text-ink-900">
-            Artiklar & guider
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg text-ink-600">
+          <h1 className="internal-hero-title mt-6">Artiklar & guider</h1>
+          <p className="internal-hero-text">
             Tydliga guider om specialistvård i Sverige – kostnader, väntetider, remiss och hur du
             hittar rätt läkare. Skrivna för att hjälpa dig fatta trygga beslut.
           </p>
         </div>
       </div>
 
+      <div className="content-shell">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
         {/* Utvald pelarartikel */}
         <Link
           href={`/artiklar/${featured.slug}`}
-          className="group block rounded-3xl border border-ink-200 bg-white p-8 transition-all hover:border-brand-300 hover:shadow-md"
+          className="readable-card group block p-8 transition-all hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md"
         >
           <span className="text-sm font-semibold uppercase tracking-wide text-brand-600">
             Utvald guide · {featured.category}
@@ -69,7 +68,7 @@ export default function ArticlesPage() {
             <Link
               key={a.slug}
               href={`/artiklar/${a.slug}`}
-              className="group flex flex-col rounded-2xl border border-ink-200 bg-white p-6 transition-all hover:border-brand-300 hover:shadow-md"
+              className="readable-card group flex flex-col p-6 transition-all hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md"
             >
               <span className="text-xs font-semibold uppercase tracking-wide text-brand-600">
                 {a.category}
@@ -84,6 +83,7 @@ export default function ArticlesPage() {
             </Link>
           ))}
         </div>
+      </div>
       </div>
 
       <JsonLd

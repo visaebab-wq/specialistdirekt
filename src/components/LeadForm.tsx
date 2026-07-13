@@ -12,7 +12,7 @@ function SubmitButton() {
     <button
       type="submit"
       disabled={pending}
-      className="w-full rounded-xl bg-brand-600 px-6 py-3.5 text-base font-semibold text-white shadow-sm transition-colors hover:bg-brand-700 disabled:cursor-not-allowed disabled:opacity-60"
+      className="w-full rounded-xl bg-brand-600 px-6 py-3.5 text-base font-semibold text-white shadow-[0_12px_28px_rgba(13,148,136,0.24)] transition-all hover:-translate-y-0.5 hover:bg-brand-700 hover:shadow-[0_16px_34px_rgba(13,148,136,0.3)] disabled:cursor-not-allowed disabled:opacity-60"
     >
       {pending ? "Skickar…" : "Skicka förfrågan"}
     </button>
@@ -20,7 +20,7 @@ function SubmitButton() {
 }
 
 const fieldClass =
-  "w-full rounded-xl border border-ink-300 bg-white px-4 py-3 text-ink-900 placeholder:text-ink-500 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 focus:outline-none";
+  "w-full rounded-xl border border-brand-100 bg-white px-4 py-3 text-ink-900 shadow-sm placeholder:text-ink-500 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 focus:outline-none";
 
 function FieldError({ message }: { message?: string }) {
   if (!message) return null;

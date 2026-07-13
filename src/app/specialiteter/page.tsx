@@ -22,19 +22,18 @@ const crumbs = [
 export default function SpecialtiesPage() {
   return (
     <>
-      <div className="bg-section">
-        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+      <div className="internal-hero">
+        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:py-16">
           <Breadcrumbs items={crumbs} />
-          <h1 className="mt-6 text-4xl font-extrabold tracking-tight text-ink-900">
-            Specialiteter
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg text-ink-600">
+          <h1 className="internal-hero-title mt-6">Specialiteter</h1>
+          <p className="internal-hero-text">
             Vi förmedlar kontakt med specialistläkare inom en rad områden. Välj en specialitet för
             att läsa mer – eller skicka en förfrågan direkt så hjälper vi dig att hitta rätt.
           </p>
         </div>
       </div>
 
+      <div className="content-shell">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {specialties.map((s) => (
@@ -42,7 +41,7 @@ export default function SpecialtiesPage() {
           ))}
         </div>
 
-        <div className="mt-12 rounded-2xl border border-ink-200 bg-ink-50 p-8 text-center">
+        <div className="soft-info-card mt-12 p-8 text-center">
           <h2 className="text-xl font-bold text-ink-900">Hittar du inte din specialitet?</h2>
           <p className="mx-auto mt-2 max-w-xl text-ink-600">
             Listan visar de vanligaste områdena, men vi hjälper till med fler. Beskriv ditt behov
@@ -55,6 +54,7 @@ export default function SpecialtiesPage() {
             Skicka en förfrågan
           </Link>
         </div>
+      </div>
       </div>
 
       <JsonLd
