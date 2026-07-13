@@ -1,10 +1,10 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
 import { specialties } from "@/lib/specialties";
 import { articles } from "@/lib/articles";
 import { faqs } from "@/lib/faq";
-import { SpecialtyIcon } from "@/components/SpecialtyIcon";
 import { AreaSelector } from "@/components/AreaSelector";
 import { FaqList } from "@/components/FaqList";
 import { JsonLd } from "@/components/JsonLd";
@@ -87,7 +87,37 @@ const specialistNeonImages: Record<string, string> = {
   gastroenterolog: "/specialist-neon/10-gastroenterolog.png",
   endokrinolog: "/specialist-neon/11-endokrinolog.png",
   reumatolog: "/specialist-neon/12-reumatolog.png",
+  hematolog: "/specialist-neon/popular-hematolog.png",
+  allmanmedicin: "/specialist-neon/popular-allmanmedicin.png",
 };
+
+const popularSpecialties = [
+  {
+    slug: "kardiolog",
+    label: "Kardiolog",
+    image: "/specialist-neon/popular-kardiolog.png",
+  },
+  {
+    slug: "neurolog",
+    label: "Neurolog",
+    image: "/specialist-neon/popular-neurolog.png",
+  },
+  {
+    slug: "gastroenterolog",
+    label: "Gastroenterolog",
+    image: "/specialist-neon/popular-gastroenterolog.png",
+  },
+  {
+    slug: "hematolog",
+    label: "Hematolog",
+    image: "/specialist-neon/popular-hematolog.png",
+  },
+  {
+    slug: "allmanmedicin",
+    label: "Allmänmedicin",
+    image: "/specialist-neon/popular-allmanmedicin.png",
+  },
+];
 
 const ico = {
   fill: "none",
@@ -141,25 +171,34 @@ export default function HomePage() {
             </ul>
           </div>
 
-          {/* Dekorativ komposition av specialitetsikoner (inga läkarfoton) */}
+          {/* Dekorativ komposition av specialitetsbilder (inga läkarfoton) */}
           <div className="rounded-3xl bg-white/5 p-6 ring-1 ring-white/10 backdrop-blur sm:p-8">
             <p className="text-sm font-medium text-sky-100/80">Populära specialiteter</p>
-            <div className="mt-4 grid grid-cols-3 gap-3">
-              {["kardiolog", "neurolog", "ortoped", "hudlakare", "gynekolog", "ogonlakare"].map(
-                (slug) => {
-                  const s = specialties.find((x) => x.slug === slug)!;
-                  return (
-                    <Link
-                      key={slug}
-                      href={`/specialiteter/${slug}`}
-                      className="group flex flex-col items-center gap-2 rounded-2xl bg-white/90 p-4 text-center transition-transform hover:-translate-y-0.5"
-                    >
-                      <SpecialtyIcon slug={slug} className="h-8 w-8 text-brand-700" />
-                      <span className="text-xs font-semibold text-ink-800">{s.title}</span>
-                    </Link>
-                  );
-                },
-              )}
+            <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
+              {popularSpecialties.map((specialty) => (
+                <Link
+                  key={specialty.slug}
+                  href={`/specialiteter/${specialty.slug}`}
+                  className="group overflow-hidden rounded-2xl border border-white/10 bg-white/95 text-center shadow-sm transition-all hover:-translate-y-0.5 hover:bg-white hover:shadow-lg"
+                >
+                  <span className="relative block aspect-[1.45] overflow-hidden bg-navy-900">
+                    <Image
+                      src={specialty.image}
+                      alt=""
+                      fill
+                      sizes="(min-width: 1024px) 150px, (min-width: 640px) 28vw, 42vw"
+                      className="object-cover transition duration-500 group-hover:scale-105"
+                    />
+                    <span
+                      aria-hidden
+                      className="absolute inset-0 bg-gradient-to-t from-navy-900/35 via-transparent to-white/5"
+                    />
+                  </span>
+                  <span className="block px-2 py-3 text-xs font-semibold text-ink-800 group-hover:text-brand-700">
+                    {specialty.label}
+                  </span>
+                </Link>
+              ))}
             </div>
           </div>
         </div>

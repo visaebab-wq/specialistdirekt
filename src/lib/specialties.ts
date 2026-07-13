@@ -198,6 +198,36 @@ export const specialties: Specialty[] = [
     ],
     keywords: ["reumatolog", "reumatism", "ledvärk", "artrit", "inflammation"],
   },
+  {
+    slug: "hematolog",
+    name: "Hematologi",
+    title: "Hematolog",
+    short: "Blodsjukdomar, blodvärden, blodbrist och koagulationsfrågor.",
+    intro:
+      "En hematolog är specialist på blodet och blodbildande organ. Vi hjälper dig att hitta en hematolog för utredning av avvikande blodvärden, blodbrist, koagulationsfrågor eller misstänkt blodsjukdom.",
+    reasons: [
+      "Avvikande blodvärden eller blodstatus",
+      "Blodbrist som behöver utredas",
+      "Koagulationsbesvär eller blodproppsfrågor",
+      "Uppföljning vid misstänkt blodsjukdom",
+    ],
+    keywords: ["hematolog", "hematologi", "blodvärden", "blodbrist", "koagulation"],
+  },
+  {
+    slug: "allmanmedicin",
+    name: "Allmänmedicin",
+    title: "Allmänläkare",
+    short: "Bred medicinsk bedömning när du behöver rätt första väg vidare.",
+    intro:
+      "En specialist i allmänmedicin kan göra en bred medicinsk bedömning och hjälpa dig vidare när symtomen är oklara eller berör flera områden. Vi matchar dig med rätt mottagning för en planerad privat bedömning.",
+    reasons: [
+      "Oklara symtom som behöver första bedömning",
+      "Trötthet, återkommande besvär eller allmän oro",
+      "Genomgång av provsvar och tidigare utredning",
+      "Vägledning till rätt specialist vid behov",
+    ],
+    keywords: ["allmänmedicin", "allmänläkare", "privat läkare", "medicinsk bedömning"],
+  },
 ];
 
 export function getSpecialty(slug: string): Specialty | undefined {
