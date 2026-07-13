@@ -9,6 +9,7 @@ import { FaqList } from "@/components/FaqList";
 import { Prose, renderInline } from "@/components/RichText";
 import { JsonLd } from "@/components/JsonLd";
 import { articleSchema, breadcrumbSchema, faqSchema } from "@/lib/structured-data";
+import { getArticleVisual, getArticleVisuals } from "@/lib/article-visuals";
 
 export function generateStaticParams() {
   return articles.map((a) => ({ slug: a.slug }));
@@ -35,6 +36,7 @@ export async function generateMetadata({
   const article = getArticle(slug);
   if (!article) return {};
   const path = `/artiklar/${article.slug}`;
+  const visuals = getArticleVisuals(article);
   return {
     title: article.metaTitle,
     description: article.metaDescription,
@@ -47,6 +49,18 @@ export async function generateMetadata({
       url: path,
       publishedTime: article.published,
       modifiedTime: article.updated,
+      images: visuals.map((visual) => ({
+        url: visual.src,
+        alt: visual.alt,
+        width: 1200,
+        height: 1200,
+      })),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${article.metaTitle} | ${site.name}`,
+      description: article.metaDescription,
+      images: [{ url: visuals[0].src, alt: visuals[0].alt }],
     },
   };
 }
@@ -67,6 +81,14 @@ export default async function ArticlePage({
   ];
   const specialty = article.relatedSpecialty ? getSpecialty(article.relatedSpecialty) : undefined;
   const related = relatedArticles(article.slug, 4);
+  const visual = getArticleVisual(article);
+  const inlineVisuals = getArticleVisuals(article).slice(1);
+  const inlineVisualSlots = new Map(
+    inlineVisuals.map((image, i) => [
+      Math.min(article.sections.length - 1, (i + 1) * 2),
+      image,
+    ]),
+  );
 
   return (
     <>
@@ -85,6 +107,14 @@ export default async function ArticlePage({
             <span aria-hidden>·</span>
             <span>Av {site.name}s redaktion</span>
           </div>
+          <figure className="article-hero-visual mt-10">
+            <img
+              src={visual.src}
+              alt={visual.alt}
+              className="h-full w-full object-cover"
+              fetchPriority="high"
+            />
+          </figure>
         </div>
       </div>
 
@@ -196,27 +226,40 @@ export default async function ArticlePage({
             </div>
           )}
 
-          {article.sections.map((section) => (
-            <section key={section.id} className="mt-10 scroll-mt-24" id={section.id}>
-              <h2 className="article-section-title text-2xl font-bold">{section.heading}</h2>
-              <Prose paragraphs={section.body} />
-              {section.bullets && section.bullets.length > 0 && (
-                <ul className="mt-4 space-y-2">
-                  {section.bullets.map((b, i) => (
-                    <li key={i} className="flex gap-3 text-ink-700">
-                      <span
-                        aria-hidden
-                        className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-100 text-xs text-brand-700"
-                      >
-                        ✓
-                      </span>
-                      <span>{renderInline(b)}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </section>
-          ))}
+          {article.sections.map((section, sectionIndex) => {
+            const inlineVisual = inlineVisualSlots.get(sectionIndex);
+            return (
+              <section key={section.id} className="mt-10 scroll-mt-24" id={section.id}>
+                <h2 className="article-section-title text-2xl font-bold">{section.heading}</h2>
+                <Prose paragraphs={section.body} />
+                {section.bullets && section.bullets.length > 0 && (
+                  <ul className="mt-4 space-y-2">
+                    {section.bullets.map((b, i) => (
+                      <li key={i} className="flex gap-3 text-ink-700">
+                        <span
+                          aria-hidden
+                          className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-100 text-xs text-brand-700"
+                        >
+                          ✓
+                        </span>
+                        <span>{renderInline(b)}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {inlineVisual && (
+                  <figure className="article-inline-visual mt-8">
+                    <img
+                      src={inlineVisual.src}
+                      alt={inlineVisual.alt}
+                      className="h-full w-full object-cover"
+                      loading="lazy"
+                    />
+                  </figure>
+                )}
+              </section>
+            );
+          })}
 
           {/* Ansvarsfriskrivning – YMYL/E-E-A-T och förtroende. */}
           <div className="warning-card mt-10 p-5 text-sm">

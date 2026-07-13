@@ -4,11 +4,11 @@ import { site } from "@/lib/site";
 import { specialties } from "@/lib/specialties";
 import { articles } from "@/lib/articles";
 import { faqs } from "@/lib/faq";
-import { SpecialtyIcon } from "@/components/SpecialtyIcon";
 import { AreaSelector } from "@/components/AreaSelector";
 import { FaqList } from "@/components/FaqList";
 import { JsonLd } from "@/components/JsonLd";
 import { faqSchema, serviceSchema } from "@/lib/structured-data";
+import { getArticleVisual } from "@/lib/article-visuals";
 
 export const metadata: Metadata = {
   description: site.description,
@@ -87,7 +87,37 @@ const specialistNeonImages: Record<string, string> = {
   gastroenterolog: "/specialist-neon/10-gastroenterolog.png",
   endokrinolog: "/specialist-neon/11-endokrinolog.png",
   reumatolog: "/specialist-neon/12-reumatolog.png",
+  hematolog: "/specialist-neon/popular-hematolog.png",
+  allmanmedicin: "/specialist-neon/popular-allmanmedicin.png",
 };
+
+const popularSpecialties = [
+  {
+    slug: "kardiolog",
+    label: "Kardiolog",
+    image: "/specialist-neon/popular-kardiolog.png",
+  },
+  {
+    slug: "neurolog",
+    label: "Neurolog",
+    image: "/specialist-neon/popular-neurolog.png",
+  },
+  {
+    slug: "gastroenterolog",
+    label: "Gastroenterolog",
+    image: "/specialist-neon/popular-gastroenterolog.png",
+  },
+  {
+    slug: "hematolog",
+    label: "Hematolog",
+    image: "/specialist-neon/popular-hematolog.png",
+  },
+  {
+    slug: "allmanmedicin",
+    label: "Allmänmedicin",
+    image: "/specialist-neon/popular-allmanmedicin.png",
+  },
+];
 
 const ico = {
   fill: "none",
@@ -141,25 +171,33 @@ export default function HomePage() {
             </ul>
           </div>
 
-          {/* Dekorativ komposition av specialitetsikoner (inga läkarfoton) */}
+          {/* Dekorativ komposition av specialitetsbilder (inga läkarfoton) */}
           <div className="rounded-3xl bg-white/5 p-6 ring-1 ring-white/10 backdrop-blur sm:p-8">
             <p className="text-sm font-medium text-sky-100/80">Populära specialiteter</p>
-            <div className="mt-4 grid grid-cols-3 gap-3">
-              {["kardiolog", "neurolog", "ortoped", "hudlakare", "gynekolog", "ogonlakare"].map(
-                (slug) => {
-                  const s = specialties.find((x) => x.slug === slug)!;
-                  return (
-                    <Link
-                      key={slug}
-                      href={`/specialiteter/${slug}`}
-                      className="group flex flex-col items-center gap-2 rounded-2xl bg-white/90 p-4 text-center transition-transform hover:-translate-y-0.5"
-                    >
-                      <SpecialtyIcon slug={slug} className="h-8 w-8 text-brand-700" />
-                      <span className="text-xs font-semibold text-ink-800">{s.title}</span>
-                    </Link>
-                  );
-                },
-              )}
+            <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
+              {popularSpecialties.map((specialty) => (
+                <Link
+                  key={specialty.slug}
+                  href={`/specialiteter/${specialty.slug}`}
+                  className="group overflow-hidden rounded-2xl border border-white/10 bg-white/95 text-center shadow-sm transition-all hover:-translate-y-0.5 hover:bg-white hover:shadow-lg"
+                >
+                  <span className="relative block aspect-[1.45] overflow-hidden bg-navy-900">
+                    <img
+                      src={specialty.image}
+                      alt=""
+                      className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <span
+                      aria-hidden
+                      className="absolute inset-0 bg-gradient-to-t from-navy-900/35 via-transparent to-white/5"
+                    />
+                  </span>
+                  <span className="block px-2 py-3 text-xs font-semibold text-ink-800 group-hover:text-brand-700">
+                    {specialty.label}
+                  </span>
+                </Link>
+              ))}
             </div>
           </div>
         </div>
@@ -215,7 +253,7 @@ export default function HomePage() {
           <ol className="mt-12 grid gap-8 md:grid-cols-3">
             {heroSteps.map((s, i) => (
               <li key={s.label} className="flex flex-col items-center text-center">
-                <span className="flex h-16 w-16 items-center justify-center rounded-full bg-white text-brand-700 shadow-sm ring-1 ring-sky-100">
+                <span className="neon-icon-badge neon-icon-badge-lg">
                   <svg viewBox="0 0 24 24" className="h-7 w-7" {...ico} aria-hidden>
                     {s.icon}
                   </svg>
@@ -234,7 +272,7 @@ export default function HomePage() {
         <div className="mx-auto flex max-w-5xl flex-col gap-6 px-4 py-12 sm:flex-row sm:items-center sm:px-6">
           <span
             aria-hidden
-            className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white text-brand-600 shadow-sm"
+            className="neon-icon-badge neon-icon-badge-md shrink-0"
           >
             <svg viewBox="0 0 24 24" className="h-7 w-7" {...ico}>
               <path d="M12 20.5C7 17 3.5 13.8 3.5 9.8 3.5 7 5.7 5 8.2 5c1.7 0 3.1.9 3.8 2.2C12.7 5.9 14 5 15.8 5 18.3 5 20.5 7 20.5 9.8c0 4-3.5 7.2-8.5 10.7z" />
@@ -258,7 +296,7 @@ export default function HomePage() {
         <div className="grid gap-5 sm:grid-cols-3">
           {valueProps.map((v) => (
             <div key={v.title} className="rounded-2xl border border-ink-200 bg-white p-7">
-              <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-brand-700">
+              <span className="neon-icon-badge neon-icon-badge-card">
                 <svg viewBox="0 0 24 24" className="h-6 w-6" {...ico} aria-hidden>
                   {v.icon}
                 </svg>
@@ -292,16 +330,26 @@ export default function HomePage() {
               <Link
                 key={a.slug}
                 href={`/artiklar/${a.slug}`}
-                className="group flex flex-col rounded-2xl border border-sky-100 bg-white p-6 transition-all hover:border-brand-300 hover:shadow-md"
+                className="group flex flex-col overflow-hidden rounded-2xl border border-sky-100 bg-white transition-all hover:border-brand-300 hover:shadow-md"
               >
-                <span className="text-xs font-semibold uppercase tracking-wide text-brand-600">
-                  {a.category}
+                <span className="article-card-visual aspect-[1.55]">
+                  <img
+                    src={getArticleVisual(a).src}
+                    alt={getArticleVisual(a).alt}
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
                 </span>
-                <h3 className="mt-2 font-semibold text-ink-900 group-hover:text-brand-700">
-                  {a.title}
-                </h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-600">{a.excerpt}</p>
-                <span className="mt-4 text-sm font-medium text-brand-700">Läs mer →</span>
+                <span className="flex flex-1 flex-col p-6">
+                  <span className="text-xs font-semibold uppercase tracking-wide text-brand-600">
+                    {a.category}
+                  </span>
+                  <h3 className="mt-2 font-semibold text-ink-900 group-hover:text-brand-700">
+                    {a.title}
+                  </h3>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-600">{a.excerpt}</p>
+                  <span className="mt-4 text-sm font-medium text-brand-700">Läs mer →</span>
+                </span>
               </Link>
             ))}
           </div>
