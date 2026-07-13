@@ -173,29 +173,6 @@ export default async function ArticlePage({
         <article className="article-body readable-card p-6 sm:p-8">
           <Prose paragraphs={article.intro} />
 
-          {/* Internlänkning: artikel → specialitet → formulär, tidigt och tydligt. */}
-          {specialty && (
-            <div className="soft-info-card mt-8 flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:justify-between">
-              <p className="text-ink-700">
-                Söker du en {specialty.title.toLowerCase()}? Vi matchar dig kostnadsfritt – läs
-                mer om{" "}
-                <Link
-                  href={`/specialiteter/${specialty.slug}`}
-                  className="font-medium text-brand-700 hover:underline"
-                >
-                  {specialty.name.toLowerCase()}
-                </Link>{" "}
-                eller skicka en förfrågan direkt.
-              </p>
-              <Link
-                href={`/specialiteter/${specialty.slug}`}
-                className="shrink-0 rounded-full bg-brand-600 px-5 py-2.5 text-center text-sm font-semibold text-white hover:bg-brand-700"
-              >
-                Hitta en {specialty.title.toLowerCase()}
-              </Link>
-            </div>
-          )}
-
           {article.sections.map((section) => (
             <section key={section.id} className="mt-10 scroll-mt-24" id={section.id}>
               <h2 className="article-section-title text-2xl font-bold">{section.heading}</h2>
@@ -225,6 +202,31 @@ export default async function ArticlePage({
             ring 1177. Specialistdirekt är en kostnadsfri förmedlingstjänst och ger inte medicinsk
             rådgivning.
           </div>
+
+          {/* Internlänkning: artikel → specialitet → formulär. Placeras efter artikelns
+              innehåll och medicinska säkerhetsinformation (röda flaggor + 112/1177),
+              så att en kommersiell CTA aldrig visas före akutvägledningen. */}
+          {specialty && (
+            <div className="soft-info-card mt-8 flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:justify-between">
+              <p className="text-ink-700">
+                Söker du en {specialty.title.toLowerCase()}? Vi matchar dig kostnadsfritt – läs
+                mer om{" "}
+                <Link
+                  href={`/specialiteter/${specialty.slug}`}
+                  className="font-medium text-brand-700 hover:underline"
+                >
+                  {specialty.name.toLowerCase()}
+                </Link>{" "}
+                eller skicka en förfrågan direkt.
+              </p>
+              <Link
+                href={`/specialiteter/${specialty.slug}`}
+                className="shrink-0 rounded-full bg-brand-600 px-5 py-2.5 text-center text-sm font-semibold text-white hover:bg-brand-700"
+              >
+                Hitta en {specialty.title.toLowerCase()}
+              </Link>
+            </div>
+          )}
         </article>
 
         {/* CTA till lead-formuläret */}
