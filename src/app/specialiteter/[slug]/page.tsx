@@ -6,6 +6,7 @@ import { articlesForSpecialty } from "@/lib/articles";
 import { cities, hasCityPages } from "@/lib/cities";
 import { getSpecialtyExtra } from "@/lib/specialty-extra";
 import { site } from "@/lib/site";
+import { getSpecialtyVisual } from "@/lib/specialty-visuals";
 import { LeadForm } from "@/components/LeadForm";
 import { FaqList } from "@/components/FaqList";
 import { Prose, renderInline } from "@/components/RichText";
@@ -32,6 +33,7 @@ export async function generateMetadata({
 
   const title = `${specialty.title} – hitta och boka ${specialty.name.toLowerCase()}`;
   const path = `/specialiteter/${specialty.slug}`;
+  const visual = getSpecialtyVisual(specialty);
   // Kort meta-description (≤155 tecken) – specialty.intro är för lång för SERP.
   const description = `Hitta rätt ${specialty.title.toLowerCase()} i Sverige. ${specialty.short} Kostnadsfri förmedling – beskriv ditt behov.`;
   return {
@@ -44,7 +46,29 @@ export async function generateMetadata({
       description,
       url: path,
       type: "article",
+      ...(visual
+        ? {
+            images: [
+              {
+                url: visual.src,
+                alt: visual.alt,
+                width: 1792,
+                height: 1024,
+              },
+            ],
+          }
+        : {}),
     },
+    ...(visual
+      ? {
+          twitter: {
+            card: "summary_large_image" as const,
+            title,
+            description,
+            images: [{ url: visual.src, alt: visual.alt }],
+          },
+        }
+      : {}),
   };
 }
 
@@ -67,19 +91,32 @@ export default async function SpecialtyPage({
   const relatedArticles = articlesForSpecialty(specialty.slug);
   const showCities = hasCityPages(specialty.slug);
   const extra = getSpecialtyExtra(specialty.slug);
+  const visual = getSpecialtyVisual(specialty);
 
   return (
     <>
       <div className="internal-hero">
         <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:py-16">
           <Breadcrumbs items={crumbs} />
-          <div className="mt-6">
-            <p className="internal-hero-kicker">{specialty.name}</p>
-            <h1 className="internal-hero-title">
-              Hitta en {specialty.title.toLowerCase()}
-            </h1>
+          <div className={visual ? "mt-6 grid items-center gap-10 lg:grid-cols-[1fr_0.92fr]" : "mt-6"}>
+            <div>
+              <p className="internal-hero-kicker">{specialty.name}</p>
+              <h1 className="internal-hero-title">
+                Hitta en {specialty.title.toLowerCase()}
+              </h1>
+              <p className="internal-hero-text">{specialty.intro}</p>
+            </div>
+            {visual && (
+              <figure className="specialty-hero-visual">
+                <img
+                  src={visual.src}
+                  alt={visual.alt}
+                  className="h-full w-full object-cover"
+                  fetchPriority="high"
+                />
+              </figure>
+            )}
           </div>
-          <p className="internal-hero-text">{specialty.intro}</p>
         </div>
       </div>
 
