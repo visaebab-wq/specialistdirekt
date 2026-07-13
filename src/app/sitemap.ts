@@ -17,6 +17,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     { path: "/for-vardgivare", priority: 0.6, changeFrequency: "monthly" as const },
     { path: "/integritetspolicy", priority: 0.3, changeFrequency: "yearly" as const },
+    // Gastro-vertikalens landningssidor (fristående kommersiella sidor).
+    { path: "/privat-gastroenterolog", priority: 0.7, changeFrequency: "monthly" as const },
+    { path: "/privat-gastroskopi", priority: 0.7, changeFrequency: "monthly" as const },
+    { path: "/privat-koloskopi", priority: 0.7, changeFrequency: "monthly" as const },
   ];
 
   const specialtyPaths = specialties.map((s) => ({

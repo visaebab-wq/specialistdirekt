@@ -48,7 +48,7 @@ export const article: Article = {
     "vill ha en specialistbedömning eller second opinion",
   ],
   intro: [
-    "Blod i avföringen kan ha flera orsaker. Ibland är orsaken mindre allvarlig, till exempel hemorrojder eller en spricka vid ändtarmsöppningen. Men eftersom blod också kan komma från tarmen, magen eller en bakomliggande sjukdom är det viktigt att inte avfärda symtomet utan bedömning. Den här guiden hjälper dig förstå när du ska söka **akut vård**, när du bör söka vård och när en specialist eller koloskopi kan bli aktuell.",
+    "Blod i avföringen kan ha flera orsaker. Ibland är orsaken mindre allvarlig, till exempel hemorrojder eller en spricka vid ändtarmsöppningen. Men eftersom blod också kan komma från tarmen, magen eller en bakomliggande sjukdom är det viktigt att inte avfärda symtomet utan bedömning. Den här guiden hjälper dig förstå när du ska söka **akut vård**, när du bör söka vård och när en specialist eller [privat koloskopi](/privat-koloskopi) kan bli aktuell.",
     "Specialistdirekt är en vägledningstjänst och **inte en akut tjänst**. Vi ställer ingen diagnos och gör ingen medicinsk bedömning. Vid icke-akuta besvär hjälper vi dig vidare med en [bokningsförfrågan](/kontakt) till relevant privat mottagning.",
   ],
   sections: [

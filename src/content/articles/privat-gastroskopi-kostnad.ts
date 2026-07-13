@@ -49,7 +49,7 @@ export const article: Article = {
     "vill ha en second opinion kring tidigare utredning",
   ],
   intro: [
-    "Gastroskopi är en undersökning av matstrupe, magsäck och övre delen av tunntarmen, med ett gastroskop – en mjuk slang med kamera som förs in via munnen. Många söker privat gastroskopi för att slippa lång väntetid, få snabbare besked eller för att de har en sjukvårdsförsäkring som kan användas.",
+    "Gastroskopi är en undersökning av matstrupe, magsäck och övre delen av tunntarmen, med ett gastroskop – en mjuk slang med kamera som förs in via munnen. Många söker privat gastroskopi för att slippa lång väntetid, få snabbare besked eller för att de har en sjukvårdsförsäkring som kan användas. Läs mer om [privat gastroskopi utan remiss](/privat-gastroskopi).",
     "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård och diagnostik. Vi är inte en vårdgivare, ställer ingen diagnos och utför ingen undersökning. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort.",
   ],
   sections: [

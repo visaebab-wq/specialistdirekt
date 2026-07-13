@@ -49,7 +49,7 @@ export const article: Article = {
     "vill ha en second opinion kring tidigare utredning",
   ],
   intro: [
-    "Koloskopi är en undersökning av tjocktarmen, och ibland sista delen av tunntarmen, med ett koloskop – en mjuk slang med kamera som förs in via ändtarmen. Många söker privat koloskopi för att slippa lång väntetid, få snabbare besked eller för att de har en privat sjukvårdsförsäkring som kan användas.",
+    "Koloskopi är en undersökning av tjocktarmen, och ibland sista delen av tunntarmen, med ett koloskop – en mjuk slang med kamera som förs in via ändtarmen. Många söker privat koloskopi för att slippa lång väntetid, få snabbare besked eller för att de har en privat sjukvårdsförsäkring som kan användas. Läs mer om [privat koloskopi utan remiss](/privat-koloskopi).",
     "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård och diagnostik. Vi är inte en vårdgivare, ställer ingen diagnos och utför ingen undersökning. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort.",
   ],
   sections: [

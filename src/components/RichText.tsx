@@ -2,11 +2,12 @@ import Link from "next/link";
 import { Fragment, type ReactNode } from "react";
 
 // Tolkar en begränsad, säker delmängd av markdown till React-noder:
-//   [text](/intern/sökväg)  → <Link> (endast interna sökvägar som börjar med /)
-//   **fet**                 → <strong>
+//   [text](/intern/sökväg)   → <Link> (interna sökvägar som börjar med /)
+//   [text](https://…)        → <a target="_blank" rel="noopener noreferrer"> (externa källor)
+//   **fet**                  → <strong>
 // Eftersom vi bygger React-element (inte HTML-strängar) finns ingen XSS-risk.
 
-const TOKEN = /\[([^\]]+)\]\((\/[^)]*)\)|\*\*([^*]+)\*\*/g;
+const TOKEN = /\[([^\]]+)\]\((\/[^)]*|https?:\/\/[^)]*)\)|\*\*([^*]+)\*\*/g;
 
 export function renderInline(text: string): ReactNode[] {
   const nodes: ReactNode[] = [];
@@ -20,12 +21,28 @@ export function renderInline(text: string): ReactNode[] {
       nodes.push(<Fragment key={key++}>{text.slice(lastIndex, match.index)}</Fragment>);
     }
     if (match[1] && match[2]) {
-      // Intern länk – bra för internlänkning/SEO.
-      nodes.push(
-        <Link key={key++} href={match[2]} className="font-medium text-brand-700 hover:underline">
-          {match[1]}
-        </Link>,
-      );
+      const href = match[2];
+      if (href.startsWith("/")) {
+        // Intern länk – bra för internlänkning/SEO.
+        nodes.push(
+          <Link key={key++} href={href} className="font-medium text-brand-700 hover:underline">
+            {match[1]}
+          </Link>,
+        );
+      } else {
+        // Extern källa – öppnas i ny flik med säkra rel-attribut.
+        nodes.push(
+          <a
+            key={key++}
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-brand-700 hover:underline"
+          >
+            {match[1]}
+          </a>,
+        );
+      }
     } else if (match[3]) {
       nodes.push(<strong key={key++}>{match[3]}</strong>);
     }
