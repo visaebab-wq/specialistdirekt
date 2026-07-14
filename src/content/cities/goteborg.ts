@@ -204,7 +204,7 @@ export const city: City = {
           heading: "Remiss och vad som påverkar priset",
           body: [
             "Behöver du remiss? Inom regionfinansierad vård krävs oftast en remiss från vårdcentralen, medan du hos många privata mottagningar kan boka mer direkt eller via egen vårdbegäran. Vad som gäller beror på mottagning och finansiering – se [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
-            "Priset beror på om det är ett nybesök eller återbesök och vilka undersökningar som ingår (EKG, ultraljud, långtids-EKG, arbetsprov). Vi anger inga fasta belopp här eftersom de skiljer sig mellan mottagningar – be alltid om ett samlat pris i förväg, och kontrollera om en eventuell sjukvårdsförsäkring täcker delar av kostnaden. Ungefärliga intervall och vad som driver kostnaden går vi igenom i [privat kardiolog: kostnad](/artiklar/privat-kardiolog-kostnad).",
+            "Ett privat kardiologbesök kostar **från cirka 3 000 kr**. Det är ett **frånpris** för själva läkarbesöket – tillkommande undersökningar som EKG, hjärtultraljud, långtids-EKG eller arbetsprov prissätts ofta separat, och slutsumman beror på vad som behövs i ditt fall. Be därför alltid om ett samlat pris i förväg, och kontrollera om en eventuell sjukvårdsförsäkring täcker delar av kostnaden. Vad som driver kostnaden går vi igenom i [privat kardiolog: kostnad](/artiklar/privat-kardiolog-kostnad).",
           ],
         },
         {
@@ -223,9 +223,9 @@ export const city: City = {
             "Det beror på mottagning och finansiering. Som självbetalande kan du hos många privata mottagningar boka mer direkt eller via egen vårdbegäran, medan regionfinansierad vård i Västra Götalandsregionen oftast kräver remiss från vårdcentralen. Vi hjälper dig kostnadsfritt att reda ut vägen in – läs även [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
         },
         {
-          question: "Vad påverkar priset för en privat hjärtutredning?",
+          question: "Vad kostar en privat kardiolog i Göteborg?",
           answer:
-            "Om det är nybesök eller återbesök, och vilka undersökningar som ingår – EKG, ultraljud av hjärtat, långtids-EKG eller arbetsprov. Sjukvårdsförsäkring kan ibland täcka delar av kostnaden. Vi anger inga fasta belopp; be alltid mottagningen om ett samlat pris i förväg. Se [privat kardiolog: kostnad](/artiklar/privat-kardiolog-kostnad).",
+            "Ett privat kardiologbesök kostar från cirka 3 000 kr. Det är ett frånpris för själva läkarbesöket – undersökningar som EKG, hjärtultraljud, långtids-EKG eller arbetsprov prissätts ofta separat, så slutsumman beror på vad som behövs. Sjukvårdsförsäkring kan ibland täcka delar av kostnaden. Be alltid om ett samlat pris i förväg. Se [privat kardiolog: kostnad](/artiklar/privat-kardiolog-kostnad).",
         },
         {
           question: "Vilka hjärtundersökningar kan bli aktuella?",
