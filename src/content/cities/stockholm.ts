@@ -14,6 +14,8 @@ export const city: City = {
   intro:
     "Stockholm har ett av landets bredaste utbud av specialistvård, med både offentliga sjukhusmottagningar och ett stort antal privata kliniker spridda över hela storstadsområdet. Det betyder att du ofta har många alternativ att välja mellan – men det innebär också att väntetiderna till vissa specialiteter kan variera och att det kan vara svårt att överblicka vart man ska vända sig. Specialistdirekt hjälper dig kostnadsfritt att hitta rätt specialistläkare i Stockholm utifrån dina behov.",
   specialtyIntros: {
+    allmanmedicin:
+      "I Stockholm finns ett stort utbud av privata läkarmottagningar för dig som vill ha en bred medicinsk bedömning utan lång väntan. En allmänläkare kan reda ut oklara symtom och peka ut rätt väg vidare när flera områden är inblandade. Specialistdirekt vägleder dig kostnadsfritt till en mottagning som passar.",
     kardiolog:
       "Söker du en kardiolog i Stockholm finns hjärt- och kärlspecialister på flera av stadens stora sjukhus såväl som på privata mottagningar. Eftersom utredningar av hjärtbesvär ibland kräver särskild utrustning kan det löna sig att jämföra olika mottagningar. Vi matchar dig med en hjärtspecialist som passar din situation.",
     ortoped:

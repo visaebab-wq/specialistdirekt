@@ -11,6 +11,7 @@ export const CITY_SPECIALTY_SLUGS = [
   "gynekolog",
   "psykiater",
   "neurolog",
+  "allmanmedicin",
 ] as const;
 
 /**

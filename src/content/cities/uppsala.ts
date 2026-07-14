@@ -12,6 +12,8 @@ export const city: City = {
     "Vid sidan av den offentliga vården finns ett växande utbud av privata specialistmottagningar i staden. " +
     "Det geografiska läget nära Stockholm gör dessutom att invånarna ofta kan välja mellan vårdgivare i båda regionerna.",
   specialtyIntros: {
+    allmanmedicin:
+      "Uppsala har både universitetsvård och privata mottagningar där du kan få en bred medicinsk bedömning. En allmänläkare kan väga samman symtom, prover och sjukhistoria när bilden är oklar. Specialistdirekt hjälper dig kostnadsfritt att hitta rätt mottagning.",
     kardiolog:
       "Söker du en kardiolog i Uppsala finns både hjärtsjukvård vid Akademiska sjukhuset och privata mottagningar i staden. " +
       "Vi hjälper dig kostnadsfritt att hitta en hjärtspecialist som passar dina behov och din situation. " +

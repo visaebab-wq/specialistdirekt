@@ -9,6 +9,8 @@ export const city: City = {
   intro:
     "Örebro ligger centralt i Mellansverige och fungerar som ett naturligt vårdnav för regionen. Här finns Universitetssjukhuset Örebro (USÖ), som samlar bred specialistkompetens och bedriver både vård och forskning. Vid sidan av den offentliga vården finns även privata mottagningar i staden, vilket ger fler vägar in till specialisthjälp. Specialistdirekt hjälper dig kostnadsfritt att hitta rätt specialistläkare i Örebro utifrån dina behov.",
   specialtyIntros: {
+    allmanmedicin:
+      "I Örebro kan du få en bred medicinsk bedömning hos privata läkarmottagningar, som komplement till regionens vård. En allmänläkare ser helheten och hjälper dig hitta rätt väg vidare. Specialistdirekt förmedlar kontakt kostnadsfritt.",
     kardiolog:
       "Vid hjärt- och kärlbesvär kan du i Örebro vända dig till specialistkompetens kopplad till Universitetssjukhuset Örebro samt till privata mottagningar i staden. Utredning av hjärtat kräver ibland särskild utrustning, vilket gör det värt att jämföra alternativen. Vi matchar dig med en kardiolog som passar din situation.",
     ortoped:

@@ -9,6 +9,8 @@ export const city: City = {
   intro:
     "Linköping är ett av Östergötlands viktigaste vårdnav och hem för Universitetssjukhuset i Linköping (US), där specialistvård bedrivs inom en lång rad områden. Som universitetssjukhus kombinerar US patientvård med forskning och utbildning, vilket bidrar till bred kompetens på orten. Vid sidan av den offentliga vården finns även privata specialistmottagningar i staden, vilket ger dig flera vägar in i vården. Specialistdirekt hjälper dig kostnadsfritt att hitta rätt specialistläkare i Linköping utifrån just dina behov.",
   specialtyIntros: {
+    allmanmedicin:
+      "I Linköping finns privata läkarmottagningar för dig som vill ha en samlad medicinsk bedömning. En specialist i allmänmedicin kan hjälpa dig när symtomen är diffusa eller berör flera områden. Specialistdirekt vägleder dig kostnadsfritt vidare.",
     kardiolog:
       "Letar du efter en kardiolog i Linköping finns hjärt- och kärlkompetens både på Universitetssjukhuset i Linköping (US) och hos privata mottagningar i regionen. Eftersom utredning av hjärtbesvär ibland kräver särskild utrustning kan det vara värt att jämföra olika alternativ. Vi matchar dig kostnadsfritt med en hjärtspecialist som passar din situation.",
     ortoped:

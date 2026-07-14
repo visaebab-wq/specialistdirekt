@@ -12,6 +12,8 @@ export const city: City = {
   intro:
     "Malmö är Sveriges tredje största stad och en central del av Öresundsregionen, med kort väg till både Lund och övriga Skåne. Här finns ett brett utbud av specialistvård, från Skånes universitetssjukhus (SUS) till en växande flora av privata specialistmottagningar i staden och grannkommunerna. Det gör att du som patient ofta kan välja mellan offentliga och privata alternativ när du söker en specialistläkare. Väntetiderna varierar mellan olika specialiteter och mottagningar, och det kan löna sig att jämföra flera vägar in i vården.",
   specialtyIntros: {
+    allmanmedicin:
+      "I Malmö kan du vända dig till privata läkarmottagningar för en bred medicinsk bedömning när besvären är svårplacerade. En specialist i allmänmedicin ser helheten och hjälper dig vidare till rätt specialist vid behov. Specialistdirekt förmedlar kontakt kostnadsfritt.",
     kardiolog:
       "Söker du en kardiolog i Malmö finns både hjärtsjukvård vid Skånes universitetssjukhus och flera privata hjärtmottagningar i staden. Vi hjälper dig att hitta en specialist för utredning av till exempel hjärtklappning, högt blodtryck eller bröstsmärta, så att du slipper leta på egen hand. Förmedlingen är kostnadsfri och anpassad efter var i Malmöområdet du befinner dig.",
     ortoped:

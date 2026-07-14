@@ -13,6 +13,8 @@ export const city: City = {
     "Mölndals sjukhus",
   ],
   specialtyIntros: {
+    allmanmedicin:
+      "Som Sveriges näst största stad har Göteborg ett brett utbud av privata läkarmottagningar där du kan få en bred medicinsk bedömning. En specialist i allmänmedicin kan hjälpa dig när symtomen är oklara eller berör flera områden, och vägleda dig rätt vidare. Specialistdirekt hjälper dig kostnadsfritt att hitta en mottagning i Göteborg.",
     kardiolog:
       "Vid hjärtbesvär finns det i Göteborg flera vägar till en kardiolog, både genom regionens sjukhus och via privata hjärtmottagningar. Utbudet i en storstad gör att du ofta kan jämföra olika vårdgivare innan du bokar tid. Specialistdirekt kan vägleda dig till en mottagning där en kardiolog kan utreda dina symtom.",
     ortoped:
@@ -27,6 +29,149 @@ export const city: City = {
       "Besvär som rör nervsystemet, exempelvis huvudvärk, yrsel eller domningar, kan utredas av en neurolog i Göteborg. Som storstad har Göteborg ett samlat neurologiskt kunnande, med vård tillgänglig genom både regionens sjukhus och privata specialister. Specialistdirekt vägleder dig kostnadsfritt till en neurolog som kan ta sig an dina frågor.",
   },
   specialtyLocal: {
+    allmanmedicin: {
+      metaTitle: "Privat allmänläkare i Göteborg – bred bedömning utan remiss",
+      metaDescription:
+        "Privat allmänläkare i Göteborg: bred medicinsk bedömning vid oklara symtom, prover, remiss och vad som påverkar priset. Kostnadsfri förmedling.",
+      sections: [
+        {
+          id: "privat-allmanlakare-goteborg",
+          heading: "Privat allmänläkare i Göteborg – när bredden är rätt väg",
+          body: [
+            "I Göteborg finns ett brett utbud av privata läkarmottagningar vid sidan av regionens vårdcentraler och sjukhusen **Sahlgrenska**, **Östra** och **Mölndal**. Specialistdirekt är fristående – vi är inte vårdgivare och har ingen koppling till Västra Götalandsregionen.",
+            "En **specialist i allmänmedicin** har bredden som specialitet: att väga samman symtom, sjukhistoria, läkemedel och prover till en helhetsbild. Det är särskilt användbart när det är oklart vad besvären beror på, eller när de berör flera områden samtidigt. Vet du redan vilket organ det gäller kan en organspecialist vara mer effektiv – se vår [översikt om allmänmedicin](/specialiteter/allmanmedicin).",
+          ],
+        },
+        {
+          id: "nar-allmanlakare-goteborg",
+          heading: "Vanliga skäl att söka en bred bedömning",
+          body: [
+            "Vilka prover och undersökningar som blir aktuella avgör läkaren utifrån dina symtom. Vanliga anledningar att söka är:",
+          ],
+          bullets: [
+            "**Oklara symtom** som inte självklart hör till ett enskilt organ.",
+            "**Långvarig trötthet** eller återkommande besvär utan tydlig förklaring.",
+            "**Genomgång av provsvar** du inte förstår, eller en samlad bedömning av tidigare utredningar.",
+            "**Läkemedelsgenomgång** – särskilt om du har flera mediciner.",
+            "**Vägledning vidare** till rätt specialist när det behövs.",
+          ],
+        },
+        {
+          id: "remiss-och-pris-allmanmedicin-goteborg",
+          heading: "Remiss, pris och förhållandet till din vårdcentral",
+          body: [
+            "Som självbetalande kan du oftast boka en privat allmänläkare direkt, utan remiss. Har du en sjukvårdsförsäkring går du normalt via försäkringsbolaget. Vad som gäller varierar mellan mottagningar – se [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
+            "Priset beror på besökets längd och vilka prover som ingår; provtagning och analys prissätts ofta separat. Vi anger inga fasta belopp – be alltid om ett samlat pris i förväg. Kom också ihåg att ett privat besök **inte ersätter din vårdcentral**, som har din journal och ansvarar för kontinuiteten över tid. Se det som ett komplement eller en snabbare väg till en bedömning.",
+          ],
+        },
+        {
+          id: "nar-akut-allmanmedicin-goteborg",
+          heading: "När du ska söka akut i stället",
+          body: [
+            "En planerad läkartid är till för besvär som inte är akuta. Ring **112** vid akuta eller livshotande symtom – till exempel bröstsmärta som inte går över, kraftig andnöd, plötslig svaghet, sluddrigt tal eller kraftigt påverkat allmäntillstånd.",
+            "Specialistdirekt ger inte medicinsk rådgivning och bedömer inte hur brådskande dina besvär är. Är du osäker når du **1177** dygnet runt för sjukvårdsrådgivning.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          question: "Behöver jag remiss till en privat allmänläkare i Göteborg?",
+          answer:
+            "Som självbetalande kan du oftast boka direkt, utan remiss. Har du en sjukvårdsförsäkring går du normalt via försäkringsbolaget. Reglerna varierar mellan mottagningar – vi hjälper dig kostnadsfritt att reda ut vägen in.",
+        },
+        {
+          question: "Vad är skillnaden mot att gå till en organspecialist?",
+          answer:
+            "Vet du redan vilket område besvären hör till – till exempel hjärtat – kan det vara mest effektivt att gå direkt till rätt specialist. Är bilden oklar, eller berör flera områden, är en bred bedömning ofta ett bättre första steg.",
+        },
+        {
+          question: "Ersätter det min vårdcentral?",
+          answer:
+            "Nej. Din vårdcentral har din journal och ansvarar för kontinuiteten över tid, inklusive uppföljning och recept. En privat allmänläkare är ett komplement eller en snabbare väg till en bedömning – inte en ersättning.",
+        },
+        {
+          question: "Vad påverkar priset?",
+          answer:
+            "Besökets längd och vilka prover som ingår. Provtagning och analys prissätts ofta separat. Vi anger inga fasta belopp – be alltid mottagningen om ett samlat pris i förväg.",
+        },
+        {
+          question: "När ska jag söka akut i stället för att boka tid?",
+          answer:
+            "Ring 112 vid akuta eller livshotande symtom, till exempel bröstsmärta som inte går över, kraftig andnöd, plötslig svaghet eller sluddrigt tal. En bokad tid är till för besvär som inte är akuta; är du osäker kan du ringa 1177.",
+        },
+      ],
+    },
+    neurolog: {
+      metaTitle: "Privat neurolog i Göteborg – utredning, remiss och pris",
+      metaDescription:
+        "Privat neurolog i Göteborg: migrän, yrsel och domningar, neurologiskt status, MR, remiss och vad som påverkar priset. Kostnadsfri förmedling.",
+      sections: [
+        {
+          id: "privat-neurolog-goteborg",
+          heading: "Privat neurolog i Göteborg – vägen in vid nervbesvär",
+          body: [
+            "Göteborg har ett av landets tyngsta neurologiska nav vid **Sahlgrenska Universitetssjukhuset**, med ytterligare vård vid **Östra sjukhuset** och **Mölndals sjukhus**. Vid sidan av regionens vård finns privata neurologmottagningar i staden. Specialistdirekt är fristående – vi är inte vårdgivare och har ingen koppling till Sahlgrenska eller Västra Götalandsregionen.",
+            "En **neurolog** utreder sjukdomar och symtom som utgår från hjärna, ryggmärg och nerver. Grunden i bedömningen är samtalet om dina symtom och ett **neurologiskt status**, där läkaren undersöker reflexer, känsel, styrka, koordination och balans. Som storstad gör Göteborg det ofta möjligt att jämföra flera vårdgivare innan du bestämmer dig. Läs mer på vår [översikt om neurolog](/specialiteter/neurolog).",
+          ],
+        },
+        {
+          id: "vanliga-besvar-neurolog-goteborg",
+          heading: "Vanliga skäl att söka neurolog",
+          body: [
+            "Vilka undersökningar som blir aktuella avgör läkaren utifrån dina symtom – allt görs inte rutinmässigt. Vanliga anledningar att söka är:",
+          ],
+          bullets: [
+            "**Migrän och återkommande svår huvudvärk** – en av de vanligaste orsakerna (allmän information, ingen behandlingsrekommendation här).",
+            "**Yrsel och balansbesvär** – se även [yrsel – vilken läkare?](/artiklar/yrsel-vilken-lakare).",
+            "**Domningar och stickningar** – se [domningar i händer och fötter](/artiklar/domningar-hander-fotter-vilken-lakare).",
+            "**Kompletterande undersökningar** – MR av hjärnan, EEG eller nervmätning (ENeG/EMG) när den kliniska bedömningen behöver stöd.",
+          ],
+        },
+        {
+          id: "remiss-och-pris-neurolog-goteborg",
+          heading: "Remiss och vad som påverkar priset",
+          body: [
+            "Behöver du remiss? Inom regionfinansierad vård i Västra Götalandsregionen krävs oftast en remiss från vårdcentralen, medan du hos många privata mottagningar kan boka mer direkt eller via egen vårdbegäran. Vad som gäller beror på mottagning och finansiering – se [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
+            "Priset beror på om det är ett nybesök eller en uppföljning och vilka undersökningar som tillkommer, till exempel MR. Vi anger inga fasta belopp eftersom de skiljer sig mellan mottagningar – be alltid om ett pris i förväg och kontrollera om en eventuell sjukvårdsförsäkring täcker delar av kostnaden. Hur en utredning kan läggas upp beskriver vi i [privat neurolog: utredning](/artiklar/privat-neurolog-utredning).",
+          ],
+        },
+        {
+          id: "nar-akut-neurolog-goteborg",
+          heading: "När neurologiska symtom är akuta",
+          body: [
+            "Vissa symtom ska aldrig vänta på en planerad tid. Ring **112** vid plötslig svaghet eller domning i ansikte, arm eller ben, hängande mungipa, sluddrigt tal, akut synbortfall eller en plötslig och mycket kraftig huvudvärk – det kan vara tecken på stroke, där varje minut räknas.",
+            "En planerad neurologtid är till för besvär som inte är akut livshotande. Specialistdirekt ger inte medicinsk rådgivning och bedömer inte hur brådskande dina symtom är. Vid akuta symtom söker du alltid akut vård; för rådgivning dygnet runt når du **1177**.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          question: "Behöver jag remiss till en privat neurolog i Göteborg?",
+          answer:
+            "Inom regionvården i Västra Götalandsregionen krävs oftast en remiss från vårdcentralen, medan många privata mottagningar tar emot egen vårdbegäran. Vad som gäller beror på mottagning och finansiering – vi hjälper dig kostnadsfritt att hitta rätt väg in. Se även [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
+        },
+        {
+          question: "Vilka undersökningar kan bli aktuella hos en neurolog?",
+          answer:
+            "Bedömningen utgår från samtal och ett neurologiskt status. Vid behov kompletteras det med MR av hjärnan, EEG eller nervmätning (ENeG/EMG). Vilka undersökningar som blir aktuella avgör neurologen utifrån dina symtom – allt beställs inte rutinmässigt.",
+        },
+        {
+          question: "Kan en neurolog i Göteborg hjälpa vid migrän?",
+          answer:
+            "Ja, återkommande migrän och svår huvudvärk är bland de vanligaste anledningarna att söka neurolog. Neurologen kan utreda vad som ligger bakom och lägga upp en plan tillsammans med dig. Sidan ger allmän information och ingen behandlingsrekommendation.",
+        },
+        {
+          question: "Vad påverkar priset för en privat neurologutredning?",
+          answer:
+            "Om det är nybesök eller uppföljning, och vilka undersökningar som tillkommer – till exempel MR. Sjukvårdsförsäkring kan ibland täcka delar av kostnaden. Vi anger inga fasta belopp; be alltid mottagningen om ett pris i förväg.",
+        },
+        {
+          question: "När ska jag söka akut i stället för att boka neurolog?",
+          answer:
+            "Ring 112 vid plötslig svaghet eller domning i ansikte, arm eller ben, sluddrigt tal, akut synbortfall eller en plötslig, mycket svår huvudvärk – det kan vara tecken på stroke. En bokad neurologtid är till för besvär som inte är akuta; är du osäker kan du ringa 1177.",
+        },
+      ],
+    },
     kardiolog: {
       metaTitle: "Privat kardiolog i Göteborg – hjärtutredning utan remiss",
       metaDescription:
