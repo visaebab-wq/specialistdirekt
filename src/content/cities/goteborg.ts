@@ -102,9 +102,9 @@ export const city: City = {
       ],
     },
     neurolog: {
-      metaTitle: "Privat neurolog i Göteborg – utredning, remiss och pris",
+      metaTitle: "Privat neurolog i Göteborg – utan remiss",
       metaDescription:
-        "Privat neurolog i Göteborg: migrän, yrsel och domningar, neurologiskt status, MR, remiss och vad som påverkar priset. Kostnadsfri förmedling.",
+        "Privat neurolog i Göteborg utan remiss: migrän, yrsel och domningar, neurologiskt status, MR och vad som påverkar priset. Kostnadsfri förmedling.",
       sections: [
         {
           id: "privat-neurolog-goteborg",
