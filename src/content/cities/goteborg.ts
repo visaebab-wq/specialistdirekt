@@ -61,7 +61,7 @@ export const city: City = {
           heading: "Remiss, pris och förhållandet till din vårdcentral",
           body: [
             "Som självbetalande kan du oftast boka en privat allmänläkare direkt, utan remiss. Har du en sjukvårdsförsäkring går du normalt via försäkringsbolaget. Vad som gäller varierar mellan mottagningar – se [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
-            "Priset beror på besökets längd och vilka prover som ingår; provtagning och analys prissätts ofta separat. Vi anger inga fasta belopp – be alltid om ett samlat pris i förväg. Kom också ihåg att ett privat besök **inte ersätter din vårdcentral**, som har din journal och ansvarar för kontinuiteten över tid. Se det som ett komplement eller en snabbare väg till en bedömning.",
+            "Ett privat läkarbesök kostar **från cirka 3 000 kr**. Det är ett **frånpris** för själva besöket – prover och kompletterande undersökningar prissätts ofta separat, och slutsumman beror på vad läkaren bedömer att du behöver. Be alltid om ett samlat pris i förväg. Kom också ihåg att ett privat besök **inte ersätter din vårdcentral**, som har din journal och ansvarar för kontinuiteten över tid. Se det som ett komplement eller en snabbare väg till en bedömning.",
           ],
         },
         {
@@ -90,9 +90,9 @@ export const city: City = {
             "Nej. Din vårdcentral har din journal och ansvarar för kontinuiteten över tid, inklusive uppföljning och recept. En privat allmänläkare är ett komplement eller en snabbare väg till en bedömning – inte en ersättning.",
         },
         {
-          question: "Vad påverkar priset?",
+          question: "Vad kostar en privat allmänläkare i Göteborg?",
           answer:
-            "Besökets längd och vilka prover som ingår. Provtagning och analys prissätts ofta separat. Vi anger inga fasta belopp – be alltid mottagningen om ett samlat pris i förväg.",
+            "Ett privat läkarbesök kostar från cirka 3 000 kr. Det är ett frånpris för själva besöket – prover och kompletterande undersökningar prissätts ofta separat, så slutsumman beror på vad läkaren bedömer att du behöver. Be alltid om ett samlat pris i förväg.",
         },
         {
           question: "När ska jag söka akut i stället för att boka tid?",
@@ -132,7 +132,7 @@ export const city: City = {
           heading: "Remiss och vad som påverkar priset",
           body: [
             "Behöver du remiss? Inom regionfinansierad vård i Västra Götalandsregionen krävs oftast en remiss från vårdcentralen, medan du hos många privata mottagningar kan boka mer direkt eller via egen vårdbegäran. Vad som gäller beror på mottagning och finansiering – se [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
-            "Priset beror på om det är ett nybesök eller en uppföljning och vilka undersökningar som tillkommer, till exempel MR. Vi anger inga fasta belopp eftersom de skiljer sig mellan mottagningar – be alltid om ett pris i förväg och kontrollera om en eventuell sjukvårdsförsäkring täcker delar av kostnaden. Hur en utredning kan läggas upp beskriver vi i [privat neurolog: utredning](/artiklar/privat-neurolog-utredning).",
+            "Ett privat neurologbesök kostar **från cirka 3 000 kr**. Det är ett **frånpris** för själva läkarbesöket – kompletterande undersökningar som MR, EEG eller nervmätning prissätts separat, och slutsumman beror på vad läkaren bedömer att du behöver. Be alltid om ett samlat pris i förväg och kontrollera om en eventuell sjukvårdsförsäkring täcker delar av kostnaden. Hur en utredning kan läggas upp beskriver vi i [privat neurolog: utredning](/artiklar/privat-neurolog-utredning).",
           ],
         },
         {
@@ -161,9 +161,9 @@ export const city: City = {
             "Ja, återkommande migrän och svår huvudvärk är bland de vanligaste anledningarna att söka neurolog. Neurologen kan utreda vad som ligger bakom och lägga upp en plan tillsammans med dig. Sidan ger allmän information och ingen behandlingsrekommendation.",
         },
         {
-          question: "Vad påverkar priset för en privat neurologutredning?",
+          question: "Vad kostar en privat neurolog i Göteborg?",
           answer:
-            "Om det är nybesök eller uppföljning, och vilka undersökningar som tillkommer – till exempel MR. Sjukvårdsförsäkring kan ibland täcka delar av kostnaden. Vi anger inga fasta belopp; be alltid mottagningen om ett pris i förväg.",
+            "Ett privat neurologbesök kostar från cirka 3 000 kr. Det är ett frånpris för själva läkarbesöket – kompletterande undersökningar som MR, EEG eller nervmätning prissätts separat, så slutsumman beror på vad läkaren bedömer att du behöver. Sjukvårdsförsäkring kan ibland täcka delar av kostnaden. Be alltid om ett samlat pris i förväg.",
         },
         {
           question: "När ska jag söka akut i stället för att boka neurolog?",
