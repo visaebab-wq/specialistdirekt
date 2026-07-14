@@ -191,7 +191,7 @@ export const article: Article = {
       id: "hogt-blodtryck",
       heading: "Högt blodtryck och privat kardiolog",
       body: [
-        "Högt blodtryck hanteras ofta av vårdcentral. Kardiolog kan bli relevant om blodtrycket är svårkontrollerat, om flera läkemedel behövs, vid misstanke om hjärtkomplikationer eller behov av en bredare hjärt-kärlbedömning. En kardiolog kan då hjälpa med:",
+        "Högt blodtryck hanteras ofta av vårdcentral. Kardiolog kan bli relevant om blodtrycket är svårkontrollerat, om flera läkemedel behövs, vid misstanke om hjärtkomplikationer eller behov av en bredare hjärt-kärlbedömning. Vi går igenom detta närmare i guiden [högt blodtryck – när behövs en kardiolog?](/artiklar/hogt-blodtryck-nar-behovs-kardiolog). En kardiolog kan då hjälpa med:",
       ],
       bullets: [
         "genomgång av blodtrycksbehandling",

@@ -28,7 +28,7 @@ export const article: Article = {
     "**Bröstsmärta kan vara ofarligt, men kan också vara tecken på allvarlig hjärtsjukdom.**",
     "Vid stark, tryckande eller ihållande bröstsmärta ska du inte vänta på privat bokning.",
     "Ring **112** vid bröstsmärta som inte går över, eller med andfåddhet, kallsvettning, illamående, svimningskänsla eller smärta som strålar mot arm, käke, rygg eller hals.",
-    "Privat kardiolog kan vara relevant vid återkommande, icke-akuta bröstbesvär, oro efter EKG, högt blodtryck eller hjärtklappning.",
+    "Privat kardiolog kan vara relevant vid återkommande, icke-akuta bröstbesvär, oro efter EKG, [högt blodtryck](/artiklar/hogt-blodtryck-nar-behovs-kardiolog) eller hjärtklappning.",
     "Ett privat kardiologbesök börjar ofta från cirka **3 000 kr**; en mer komplett hjärtutredning kan kosta 5 000–20 000 kr eller mer.",
     "Sjukvårdsförsäkring kan ibland täcka privat kardiolog eller hjärtutredning.",
     "[Specialistdirekt](/kontakt) är inte en akut tjänst och gör ingen medicinsk bedömning. Vi hjälper dig vidare till relevant privat mottagning när ärendet inte är akut.",

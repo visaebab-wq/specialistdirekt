@@ -45,10 +45,12 @@ import { article as blodIAvforingen } from "@/content/articles/blod-i-avforingen
 import { article as hogtPsa } from "@/content/articles/hogt-psa-urolog-prostatakontroll";
 import { article as aderbrack } from "@/content/articles/privat-aderbracksbehandling-kostnad";
 import { article as uppblastMage } from "@/content/articles/uppblast-mage";
+import { article as hogtBlodtryck } from "@/content/articles/hogt-blodtryck-nar-behovs-kardiolog";
 
 // Ordning: pelarguiden först, sedan nyast överst.
 export const articles: Article[] = [
   guide,
+  hogtBlodtryck,
   uppblastMage,
   kardiolog,
   knasmarta,
