@@ -15,6 +15,7 @@ import { extra as gynekolog } from "@/content/specialty-extra/gynekolog";
 import { extra as oronNasaHals } from "@/content/specialty-extra/oron-nasa-hals";
 import { extra as endokrinolog } from "@/content/specialty-extra/endokrinolog";
 import { extra as reumatolog } from "@/content/specialty-extra/reumatolog";
+import { extra as allmanmedicin } from "@/content/specialty-extra/allmanmedicin";
 
 const registry: Record<string, SpecialtyExtra> = {
   kardiolog,
@@ -29,6 +30,7 @@ const registry: Record<string, SpecialtyExtra> = {
   "oron-nasa-hals": oronNasaHals,
   endokrinolog,
   reumatolog,
+  allmanmedicin,
 };
 
 export function getSpecialtyExtra(slug: string): SpecialtyExtra | undefined {

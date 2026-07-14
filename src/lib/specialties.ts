@@ -198,6 +198,21 @@ export const specialties: Specialty[] = [
     ],
     keywords: ["reumatolog", "reumatism", "ledvärk", "artrit", "inflammation"],
   },
+  {
+    slug: "allmanmedicin",
+    name: "Allmänmedicin",
+    title: "Allmänläkare",
+    short: "Bred medicinsk bedömning när du behöver rätt första väg vidare.",
+    intro:
+      "En specialist i allmänmedicin kan göra en bred medicinsk bedömning och hjälpa dig vidare när symtomen är oklara eller berör flera områden. Vi matchar dig med rätt mottagning för en planerad privat bedömning.",
+    reasons: [
+      "Oklara symtom som behöver första bedömning",
+      "Trötthet, återkommande besvär eller allmän oro",
+      "Genomgång av provsvar och tidigare utredning",
+      "Vägledning till rätt specialist vid behov",
+    ],
+    keywords: ["allmänmedicin", "allmänläkare", "privat läkare", "medicinsk bedömning"],
+  },
 ];
 
 export function getSpecialty(slug: string): Specialty | undefined {
