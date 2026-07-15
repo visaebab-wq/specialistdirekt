@@ -41,7 +41,7 @@ export const article: Article = {
   intro: [
     "Många tror att vägen till en specialistläkare alltid går via en **remiss från vårdcentralen**. Så är det inte alltid. I många fall kan du söka **specialist utan remiss** – antingen genom att skriva en **egenremiss** själv eller genom att vända dig direkt till en mottagning som tar emot patienter utan remisskrav. Den här guiden förklarar hur det fungerar, så att du slipper fastna i onödigt krångel.",
     "Vi går igenom skillnaden mellan **remiss och egenremiss**, när du faktiskt behöver en remiss och när du kan boka direkt, vad en egenremiss ska innehålla, vilka specialister som ofta tar emot utan remiss och en tydlig **steg-för-steg-lista** för själva bokningen. Du får också en balanserad bild av för- och nackdelar kring kostnad och högkostnadsskydd.",
-    "Viktigt först: vid **akuta eller allvarliga symtom** ska du alltid söka akut vård eller ringa **112**. Reglerna kring remiss och egenremiss skiljer sig dessutom mellan regioner – kontrollera alltid vad som gäller där du bor via 1177 eller din region.",
+    "Viktigt först: vid **akuta eller allvarliga symtom** ska du alltid söka akut vård eller ringa **112**. Reglerna kring remiss och egenremiss skiljer sig dessutom mellan regioner – kontrollera alltid vad som gäller där du bor via [1177](https://www.1177.se/) eller din region.",
   ],
   sections: [
     {

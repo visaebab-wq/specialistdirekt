@@ -126,6 +126,7 @@ export const city: City = {
           body: [
             "I Göteborg finns ett brett utbud av privata läkarmottagningar vid sidan av regionens vårdcentraler och sjukhusen **Sahlgrenska**, **Östra** och **Mölndal**. Specialistdirekt är fristående – vi är inte vårdgivare och har ingen koppling till Västra Götalandsregionen.",
             "En **specialist i allmänmedicin** har bredden som specialitet: att väga samman symtom, sjukhistoria, läkemedel och prover till en helhetsbild. Det är särskilt användbart när det är oklart vad besvären beror på, eller när de berör flera områden samtidigt. Vet du redan vilket organ det gäller kan en organspecialist vara mer effektiv – se vår [översikt om allmänmedicin](/specialiteter/allmanmedicin).",
+            "En praktisk sak värd att veta: **Mölndal** gränsar direkt till Göteborg, och för många i södra Göteborg är en mottagning där lika nära som en i centrum. Låt inte kommungränsen begränsa dig när du jämför – se [allmänläkare i Mölndal](/specialiteter/allmanmedicin/molndal).",
           ],
         },
         {
@@ -147,7 +148,7 @@ export const city: City = {
           heading: "Remiss, pris och förhållandet till din vårdcentral",
           body: [
             "Som självbetalande kan du oftast boka en privat allmänläkare direkt, utan remiss. Har du en sjukvårdsförsäkring går du normalt via försäkringsbolaget. Vad som gäller varierar mellan mottagningar – se [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
-            "Ett privat läkarbesök kostar **från cirka 3 000 kr**. Det är ett **frånpris** för själva besöket – prover och kompletterande undersökningar prissätts ofta separat, och slutsumman beror på vad läkaren bedömer att du behöver. Be alltid om ett samlat pris i förväg. Kom också ihåg att ett privat besök **inte ersätter din vårdcentral**, som har din journal och ansvarar för kontinuiteten över tid. Se det som ett komplement eller en snabbare väg till en bedömning.",
+            "Priser varierar mellan mottagningar och det finns inget enhetligt pris. Prover och kompletterande undersökningar prissätts ofta separat från besöket, så slutsumman beror på vad läkaren bedömer att du behöver. Be alltid om ett samlat pris i förväg. Kom också ihåg att ett privat besök **inte ersätter din vårdcentral**, som har din journal och ansvarar för kontinuiteten över tid. Se det som ett komplement eller en snabbare väg till en bedömning.",
           ],
         },
         {
@@ -178,7 +179,7 @@ export const city: City = {
         {
           question: "Vad kostar en privat allmänläkare i Göteborg?",
           answer:
-            "Ett privat läkarbesök kostar från cirka 3 000 kr. Det är ett frånpris för själva besöket – prover och kompletterande undersökningar prissätts ofta separat, så slutsumman beror på vad läkaren bedömer att du behöver. Be alltid om ett samlat pris i förväg.",
+            "Priser varierar mellan mottagningar och det finns inget enhetligt pris. Prover och kompletterande undersökningar prissätts ofta separat från besöket. Be alltid om ett samlat pris i förväg och fråga vad som ingår.",
         },
         {
           question: "När ska jag söka akut i stället för att boka tid?",
@@ -213,6 +214,7 @@ export const city: City = {
           body: [
             "Göteborg har ett av landets tyngsta neurologiska nav vid **Sahlgrenska Universitetssjukhuset**, med ytterligare vård vid **Östra sjukhuset** och **Mölndals sjukhus**. Vid sidan av regionens vård finns privata neurologmottagningar i staden. Specialistdirekt är fristående – vi är inte vårdgivare och har ingen koppling till Sahlgrenska eller Västra Götalandsregionen.",
             "En **neurolog** utreder sjukdomar och symtom som utgår från hjärna, ryggmärg och nerver. Grunden i bedömningen är samtalet om dina symtom och ett **neurologiskt status**, där läkaren undersöker reflexer, känsel, styrka, koordination och balans. Som storstad gör Göteborg det ofta möjligt att jämföra flera vårdgivare innan du bestämmer dig. Läs mer på vår [översikt om neurolog](/specialiteter/neurolog).",
+            "En praktisk sak värd att veta: **Mölndal** gränsar direkt till Göteborg, och för många i södra Göteborg är en mottagning där lika nära som en i centrum. Låt inte kommungränsen begränsa dig när du jämför – se [neurolog i Mölndal](/specialiteter/neurolog/molndal).",
           ],
         },
         {
@@ -233,7 +235,7 @@ export const city: City = {
           heading: "Remiss och vad som påverkar priset",
           body: [
             "Behöver du remiss? Inom regionfinansierad vård i Västra Götalandsregionen krävs oftast en remiss från vårdcentralen, medan du hos många privata mottagningar kan boka mer direkt eller via egen vårdbegäran. Vad som gäller beror på mottagning och finansiering – se [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
-            "Ett privat neurologbesök kostar **från cirka 3 000 kr**. Det är ett **frånpris** för själva läkarbesöket – kompletterande undersökningar som MR, EEG eller nervmätning prissätts separat, och slutsumman beror på vad läkaren bedömer att du behöver. Be alltid om ett samlat pris i förväg och kontrollera om en eventuell sjukvårdsförsäkring täcker delar av kostnaden. Hur en utredning kan läggas upp beskriver vi i [privat neurolog: utredning](/artiklar/privat-neurolog-utredning).",
+            "Priser varierar mellan mottagningar och det finns inget enhetligt pris. Kompletterande undersökningar som MR, EEG eller nervmätning prissätts separat från läkarbesöket, och slutsumman beror på vad läkaren bedömer att du behöver. Be alltid om ett samlat pris i förväg och kontrollera om en eventuell sjukvårdsförsäkring täcker delar av kostnaden. Hur en utredning kan läggas upp beskriver vi i [privat neurolog: utredning](/artiklar/privat-neurolog-utredning).",
           ],
         },
         {
@@ -294,7 +296,7 @@ export const city: City = {
         {
           question: "Vad kostar en privat neurolog i Göteborg?",
           answer:
-            "Ett privat neurologbesök kostar från cirka 3 000 kr. Det är ett frånpris för själva läkarbesöket – kompletterande undersökningar som MR, EEG eller nervmätning prissätts separat, så slutsumman beror på vad läkaren bedömer att du behöver. Sjukvårdsförsäkring kan ibland täcka delar av kostnaden. Be alltid om ett samlat pris i förväg.",
+            "Priser varierar mellan mottagningar och det finns inget enhetligt pris. Kompletterande undersökningar som MR, EEG eller nervmätning prissätts separat från läkarbesöket. Be alltid om ett samlat pris i förväg och kontrollera om en eventuell sjukvårdsförsäkring täcker delar av kostnaden.",
         },
         {
           question: "När ska jag söka akut i stället för att boka neurolog?",
@@ -314,6 +316,7 @@ export const city: City = {
           body: [
             "Göteborg är Sveriges näst största stad, och det märks på hjärtsjukvården. Regionens tyngdpunkt ligger vid **Sahlgrenska Universitetssjukhuset**, ett av Nordens största sjukhus, med ytterligare vård vid **Östra sjukhuset** och **Mölndals sjukhus**. Vid sidan av den regiondrivna vården finns flera privata hjärtmottagningar i staden. Specialistdirekt är en fristående förmedlingstjänst – vi är inte vårdgivare och har ingen koppling till Sahlgrenska eller Västra Götalandsregionen.",
             "Storstadsläget gör att du oftare kan **jämföra flera vårdgivare** innan du bestämmer dig, och att resvägen sällan blir lång oavsett stadsdel. Vägen in beror på finansieringen: som **självbetalande** kan du hos många privata mottagningar boka mer direkt, medan **regionfinansierad** vård i Västra Götalandsregionen oftast går via en remiss från vårdcentralen. Har du en **sjukvårdsförsäkring** går du normalt via försäkringsbolaget. Läs mer på vår [översikt om kardiolog](/specialiteter/kardiolog).",
+            "En praktisk sak värd att veta: **Mölndal** gränsar direkt till Göteborg, och för många i södra Göteborg är en mottagning där lika nära som en i centrum. Låt inte kommungränsen begränsa dig när du jämför – se [kardiolog i Mölndal](/specialiteter/kardiolog/molndal).",
           ],
         },
         {
@@ -335,7 +338,7 @@ export const city: City = {
           heading: "Remiss och vad som påverkar priset",
           body: [
             "Behöver du remiss? Inom regionfinansierad vård krävs oftast en remiss från vårdcentralen, medan du hos många privata mottagningar kan boka mer direkt eller via egen vårdbegäran. Vad som gäller beror på mottagning och finansiering – se [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
-            "Ett privat kardiologbesök kostar **från cirka 3 000 kr**. Det är ett **frånpris** för själva läkarbesöket – tillkommande undersökningar som EKG, hjärtultraljud, långtids-EKG eller arbetsprov prissätts ofta separat, och slutsumman beror på vad som behövs i ditt fall. Be därför alltid om ett samlat pris i förväg, och kontrollera om en eventuell sjukvårdsförsäkring täcker delar av kostnaden. Vad som driver kostnaden går vi igenom i [privat kardiolog: kostnad](/artiklar/privat-kardiolog-kostnad).",
+            "Priser varierar mellan mottagningar och det finns inget enhetligt pris. Utöver läkarbesöket prissätts undersökningar som EKG, hjärtultraljud, långtids-EKG eller arbetsprov ofta separat, så slutsumman beror på vad som behövs i ditt fall. Be därför alltid om ett samlat pris i förväg, och kontrollera om en eventuell sjukvårdsförsäkring täcker delar av kostnaden. Vad som driver kostnaden går vi igenom i [privat kardiolog: kostnad](/artiklar/privat-kardiolog-kostnad).",
           ],
         },
         {
@@ -356,7 +359,7 @@ export const city: City = {
         {
           question: "Vad kostar en privat kardiolog i Göteborg?",
           answer:
-            "Ett privat kardiologbesök kostar från cirka 3 000 kr. Det är ett frånpris för själva läkarbesöket – undersökningar som EKG, hjärtultraljud, långtids-EKG eller arbetsprov prissätts ofta separat, så slutsumman beror på vad som behövs. Sjukvårdsförsäkring kan ibland täcka delar av kostnaden. Be alltid om ett samlat pris i förväg. Se [privat kardiolog: kostnad](/artiklar/privat-kardiolog-kostnad).",
+            "Priser varierar mellan mottagningar och det finns inget enhetligt pris. Undersökningar som EKG, hjärtultraljud, långtids-EKG eller arbetsprov prissätts ofta separat från läkarbesöket. Be alltid om ett samlat pris i förväg och kontrollera om en eventuell sjukvårdsförsäkring täcker delar av kostnaden. Se [privat kardiolog: kostnad](/artiklar/privat-kardiolog-kostnad).",
         },
         {
           question: "Vilka hjärtundersökningar kan bli aktuella?",

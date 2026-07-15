@@ -177,9 +177,9 @@ export const article: Article = {
         "Innehållet bygger på allmän, publikt tillgänglig medicinsk information. För fördjupning och aktuella råd, se:",
       ],
       bullets: [
-        "1177 – Mage och tarm",
-        "Internetmedicin – Colon irritabile, IBS (Irritable Bowel Syndrome)",
-        "Livsmedelsverket – Matvanor, hälsa och miljö",
+        "[1177 – Mage och tarm](https://www.1177.se/sjukdomar--besvar/mage-och-tarm/)",
+        "[Internetmedicin – Colon irritabile, IBS (Irritable Bowel Syndrome)](https://www.internetmedicin.se/medicinsk-gastroenterologi-och-hepatologi/colon-irritabile-ibs-irritable-bowel-syndrome)",
+        "[Livsmedelsverket – Matvanor, hälsa och miljö](https://www.livsmedelsverket.se/matvanor-halsa--miljo)",
       ],
     },
   ],

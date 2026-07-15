@@ -116,6 +116,52 @@ export const articles: Article[] = [
 }
 
 /**
+ * Tillåtna externa domäner i artikelinnehåll.
+ *
+ * VIKTIGT: vi länkar ALDRIG ut till en klinik, mottagning eller vårdgivare. Vi är
+ * en förmedlingstjänst – en utlänk till en vårdgivare skickar bort läsaren, kan
+ * läsas som ett ställningstagande för just den aktören, och undergräver att vi
+ * inte är bundna till en enskild klinik. Endast myndigheter och oberoende
+ * medicinska kunskapskällor är tillåtna, som stöd för medicinska påståenden.
+ *
+ * Lägg bara till en domän här om den varken är vårdgivare eller kommersiell aktör.
+ */
+const ALLOWED_EXTERNAL_DOMAINS = [
+  "1177.se",
+  "socialstyrelsen.se",
+  "legitimation.socialstyrelsen.se",
+  "livsmedelsverket.se",
+  "folkhalsomyndigheten.se",
+  "lakemedelsverket.se",
+  "internetmedicin.se",
+] as const;
+
+// Build-time-spärr: fångar en utlänk till en klinik innan den når produktion.
+{
+  const isAllowed = (host: string) =>
+    ALLOWED_EXTERNAL_DOMAINS.some((d) => host === d || host.endsWith(`.${d}`));
+
+  for (const a of articles) {
+    const content = JSON.stringify(a);
+    for (const [, url] of content.matchAll(/\]\((https?:\/\/[^)"\s]+)\)/g)) {
+      let host: string;
+      try {
+        host = new URL(url).hostname.replace(/^www\./, "");
+      } catch {
+        throw new Error(`Ogiltig extern URL i "${a.slug}": ${url}`);
+      }
+      if (!isAllowed(host)) {
+        throw new Error(
+          `Otillåten extern länk i artikeln "${a.slug}": ${url}\n` +
+            `Vi länkar aldrig ut till kliniker eller vårdgivare. Tillåtna domäner: ` +
+            `${ALLOWED_EXTERNAL_DOMAINS.join(", ")}.`,
+        );
+      }
+    }
+  }
+}
+
+/**
  * Registret över alla primära sökord. Kolla denna lista (eller /artiklar) INNAN
  * du skapar en ny artikel, så att du inte dubblerar ett ämne.
  */
