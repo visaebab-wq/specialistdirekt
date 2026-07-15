@@ -39,12 +39,15 @@ export async function generateMetadata({
   if (!specialty || !city || !hasCityPages(slug)) return {};
 
   const local = city.specialtyLocal?.[slug];
-  const title = local?.metaTitle ?? `${specialty.title} i ${city.name} – hitta och boka`;
+  // Fallback-titeln säger "Privat" eftersom sidan riktar sig mot privatvård och
+  // redan bygger sökordet "privat <specialitet> <stad>" nedan. Lova inget sidan
+  // inte håller (t.ex. pris eller remiss) – då skriver Google om titeln ändå.
+  const title = local?.metaTitle ?? `Privat ${specialty.title.toLowerCase()} i ${city.name} – hitta och boka`;
   const path = `/specialiteter/${slug}/${stad}`;
-  const visual = getCitySpecialtyVisual(specialty, city.slug);
+  const visual = getCitySpecialtyVisual(specialty, city.slug, city.name);
   const description =
     local?.metaDescription ??
-    `Hitta en ${specialty.title.toLowerCase()} i ${city.name}. Vi matchar dig kostnadsfritt med rätt specialist inom ${specialty.name.toLowerCase()} i ${city.region}.`;
+    `Privat ${specialty.title.toLowerCase()} i ${city.name}. Vi matchar dig kostnadsfritt med rätt specialist inom ${specialty.name.toLowerCase()} i ${city.region}.`;
   return {
     title,
     description,
@@ -97,7 +100,7 @@ export default async function CitySpecialtyPage({
     (s) => s.slug !== specialty.slug && hasCityPages(s.slug),
   );
   const relatedArticles = articlesForSpecialty(specialty.slug);
-  const visual = getCitySpecialtyVisual(specialty, city.slug);
+  const visual = getCitySpecialtyVisual(specialty, city.slug, city.name);
 
   return (
     <>

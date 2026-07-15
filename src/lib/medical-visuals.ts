@@ -1,3 +1,6 @@
+import { existsSync } from "node:fs";
+import { join } from "node:path";
+
 import type { Article } from "./articles-types";
 import type { Specialty } from "./specialties";
 
@@ -21,6 +24,17 @@ const baseImages = {
 } as const;
 
 const pageImage = (name: string) => `/page-visuals/${name}.webp`;
+
+// Sidbilderna genereras manuellt och släpar därför efter när nytt innehåll läggs
+// till. Utan kontroll pekar en ny sida på en fil som inte finns -> 404-bild i både
+// <img> och schemat. Vi väljer därför första kandidat som faktiskt ligger i public/.
+// Endast server-side: alla sidor är statiskt genererade vid build.
+const publicDir = join(process.cwd(), "public");
+const fileExists = (src: string) => existsSync(join(publicDir, src));
+
+/** Första kandidaten som finns på disk. Sista kandidaten måste vara en garanterad basbild. */
+const resolveVisual = (...candidates: string[]) =>
+  candidates.find(fileExists) ?? candidates[candidates.length - 1];
 
 const specialtyBaseImages: Record<string, string> = {
   kardiolog: baseImages.cardiology,
@@ -114,14 +128,14 @@ const articleImagesByCategory: Record<string, string> = {
 
 export function getSpecialtyVisual(specialty: Specialty): MedicalVisual {
   return {
-    src: pageImage(`specialty-${specialty.slug}-hero`),
+    src: resolveVisual(pageImage(`specialty-${specialty.slug}-hero`), getSpecialtyBaseImage(specialty)),
     alt: `Privat ${specialty.title.toLowerCase()} - realistisk vårdbild med människa från specialistmottagning`,
   };
 }
 
 export function getArticleVisual(article: Article): MedicalVisual {
   return {
-    src: pageImage(`article-${article.slug}-hero`),
+    src: resolveVisual(pageImage(`article-${article.slug}-hero`), getArticleBaseImage(article)),
     alt: `${article.title} - realistisk vårdbild med människa för ${article.category.toLowerCase()}`,
   };
 }
@@ -131,15 +145,27 @@ export function getArticleCardVisual(
   scope: "articles" | "articles-featured" | "home",
 ): MedicalVisual {
   return {
-    src: pageImage(`${scope}-article-${article.slug}`),
-    alt: `${article.title} - unik realistisk vårdbild för artikelkort`,
+    src: resolveVisual(
+      pageImage(`${scope}-article-${article.slug}`),
+      pageImage(`article-${article.slug}-hero`),
+      getArticleBaseImage(article),
+    ),
+    alt: `${article.title} - realistisk vårdbild för artikelkort`,
   };
 }
 
-export function getCitySpecialtyVisual(specialty: Specialty, citySlug: string): MedicalVisual {
+export function getCitySpecialtyVisual(
+  specialty: Specialty,
+  citySlug: string,
+  cityName: string,
+): MedicalVisual {
   return {
-    src: pageImage(`city-${specialty.slug}-${citySlug}`),
-    alt: `${specialty.title} i ${citySlug} - unik realistisk vårdbild från specialistvård`,
+    src: resolveVisual(
+      pageImage(`city-${specialty.slug}-${citySlug}`),
+      pageImage(`specialty-${specialty.slug}-hero`),
+      getSpecialtyBaseImage(specialty),
+    ),
+    alt: `${specialty.title} i ${cityName} - realistisk vårdbild från specialistvård`,
   };
 }
 

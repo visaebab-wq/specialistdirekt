@@ -7,7 +7,7 @@ export const article: Article = {
   metaDescription:
     "Privat koloskopi: kostnad från cirka 8 800 kr, väntetid, remiss, symtom och sjukvårdsförsäkring. Så bokar du via Specialistdirekt.",
   category: "Gastroenterologi",
-  primaryKeyword: "privat koloskopi",
+  primaryKeyword: "privat koloskopi kostnad",
   keywords: [
     "privat koloskopi",
     "koloskopi kostnad",

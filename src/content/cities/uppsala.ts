@@ -12,6 +12,8 @@ export const city: City = {
     "Vid sidan av den offentliga vården finns ett växande utbud av privata specialistmottagningar i staden. " +
     "Det geografiska läget nära Stockholm gör dessutom att invånarna ofta kan välja mellan vårdgivare i båda regionerna.",
   specialtyIntros: {
+    gastroenterolog:
+      "I Uppsala finns mag- och tarmkompetens kopplad till Akademiska sjukhuset och hos privata mottagningar. Specialistdirekt hjälper dig kostnadsfritt att komma i kontakt med en gastroenterolog.",
     allmanmedicin:
       "Uppsala har både universitetsvård och privata mottagningar där du kan få en bred medicinsk bedömning. En allmänläkare kan väga samman symtom, prover och sjukhistoria när bilden är oklar. Specialistdirekt hjälper dig kostnadsfritt att hitta rätt mottagning.",
     kardiolog:

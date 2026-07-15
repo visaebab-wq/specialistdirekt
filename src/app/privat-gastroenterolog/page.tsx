@@ -18,13 +18,13 @@ const visual = {
 export const metadata: Metadata = {
   title: "Privat gastroenterolog – specialist på mage och tarm",
   description:
-    "Träffa en privat gastroenterolog utan remiss. Läs om priser, väntetider och vilka besvär en mag- och tarmspecialist utreder – och hitta rätt mottagning.",
+    "Träffa en privat gastroenterolog utan remiss. Vilka besvär en mag- och tarmspecialist utreder, hur utredningen går till och vad som styr väntetiden.",
   alternates: { canonical: "/privat-gastroenterolog" },
   openGraph: {
     type: "article",
     title: "Privat gastroenterolog – specialist på mage och tarm",
     description:
-      "Träffa en privat gastroenterolog utan remiss. Läs om priser, väntetider och vilka besvär en mag- och tarmspecialist utreder.",
+      "Träffa en privat gastroenterolog utan remiss. Vilka besvär en mag- och tarmspecialist utreder och hur utredningen går till.",
     url: "/privat-gastroenterolog",
   },
 };

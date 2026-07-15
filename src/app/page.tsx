@@ -76,18 +76,18 @@ const valueProps = [
 ];
 
 const specialistNeonImages: Record<string, string> = {
-  kardiolog: "/specialist-neon/01-kardiolog.png",
-  ortoped: "/specialist-neon/02-ortoped.png",
-  hudlakare: "/specialist-neon/03-hudlakare.png",
-  gynekolog: "/specialist-neon/04-gynekolog.png",
-  neurolog: "/specialist-neon/05-neurolog.png",
-  psykiater: "/specialist-neon/06-psykiater.png",
-  ogonlakare: "/specialist-neon/07-ogonlakare.png",
-  "oron-nasa-hals": "/specialist-neon/08-onh-specialist.png",
-  urolog: "/specialist-neon/09-urolog.png",
-  gastroenterolog: "/specialist-neon/10-gastroenterolog.png",
-  endokrinolog: "/specialist-neon/11-endokrinolog.png",
-  reumatolog: "/specialist-neon/12-reumatolog.png",
+  kardiolog: "/specialist-neon/01-kardiolog.webp",
+  ortoped: "/specialist-neon/02-ortoped.webp",
+  hudlakare: "/specialist-neon/03-hudlakare.webp",
+  gynekolog: "/specialist-neon/04-gynekolog.webp",
+  neurolog: "/specialist-neon/05-neurolog.webp",
+  psykiater: "/specialist-neon/06-psykiater.webp",
+  ogonlakare: "/specialist-neon/07-ogonlakare.webp",
+  "oron-nasa-hals": "/specialist-neon/08-onh-specialist.webp",
+  urolog: "/specialist-neon/09-urolog.webp",
+  gastroenterolog: "/specialist-neon/10-gastroenterolog.webp",
+  endokrinolog: "/specialist-neon/11-endokrinolog.webp",
+  reumatolog: "/specialist-neon/12-reumatolog.webp",
 };
 
 const ico = {

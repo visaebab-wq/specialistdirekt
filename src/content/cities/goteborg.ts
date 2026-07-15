@@ -13,6 +13,8 @@ export const city: City = {
     "Mölndals sjukhus",
   ],
   specialtyIntros: {
+    gastroenterolog:
+      "Vid långvariga mag- och tarmbesvär finns i Göteborg både regionens vård via Sahlgrenska och privata mag- och tarmmottagningar. Som storstad kan du ofta jämföra flera vårdgivare innan du bestämmer dig. Specialistdirekt hjälper dig kostnadsfritt att hitta en gastroenterolog.",
     allmanmedicin:
       "Som Sveriges näst största stad har Göteborg ett brett utbud av privata läkarmottagningar där du kan få en bred medicinsk bedömning. En specialist i allmänmedicin kan hjälpa dig när symtomen är oklara eller berör flera områden, och vägleda dig rätt vidare. Specialistdirekt hjälper dig kostnadsfritt att hitta en mottagning i Göteborg.",
     kardiolog:
@@ -29,6 +31,89 @@ export const city: City = {
       "Besvär som rör nervsystemet, exempelvis huvudvärk, yrsel eller domningar, kan utredas av en neurolog i Göteborg. Som storstad har Göteborg ett samlat neurologiskt kunnande, med vård tillgänglig genom både regionens sjukhus och privata specialister. Specialistdirekt vägleder dig kostnadsfritt till en neurolog som kan ta sig an dina frågor.",
   },
   specialtyLocal: {
+    gastroenterolog: {
+      metaTitle: "Privat gastroenterolog i Göteborg – magspecialist utan remiss",
+      metaDescription:
+        "Privat gastroenterolog i Göteborg: långvariga magbesvär, uppblåsthet, diarré och halsbränna. Så fungerar remiss och vad som påverkar priset. Kostnadsfri förmedling.",
+      sections: [
+        {
+          id: "privat-gastroenterolog-goteborg",
+          heading: "Privat gastroenterolog i Göteborg – vägen in",
+          body: [
+            "Vid långvariga mag- och tarmbesvär finns i Göteborg både regionens vård – med **Sahlgrenska Universitetssjukhuset**, **Östra sjukhuset** och **Mölndals sjukhus** – och privata mag- och tarmmottagningar. Som storstad kan du ofta jämföra flera vårdgivare innan du bestämmer dig. Specialistdirekt är fristående: vi är inte vårdgivare och har ingen koppling till Sahlgrenska eller Västra Götalandsregionen, utan hjälper dig kostnadsfritt att hitta en relevant privat mottagning.",
+            "En **gastroenterolog** (magspecialist, mag- och tarmläkare) utreder hela matsmältningskanalen samt lever, gallvägar och bukspottkörtel. Vägen in beror på finansieringen: som självbetalande kan du hos många privata mottagningar boka utan remiss, medan regionfinansierad vård oftast kräver remiss från vårdcentralen. Läs mer på [privat gastroenterolog](/privat-gastroenterolog).",
+          ],
+        },
+        {
+          id: "vanliga-besvar-gastro-goteborg",
+          heading: "Vanliga skäl att söka mag- och tarmspecialist",
+          body: [
+            "Många magbesvär är ofarliga och går över av sig själva. Men när de är långvariga, återkommande eller påverkar vardagen kan en specialistbedömning hjälpa dig vidare. Vanliga anledningar är:",
+          ],
+          bullets: [
+            "**Långvarig eller återkommande magont**",
+            "**Uppblåst mage** som inte ger med sig – se [uppblåst mage](/artiklar/uppblast-mage).",
+            "**Långvarig diarré eller förstoppning**, eller ändrade avföringsvanor",
+            "**Halsbränna, sura uppstötningar och sväljsvårigheter**",
+            "**Blod i avföringen** – ska alltid bedömas, se [blod i avföringen](/artiklar/blod-i-avforingen-gastroenterolog-koloskopi-akut-vard).",
+            "**IBS, celiaki eller misstänkt inflammatorisk tarmsjukdom**",
+          ],
+        },
+        {
+          id: "undersokningar-gastro-goteborg",
+          heading: "Vilka undersökningar kan bli aktuella?",
+          body: [
+            "Bedömningen börjar med ett samtal och en kroppsundersökning. Läkaren avgör sedan vad som är medicinskt motiverat – allt görs inte rutinmässigt. Det kan handla om blod- och avföringsprover, celiakiprov, kalprotektin, eller endoskopiska undersökningar som **gastroskopi** och **koloskopi**.",
+            "Vilken undersökning som passar avgörs av dina symtom. Vill du läsa på i förväg finns [privat gastroskopi](/privat-gastroskopi) och [privat koloskopi](/privat-koloskopi). Priser varierar mellan mottagningar, och undersökningar prissätts ofta separat från konsultationen – be alltid om ett samlat pris i förväg. Se [privat gastroenterolog: kostnad](/artiklar/privat-gastroenterolog-kostnad).",
+          ],
+        },
+        {
+          id: "nar-akut-gastro-goteborg",
+          heading: "När du ska söka vård direkt",
+          body: [
+            "Vissa symtom ska inte vänta på en planerad tid. Sök akut vård eller ring **112** vid kraftig eller ihållande buksmärta, blodiga kräkningar, svart eller tjärliknande avföring, större mängder blod i avföringen, eller hög feber tillsammans med buksmärta.",
+            "En planerad specialistbedömning är till för besvär som inte är akuta. Specialistdirekt ger inte medicinsk rådgivning och bedömer inte hur brådskande dina besvär är. Är du osäker når du **1177** dygnet runt.",
+          ],
+        },
+      ],
+      faqs: [
+        {
+          question: "Hur bokar jag tid hos en privat gastroenterolog i Göteborg?",
+          answer:
+            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi matchar dig med en relevant privat mottagning och återkommer med förslag – tiden bokar du sedan direkt med mottagningen. Specialistdirekt är en förmedlingstjänst; vi är inte vårdgivare och bokar inte tider åt dig.",
+        },
+        {
+          question: "Kan jag träffa en gastroenterolog i Göteborg utan remiss?",
+          answer:
+            "Som självbetalande kan du hos många privata mottagningar boka utan remiss, via egen vårdbegäran. Med sjukvårdsförsäkring går du vanligtvis via försäkringsbolaget, och inom regionfinansierad vård krävs oftast remiss. Reglerna varierar mellan mottagningar – vi hjälper dig kostnadsfritt att reda ut vad som gäller. Se [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
+        },
+        {
+          question: "Vad kostar ett privat besök hos gastroenterolog?",
+          answer:
+            "Priser varierar mellan mottagningar och det finns inget enhetligt pris. Konsultation, provtagning och eventuell endoskopi prissätts ofta separat. Vi anger inga fasta belopp – be alltid mottagningen om ett samlat pris i förväg. Se [privat gastroenterolog: kostnad](/artiklar/privat-gastroenterolog-kostnad).",
+        },
+        {
+          question: "Kan en gastroenterolog utreda uppblåst mage och långvariga magbesvär?",
+          answer:
+            "Ja, det är bland de vanligaste anledningarna att söka mag- och tarmspecialist. Läkaren utreder vad som ligger bakom – till exempel IBS, celiaki eller annan orsak. Läs mer i [uppblåst mage](/artiklar/uppblast-mage).",
+        },
+        {
+          question: "Kan jag boka magspecialist för diarré, förstoppning eller halsbränna?",
+          answer:
+            "Ja. Långvarig diarré, förstoppning, ändrade avföringsvanor samt halsbränna och sväljsvårigheter är vanliga skäl att söka gastroenterolog. Läkaren avgör vilken utredning som är motiverad utifrån dina symtom.",
+        },
+        {
+          question: "Kan gastroenterologen bedöma om jag behöver gastroskopi eller koloskopi?",
+          answer:
+            "Ja – det är just det bedömningen går ut på. Läkaren träffar dig, går igenom symtom och sjukhistoria och avgör sedan vilken undersökning som är medicinskt motiverad. Allt beställs inte rutinmässigt.",
+        },
+        {
+          question: "När ska jag söka vård direkt i stället för att boka tid?",
+          answer:
+            "Sök akut vård eller ring 112 vid kraftig eller ihållande buksmärta, blodiga kräkningar, svart eller tjärliknande avföring, större mängder blod i avföringen, eller hög feber med buksmärta. Är du osäker kan du ringa 1177.",
+        },
+      ],
+    },
     allmanmedicin: {
       metaTitle: "Privat allmänläkare i Göteborg – bred bedömning utan remiss",
       metaDescription:
@@ -98,6 +183,21 @@ export const city: City = {
           question: "När ska jag söka akut i stället för att boka tid?",
           answer:
             "Ring 112 vid akuta eller livshotande symtom, till exempel bröstsmärta som inte går över, kraftig andnöd, plötslig svaghet eller sluddrigt tal. En bokad tid är till för besvär som inte är akuta; är du osäker kan du ringa 1177.",
+        },
+        {
+          question: "Finns det allmänläkare nära mig?",
+          answer:
+            "I Göteborgsområdet finns privata läkarmottagningar både centralt och i kranskommunerna, till exempel i [Mölndal](/specialiteter/allmanmedicin/molndal). Vilken som passar dig beror på var du bor och vad besvären gäller. Beskriv var i regionen du befinner dig i din förfrågan, så tar vi hänsyn till det när vi matchar. Specialistdirekt är en kostnadsfri förmedling – vi är inte vårdgivare och bokar inte tider åt dig.",
+        },
+        {
+          question: "Vilken är den bästa privata allmänläkaren i Göteborg?",
+          answer:
+            "Vi rangordnar inte mottagningar och utser ingen \"bästa\" – vad som passar bäst beror på dina besvär och vad du vill ha ut av besöket. Det du däremot kan väga in är: att läkaren är specialist i allmänmedicin, hur lång konsultationen är, om provtagning ingår, om mottagningen kan följa upp dig över tid, och att du får ett samlat pris i förväg. Berätta vad som är viktigast för dig, så föreslår vi en mottagning som matchar.",
+        },
+        {
+          question: "Finns det engelsktalande läkare i Göteborg?",
+          answer:
+            "Många läkare i Sverige talar engelska, men det varierar mellan mottagningar och enskilda läkare – vi kan inte utlova ett visst språk i förväg. Ange vilket språk du föredrar i din förfrågan, så tar vi med det när vi matchar dig och stämmer av med mottagningen.",
         },
       ],
     },

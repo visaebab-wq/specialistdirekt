@@ -5,10 +5,21 @@ import { specialties } from "@/lib/specialties";
 import { articles } from "@/lib/articles";
 import { cities, CITY_SPECIALTY_SLUGS } from "@/lib/cities";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
+// lastModified sätts ENDAST där vi har ett ärligt datum (artiklarnas `updated`).
+// Tidigare stämplades övriga URL:er med build-tidpunkten, vilket nollställdes vid
+// varje deploy även när innehållet var oförändrat. En lastmod som bevisligen
+// ljuger får Google att ignorera signalen för hela sitemapen – och då förlorar
+// även artiklarnas riktiga datum sitt värde. Hellre inget datum än ett falskt.
+type SitemapEntry = {
+  path: string;
+  priority: number;
+  changeFrequency: "weekly" | "monthly" | "yearly";
+  /** Utelämnas medvetet där vi saknar ett verkligt ändringsdatum. */
+  lastModified?: Date;
+};
 
-  const staticPaths = [
+export default function sitemap(): MetadataRoute.Sitemap {
+  const staticPaths: SitemapEntry[] = [
     { path: "/", priority: 1, changeFrequency: "weekly" as const },
     ...mainNav.map((n) => ({
       path: n.href,
@@ -27,7 +38,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     path: `/specialiteter/${s.slug}`,
     priority: 0.7,
     changeFrequency: "monthly" as const,
-    lastModified: now,
   }));
 
   // Artiklar använder sitt eget updated-datum (färskhet är en SEO-signal).
@@ -44,18 +54,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       path: `/specialiteter/${slug}/${c.slug}`,
       priority: 0.5,
       changeFrequency: "monthly" as const,
-      lastModified: now,
     })),
   );
 
-  return [
-    ...staticPaths.map((e) => ({ ...e, lastModified: now })),
+  const entries: SitemapEntry[] = [
+    ...staticPaths,
     ...specialtyPaths,
     ...articlePaths,
     ...cityPaths,
-  ].map((entry) => ({
+  ];
+
+  return entries.map((entry) => ({
     url: `${site.url}${entry.path}`,
-    lastModified: entry.lastModified,
+    ...(entry.lastModified ? { lastModified: entry.lastModified } : {}),
     changeFrequency: entry.changeFrequency,
     priority: entry.priority,
   }));

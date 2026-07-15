@@ -7,7 +7,7 @@ export const article: Article = {
   metaDescription:
     "Privat gastroenterolog: vanliga mag- och tarmbesvär, kostnad från cirka 3 000 kr, gastroskopi/koloskopi, remiss, väntetid och sjukvårdsförsäkring.",
   category: "Gastroenterologi",
-  primaryKeyword: "privat gastroenterolog",
+  primaryKeyword: "privat gastroenterolog kostnad",
   keywords: [
     "privat gastroenterolog",
     "gastroenterolog kostnad",

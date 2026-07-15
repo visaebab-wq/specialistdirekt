@@ -15,15 +15,15 @@ const visual = {
 };
 
 export const metadata: Metadata = {
-  title: "Privat koloskopi – pris, väntetid och utan remiss",
+  title: "Privat koloskopi utan remiss – väntetid och bokning",
   description:
-    "Boka privat koloskopi utan remiss. Läs om pris, väntetid, laxering och hur undersökningen går till – och hitta en mottagning nära dig.",
+    "Privat koloskopi utan remiss: så går undersökningen till, laxering, förberedelser och vad som styr väntetiden. Vi matchar dig kostnadsfritt med en mottagning.",
   alternates: { canonical: "/privat-koloskopi" },
   openGraph: {
     type: "article",
-    title: "Privat koloskopi – pris, väntetid och utan remiss",
+    title: "Privat koloskopi utan remiss – väntetid och bokning",
     description:
-      "Boka privat koloskopi utan remiss. Läs om pris, väntetid, laxering och hur undersökningen går till.",
+      "Privat koloskopi utan remiss: så går undersökningen till, laxering och vad som styr väntetiden.",
     url: "/privat-koloskopi",
   },
 };
@@ -71,7 +71,7 @@ export default function PrivatKoloskopiPage() {
           <h1 className="internal-hero-title">Privat koloskopi – utan remiss</h1>
           <p className="internal-hero-text">
             En koloskopi undersöker tjocktarm och ändtarm med en böjlig kamera. Här går vi igenom
-            när den behövs, hur den går till, laxeringen inför undersökningen, pris och väntetid –
+            när den behövs, hur den går till, laxeringen inför undersökningen och väntetid –
             och hur du hittar en privat mottagning.
           </p>
           <PageVisual visual={visual} className="mt-10" priority />
@@ -123,6 +123,7 @@ export default function PrivatKoloskopiPage() {
               paragraphs={[
                 "Priser varierar mellan mottagningar och det finns inget enhetligt pris. Vi anger inga fasta belopp här, eftersom kostnaden skiljer sig åt beroende på mottagning och vad som ingår. Be alltid om ett samlat pris i förväg.",
                 "Priset kan bero på flera delar: **läkarkonsultationen**, **lugnande medicin eller smärtlindring**, **vävnadsprovtagning** (biopsi), **borttagning av polyper**, **analys av prover** (patologi) och en eventuell **uppföljning**. Fråga specifikt vad som ingår, så att du kan jämföra mottagningar rättvist.",
+                "Vill du ha exempel på vad undersökningen brukar kosta och vad som påverkar priset? Läs vår guide [privat koloskopi: kostnad](/artiklar/privat-koloskopi-kostnad).",
               ]}
             />
 

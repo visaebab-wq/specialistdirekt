@@ -84,7 +84,7 @@ export function AreaSelector() {
 
       <div className="specialist-map-panel mx-auto min-h-[260px] w-full max-w-[320px]">
         <img
-          src="/specialist-neon/city-satellite-map.png"
+          src="/specialist-neon/city-satellite-map.webp"
           alt=""
           className="city-map-image"
           loading="lazy"

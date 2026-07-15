@@ -15,15 +15,15 @@ const visual = {
 };
 
 export const metadata: Metadata = {
-  title: "Privat gastroskopi – pris, väntetid och utan remiss",
+  title: "Privat gastroskopi utan remiss – väntetid och bokning",
   description:
-    "Boka privat gastroskopi utan remiss. Läs om pris, väntetid, förberedelser och hur undersökningen går till – och hitta en mottagning som passar dig.",
+    "Privat gastroskopi utan remiss: så går undersökningen till, hur du förbereder dig och vad som styr väntetiden. Vi matchar dig kostnadsfritt med en mottagning.",
   alternates: { canonical: "/privat-gastroskopi" },
   openGraph: {
     type: "article",
-    title: "Privat gastroskopi – pris, väntetid och utan remiss",
+    title: "Privat gastroskopi utan remiss – väntetid och bokning",
     description:
-      "Boka privat gastroskopi utan remiss. Läs om pris, väntetid, förberedelser och hur undersökningen går till.",
+      "Privat gastroskopi utan remiss: så går undersökningen till, förberedelser och vad som styr väntetiden.",
     url: "/privat-gastroskopi",
   },
 };
@@ -71,7 +71,7 @@ export default function PrivatGastroskopiPage() {
           <h1 className="internal-hero-title">Privat gastroskopi – utan remiss</h1>
           <p className="internal-hero-text">
             En gastroskopi undersöker matstrupe, magsäck och tolvfingertarm med en böjlig kamera.
-            Här går vi igenom när undersökningen behövs, hur den går till, förberedelser, pris och
+            Här går vi igenom när undersökningen behövs, hur den går till, förberedelser och
             väntetid – och hur du hittar en privat mottagning.
           </p>
           <PageVisual visual={visual} className="mt-10" priority />
@@ -124,6 +124,7 @@ export default function PrivatGastroskopiPage() {
               paragraphs={[
                 "Priser varierar mellan mottagningar och det finns inget enhetligt pris. Vi anger inga fasta belopp här, eftersom kostnaden skiljer sig åt beroende på mottagning och vad som ingår. Be alltid mottagningen om ett samlat pris i förväg.",
                 "Priset kan bero på flera delar: läkarkonsultationen, eventuell **lugnande medicin** (sedering), **vävnadsprovtagning**, **analys av prover** (patologi), övriga provsvar och en eventuell uppföljning. Fråga specifikt vad som ingår i det pris du får, så att du kan jämföra mottagningar rättvist.",
+                "Vill du ha exempel på vad undersökningen brukar kosta och vad som påverkar priset? Läs vår guide [privat gastroskopi: kostnad](/artiklar/privat-gastroskopi-kostnad).",
               ]}
             />
 

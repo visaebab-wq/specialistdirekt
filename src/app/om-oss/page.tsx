@@ -98,6 +98,14 @@ export default function AboutPage() {
               <dd className="mt-0.5 text-ink-700">{site.name}</dd>
             </div>
             <div>
+              <dt className="text-sm font-semibold text-ink-900">Företag</dt>
+              <dd className="mt-0.5 text-ink-700">{site.legalName}</dd>
+            </div>
+            <div>
+              <dt className="text-sm font-semibold text-ink-900">Organisationsnummer</dt>
+              <dd className="mt-0.5 text-ink-700">{site.orgNumber}</dd>
+            </div>
+            <div>
               <dt className="text-sm font-semibold text-ink-900">E-post</dt>
               <dd className="mt-0.5">
                 <a href={`mailto:${site.email}`} className="text-brand-700 hover:underline">

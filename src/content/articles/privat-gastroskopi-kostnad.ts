@@ -7,7 +7,7 @@ export const article: Article = {
   metaDescription:
     "Privat gastroskopi: kostnad från cirka 6 400 kr, vävnadsprover, remiss, väntetid och sjukvårdsförsäkring. Så bokar du via Specialistdirekt.",
   category: "Gastroenterologi",
-  primaryKeyword: "privat gastroskopi",
+  primaryKeyword: "privat gastroskopi kostnad",
   keywords: [
     "privat gastroskopi",
     "gastroskopi kostnad",
