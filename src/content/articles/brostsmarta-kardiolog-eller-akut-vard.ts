@@ -46,7 +46,7 @@ export const article: Article = {
     "har hjärtklappning tillsammans med bröstobehag",
     "har avvikande EKG som behöver följas upp",
     "har högt blodtryck och oro för hjärtat",
-    "har en sjukvårdsförsäkring eller vill ha second opinion",
+    "har en sjukvårdsförsäkring",
   ],
   intro: [
     "Bröstsmärta ska alltid tas på allvar. Den kan vara ofarlig och bero på muskler, stress eller magen – men kan också vara tecken på allvarlig hjärtsjukdom. Den här guiden hjälper dig skilja på när du ska söka **akut vård** och när en **privat kardiolog** kan vara rätt väg vid icke-akuta besvär.",
@@ -85,7 +85,6 @@ export const article: Article = {
         "du har högt blodtryck och oro för hjärtat",
         "du har avvikande EKG som behöver följas upp",
         "du har ärftlighet för hjärt-kärlsjukdom",
-        "du vill ha second opinion efter tidigare hjärtutredning",
         "du har sjukvårdsförsäkring eller vill boka privat hjärtutredning",
       ],
     },
@@ -187,7 +186,7 @@ export const article: Article = {
       heading: "Sammanfattning",
       body: [
         "Bröstsmärta ska alltid tas på allvar. Vid stark, tryckande, ihållande eller nytillkommen bröstsmärta med andfåddhet, kallsvettning, illamående, svimningskänsla eller utstrålning ska du söka akut vård eller ringa **112**.",
-        "Privat kardiolog kan vara aktuellt vid återkommande eller icke-akuta bröstbesvär, hjärtklappning, avvikande EKG, högt blodtryck eller behov av second opinion. Ett besök börjar ofta från cirka 3 000 kr och uppåt. Specialistdirekt hjälper dig vidare när ärendet inte är akut – skicka en [bokningsförfrågan](/kontakt) så hjälper vi dig till relevant privat mottagning.",
+        "Privat kardiolog kan vara aktuellt vid återkommande eller icke-akuta bröstbesvär, hjärtklappning, avvikande EKG eller högt blodtryck. Ett besök börjar ofta från cirka 3 000 kr och uppåt. Specialistdirekt hjälper dig vidare när ärendet inte är akut – skicka en [bokningsförfrågan](/kontakt) så hjälper vi dig till relevant privat mottagning.",
       ],
     },
   ],

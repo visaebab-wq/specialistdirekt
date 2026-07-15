@@ -15,7 +15,10 @@ const footerGuideSlugs = [
 
 export function Footer() {
   const year = site.foundingYear; // Statiskt byggvärde – inget runtime-datum.
-  const topSpecialties = specialties.slice(0, 6);
+  // Alla specialiteter, inte slice(0, 6): de sex första var bara arrayordning, inte
+  // ett popularitetsmått, och urvalet uteslöt bl.a. allmänmedicin helt ur den
+  // sajtövergripande navigationen. Hela listan är dessutom mer användbar för besökaren.
+  const topSpecialties = specialties;
   const guides = footerGuideSlugs.map((s) => getArticle(s)).filter((a) => a !== undefined);
 
   return (
@@ -56,7 +59,7 @@ export function Footer() {
         </nav>
 
         <nav aria-label="Specialiteter">
-          <h2 className="text-sm font-semibold text-white">Populära specialiteter</h2>
+          <h2 className="text-sm font-semibold text-white">Specialiteter</h2>
           <ul className="mt-4 space-y-2 text-sm">
             {topSpecialties.map((s) => (
               <li key={s.slug}>

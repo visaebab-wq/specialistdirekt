@@ -39,7 +39,6 @@ export const article: Article = {
     "har remiss men lång väntetid",
     "har privat sjukvårdsförsäkring",
     "vill få en snabbare specialistbedömning",
-    "behöver second opinion på ett MR-svar eller en tidigare utredning",
   ],
   intro: [
     "Neurologiska besvär kan vara svåra att tolka och ofta oroväckande. Det kan handla om huvudvärk eller migrän, yrsel, domningar, stickningar, nervsmärta, svaghet i armar eller ben, tremor (skakningar), balansproblem eller en allmän känsla av att kroppen inte fungerar som vanligt. Många känner också oro efter att ha fått ett MR-svar de inte riktigt förstår.",
@@ -74,7 +73,6 @@ export const article: Article = {
         "misstänkt MS (multipel skleros)",
         "Parkinsonliknande symtom",
         "minnesbesvär och kognitiva symtom",
-        "second opinion kring ett MR-svar eller en tidigare utredning",
       ],
     },
     {
@@ -91,7 +89,7 @@ export const article: Article = {
         "du har skakningar eller andra ofrivilliga rörelser",
         "du upplever svaghet i armar eller ben",
         "du har minnesbesvär eller koncentrationssvårigheter som oroar dig",
-        "du har fått ett MR-svar och vill ha en specialistbedömning eller second opinion",
+        "du har fått ett MR-svar och vill ha en specialistbedömning",
         "du vill följa upp en tidigare neurologisk utredning",
       ],
     },
@@ -191,11 +189,11 @@ export const article: Article = {
       ],
     },
     {
-      id: "mr-second-opinion",
-      heading: "MR-svar och second opinion",
+      id: "mr-svar",
+      heading: "MR-svar",
       body: [
         "Många söker neurolog efter att ha gjort en MR-undersökning och fått ett svar som väcker frågor eller oro. Ett MR-svar kan innehålla fynd som är svåra att tolka på egen hand, och det är inte alltid självklart vad de betyder för just dig.",
-        "En neurolog kan gå igenom MR-svaret tillsammans med din sjukhistoria och dina symtom, och ge en samlad bedömning. Vill du ha en second opinion på en tidigare utredning kan en privat neurolog vara en väg att få ditt ärende genomlyst på nytt.",
+        "En neurolog kan gå igenom MR-svaret tillsammans med din sjukhistoria och dina symtom, och ge en samlad bedömning.",
       ],
     },
     {

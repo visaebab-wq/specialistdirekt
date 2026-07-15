@@ -36,7 +36,6 @@ export const article: Article = {
     "vill veta om neurolog, ÖNH-specialist eller kardiolog är rätt",
     "vill slippa lång väntetid till en specialist",
     "har återkommande yrselattacker som påverkar vardagen",
-    "behöver en second opinion på en tidigare bedömning",
   ],
   intro: [
     "Yrsel är ett av de vanligaste skälen att söka vård, men besvären kan kännas väldigt olika: allt från en gungande ostadighet till en känsla av att rummet snurrar. Eftersom yrsel kan komma från innerörat, hjärnan, blodtrycket eller hjärtat är det inte alltid självklart vart man ska vända sig. Den här guiden går igenom **yrsel – vilken läkare** som passar i olika lägen.",

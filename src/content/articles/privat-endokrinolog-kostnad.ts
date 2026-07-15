@@ -41,7 +41,7 @@ export const article: Article = {
     "Du har trötthet, viktförändring, hjärtklappning, frusenhet eller svettningar med oklar orsak.",
     "Du har svårinställd diabetes eller frågor om insulinresistens.",
     "Du har misstänkt testosteronbrist, kalciumrubbningar eller hypofys- eller binjureproblem.",
-    "Du har känd endokrin sjukdom eller vill ha en second opinion.",
+    "Du har känd endokrin sjukdom.",
   ],
   intro: [
     "Hormonella besvär kan vara svåra att förstå själv. Trötthet, viktförändring, frusenhet, svettningar, hjärtklappning, lågt testosteron, menstruationsrubbningar, diabetes, sköldkörtelproblem eller avvikande blodprover kan ha många olika orsaker.",
@@ -76,7 +76,6 @@ export const article: Article = {
         "vissa hormonella rubbningar",
         "ämnesomsättningsproblem",
         "benskörhet kopplad till hormonella orsaker",
-        "second opinion kring tidigare hormonprover eller behandling",
       ],
     },
     {
@@ -96,7 +95,6 @@ export const article: Article = {
         "misstänkt testosteronbrist",
         "avvikande kalciumvärden",
         "misstanke om hypofys- eller binjureproblem",
-        "second opinion",
         "specialistuppföljning vid känd endokrin sjukdom",
       ],
     },
@@ -113,7 +111,6 @@ export const article: Article = {
         "du har känd endokrin sjukdom och behöver specialistuppföljning",
         "det finns misstanke om hypofys-, binjure- eller bisköldkörtelsjukdom",
         "diabetes eller ämnesomsättning kräver specialistbedömning",
-        "du önskar second opinion",
       ],
     },
     {
@@ -128,7 +125,6 @@ export const article: Article = {
         "pågående behandling men kvarstående besvär",
         "misstanke om över- eller underfunktion",
         "knöl eller förstoring i sköldkörteln",
-        "önskemål om second opinion",
         "behov av specialistuppföljning",
       ],
     },
@@ -257,7 +253,7 @@ export const article: Article = {
         "om du har sjukvårdsförsäkring",
         "om du har remiss, provsvar eller journalunderlag",
         "om du har känd endokrin sjukdom",
-        "om du söker första bedömning eller second opinion",
+        "om du söker första bedömning",
       ],
     },
     {
@@ -277,14 +273,14 @@ export const article: Article = {
       id: "din-forfragan",
       heading: "Vad ska jag skriva i min bokningsförfrågan?",
       body: [
-        "För att mottagningen lättare ska förstå ditt ärende kan du beskriva vilka symtom du har och hur länge, om du har viktförändring, trötthet, hjärtklappning, frusenhet eller svettningar, om du har känd sköldkörtelsjukdom, diabetes eller annan hormonsjukdom, om du redan sökt vård, om du har provsvar, remiss eller journalunderlag, vilka läkemedel du tar, om du söker första bedömning eller second opinion, vilken stad du föredrar och om du har sjukvårdsförsäkring. Du behöver inte göra någon medicinsk bedömning – beskriv bara situationen så konkret som möjligt.",
+        "För att mottagningen lättare ska förstå ditt ärende kan du beskriva vilka symtom du har och hur länge, om du har viktförändring, trötthet, hjärtklappning, frusenhet eller svettningar, om du har känd sköldkörtelsjukdom, diabetes eller annan hormonsjukdom, om du redan sökt vård, om du har provsvar, remiss eller journalunderlag, vilka läkemedel du tar, om du söker första bedömning, vilken stad du föredrar och om du har sjukvårdsförsäkring. Du behöver inte göra någon medicinsk bedömning – beskriv bara situationen så konkret som möjligt.",
       ],
     },
     {
       id: "sammanfattning",
       heading: "Sammanfattning",
       body: [
-        "Privat endokrinolog kan vara aktuellt vid hormonella besvär, sköldkörtelproblem, diabetes, testosteronfrågor, avvikande hormonprover, misstänkta hypofys- eller binjureproblem eller second opinion. En privat endokrinologisk bedömning börjar ofta **från cirka 3 000 kr** och uppåt. Om provtagning, bilddiagnostik eller uppföljning behövs kan totalpriset bli högre. I vissa fall kan sjukvårdsförsäkring täcka kostnaden.",
+        "Privat endokrinolog kan vara aktuellt vid hormonella besvär, sköldkörtelproblem, diabetes, testosteronfrågor, avvikande hormonprover eller misstänkta hypofys- eller binjureproblem. En privat endokrinologisk bedömning börjar ofta **från cirka 3 000 kr** och uppåt. Om provtagning, bilddiagnostik eller uppföljning behövs kan totalpriset bli högre. I vissa fall kan sjukvårdsförsäkring täcka kostnaden.",
         "Du beskriver dina besvär, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Vi hjälper dig vidare till en privat mottagning som kan vara relevant för ditt behov.",
       ],
     },

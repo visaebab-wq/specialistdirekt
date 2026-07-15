@@ -81,7 +81,6 @@ export const article: Article = {
         "sväljbesvär",
         "knöl eller svullnad på halsen",
         "allergiska näsbesvär",
-        "second opinion",
       ],
     },
     {
@@ -101,7 +100,7 @@ export const article: Article = {
         "heshet som inte går över",
         "sväljbesvär",
         "knölkänsla i halsen",
-        "second opinion eller snabbare specialistbedömning",
+        "snabbare specialistbedömning",
       ],
     },
     {
@@ -210,7 +209,6 @@ export const article: Article = {
         "om du har sjukvårdsförsäkring",
         "om du har remiss eller journalunderlag",
         "om ärendet gäller öron, näsa, hals, röst, yrsel eller snarkning",
-        "om det gäller en första bedömning eller second opinion",
       ],
     },
     {
@@ -230,14 +228,14 @@ export const article: Article = {
       id: "din-forfragan",
       heading: "Vad ska jag skriva i min bokningsförfrågan?",
       body: [
-        "För att mottagningen lättare ska förstå ditt ärende kan du beskriva om besvären gäller öron, näsa, hals, röst, yrsel eller sömn, hur länge de pågått, om symtomen kommer och går eller är konstanta, om du har smärta, feber, hörselnedsättning eller sväljbesvär, om du sökt vård, om du har remiss eller journalunderlag, om du gjort hörseltest, om du har sjukvårdsförsäkring, vilken stad eller område du föredrar och om det gäller en första bedömning eller second opinion.",
+        "För att mottagningen lättare ska förstå ditt ärende kan du beskriva om besvären gäller öron, näsa, hals, röst, yrsel eller sömn, hur länge de pågått, om symtomen kommer och går eller är konstanta, om du har smärta, feber, hörselnedsättning eller sväljbesvär, om du sökt vård, om du har remiss eller journalunderlag, om du gjort hörseltest, om du har sjukvårdsförsäkring och vilken stad eller område du föredrar.",
       ],
     },
     {
       id: "sammanfattning",
       heading: "Sammanfattning",
       body: [
-        "Privat ÖNH-läkare kan vara aktuellt vid återkommande öronbesvär, hörselnedsättning, tinnitus, yrsel, nästäppa, bihålebesvär, halsproblem, heshet, sväljbesvär, snarkning eller second opinion. Ett besök börjar ofta **från cirka 3 000 kr** och uppåt; med kamera-undersökning, hörseltest, provtagning, balansutredning eller uppföljning kan totalpriset bli högre.",
+        "Privat ÖNH-läkare kan vara aktuellt vid återkommande öronbesvär, hörselnedsättning, tinnitus, yrsel, nästäppa, bihålebesvär, halsproblem, heshet, sväljbesvär eller snarkning. Ett besök börjar ofta **från cirka 3 000 kr** och uppåt; med kamera-undersökning, hörseltest, provtagning, balansutredning eller uppföljning kan totalpriset bli högre.",
         "I vissa fall kan sjukvårdsförsäkring täcka kostnaden. Du beskriver dina besvär, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Vi hjälper dig vidare till en relevant privat mottagning. Läs gärna mer om [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
       ],
     },

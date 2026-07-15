@@ -29,6 +29,26 @@
 - [Gastroenterolog](/specialiteter/gastroenterolog): Mage, tarm och matsmältning.
 - [Endokrinolog](/specialiteter/endokrinolog): Hormoner, sköldkörtel och diabetes.
 - [Reumatolog](/specialiteter/reumatolog): Inflammatoriska led- och muskelsjukdomar.
+- [Allmänmedicin](/specialiteter/allmanmedicin): Bred medicinsk bedömning när besvären är diffusa eller rör flera områden.
+
+## Undersökningar och fördjupning
+- [Privat gastroenterolog](/privat-gastroenterolog): Mag- och tarmspecialist, remiss och utredning.
+- [Privat gastroskopi](/privat-gastroskopi): Undersökning av matstrupe, magsäck och tolvfingertarm.
+- [Privat koloskopi](/privat-koloskopi): Undersökning av tjocktarm och ändtarm.
+
+## Lokala sidor (specialitet × stad)
+Mönster: /specialiteter/{specialitet}/{stad}. Städer: goteborg, molndal, stockholm, malmo,
+uppsala, linkoping, orebro. Specialiteter med stadssidor: kardiolog, ortoped, hudlakare,
+gynekolog, psykiater, neurolog, allmanmedicin, gastroenterolog.
+Sidor med fördjupat lokalt innehåll (inte enbart mall):
+- [Kardiolog i Göteborg](/specialiteter/kardiolog/goteborg)
+- [Neurolog i Göteborg](/specialiteter/neurolog/goteborg)
+- [Allmänläkare i Göteborg](/specialiteter/allmanmedicin/goteborg)
+- [Gastroenterolog i Göteborg](/specialiteter/gastroenterolog/goteborg)
+- [Kardiolog i Mölndal](/specialiteter/kardiolog/molndal)
+- [Neurolog i Mölndal](/specialiteter/neurolog/molndal)
+- [Allmänläkare i Mölndal](/specialiteter/allmanmedicin/molndal)
+- [Gastroenterolog i Mölndal](/specialiteter/gastroenterolog/molndal)
 
 ## Artiklar (kunskapsbank)
 - [Hitta rätt specialistläkare – komplett guide](/artiklar/hitta-ratt-specialistlakare-guide): Pelarguide om vägen till rätt specialist i Sverige.

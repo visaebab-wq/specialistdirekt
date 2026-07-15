@@ -36,7 +36,6 @@ export const article: Article = {
     "vill veta om vårdcentral, fysioterapeut eller ortoped är rätt",
     "vill slippa lång väntetid till en ortoped",
     "har haft en skada och vill veta om röntgen eller MR behövs",
-    "behöver en second opinion inför eventuell operation",
   ],
   intro: [
     "Knäsmärta är ett av de vanligaste skälen till att söka vård, men det är inte alltid självklart vart man ska vända sig. Ska du boka tid på vårdcentralen, gå direkt till en **ortoped** eller börja hos en fysioterapeut? Svaret beror på hur ont du har, hur länge besvären hållit i sig och om det finns några varningstecken. Den här guiden går igenom **vilken läkare för knäsmärta** som passar i olika lägen.",

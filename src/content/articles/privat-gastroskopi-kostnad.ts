@@ -46,7 +46,6 @@ export const article: Article = {
     "har återkommande smärta i övre magen, illamående eller kräkningar",
     "har misstanke om magsår eller järnbrist som behöver utredas",
     "har remiss men lång väntetid, eller en sjukvårdsförsäkring",
-    "vill ha en second opinion kring tidigare utredning",
   ],
   intro: [
     "Gastroskopi är en undersökning av matstrupe, magsäck och övre delen av tunntarmen, med ett gastroskop – en mjuk slang med kamera som förs in via munnen. Många söker privat gastroskopi för att slippa lång väntetid, få snabbare besked eller för att de har en sjukvårdsförsäkring som kan användas. Läs mer om [privat gastroskopi utan remiss](/privat-gastroskopi).",
@@ -78,7 +77,6 @@ export const article: Article = {
         "järnbrist eller blodbrist utan tydlig förklaring",
         "oförklarlig viktnedgång",
         "uppföljning av tidigare fynd",
-        "second opinion efter tidigare mag- och tarmutredning",
       ],
     },
     {
@@ -96,7 +94,6 @@ export const article: Article = {
         "du har järnbrist eller blodbrist där mag-tarmkanalen behöver utredas",
         "du har remiss men lång väntetid",
         "du har sjukvårdsförsäkring",
-        "du vill få second opinion kring tidigare utredning",
       ],
     },
     {
@@ -216,7 +213,7 @@ export const article: Article = {
       heading: "Gastroskopi eller gastroenterolog först?",
       body: [
         "Det är inte alltid bäst att börja direkt med gastroskopi. I vissa fall är ett besök hos [gastroenterolog](/artiklar/privat-gastroenterolog-kostnad) eller annan läkare rätt första steg, särskilt om symtomen är oklara.",
-        "**Gastroenterolog** kan vara relevant först om du har flera olika mag- och tarmsymtom, redan gjort prover men inte vet nästa steg, är osäker på vilken undersökning som behövs, vill ha second opinion eller har både övre och nedre mag-tarmsymtom.",
+        "**Gastroenterolog** kan vara relevant först om du har flera olika mag- och tarmsymtom, redan gjort prover men inte vet nästa steg, är osäker på vilken undersökning som behövs eller har både övre och nedre mag-tarmsymtom.",
         "**Gastroskopi** kan vara relevant direkt när frågeställningen är tydlig, läkare har rekommenderat undersökningen, symtomen sitter i övre magen eller matstrupen, eller vid sväljsvårigheter, reflux eller misstänkt magsår. Är du osäker, läs [ont i magen – vilken läkare?](/artiklar/ont-i-magen-vilken-lakare).",
       ],
     },

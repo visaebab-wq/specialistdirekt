@@ -27,7 +27,7 @@ export const article: Article = {
   summary: [
     "Ett första besök hos privat kirurg börjar ofta **från cirka 3 000 kr**, en mindre åtgärd 5 000–20 000 kr och en större operation 20 000–80 000 kr eller mer.",
     "Har du privat sjukvårdsförsäkring kan den ofta täcka hela eller delar av kostnaden för besök, utredning och operation, beroende på dina villkor.",
-    "Aktuellt vid bråck, gallstensbesvär, hemorrojder, cystor, lipom, knutor, hudförändringar som behöver tas bort eller en second opinion inför en operation.",
+    "Aktuellt vid bråck, gallstensbesvär, hemorrojder, cystor, lipom, knutor eller hudförändringar som behöver tas bort.",
     "[Specialistdirekt](/kontakt) hjälper dig skicka en bokningsförfrågan till en relevant privat mottagning.",
   ],
   priceTable: [
@@ -40,10 +40,9 @@ export const article: Article = {
     "Du har återkommande smärta under höger revbensbåge och misstänker gallsten.",
     "Du har hemorrojder eller andra anala besvär som inte gått över.",
     "Du har en knuta, cysta, lipom eller hudförändring som du vill få bedömd eller borttagen.",
-    "Du vill ha en second opinion inför en planerad operation.",
   ],
   intro: [
-    "Kirurgiska besvär kan se ut på många sätt. Det kan handla om ett ljumskbråck som buktar ut, gallstensbesvär med smärta under höger revbensbåge, hemorrojder eller andra anala besvär, hudförändringar som behöver tas bort, cystor, lipom och andra knutor under huden, oklara bukbesvär eller en önskan om en second opinion inför en planerad operation.",
+    "Kirurgiska besvär kan se ut på många sätt. Det kan handla om ett ljumskbråck som buktar ut, gallstensbesvär med smärta under höger revbensbåge, hemorrojder eller andra anala besvär, hudförändringar som behöver tas bort, cystor, lipom och andra knutor under huden eller oklara bukbesvär.",
     "Många börjar hos sin vårdcentral, som gör en första bedömning och vid behov skriver remiss vidare. Men i vissa situationer vill man snabbare hitta rätt privat kirurgmottagning, särskilt om besvären påverkar vardagen eller om man redan vet att man behöver en specialistbedömning eller ett kirurgiskt ingrepp.",
     "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård. Vi är inte en vårdgivare, ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
   ],
@@ -72,7 +71,7 @@ export const article: Article = {
         "hudförändringar som behöver tas bort",
         "oklara bukbesvär som behöver bedömas",
         "vissa godartade och misstänkta förändringar i mjukdelar",
-        "uppföljning och second opinion inför en planerad operation",
+        "uppföljning inför en planerad operation",
       ],
     },
     {
@@ -88,7 +87,6 @@ export const article: Article = {
         "du har en knuta, cysta eller ett lipom som du vill få bedömd eller borttagen",
         "du har en hudförändring som behöver bedömas eller tas bort",
         "du har oklara bukbesvär som inte gått över",
-        "du vill ha en second opinion inför en planerad operation",
       ],
     },
     {
@@ -211,7 +209,7 @@ export const article: Article = {
       id: "sammanfattning",
       heading: "Sammanfattning",
       body: [
-        "Privat kirurg kan vara aktuellt vid bråck, gallstensbesvär, hemorrojder, cystor, lipom, knutor, hudförändringar som behöver tas bort eller en second opinion inför en operation. Ett första besök börjar ofta **från cirka 3 000 kr**, en **mindre åtgärd kostar ofta 5 000–20 000 kr eller mer** och en **större operation ofta 20 000–80 000 kr eller mer** – och med privat sjukvårdsförsäkring kan du ofta få hjälp med betalningen. Läs gärna mer om [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
+        "Privat kirurg kan vara aktuellt vid bråck, gallstensbesvär, hemorrojder, cystor, lipom, knutor eller hudförändringar som behöver tas bort. Ett första besök börjar ofta **från cirka 3 000 kr**, en **mindre åtgärd kostar ofta 5 000–20 000 kr eller mer** och en **större operation ofta 20 000–80 000 kr eller mer** – och med privat sjukvårdsförsäkring kan du ofta få hjälp med betalningen. Läs gärna mer om [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
         "Du väljer specialist, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Vi hjälper dig vidare till en privat mottagning som kan vara relevant för ditt behov.",
       ],
     },

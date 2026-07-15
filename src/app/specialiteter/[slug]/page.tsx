@@ -73,7 +73,12 @@ export default async function SpecialtyPage({
     { name: specialty.title, path: `/specialiteter/${specialty.slug}` },
   ];
 
-  const related = specialties.filter((s) => s.slug !== specialty.slug).slice(0, 3);
+  // Roterar cykliskt i stället för slice(0, 3): annars pekar VARJE hubb på samma
+  // tre första specialiteter, så länkkraften samlas där och 9 av 13 hubbar får
+  // noll interna länkar. Rotationen ger exakt 3 inlänkar per hubb och 0 självlänkar
+  // (förutsatt att specialties har fler än 3 poster).
+  const selfIndex = specialties.findIndex((s) => s.slug === specialty.slug);
+  const related = [1, 2, 3].map((step) => specialties[(selfIndex + step) % specialties.length]);
   const relatedArticles = articlesForSpecialty(specialty.slug);
   const showCities = hasCityPages(specialty.slug);
   const extra = getSpecialtyExtra(specialty.slug);

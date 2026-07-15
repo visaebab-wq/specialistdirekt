@@ -36,7 +36,6 @@ export const article: Article = {
     "vill veta om vårdcentral eller gastroenterolog är rätt",
     "vill slippa lång väntetid till en specialist",
     "har fått förändrade tarmvanor och vill bli utredd",
-    "behöver en second opinion på en tidigare bedömning",
   ],
   intro: [
     "Ont i magen är ett av de vanligaste skälen till att söka vård, men det är inte alltid självklart vart man ska vända sig. Ska du boka tid på vårdcentralen, vänta ut besvären eller söka en **gastroenterolog**? Svaret beror på hur ont du har, hur länge besvären hållit i sig och om det finns några varningstecken. Den här guiden förklarar **ont i magen – vilken läkare** som passar i olika lägen.",

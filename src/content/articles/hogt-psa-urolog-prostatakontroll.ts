@@ -45,7 +45,7 @@ export const article: Article = {
     "har förhöjt PSA eller PSA som stiger över tid",
     "har urinbesvär eller blod i urinen",
     "har ärftlighet för prostatacancer",
-    "har fått rekommendation om vidare utredning eller vill ha second opinion",
+    "har fått rekommendation om vidare utredning",
     "har en sjukvårdsförsäkring",
   ],
   intro: [
@@ -81,7 +81,6 @@ export const article: Article = {
         "du har ärftlighet för prostatacancer",
         "du har fått rekommendation om vidare utredning",
         "du har gjort PSA-prov privat och vill förstå nästa steg",
-        "du vill få second opinion efter tidigare besked",
       ],
     },
     {

@@ -98,7 +98,6 @@ export const article: Article = {
         "du har en sjukvårdsförsäkring",
         "du vill undersöka privata alternativ",
         "du behöver en bedömning inför CPAP eller apnébettskena",
-        "du vill ha en second opinion",
       ],
     },
     {

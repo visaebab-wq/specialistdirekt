@@ -42,7 +42,6 @@ export const article: Article = {
     "har remiss men lång väntetid",
     "har privat sjukvårdsförsäkring",
     "vill få en snabbare bedömning eller MR",
-    "behöver second opinion inför en eventuell operation",
   ],
   intro: [
     "En **ortoped** är en specialistläkare på rörelseapparaten – det vill säga skelett, leder, muskler, senor och ligament. När du har ont i knät efter en löprunda, värk i höften som inte ger med sig eller en axel som inte vill röra sig som den ska, är det ofta en [ortoped](/specialiteter/ortoped) du behöver träffa. Och då dyker frågan om **privat ortoped kostnad** snabbt upp.",

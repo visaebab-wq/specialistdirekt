@@ -28,7 +28,7 @@ export const article: Article = {
   summary: [
     "En riktad privat MR börjar ofta **från cirka 6 000 kr**; mer omfattande undersökningar (hjärna, prostata, buk, helrygg, helkropp) kan kosta **10 000–25 000 kr eller mer**.",
     "Privat sjukvårdsförsäkring kan i vissa fall täcka hela eller delar av kostnaden, men ofta krävs godkännande i förväg – kontakta alltid bolaget först.",
-    "Aktuellt vid långvarig ryggsmärta, knä- eller axelbesvär, idrottsskada, neurologiska symtom, prostatabesvär eller second opinion – men ibland är det bättre att träffa rätt specialist först.",
+    "Aktuellt vid långvarig ryggsmärta, knä- eller axelbesvär, idrottsskada, neurologiska symtom eller prostatabesvär – men ibland är det bättre att träffa rätt specialist först.",
     "[Specialistdirekt](/kontakt) hjälper dig skicka en bokningsförfrågan till en relevant privat mottagning.",
   ],
   priceTable: [
@@ -42,10 +42,10 @@ export const article: Article = {
     "Du har knä-, axel- eller idrottsskada",
     "Du har neurologiska symtom eller huvudvärk där läkare bedömt att MR kan behövas",
     "Du har prostata-, buk- eller bäckenbesvär utan svar",
-    "Du vill ha snabbare bilddiagnostik eller en second opinion",
+    "Du vill ha snabbare bilddiagnostik",
   ],
   intro: [
-    "MR (magnetkamera) används för att undersöka kroppens mjukdelar, leder, rygg, hjärna, buk, prostata och andra områden mer detaljerat. Många söker privat MR vid långvariga besvär, för snabbare besked eller tydligare bild inför specialistbedömning – t.ex. ryggsmärta, knäbesvär, axelproblem, huvudvärk, misstänkt diskbråck, idrottsskada, prostatabesvär eller second opinion.",
+    "MR (magnetkamera) används för att undersöka kroppens mjukdelar, leder, rygg, hjärna, buk, prostata och andra områden mer detaljerat. Många söker privat MR vid långvariga besvär, för snabbare besked eller tydligare bild inför specialistbedömning – t.ex. ryggsmärta, knäbesvär, axelproblem, huvudvärk, misstänkt diskbråck, idrottsskada eller prostatabesvär.",
     "Specialistdirekt hjälper dig hitta rätt väg till privat specialistvård och diagnostik. Vi är inte en vårdgivare, ställer ingen diagnos och utför ingen undersökning. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en relevant mottagning/klinik. Läs mer om [hur det fungerar](/sa-fungerar-det).",
   ],
   sections: [
@@ -84,7 +84,6 @@ export const article: Article = {
         "domningar eller neurologiska symtom",
         "prostatabesvär där MR prostata kan vara aktuellt",
         "buk- eller bäckenbesvär utan svar",
-        "second opinion",
         "MR inför specialistbesök",
       ],
     },
@@ -135,7 +134,7 @@ export const article: Article = {
       body: [
         "MR rygg används vid långvarig ryggsmärta, misstänkt diskbråck, nervpåverkan, ischias eller efter skada. En riktad MR av en del av ryggen kan ofta kosta **från cirka 7 000–10 000 kr**, medan helrygg kostar betydligt mer. Vid ryggbesvär kan en [ortoped](/specialiteter/ortoped) bedöma om MR behövs.",
         "MR knä används vid knäskada, meniskskada, korsbandsskada, broskproblem eller långvarig knäsmärta – ofta **från cirka 6 000–9 000 kr**. MR axel används vid senskada, rotatorcuffbesvär, instabilitet eller smärta – ofta **från cirka 6 000–9 000 kr**.",
-        "MR hjärna används vid vissa neurologiska frågeställningar, huvudvärk med varningssignaler, misstänkt inflammation, tumör- eller kärlfråga eller second opinion – ofta **från cirka 10 000 kr** och uppåt. Vid neurologiska symtom kan en [neurolog](/specialiteter/neurolog) avgöra vad som behövs.",
+        "MR hjärna används vid vissa neurologiska frågeställningar, huvudvärk med varningssignaler, misstänkt inflammation, tumör- eller kärlfråga – ofta **från cirka 10 000 kr** och uppåt. Vid neurologiska symtom kan en [neurolog](/specialiteter/neurolog) avgöra vad som behövs.",
         "MR prostata används vid vissa prostatafrågeställningar inför urologisk bedömning – ofta **från cirka 10 000–15 000 kr** eller mer. En [urolog](/specialiteter/urolog) kan bedöma om MR prostata är rätt.",
         "Helkropps-MR är en mer omfattande undersökning som inte passar alla och kan ge fynd som kräver vidare utredning – ofta **från cirka 20 000 kr** och uppåt.",
       ],
@@ -207,7 +206,7 @@ export const article: Article = {
       id: "sammanfattning",
       heading: "Sammanfattning",
       body: [
-        "Privat MR kan vara aktuellt vid ryggsmärta, knäskada, axelbesvär, neurologiska symtom, huvudvärk med medicinsk frågeställning, prostatabesvär, bukbesvär eller second opinion. En riktad privat MR börjar ofta **från cirka 6 000 kr** och uppåt, medan mer omfattande undersökningar (hjärna, prostata, buk, helrygg, helkropp) kan kosta **10 000–25 000 kr** eller mer. I vissa fall kan sjukvårdsförsäkring täcka kostnaden.",
+        "Privat MR kan vara aktuellt vid ryggsmärta, knäskada, axelbesvär, neurologiska symtom, huvudvärk med medicinsk frågeställning, prostatabesvär eller bukbesvär. En riktad privat MR börjar ofta **från cirka 6 000 kr** och uppåt, medan mer omfattande undersökningar (hjärna, prostata, buk, helrygg, helkropp) kan kosta **10 000–25 000 kr** eller mer. I vissa fall kan sjukvårdsförsäkring täcka kostnaden.",
         "Det är inte alltid bäst att börja med MR – ibland är det bättre att träffa rätt specialist först. Läs gärna mer om [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig) eller skicka en [bokningsförfrågan](/kontakt) så hjälper vi dig vidare.",
       ],
     },

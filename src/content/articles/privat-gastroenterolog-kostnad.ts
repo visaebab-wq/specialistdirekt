@@ -43,7 +43,7 @@ export const article: Article = {
     "Du har reflux eller svår halsbränna som inte blir bättre.",
     "Du har blod eller slem i avföringen eller oförklarlig viktnedgång.",
     "Du misstänker IBS, IBD eller annan tarmsjukdom.",
-    "Du behöver gastroskopi, koloskopi eller en second opinion.",
+    "Du behöver gastroskopi eller koloskopi.",
   ],
   intro: [
     "Mag- och tarmbesvär kan vara svåra att förstå själv. Det kan handla om återkommande magsmärta, uppblåsthet, diarré, förstoppning, reflux, illamående, blod i avföringen eller oro för att något inte står rätt till.",
@@ -95,7 +95,6 @@ export const article: Article = {
         "svårigheter att svälja",
         "misstanke om IBS, IBD eller annan tarmsjukdom",
         "oro efter avvikande provsvar",
-        "behov av second opinion kring tidigare utredning",
       ],
     },
     {

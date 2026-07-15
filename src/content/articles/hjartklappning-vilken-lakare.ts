@@ -36,7 +36,6 @@ export const article: Article = {
     "vill veta om vårdcentral eller kardiolog är rätt",
     "vill slippa lång väntetid till en hjärtutredning",
     "vill fånga rytmen med en längre registrering (Holter)",
-    "behöver en second opinion på en tidigare bedömning",
   ],
   intro: [
     "Att plötsligt känna hjärtat slå hårt, snabbt eller oregelbundet är obehagligt, och många undrar genast **vilken läkare** de ska söka. Ska du boka tid på vårdcentralen, vända dig direkt till en **kardiolog** eller är det till och med något som kräver akut vård? Svaret beror på hur dina besvär ser ut, hur ofta de kommer och om det finns några varningstecken. Den här guiden går igenom hur du tänker vid **hjärtklappning** och **vilken läkare** som passar i olika lägen.",

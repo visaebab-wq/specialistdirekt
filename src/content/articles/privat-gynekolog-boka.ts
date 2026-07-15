@@ -18,7 +18,7 @@ export const article: Article = {
     "sjukvårdsförsäkring gynekolog",
   ],
   excerpt:
-    "Privat gynekolog vid blödningar, smärta, klimakteriet, ultraljud eller second opinion. Vi går igenom kostnad från cirka 3 000 kr, försäkring och hur du bokar.",
+    "Privat gynekolog vid blödningar, smärta, klimakteriet eller ultraljud. Vi går igenom kostnad från cirka 3 000 kr, försäkring och hur du bokar.",
   published: "2026-05-30",
   updated: "2026-06-24",
   readMinutes: 10,
@@ -27,7 +27,7 @@ export const article: Article = {
   summary: [
     "Ett privat gynekologbesök börjar ofta **från cirka 3 000 kr**, och en mer omfattande utredning kan kosta 5 000–15 000 kr eller mer.",
     "Sjukvårdsförsäkring kan ibland täcka kostnaden.",
-    "Aktuellt vid blödningsrubbningar, underlivssmärta, klimakteriebesvär, vaginalt ultraljud, fertilitetsfrågor eller second opinion.",
+    "Aktuellt vid blödningsrubbningar, underlivssmärta, klimakteriebesvär, vaginalt ultraljud eller fertilitetsfrågor.",
     "[Specialistdirekt](/kontakt) hjälper dig skicka en bokningsförfrågan till en relevant privat mottagning.",
   ],
   priceTable: [
@@ -39,7 +39,6 @@ export const article: Article = {
     "har remiss men lång väntetid",
     "har privat sjukvårdsförsäkring",
     "vill få en snabbare bedömning eller ultraljud",
-    "behöver second opinion",
   ],
   intro: [
     "Gynekologiska besvär kan vara både fysiskt påfrestande och känsliga – smärta, blödningsrubbningar, mellanblödningar, klimakteriebesvär, misstänkt infektion, cellförändringar, fertilitetsfrågor, urinläckage eller behov av gynekologiskt ultraljud. Många börjar hos vårdcentral, barnmorskemottagning eller ungdomsmottagning. Om besvären återkommer, påverkar vardagen eller kräver specialistbedömning kan en gynekolog bli aktuell.",
@@ -50,7 +49,7 @@ export const article: Article = {
       id: "kostnad",
       heading: "Kort svar: vad kostar privat gynekolog?",
       body: [
-        "Ett privat gynekologbesök eller en privat gynekologisk utredning börjar ofta **från cirka 3 000 kr** och uppåt. Ett enklare besök kan kosta mindre, men med gynekologisk undersökning, vaginalt ultraljud, provtagning, cellprov, hormonbedömning, uppföljning eller second opinion kan totalpriset bli högre.",
+        "Ett privat gynekologbesök eller en privat gynekologisk utredning börjar ofta **från cirka 3 000 kr** och uppåt. Ett enklare besök kan kosta mindre, men med gynekologisk undersökning, vaginalt ultraljud, provtagning, cellprov, hormonbedömning eller uppföljning kan totalpriset bli högre.",
         "En mer omfattande privat gynekologisk utredning kan ofta hamna på **5 000–15 000 kr eller mer**. Har du privat sjukvårdsförsäkring kan den i vissa fall täcka hela eller delar av kostnaden. Be alltid mottagningen eller försäkringsbolaget bekräfta pris och villkor innan du bokar.",
       ],
     },
@@ -78,7 +77,6 @@ export const article: Article = {
         "urinläckage",
         "framfall",
         "gynekologiskt ultraljud",
-        "second opinion",
       ],
     },
     {
@@ -101,7 +99,6 @@ export const article: Article = {
         "fertilitetsfrågor",
         "urinläckage eller framfall",
         "uppföljning efter avvikande provsvar",
-        "second opinion",
       ],
     },
     {
@@ -193,7 +190,7 @@ export const article: Article = {
       id: "klimakteriet",
       heading: "Klimakteriebesvär och privat gynekolog",
       body: [
-        "Klimakteriet kan ge värmevallningar, sömnproblem, torra slemhinnor, humörsvängningar, blödningsförändringar eller påverkan på sexlivet. En gynekolog kan vara relevant om besvären påverkar sömn eller vardag, vid blödningsrubbningar, om du vill diskutera hormonbehandling, vid riskfaktorer eller tidigare sjukdom, om tidigare behandling inte fungerat eller för second opinion.",
+        "Klimakteriet kan ge värmevallningar, sömnproblem, torra slemhinnor, humörsvängningar, blödningsförändringar eller påverkan på sexlivet. En gynekolog kan vara relevant om besvären påverkar sömn eller vardag, vid blödningsrubbningar, om du vill diskutera hormonbehandling, vid riskfaktorer eller tidigare sjukdom, eller om tidigare behandling inte fungerat.",
         "Hormonbehandling passar inte alla – det är vårdgivaren som bedömer risker, nytta och behandling.",
       ],
     },
@@ -227,7 +224,7 @@ export const article: Article = {
         "närliggande ort om du kan tänka dig det för snabbare tid",
         "om du har sjukvårdsförsäkring",
         "om du har remiss, provsvar eller journalunderlag",
-        "om ärendet gäller blödningar, smärta, klimakteriet, ultraljud, fertilitet eller second opinion",
+        "om ärendet gäller blödningar, smärta, klimakteriet, ultraljud eller fertilitet",
         "om det gäller en första bedömning eller en uppföljning",
       ],
     },
@@ -267,7 +264,7 @@ export const article: Article = {
       id: "sammanfattning",
       heading: "Sammanfattning",
       body: [
-        "Privat gynekolog kan vara aktuellt vid blödningsrubbningar, underlivssmärta, klimakteriebesvär, vaginalt ultraljud, fertilitetsfrågor, urinläckage, cellförändringar eller second opinion. Ett besök eller en bedömning börjar ofta **från cirka 3 000 kr** och uppåt; med ultraljud, provtagning, uppföljning eller åtgärder kan totalpriset bli högre, och en omfattande utredning kan hamna på **5 000–15 000 kr eller mer**. I vissa fall kan sjukvårdsförsäkring täcka kostnaden.",
+        "Privat gynekolog kan vara aktuellt vid blödningsrubbningar, underlivssmärta, klimakteriebesvär, vaginalt ultraljud, fertilitetsfrågor, urinläckage eller cellförändringar. Ett besök eller en bedömning börjar ofta **från cirka 3 000 kr** och uppåt; med ultraljud, provtagning, uppföljning eller åtgärder kan totalpriset bli högre, och en omfattande utredning kan hamna på **5 000–15 000 kr eller mer**. I vissa fall kan sjukvårdsförsäkring täcka kostnaden.",
         "Du beskriver dina besvär, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Vi hjälper dig vidare till en privat mottagning som kan vara relevant för ditt behov.",
       ],
     },

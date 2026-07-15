@@ -36,7 +36,6 @@ export const article: Article = {
     "vill veta om fysioterapeut, ortoped eller neurolog är rätt",
     "vill slippa lång väntetid till en specialist",
     "har utstrålande smärta eller domningar i ben eller arm",
-    "behöver en second opinion inför eventuell behandling",
   ],
   intro: [
     "Ryggont är ett av de allra vanligaste skälen till att söka vård, och de flesta drabbas någon gång i livet. Ändå är det långtifrån självklart vart man ska vända sig. Ska du boka tid på vårdcentralen, gå till en **fysioterapeut**, söka en **ortoped** eller behöver du kanske en **neurolog**? Svaret beror på var det gör ont, hur länge besvären hållit i sig och om det finns några varningstecken. Den här guiden går igenom **ont i ryggen – vilken läkare** som passar bäst i olika lägen.",

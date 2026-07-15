@@ -27,7 +27,7 @@ export const article: Article = {
   summary: [
     "Ett privat hudläkarbesök börjar ofta **från cirka 3 000 kr**, och en mer omfattande hudutredning eller behandling kan kosta 5 000–15 000 kr eller mer.",
     "Sjukvårdsförsäkring kan ibland täcka kostnaden.",
-    "Aktuellt vid hudförändringar, födelsemärken, akne, eksem, psoriasis, håravfall, sår som inte läker eller second opinion.",
+    "Aktuellt vid hudförändringar, födelsemärken, akne, eksem, psoriasis, håravfall eller sår som inte läker.",
     "[Specialistdirekt](/kontakt) hjälper dig skicka en bokningsförfrågan till en relevant privat mottagning.",
   ],
   priceTable: [
@@ -39,7 +39,6 @@ export const article: Article = {
     "har remiss men lång väntetid",
     "har privat sjukvårdsförsäkring",
     "vill få en snabbare specialistbedömning",
-    "behöver second opinion",
   ],
   intro: [
     "Hudbesvär kan vara synliga, irriterande och oroande – nya eller förändrade födelsemärken, utslag, klåda, akne, eksem, psoriasis, rosacea, håravfall, sår som inte läker eller oro för hudcancer. Många börjar hos vårdcentralen. Om besvären återkommer, inte blir bättre eller om du vill ha specialistbedömning snabbare kan en hudläkare (dermatolog) bli aktuell.",
@@ -73,7 +72,6 @@ export const article: Article = {
         "pigmentförändringar",
         "sår som inte läker",
         "hudbesvär efter tidigare behandling",
-        "second opinion",
       ],
     },
     {
@@ -93,7 +91,7 @@ export const article: Article = {
         "psoriasis som påverkar vardagen",
         "håravfall och nagelbesvär",
         "sår som inte läker",
-        "behov av second opinion eller snabbare specialistbedömning",
+        "behov av snabbare specialistbedömning",
       ],
     },
     {
@@ -190,7 +188,7 @@ export const article: Article = {
       id: "psoriasis",
       heading: "Psoriasis och långvariga hudsjukdomar",
       body: [
-        "Psoriasis och andra kroniska hudsjukdomar kan kräva uppföljning och behandlingsjustering. Hudläkare kan vara relevant om besvären påverkar vardagen, utslagen sprider sig, tidigare behandling inte hjälper, du har misstänkt ledvärk kopplad till psoriasis, du behöver second opinion eller vill diskutera behandlingsalternativ.",
+        "Psoriasis och andra kroniska hudsjukdomar kan kräva uppföljning och behandlingsjustering. Hudläkare kan vara relevant om besvären påverkar vardagen, utslagen sprider sig, tidigare behandling inte hjälper, du har misstänkt ledvärk kopplad till psoriasis eller vill diskutera behandlingsalternativ.",
         "Vid ledvärk, svullna leder eller morgonstelhet kan även [reumatolog](/artiklar/privat-reumatolog-kostnad) bli relevant.",
       ],
     },
@@ -213,7 +211,7 @@ export const article: Article = {
         "sjukvårdsförsäkring",
         "remiss, bilder eller journalunderlag",
         "om ärendet gäller hudförändring, akne, eksem, psoriasis, håravfall eller annat",
-        "första bedömning eller second opinion",
+        "första bedömning",
       ],
     },
     {
@@ -250,7 +248,7 @@ export const article: Article = {
       id: "sammanfattning",
       heading: "Sammanfattning",
       body: [
-        "Privat hudläkare kan vara aktuellt vid hudförändringar, födelsemärken, akne, eksem, psoriasis, rosacea, håravfall, nagelbesvär, sår som inte läker eller second opinion. Ett besök eller bedömning börjar ofta **från cirka 3 000 kr** och uppåt; med dermatoskopi, biopsi, provtagning, operation eller uppföljning kan totalpriset bli högre, ofta **5 000–15 000 kr eller mer**.",
+        "Privat hudläkare kan vara aktuellt vid hudförändringar, födelsemärken, akne, eksem, psoriasis, rosacea, håravfall, nagelbesvär eller sår som inte läker. Ett besök eller bedömning börjar ofta **från cirka 3 000 kr** och uppåt; med dermatoskopi, biopsi, provtagning, operation eller uppföljning kan totalpriset bli högre, ofta **5 000–15 000 kr eller mer**.",
         "I vissa fall kan sjukvårdsförsäkring täcka kostnaden. Du beskriver dina besvär, anger önskat område och skickar en [bokningsförfrågan](/kontakt) – vi hjälper dig vidare till en relevant mottagning.",
       ],
     },

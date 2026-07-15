@@ -42,7 +42,7 @@ export const article: Article = {
     "Du snarkar kraftigt eller är trött på dagarna och misstänker sömnapné.",
   ],
   intro: [
-    "Andningsbesvär kan vara både skrämmande och svåra att tolka. Det kan handla om andfåddhet vid ansträngning eller i vila, långvarig hosta, pip i bröstet, misstänkt astma eller KOL, återkommande luftvägsinfektioner, allergiska besvär, sömnrelaterad andning eller en oro som gör att du vill ha en second opinion. Många av dessa symtom är vanliga, men de förtjänar ändå en ordentlig bedömning.",
+    "Andningsbesvär kan vara både skrämmande och svåra att tolka. Det kan handla om andfåddhet vid ansträngning eller i vila, långvarig hosta, pip i bröstet, misstänkt astma eller KOL, återkommande luftvägsinfektioner, allergiska besvär eller sömnrelaterad andning. Många av dessa symtom är vanliga, men de förtjänar ändå en ordentlig bedömning.",
     "De flesta börjar hos sin vårdcentral, som gör en första bedömning och ofta kan inleda en utredning. Ibland vill man dock snabbare hitta rätt privat lungmottagning, särskilt om besvären påverkar vardagen, om de inte går över eller om man redan vet att man behöver en specialistbedömning av lungor och luftvägar.",
     "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård. Vi är inte en vårdgivare, ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
   ],
@@ -90,7 +90,6 @@ export const article: Article = {
         "du får återkommande luftvägsinfektioner",
         "du har allergi som påverkar andningen",
         "du snarkar kraftigt eller är trött på dagarna och misstänker sömnapné",
-        "du vill ha en second opinion på en tidigare bedömning",
       ],
     },
     {

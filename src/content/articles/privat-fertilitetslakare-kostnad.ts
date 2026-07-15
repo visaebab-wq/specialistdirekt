@@ -44,7 +44,7 @@ export const article: Article = {
     "Du vill diskutera äggfrysning eller söker som ensamstående eller samkönat par.",
   ],
   intro: [
-    "Att det dröjer att bli gravid kan väcka många frågor och mycket oro. Det kan handla om att graviditet uteblir trots försök under lång tid, oregelbunden eller utebliven ägglossning, upprepade missfall, frågor kopplade till stigande ålder, nedsatt spermiekvalitet, endometrios eller PCOS. Andra söker för att förstå sina möjligheter inför framtiden, exempelvis genom äggfrysning, eller för att få en second opinion på en tidigare utredning eller behandling.",
+    "Att det dröjer att bli gravid kan väcka många frågor och mycket oro. Det kan handla om att graviditet uteblir trots försök under lång tid, oregelbunden eller utebliven ägglossning, upprepade missfall, frågor kopplade till stigande ålder, nedsatt spermiekvalitet, endometrios eller PCOS. Andra söker för att förstå sina möjligheter inför framtiden, exempelvis genom äggfrysning.",
     "Många börjar i vårdcentralen, hos sin gynekolog eller i den offentligt finansierade fertilitetsvården. Men i vissa situationer vill man snabbare hitta rätt privat fertilitetsläkare eller fertilitetsklinik, särskilt om väntetiderna är långa, om tiden känns kort på grund av ålder eller om man vill påbörja en utredning utan dröjsmål.",
     "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård. Vi är inte en vårdgivare, ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
   ],
@@ -77,7 +77,6 @@ export const article: Article = {
         "insemination",
         "äggfrysning för framtida fertilitet",
         "donationsbehandling med donerade ägg eller spermier",
-        "second opinion på tidigare utredning eller behandling",
       ],
     },
     {
@@ -94,7 +93,6 @@ export const article: Article = {
         "du eller din partner har konstaterad eller misstänkt nedsatt spermiekvalitet",
         "du närmar dig en ålder där du vill agera snabbt",
         "du vill diskutera äggfrysning för framtida möjlighet att skaffa barn",
-        "du vill ha en second opinion på en tidigare utredning eller behandling",
         "du söker som ensamstående eller samkönat par och vill veta vilka vägar som finns",
       ],
     },

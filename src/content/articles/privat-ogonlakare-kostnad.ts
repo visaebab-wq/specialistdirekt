@@ -42,7 +42,7 @@ export const article: Article = {
     "Du misstänker grå starr eller har högt ögontryck eller misstanke om grön starr.",
     "Du har ögonsmärta, återkommande inflammation eller torra ögon som påverkar vardagen.",
     "Du har diabetes och behöver ögonbedömning.",
-    "Du funderar på ögonoperation, linsbyte eller vill ha en second opinion.",
+    "Du funderar på ögonoperation eller linsbyte.",
   ],
   intro: [
     "Synen är något många inte vill vänta med. Om du har synförändringar, ögonsmärta, återkommande besvär, misstänkt grå starr, ögoninflammation som inte går över eller oro efter en optikerundersökning kan det vara aktuellt att träffa ögonläkare.",
@@ -100,7 +100,6 @@ export const article: Article = {
         "torra ögon som påverkar vardagen",
         "du har diabetes och behöver ögonbedömning",
         "du har fått remiss eller rekommendation från optiker",
-        "du vill ha en second opinion",
         "du funderar på ögonoperation eller linsbyte",
       ],
     },
@@ -213,7 +212,7 @@ export const article: Article = {
         "om du kan tänka dig närliggande ort",
         "om du har sjukvårdsförsäkring",
         "om du har remiss, optikerutlåtande eller journalunderlag",
-        "om du söker första besök, second opinion eller operationsbedömning",
+        "om du söker första besök eller operationsbedömning",
       ],
     },
     {
@@ -240,7 +239,7 @@ export const article: Article = {
       id: "sammanfattning",
       heading: "Sammanfattning",
       body: [
-        "Privat ögonläkare kan vara aktuellt vid synförändringar, misstänkt grå starr, ögontrycksproblem, ögonsmärta, återkommande inflammation, diabetesrelaterade ögonbesvär eller second opinion. En privat ögonutredning börjar ofta från cirka **3 000 kr** och uppåt. Operationer, linsbyte och ögonlaser kan kosta från tiotusentals kronor per öga. I vissa fall kan sjukvårdsförsäkring täcka kostnaden.",
+        "Privat ögonläkare kan vara aktuellt vid synförändringar, misstänkt grå starr, ögontrycksproblem, ögonsmärta, återkommande inflammation eller diabetesrelaterade ögonbesvär. En privat ögonutredning börjar ofta från cirka **3 000 kr** och uppåt. Operationer, linsbyte och ögonlaser kan kosta från tiotusentals kronor per öga. I vissa fall kan sjukvårdsförsäkring täcka kostnaden.",
         "Du beskriver dina besvär, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Vi hjälper dig vidare till en privat mottagning som kan vara relevant för ditt behov.",
       ],
     },

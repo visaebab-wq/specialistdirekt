@@ -75,6 +75,21 @@ export default function AboutPage() {
             Vi ställer inga diagnoser och ger ingen medicinsk rådgivning. Vår roll är att vara
             länken som snabbt och tryggt för dig vidare till rätt vård.
           </p>
+          <p>
+            Du behöver aldrig ta vårt ord för att en läkare är legitimerad. Socialstyrelsen för ett
+            offentligt register över legitimerad hälso- och sjukvårdspersonal, där du själv kan
+            kontrollera vilken legitimation en läkare har – gratis och när som helst. Du hittar det
+            på{" "}
+            <a
+              href="https://legitimation.socialstyrelsen.se/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-brand-700 hover:underline"
+            >
+              Socialstyrelsens register
+            </a>
+            .
+          </p>
         </div>
 
         <h2 className="mt-12 text-2xl font-bold text-ink-900">Det vi står för</h2>

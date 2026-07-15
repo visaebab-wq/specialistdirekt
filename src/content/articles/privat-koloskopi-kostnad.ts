@@ -46,7 +46,6 @@ export const article: Article = {
     "har privat sjukvårdsförsäkring",
     "har haft blod i avföringen eller förändrade avföringsvanor",
     "tidigare haft polyper och behöver uppföljning",
-    "vill ha en second opinion kring tidigare utredning",
   ],
   intro: [
     "Koloskopi är en undersökning av tjocktarmen, och ibland sista delen av tunntarmen, med ett koloskop – en mjuk slang med kamera som förs in via ändtarmen. Många söker privat koloskopi för att slippa lång väntetid, få snabbare besked eller för att de har en privat sjukvårdsförsäkring som kan användas. Läs mer om [privat koloskopi utan remiss](/privat-koloskopi).",
@@ -78,7 +77,6 @@ export const article: Article = {
         "uppföljning efter tidigare koloskopi",
         "järnbrist eller blodbrist utan tydlig förklaring",
         "ärftlighet eller ökad risk för tjocktarmscancer",
-        "second opinion",
       ],
     },
     {
@@ -95,7 +93,6 @@ export const article: Article = {
         "du har förändrade avföringsvanor",
         "du tidigare haft polyper som behöver uppföljning",
         "du har mag- eller tarmbesvär där läkare bedömer att koloskopi kan behövas",
-        "du vill ha en second opinion",
         "du vill hitta en privat endoskopimottagning i rätt stad",
       ],
     },
@@ -240,7 +237,7 @@ export const article: Article = {
       id: "koloskopi-eller-gastroenterolog",
       heading: "Koloskopi eller gastroenterolog först?",
       body: [
-        "Det är inte alltid bäst att börja direkt med koloskopi. Ibland är det bättre att först träffa en [gastroenterolog](/specialiteter/gastroenterolog), till exempel om du har flera mag- eller tarmsymtom, redan gjort prover men är osäker på nästa steg, är osäker på vilken undersökning som behövs, vill ha en second opinion eller behöver en samlad bedömning.",
+        "Det är inte alltid bäst att börja direkt med koloskopi. Ibland är det bättre att först träffa en [gastroenterolog](/specialiteter/gastroenterolog), till exempel om du har flera mag- eller tarmsymtom, redan gjort prover men är osäker på nästa steg, är osäker på vilken undersökning som behövs eller behöver en samlad bedömning.",
         "Koloskopi direkt kan passa bättre när det finns en tydlig frågeställning, när en läkare eller specialist rekommenderat det, vid uppföljning av tidigare polyper eller när mottagningen bedömer att en tarmundersökning är rätt väg. Läs mer i vår guide om [ont i magen – vilken läkare?](/artiklar/ont-i-magen-vilken-lakare).",
       ],
     },

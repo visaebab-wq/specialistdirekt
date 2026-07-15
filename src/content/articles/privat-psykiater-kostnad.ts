@@ -27,7 +27,7 @@ export const article: Article = {
   summary: [
     "Ett privat psykiaterbesök kostar ofta **från cirka 3 000 kr** och uppåt; omfattande utredningar, ADHD-bedömningar eller intyg kan kosta **5 000–20 000 kr eller mer**.",
     "Privat sjukvårdsförsäkring kan i vissa fall täcka hela eller delar av kostnaden – kontakta alltid bolaget först.",
-    "Aktuellt vid depression, ångest, sömnproblem, misstänkt ADHD, läkemedelsbedömning eller second opinion när besvären är långvariga eller komplexa.",
+    "Aktuellt vid depression, ångest, sömnproblem, misstänkt ADHD eller läkemedelsbedömning när besvären är långvariga eller komplexa.",
     "[Specialistdirekt](/kontakt) hjälper dig skicka en bokningsförfrågan till en relevant privat mottagning.",
   ],
   priceTable: [
@@ -38,7 +38,7 @@ export const article: Article = {
   ],
   suitableFor: [
     "Du har depression eller ångest som påverkar vardagen",
-    "Du behöver läkemedelsbedömning eller second opinion",
+    "Du behöver läkemedelsbedömning",
     "Du misstänker ADHD eller ADD",
     "Tidigare behandling har inte gett tillräcklig hjälp",
     "Du har sjukvårdsförsäkring och vill hitta rätt privat mottagning",
@@ -54,7 +54,7 @@ export const article: Article = {
       heading: "Kort svar: vad kostar privat psykiater?",
       body: [
         "Ett privat besök hos psykiater börjar ofta **från cirka 3 000 kr** och uppåt, beroende på mottagning, ort, besökets längd och vad som ingår.",
-        "Vid en mer omfattande psykiatrisk bedömning, läkemedelsgenomgång, second opinion, ADHD-bedömning, intyg, uppföljning eller flera besök kan kostnaden bli betydligt högre. En privat psykiatrisk utredning eller längre behandlingskontakt kan hamna på **5 000–20 000 kr eller mer**.",
+        "Vid en mer omfattande psykiatrisk bedömning, läkemedelsgenomgång, ADHD-bedömning, intyg, uppföljning eller flera besök kan kostnaden bli betydligt högre. En privat psykiatrisk utredning eller längre behandlingskontakt kan hamna på **5 000–20 000 kr eller mer**.",
         "Har du privat sjukvårdsförsäkring kan den i vissa fall täcka hela eller delar av kostnaden, beroende på avtal, om ärendet godkänns, om mottagningen ingår i nätverket och om besvären omfattas. Be alltid mottagningen eller försäkringsbolaget bekräfta pris och villkor innan du bokar.",
       ],
     },
@@ -76,7 +76,6 @@ export const article: Article = {
         "tvångssyndrom",
         "trauma- och PTSD-relaterade besvär",
         "läkemedelsgenomgång",
-        "second opinion",
         "psykiatriska intyg i vissa situationer",
       ],
     },
@@ -93,7 +92,6 @@ export const article: Article = {
         "misstänkt ADHD eller ADD",
         "sömnproblem kopplade till psykisk ohälsa",
         "återkommande panikattacker",
-        "behov av second opinion",
         "komplexa symtom",
         "du har sjukvårdsförsäkring",
         "du vill hitta rätt privat psykiatrisk mottagning",
@@ -169,7 +167,6 @@ export const article: Article = {
       bullets: [
         "specialistbedömning",
         "läkemedelsgenomgång",
-        "second opinion",
         "bedömning av samsjuklighet",
         "planering av vidare behandling",
         "uppföljning",
@@ -213,7 +210,7 @@ export const article: Article = {
         "om digitalt besök fungerar",
         "om du har sjukvårdsförsäkring",
         "om du har diagnos, remiss eller journalunderlag",
-        "om ärendet gäller ADHD, depression, ångest, läkemedel eller second opinion",
+        "om ärendet gäller ADHD, depression, ångest eller läkemedel",
         "om du söker första bedömning eller uppföljning",
       ],
     },
@@ -234,14 +231,14 @@ export const article: Article = {
       id: "din-forfragan",
       heading: "Vad ska jag skriva i min bokningsförfrågan?",
       body: [
-        "För att mottagningen lättare ska förstå ditt ärende kan du beskriva vilka besvär du har, hur länge de pågått, om du tidigare sökt vård, om du har en diagnos, om du tar läkemedel, om du söker läkemedelsbedömning, second opinion eller utredning, om ärendet gäller ADHD, depression, ångest eller sömn, om du har remiss eller journalunderlag, vilken stad eller område du föredrar, om digital kontakt är okej och om du har sjukvårdsförsäkring.",
+        "För att mottagningen lättare ska förstå ditt ärende kan du beskriva vilka besvär du har, hur länge de pågått, om du tidigare sökt vård, om du har en diagnos, om du tar läkemedel, om du söker läkemedelsbedömning eller utredning, om ärendet gäller ADHD, depression, ångest eller sömn, om du har remiss eller journalunderlag, vilken stad eller område du föredrar, om digital kontakt är okej och om du har sjukvårdsförsäkring.",
       ],
     },
     {
       id: "sammanfattning",
       heading: "Sammanfattning",
       body: [
-        "Privat psykiater kan vara aktuellt vid depression, ångest, ADHD-frågor, läkemedelsbedömning, second opinion eller andra besvär där specialistbedömning behövs. Ett besök börjar ofta **från cirka 3 000 kr** och uppåt; omfattande utredningar, ADHD-bedömningar eller intyg kan kosta **betydligt mer (5 000–20 000 kr eller mer)**. I vissa fall kan sjukvårdsförsäkring täcka kostnaden.",
+        "Privat psykiater kan vara aktuellt vid depression, ångest, ADHD-frågor, läkemedelsbedömning eller andra besvär där specialistbedömning behövs. Ett besök börjar ofta **från cirka 3 000 kr** och uppåt; omfattande utredningar, ADHD-bedömningar eller intyg kan kosta **betydligt mer (5 000–20 000 kr eller mer)**. I vissa fall kan sjukvårdsförsäkring täcka kostnaden.",
         "Du beskriver dina besvär, anger önskat område eller digitalt besök och skickar en [bokningsförfrågan](/kontakt). Vi hjälper dig vidare till en privat mottagning som kan vara relevant för ditt behov.",
       ],
     },

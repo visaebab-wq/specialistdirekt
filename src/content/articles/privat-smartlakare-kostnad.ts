@@ -26,7 +26,7 @@ export const article: Article = {
   summary: [
     "Ett privat besök hos smärtläkare börjar ofta **från cirka 3 000 kr**; en mer omfattande smärtutredning eller behandlingsplan kan kosta **5 000–20 000 kr eller mer**.",
     "Privat sjukvårdsförsäkring kan i vissa fall täcka hela eller delar av kostnaden – kontakta alltid bolaget först.",
-    "Aktuellt vid långvarig smärta, ryggsmärta, nervsmärta, smärta efter operation eller skada, komplex värk eller second opinion när tidigare vård inte gett tillräcklig hjälp.",
+    "Aktuellt vid långvarig smärta, ryggsmärta, nervsmärta, komplex värk, smärta efter operation eller skada när tidigare vård inte gett tillräcklig hjälp.",
     "[Specialistdirekt](/kontakt) hjälper dig skicka en bokningsförfrågan till en relevant privat mottagning.",
   ],
   priceTable: [
@@ -40,7 +40,7 @@ export const article: Article = {
     "Behandling har inte gett tillräcklig effekt",
     "Du har nervsmärta, brännande smärta eller domningar",
     "Du har smärta efter operation eller skada",
-    "Du vill ha en second opinion eller en tydligare plan framåt",
+    "Du vill ha en tydligare plan framåt",
   ],
   intro: [
     "Långvarig smärta kan påverka hela livet – ryggsmärta, nacksmärta, nervsmärta, smärta efter operation, fibromyalgiliknande besvär, ledvärk, huvudvärk, smärta efter skada eller smärta som inte blivit bättre trots tidigare vårdkontakter.",
@@ -73,7 +73,6 @@ export const article: Article = {
         "komplex led- eller muskelsmärta",
         "huvudvärk eller ansiktssmärta i vissa fall",
         "smärta utan tydligt svar",
-        "second opinion",
         "läkemedelsgenomgång",
         "bedömning inför injektion, blockad eller annan behandling",
       ],
@@ -92,7 +91,6 @@ export const article: Article = {
         "ryggsmärta med misstänkt nervpåverkan",
         "smärta efter operation eller skada",
         "flera smärtområden samtidigt",
-        "du vill ha en second opinion",
         "du vill ha en tydligare plan framåt",
         "du söker via sjukvårdsförsäkring",
       ],
@@ -194,7 +192,7 @@ export const article: Article = {
       id: "orter",
       heading: "Privat smärtläkare i Stockholm, Göteborg eller Malmö",
       body: [
-        "Rätt mottagning beror på typ av smärta, tidigare utredningar och om du behöver bedömning, behandling eller second opinion. När du söker kan du ange:",
+        "Rätt mottagning beror på typ av smärta, tidigare utredningar och om du behöver bedömning eller behandling. När du söker kan du ange:",
       ],
       bullets: [
         "stad eller område",
@@ -203,7 +201,7 @@ export const article: Article = {
         "om du har MR-, röntgen- eller journalunderlag",
         "om du redan träffat ortoped, neurolog eller annan specialist",
         "om du har sjukvårdsförsäkring",
-        "om du söker bedömning, behandling eller second opinion",
+        "om du söker bedömning eller behandling",
       ],
     },
     {
@@ -230,7 +228,7 @@ export const article: Article = {
       id: "sammanfattning",
       heading: "Sammanfattning",
       body: [
-        "Privat smärtläkare kan vara aktuellt vid långvarig smärta, ryggsmärta, nervsmärta, smärta efter operation, komplex värk eller second opinion. Ett besök börjar ofta **från cirka 3 000 kr** och uppåt; en mer omfattande utredning eller behandling kan kosta **5 000–20 000 kr eller mer**. I vissa fall kan sjukvårdsförsäkring täcka kostnaden.",
+        "Privat smärtläkare kan vara aktuellt vid långvarig smärta, ryggsmärta, nervsmärta, smärta efter operation eller komplex värk. Ett besök börjar ofta **från cirka 3 000 kr** och uppåt; en mer omfattande utredning eller behandling kan kosta **5 000–20 000 kr eller mer**. I vissa fall kan sjukvårdsförsäkring täcka kostnaden.",
         "Du beskriver besvären, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Vi hjälper dig vidare till en privat mottagning som kan vara relevant för ditt behov. Vill du läsa mer om skillnaderna kan du börja med [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
       ],
     },

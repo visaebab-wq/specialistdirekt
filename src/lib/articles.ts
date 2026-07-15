@@ -149,6 +149,11 @@ const ARTICLE_EXTRA_SPECIALTIES: Record<string, string[]> = {
   "gra-starr-operation-vantetid": [],
   "privat-somnapneutredning-kostnad": ["oron-nasa-hals"],
   "privat-mr-rygg-kostnad": ["ortoped", "neurolog"],
+  // Allmänmedicin är den enda hubben utan egna artiklar, vilket döljer hela dess
+  // "Läs mer"-block. Båda guiderna är genuint specialitetsoberoende och hör hemma
+  // under bredden – det här är korrekt kategorisering, inte en konstruerad länk.
+  "hitta-ratt-specialistlakare-guide": ["allmanmedicin"],
+  "boka-specialist-utan-remiss": ["allmanmedicin"],
 };
 
 /** Artiklar som hör ihop med en viss specialitet (för korslänkning). */

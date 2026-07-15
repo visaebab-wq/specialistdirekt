@@ -28,7 +28,7 @@ export const article: Article = {
   summary: [
     "Ett privat kardiologbesök börjar ofta från **cirka 3 000 kr**, och en mer omfattande hjärtutredning kan kosta 5 000–20 000 kr eller mer.",
     "Sjukvårdsförsäkring kan ibland täcka kostnaden.",
-    "Aktuellt vid hjärtklappning, bröstsmärta, andfåddhet, högt blodtryck, avvikande EKG, svimningskänsla eller second opinion.",
+    "Aktuellt vid hjärtklappning, bröstsmärta, andfåddhet, högt blodtryck, avvikande EKG eller svimningskänsla.",
     "[Specialistdirekt](/kontakt) hjälper dig skicka en bokningsförfrågan till en relevant privat mottagning.",
   ],
   priceTable: [
@@ -40,7 +40,6 @@ export const article: Article = {
     "har remiss men lång väntetid",
     "har privat sjukvårdsförsäkring",
     "vill få en snabbare specialistbedömning",
-    "behöver second opinion",
   ],
   intro: [
     "Hjärtbesvär kan skapa mycket oro – hjärtklappning, bröstsmärta, tryck över bröstet, andfåddhet, högt blodtryck, yrsel, svimningskänsla eller oro efter avvikande EKG eller blodprover.",
@@ -76,7 +75,6 @@ export const article: Article = {
         "blåsljud",
         "ärftlig hjärtsjukdom",
         "uppföljning efter tidigare hjärtbesvär",
-        "second opinion",
       ],
     },
     {
@@ -94,7 +92,6 @@ export const article: Article = {
         "avvikande EKG",
         "oro efter blodprover eller hälsokontroll",
         "ärftlighet för hjärtsjukdom",
-        "second opinion",
         "önskemål om en privat hjärtutredning",
       ],
     },
@@ -214,7 +211,7 @@ export const article: Article = {
         "om du kan tänka dig en närliggande ort",
         "om du har sjukvårdsförsäkring",
         "om du har EKG, prover eller journalunderlag",
-        "om ärendet gäller hjärtklappning, bröstbesvär, blodtryck eller second opinion",
+        "om ärendet gäller hjärtklappning, bröstbesvär eller blodtryck",
         "om du söker första bedömning eller uppföljning",
       ],
     },
@@ -235,14 +232,14 @@ export const article: Article = {
       id: "din-forfragan",
       heading: "Vad ska jag skriva i min bokningsförfrågan?",
       body: [
-        "För att mottagningen lättare ska förstå ditt ärende kan du beskriva vilka symtom du har, när de kommer och hur länge de pågått, om du har bröstsmärta, andfåddhet, yrsel eller svimningskänsla, om du gjort EKG eller blodprover, om du har högt blodtryck eller hjärtsjukdom sedan tidigare, vilka läkemedel du tar, om du har sjukvårdsförsäkring, vilken stad eller område du föredrar och om du söker en första bedömning eller en second opinion.",
+        "För att mottagningen lättare ska förstå ditt ärende kan du beskriva vilka symtom du har, när de kommer och hur länge de pågått, om du har bröstsmärta, andfåddhet, yrsel eller svimningskänsla, om du gjort EKG eller blodprover, om du har högt blodtryck eller hjärtsjukdom sedan tidigare, vilka läkemedel du tar, om du har sjukvårdsförsäkring och vilken stad eller område du föredrar.",
       ],
     },
     {
       id: "sammanfattning",
       heading: "Sammanfattning",
       body: [
-        "Privat kardiolog kan vara aktuellt vid hjärtklappning, bröstbesvär, andfåddhet, högt blodtryck, avvikande EKG, svimningskänsla eller second opinion. Ett besök börjar ofta från **cirka 3 000 kr** och uppåt; en omfattande hjärtutredning med EKG, ultraljud, långtids-EKG eller arbetsprov kan kosta **5 000–20 000 kr eller mer**.",
+        "Privat kardiolog kan vara aktuellt vid hjärtklappning, bröstbesvär, andfåddhet, högt blodtryck, avvikande EKG eller svimningskänsla. Ett besök börjar ofta från **cirka 3 000 kr** och uppåt; en omfattande hjärtutredning med EKG, ultraljud, långtids-EKG eller arbetsprov kan kosta **5 000–20 000 kr eller mer**.",
         "I vissa fall kan sjukvårdsförsäkring täcka kostnaden. Du beskriver dina besvär, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Vill du jämföra vägar kan du läsa mer om [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
       ],
     },

@@ -45,7 +45,7 @@ export const article: Article = {
     "har långvarig diarré, buksmärta eller förändrade avföringsvanor",
     "har järnbrist, blodbrist eller tidigare polyper",
     "har en sjukvårdsförsäkring",
-    "vill ha en specialistbedömning eller second opinion",
+    "vill ha en specialistbedömning",
   ],
   intro: [
     "Blod i avföringen kan ha flera orsaker. Ibland är orsaken mindre allvarlig, till exempel hemorrojder eller en spricka vid ändtarmsöppningen. Men eftersom blod också kan komma från tarmen, magen eller en bakomliggande sjukdom är det viktigt att inte avfärda symtomet utan bedömning. Den här guiden hjälper dig förstå när du ska söka **akut vård**, när du bör söka vård och när en specialist eller [privat koloskopi](/privat-koloskopi) kan bli aktuell.",
@@ -101,7 +101,7 @@ export const article: Article = {
       body: [
         "Rätt väg beror på symtom, ålder, tidigare sjukdomar, hur blodet ser ut och om du har andra varningssymtom. Du behöver inte själv avgöra rätt väg – det viktiga är att beskriva symtomen tydligt.",
         "**Vårdcentral** kan vara första steg om du har blod för första gången, inte vet orsaken, har mildare besvär, misstänker hemorrojder men vill vara säker, eller behöver provtagning och remissbedömning.",
-        "**[Gastroenterolog](/specialiteter/gastroenterolog)** kan vara relevant om blodet återkommer, du har långvarig diarré, buksmärta, slem eller misstänkt tarminflammation, järnbrist/blodbrist, behöver second opinion eller bedömning av om koloskopi/gastroskopi behövs.",
+        "**[Gastroenterolog](/specialiteter/gastroenterolog)** kan vara relevant om blodet återkommer, du har långvarig diarré, buksmärta, slem eller misstänkt tarminflammation, järnbrist/blodbrist eller behöver bedömning av om koloskopi/gastroskopi behövs.",
         "**[Koloskopi](/artiklar/privat-koloskopi-kostnad)** kan vara relevant om tjocktarmen behöver undersökas, blodet misstänks komma från tarmen, du har förändrade avföringsvanor, tidigare polyper eller om ett avföringsprov visat blod.",
       ],
     },
@@ -160,7 +160,7 @@ export const article: Article = {
       id: "gastro-eller-koloskopi",
       heading: "Privat gastroenterolog eller privat koloskopi först?",
       body: [
-        "Det är inte alltid självklart. **Gastroenterolog först** kan vara bättre om du har flera mag- och tarmsymtom, är osäker på om koloskopi eller gastroskopi behövs, redan gjort prover men inte vet nästa steg, vill ha en samlad specialistbedömning eller second opinion.",
+        "Det är inte alltid självklart. **Gastroenterolog först** kan vara bättre om du har flera mag- och tarmsymtom, är osäker på om koloskopi eller gastroskopi behövs, redan gjort prover men inte vet nästa steg eller vill ha en samlad specialistbedömning.",
         "**Koloskopi direkt** kan vara aktuellt om läkare redan rekommenderat koloskopi, du har remiss, frågeställningen gäller tjocktarmen, du tidigare haft polyper eller behöver en uppföljande tarmundersökning. Specialistdirekt kan hjälpa dig hitta rätt väg: ibland gastroenterolog först, ibland koloskopi.",
       ],
     },

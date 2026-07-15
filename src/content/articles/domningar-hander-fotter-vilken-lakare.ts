@@ -36,7 +36,6 @@ export const article: Article = {
     "vill veta om neurolog eller ortoped är rätt",
     "vill slippa lång väntetid till en specialist",
     "har domningar som sprider sig eller försämras",
-    "behöver en second opinion på en tidigare bedömning",
   ],
   intro: [
     "Domningar, stickningar eller pirrningar i händer och fötter är vanligt och har oftast en ofarlig förklaring. Men eftersom symtomen kan komma från allt från en klämd nerv i handleden till brist på vitaminer eller påverkan på nervsystemet är det inte alltid självklart vart man ska vända sig. Den här guiden går igenom **domningar i händer och fötter – vilken läkare** som passar i olika lägen.",

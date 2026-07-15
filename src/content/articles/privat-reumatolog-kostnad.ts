@@ -41,7 +41,7 @@ export const article: Article = {
     "Du har värk i flera leder eller morgonstelhet som håller i sig.",
     "Du har psoriasis och ledvärk eller misstänkt gikt.",
     "Du har avvikande inflammations- eller reumaprover.",
-    "Du har känd reumatisk sjukdom eller vill ha en second opinion.",
+    "Du har känd reumatisk sjukdom.",
   ],
   intro: [
     "Ledvärk, stelhet och svullna leder kan påverka hela vardagen. Ibland beror besvären på överbelastning, artros eller tidigare skada. I andra fall kan det finnas misstanke om inflammation eller reumatisk sjukdom, till exempel ledgångsreumatism, psoriasisartrit, inflammatorisk ryggsjukdom eller gikt.",
@@ -93,7 +93,6 @@ export const article: Article = {
         "långvarig ryggstelhet som är värst på morgonen",
         "misstänkt gikt eller återkommande kraftig ledsmärta",
         "avvikande blodprover (t.ex. inflammationsprover eller reumaprover)",
-        "second opinion",
         "uppföljning vid känd reumatisk sjukdom",
       ],
     },
@@ -197,7 +196,6 @@ export const article: Article = {
         "om du har sjukvårdsförsäkring",
         "om du har remiss, provsvar eller journalunderlag",
         "om du har känd reumatisk sjukdom",
-        "om du söker första bedömning eller second opinion",
       ],
     },
     {
@@ -235,7 +233,7 @@ export const article: Article = {
       id: "sammanfattning",
       heading: "Sammanfattning",
       body: [
-        "Privat reumatolog kan vara aktuellt vid svullna leder, långvarig ledvärk, morgonstelhet, misstänkt reumatisk sjukdom, gikt, psoriasisartrit eller second opinion. En privat reumatologisk bedömning börjar ofta **från cirka 3 000 kr** och uppåt. Om provtagning, bilddiagnostik eller uppföljning behövs kan totalpriset bli högre. I vissa fall kan sjukvårdsförsäkring täcka kostnaden.",
+        "Privat reumatolog kan vara aktuellt vid svullna leder, långvarig ledvärk, morgonstelhet, misstänkt reumatisk sjukdom, gikt eller psoriasisartrit. En privat reumatologisk bedömning börjar ofta **från cirka 3 000 kr** och uppåt. Om provtagning, bilddiagnostik eller uppföljning behövs kan totalpriset bli högre. I vissa fall kan sjukvårdsförsäkring täcka kostnaden.",
         "Har du ont i ryggen och är osäker på vart du ska vända dig kan du också läsa vår guide om [ont i ryggen – vilken läkare](/artiklar/ont-i-ryggen-vilken-lakare). Du väljer specialist, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Vi hjälper dig vidare till en privat mottagning som kan vara relevant för ditt behov.",
       ],
     },
