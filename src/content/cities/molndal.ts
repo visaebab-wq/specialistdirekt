@@ -63,6 +63,15 @@ export const city: City = {
           ],
         },
         {
+          id: "goco-health-innovation-city-molndal",
+          heading: "GoCo Health Innovation City – vårdklustret i Mölndal",
+          body: [
+            "En stor del av den privata specialistvården i Mölndal finns samlad i **GoCo Health Innovation City** vid Vetenskapens gränd. Det är ett life science-område där specialistmottagningar, diagnostik, kirurgi och forskning ligger på samma plats, strax söder om Göteborg. Flera av mottagningarna vi förmedlar kontakt med finns här.",
+            "Praktiskt betyder det två saker för dig. Dels att flera vårdgivare ligger inom samma område, så att ett byte av mottagning sällan innebär en ny resa åt ett helt annat håll. Dels att området nås enkelt från både Mölndals centrum och södra Göteborg – för många i södra Göteborg är det närmare hit än in till centrum.",
+            "Specialistdirekt är fristående och har ingen koppling till GoCo Health Innovation City, och vi driver ingen verksamhet där. Vi förmedlar kostnadsfritt kontakt med privata mottagningar i området. Vilka vårdgivare som finns på plats förändras över tid – hör av dig så återkommer vi med vad som är aktuellt för dina besvär.",
+          ],
+        },
+        {
           id: "nar-akut-kardiolog-molndal",
           heading: "När hjärtbesvär är akuta",
           body: [
@@ -96,6 +105,11 @@ export const city: City = {
           question: "Kan jag boka kardiolog för högt blodtryck?",
           answer:
             "De flesta med högt blodtryck sköts i primärvården. En kardiolog kan bli aktuell vid svårbehandlat blodtryck, mycket högt blodtryck eller misstanke om bakomliggande orsak. Läs mer i [högt blodtryck – när behövs en kardiolog?](/artiklar/hogt-blodtryck-nar-behovs-kardiolog).",
+        },
+        {
+          question: "Finns det privata specialistmottagningar i GoCo i Mölndal?",
+          answer:
+            "Ja. GoCo Health Innovation City vid Vetenskapens gränd i Mölndal är ett life science-område där flera privata specialistmottagningar, diagnostik och forskning finns samlade. Flera av mottagningarna vi förmedlar kontakt med ligger där. Specialistdirekt är fristående och har ingen koppling till GoCo – vi driver ingen verksamhet i området. Beskriv dina besvär i en kostnadsfri förfrågan, så återkommer vi med förslag.",
         },
         {
           question: "När ska jag söka akut i stället för att boka kardiolog?",
@@ -140,6 +154,15 @@ export const city: City = {
           ],
         },
         {
+          id: "goco-health-innovation-city-molndal",
+          heading: "GoCo Health Innovation City – vårdklustret i Mölndal",
+          body: [
+            "En stor del av den privata specialistvården i Mölndal finns samlad i **GoCo Health Innovation City** vid Vetenskapens gränd. Det är ett life science-område där specialistmottagningar, diagnostik, kirurgi och forskning ligger på samma plats, strax söder om Göteborg. Flera av mottagningarna vi förmedlar kontakt med finns här.",
+            "Praktiskt betyder det två saker för dig. Dels att flera vårdgivare ligger inom samma område, så att ett byte av mottagning sällan innebär en ny resa åt ett helt annat håll. Dels att området nås enkelt från både Mölndals centrum och södra Göteborg – för många i södra Göteborg är det närmare hit än in till centrum.",
+            "Specialistdirekt är fristående och har ingen koppling till GoCo Health Innovation City, och vi driver ingen verksamhet där. Vi förmedlar kostnadsfritt kontakt med privata mottagningar i området. Vilka vårdgivare som finns på plats förändras över tid – hör av dig så återkommer vi med vad som är aktuellt för dina besvär.",
+          ],
+        },
+        {
           id: "nar-akut-neurolog-molndal",
           heading: "När neurologiska symtom är akuta",
           body: [
@@ -173,6 +196,11 @@ export const city: City = {
           question: "Kan neurologen bedöma behovet av MR, EEG eller EMG?",
           answer:
             "Ja – det är just det en neurologisk bedömning går ut på. Läkaren träffar dig, gör ett neurologiskt status och avgör sedan vilka undersökningar som är medicinskt motiverade. Allt beställs inte rutinmässigt, utan utifrån dina symtom och tidigare fynd.",
+        },
+        {
+          question: "Finns det privata specialistmottagningar i GoCo i Mölndal?",
+          answer:
+            "Ja. GoCo Health Innovation City vid Vetenskapens gränd i Mölndal är ett life science-område där flera privata specialistmottagningar, diagnostik och forskning finns samlade. Flera av mottagningarna vi förmedlar kontakt med ligger där. Specialistdirekt är fristående och har ingen koppling till GoCo – vi driver ingen verksamhet i området. Beskriv dina besvär i en kostnadsfri förfrågan, så återkommer vi med förslag.",
         },
         {
           question: "När ska jag söka akut i stället för att boka neurolog?",
@@ -217,6 +245,15 @@ export const city: City = {
           ],
         },
         {
+          id: "goco-health-innovation-city-molndal",
+          heading: "GoCo Health Innovation City – vårdklustret i Mölndal",
+          body: [
+            "En stor del av den privata specialistvården i Mölndal finns samlad i **GoCo Health Innovation City** vid Vetenskapens gränd. Det är ett life science-område där specialistmottagningar, diagnostik, kirurgi och forskning ligger på samma plats, strax söder om Göteborg. Flera av mottagningarna vi förmedlar kontakt med finns här.",
+            "Praktiskt betyder det två saker för dig. Dels att flera vårdgivare ligger inom samma område, så att ett byte av mottagning sällan innebär en ny resa åt ett helt annat håll. Dels att området nås enkelt från både Mölndals centrum och södra Göteborg – för många i södra Göteborg är det närmare hit än in till centrum.",
+            "Specialistdirekt är fristående och har ingen koppling till GoCo Health Innovation City, och vi driver ingen verksamhet där. Vi förmedlar kostnadsfritt kontakt med privata mottagningar i området. Vilka vårdgivare som finns på plats förändras över tid – hör av dig så återkommer vi med vad som är aktuellt för dina besvär.",
+          ],
+        },
+        {
           id: "nar-akut-allmanmedicin-molndal",
           heading: "När du ska söka akut i stället",
           body: [
@@ -250,6 +287,11 @@ export const city: City = {
           question: "Vad är skillnaden mellan allmänläkare och vårdcentral?",
           answer:
             "En specialist i allmänmedicin är samma specialitet som arbetar på vårdcentral. Skillnaden är formen: en privat mottagning kan ofta ge en snabbare bedömning, medan vårdcentralen har din journal och ansvarar för kontinuiteten över tid. Ett privat besök är ett komplement, inte en ersättning.",
+        },
+        {
+          question: "Finns det privata specialistmottagningar i GoCo i Mölndal?",
+          answer:
+            "Ja. GoCo Health Innovation City vid Vetenskapens gränd i Mölndal är ett life science-område där flera privata specialistmottagningar, diagnostik och forskning finns samlade. Flera av mottagningarna vi förmedlar kontakt med ligger där. Specialistdirekt är fristående och har ingen koppling till GoCo – vi driver ingen verksamhet i området. Beskriv dina besvär i en kostnadsfri förfrågan, så återkommer vi med förslag.",
         },
         {
           question: "När ska jag boka allmänläkare och när söka akut?",
