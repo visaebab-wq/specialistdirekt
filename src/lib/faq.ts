@@ -8,12 +8,17 @@ export const faqs: Faq[] = [
   {
     question: "Vad är Specialistdirekt?",
     answer:
-      "Specialistdirekt är en kostnadsfri förmedlingstjänst som hjälper dig att hitta och komma i kontakt med rätt specialistläkare i Sverige. Du beskriver ditt behov, så matchar vi dig med en passande specialist.",
+      "Specialistdirekt hjälper dig att komma till rätt specialistläkare i Sverige. Du beskriver ditt behov, vi kontaktar flera anslutna mottagningar och återkommer med den tidigaste tid vi hittar. Vi är inte vårdgivare – det medicinska ansvaret för vården ligger hos mottagningen.",
   },
   {
     question: "Kostar det något att använda tjänsten?",
     answer:
-      "Nej. Att skicka in en förfrågan och bli matchad med en specialist är helt kostnadsfritt och utan förpliktelser. Eventuell kostnad för själva vårdbesöket avtalar du direkt med mottagningen.",
+      "Att skicka in en förfrågan och få förslag på tid är kostnadsfritt och utan förpliktelser. Du betalar först när du tackar ja till en tid, och betalningen för besöket gör du via Specialistdirekt. Priset framgår alltid innan du bekräftar.",
+  },
+  {
+    question: "Vem betalar jag till – er eller mottagningen?",
+    answer:
+      "Du betalar besöket till Specialistdirekt (ViSaeb AB), inte till mottagningen. Det är alltså oss du vänder dig till om du behöver avboka eller få pengarna tillbaka. Det medicinska ansvaret för själva vården ligger däremot alltid hos mottagningen – vi är inte vårdgivare.",
   },
   {
     question: "Hur snabbt får jag svar?",

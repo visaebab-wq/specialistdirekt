@@ -84,7 +84,7 @@ export const city: City = {
         {
           question: "Hur bokar jag tid hos en privat kardiolog i Mölndal?",
           answer:
-            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi matchar dig med en relevant privat mottagning i Mölndal eller Göteborg och återkommer med förslag – tiden bokar du sedan direkt med mottagningen. Specialistdirekt är en förmedlingstjänst; vi är inte vårdgivare och bokar inte tider åt dig.",
+            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi kontaktar flera anslutna mottagningar och återkommer med den tidigaste tid vi hittar. Det medicinska ansvaret för vården ligger hos mottagningen – Specialistdirekt är inte vårdgivare.",
         },
         {
           question: "Kan jag träffa en kardiolog i Mölndal utan remiss?",
@@ -175,7 +175,7 @@ export const city: City = {
         {
           question: "Hur bokar jag tid hos en privat neurolog i Mölndal?",
           answer:
-            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi matchar dig med en relevant privat mottagning i Mölndal eller Göteborg och återkommer med förslag – tiden bokar du sedan direkt med mottagningen. Vi är en förmedlingstjänst och bokar inte tider åt dig.",
+            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi kontaktar flera anslutna mottagningar och återkommer med den tidigaste tid vi hittar. Det medicinska ansvaret för vården ligger hos mottagningen – Specialistdirekt är inte vårdgivare.",
         },
         {
           question: "Kan jag träffa en neurolog i Mölndal utan remiss?",
@@ -266,7 +266,7 @@ export const city: City = {
         {
           question: "Hur bokar jag tid hos en privat allmänläkare i Mölndal?",
           answer:
-            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi matchar dig med en relevant privat mottagning i Mölndal eller Göteborg och återkommer med förslag – tiden bokar du sedan direkt med mottagningen. Vi är en förmedlingstjänst och bokar inte tider åt dig.",
+            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi kontaktar flera anslutna mottagningar och återkommer med den tidigaste tid vi hittar. Det medicinska ansvaret för vården ligger hos mottagningen – Specialistdirekt är inte vårdgivare.",
         },
         {
           question: "Kan jag boka privat allmänläkare i Mölndal utan remiss?",
@@ -370,7 +370,7 @@ export const city: City = {
         {
           question: "Hur bokar jag tid hos en privat gastroenterolog i Mölndal?",
           answer:
-            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi matchar dig med en relevant privat mottagning i Mölndal eller Göteborgsområdet och återkommer med förslag – tiden bokar du sedan direkt med mottagningen. Specialistdirekt är en förmedlingstjänst; vi är inte vårdgivare och bokar inte tider åt dig.",
+            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi kontaktar flera anslutna mottagningar och återkommer med den tidigaste tid vi hittar. Det medicinska ansvaret för vården ligger hos mottagningen – Specialistdirekt är inte vårdgivare.",
         },
         {
           question: "Kan jag träffa en gastroenterolog i Mölndal utan remiss?",

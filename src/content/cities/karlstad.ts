@@ -93,7 +93,7 @@ export const city: City = {
         {
           question: "Hur bokar jag tid hos en privat gastroenterolog i Karlstad?",
           answer:
-            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi matchar dig med en relevant privat mottagning och återkommer med förslag – tiden bokar du sedan direkt med mottagningen. Specialistdirekt är en förmedlingstjänst; vi är inte vårdgivare och bokar inte tider åt dig.",
+            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi kontaktar flera anslutna mottagningar och återkommer med den tidigaste tid vi hittar. Det medicinska ansvaret för vården ligger hos mottagningen – Specialistdirekt är inte vårdgivare.",
         },
         {
           question: "Kan jag träffa en gastroenterolog i Karlstad utan remiss?",

@@ -27,7 +27,7 @@ const values = [
   {
     icon: "🎯",
     title: "Oberoende",
-    text: "Vi är inte bundna till en enskild klinik. Vårt enda mål är att hitta rätt specialist för dig.",
+    text: "Vi kontaktar flera anslutna mottagningar och föreslår den tidigaste tid vi hittar hos en som passar dina besvär.",
   },
   {
     icon: "🛡️",
