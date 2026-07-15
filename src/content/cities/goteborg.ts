@@ -64,7 +64,8 @@ export const city: City = {
           heading: "Vilka undersökningar kan bli aktuella?",
           body: [
             "Bedömningen börjar med ett samtal och en kroppsundersökning. Läkaren avgör sedan vad som är medicinskt motiverat – allt görs inte rutinmässigt. Det kan handla om blod- och avföringsprover, celiakiprov, kalprotektin, eller endoskopiska undersökningar som **gastroskopi** och **koloskopi**.",
-            "Vilken undersökning som passar avgörs av dina symtom. Vill du läsa på i förväg finns [privat gastroskopi](/privat-gastroskopi) och [privat koloskopi](/privat-koloskopi). Priser varierar mellan mottagningar, och undersökningar prissätts ofta separat från konsultationen – be alltid om ett samlat pris i förväg. Se [privat gastroenterolog: kostnad](/artiklar/privat-gastroenterolog-kostnad).",
+            "Vilken undersökning som passar avgörs av dina symtom. Vill du läsa på i förväg finns [privat gastroskopi](/privat-gastroskopi) och [privat koloskopi](/privat-koloskopi).",
+            "Ett privat besök hos gastroenterolog kostar **från cirka 3 000 kr**. Det är ett **frånpris** för själva läkarbesöket – provtagning och endoskopiska undersökningar som gastroskopi eller koloskopi prissätts ofta separat, så slutsumman beror på vad som behövs i ditt fall. Be därför alltid om ett samlat pris i förväg, och kontrollera om en eventuell sjukvårdsförsäkring täcker delar av kostnaden. Se [privat gastroenterolog: kostnad](/artiklar/privat-gastroenterolog-kostnad).",
           ],
         },
         {
@@ -88,9 +89,9 @@ export const city: City = {
             "Som självbetalande kan du hos många privata mottagningar boka utan remiss, via egen vårdbegäran. Med sjukvårdsförsäkring går du vanligtvis via försäkringsbolaget, och inom regionfinansierad vård krävs oftast remiss. Reglerna varierar mellan mottagningar – vi hjälper dig kostnadsfritt att reda ut vad som gäller. Se [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
         },
         {
-          question: "Vad kostar ett privat besök hos gastroenterolog?",
+          question: "Vad kostar en privat gastroenterolog i Göteborg?",
           answer:
-            "Priser varierar mellan mottagningar och det finns inget enhetligt pris. Konsultation, provtagning och eventuell endoskopi prissätts ofta separat. Vi anger inga fasta belopp – be alltid mottagningen om ett samlat pris i förväg. Se [privat gastroenterolog: kostnad](/artiklar/privat-gastroenterolog-kostnad).",
+            "Ett besök kostar från cirka 3 000 kr. Det är ett frånpris för själva läkarbesöket – provtagning och undersökningar som gastroskopi eller koloskopi prissätts ofta separat, så slutsumman beror på vad som behövs. Sjukvårdsförsäkring kan ibland täcka delar av kostnaden. Be alltid om ett samlat pris i förväg. Se [privat gastroenterolog: kostnad](/artiklar/privat-gastroenterolog-kostnad).",
         },
         {
           question: "Kan en gastroenterolog utreda uppblåst mage och långvariga magbesvär?",

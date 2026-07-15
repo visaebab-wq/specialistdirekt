@@ -78,17 +78,7 @@ export default function AboutPage() {
           <p>
             Du behöver aldrig ta vårt ord för att en läkare är legitimerad. Socialstyrelsen för ett
             offentligt register över legitimerad hälso- och sjukvårdspersonal, där du själv kan
-            kontrollera vilken legitimation en läkare har – gratis och när som helst. Du hittar det
-            på{" "}
-            <a
-              href="https://legitimation.socialstyrelsen.se/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-medium text-brand-700 hover:underline"
-            >
-              Socialstyrelsens register
-            </a>
-            .
+            kontrollera vilken legitimation en läkare har – gratis och när som helst.
           </p>
         </div>
 

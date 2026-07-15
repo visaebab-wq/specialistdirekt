@@ -10,8 +10,9 @@ import { city as uppsala } from "@/content/cities/uppsala";
 import { city as linkoping } from "@/content/cities/linkoping";
 import { city as orebro } from "@/content/cities/orebro";
 import { city as molndal } from "@/content/cities/molndal";
+import { city as karlstad } from "@/content/cities/karlstad";
 
-export const cities: City[] = [stockholm, goteborg, molndal, malmo, uppsala, linkoping, orebro];
+export const cities: City[] = [stockholm, goteborg, molndal, malmo, uppsala, linkoping, orebro, karlstad];
 
 export function getCity(slug: string): City | undefined {
   return cities.find((c) => c.slug === slug);

@@ -62,7 +62,7 @@ export const article: Article = {
       id: "offentlig-kostnad",
       heading: "Så fungerar kostnaden i offentlig vård",
       body: [
-        "I den offentliga vården betalar du en **patientavgift** per besök. Avgiften sätts av varje region och skiljer sig därför åt över landet. För ett **specialistbesök** ligger avgiften ofta någonstans **runt 200–400 kronor** – men detta är ungefärligt och du bör alltid kontrollera den aktuella avgiften hos din region eller på [1177](https://www.1177.se/).",
+        "I den offentliga vården betalar du en **patientavgift** per besök. Avgiften sätts av varje region och skiljer sig därför åt över landet. För ett **specialistbesök** ligger avgiften ofta någonstans **runt 200–400 kronor** – men detta är ungefärligt och du bör alltid kontrollera den aktuella avgiften hos din region eller på 1177.",
         "Det som gör den offentliga vården förutsägbar är **högkostnadsskyddet**. När dina sammanlagda patientavgifter under en tolvmånadersperiod når ett visst takbelopp får du **frikort**, och resten av vården är kostnadsfri under perioden. Det betyder att även om du behöver många besök blir din totala kostnad **begränsad**.",
       ],
       bullets: [
