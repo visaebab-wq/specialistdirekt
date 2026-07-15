@@ -146,19 +146,49 @@ export const city: City = {
       ],
       faqs: [
         {
-          question: "Behöver jag remiss till en privat neurolog i Göteborg?",
+          question: "Hur bokar jag tid hos en privat neurolog i Göteborg?",
           answer:
-            "Inom regionvården i Västra Götalandsregionen krävs oftast en remiss från vårdcentralen, medan många privata mottagningar tar emot egen vårdbegäran. Vad som gäller beror på mottagning och finansiering – vi hjälper dig kostnadsfritt att hitta rätt väg in. Se även [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
+            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi matchar dig med en relevant privat mottagning och återkommer med förslag – tiden bokar du sedan direkt med mottagningen. Specialistdirekt är en förmedlingstjänst; vi är inte vårdgivare och bokar inte tider åt dig.",
+        },
+        {
+          question: "Kan jag träffa en neurolog utan remiss?",
+          answer:
+            "Ja. Som självbetalande kan du hos många privata mottagningar boka utan remiss, via egen vårdbegäran. Inom regionfinansierad vård i Västra Götalandsregionen krävs oftast en remiss från vårdcentralen. Vad som gäller beror på mottagning och finansiering – vi hjälper dig kostnadsfritt att reda ut vägen in. Se även [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
+        },
+        {
+          question: "Kan jag betala själv eller använda sjukvårdsförsäkring?",
+          answer:
+            "Som självbetalande bokar du och betalar direkt hos mottagningen. Har du en sjukvårdsförsäkring går du normalt via försäkringsbolaget, som avgör vad som täcks och ibland kräver en bedömning först. Vilka betalningsvägar som gäller varierar mellan mottagningar – vi hjälper dig att reda ut det innan du bokar.",
+        },
+        {
+          question: "Kan jag boka neurolog för migrän eller långvarig huvudvärk?",
+          answer:
+            "Ja, återkommande migrän och svår huvudvärk är bland de vanligaste anledningarna att söka neurolog. Neurologen kan utreda vad som ligger bakom och lägga upp en plan tillsammans med dig. Sidan ger allmän information och ingen behandlingsrekommendation.",
+        },
+        {
+          question: "Kan en neurolog utreda domningar och stickningar?",
+          answer:
+            "Ja. Domningar, stickningar och nervsmärta är vanliga skäl att söka neurolog. Bedömningen utgår från samtal och neurologiskt status, och kompletteras vid behov med till exempel nervmätning. Läs mer i [domningar i händer och fötter](/artiklar/domningar-hander-fotter-vilken-lakare).",
+        },
+        {
+          question: "Kan jag få hjälp med yrsel och balansproblem?",
+          answer:
+            "Ja, yrsel och balansbesvär är ett vanligt skäl att söka neurolog – men yrsel kan också ha andra orsaker, till exempel i innerörat. Läkaren avgör vad som är mest relevant att utreda. Se även [yrsel – vilken läkare?](/artiklar/yrsel-vilken-lakare).",
+        },
+        {
+          question: "Kan en neurolog utreda tremor eller muskelsvaghet?",
+          answer:
+            "Ja. Skakningar (tremor), ofrivilliga rörelser och återkommande muskelsvaghet är neurologiska frågeställningar. Neurologen gör en samlad bedömning utifrån symtom, sjukhistoria och neurologiskt status. Den här sidan ställer ingen diagnos.",
+        },
+        {
+          question: "Kan neurologen bedöma behovet av MR, EEG eller EMG?",
+          answer:
+            "Ja – det är just det en neurologisk bedömning går ut på. Läkaren träffar dig, gör ett neurologiskt status och avgör sedan vilka undersökningar som är medicinskt motiverade, till exempel MR av hjärnan, EEG eller nervmätning (ENeG/EMG). Allt beställs inte rutinmässigt, utan utifrån dina symtom och tidigare fynd.",
         },
         {
           question: "Vilka undersökningar kan bli aktuella hos en neurolog?",
           answer:
             "Bedömningen utgår från samtal och ett neurologiskt status. Vid behov kompletteras det med MR av hjärnan, EEG eller nervmätning (ENeG/EMG). Vilka undersökningar som blir aktuella avgör neurologen utifrån dina symtom – allt beställs inte rutinmässigt.",
-        },
-        {
-          question: "Kan en neurolog i Göteborg hjälpa vid migrän?",
-          answer:
-            "Ja, återkommande migrän och svår huvudvärk är bland de vanligaste anledningarna att söka neurolog. Neurologen kan utreda vad som ligger bakom och lägga upp en plan tillsammans med dig. Sidan ger allmän information och ingen behandlingsrekommendation.",
         },
         {
           question: "Vad kostar en privat neurolog i Göteborg?",

@@ -71,7 +71,7 @@ export const extra: SpecialtyExtra = {
     {
       question: "Ersätter en privat allmänläkare min vårdcentral?",
       answer:
-        "Nej. Din vårdcentral har din journal och ansvarar för kontinuiteten över tid, inklusive uppföljning och recept. En privat allmänläkare kan ge en snabbare bedömning eller en second opinion, men är ett komplement – inte en ersättning.",
+        "Nej. Din vårdcentral har din journal och ansvarar för kontinuiteten över tid, inklusive uppföljning och recept. En privat allmänläkare kan ge en snabbare bedömning, men är ett komplement – inte en ersättning.",
     },
     {
       question: "När ska jag söka akut i stället för att boka tid?",
