@@ -5,7 +5,7 @@ export const article: Article = {
   title: "Förhöjda levervärden: vilken specialist utreder dem?",
   metaTitle: "Förhöjda levervärden – vilken specialist utreder?",
   metaDescription:
-    "Förhöjda levervärden på provsvaret? Så tolkas ALAT, ASAT, ALP och GT, vanliga orsaker som fettlever, vilka undersökningar som kan bli aktuella och vilken specialist du ska träffa.",
+    "Förhöjda levervärden på provsvaret? Vad ALAT, ASAT, ALP och GT betyder, vanliga orsaker som fettlever, och vilken specialist som utreder.",
   category: "Kost & hälsa",
   primaryKeyword: "förhöjda levervärden",
   keywords: [

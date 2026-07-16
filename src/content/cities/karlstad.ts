@@ -30,7 +30,7 @@ export const city: City = {
     gastroenterolog: {
       metaTitle: "Privat gastroenterolog i Karlstad – magspecialist utan remiss",
       metaDescription:
-        "Privat gastroenterolog i Karlstad från cirka 3 000 kr. Långvariga magbesvär, uppblåsthet och halsbränna – så fungerar remiss och vad som ingår i priset. Kostnadsfri förmedling.",
+        "Privat gastroenterolog i Karlstad från cirka 3 000 kr. Långvariga magbesvär och halsbränna – så fungerar remiss och vad som ingår.",
       sections: [
         {
           id: "privat-gastroenterolog-karlstad",

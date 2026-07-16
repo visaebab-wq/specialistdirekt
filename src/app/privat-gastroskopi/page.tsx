@@ -8,6 +8,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
 import type { Faq } from "@/lib/faq";
 import { PageVisual } from "@/components/PageVisual";
+import { getVisualDimensions } from "@/lib/medical-visuals";
 
 const visual = {
   src: "/page-visuals/static-privat-gastroskopi.webp",
@@ -25,6 +26,11 @@ export const metadata: Metadata = {
     description:
       "Privat gastroskopi utan remiss: så går undersökningen till, förberedelser och vad som styr väntetiden.",
     url: "/privat-gastroskopi",
+    images: [{ url: visual.src, alt: visual.alt, ...getVisualDimensions(visual.src) }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [{ url: visual.src, alt: visual.alt }],
   },
 };
 

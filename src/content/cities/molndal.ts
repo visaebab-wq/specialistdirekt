@@ -303,7 +303,7 @@ export const city: City = {
     gastroenterolog: {
       metaTitle: "Privat gastroenterolog i Mölndal – magspecialist utan remiss",
       metaDescription:
-        "Privat gastroenterolog i Mölndal: välja mottagning i Mölndal eller Göteborg, hur en magutredning läggs upp steg för steg och hur du förbereder dig. Kostnadsfri förmedling.",
+        "Privat gastroenterolog i Mölndal: välja mottagning i Mölndal eller Göteborg, och hur en magutredning läggs upp steg för steg.",
       sections: [
         {
           id: "molndal-eller-goteborg-gastro",

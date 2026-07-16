@@ -1,4 +1,4 @@
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
 import type { Article } from "./articles-types";
@@ -8,6 +8,8 @@ export type MedicalVisual = {
   src: string;
   alt: string;
 };
+
+export type VisualDimensions = { width: number; height: number };
 
 const baseImages = {
   cardiology: "/real-medical/cardiology.webp",
@@ -35,6 +37,41 @@ const fileExists = (src: string) => existsSync(join(publicDir, src));
 /** Första kandidaten som finns på disk. Sista kandidaten måste vara en garanterad basbild. */
 const resolveVisual = (...candidates: string[]) =>
   candidates.find(fileExists) ?? candidates[candidates.length - 1];
+
+/**
+ * Läser faktisk storlek ur WebP-headern. Tidigare hårdkodades 1536×844 i
+ * og:image:width/height, men 11 av bilderna är något lägre (819–831 px). Fel
+ * dimensioner är värre än inga: sociala plattformar reserverar utrymme efter dem
+ * och beskär sedan bilden. Vi läser därför verkligheten i stället för att gissa.
+ * Körs bara vid bygget (alla sidor är statiskt genererade).
+ */
+function readWebpDimensions(src: string): VisualDimensions | undefined {
+  try {
+    const b = readFileSync(join(publicDir, src));
+    if (b.length < 30 || b.toString("ascii", 0, 4) !== "RIFF") return undefined;
+    const format = b.toString("ascii", 12, 16);
+    if (format === "VP8X") {
+      return { width: b.readUIntLE(24, 3) + 1, height: b.readUIntLE(27, 3) + 1 };
+    }
+    if (format === "VP8 ") {
+      const i = b.indexOf(Buffer.from([0x9d, 0x01, 0x2a]));
+      if (i < 0) return undefined;
+      return { width: b.readUInt16LE(i + 3) & 0x3fff, height: b.readUInt16LE(i + 5) & 0x3fff };
+    }
+    if (format === "VP8L") {
+      const n = b.readUInt32LE(21);
+      return { width: (n & 0x3fff) + 1, height: ((n >> 14) & 0x3fff) + 1 };
+    }
+  } catch {
+    // Saknad/trasig fil ska inte fälla bygget – vi utelämnar då bara måtten.
+  }
+  return undefined;
+}
+
+/** Verkliga mått för en bild, eller undefined om de inte går att läsa. */
+export function getVisualDimensions(src: string): VisualDimensions | undefined {
+  return readWebpDimensions(src);
+}
 
 const specialtyBaseImages: Record<string, string> = {
   kardiolog: baseImages.cardiology,

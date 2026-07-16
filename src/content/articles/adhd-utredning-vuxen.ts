@@ -5,7 +5,7 @@ export const article: Article = {
   title: "ADHD-utredning som vuxen: pris, väntetid och väg",
   metaTitle: "ADHD-utredning vuxen: pris, kostnad, väntetid och väg",
   metaDescription:
-    "ADHD-utredning vuxen: så går utredningen till, vad som påverkar pris och kostnad, väntetid, vägen via vårdcentral eller privat, NPF/autism och vad som följer efteråt.",
+    "ADHD-utredning vuxen: så går utredningen till, vad som påverkar kostnaden, väntetid och vägen via vårdcentral eller privat.",
   category: "Psykiatri",
   primaryKeyword: "ADHD-utredning vuxen",
   keywords: [

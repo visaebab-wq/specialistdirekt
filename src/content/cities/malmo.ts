@@ -33,7 +33,7 @@ export const city: City = {
     gastroenterolog: {
       metaTitle: "Privat gastroenterolog i Malmö – magspecialist utan remiss",
       metaDescription:
-        "Privat gastroenterolog i Malmö från cirka 3 000 kr. Långvariga magbesvär, uppblåsthet och halsbränna – så fungerar remiss och vad som ingår i priset. Kostnadsfri förmedling.",
+        "Privat gastroenterolog i Malmö från cirka 3 000 kr. Långvariga magbesvär och halsbränna – så fungerar remiss och vad som ingår.",
       sections: [
         {
           id: "privat-gastroenterolog-malmo",

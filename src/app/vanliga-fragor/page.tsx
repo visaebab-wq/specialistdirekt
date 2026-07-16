@@ -8,7 +8,7 @@ import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
 import { PageVisual } from "@/components/PageVisual";
 
 export const metadata: Metadata = {
-  title: "Vanliga frågor",
+  title: "Vanliga frågor om Specialistdirekt",
   description:
     "Svar på vanliga frågor om Specialistdirekt – hur förmedlingen fungerar, vad det kostar, hur vi hanterar dina uppgifter och mer.",
   alternates: { canonical: "/vanliga-fragor" },

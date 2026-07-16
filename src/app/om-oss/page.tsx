@@ -7,7 +7,7 @@ import { site } from "@/lib/site";
 import { PageVisual } from "@/components/PageVisual";
 
 export const metadata: Metadata = {
-  title: "Om oss",
+  title: "Om Specialistdirekt – vilka vi är och hur vi arbetar",
   description:
     "Specialistdirekt är en oberoende förmedlingstjänst som hjälper dig att hitta rätt specialistläkare i Sverige – snabbt, tryggt och kostnadsfritt.",
   alternates: { canonical: "/om-oss" },

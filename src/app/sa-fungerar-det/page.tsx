@@ -7,7 +7,7 @@ import { breadcrumbSchema, howToSchema } from "@/lib/structured-data";
 import { PageVisual } from "@/components/PageVisual";
 
 export const metadata: Metadata = {
-  title: "Så fungerar det",
+  title: "Så fungerar Specialistdirekt – steg för steg",
   description:
     "Så fungerar Specialistdirekt: beskriv ditt behov, vi matchar dig med rätt specialistläkare och du kommer i kontakt – kostnadsfritt och utan förpliktelser.",
   alternates: { canonical: "/sa-fungerar-det" },

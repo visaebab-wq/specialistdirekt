@@ -9,7 +9,7 @@ import { FaqList } from "@/components/FaqList";
 import { Prose, renderInline } from "@/components/RichText";
 import { JsonLd } from "@/components/JsonLd";
 import { articleSchema, breadcrumbSchema, faqSchema } from "@/lib/structured-data";
-import { getArticleVisual, getArticleVisuals } from "@/lib/medical-visuals";
+import { getArticleVisual, getArticleVisuals, getVisualDimensions } from "@/lib/medical-visuals";
 
 export function generateStaticParams() {
   return articles.map((a) => ({ slug: a.slug }));
@@ -52,8 +52,7 @@ export async function generateMetadata({
       images: visuals.map((visual) => ({
         url: visual.src,
         alt: visual.alt,
-        width: 1536,
-        height: 844,
+        ...getVisualDimensions(visual.src),
       })),
     },
     twitter: {

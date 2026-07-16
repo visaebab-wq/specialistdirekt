@@ -30,7 +30,7 @@ export const city: City = {
     neurolog: {
       metaTitle: "Privat neurolog i Linköping – utredning, väntetid och remiss",
       metaDescription:
-        "Träffa en privat neurolog i Linköping vid migrän, yrsel eller domningar. Så går en neurologisk bedömning till, vad som styr priset och när symtom är akuta. Kostnadsfri förmedling.",
+        "Privat neurolog i Linköping vid migrän, yrsel eller domningar. Så går en neurologisk bedömning till och vad som styr priset.",
       sections: [
         {
           id: "privat-neurolog-linkoping",

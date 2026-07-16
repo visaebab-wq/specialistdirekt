@@ -13,7 +13,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema, faqSchema, specialtyServiceSchema } from "@/lib/structured-data";
 import { PageVisual } from "@/components/PageVisual";
-import { getSpecialtyVisual } from "@/lib/medical-visuals";
+import { getSpecialtyVisual, getVisualDimensions } from "@/lib/medical-visuals";
 
 // Prerendera alla specialitetssidor vid bygget – snabbt och SEO-optimerat.
 export function generateStaticParams() {
@@ -47,7 +47,7 @@ export async function generateMetadata({
       description,
       url: path,
       type: "article",
-      images: [{ url: visual.src, alt: visual.alt, width: 1536, height: 844 }],
+      images: [{ url: visual.src, alt: visual.alt, ...getVisualDimensions(visual.src) }],
     },
     twitter: {
       card: "summary_large_image",

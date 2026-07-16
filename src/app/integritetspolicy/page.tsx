@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 import { PageVisual } from "@/components/PageVisual";
 
 export const metadata: Metadata = {
-  title: "Integritetspolicy",
+  title: "Integritetspolicy – så hanterar vi dina uppgifter",
   description:
     "Så behandlar Specialistdirekt dina personuppgifter enligt GDPR – vilka uppgifter vi samlar in, varför, hur länge och dina rättigheter.",
   alternates: { canonical: "/integritetspolicy" },

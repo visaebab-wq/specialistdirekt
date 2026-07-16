@@ -13,7 +13,7 @@ import { Prose, renderInline } from "@/components/RichText";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
 import { PageVisual } from "@/components/PageVisual";
-import { getCitySpecialtyVisual } from "@/lib/medical-visuals";
+import { getCitySpecialtyVisual, getVisualDimensions } from "@/lib/medical-visuals";
 
 // Prerendera alla giltiga stad × specialitet-kombinationer vid bygget.
 export function generateStaticParams() {
@@ -62,7 +62,7 @@ export async function generateMetadata({
       description,
       url: path,
       type: "article",
-      images: [{ url: visual.src, alt: visual.alt, width: 1536, height: 844 }],
+      images: [{ url: visual.src, alt: visual.alt, ...getVisualDimensions(visual.src) }],
     },
     twitter: {
       card: "summary_large_image",
