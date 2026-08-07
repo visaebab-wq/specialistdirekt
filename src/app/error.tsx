@@ -11,7 +11,7 @@ const visual = {
 export default function Error({ reset }: { error: Error; reset: () => void }) {
   return (
     <div className="mx-auto flex max-w-2xl flex-col items-center px-4 py-24 text-center sm:px-6">
-      <p className="text-5xl">😕</p>
+      <p className="text-5xl font-extrabold text-brand-600">Fel</p>
       <h1 className="mt-4 text-2xl font-bold text-ink-900">Något gick fel</h1>
       <p className="mt-3 text-ink-600">
         Ett oväntat fel uppstod. Försök igen, eller gå tillbaka till startsidan.

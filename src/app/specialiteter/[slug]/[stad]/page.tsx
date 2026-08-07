@@ -11,7 +11,12 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { FaqList } from "@/components/FaqList";
 import { Prose, renderInline } from "@/components/RichText";
 import { JsonLd } from "@/components/JsonLd";
-import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
+import {
+  breadcrumbSchema,
+  faqSchema,
+  webPageSchema,
+  citySpecialtyServiceSchema,
+} from "@/lib/structured-data";
 import { PageVisual } from "@/components/PageVisual";
 import { getCitySpecialtyVisual, getVisualDimensions } from "@/lib/medical-visuals";
 
@@ -48,6 +53,18 @@ export async function generateMetadata({
   const description =
     local?.metaDescription ??
     `Privat ${specialty.title.toLowerCase()} i ${city.name}. Vi matchar dig kostnadsfritt med rätt specialist inom ${specialty.name.toLowerCase()} i ${city.region}.`;
+
+  // hreflang endast där en språkversion faktiskt finns. Varje sida canonical
+  // mot sig själv – den engelska sidan får aldrig canonical mot den svenska.
+  const alternates: Metadata["alternates"] = { canonical: path };
+  if (slug === "ortoped" && stad === "goteborg") {
+    alternates.languages = {
+      "sv-SE": path,
+      "en-SE": "/en/private-orthopedist-gothenburg",
+      "x-default": path,
+    };
+  }
+
   return {
     title,
     description,
@@ -56,7 +73,7 @@ export async function generateMetadata({
       `privat ${specialty.title.toLowerCase()} ${city.name.toLowerCase()}`,
       ...specialty.keywords.map((k) => `${k} ${city.name.toLowerCase()}`),
     ],
-    alternates: { canonical: path },
+    alternates,
     openGraph: {
       title: `${title} | ${site.name}`,
       description,
@@ -87,6 +104,8 @@ export default async function CitySpecialtyPage({
     city.specialtyIntros[slug] ??
     `Söker du en ${specialty.title.toLowerCase()} i ${city.name}? Vi hjälper dig hitta rätt specialist inom ${specialty.name.toLowerCase()}.`;
 
+  const path = `/specialiteter/${specialty.slug}/${city.slug}`;
+
   const crumbs = [
     { name: "Hem", path: "/" },
     { name: "Specialiteter", path: "/specialiteter" },
@@ -112,7 +131,7 @@ export default async function CitySpecialtyPage({
               {specialty.name} · {city.region}
             </p>
             <h1 className="internal-hero-title">
-              {specialty.title} i {city.name}
+              {local?.h1 ?? `${specialty.title} i ${city.name}`}
             </h1>
           </div>
           <p className="internal-hero-text">{pairIntro}</p>
@@ -124,14 +143,55 @@ export default async function CitySpecialtyPage({
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:py-14">
         <div className="grid gap-12 lg:grid-cols-[1fr_400px]">
           <article className="article-body readable-card p-6 sm:p-8">
-            <h2 className="article-section-title text-2xl font-bold">
-              Specialistvård i {city.name}
-            </h2>
-            <p className="mt-3">{city.intro}</p>
-            {city.hospitals.length > 0 && (
-              <p className="mt-3">
-                <strong>Vårdnav i området:</strong> {city.hospitals.join(", ")}.
+            {/* Manuell språkväxlare (ingen auto-omdirigering). */}
+            {local?.altLanguage && (
+              <p className="mb-6 text-sm">
+                <Link
+                  href={local.altLanguage.href}
+                  hrefLang="en"
+                  className="inline-flex items-center gap-2 font-semibold text-brand-700 hover:underline"
+                >
+                  <span aria-hidden>🌐</span>
+                  {local.altLanguage.label}
+                </Link>
               </p>
+            )}
+
+            {/* Skannbar svarsruta högst upp – viktigast för både besökare och
+                AI-svarssystem. Renderas bara på prioriterade sidor. */}
+            {local?.quickFacts && local.quickFacts.length > 0 && (
+              <section
+                aria-label={`Snabbfakta om ${specialty.title.toLowerCase()} i ${city.name}`}
+                className="mb-8 rounded-2xl border border-brand-100 bg-brand-50/60 p-6"
+              >
+                <h2 className="text-lg font-bold text-ink-900">
+                  {specialty.title} i {city.name} – snabbfakta
+                </h2>
+                <dl className="mt-4 grid gap-x-6 gap-y-3 sm:grid-cols-2">
+                  {local.quickFacts.map((f) => (
+                    <div key={f.label} className="flex flex-col">
+                      <dt className="text-xs font-semibold tracking-wide text-brand-700 uppercase">
+                        {f.label}
+                      </dt>
+                      <dd className="text-sm text-ink-800">{renderInline(f.value)}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </section>
+            )}
+
+            {!local?.hideCityIntro && (
+              <>
+                <h2 className="article-section-title text-2xl font-bold">
+                  Specialistvård i {city.name}
+                </h2>
+                <p className="mt-3">{city.intro}</p>
+                {city.hospitals.length > 0 && (
+                  <p className="mt-3">
+                    <strong>Vårdnav i området:</strong> {city.hospitals.join(", ")}.
+                  </p>
+                )}
+              </>
             )}
 
             <h2 className="article-section-title mt-8 text-2xl font-bold">
@@ -150,6 +210,31 @@ export default async function CitySpecialtyPage({
                 </li>
               ))}
             </ul>
+
+            {/* Röda flaggor – patientsäkerhet FÖRE första CTA på YMYL-sidor. */}
+            {local?.redFlag && (
+              <section
+                aria-label="När du ska söka akut vård"
+                className="warning-card mt-10 p-6"
+              >
+                <h2 className="text-xl font-bold text-ink-900">{local.redFlag.heading}</h2>
+                <p className="mt-2 text-ink-700">{renderInline(local.redFlag.body)}</p>
+                <ul className="mt-4 space-y-2">
+                  {local.redFlag.bullets.map((b, i) => (
+                    <li key={i} className="flex gap-3 text-ink-700">
+                      <span
+                        aria-hidden
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-amber-500"
+                      />
+                      <span>{renderInline(b)}</span>
+                    </li>
+                  ))}
+                </ul>
+                {local.redFlag.footnote && (
+                  <p className="mt-4 text-sm text-ink-600">{renderInline(local.redFlag.footnote)}</p>
+                )}
+              </section>
+            )}
 
             {/* Fördjupande, unikt lokalt innehåll för prioriterade sidor. */}
             {local?.sections.map((s) => (
@@ -174,6 +259,20 @@ export default async function CitySpecialtyPage({
               </section>
             ))}
 
+            {/* Primär CTA i innehållsflödet – hoppar till formuläret. */}
+            {local?.leadCta && (
+              <section className="mt-10 rounded-2xl border border-brand-200 bg-brand-50 p-6 sm:p-8">
+                <h2 className="text-xl font-bold text-ink-900">{local.leadCta.heading}</h2>
+                <p className="mt-2 text-ink-700">{renderInline(local.leadCta.body)}</p>
+                <a
+                  href="#tidsforfragan"
+                  className="mt-5 inline-flex items-center justify-center rounded-xl bg-brand-600 px-6 py-3.5 text-base font-semibold text-white shadow-[0_12px_28px_rgba(13,148,136,0.24)] transition-all hover:-translate-y-0.5 hover:bg-brand-700"
+                >
+                  {local.leadCta.buttonLabel}
+                </a>
+              </section>
+            )}
+
             {local && local.faqs && local.faqs.length > 0 && (
               <section className="mt-10">
                 <h2 className="text-2xl font-bold text-ink-900">
@@ -186,27 +285,52 @@ export default async function CitySpecialtyPage({
             )}
 
             <div className="soft-info-card mt-8 p-6">
-              <h2 className="text-xl font-bold text-ink-900">
-                Så hittar du en {specialty.title.toLowerCase()} i {city.name}
-              </h2>
-              <p className="mt-2 text-ink-600">
-                Beskriv ditt behov i formuläret, så matchar vi dig kostnadsfritt med en{" "}
-                {specialty.title.toLowerCase()} i {city.name} eller {city.region}. Läs mer på vår
-                översikt om{" "}
-                <Link
-                  href={`/specialiteter/${specialty.slug}`}
-                    className="font-semibold text-brand-700 hover:underline"
-                >
-                  {specialty.name.toLowerCase()}
-                </Link>
-                .
-              </p>
+              {local?.bookingCta ? (
+                <>
+                  <h2 className="text-xl font-bold text-ink-900">
+                    Boka {specialty.title.toLowerCase()} i {city.name}
+                  </h2>
+                  <p className="mt-2 text-ink-600">
+                    Boka tid direkt i kalendern, eller skicka en kostnadsfri tidsförfrågan så
+                    återkommer vi med besked om tid och pris. Läs mer på vår översikt om{" "}
+                    <Link
+                      href={`/specialiteter/${specialty.slug}`}
+                      className="font-semibold text-brand-700 hover:underline"
+                    >
+                      {specialty.name.toLowerCase()}
+                    </Link>
+                    .
+                  </p>
+                </>
+              ) : (
+                <>
+                  <h2 className="text-xl font-bold text-ink-900">
+                    Så hittar du en {specialty.title.toLowerCase()} i {city.name}
+                  </h2>
+                  <p className="mt-2 text-ink-600">
+                    Beskriv ditt behov i formuläret, så matchar vi dig kostnadsfritt med en{" "}
+                    {specialty.title.toLowerCase()} i {city.name} eller {city.region}. Läs mer på vår
+                    översikt om{" "}
+                    <Link
+                      href={`/specialiteter/${specialty.slug}`}
+                      className="font-semibold text-brand-700 hover:underline"
+                    >
+                      {specialty.name.toLowerCase()}
+                    </Link>
+                    .
+                  </p>
+                </>
+              )}
             </div>
 
-            <div className="warning-card mt-8 p-5 text-sm">
-              <strong>Viktigt:</strong> Specialistdirekt ger inte medicinsk rådgivning. Vid akuta
-              besvär – ring 112. För sjukvårdsrådgivning, ring 1177.
-            </div>
+            {/* Generisk säkerhetsrad – utelämnas när sidan har ett eget, mer
+                specifikt rödflaggsblock (undviker dubblering). */}
+            {!local?.redFlag && (
+              <div className="warning-card mt-8 p-5 text-sm">
+                <strong>Viktigt:</strong> Specialistdirekt ger inte medicinsk rådgivning. Vid akuta
+                besvär – ring 112. För sjukvårdsrådgivning, ring 1177.
+              </div>
+            )}
 
             {/* Lokal internlänkning: samma specialitet i andra städer */}
             <div className="mt-10">
@@ -263,10 +387,29 @@ export default async function CitySpecialtyPage({
             )}
           </article>
 
-          <aside className="lg:sticky lg:top-24 lg:self-start">
-            <div className="form-panel p-6">
+          <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">
+            {local?.bookingCta && (
+              <div className="form-panel p-6">
+                <h2 className="text-lg font-bold text-ink-900">Boka tid direkt</h2>
+                <a
+                  href={local.bookingCta.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-brand-600 px-6 py-3.5 text-center text-base font-semibold text-white shadow-[0_12px_28px_rgba(13,148,136,0.24)] transition-all hover:-translate-y-0.5 hover:bg-brand-700"
+                >
+                  {local.bookingCta.label}
+                </a>
+                {local.bookingCta.note && (
+                  <p className="mt-2 text-xs text-ink-500">{local.bookingCta.note}</p>
+                )}
+                <p className="mt-4 text-center text-sm text-ink-600">
+                  eller skicka en tidsförfrågan nedan
+                </p>
+              </div>
+            )}
+            <div id="tidsforfragan" className="form-panel scroll-mt-24 p-6">
               <h2 className="text-lg font-bold text-ink-900">
-                Hitta en {specialty.title.toLowerCase()} i {city.name}
+                Skicka tidsförfrågan i {city.name}
               </h2>
               <p className="mt-1 text-sm text-ink-600">Kostnadsfritt och utan förpliktelser.</p>
               <div className="mt-6">
@@ -281,6 +424,19 @@ export default async function CitySpecialtyPage({
       <JsonLd
         data={[
           breadcrumbSchema(crumbs),
+          // Service + WebPage endast på prioriterade sidor med fördjupat
+          // innehåll. Provider är alltid Specialistdirekt – aldrig mottagningen.
+          ...(local
+            ? [
+                webPageSchema({
+                  path,
+                  name: local.metaTitle ?? `${specialty.title} i ${city.name}`,
+                  description: local.metaDescription ?? pairIntro,
+                  primaryImage: visual.src,
+                }),
+                citySpecialtyServiceSchema(specialty, city, path),
+              ]
+            : []),
           ...(local?.faqs && local.faqs.length > 0 ? [faqSchema(local.faqs)] : []),
         ]}
       />

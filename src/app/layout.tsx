@@ -56,10 +56,14 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
   category: "health",
-  // Verifiering för Google Search Console (sätt GOOGLE_SITE_VERIFICATION).
-  verification: process.env.GOOGLE_SITE_VERIFICATION
-    ? { google: process.env.GOOGLE_SITE_VERIFICATION }
-    : undefined,
+  // Verifiering för sökmotorer. Google via env (GOOGLE_SITE_VERIFICATION).
+  // Bing via msvalidate.01 – publik token, renderas som <meta> i <head>.
+  verification: {
+    ...(process.env.GOOGLE_SITE_VERIFICATION
+      ? { google: process.env.GOOGLE_SITE_VERIFICATION }
+      : {}),
+    other: { "msvalidate.01": "728830EC2862A9E1E45CD2285B684A25" },
+  },
 };
 
 // Färgtema för webbläsarens UI + korrekt mobilskalning.

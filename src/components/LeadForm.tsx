@@ -14,7 +14,7 @@ function SubmitButton() {
       disabled={pending}
       className="w-full rounded-xl bg-brand-600 px-6 py-3.5 text-base font-semibold text-white shadow-[0_12px_28px_rgba(13,148,136,0.24)] transition-all hover:-translate-y-0.5 hover:bg-brand-700 hover:shadow-[0_16px_34px_rgba(13,148,136,0.3)] disabled:cursor-not-allowed disabled:opacity-60"
     >
-      {pending ? "Skickar…" : "Skicka förfrågan"}
+      {pending ? "Skickar…" : "Skicka tidsförfrågan"}
     </button>
   );
 }
@@ -34,6 +34,7 @@ function FieldError({ message }: { message?: string }) {
 /** Förvald specialitet kan sättas från en specialitetssida. */
 export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
   const [state, formAction] = useActionState(submitLead, initialLeadState);
+  const today = new Date().toISOString().slice(0, 10);
 
   if (state.status === "success") {
     return (
@@ -47,7 +48,7 @@ export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
         >
           ✓
         </div>
-        <h3 className="mt-4 text-xl font-bold text-ink-900">Tack för din förfrågan!</h3>
+        <h3 className="mt-4 text-xl font-bold text-ink-900">Tack för din tidsförfrågan!</h3>
         <p className="mt-2 text-ink-700">{state.message}</p>
       </div>
     );
@@ -74,7 +75,14 @@ export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
           <label htmlFor="name" className="mb-1 block text-sm font-medium text-ink-700">
             Namn <span className="text-red-500">*</span>
           </label>
-          <input id="name" name="name" type="text" autoComplete="name" className={fieldClass} />
+          <input
+            id="name"
+            name="name"
+            type="text"
+            autoComplete="name"
+            required
+            className={fieldClass}
+          />
           <FieldError message={state.errors.name} />
         </div>
         <div>
@@ -86,6 +94,7 @@ export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
             name="email"
             type="email"
             autoComplete="email"
+            required
             className={fieldClass}
           />
           <FieldError message={state.errors.email} />
@@ -95,15 +104,24 @@ export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label htmlFor="phone" className="mb-1 block text-sm font-medium text-ink-700">
-            Telefon <span className="text-ink-400">(valfritt)</span>
+            Telefon <span className="text-red-500">*</span>
           </label>
-          <input id="phone" name="phone" type="tel" autoComplete="tel" className={fieldClass} />
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            autoComplete="tel"
+            required
+            className={fieldClass}
+          />
+          <FieldError message={state.errors.phone} />
         </div>
         <div>
-          <label htmlFor="region" className="mb-1 block text-sm font-medium text-ink-700">
-            Ort / region <span className="text-ink-400">(valfritt)</span>
+          <label htmlFor="city" className="mb-1 block text-sm font-medium text-ink-700">
+            Stad <span className="text-red-500">*</span>
           </label>
-          <input id="region" name="region" type="text" className={fieldClass} />
+          <input id="city" name="city" type="text" autoComplete="address-level2" required className={fieldClass} />
+          <FieldError message={state.errors.city} />
         </div>
       </div>
 
@@ -129,16 +147,83 @@ export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
 
       <div>
         <label htmlFor="message" className="mb-1 block text-sm font-medium text-ink-700">
-          Beskriv ditt behov <span className="text-red-500">*</span>
+          Vad vill du boka tid för? <span className="text-red-500">*</span>
         </label>
         <textarea
           id="message"
           name="message"
           rows={5}
-          placeholder="Berätta kort vad du behöver hjälp med så matchar vi dig med rätt specialist."
+          placeholder="Beskriv kort besväret eller vilken undersökning/specialist du vill boka tid för."
+          required
           className={fieldClass}
         />
         <FieldError message={state.errors.message} />
+      </div>
+
+      <fieldset className="rounded-xl border border-brand-100 bg-white/70 p-4">
+        <legend className="px-1 text-sm font-semibold text-ink-800">
+          Möjliga datum <span className="text-red-500">*</span>
+        </legend>
+        <p className="mt-1 text-sm text-ink-600">
+          Ange minst två dagar som kan passa, så blir det lättare för mottagningen att hitta en tid.
+        </p>
+        <div className="mt-3 grid gap-4 sm:grid-cols-3">
+          <div>
+            <label htmlFor="preferredDate1" className="mb-1 block text-sm font-medium text-ink-700">
+              Datum 1 <span className="text-red-500">*</span>
+            </label>
+            <input
+              id="preferredDate1"
+              name="preferredDate1"
+              type="date"
+              min={today}
+              required
+              className={fieldClass}
+            />
+            <FieldError message={state.errors.preferredDate1} />
+          </div>
+          <div>
+            <label htmlFor="preferredDate2" className="mb-1 block text-sm font-medium text-ink-700">
+              Datum 2 <span className="text-red-500">*</span>
+            </label>
+            <input
+              id="preferredDate2"
+              name="preferredDate2"
+              type="date"
+              min={today}
+              required
+              className={fieldClass}
+            />
+            <FieldError message={state.errors.preferredDate2} />
+          </div>
+          <div>
+            <label htmlFor="preferredDate3" className="mb-1 block text-sm font-medium text-ink-700">
+              Datum 3 <span className="text-ink-400">(valfritt)</span>
+            </label>
+            <input
+              id="preferredDate3"
+              name="preferredDate3"
+              type="date"
+              min={today}
+              className={fieldClass}
+            />
+            <FieldError message={state.errors.preferredDate3} />
+          </div>
+        </div>
+      </fieldset>
+
+      <div>
+        <label htmlFor="timePreference" className="mb-1 block text-sm font-medium text-ink-700">
+          Tid på dagen <span className="text-red-500">*</span>
+        </label>
+        <select id="timePreference" name="timePreference" required defaultValue="" className={fieldClass}>
+          <option value="" disabled>
+            Välj tid
+          </option>
+          <option value="before-noon">Före lunch</option>
+          <option value="after-noon">Efter lunch</option>
+        </select>
+        <FieldError message={state.errors.timePreference} />
       </div>
 
       <div>
@@ -162,7 +247,7 @@ export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
 
       <SubmitButton />
       <p className="text-center text-xs text-ink-500">
-        Kostnadsfritt och utan förpliktelser. Inte en akuttjänst – ring 112 vid nödfall.
+        Kostnadsfri tidsförfrågan och utan förpliktelser. Inte en akuttjänst – ring 112 vid nödfall.
       </p>
     </form>
   );

@@ -28,8 +28,39 @@ export type CitySpecialtyLocal = {
   metaTitle?: string;
   /** Meta-description-override. */
   metaDescription?: string;
+  /** H1-override. Standard är "{Specialitet} i {Stad}". */
+  h1?: string;
+  /** Dölj det generiska "Specialistvård i {stad}"-blocket (låg information gain på prioriterade sidor). */
+  hideCityIntro?: boolean;
+  /**
+   * Skannbar "svarsruta" högst upp på sidan (label → värde). Ger både besökare
+   * och AI-svarssystem de viktigaste fakta på några sekunder. Publicera bara
+   * verifierade uppgifter – utelämna okända fält (visa aldrig tomma etiketter).
+   */
+  quickFacts?: { label: string; value: string }[];
+  /**
+   * Röda flaggor / akutsymtom. Renderas tydligt men icke-alarmistiskt och alltid
+   * FÖRE den första innehålls-CTA:n (patientsäkerhet på YMYL-sidor).
+   */
+  redFlag?: { heading: string; body: string; bullets: string[]; footnote?: string };
   /** Fördjupande sektioner (renderas som <h2> + stycken/punktlista). */
   sections: { id: string; heading: string; body: string[]; bullets?: string[] }[];
+  /**
+   * Primär CTA-ruta i innehållsflödet. Länkar till formuläret via ankaret
+   * #tidsforfragan. Använd för prioriterade konverteringssidor.
+   */
+  leadCta?: { heading: string; body: string; buttonLabel: string };
+  /**
+   * Länk till en språkversion av sidan (t.ex. en engelsk landningssida).
+   * Renderas som en tydlig, manuell språkväxlare – ingen automatisk omdirigering.
+   */
+  altLanguage?: { href: string; label: string };
+  /**
+   * Direktbokning hos en namngiven läkare/mottagning (extern bokningsportal).
+   * Renderas som en tydlig "Boka direkt"-knapp vid sidan av tidsförfrågan.
+   * url öppnas i ny flik. note visas som liten text under knappen.
+   */
+  bookingCta?: { label: string; url: string; note?: string };
   /** Lokala vanliga frågor (renderas + ger FAQPage-schema). */
   faqs?: { question: string; answer: string }[];
 };

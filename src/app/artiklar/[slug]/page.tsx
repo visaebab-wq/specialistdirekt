@@ -10,6 +10,8 @@ import { Prose, renderInline } from "@/components/RichText";
 import { JsonLd } from "@/components/JsonLd";
 import { articleSchema, breadcrumbSchema, faqSchema } from "@/lib/structured-data";
 import { getArticleVisual, getArticleVisuals, getVisualDimensions } from "@/lib/medical-visuals";
+import { medicalReviewerFor } from "@/lib/medical-reviewer";
+import { RecoTrust } from "@/components/RecoTrust";
 
 export function generateStaticParams() {
   return articles.map((a) => ({ slug: a.slug }));
@@ -80,6 +82,7 @@ export default async function ArticlePage({
   ];
   const specialty = article.relatedSpecialty ? getSpecialty(article.relatedSpecialty) : undefined;
   const related = relatedArticles(article.slug, 4);
+  const reviewer = medicalReviewerFor(article);
   const visual = getArticleVisual(article);
   const inlineVisuals = getArticleVisuals(article).slice(1);
   const inlineVisualSlots = new Map(
@@ -106,11 +109,20 @@ export default async function ArticlePage({
             <span aria-hidden>·</span>
             <span>Av {site.name}s redaktion</span>
           </div>
+          {reviewer && (
+            <p className="mt-3 text-sm text-ink-600">
+              Medicinskt granskad av{" "}
+              <Link href={reviewer.url} className="font-semibold text-brand-700 hover:underline">
+                {reviewer.name}
+              </Link>
+              , {reviewer.title.toLowerCase()}.
+            </p>
+          )}
           <figure className="article-hero-visual mt-10">
             <img
               src={visual.src}
               alt={visual.alt}
-              className="h-full w-full object-cover"
+              className="medical-hero-image h-full w-full object-cover"
               fetchPriority="high"
             />
           </figure>
@@ -229,7 +241,7 @@ export default async function ArticlePage({
                     <img
                       src={inlineVisual.src}
                       alt={inlineVisual.alt}
-                      className="h-full w-full object-cover"
+                      className="medical-hero-image h-full w-full object-cover"
                       loading="lazy"
                     />
                   </figure>
@@ -245,6 +257,8 @@ export default async function ArticlePage({
             ring 1177. Specialistdirekt är en kostnadsfri förmedlingstjänst och ger inte medicinsk
             rådgivning.
           </div>
+
+          {reviewer && <RecoTrust />}
 
           {/* Internlänkning: artikel → specialitet → formulär. Placeras efter artikelns
               innehåll och medicinska säkerhetsinformation (röda flaggor + 112/1177),

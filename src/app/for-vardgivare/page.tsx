@@ -25,22 +25,22 @@ const visual = {
 
 const benefits = [
   {
-    icon: "🎯",
+    icon: "01",
     title: "Relevanta patienter",
     text: "Vi matchar dig med patienter som aktivt söker din specialitet i ditt område.",
   },
   {
-    icon: "📈",
+    icon: "02",
     title: "Fyll luckor i kalendern",
     text: "Få ett jämnare patientflöde utan att lägga tid och pengar på egen marknadsföring.",
   },
   {
-    icon: "🔗",
+    icon: "03",
     title: "Stark synlighet online",
     text: "Vår sajt är byggd för att synas i både Google och AI-assistenter – den synligheten delar du.",
   },
   {
-    icon: "🤝",
+    icon: "04",
     title: "Inga bindningar",
     text: "Kom igång utan bindningstid. Du bestämmer själv vilka förfrågningar du tar emot.",
   },
@@ -96,7 +96,10 @@ export default function ForProvidersPage() {
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {benefits.map((b) => (
             <div key={b.title} className="rounded-2xl border border-ink-200 bg-white p-6">
-              <span aria-hidden className="text-3xl">
+              <span
+                aria-hidden
+                className="flex h-11 w-11 items-center justify-center rounded-full bg-brand-50 text-xs font-bold text-brand-700 ring-1 ring-brand-100"
+              >
                 {b.icon}
               </span>
               <h3 className="mt-3 font-semibold text-ink-900">{b.title}</h3>

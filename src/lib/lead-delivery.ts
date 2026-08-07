@@ -9,15 +9,36 @@
 // Utan konfiguration loggas förfrågan på servern så att inget tappas.
 
 import nodemailer from "nodemailer";
+import { appendFileSync, mkdirSync } from "node:fs";
+import { dirname, join } from "node:path";
 import { site } from "./site";
+
+// Durabel fallback: skriv ALLTID ner varje lead till en fil på disk, oavsett om
+// e-postleveransen lyckas. Så tappas en förfrågan aldrig spårlöst igen, även om
+// SMTP/Resend inte är konfigurerat (vilket hände: leads fastnade bara i loggen).
+// Filen ligger utanför public/ (webbservern serverar den aldrig) och är
+// gitignorerad. Sökväg kan överstyras med LEAD_LOG_FILE.
+function persistLead(lead: LeadData): boolean {
+  try {
+    const file = process.env.LEAD_LOG_FILE || join(process.cwd(), ".data", "leads.jsonl");
+    mkdirSync(dirname(file), { recursive: true });
+    appendFileSync(file, JSON.stringify({ receivedAt: new Date().toISOString(), ...lead }) + "\n");
+    return true;
+  } catch (err) {
+    console.error("[lead] Kunde inte spara lead till fil", err);
+    return false;
+  }
+}
 
 export type LeadData = {
   name: string;
   email: string;
   phone: string;
   specialty: string;
-  region: string;
+  city: string;
   message: string;
+  preferredDates: string[];
+  timePreference: string;
 };
 
 export type DeliveryResult = {
@@ -35,13 +56,21 @@ function escapeHtml(s: string) {
 }
 
 function buildEmail(lead: LeadData) {
+  const timePreference =
+    lead.timePreference === "before-noon"
+      ? "Före lunch"
+      : lead.timePreference === "after-noon"
+        ? "Efter lunch"
+        : lead.timePreference;
   const rows: [string, string][] = [
     ["Namn", lead.name],
     ["E-post", lead.email],
-    ["Telefon", lead.phone || "(ej angivet)"],
+    ["Telefon", lead.phone],
+    ["Stad", lead.city],
     ["Specialitet", lead.specialty || "(ej angivet)"],
-    ["Ort/region", lead.region || "(ej angivet)"],
-    ["Meddelande", lead.message],
+    ["Möjliga datum", lead.preferredDates.join(", ")],
+    ["Tid på dagen", timePreference],
+    ["Vad personen vill boka tid för", lead.message],
   ];
   const html = `
     <h2>Ny förfrågan via ${site.name}</h2>
@@ -62,11 +91,14 @@ function buildEmail(lead: LeadData) {
 
 export async function deliverLead(lead: LeadData): Promise<DeliveryResult> {
   const to = process.env.LEAD_TO_EMAIL || site.email;
-  const subject = `Ny förfrågan: ${lead.specialty || "specialist"} – ${lead.name}`;
+  const subject = `Ny tidsförfrågan: ${lead.specialty || "specialist"} – ${lead.name}`;
   const { html, text } = buildEmail(lead);
 
   // Logga alltid (så att en förfrågan aldrig försvinner spårlöst).
   console.info("[lead] Ny förfrågan", { ...lead, message: `${lead.message.slice(0, 80)}…` });
+
+  // Skriv ALLTID ner hela förfrågan till disk först – oberoende av e-post.
+  const persisted = persistLead(lead);
 
   // 1) SMTP (t.ex. Gmail) – skickar till din inkorg.
   if (process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS) {
@@ -114,5 +146,11 @@ export async function deliverLead(lead: LeadData): Promise<DeliveryResult> {
     }
   }
 
-  return { delivered: false, channel: "log", error: "Ingen e-postleverans konfigurerad" };
+  return {
+    delivered: false,
+    channel: "log",
+    error: persisted
+      ? "Ingen e-postleverans konfigurerad – sparad till .data/leads.jsonl"
+      : "Ingen leverans – varken e-post eller fil",
+  };
 }

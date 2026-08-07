@@ -2,17 +2,17 @@
 
 export const steps = [
   {
-    icon: "📝",
+    icon: "01",
     title: "Beskriv ditt behov",
     text: "Fyll i ett kort formulär och berätta vad du söker hjälp med. Det tar bara någon minut.",
   },
   {
-    icon: "🔎",
+    icon: "02",
     title: "Vi matchar dig",
     text: "Vi går igenom din förfrågan och hittar en eller flera specialister som passar just ditt behov.",
   },
   {
-    icon: "🤝",
+    icon: "03",
     title: "Kom i kontakt",
     text: "Du får kontaktförslag och kan boka tid direkt med specialisten. Kostnadsfritt och utan förpliktelser.",
   },
@@ -29,7 +29,10 @@ export function HowItWorks() {
           <span className="absolute -top-3 left-6 rounded-full bg-brand-600 px-3 py-0.5 text-xs font-bold text-white">
             Steg {i + 1}
           </span>
-          <span aria-hidden className="text-3xl">
+          <span
+            aria-hidden
+            className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-50 text-sm font-bold text-brand-700 ring-1 ring-brand-100"
+          >
             {step.icon}
           </span>
           <h3 className="mt-3 text-lg font-semibold text-ink-900">{step.title}</h3>

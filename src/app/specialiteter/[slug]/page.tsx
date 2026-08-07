@@ -135,6 +135,20 @@ export default async function SpecialtyPage({
               </p>
             </div>
 
+            {/* Framhävd stad/läkare-ruta som för authority vidare till money page. */}
+            {extra?.featureBox && (
+              <div className="mt-8 rounded-2xl border border-brand-200 bg-brand-50 p-6">
+                <h2 className="text-xl font-bold text-ink-900">{extra.featureBox.heading}</h2>
+                <p className="mt-2 text-ink-700">{extra.featureBox.body}</p>
+                <Link
+                  href={extra.featureBox.ctaHref}
+                  className="mt-4 inline-flex items-center justify-center rounded-xl bg-brand-600 px-6 py-3 text-base font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-brand-700"
+                >
+                  {extra.featureBox.ctaLabel} →
+                </Link>
+              </div>
+            )}
+
             {/* Fördjupning – unikt innehåll för prioriterade specialiteter. */}
             {extra?.sections.map((s) => (
               <section key={s.id} id={s.id} className="mt-10 scroll-mt-24">
@@ -232,16 +246,33 @@ export default async function SpecialtyPage({
           </article>
 
           {/* Formulär (sticky på desktop) */}
-          <aside className="lg:sticky lg:top-24 lg:self-start">
-            <div className="form-panel p-6">
-              <h2 className="text-lg font-bold text-ink-900">
-                Få kontakt med en {specialty.title.toLowerCase()}
-              </h2>
-              <p className="mt-1 text-sm text-ink-600">Kostnadsfritt och utan förpliktelser.</p>
-              <div className="mt-6">
-                <LeadForm defaultSpecialty={specialty.slug} />
+          <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">
+            {extra?.bookingCta ? (
+              <div className="form-panel p-6">
+                <h2 className="text-lg font-bold text-ink-900">Boka tid direkt</h2>
+                <a
+                  href={extra.bookingCta.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-brand-600 px-6 py-3.5 text-center text-base font-semibold text-white shadow-[0_12px_28px_rgba(13,148,136,0.24)] transition-all hover:-translate-y-0.5 hover:bg-brand-700"
+                >
+                  {extra.bookingCta.label}
+                </a>
+                {extra.bookingCta.note && (
+                  <p className="mt-2 text-xs text-ink-500">{extra.bookingCta.note}</p>
+                )}
               </div>
-            </div>
+            ) : (
+              <div className="form-panel p-6">
+                <h2 className="text-lg font-bold text-ink-900">
+                  Skicka tidsförfrågan till {specialty.title.toLowerCase()}
+                </h2>
+                <p className="mt-1 text-sm text-ink-600">Kostnadsfritt och utan förpliktelser.</p>
+                <div className="mt-6">
+                  <LeadForm defaultSpecialty={specialty.slug} />
+                </div>
+              </div>
+            )}
           </aside>
         </div>
       </div>

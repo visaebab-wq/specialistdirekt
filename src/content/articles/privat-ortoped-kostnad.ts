@@ -21,9 +21,9 @@ export const article: Article = {
   excerpt:
     "Vad kostar ett privat ortopedbesök? Ungefärliga priser för besök, röntgen, MR och eventuell operation, väntetider samt hur du bokar med eller utan remiss.",
   published: "2026-05-30",
-  updated: "2026-06-01",
+  updated: "2026-08-05",
   readMinutes: 7,
-  wordCount: 1300,
+  wordCount: 1450,
   relatedSpecialty: "ortoped",
   summary: [
     "Ett förstabesök hos en privat ortoped landar ofta runt **1 500–3 500 kr**; röntgen, MR eller operation tillkommer.",
@@ -98,6 +98,17 @@ export const article: Article = {
       ],
     },
     {
+      id: "privat-ortoped-goteborg-kostnad",
+      heading: "Aktuellt pris i Göteborg via Specialistdirekt",
+      body: [
+        "Via Specialistdirekt kan du boka **Dr. Masoud Sorkhabi**, specialistläkare i ortopedi i Göteborg, till fasta priser. Ingen remiss krävs för självbetalande. Läs mer och boka på [privat ortoped i Göteborg](/specialiteter/ortoped/goteborg).",
+      ],
+      bullets: [
+        "**Fysiskt besök i Göteborg – 2 000 kr**",
+        "**Digitalt videobesök, i hela Sverige – 1 000 kr**",
+      ],
+    },
+    {
       id: "vantetider",
       heading: "Väntetider hos ortoped",
       body: [
@@ -120,7 +131,7 @@ export const article: Article = {
       heading: "Så hjälper Specialistdirekt dig vidare",
       body: [
         "Att hitta rätt ortoped, jämföra kliniker och få besked om pris och väntetid kan ta tid om du gör allt själv. Specialistdirekt är byggt för att korta den vägen: du beskriver dina besvär, och vi matchar dig med en ortoped som passar för just din situation.",
-        "Du fyller i ett kort formulär om vad du behöver hjälp med. Sedan kopplar vi ihop dig med en lämplig specialist, så att du snabbare kan få en tid – ofta utan att själv behöva ringa runt. Söker du lokalt har vi bland annat en sida om [ortoped i Örebro](/specialiteter/ortoped/orebro). Läs mer om [hur det fungerar](/sa-fungerar-det) eller hör av dig via vår [kontaktsida](/kontakt) om du har frågor.",
+        "Du fyller i ett kort formulär om vad du behöver hjälp med. Sedan kopplar vi ihop dig med en lämplig specialist, så att du snabbare kan få en tid – ofta utan att själv behöva ringa runt. Söker du lokalt har vi bland annat sidor om [privat ortoped i Göteborg](/specialiteter/ortoped/goteborg) och [ortoped i Örebro](/specialiteter/ortoped/orebro). Läs mer om [hur det fungerar](/sa-fungerar-det) eller hör av dig via vår [kontaktsida](/kontakt) om du har frågor.",
         "Tanken är enkel: du ska kunna lägga din energi på att bli bättre, inte på att leta efter rätt klinik.",
       ],
     },
@@ -155,6 +166,11 @@ export const article: Article = {
       question: "Täcker en sjukvårdsförsäkring kostnaden för ortoped?",
       answer:
         "En privat sjukvårdsförsäkring kan ibland täcka både besök och eventuell operation, men villkoren skiljer sig mellan bolag. Vissa kräver remiss eller förhandsbesked. Kontrollera alltid villkoren med ditt försäkringsbolag innan du bokar.",
+    },
+    {
+      question: "Vad kostar en privat ortoped i Göteborg?",
+      answer:
+        "Prisbilden i Göteborg följer i stort de ungefärliga nationella intervallen: ett förstabesök ligger ofta runt 1 500–3 500 kr, och bildundersökningar tillkommer. Förmedlar du din förfrågan via Specialistdirekt får du alltid aktuellt pris innan en tid bokas. Se [privat ortoped i Göteborg](/specialiteter/ortoped/goteborg).",
     },
   ],
 };

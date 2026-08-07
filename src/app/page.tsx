@@ -1,10 +1,10 @@
 import Link from "next/link";
+import { RecoReviews } from "@/components/RecoReviews";
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
 import { specialties } from "@/lib/specialties";
 import { articles } from "@/lib/articles";
 import { faqs } from "@/lib/faq";
-import { SpecialtyIcon } from "@/components/SpecialtyIcon";
 import { AreaSelector } from "@/components/AreaSelector";
 import { FaqList } from "@/components/FaqList";
 import { JsonLd } from "@/components/JsonLd";
@@ -88,6 +88,24 @@ const specialistNeonImages: Record<string, string> = {
   gastroenterolog: "/specialist-neon/10-gastroenterolog.webp",
   endokrinolog: "/specialist-neon/11-endokrinolog.webp",
   reumatolog: "/specialist-neon/12-reumatolog.webp",
+  allmanmedicin: "/specialist-neon/13-allmanmedicin.webp",
+  hematolog: "/specialist-neon/14-hematolog.webp",
+};
+
+const popularSpecialties = [
+  "kardiolog",
+  "neurolog",
+  "gastroenterolog",
+  "ortoped",
+  "allmanmedicin",
+];
+
+const popularSpecialtyImages: Record<string, string> = {
+  kardiolog: "/page-visuals/home-popular-kardiolog.webp",
+  neurolog: "/page-visuals/home-popular-neurolog.webp",
+  gastroenterolog: "/page-visuals/home-popular-gastroenterolog.webp",
+  ortoped: "/page-visuals/specialty-ortoped-hero.webp",
+  allmanmedicin: "/page-visuals/home-popular-allmanmedicin.webp",
 };
 
 const ico = {
@@ -142,25 +160,32 @@ export default function HomePage() {
             </ul>
           </div>
 
-          {/* Dekorativ komposition av specialitetsikoner (inga läkarfoton) */}
+          {/* Populära specialiteter med bildkort i samma neon/realistiska stil som resten av sajten. */}
           <div className="rounded-3xl bg-white/5 p-6 ring-1 ring-white/10 backdrop-blur sm:p-8">
             <p className="text-sm font-medium text-sky-100/80">Populära specialiteter</p>
-            <div className="mt-4 grid grid-cols-3 gap-3">
-              {["kardiolog", "neurolog", "ortoped", "hudlakare", "gynekolog", "ogonlakare"].map(
-                (slug) => {
-                  const s = specialties.find((x) => x.slug === slug)!;
-                  return (
-                    <Link
-                      key={slug}
-                      href={`/specialiteter/${slug}`}
-                      className="group flex flex-col items-center gap-2 rounded-2xl bg-white/90 p-4 text-center transition-transform hover:-translate-y-0.5"
-                    >
-                      <SpecialtyIcon slug={slug} className="h-8 w-8 text-brand-700" />
-                      <span className="text-xs font-semibold text-ink-800">{s.title}</span>
-                    </Link>
-                  );
-                },
-              )}
+            <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-5 lg:grid-cols-2 xl:grid-cols-5">
+              {popularSpecialties.map((slug) => {
+                const s = specialties.find((x) => x.slug === slug)!;
+                return (
+                  <Link
+                    key={slug}
+                    href={`/specialiteter/${slug}`}
+                    className="group overflow-hidden rounded-2xl bg-white/95 text-center shadow-sm ring-1 ring-white/20 transition-all hover:-translate-y-0.5 hover:bg-white hover:shadow-lg"
+                  >
+                    <span className="specialist-motion-media rounded-none">
+                      <img
+                        src={popularSpecialtyImages[slug]}
+                        alt=""
+                        className="specialist-motion-image transition duration-500 group-hover:scale-105"
+                        loading="eager"
+                      />
+                    </span>
+                    <span className="block px-3 py-3 text-xs font-semibold text-ink-800 group-hover:text-brand-700">
+                      {s.title}
+                    </span>
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -229,6 +254,9 @@ export default function HomePage() {
           </ol>
         </div>
       </section>
+
+      {/* Patientomdömen från Reco (riktiga omdömen om läkaren) */}
+      <RecoReviews />
 
       {/* Förtroende / ansvar */}
       <section className="bg-ink-100">
@@ -302,7 +330,7 @@ export default function HomePage() {
                     <img
                       src={visual.src}
                       alt={visual.alt}
-                      className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                      className="medical-card-image h-full w-full object-cover transition duration-500 group-hover:scale-103"
                       loading="lazy"
                     />
                   </span>

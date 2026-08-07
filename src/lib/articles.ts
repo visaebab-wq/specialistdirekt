@@ -47,10 +47,14 @@ import { article as aderbrack } from "@/content/articles/privat-aderbracksbehand
 import { article as uppblastMage } from "@/content/articles/uppblast-mage";
 import { article as forhojdaLevervarden } from "@/content/articles/forhojda-levervarden-vilken-specialist";
 import { article as hogtBlodtryck } from "@/content/articles/hogt-blodtryck-nar-behovs-kardiolog";
+import { article as ortopedUtanRemiss } from "@/content/articles/ortoped-utan-remiss";
+import { article as ryggsmartaFysio } from "@/content/articles/ryggsmarta-ortoped-eller-fysioterapeut";
 
 // Ordning: pelarguiden först, sedan nyast överst.
 export const articles: Article[] = [
   guide,
+  ortopedUtanRemiss,
+  ryggsmartaFysio,
   forhojdaLevervarden,
   hogtBlodtryck,
   uppblastMage,

@@ -32,6 +32,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/privat-gastroenterolog", priority: 0.7, changeFrequency: "monthly" as const },
     { path: "/privat-gastroskopi", priority: 0.7, changeFrequency: "monthly" as const },
     { path: "/privat-koloskopi", priority: 0.7, changeFrequency: "monthly" as const },
+    // Engelsk landningssida (egen canonical + hreflang mot den svenska sidan).
+    { path: "/en/private-orthopedist-gothenburg", priority: 0.6, changeFrequency: "monthly" as const },
+    // Läkarprofil (entity) + ortopedisk smärtbehandling-landning.
+    { path: "/lakare/masoud-sorkhabi", priority: 0.7, changeFrequency: "monthly" as const },
+    { path: "/smartbehandling/goteborg", priority: 0.7, changeFrequency: "monthly" as const },
   ];
 
   const specialtyPaths = specialties.map((s) => ({

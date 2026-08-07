@@ -3,8 +3,10 @@
 
 import { site } from "./site";
 import type { Specialty } from "./specialties";
+import type { City } from "./cities-types";
 import type { Article } from "./articles-types";
 import { getArticleVisuals } from "./medical-visuals";
+import { medicalReviewerFor } from "./medical-reviewer";
 
 const abs = (path: string) => `${site.url}${path.startsWith("/") ? path : `/${path}`}`;
 
@@ -159,10 +161,23 @@ export function faqSchema(faqs: { question: string; answer: string }[]) {
 export function articleSchema(article: Article) {
   const url = abs(`/artiklar/${article.slug}`);
   const visuals = getArticleVisuals(article);
+  const reviewer = medicalReviewerFor(article);
   return {
     "@context": "https://schema.org",
     "@type": ["Article", "MedicalWebPage"],
     headline: article.title,
+    ...(reviewer
+      ? {
+          reviewedBy: {
+            "@type": "Person",
+            "@id": `${abs(reviewer.url)}#person`,
+            name: reviewer.name,
+            jobTitle: reviewer.title,
+            url: abs(reviewer.url),
+          },
+          lastReviewed: article.updated,
+        }
+      : {}),
     description: article.metaDescription,
     inLanguage: site.lang,
     datePublished: article.published,
@@ -180,6 +195,59 @@ export function articleSchema(article: Article) {
     about: { "@type": "MedicalSpecialty", name: article.category },
     // Innehållet är informativt, inte en ersättning för vårdkontakt.
     audience: { "@type": "Patient" },
+  };
+}
+
+/**
+ * WebPage-schema för en enskild sida. Beskriver ENBART det som faktiskt är
+ * synligt på sidan (Google varnar uttryckligen för schema som inte matchar
+ * synligt innehåll). Ingen medicinsk granskare eller Physician/Person läggs in.
+ */
+export function webPageSchema(opts: {
+  path: string;
+  name: string;
+  description: string;
+  primaryImage?: string;
+  breadcrumbId?: string;
+}) {
+  const url = abs(opts.path);
+  return clean({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${url}#webpage`,
+    url,
+    name: opts.name,
+    description: opts.description,
+    inLanguage: site.lang,
+    isPartOf: { "@id": `${site.url}/#website` },
+    publisher: { "@id": `${site.url}/#organization` },
+    primaryImageOfPage: opts.primaryImage ? abs(opts.primaryImage) : undefined,
+  });
+}
+
+/**
+ * Service-schema för en stad×specialitet-förmedlingssida. Provider är ALLTID
+ * Specialistdirekt (Organization) – aldrig den anonyma mottagningen eller
+ * läkaren. Ingen AggregateRating/Review och inget Offer med okänt medicinskt
+ * pris; det enda priset är den kostnadsfria förmedlingen.
+ */
+export function citySpecialtyServiceSchema(specialty: Specialty, city: City, path: string) {
+  const title = specialty.title.toLowerCase();
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: `Förmedling av tidsförfrågan till privat ${title} i ${city.name}`,
+    serviceType: "Vårdförmedling",
+    provider: { "@id": `${site.url}/#organization` },
+    areaServed: { "@type": "City", name: city.name },
+    url: abs(path),
+    description: `Specialistdirekt förmedlar kostnadsfritt din tidsförfrågan till ansluten ${title}kompetens i ${city.name}. Specialistdirekt är en förmedlingstjänst och inte vårdgivare – den medicinska bedömningen utförs av den mottagning som tar emot dig.`,
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "SEK",
+      description: "Kostnadsfri förmedling av tidsförfrågan.",
+    },
   };
 }
 

@@ -18,9 +18,9 @@ export const city: City = {
     allmanmedicin:
       "Som Sveriges näst största stad har Göteborg ett brett utbud av privata läkarmottagningar där du kan få en bred medicinsk bedömning. En specialist i allmänmedicin kan hjälpa dig när symtomen är oklara eller berör flera områden, och vägleda dig rätt vidare. Specialistdirekt hjälper dig kostnadsfritt att hitta en mottagning i Göteborg.",
     kardiolog:
-      "Vid hjärtbesvär finns det i Göteborg flera vägar till en kardiolog, både genom regionens sjukhus och via privata hjärtmottagningar. Utbudet i en storstad gör att du ofta kan jämföra olika vårdgivare innan du bokar tid. Specialistdirekt kan vägleda dig till en mottagning där en kardiolog kan utreda dina symtom.",
+      "Genom Specialistdirekt kan du skicka en tidsförfrågan till ansluten privat kardiologisk specialistkompetens i Göteborg. Den anslutna mottagningen erbjuder kardiologbesök samt EKG, hjärtultraljud, arbets-EKG, långtids-EKG och 24-timmars blodtrycksmätning. Du kan söka som självbetalande patient, och mottagningen kan även ta emot försäkringspatienter efter godkännande från försäkringsbolaget. Priset beror på vilken konsultation eller undersökning som bokas och lämnas innan du bestämmer dig. Specialistdirekt är en förmedlingstjänst och inte vårdgivare – undersökningar, medicinsk bedömning och behandling utförs av den mottagning som tar emot dig.",
     ortoped:
-      "Den som har problem med leder, skelett eller idrottsskador kan i Göteborg vända sig till ortopeder på både offentliga och privata mottagningar. Tack vare stadens storlek finns det en rad alternativ spridda över olika stadsdelar. Vi på Specialistdirekt hjälper dig att hitta en ortoped utan att det kostar dig något.",
+      "Söker du en privat ortoped? Här kan du boka tid hos Dr. Masoud Sorkhabi, specialistläkare i ortopedi med mer än 20 års klinisk erfarenhet – för bland annat rygg-, nack- och knäbesvär samt diskrelaterad, nervrelaterad och långvarig smärta från rörelseapparaten. Besöket kan vara fysiskt i Göteborg (2 000 kr) eller ett digitalt videobesök från hela Sverige (1 000 kr). Boka tid direkt i kalendern eller skicka en kostnadsfri tidsförfrågan via Specialistdirekt.",
     hudlakare:
       "Hudbesvär, från återkommande utslag till födelsemärken du vill få kontrollerade, kan bedömas av en hudläkare på någon av Göteborgs många dermatologiska mottagningar. Här samsas offentlig vård med ett flertal privata aktörer, vilket ger valfrihet. Låt Specialistdirekt matcha dig med en hudläkare i området.",
     gynekolog:
@@ -31,6 +31,284 @@ export const city: City = {
       "Besvär som rör nervsystemet, exempelvis huvudvärk, yrsel eller domningar, kan utredas av en neurolog i Göteborg. Som storstad har Göteborg ett samlat neurologiskt kunnande, med vård tillgänglig genom både regionens sjukhus och privata specialister. Specialistdirekt vägleder dig kostnadsfritt till en neurolog som kan ta sig an dina frågor.",
   },
   specialtyLocal: {
+    ortoped: {
+      metaTitle: "Privat ortoped Göteborg utan remiss – skicka tidsförfrågan",
+      metaDescription:
+        "Privat ortoped i Göteborg för rygg-, nack- och knäbesvär. Skicka en kostnadsfri tidsförfrågan utan remiss via Specialistdirekt – du får tid och pris innan du bestämmer dig.",
+      h1: "Privat ortoped i Göteborg",
+      hideCityIntro: true,
+      altLanguage: {
+        href: "/en/private-orthopedist-gothenburg",
+        label: "In English: Private orthopedist in Gothenburg",
+      },
+      bookingCta: {
+        label: "Boka tid hos Dr. Masoud Sorkhabi",
+        url: "/boka/ortoped-goteborg",
+        note: "Öppnar bokningskalendern i en ny flik. Föredrar du att vi återkommer? Använd tidsförfrågan nedan.",
+      },
+      quickFacts: [
+        { label: "Läkare", value: "Dr. Masoud Sorkhabi, specialist i ortopedi" },
+        { label: "Besök", value: "Fysiskt i Göteborg eller digitalt i hela Sverige" },
+        { label: "Pris", value: "Fysiskt 2 000 kr · digitalt videobesök 1 000 kr" },
+        { label: "Specialitet", value: "Ortopedi" },
+        { label: "Erfarenhet", value: "Mer än 20 års klinisk erfarenhet" },
+        { label: "Kompetensområden", value: "Rygg, nacke, knä och nervrelaterade besvär" },
+        { label: "Patienttyp", value: "Självbetalande" },
+        { label: "Remiss", value: "Behövs inte" },
+        { label: "Publikt omdöme", value: "4,9 av 5 · 63 omdömen på Reco (Dr. Masoud Sorkhabi)" },
+        { label: "Tidsförfrågan", value: "Kostnadsfri och utan förpliktelser" },
+        { label: "Roll", value: "Specialistdirekt är förmedlingstjänst – inte vårdgivare" },
+      ],
+      redFlag: {
+        heading: "När ska du söka akut vård i stället?",
+        body: "Specialistdirekt är inte en akuttjänst och bedömer inte hur brådskande dina besvär är. Sök vård direkt – ring **112** vid livshotande tillstånd – vid till exempel:",
+        bullets: [
+          "misstänkt fraktur eller kraftigt våld mot huvud, nacke eller rygg",
+          "plötslig svår ryggsmärta med domningar kring underlivet, svårt att kissa eller förlorad kontroll över urin eller avföring",
+          "plötslig eller snabbt tilltagande kraftnedsättning eller domning i arm eller ben",
+          "en arm eller ett ben som blir kallt, blekt eller känsellöst efter en skada",
+          "rygg- eller ledsmärta tillsammans med hög feber och kraftig allmänpåverkan",
+        ],
+        footnote:
+          "Ring **112** vid livshotande tillstånd. Är du osäker kan du ringa **1177** för sjukvårdsrådgivning dygnet runt.",
+      },
+      sections: [
+        {
+          id: "om-lakaren-goteborg",
+          heading: "Om Dr. Masoud Sorkhabi – ortoped i Göteborg",
+          body: [
+            "Hos Specialistdirekt kan du boka tid hos **Dr. Masoud Sorkhabi**, specialistläkare i ortopedi i Göteborg med **mer än 20 års klinisk erfarenhet**. Inriktningen omfattar bland annat rygg-, nack- och knäbesvär samt diskrelaterad, nervrelaterad och långvarig smärta från rörelseapparaten.",
+            "Du kan **boka tid direkt i kalendern**, eller skicka en kostnadsfri tidsförfrågan så återkommer vi med besked om tid och pris. Den medicinska bedömningen och behandlingen utförs av Dr. Masoud Sorkhabi; Specialistdirekt förmedlar kontakten och är inte vårdgivare. Läs mer om [Dr. Masoud Sorkhabi](/lakare/masoud-sorkhabi).",
+          ],
+        },
+        {
+          id: "kompetens-ortoped-goteborg",
+          heading: "Vilka besvär kan vara aktuella för ortopedisk bedömning?",
+          body: [
+            "Den anslutna ortopediska specialistkompetensen i Göteborg är särskilt inriktad på besvär från **rygg, nacke och knä** samt diskrelaterad, nervrelaterad och långvarig smärta från rörelseapparaten. Nedan ser du exempel på när en ortopedisk bedömning kan vara relevant – det är just exempel, inte ett löfte om att varje tillstånd kan tas emot eller behandlas.",
+          ],
+          bullets: [
+            "**Ryggbesvär** – långvarig eller återkommande smärta i ländrygg eller bröstrygg",
+            "**Nackbesvär** – smärta och stelhet i nacken, ibland med utstrålning mot arm",
+            "**Knäbesvär** – smärta, svullnad, låsningar eller instabilitet i knät",
+            "**Diskrelaterade besvär** – misstänkt diskbråck eller diskrelaterad nervpåverkan",
+            "**Nervrelaterad smärta** – utstrålande smärta, domningar eller stickningar",
+            "**SI-ledsbesvär** – smärta från bäckenets iliosakralleder",
+            "**Idrotts- och överbelastningsbesvär** – besvär efter träning eller belastning",
+            "**Långvarig smärta från rörelseapparaten** – besvär som inte gått över trots tid och egenvård",
+          ],
+        },
+        {
+          id: "rygg-nacke-knä-nerv-goteborg",
+          heading: "Rygg, nacke, knä och nervrelaterad smärta – lite mer om vanliga besvär",
+          body: [
+            "**Rygg- och nackbesvär.** Många rygg- och nackbesvär är godartade och läker med tid, rörelse och avlastning. När smärtan är långvarig, återkommande eller tydligt påverkar vardagen kan en ortoped bedöma dina aktuella besvär och vad som är rimliga nästa steg.",
+            "**Knä- och belastningsbesvär.** Knät är särskilt utsatt vid idrott och belastning. Besvär som låser sig, sviktar eller inte förbättras trots träning kan behöva bedömas av en läkare. Osäker på vart du ska vända dig? Se [vilken läkare vid knäsmärta](/artiklar/vilken-lakare-knasmarta).",
+            "**Nervrelaterad eller utstrålande smärta.** Smärta som strålar ut i arm eller ben, ibland med domningar eller stickningar, kan höra ihop med nerver i rygg eller nacke. Det är en vanlig anledning att söka ortopedisk bedömning – läs mer om [ortopedisk smärtbehandling i Göteborg](/smartbehandling/goteborg).",
+          ],
+        },
+        {
+          id: "hogst-betygsatta-ortoped-goteborg",
+          heading: "Högst betygsatta ortopeder i Göteborg – så jämför du rätt",
+          body: [
+            "Den som söker efter de högst betygsatta ortopederna i Göteborg bör väga in mer än bara snittbetyget. Titta också på hur aktuella omdömena är, vilken kompetens och erfarenhet läkaren har, och om mottagningen arbetar med just de besvär du söker hjälp för.",
+            "Dr. Masoud Sorkhabi har fått mycket starka patientomdömen – **4,9 av 5** baserat på 63 publicerade omdömen på Reco. Betyget gäller läkaren som genomför besöket och inte Specialistdirekt. Omdömen kan vara en relevant förtroendesignal, men är ingen garanti för ett visst medicinskt resultat.",
+            "När du jämför ortopeder – i Göteborg eller någon annanstans – är det värt att väga in flera saker samtidigt:",
+          ],
+          bullets: [
+            "**Betyg och hur aktuellt det är** – ett högt snitt säger mer om det bygger på färska omdömen.",
+            "**Specialistkompetens och erfarenhet** – att läkaren är specialist i ortopedi och har erfarenhet av dina typer av besvär.",
+            "**Relevans för dina symtom** – att mottagningen faktiskt arbetar med det du söker hjälp för.",
+            "**Transparent pris** – att du får veta vad besöket kostar innan du bokar.",
+            "**Tydlig ansvarsfördelning** – vem som är vårdgivare och bär det medicinska ansvaret.",
+          ],
+        },
+        {
+          id: "nar-ortoped-ratt-goteborg",
+          heading: "När är en ortoped rätt – och när passar annan vård bättre?",
+          body: [
+            "En ortoped är inte alltid det första steget. Vid många muskel- och ledbesvär är vårdcentral eller fysioterapeut en bra början, medan andra situationer talar för en läkarbedömning. Listan nedan är en förenklad vägledning – den ställer ingen diagnos och avgör inte ditt enskilda fall.",
+          ],
+          bullets: [
+            "**Gradvis muskelvärk utan tydlig skada** → ofta fysioterapeut eller vårdcentral först.",
+            "**Låsning, instabilitet eller misstänkt ledskada** → läkarbedömning, ibland ortoped.",
+            "**Långvariga besvär trots rekommenderad behandling** → läkarbedömning eller ortoped.",
+            "**Domningar, utstrålande smärta eller kraftnedsättning** → läkarbedömning.",
+            "**Misstänkt fraktur eller akut svår skada** → akutmottagning eller jourvård.",
+            "**Feber tillsammans med en snabbt svullen och mycket smärtsam led** → sök vård skyndsamt.",
+          ],
+        },
+        {
+          id: "utan-remiss-ortoped-goteborg",
+          heading: "Kan jag söka privat ortoped i Göteborg utan remiss?",
+          body: [
+            "Ja. Som självbetalande patient behöver du ingen remiss för att skicka en tidsförfrågan till den aktuella anslutna ortopediska kapaciteten i Göteborg.",
+            "Några saker är bra att känna till: detta gäller den **privata självbetalar-vägen**. Regionfinansierad vård i Västra Götalandsregionen kan ha andra krav, och vill du använda en privat sjukvårdsförsäkring behöver försäkringsbolaget oftast godkänna besöket först. Att skicka en tidsförfrågan är inte samma sak som en färdig, bekräftad bokning – du bestämmer själv om du vill gå vidare efter att du fått besked om tid och pris. Läs mer i [ortoped utan remiss](/artiklar/ortoped-utan-remiss).",
+          ],
+        },
+        {
+          id: "pris-ortoped-goteborg",
+          heading: "Pris",
+          body: [
+            "Priserna hos Dr. Masoud Sorkhabi är fasta och du ser dem innan du bokar:",
+          ],
+          bullets: [
+            "**Fysiskt besök i Göteborg – 2 000 kr**",
+            "**Digitalt videobesök – 1 000 kr**, kan bokas från hela Sverige",
+          ],
+        },
+        {
+          id: "digitalt-besok-ortoped",
+          heading: "Digitalt ortopedbesök – från hela Sverige",
+          body: [
+            "Bor du inte i Göteborg? Dr. Masoud Sorkhabi tar även emot **digitala videobesök** för patienter i hela Sverige, för 1 000 kr. Ett digitalt besök passar bra för en första bedömning av dina besvär, genomgång av tidigare undersökningar och råd om nästa steg.",
+            "Vissa besvär behöver undersökas på plats – då kan läkaren rekommendera ett fysiskt besök i Göteborg. En generell guide om vad privat ortopedi kan kosta finns i [privat ortoped: kostnad](/artiklar/privat-ortoped-kostnad).",
+          ],
+        },
+        {
+          id: "sa-fungerar-tidsforfragan-ortoped-goteborg",
+          heading: "Så fungerar en tidsförfrågan genom Specialistdirekt",
+          body: [
+            "Vägen från förfrågan till besök är enkel, och du behåller kontrollen i varje steg:",
+          ],
+          bullets: [
+            "Du beskriver kort dina aktuella besvär och vilka tider som brukar passa.",
+            "Specialistdirekt granskar uppgifterna **administrativt – inte medicinskt**.",
+            "Förfrågan förmedlas till ansluten ortopedisk specialistkompetens i Göteborg.",
+            "Du får besked om möjlig tid, plats och aktuellt pris.",
+            "Du väljer själv om du vill gå vidare.",
+            "Den medicinska bedömningen och det medicinska ansvaret ligger hos den mottagning som tar emot dig.",
+          ],
+        },
+        {
+          id: "forbered-ortopedbesok-goteborg",
+          heading: "Vad är bra att förbereda inför ett ortopedbesök?",
+          body: [
+            "Ju tydligare bild du kan ge, desto lättare blir bedömningen. Bra att ha med dig:",
+          ],
+          bullets: [
+            "när besvären började och hur de har utvecklats",
+            "var smärtan eller funktionsnedsättningen sitter",
+            "hur besvären påverkar rörelse, sömn och vardag",
+            "vad du redan provat, till exempel träning eller behandling",
+            "din aktuella medicinlista",
+            "tidigare röntgen- eller MR-svar, om du har några",
+            "uppgifter om tidigare skador i området",
+            "försäkringsinformation, om det är aktuellt",
+          ],
+        },
+        {
+          id: "forbered-bilddiagnostik-goteborg",
+          heading: "Behöver jag ordna MR eller röntgen först?",
+          body: [
+            "Nej. Du behöver inte ordna MR eller röntgen på egen hand bara för att skicka en första tidsförfrågan. Har du redan sådant material är det bra att ta med det, men beställ inga undersökningar i onödan – läkaren avgör vad som är motiverat. Om en bildundersökning av ryggen skulle bli aktuell kan du läsa på i [privat MR av ryggen](/artiklar/privat-mr-rygg-kostnad).",
+          ],
+        },
+        {
+          id: "kallor-ortoped-goteborg",
+          heading: "Källor och senast uppdaterat",
+          body: [
+            "Den medicinska och vägledande informationen på den här sidan bygger på offentliga primärkällor:",
+          ],
+          bullets: [
+            "[1177 – Skelett, leder och muskler](https://www.1177.se/sjukdomar--besvar/skelett-leder-och-muskler/)",
+            "[1177 – När och var ska jag söka vård?](https://www.1177.se/sa-fungerar-varden/nar-och-var-ska-jag-soka-vard/)",
+          ],
+        },
+      ],
+      leadCta: {
+        heading: "Skicka en kostnadsfri tidsförfrågan",
+        body: "Beskriv kort vilka besvär du söker hjälp för och vilka tider som brukar passa. Vi återkommer så snart som möjligt med besked om möjlig tid och aktuellt pris. Du bestämmer därefter själv om du vill gå vidare.",
+        buttonLabel: "Skicka tidsförfrågan",
+      },
+      faqs: [
+        {
+          question: "Vem är läkaren jag träffar?",
+          answer:
+            "Du träffar Dr. Masoud Sorkhabi, specialistläkare i ortopedi i Göteborg med mer än 20 års klinisk erfarenhet, med inriktning på bland annat rygg-, nack- och knäbesvär samt nervrelaterad och långvarig smärta. Den medicinska bedömningen och behandlingen utförs av läkaren; Specialistdirekt förmedlar kontakten och är inte vårdgivare.",
+        },
+        {
+          question: "Kan jag boka tid direkt hos ortopeden?",
+          answer:
+            "Ja. Du kan boka tid direkt i Dr. Masoud Sorkhabis bokningskalender via knappen \"Boka tid\" på sidan. Föredrar du att vi återkommer med förslag på tid och pris kan du i stället skicka en kostnadsfri tidsförfrågan.",
+        },
+        {
+          question: "Behöver jag remiss till privat ortoped i Göteborg?",
+          answer:
+            "Nej. Som självbetalande patient behöver du ingen remiss för att boka tid eller skicka en tidsförfrågan till Dr. Masoud Sorkhabi i Göteborg. Regionfinansierad vård kan ha andra krav, och med privat sjukvårdsförsäkring går du oftast via försäkringsbolaget. Läs mer i [ortoped utan remiss](/artiklar/ortoped-utan-remiss).",
+        },
+        {
+          question: "Vad kostar ett besök hos Dr. Masoud Sorkhabi?",
+          answer:
+            "Ett fysiskt besök i Göteborg kostar 2 000 kr och ett digitalt videobesök kostar 1 000 kr. Priserna är fasta och du ser dem innan du bokar. En generell guide om privata ortopedpriser finns i [privat ortoped: kostnad](/artiklar/privat-ortoped-kostnad).",
+        },
+        {
+          question: "Kan jag få ett digitalt ortopedbesök om jag inte bor i Göteborg?",
+          answer:
+            "Ja. Dr. Masoud Sorkhabi tar emot digitala videobesök från hela Sverige för 1 000 kr. Det passar bra för en första bedömning av dina besvär; vissa besvär kan behöva ett fysiskt besök i Göteborg, som kostar 2 000 kr.",
+        },
+        {
+          question: "Hur snabbt kan jag få besked om en möjlig tid?",
+          answer:
+            "Vi återkommer så snart som möjligt med besked om möjlig tid. Vi kan inte utlova en viss väntetid, eftersom tillgången varierar. Du får besked om tid och pris innan du bestämmer dig.",
+        },
+        {
+          question: "Kan ortopeden bedöma rygg- och nackbesvär?",
+          answer:
+            "Ja. Rygg- och nackbesvär hör till den anslutna kompetensens inriktning, inklusive smärta som strålar ut mot arm. Ortopeden gör en medicinsk bedömning av dina aktuella besvär.",
+        },
+        {
+          question: "Kan jag skicka en tidsförfrågan för knäsmärta?",
+          answer:
+            "Ja. Knäbesvär – till exempel smärta, svullnad, låsningar eller instabilitet – är ett vanligt skäl att söka ortoped. Vill du först läsa på om vart du ska vända dig finns [vilken läkare vid knäsmärta](/artiklar/vilken-lakare-knasmarta).",
+        },
+        {
+          question: "Kan ortopeden bedöma diskrelaterad eller nervrelaterad smärta?",
+          answer:
+            "Ja. Diskrelaterade besvär och nervrelaterad, utstrålande smärta hör till den anslutna kompetensens inriktning. Ortopeden bedömer dina aktuella symtom och vad som är rimliga nästa steg.",
+        },
+        {
+          question: "Behöver jag ha gjort MR eller röntgen före besöket?",
+          answer:
+            "Nej, du behöver inte ordna MR eller röntgen på egen hand bara för att skicka en första tidsförfrågan. Har du redan sådant material är det bra att ta med det. Läs mer om [privat MR av ryggen](/artiklar/privat-mr-rygg-kostnad) om en bildundersökning skulle bli aktuell.",
+        },
+        {
+          question: "Kan jag använda privat sjukvårdsförsäkring?",
+          answer:
+            "Kontakta oss om du vill använda privat sjukvårdsförsäkring, så undersöker vi möjligheten. Försäkringsbolaget avgör vanligtvis vad som täcks och kan kräva ett godkännande först.",
+        },
+        {
+          question: "Hur hittar jag de högst betygsatta ortopederna i Göteborg?",
+          answer:
+            "Väg in mer än snittbetyget: hur aktuella omdömena är, läkarens specialistkompetens och erfarenhet, om läkaren arbetar med just dina besvär, och att du får ett tydligt pris innan du bokar. Dr. Masoud Sorkhabi har 4,9 av 5 baserat på 63 omdömen på Reco – ett betyg som gäller läkaren, inte Specialistdirekt, och som inte är någon garanti för resultat.",
+        },
+        {
+          question: "Vem gäller det publika betyget 4,9 av 5?",
+          answer:
+            "Betyget 4,9 av 5 gäller Dr. Masoud Sorkhabi och bygger på 63 publika omdömen på Reco – inte på Specialistdirekt.",
+        },
+        {
+          question: "Är ett högt omdömesbetyg en garanti för behandlingsresultat?",
+          answer:
+            "Nej. Ett omdömesbetyg beskriver tidigare patienters upplevelser och är ingen garanti för ett visst medicinskt resultat i ditt fall.",
+        },
+        {
+          question: "Är Specialistdirekt en privat ortopedklinik?",
+          answer:
+            "Nej. Specialistdirekt är en förmedlingstjänst, inte en ortopedklinik. Vi förmedlar din tidsförfrågan till ansluten ortopedisk specialistkompetens i Göteborg.",
+        },
+        {
+          question: "Vem ansvarar för den medicinska bedömningen?",
+          answer:
+            "Den medicinska bedömningen, behandlingen och det medicinska ansvaret ligger hos den mottagning som tar emot dig. Specialistdirekt är inte vårdgivare och ger inte medicinsk rådgivning.",
+        },
+        {
+          question: "Kostar det något att skicka en tidsförfrågan?",
+          answer:
+            "Nej. Att skicka en tidsförfrågan är kostnadsfritt och utan förpliktelser. Du bestämmer själv om du vill gå vidare efter att du fått besked om tid och pris.",
+        },
+      ],
+    },
     gastroenterolog: {
       metaTitle: "Privat gastroenterolog i Göteborg – magspecialist utan remiss",
       metaDescription:
@@ -306,39 +584,71 @@ export const city: City = {
       ],
     },
     kardiolog: {
-      metaTitle: "Privat kardiolog i Göteborg – hjärtutredning utan remiss",
+      metaTitle: "Privat kardiolog Göteborg – undersökningar utan remiss",
       metaDescription:
-        "Privat kardiolog i Göteborg: EKG, hjärtultraljud och långtids-EKG, remiss, vad som påverkar priset och när hjärtbesvär är akuta. Kostnadsfri förmedling.",
+        "Privat kardiolog i Göteborg utan remiss: kardiologbesök, EKG, hjärtultraljud, arbets-EKG, långtids-EKG och 24-timmars blodtrycksmätning. Pris lämnas innan bokning.",
+      quickFacts: [
+        { label: "Plats", value: "Göteborg – fysiskt besök" },
+        { label: "Specialitet", value: "Kardiologi" },
+        { label: "Undersökningar", value: "EKG, hjärtultraljud, arbets-EKG, långtids-EKG, 24-tim blodtryck" },
+        { label: "Patienttyp", value: "Självbetalande" },
+        { label: "Remiss", value: "Behövs inte för den aktuella tidsförfrågan" },
+        { label: "Försäkring", value: "Mottagningen kan ta emot försäkringspatienter efter godkännande" },
+        { label: "Pris", value: "Per konsultation/undersökning – lämnas innan bokning" },
+        { label: "Tidsförfrågan", value: "Kostnadsfri och utan förpliktelser" },
+        { label: "Roll", value: "Specialistdirekt är förmedlingstjänst – inte vårdgivare" },
+      ],
+      redFlag: {
+        heading: "När ska du ringa 112 i stället?",
+        body: "Specialistdirekt är inte en akuttjänst. En planerad kardiologbedömning är till för besvär som inte är akuta. Ring **112** direkt vid till exempel:",
+        bullets: [
+          "bröstsmärta eller tryck över bröstet som inte går över – särskilt med andfåddhet, illamående eller kallsvettning",
+          "plötslig svår andnöd",
+          "svimning eller svimningskänsla i samband med hjärtklappning",
+          "tecken på stroke: plötslig svaghet, hängande mungipa eller sluddrigt tal",
+        ],
+        footnote:
+          "Ring **112** vid livshotande tillstånd. Är du osäker kan du ringa **1177** för sjukvårdsrådgivning dygnet runt.",
+      },
       sections: [
         {
           id: "privat-kardiolog-goteborg",
           heading: "Privat kardiolog i Göteborg – vägen in",
           body: [
             "Göteborg är Sveriges näst största stad, och det märks på hjärtsjukvården. Regionens tyngdpunkt ligger vid **Sahlgrenska Universitetssjukhuset**, ett av Nordens största sjukhus, med ytterligare vård vid **Östra sjukhuset** och **Mölndals sjukhus**. Vid sidan av den regiondrivna vården finns flera privata hjärtmottagningar i staden. Specialistdirekt är en fristående förmedlingstjänst – vi är inte vårdgivare och har ingen koppling till Sahlgrenska eller Västra Götalandsregionen.",
-            "Storstadsläget gör att du oftare kan **jämföra flera vårdgivare** innan du bestämmer dig, och att resvägen sällan blir lång oavsett stadsdel. Vägen in beror på finansieringen: som **självbetalande** kan du hos många privata mottagningar boka mer direkt, medan **regionfinansierad** vård i Västra Götalandsregionen oftast går via en remiss från vårdcentralen. Har du en **sjukvårdsförsäkring** går du normalt via försäkringsbolaget. Läs mer på vår [översikt om kardiolog](/specialiteter/kardiolog).",
+            "Genom Specialistdirekt förmedlas din förfrågan till **ansluten privat kardiologisk specialistkompetens i Göteborg** – du behöver inte ringa runt själv, och resvägen blir sällan lång oavsett stadsdel. Vägen in beror på finansieringen: som **självbetalande** patient behöver du ingen remiss för den aktuella tidsförfrågan, medan **regionfinansierad** vård i Västra Götalandsregionen oftast går via en remiss från vårdcentralen. Har du en **sjukvårdsförsäkring** går du normalt via försäkringsbolaget, som kan kräva ett godkännande först. Läs mer på vår [översikt om kardiolog](/specialiteter/kardiolog).",
             "En praktisk sak värd att veta: **Mölndal** gränsar direkt till Göteborg, och för många i södra Göteborg är en mottagning där lika nära som en i centrum. Låt inte kommungränsen begränsa dig när du jämför – se [kardiolog i Mölndal](/specialiteter/kardiolog/molndal).",
           ],
         },
         {
           id: "hjartundersokningar-goteborg",
-          heading: "Vanliga hjärtundersökningar",
+          heading: "Hjärtundersökningar som kan bokas",
           body: [
-            "En kardiologisk bedömning börjar med ett samtal om dina symtom och en kroppsundersökning. Vilka undersökningar som blir aktuella avgör läkaren utifrån dina besvär – allt görs inte rutinmässigt. De vanligaste är:",
+            "En kardiologisk bedömning börjar med ett samtal om dina symtom och en kroppsundersökning. Vilka undersökningar som är relevanta avgörs utifrån frågeställningen och den medicinska bedömningen – allt görs inte rutinmässigt för alla. **Varje undersökning har ett separat pris**, och du får information om kostnaden innan bokningen bekräftas.",
+            "Den anslutna mottagningen kan erbjuda bland annat:",
           ],
           bullets: [
-            "**EKG** – registrerar hjärtats elektriska aktivitet, ofta det första steget vid hjärtklappning eller rytmbesvär.",
+            "**EKG (vilo-EKG)** – registrerar hjärtats elektriska aktivitet, ofta ett första steg vid hjärtklappning eller rytmbesvär.",
+            "**Hjärtultraljud (ekokardiografi, UCG)** – visar hjärtats pumpförmåga, klaffar och struktur.",
+            "**Arbets-EKG (arbetsprov)** – visar hur hjärtat svarar på fysisk belastning.",
             "**Långtids-EKG (Holter)** – bärbar registrering över ett eller flera dygn, bra vid besvär som kommer och går.",
-            "**Ultraljud av hjärtat (UCG)** – visar pumpförmåga, klaffar och struktur.",
-            "**Arbetsprov (arbets-EKG)** – visar hur hjärtat svarar på fysisk belastning.",
-            "**Dygnsblodtrycksmätning** – vid frågeställning om [högt blodtryck](/artiklar/hogt-blodtryck-nar-behovs-kardiolog).",
+            "**24-timmars blodtrycksmätning** – vid frågeställning om [högt blodtryck](/artiklar/hogt-blodtryck-nar-behovs-kardiolog).",
           ],
         },
         {
           id: "remiss-och-pris-goteborg",
           heading: "Remiss och vad som påverkar priset",
           body: [
-            "Behöver du remiss? Inom regionfinansierad vård krävs oftast en remiss från vårdcentralen, medan du hos många privata mottagningar kan boka mer direkt eller via egen vårdbegäran. Vad som gäller beror på mottagning och finansiering – se [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
-            "Priser varierar mellan mottagningar och det finns inget enhetligt pris. Utöver läkarbesöket prissätts undersökningar som EKG, hjärtultraljud, långtids-EKG eller arbetsprov ofta separat, så slutsumman beror på vad som behövs i ditt fall. Be därför alltid om ett samlat pris i förväg, och kontrollera om en eventuell sjukvårdsförsäkring täcker delar av kostnaden. Vad som driver kostnaden går vi igenom i [privat kardiolog: kostnad](/artiklar/privat-kardiolog-kostnad).",
+            "Behöver du remiss? Som självbetalande patient behöver du ingen remiss för den aktuella tidsförfrågan till den anslutna mottagningen. Inom regionfinansierad vård i Västra Götalandsregionen krävs oftast en remiss från vårdcentralen. Se även [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
+            "Priset beror på vilken konsultation eller undersökning som bokas. Utöver kardiologbesöket prissätts undersökningar som EKG, hjärtultraljud, långtids-EKG eller arbets-EKG separat, så slutsumman beror på vad som behövs i ditt fall. Du får alltid information om aktuellt pris innan bokningen bekräftas. En generell guide finns i [privat kardiolog: kostnad](/artiklar/privat-kardiolog-kostnad).",
+          ],
+        },
+        {
+          id: "forsakring-kardiolog-goteborg",
+          heading: "Kan jag använda privat sjukvårdsförsäkring?",
+          body: [
+            "Den anslutna mottagningen kan ta emot patienter via privat sjukvårdsförsäkring. Kontakta först ditt försäkringsbolag för medicinsk rådgivning och godkännande av ärendet. Försäkringsbolaget avgör vilka besök och undersökningar som omfattas och om en betalningsförbindelse krävs.",
+            "Försäkringsärendet och den medicinska vården hanteras av den mottagning som tar emot dig. Specialistdirekt förmedlar tidsförfrågan och är inte vårdgivare.",
           ],
         },
         {
@@ -350,7 +660,52 @@ export const city: City = {
           ],
         },
       ],
+      leadCta: {
+        heading: "Skicka en kostnadsfri tidsförfrågan",
+        body: "Beskriv kort dina besvär eller vilken undersökning du är intresserad av, och vilka tider som passar. Vi återkommer så snart som möjligt med besked om möjlig tid och aktuellt pris. Specialistdirekt är en förmedlingstjänst – inte vårdgivare.",
+        buttonLabel: "Skicka tidsförfrågan",
+      },
       faqs: [
+        {
+          question: "Kan jag boka privat kardiolog i Göteborg utan remiss?",
+          answer:
+            "Ja. Som självbetalande patient kan du skicka en tidsförfrågan till ansluten privat kardiologisk specialistkompetens i Göteborg utan remiss. Du får information om möjlig tid, relevant undersökning och aktuellt pris innan du bestämmer dig.",
+        },
+        {
+          question: "Var kan jag göra en privat hjärtundersökning i Göteborg?",
+          answer:
+            "Den anslutna mottagningen kan erbjuda kardiologbesök samt EKG, hjärtultraljud, arbets-EKG, långtids-EKG och 24-timmars blodtrycksmätning. Vilka undersökningar som är relevanta avgörs av frågeställningen och den medicinska bedömningen.",
+        },
+        {
+          question: "Ingår EKG i ett privat kardiologbesök?",
+          answer:
+            "Det beror på frågeställningen. Ett vilo-EKG är ofta ett första steg, men varje undersökning prissätts separat och avgörs utifrån den medicinska bedömningen. Du får veta vad som ingår och vad det kostar innan bokningen bekräftas.",
+        },
+        {
+          question: "Kan jag boka hjärtultraljud, arbets-EKG eller långtids-EKG?",
+          answer:
+            "Ja, den anslutna mottagningen kan erbjuda dessa undersökningar. Vilken som är relevant avgörs av frågeställningen och den medicinska bedömningen, och varje undersökning har ett separat pris som du får veta innan bokning.",
+        },
+        {
+          question: "Tar mottagningen emot privat sjukvårdsförsäkring?",
+          answer:
+            "Ja, den anslutna mottagningen kan ta emot försäkringspatienter. Kontakta först ditt försäkringsbolag för godkännande av ärendet. Försäkringsärendet hanteras av mottagningen – Specialistdirekt förmedlar tidsförfrågan och är inte vårdgivare.",
+        },
+        {
+          question: "Kan kardiologen utreda hjärtklappning, andfåddhet eller yrsel?",
+          answer:
+            "Ja, hjärtklappning och andfåddhet är vanliga skäl att söka kardiolog, och läkaren avgör vilka undersökningar som är relevanta. Yrsel kan ha flera orsaker. Vid akuta symtom, se avsnittet om när du ska ringa 112.",
+        },
+        {
+          question: "Får jag priset innan bokningen bekräftas?",
+          answer:
+            "Ja. Du får alltid information om aktuellt pris för den konsultation eller undersökning som är aktuell innan bokningen bekräftas.",
+        },
+        {
+          question: "Är Specialistdirekt en hjärtmottagning?",
+          answer:
+            "Nej. Specialistdirekt är en förmedlingstjänst, inte en hjärtmottagning eller vårdgivare. Vi förmedlar din tidsförfrågan till ansluten kardiologisk specialistkompetens i Göteborg.",
+        },
         {
           question: "Behöver jag remiss till en privat kardiolog i Göteborg?",
           answer:

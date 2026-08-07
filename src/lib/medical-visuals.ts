@@ -86,6 +86,8 @@ const specialtyBaseImages: Record<string, string> = {
   gastroenterolog: baseImages.gastroenterology,
   endokrinolog: baseImages.generalCare,
   reumatolog: baseImages.orthopedics,
+  allmanmedicin: baseImages.generalCare,
+  hematolog: baseImages.cardiology,
 };
 
 const articleImagesBySlug: Record<string, string> = {

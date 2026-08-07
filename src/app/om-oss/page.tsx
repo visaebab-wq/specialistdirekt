@@ -25,17 +25,17 @@ const visual = {
 
 const values = [
   {
-    icon: "🎯",
+    icon: "O",
     title: "Oberoende",
     text: "Vi kontaktar flera anslutna mottagningar och föreslår den tidigaste tid vi hittar hos en som passar dina besvär.",
   },
   {
-    icon: "🛡️",
+    icon: "T",
     title: "Trygghet",
     text: "Vi förmedlar endast kontakt med legitimerade specialister och hanterar dina uppgifter enligt GDPR.",
   },
   {
-    icon: "❤️",
+    icon: "P",
     title: "Personligt",
     text: "Bakom varje matchning finns en människa som läser din förfrågan och bryr sig om att det blir rätt.",
   },
@@ -96,7 +96,10 @@ export default function AboutPage() {
         <div className="mt-6 grid gap-5 sm:grid-cols-3">
           {values.map((v) => (
             <div key={v.title} className="readable-card p-6">
-              <span aria-hidden className="text-3xl">
+              <span
+                aria-hidden
+                className="flex h-11 w-11 items-center justify-center rounded-full bg-brand-50 text-sm font-bold text-brand-700 ring-1 ring-brand-100"
+              >
                 {v.icon}
               </span>
               <h3 className="mt-3 font-semibold text-ink-900">{v.title}</h3>

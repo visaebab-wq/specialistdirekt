@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Lead-förfrågningar (PII) – durabel fallback, ska aldrig committas
+.data/
+leads*.jsonl
+lost-leads.txt
+resend-lost-leads.mjs
+stats.mjs

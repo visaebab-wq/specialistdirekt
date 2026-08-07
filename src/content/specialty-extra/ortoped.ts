@@ -1,6 +1,17 @@
 import type { SpecialtyExtra } from "@/lib/specialty-extra-types";
 
 export const extra: SpecialtyExtra = {
+  bookingCta: {
+    label: "Boka tid hos Dr. Masoud Sorkhabi",
+    url: "/boka/ortoped-goteborg",
+    note: "Öppnar bokningskalendern i en ny flik. Föredrar du att vi återkommer? Använd tidsförfrågan nedan.",
+  },
+  featureBox: {
+    heading: "Privat ortoped i Göteborg",
+    body: "I Göteborg kan du boka direkt hos Dr. Masoud Sorkhabi, specialistläkare i ortopedi med mer än 20 års erfarenhet. Fysiskt besök 2 000 kr eller digitalt videobesök i hela Sverige 1 000 kr – utan remiss.",
+    ctaLabel: "Privat ortoped i Göteborg",
+    ctaHref: "/specialiteter/ortoped/goteborg",
+  },
   sections: [
     {
       id: "vad-gor-en-ortoped",
@@ -47,7 +58,7 @@ export const extra: SpecialtyExtra = {
       body: [
         "En vanlig missuppfattning är att ett ortopedbesök leder till operation. I praktiken behandlas de flesta ortopediska tillstånd **icke-kirurgiskt**, åtminstone till en början. Träning med fysioterapeut, anpassad belastning, smärtlindring och ibland kortisoninjektioner är ofta förstahandsval, särskilt vid artros och många mjukdelsbesvär.",
         "Kirurgi övervägs när besvären är uttalade och påverkar livet trots annan behandling, eller vid vissa skador där operation har tydlig fördel. Beslutet tas tillsammans med dig och bygger på undersökningsfynd, eventuell bilddiagnostik, din funktion och dina mål. En seriös bedömning väger alltid nytta mot risk.",
-        "Vid det **första besöket** kan du förvänta dig samtalet och den kliniska undersökningen som beskrivs ovan, en bedömning av sannolik orsak, samt en plan för nästa steg – det kan vara träning, kompletterande röntgen eller MR, eller en uppföljning. Det är klokt att förbereda en kort beskrivning av besvären och ta med tidigare undersökningssvar om du har några. Vill du att vi hjälper dig vidare kan du höra av dig via [kontakt](/kontakt).",
+        "Vid det **första besöket** kan du förvänta dig samtalet och den kliniska undersökningen som beskrivs ovan, en bedömning av sannolik orsak, samt en plan för nästa steg – det kan vara träning, kompletterande röntgen eller MR, eller en uppföljning. Det är klokt att förbereda en kort beskrivning av besvären och ta med tidigare undersökningssvar om du har några. Söker du lokalt kan du läsa mer om [privat ortoped i Göteborg](/specialiteter/ortoped/goteborg), eller höra av dig via [kontakt](/kontakt).",
       ],
     },
   ],

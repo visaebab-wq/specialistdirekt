@@ -55,6 +55,15 @@ export function Footer() {
                 För vårdgivare
               </Link>
             </li>
+            <li>
+              <Link
+                href="/en/private-orthopedist-gothenburg"
+                hrefLang="en"
+                className="text-ink-300 hover:text-white"
+              >
+                English: Orthopedist in Gothenburg
+              </Link>
+            </li>
           </ul>
         </nav>
 

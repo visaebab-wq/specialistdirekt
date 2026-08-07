@@ -49,8 +49,11 @@ export default function ContactPage() {
             </p>
             <dl className="mt-8 space-y-6">
               <div className="flex gap-4">
-                <span aria-hidden className="text-2xl">
-                  ✉️
+                <span
+                  aria-hidden
+                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-50 text-sm font-bold text-brand-700 ring-1 ring-brand-100"
+                >
+                  @
                 </span>
                 <div>
                   <dt className="font-semibold text-ink-900">E-post</dt>
@@ -71,7 +74,7 @@ export default function ContactPage() {
           </div>
 
           <div className="form-panel p-6 sm:p-8">
-            <h2 className="text-xl font-bold text-ink-900">Skicka din förfrågan</h2>
+            <h2 className="text-xl font-bold text-ink-900">Skicka din tidsförfrågan</h2>
             <div className="mt-6">
               <LeadForm />
             </div>

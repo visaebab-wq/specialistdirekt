@@ -213,6 +213,21 @@ export const specialties: Specialty[] = [
     ],
     keywords: ["allmänmedicin", "allmänläkare", "privat läkare", "medicinsk bedömning"],
   },
+  {
+    slug: "hematolog",
+    name: "Hematologi",
+    title: "Hematolog",
+    short: "Blodsjukdomar, blodvärden, blodbrist och koagulationsfrågor.",
+    intro:
+      "En hematolog är specialist på blodet, benmärgen och sjukdomar som påverkar blodbildning och koagulation. Vi hjälper dig att hitta rätt privat specialist för planerad bedömning av exempelvis avvikande blodvärden, blodbrist eller uppföljning efter tidigare utredning.",
+    reasons: [
+      "Avvikande blodvärden som behöver bedömas",
+      "Blodbrist eller järnbrist som inte förklarats",
+      "Frågor om koagulation eller blodproppsrisk",
+      "Uppföljning efter tidigare blodutredning",
+    ],
+    keywords: ["hematolog", "hematologi", "blodläkare", "blodvärden", "blodbrist"],
+  },
 ];
 
 export function getSpecialty(slug: string): Specialty | undefined {
