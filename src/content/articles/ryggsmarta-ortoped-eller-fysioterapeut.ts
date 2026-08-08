@@ -37,8 +37,8 @@ export const article: Article = {
   ],
   intro: [
     "Ryggsmärta är ett av de vanligaste besvären, och en av de vanligaste frågorna är: ska jag boka en **ortoped eller en fysioterapeut**? Kort svar: vid vanlig ryggsmärta utan varningstecken är en **fysioterapeut** eller vårdcentral oftast rätt första steg, medan en **läkarbedömning** blir mer aktuell vid nervpåverkan, tydlig kraftnedsättning eller besvär som inte ger med sig.",
-    "Den här guiden hjälper dig att välja rätt första väg utifrån hur dina besvär ser ut. Den försöker inte äga hela ämnet \"ryggsmärta\" – den fokuserar på just valet mellan vårdgivartyper. Vill du läsa bredare om olika orsaker och vem som gör vad finns även [ont i ryggen – vilken läkare?](/artiklar/ont-i-ryggen-vilken-lakare).",
-    "Artikeln ger allmän information och ingen diagnos. Vid akuta eller allvarliga symtom ska du söka vård direkt eller ringa **112**.",
+    "Den här guiden hjälper dig att välja rätt första väg utifrån hur dina besvär ser ut. Den täcker inte allt om ryggsmärta – fokus ligger på just valet mellan fysioterapeut och läkare. Vill du läsa bredare om olika orsaker och vem som gör vad finns även [ont i ryggen – vilken läkare?](/artiklar/ont-i-ryggen-vilken-lakare).",
+    "Artikeln är vägledande och ersätter inte en individuell medicinsk bedömning. Vid akuta eller allvarliga symtom ska du söka vård direkt eller ringa **112**.",
   ],
   sections: [
     {
@@ -46,7 +46,7 @@ export const article: Article = {
       heading: "Kort svar: ortoped eller fysioterapeut vid ryggsmärta?",
       body: [
         "För de allra flesta med ryggsmärta utan varningstecken är en **fysioterapeut** ett bra första steg. Fysioterapeuten bedömer rörelse, styrka och belastning och lägger upp ett program – och du kan i många regioner boka utan remiss. Är du osäker på vad besvären beror på kan **vårdcentralen** göra en bred första bedömning.",
-        "En **ortoped** eller annan läkare blir mer aktuell när det finns tecken på nervpåverkan, tydlig kraftnedsättning, eller när besvären inte förbättras trots rimliga åtgärder. Ortopeden gör en medicinsk bedömning av dina **aktuella** besvär och tar ställning till vad som är rimliga nästa steg.",
+        "En **ortoped** eller annan läkare blir mer aktuell när det finns tecken på nervpåverkan, tydlig kraftnedsättning, eller när besvären inte förbättras trots rimliga åtgärder. Ortopeden gör en medicinsk bedömning av besvären och tar ställning till hur du bäst går vidare.",
       ],
     },
     {
@@ -54,7 +54,7 @@ export const article: Article = {
       heading: "Vanlig ryggsmärta – därför är fysioterapeut ofta först",
       body: [
         "De flesta ryggbesvär är godartade och läker med tid, rörelse och rätt belastning – även om det kan göra riktigt ont. Att hålla igång i den mån du kan, snarare än att vila helt, är ofta en del av tillfrisknandet.",
-        "En fysioterapeut hjälper dig med anpassade övningar, belastningsråd och att successivt återgå till vardagen. För akut ländryggssmärta (\"ryggskott\") som kommit utan tydligt trauma och utan nervsymtom är detta oftast rätt väg – en bilddiagnostik som röntgen eller MR behövs sällan i det tidiga skedet.",
+        "En fysioterapeut hjälper dig med anpassade övningar, belastningsråd och att successivt återgå till vardagen. För akut ländryggssmärta (\"ryggskott\") som kommit utan tydligt trauma och utan nervsymtom är detta oftast rätt väg – en bildundersökning som röntgen eller MR behövs sällan i det tidiga skedet.",
       ],
     },
     {
@@ -75,7 +75,7 @@ export const article: Article = {
       heading: "Nervrelaterad och utstrålande smärta",
       body: [
         "Smärta som strålar ut i benet (ibland kallat ischias) eller ut i armen kan höra ihop med en nerv som är påverkad i rygg eller nacke, till exempel vid ett diskbråck. Sådana besvär går ofta över med tid och rätt träning, men de motiverar oftare en läkarbedömning – särskilt om de är uttalade eller åtföljs av svaghet.",
-        "En ortoped kan bedöma dina aktuella symtom och avgöra vad som är rimliga nästa steg. Den här sidan ställer ingen diagnos och rekommenderar ingen specifik behandling.",
+        "En ortoped kan bedöma symtomen och föreslå hur du kan gå vidare.",
       ],
     },
     {
@@ -97,7 +97,7 @@ export const article: Article = {
       heading: "Vad en ortopedisk bedömning kan innebära",
       body: [
         "En ortopedisk bedömning börjar med ett samtal om dina besvär – när de började, var det gör ont, om smärtan strålar ut och hur den påverkar din vardag. Därefter följer en klinisk undersökning där läkaren tittar på rörlighet, styrka och känsel.",
-        "Utifrån helhetsbilden avgör läkaren om något mer behövs. Allt utreds inte rutinmässigt, och en bilddiagnostik beställs bara om den bedöms tillföra något. Behöver du läsa på om en sådan undersökning finns [privat MR av ryggen](/artiklar/privat-mr-rygg-kostnad).",
+        "Utifrån helhetsbilden avgör läkaren om något mer behövs. Allt utreds inte rutinmässigt, och en bildundersökning beställs bara om den bedöms tillföra något. Behöver du läsa på om en sådan undersökning finns [privat MR av ryggen](/artiklar/privat-mr-rygg-kostnad).",
       ],
     },
     {
@@ -129,7 +129,7 @@ export const article: Article = {
     {
       question: "Kan en ortoped hjälpa vid smärta som strålar ner i benet?",
       answer:
-        "Ja. Utstrålande smärta i benet kan höra ihop med en påverkad nerv i ryggen och motiverar oftare en läkarbedömning. Ortopeden bedömer dina aktuella symtom och vad som är rimliga nästa steg. Sidan ger ingen diagnos.",
+        "Ja. Utstrålande smärta i benet kan höra ihop med en påverkad nerv i ryggen och motiverar oftare en läkarbedömning. Ortopeden väger samman dina symtom och undersökningen och föreslår hur du kan gå vidare.",
     },
     {
       question: "Behöver jag MR innan jag träffar en ortoped för ryggsmärta?",
@@ -144,7 +144,7 @@ export const article: Article = {
     {
       question: "Kan en ortoped bedöma diskrelaterade besvär?",
       answer:
-        "Ja. Misstänkt diskbråck och diskrelaterad nervpåverkan hör till det en ortoped kan bedöma. Bedömningen utgår från dina aktuella symtom och en klinisk undersökning; den här sidan ställer ingen diagnos.",
+        "Ja. Misstänkt diskbråck och diskrelaterad nervpåverkan hör till det en ortoped kan bedöma. Bedömningen bygger på dina symtom och en klinisk undersökning.",
     },
     {
       question: "Kostar det något att skicka en tidsförfrågan?",

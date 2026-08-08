@@ -95,6 +95,15 @@ export default function PrivatKoloskopiPage() {
               ]}
             />
 
+            <h2 className="article-section-title mt-10 text-2xl font-bold">
+              Privat koloskopi i Göteborg
+            </h2>
+            <Prose
+              paragraphs={[
+                "För dig som söker privat koloskopi i Göteborg finns en separat sida med information om tidsförfrågan, pris, förberedelser och vad du behöver veta inför undersökningen. Läs mer på [privat koloskopi i Göteborg](/privat-koloskopi/goteborg).",
+              ]}
+            />
+
             <h2 className="article-section-title mt-10 text-2xl font-bold">När behövs en koloskopi?</h2>
             <Prose
               paragraphs={[

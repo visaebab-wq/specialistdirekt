@@ -2,8 +2,8 @@ import type { Article } from "@/lib/articles-types";
 
 export const article: Article = {
   slug: "privat-smartlakare-kostnad",
-  title: "Privat smärtläkare: kostnad, väntetid och smärtutredning",
-  metaTitle: "Privat smärtläkare: kostnad, väntetid & utredning",
+  title: "Privat smärtläkare – kostnad, remiss och hur du bokar",
+  metaTitle: "Privat smärtläkare – kostnad, remiss & hur du bokar",
   metaDescription:
     "Privat smärtläkare: långvarig smärta, ryggsmärta, nervsmärta, kostnad från cirka 3 000 kr, remiss, väntetid och sjukvårdsförsäkring.",
   category: "Smärta",
@@ -20,7 +20,7 @@ export const article: Article = {
   excerpt:
     "Behöver du träffa smärtläkare privat? Vi går igenom långvarig smärta, ryggsmärta, nervsmärta, kostnad från cirka 3 000 kr, remiss, väntetid och sjukvårdsförsäkring.",
   published: "2026-06-24",
-  updated: "2026-06-24",
+  updated: "2026-08-08",
   readMinutes: 9,
   wordCount: 1400,
   summary: [
@@ -43,8 +43,8 @@ export const article: Article = {
     "Du vill ha en tydligare plan framåt",
   ],
   intro: [
-    "Långvarig smärta kan påverka hela livet – ryggsmärta, nacksmärta, nervsmärta, smärta efter operation, fibromyalgiliknande besvär, ledvärk, huvudvärk, smärta efter skada eller smärta som inte blivit bättre trots tidigare vårdkontakter.",
-    "Många börjar hos vårdcentral, fysioterapeut, [ortoped](/specialiteter/ortoped) eller [neurolog](/specialiteter/neurolog). Men om smärtan är långvarig, komplex eller svår att förstå kan en smärtläkare eller smärtspecialist bli aktuell.",
+    "Långvarig smärta kan påverka hela livet. Privat smärtvård kan bli aktuell vid exempelvis långvarig rygg- eller nacksmärta, nervrelaterad smärta, ledsmärta eller mer sammansatta smärttillstånd som inte förbättrats trots tidigare insatser.",
+    "Många börjar hos vårdcentral, fysioterapeut, [ortoped](/specialiteter/ortoped) eller [neurolog](/specialiteter/neurolog). Men om smärtan är långvarig, komplex eller svår att förstå kan en smärtläkare eller smärtspecialist bli aktuell. Osäker på vilken läkare du ska söka? Se [långvarig smärta – vilken läkare?](/artiklar/langvarig-smarta-vilken-lakare) och [smärtläkare och smärtmottagning](/specialiteter/smartlakare).",
     "Specialistdirekt hjälper dig hitta rätt väg till privat specialistvård. Vi är inte en vårdgivare, ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en relevant mottagning. Läs mer om [hur det fungerar](/sa-fungerar-det).",
   ],
   sections: [
@@ -99,10 +99,10 @@ export const article: Article = {
       id: "skillnad-specialister",
       heading: "Smärtläkare, ortoped eller neurolog – vad är skillnaden?",
       body: [
-        "[Ortoped](/specialiteter/ortoped) kan vara mer relevant vid skada, artros, diskproblem, ledproblem, menisk, axelbesvär, höftbesvär eller kirurgisk frågeställning.",
-        "[Neurolog](/specialiteter/neurolog) kan vara mer relevant vid nervpåverkan, domningar, stickningar, svaghet, huvudvärk, migrän eller neurologiska symtom.",
-        "[Reumatolog](/specialiteter/reumatolog) kan vara mer relevant vid svullna leder, morgonstelhet, inflammatorisk ledvärk eller misstänkt reumatisk sjukdom.",
-        "Smärtläkare kan vara relevant när smärtan är långvarig, komplex, svårbehandlad eller när flera tidigare kontakter inte gett tillräcklig hjälp. I praktiken kan flera specialiteter behöva samarbeta. Är du osäker på vart du ska vända dig vid ryggbesvär kan du läsa [ont i ryggen – vilken läkare](/artiklar/ont-i-ryggen-vilken-lakare).",
+        "En [ortoped](/specialiteter/ortoped) utreder framför allt skador, artros, disk- och ledproblem, meniskbesvär samt besvär i axel och höft – och tar ställning till om en kirurgisk frågeställning behöver följas upp.",
+        "Domnar det, sticker, känns svagt eller handlar det om huvudvärk och migrän? Då är en [neurolog](/specialiteter/neurolog), som utreder nervsystemet, ofta rätt väg.",
+        "Vid svullna leder, morgonstelhet och inflammatorisk ledvärk är det [reumatologen](/specialiteter/reumatolog) som reder ut om en reumatisk sjukdom ligger bakom.",
+        "En specialist i smärtlindring arbetar särskilt med långvariga eller komplexa smärttillstånd där flera faktorer kan behöva vägas samman. I praktiken samarbetar flera specialiteter ofta. Är du osäker på vart du ska vända dig vid ryggbesvär kan du läsa [ont i ryggen – vilken läkare](/artiklar/ont-i-ryggen-vilken-lakare).",
       ],
     },
     {
@@ -205,6 +205,20 @@ export const article: Article = {
       ],
     },
     {
+      id: "smartmottagning-goteborg",
+      heading: "Privat smärtmottagning i Göteborg – verifierat pris",
+      body: [
+        "Bor du i Göteborgsområdet och har långvarig eller komplex smärta kan du boka **Dr. Masoud Sorkhabi**, specialistläkare i ortopedi och specialist i smärtlindring, till fasta priser: **fysiskt besök 2 000 kr** eller **digitalt videobesök 1 000 kr** (kan bokas från hela Sverige). Ingen remiss krävs för självbetalande, och beloppet återbetalas om du avbokar. Läs mer på [privat smärtmottagning i Göteborg](/specialiteter/smartlakare/goteborg).",
+      ],
+    },
+    {
+      id: "andra-bedomning",
+      heading: "Vill du få en tidigare bedömning omprövad?",
+      body: [
+        "Den här sidan handlar om att hitta en läkare eller mottagning att söka nu. Har du redan fått en bedömning, diagnos eller behandling och vill få den **tidigare bedömningen omprövad** söker du en annan typ av tjänst. Läs då om andra bedömning vid långvarig smärta på [Andrabedömning.se](https://www.andrabedomning.se/).",
+      ],
+    },
+    {
       id: "sa-hjalper-vi",
       heading: "Så hjälper Specialistdirekt dig",
       body: [
@@ -229,7 +243,7 @@ export const article: Article = {
       heading: "Sammanfattning",
       body: [
         "Privat smärtläkare kan vara aktuellt vid långvarig smärta, ryggsmärta, nervsmärta, smärta efter operation eller komplex värk. Ett besök börjar ofta **från cirka 3 000 kr** och uppåt; en mer omfattande utredning eller behandling kan kosta **5 000–20 000 kr eller mer**. I vissa fall kan sjukvårdsförsäkring täcka kostnaden.",
-        "Du beskriver besvären, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Vi hjälper dig vidare till en privat mottagning som kan vara relevant för ditt behov. Vill du läsa mer om skillnaderna kan du börja med [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
+        "Du beskriver besvären, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Vi hjälper dig vidare till en privat mottagning som passar ditt behov. Vill du läsa mer om skillnaderna kan du börja med [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
       ],
     },
   ],

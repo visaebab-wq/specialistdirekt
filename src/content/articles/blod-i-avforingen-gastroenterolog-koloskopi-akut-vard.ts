@@ -128,7 +128,8 @@ export const article: Article = {
       id: "nar-koloskopi",
       heading: "När kan koloskopi bli aktuellt?",
       body: [
-        "Koloskopi är en undersökning av tjocktarmen med kamera. Den kan användas för att se tarmens slemhinna, ta vävnadsprover och ibland ta bort små polyper. Om ett avföringsprov inom screening visar blod remitteras personen ofta vidare till koloskopi för att utreda varifrån blodet kommer. Koloskopi kan bli aktuellt vid:",
+        "Koloskopi är en undersökning av tjocktarmen med kamera. Den kan användas för att se tarmens slemhinna, ta vävnadsprover och ibland ta bort små polyper. Om ett avföringsprov inom screening visar blod remitteras personen ofta vidare till koloskopi för att utreda varifrån blodet kommer. Om just du behöver en koloskopi avgörs alltid av en läkare – inte av den här sidan.",
+        "Söker du privat kan du läsa mer om [privat koloskopi i Göteborg](/privat-koloskopi/goteborg). Koloskopi kan bli aktuellt vid:",
       ],
       bullets: [
         "blod i avföringen",

@@ -4,10 +4,11 @@ import { site } from "@/lib/site";
 import { getSpecialty } from "@/lib/specialties";
 import { getCitySpecialtyVisual } from "@/lib/medical-visuals";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { FaqList } from "@/components/FaqList";
 import { PageVisual } from "@/components/PageVisual";
 import { RecoReviews } from "@/components/RecoReviews";
 import { JsonLd } from "@/components/JsonLd";
-import { breadcrumbSchema } from "@/lib/structured-data";
+import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
 import { recoProfileUrl } from "@/lib/reco-reviews";
 import { articles } from "@/lib/articles";
 import { medicalReviewerFor } from "@/lib/medical-reviewer";
@@ -18,9 +19,9 @@ const MONEY_PAGE = "/specialiteter/ortoped/goteborg";
 const abs = (p: string) => `${site.url}${p}`;
 
 export const metadata: Metadata = {
-  title: "Dr. Masoud Sorkhabi – privat ortoped i Göteborg",
+  title: "Dr. Masoud Sorkhabi – privat ortoped och smärtläkare i Göteborg",
   description:
-    "Dr. Masoud Sorkhabi, specialistläkare i ortopedi i Göteborg med mer än 20 års erfarenhet av rygg-, nack- och knäbesvär samt nervrelaterad smärta. Fysiskt 2 000 kr, digitalt 1 000 kr – utan remiss.",
+    "Dr. Masoud Sorkhabi är specialistläkare i ortopedi och specialist i smärtlindring i Göteborg, med mer än 20 års erfarenhet av rygg-, nack- och knäbesvär samt långvarig och nervrelaterad smärta. Fysiskt 2 000 kr, digitalt 1 000 kr – utan remiss.",
   keywords: [
     "Masoud Sorkhabi",
     "Dr Masoud Sorkhabi ortoped",
@@ -31,22 +32,30 @@ export const metadata: Metadata = {
   alternates: { canonical: PATH },
   openGraph: {
     type: "profile",
-    title: "Dr. Masoud Sorkhabi – privat ortoped i Göteborg",
+    title: "Dr. Masoud Sorkhabi – privat ortoped och smärtläkare i Göteborg",
     description:
-      "Specialistläkare i ortopedi i Göteborg med mer än 20 års erfarenhet. Fysiskt 2 000 kr, digitalt 1 000 kr – utan remiss.",
+      "Specialistläkare i ortopedi och specialist i smärtlindring i Göteborg med mer än 20 års erfarenhet. Fysiskt 2 000 kr, digitalt 1 000 kr – utan remiss.",
     url: PATH,
   },
 };
 
 const facts: { label: string; value: string }[] = [
   { label: "Läkare", value: "Dr. Masoud Sorkhabi" },
-  { label: "Specialitet", value: "Specialistläkare i ortopedi" },
+  { label: "Specialitet", value: "Specialistläkare i ortopedi och specialist i smärtlindring" },
   { label: "Erfarenhet", value: "Mer än 20 års klinisk erfarenhet" },
   { label: "Inriktning", value: "Rygg, nacke, knä, disk-/nervrelaterad och långvarig smärta" },
   { label: "Ort", value: "Göteborg (fysiskt) · digitalt i hela Sverige" },
   { label: "Pris", value: "Fysiskt besök 2 000 kr · digitalt videobesök 1 000 kr" },
   { label: "Remiss", value: "Behövs inte för självbetalande" },
   { label: "Publikt omdöme", value: "4,9 av 5 · 63 omdömen på Reco" },
+];
+
+const faqs = [
+  {
+    question: "Kan en läkare vara specialist både i ortopedi och smärtlindring?",
+    answer:
+      "Ja. Smärtlindring är en medicinsk tilläggsspecialitet. Dr. Masoud Sorkhabi har specialistkompetens inom både ortopedi och smärtlindring, vilket innebär att hans kompetens omfattar både rörelseapparaten och bedömning av långvariga eller komplexa smärttillstånd.",
+  },
 ];
 
 export default function MasoudSorkhabiPage() {
@@ -67,14 +76,17 @@ export default function MasoudSorkhabiPage() {
         <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:py-16">
           <Breadcrumbs items={crumbs} />
           <div className="mt-6">
-            <p className="internal-hero-kicker">Specialistläkare i ortopedi · Göteborg</p>
+            <p className="internal-hero-kicker">
+              Specialistläkare i ortopedi och specialist i smärtlindring · Göteborg
+            </p>
             <h1 className="internal-hero-title">Dr. Masoud Sorkhabi</h1>
           </div>
           <p className="internal-hero-text">
-            Dr. Masoud Sorkhabi är specialistläkare i ortopedi i Göteborg med mer än 20 års klinisk
-            erfarenhet, med inriktning på bland annat rygg-, nack- och knäbesvär samt disk-,
-            nervrelaterad och långvarig smärta. Du kan boka ett fysiskt besök i Göteborg eller ett
-            digitalt videobesök från hela Sverige – utan remiss för självbetalande.
+            Dr. Masoud Sorkhabi är specialistläkare i ortopedi och specialist i smärtlindring i
+            Göteborg, med mer än 20 års klinisk erfarenhet. Inriktningen omfattar bland annat rygg-,
+            nack- och knäbesvär samt disk-, nervrelaterad och långvarig smärta. Du kan boka ett
+            fysiskt besök i Göteborg eller ett digitalt videobesök från hela Sverige – utan remiss
+            för självbetalande.
           </p>
           <PageVisual visual={visual} className="mt-10 max-w-3xl" priority />
         </div>
@@ -103,10 +115,11 @@ export default function MasoudSorkhabiPage() {
 
               <h2 className="article-section-title text-2xl font-bold">Kompetens och inriktning</h2>
               <p className="mt-3">
-                Inriktningen omfattar besvär från rörelseapparaten, särskilt rygg, nacke och knä,
-                samt diskrelaterade besvär, nervrelaterad och långvarig smärta. En ortopedisk
-                bedömning börjar med ett samtal om dina aktuella besvär och en klinisk undersökning,
-                där läkaren tar ställning till rimliga nästa steg. Sidan ställer ingen diagnos.
+                Som specialistläkare i ortopedi och specialist i smärtlindring bedömer Dr. Masoud
+                Sorkhabi både besvär från rörelseapparaten – särskilt rygg, nacke och knä – och
+                långvariga eller komplexa smärttillstånd, inklusive diskrelaterad och nervrelaterad
+                smärta. En bedömning börjar med ett samtal om dina besvär och en klinisk
+                undersökning, där läkaren föreslår hur du kan gå vidare.
               </p>
               <ul className="mt-4 space-y-2">
                 {[
@@ -140,9 +153,10 @@ export default function MasoudSorkhabiPage() {
                 individanpassad plan – varje patient utvärderas efter sina egna förutsättningar.
               </p>
               <p className="mt-3">
-                Han har erfarenhet av både kirurgiska och icke-kirurgiska behandlingsmetoder och
-                arbetar särskilt med långvariga och sammansatta smärttillstånd i rygg, nacke och
-                leder. Den här sidan ger allmän information och ställer ingen diagnos.
+                Med specialistkompetens i både ortopedi och smärtlindring arbetar han med såväl
+                kirurgiska som icke-kirurgiska behandlingsmetoder, och särskilt med långvariga och
+                sammansatta smärttillstånd i rygg, nacke och leder. Den här sidan ger allmän
+                information och ställer ingen diagnos.
               </p>
               <blockquote className="mt-4 border-l-4 border-brand-200 pl-4 text-ink-700 italic">
                 ”Det finns alltid en orsak till patientens besvär. Att hitta källan till besvären är
@@ -194,9 +208,10 @@ export default function MasoudSorkhabiPage() {
               </h2>
               <p className="mt-3">
                 Dr. Masoud Sorkhabi är medicinsk granskare för Specialistdirekts innehåll inom
-                ortopedi och muskuloskeletala smärttillstånd. Artiklarna nedan är faktagranskade av
-                honom för att den medicinska informationen ska vara korrekt och aktuell. Innehållet
-                är allmän information och ersätter inte en individuell medicinsk bedömning.
+                ortopedi och smärta. Hans dubbla specialistkompetens – i ortopedi och i smärtlindring
+                – gör att artiklarna nedan är faktagranskade av honom, så att den medicinska
+                informationen ska vara korrekt och aktuell. Innehållet är allmän information och
+                ersätter inte en individuell medicinsk bedömning.
               </p>
               {reviewedArticles.length > 0 && (
                 <>
@@ -217,6 +232,13 @@ export default function MasoudSorkhabiPage() {
                   </ul>
                 </>
               )}
+
+              <section className="mt-10">
+                <h2 className="text-2xl font-bold text-ink-900">Vanliga frågor</h2>
+                <div className="mt-6">
+                  <FaqList items={faqs} />
+                </div>
+              </section>
 
               <section aria-label="När du ska söka akut vård" className="warning-card mt-10 p-6">
                 <h2 className="text-xl font-bold text-ink-900">När ska du söka akut vård i stället?</h2>
@@ -265,11 +287,12 @@ export default function MasoudSorkhabiPage() {
             "@type": "Person",
             "@id": `${abs(PATH)}#person`,
             name: "Dr. Masoud Sorkhabi",
-            jobTitle: "Specialistläkare i ortopedi",
+            jobTitle: "Specialistläkare i ortopedi och specialist i smärtlindring",
             description:
-              "Specialistläkare i ortopedi i Göteborg med mer än 20 års klinisk erfarenhet av rygg-, nack- och knäbesvär samt disk-, nervrelaterad och långvarig smärta. Medicinsk granskare för Specialistdirekts innehåll inom ortopedi och muskuloskeletala smärttillstånd.",
+              "Specialistläkare i ortopedi och specialist i smärtlindring i Göteborg med mer än 20 års klinisk erfarenhet av rygg-, nack- och knäbesvär samt disk-, nervrelaterad och långvarig smärta. Medicinsk granskare för Specialistdirekts innehåll inom ortopedi och smärta.",
             knowsAbout: [
               "Ortopedi",
+              "Smärtlindring",
               "Ryggbesvär",
               "Nackbesvär",
               "Knäbesvär",
@@ -285,12 +308,13 @@ export default function MasoudSorkhabiPage() {
             "@type": "WebPage",
             "@id": `${abs(PATH)}#webpage`,
             url: abs(PATH),
-            name: "Dr. Masoud Sorkhabi – specialistläkare i ortopedi",
+            name: "Dr. Masoud Sorkhabi – specialistläkare i ortopedi och specialist i smärtlindring",
             inLanguage: site.lang,
             isPartOf: { "@id": `${site.url}/#website` },
             publisher: { "@id": `${site.url}/#organization` },
             about: { "@id": `${abs(PATH)}#person` },
           },
+          faqSchema(faqs),
         ]}
       />
     </>

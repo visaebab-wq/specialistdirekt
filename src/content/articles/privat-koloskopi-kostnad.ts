@@ -61,6 +61,13 @@ export const article: Article = {
       ],
     },
     {
+      id: "privat-koloskopi-goteborg",
+      heading: "Privat koloskopi i Göteborg",
+      body: [
+        "Söker du privat koloskopi i Göteborg kan du skicka en tidsförfrågan via Specialistdirekt. Du får information om det aktuella priset och vad som ingår innan du bestämmer dig. Läs mer på [privat koloskopi i Göteborg](/privat-koloskopi/goteborg).",
+      ],
+    },
+    {
       id: "vad-ar-koloskopi",
       heading: "Vad är koloskopi?",
       body: [
@@ -213,7 +220,8 @@ export const article: Article = {
       id: "gor-ont",
       heading: "Gör koloskopi ont?",
       body: [
-        "En koloskopi kan kännas obehaglig och ibland göra ont, särskilt när tarmen vidgas eller vid skarpa böjar. Många mottagningar erbjuder smärtlindring, lugnande läkemedel, sedering eller narkos. Fråga gärna i förväg om:",
+        "En koloskopi kan kännas obehaglig och ibland göra ont, särskilt när tarmen vidgas eller vid skarpa böjar. Läs mer om vad du kan förvänta dig i [gör koloskopi ont?](/artiklar/gor-koloskopi-ont).",
+        "Många mottagningar erbjuder smärtlindring, lugnande läkemedel, sedering eller narkos. Fråga gärna i förväg om:",
       ],
       bullets: [
         "vilken smärtlindring som erbjuds",

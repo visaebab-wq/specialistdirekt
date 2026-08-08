@@ -1,0 +1,310 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { site } from "@/lib/site";
+import { getSpecialty } from "@/lib/specialties";
+import { getCitySpecialtyVisual } from "@/lib/medical-visuals";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { FaqList } from "@/components/FaqList";
+import { PageVisual } from "@/components/PageVisual";
+import { RecoReviews } from "@/components/RecoReviews";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
+import { recoProfileUrl } from "@/lib/reco-reviews";
+
+const PATH = "/specialiteter/smartlakare/goteborg";
+const BOOKING = "/boka/ortoped-goteborg";
+const abs = (p: string) => `${site.url}${p}`;
+
+export const metadata: Metadata = {
+  title: "Privat smärtläkare i Göteborg – specialist i smärtlindring",
+  description:
+    "Privat smärtläkare i Göteborg vid långvarig eller komplex smärta. Boka Dr. Masoud Sorkhabi, specialistläkare i ortopedi och specialist i smärtlindring. Fysiskt 2 000 kr eller digitalt 1 000 kr, utan remiss.",
+  keywords: [
+    "privat smärtmottagning Göteborg",
+    "smärtläkare Göteborg",
+    "smärtklinik Göteborg",
+    "specialist inom smärta Göteborg",
+    "privat smärtläkare Göteborg",
+    "långvarig smärta Göteborg",
+  ],
+  alternates: { canonical: PATH },
+  openGraph: {
+    title: "Privat smärtläkare i Göteborg – specialist i smärtlindring",
+    description:
+      "Privat smärtläkare i Göteborg vid långvarig eller komplex smärta. Boka Dr. Masoud Sorkhabi, specialistläkare i ortopedi och specialist i smärtlindring.",
+    url: PATH,
+    type: "article",
+  },
+};
+
+const faqs = [
+  {
+    question: "Finns det privat smärtmottagning i Göteborg?",
+    answer:
+      "Ja. Vid långvarig eller komplex smärta kan du i Göteborg boka Dr. Masoud Sorkhabi, specialistläkare i ortopedi och specialist i smärtlindring. Ett fysiskt besök kostar 2 000 kr och ett digitalt videobesök 1 000 kr.",
+  },
+  {
+    question: "Kan en läkare vara specialist både i ortopedi och smärtlindring?",
+    answer:
+      "Ja. Smärtlindring är en medicinsk tilläggsspecialitet. Dr. Masoud Sorkhabi har specialistkompetens inom både ortopedi och smärtlindring, vilket innebär att hans kompetens omfattar både rörelseapparaten och bedömning av långvariga eller komplexa smärttillstånd.",
+  },
+  {
+    question: "Kan jag boka smärtmottagning i Göteborg utan remiss?",
+    answer:
+      "Ja. Som självbetalande patient behöver du ingen remiss för att boka tid. Du betalar i samband med bokningen och beloppet återbetalas om du avbokar.",
+  },
+  {
+    question: "Vad kostar ett privat besök hos en specialist inom smärta i Göteborg?",
+    answer:
+      "Ett fysiskt besök i Göteborg kostar 2 000 kr och ett digitalt videobesök 1 000 kr. Priserna är fasta och du ser dem innan du bokar. En generell guide finns i privat smärtläkare: kostnad.",
+  },
+  {
+    question: "Kan jag få ett digitalt besök för min smärta?",
+    answer:
+      "Ja. Ett digitalt videobesök (1 000 kr) kan bokas från hela Sverige och passar bra för en första bedömning. Vissa besvär kan behöva ett fysiskt besök i Göteborg (2 000 kr).",
+  },
+  {
+    question: "Passar Dr. Sorkhabi för min smärta, eller behöver jag en annan specialist?",
+    answer:
+      "Hans kombination av ortopedi och smärtlindring passar särskilt vid smärta från leder, skelett, senor eller nerver, och vid smärta som blivit långvarig. Har besvären en annan karaktär kan en annan specialist passa bättre – se vår guide om långvarig smärta – vilken läkare?",
+  },
+  {
+    question: "När ska jag söka akut vård i stället?",
+    answer:
+      "Ring 112 vid plötslig svår smärta efter våld, plötslig kraftnedsättning eller domning i arm eller ben, ryggsmärta med domningar kring underlivet eller svårt att kissa, eller smärta med hög feber. Är du osäker kan du ringa 1177.",
+  },
+];
+
+export default function SmartlakareGoteborgPage() {
+  const ortoped = getSpecialty("ortoped");
+  const visual = ortoped
+    ? getCitySpecialtyVisual(ortoped, "goteborg", "Göteborg")
+    : { src: "/real-medical/orthopedics.webp", alt: "Privat smärtmottagning i Göteborg" };
+
+  const crumbs = [
+    { name: "Hem", path: "/" },
+    { name: "Smärtläkare", path: "/specialiteter/smartlakare" },
+    { name: "Göteborg", path: PATH },
+  ];
+
+  const facts = [
+    { label: "Specialist", value: "Dr. Masoud Sorkhabi, specialistläkare i ortopedi och specialist i smärtlindring" },
+    { label: "Inriktning", value: "Långvarig eller komplex smärta – rygg, nacke, leder och nervrelaterad smärta" },
+    { label: "Besök", value: "Fysiskt i Göteborg eller digitalt i hela Sverige" },
+    { label: "Pris", value: "Fysiskt 2 000 kr · digitalt 1 000 kr" },
+    { label: "Remiss", value: "Behövs inte för självbetalande" },
+    { label: "Betalning", value: "Betala vid bokning – återbetalas om du avbokar" },
+    { label: "Publikt omdöme", value: "4,9 av 5 · 63 omdömen på Reco" },
+  ];
+
+  return (
+    <>
+      <div className="internal-hero">
+        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:py-16">
+          <Breadcrumbs items={crumbs} />
+          <div className="mt-6">
+            <p className="internal-hero-kicker">Smärta · Göteborg</p>
+            <h1 className="internal-hero-title">
+              Privat smärtläkare i Göteborg
+            </h1>
+          </div>
+          <p className="internal-hero-text">
+            Söker du en privat smärtläkare i Göteborg? Dr. Masoud Sorkhabi är specialistläkare i
+            ortopedi och specialist i smärtlindring. Kombinationen ger särskild kompetens vid
+            långvariga eller komplexa smärtbesvär, inte minst när rörelseapparaten – rygg, nacke och
+            leder – är involverad. Besöket kan vara fysiskt i Göteborg eller ett digitalt videobesök
+            från hela Sverige, utan remiss för självbetalande.
+          </p>
+          <PageVisual visual={visual} className="mt-10 max-w-3xl" priority />
+        </div>
+      </div>
+
+      <div className="content-shell">
+        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:py-14">
+          <div className="grid gap-12 lg:grid-cols-[1fr_400px]">
+            <article className="article-body readable-card p-6 sm:p-8">
+              <section
+                aria-label="Snabbfakta"
+                className="mb-8 rounded-2xl border border-brand-100 bg-brand-50/60 p-6"
+              >
+                <h2 className="text-lg font-bold text-ink-900">
+                  Privat smärtläkare i Göteborg – snabbfakta
+                </h2>
+                <dl className="mt-4 grid gap-x-6 gap-y-3 sm:grid-cols-2">
+                  {facts.map((f) => (
+                    <div key={f.label} className="flex flex-col">
+                      <dt className="text-xs font-semibold tracking-wide text-brand-700 uppercase">
+                        {f.label}
+                      </dt>
+                      <dd className="text-sm text-ink-800">{f.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </section>
+
+              <h2 className="article-section-title text-2xl font-bold">
+                Var kan jag träffa en specialist inom smärta i Göteborg?
+              </h2>
+              <p className="mt-3">
+                I Göteborg kan du boka{" "}
+                <strong>Dr. Masoud Sorkhabi</strong>, specialistläkare i ortopedi och specialist i
+                smärtlindring med mer än 20 års klinisk erfarenhet. Den dubbla kompetensen omfattar
+                både rörelseapparaten – rygg, nacke, leder samt disk- och nervrelaterad smärta – och
+                bedömning av långvariga eller komplexa smärttillstånd. En bedömning bygger på ett
+                samtal om dina besvär och en klinisk undersökning. Den här sidan ger allmän
+                information och ställer ingen diagnos.
+              </p>
+
+              <h2 className="article-section-title mt-10 text-2xl font-bold">
+                Är en specialist i smärtlindring rätt för dig?
+              </h2>
+              <p className="mt-3">
+                Dr. Sorkhabis kombination av ortopedi och smärtlindring passar särskilt när
+                rörelseapparaten är involverad – smärta från leder, skelett, senor eller nerver – och
+                när smärtan blivit långvarig eller sammansatt. All smärta har dock inte en ortopedisk
+                orsak, och en enskild läkare ersätter inte ett helt smärtteam. Har din smärta en annan
+                karaktär kan en annan specialist passa bättre – vår guide{" "}
+                <Link
+                  href="/artiklar/langvarig-smarta-vilken-lakare"
+                  className="font-semibold text-brand-700 hover:underline"
+                >
+                  långvarig smärta – vilken läkare?
+                </Link>{" "}
+                hjälper dig välja. Se även{" "}
+                <Link href="/specialiteter/smartlakare" className="font-semibold text-brand-700 hover:underline">
+                  smärtläkare och smärtmottagning
+                </Link>
+                .
+              </p>
+
+              <h2 className="article-section-title mt-10 text-2xl font-bold">Pris och bokning</h2>
+              <p className="mt-3">Fasta priser som du ser innan du bokar:</p>
+              <ul className="mt-4 space-y-2">
+                <li className="flex gap-3 text-ink-700">
+                  <span aria-hidden className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" />
+                  <span>
+                    <strong>Fysiskt besök i Göteborg – 2 000 kr</strong>
+                  </span>
+                </li>
+                <li className="flex gap-3 text-ink-700">
+                  <span aria-hidden className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" />
+                  <span>
+                    <strong>Digitalt videobesök – 1 000 kr</strong>, från hela Sverige
+                  </span>
+                </li>
+              </ul>
+              <p className="mt-4">
+                Du betalar i samband med bokningen och beloppet återbetalas om du avbokar. Mer om
+                pris, remiss och väntetid finns i{" "}
+                <Link
+                  href="/artiklar/privat-smartlakare-kostnad"
+                  className="font-semibold text-brand-700 hover:underline"
+                >
+                  privat smärtläkare: kostnad
+                </Link>
+                .
+              </p>
+
+              <h2 className="article-section-title mt-10 text-2xl font-bold">Omdömen</h2>
+              <p className="mt-3">
+                Dr. Masoud Sorkhabi har fått mycket starka patientomdömen – <strong>4,9 av 5</strong>{" "}
+                baserat på 63 publicerade omdömen på{" "}
+                <a
+                  href={recoProfileUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-brand-700 hover:underline"
+                >
+                  Reco
+                </a>
+                . Betyget gäller läkaren och inte Specialistdirekt, och är ingen garanti för ett visst
+                medicinskt resultat.
+              </p>
+
+              <section aria-label="När du ska söka akut vård" className="warning-card mt-10 p-6">
+                <h2 className="text-xl font-bold text-ink-900">När ska du söka akut vård i stället?</h2>
+                <p className="mt-2 text-ink-700">
+                  Ring <strong>112</strong> vid plötslig svår smärta efter våld, plötslig
+                  kraftnedsättning eller domning i arm eller ben, ryggsmärta med domningar kring
+                  underlivet eller svårt att kissa, eller smärta med hög feber och kraftig
+                  allmänpåverkan. Är du osäker kan du ringa <strong>1177</strong>.
+                </p>
+              </section>
+
+              <div className="soft-info-card mt-8 p-6 text-sm text-ink-600">
+                Har du redan fått en bedömning eller behandling och vill få den tidigare bedömningen
+                omprövad? Då söker du en annan typ av tjänst – läs om andra bedömning vid långvarig
+                smärta på{" "}
+                <a
+                  href="https://www.andrabedomning.se/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-brand-700 hover:underline"
+                >
+                  Andrabedömning.se
+                </a>
+                . Specialistdirekt är en förmedlingstjänst och inte vårdgivare; den medicinska
+                bedömningen görs av Dr. Masoud Sorkhabi.
+              </div>
+
+              <section className="mt-10">
+                <h2 className="text-2xl font-bold text-ink-900">Vanliga frågor</h2>
+                <div className="mt-6">
+                  <FaqList items={faqs} />
+                </div>
+              </section>
+            </article>
+
+            <aside className="lg:sticky lg:top-24 lg:self-start">
+              <div className="form-panel p-6">
+                <h2 className="text-lg font-bold text-ink-900">Boka tid direkt</h2>
+                <a
+                  href={BOOKING}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-brand-600 px-6 py-3.5 text-center text-base font-semibold text-white shadow-[0_12px_28px_rgba(13,148,136,0.24)] transition-all hover:-translate-y-0.5 hover:bg-brand-700"
+                >
+                  Boka tid hos Dr. Masoud Sorkhabi
+                </a>
+                <p className="mt-2 text-xs text-ink-500">
+                  Öppnar bokningskalendern i en ny flik. Du betalar i samband med bokningen –
+                  beloppet återbetalas om du avbokar.
+                </p>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+
+      <RecoReviews />
+
+      <JsonLd
+        data={[
+          breadcrumbSchema(crumbs),
+          {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "@id": `${abs(PATH)}#webpage`,
+            url: abs(PATH),
+            name: "Privat smärtläkare i Göteborg – specialist i smärtlindring",
+            inLanguage: site.lang,
+            isPartOf: { "@id": `${site.url}/#website` },
+            publisher: { "@id": `${site.url}/#organization` },
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: "Förmedling till privat smärtmottagning i Göteborg",
+            serviceType: "Vårdförmedling",
+            provider: { "@id": `${site.url}/#organization` },
+            areaServed: { "@type": "City", name: "Göteborg" },
+            url: abs(PATH),
+            description:
+              "Bokning hos Dr. Masoud Sorkhabi, specialistläkare i ortopedi och specialist i smärtlindring i Göteborg. Specialistdirekt är en förmedlingstjänst, inte vårdgivare.",
+          },
+          faqSchema(faqs),
+        ]}
+      />
+    </>
+  );
+}

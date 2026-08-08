@@ -49,10 +49,16 @@ import { article as forhojdaLevervarden } from "@/content/articles/forhojda-leve
 import { article as hogtBlodtryck } from "@/content/articles/hogt-blodtryck-nar-behovs-kardiolog";
 import { article as ortopedUtanRemiss } from "@/content/articles/ortoped-utan-remiss";
 import { article as ryggsmartaFysio } from "@/content/articles/ryggsmarta-ortoped-eller-fysioterapeut";
+import { article as langvarigSmarta } from "@/content/articles/langvarig-smarta-vilken-lakare";
+import { article as gorKoloskopiOnt } from "@/content/articles/gor-koloskopi-ont";
+import { article as forberedelseKoloskopi } from "@/content/articles/forberedelse-infor-koloskopi";
 
 // Ordning: pelarguiden först, sedan nyast överst.
 export const articles: Article[] = [
   guide,
+  gorKoloskopiOnt,
+  forberedelseKoloskopi,
+  langvarigSmarta,
   ortopedUtanRemiss,
   ryggsmartaFysio,
   forhojdaLevervarden,
@@ -140,6 +146,8 @@ const ALLOWED_EXTERNAL_DOMAINS = [
   "folkhalsomyndigheten.se",
   "lakemedelsverket.se",
   "internetmedicin.se",
+  // Systersajt för second opinion – medveten cross-site-router (sekundär).
+  "andrabedomning.se",
 ] as const;
 
 // Build-time-spärr: fångar en utlänk till en klinik innan den når produktion.
@@ -201,6 +209,7 @@ const ARTICLE_EXTRA_SPECIALTIES: Record<string, string[]> = {
   "gra-starr-operation-vantetid": [],
   "privat-somnapneutredning-kostnad": ["oron-nasa-hals"],
   "privat-mr-rygg-kostnad": ["ortoped", "neurolog"],
+  "langvarig-smarta-vilken-lakare": ["ortoped", "neurolog", "reumatolog"],
   // Allmänmedicin är den enda hubben utan egna artiklar, vilket döljer hela dess
   // "Läs mer"-block. Båda guiderna är genuint specialitetsoberoende och hör hemma
   // under bredden – det här är korrekt kategorisering, inte en konstruerad länk.

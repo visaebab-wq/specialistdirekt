@@ -20,7 +20,7 @@ export const city: City = {
     kardiolog:
       "Genom Specialistdirekt kan du skicka en tidsförfrågan till ansluten privat kardiologisk specialistkompetens i Göteborg. Den anslutna mottagningen erbjuder kardiologbesök samt EKG, hjärtultraljud, arbets-EKG, långtids-EKG och 24-timmars blodtrycksmätning. Du kan söka som självbetalande patient, och mottagningen kan även ta emot försäkringspatienter efter godkännande från försäkringsbolaget. Priset beror på vilken konsultation eller undersökning som bokas och lämnas innan du bestämmer dig. Specialistdirekt är en förmedlingstjänst och inte vårdgivare – undersökningar, medicinsk bedömning och behandling utförs av den mottagning som tar emot dig.",
     ortoped:
-      "Söker du en privat ortoped? Här kan du boka tid hos Dr. Masoud Sorkhabi, specialistläkare i ortopedi med mer än 20 års klinisk erfarenhet – för bland annat rygg-, nack- och knäbesvär samt diskrelaterad, nervrelaterad och långvarig smärta från rörelseapparaten. Besöket kan vara fysiskt i Göteborg (2 000 kr) eller ett digitalt videobesök från hela Sverige (1 000 kr). Du bokar tid direkt i kalendern och betalar i samband med bokningen – beloppet återbetalas om du avbokar.",
+      "Söker du en privat ortoped? Här kan du boka tid hos Dr. Masoud Sorkhabi, specialistläkare i ortopedi och specialist i smärtlindring med mer än 20 års klinisk erfarenhet – för bland annat rygg-, nack- och knäbesvär samt diskrelaterad, nervrelaterad och långvarig smärta från rörelseapparaten. Besöket kan vara fysiskt i Göteborg (2 000 kr) eller ett digitalt videobesök från hela Sverige (1 000 kr). Du bokar tid direkt i kalendern och betalar i samband med bokningen – beloppet återbetalas om du avbokar.",
     hudlakare:
       "Hudbesvär, från återkommande utslag till födelsemärken du vill få kontrollerade, kan bedömas av en hudläkare på någon av Göteborgs många dermatologiska mottagningar. Här samsas offentlig vård med ett flertal privata aktörer, vilket ger valfrihet. Låt Specialistdirekt matcha dig med en hudläkare i området.",
     gynekolog:
@@ -47,10 +47,10 @@ export const city: City = {
         note: "Öppnar bokningskalendern i en ny flik. Du betalar i samband med bokningen – beloppet återbetalas om du avbokar.",
       },
       quickFacts: [
-        { label: "Läkare", value: "Dr. Masoud Sorkhabi, specialist i ortopedi" },
+        { label: "Läkare", value: "Dr. Masoud Sorkhabi, specialist i ortopedi och smärtlindring" },
         { label: "Besök", value: "Fysiskt i Göteborg eller digitalt i hela Sverige" },
         { label: "Pris", value: "Fysiskt 2 000 kr · digitalt videobesök 1 000 kr" },
-        { label: "Specialitet", value: "Ortopedi" },
+        { label: "Specialitet", value: "Ortopedi och smärtlindring" },
         { label: "Erfarenhet", value: "Mer än 20 års klinisk erfarenhet" },
         { label: "Kompetensområden", value: "Rygg, nacke, knä och nervrelaterade besvär" },
         { label: "Patienttyp", value: "Självbetalande" },
@@ -77,7 +77,7 @@ export const city: City = {
           id: "om-lakaren-goteborg",
           heading: "Om Dr. Masoud Sorkhabi – ortoped i Göteborg",
           body: [
-            "Hos Specialistdirekt kan du boka tid hos **Dr. Masoud Sorkhabi**, specialistläkare i ortopedi i Göteborg med **mer än 20 års klinisk erfarenhet**. Inriktningen omfattar bland annat rygg-, nack- och knäbesvär samt diskrelaterad, nervrelaterad och långvarig smärta från rörelseapparaten.",
+            "Hos Specialistdirekt kan du boka tid hos **Dr. Masoud Sorkhabi**, specialistläkare i ortopedi och specialist i smärtlindring i Göteborg med **mer än 20 års klinisk erfarenhet**. Inriktningen omfattar bland annat rygg-, nack- och knäbesvär samt besvär från disk och nerver och smärta som blivit långvarig.",
             "Du **bokar tid direkt i kalendern** och betalar i samband med bokningen – beloppet återbetalas om du avbokar. Den medicinska bedömningen och behandlingen utförs av Dr. Masoud Sorkhabi; Specialistdirekt förmedlar kontakten och är inte vårdgivare. Läs mer om [Dr. Masoud Sorkhabi](/lakare/masoud-sorkhabi).",
           ],
         },
@@ -85,7 +85,7 @@ export const city: City = {
           id: "kompetens-ortoped-goteborg",
           heading: "Vilka besvär kan vara aktuella för ortopedisk bedömning?",
           body: [
-            "Dr. Masoud Sorkhabi är i Göteborg särskilt inriktad på besvär från **rygg, nacke och knä** samt diskrelaterad, nervrelaterad och långvarig smärta från rörelseapparaten. Nedan ser du exempel på när en ortopedisk bedömning kan vara relevant – det är just exempel, inte ett löfte om att varje tillstånd kan tas emot eller behandlas.",
+            "Dr. Masoud Sorkhabi är i Göteborg särskilt inriktad på besvär från **rygg, nacke och knä** samt långvariga besvär från rygg, leder och nervstrukturer. Nedan ser du exempel på när en ortopedisk bedömning kan passa – det är just exempel, inte ett löfte om att varje tillstånd kan tas emot eller behandlas.",
           ],
           bullets: [
             "**Ryggbesvär** – långvarig eller återkommande smärta i ländrygg eller bröstrygg",
@@ -102,9 +102,9 @@ export const city: City = {
           id: "rygg-nacke-knä-nerv-goteborg",
           heading: "Rygg, nacke, knä och nervrelaterad smärta – lite mer om vanliga besvär",
           body: [
-            "**Rygg- och nackbesvär.** Många rygg- och nackbesvär är godartade och läker med tid, rörelse och avlastning. När smärtan är långvarig, återkommande eller tydligt påverkar vardagen kan en ortoped bedöma dina aktuella besvär och vad som är rimliga nästa steg.",
+            "**Rygg- och nackbesvär.** Många rygg- och nackbesvär är godartade och läker med tid, rörelse och avlastning. När smärtan är långvarig, återkommande eller tydligt påverkar vardagen kan en ortoped bedöma besvären och föreslå hur du kan gå vidare.",
             "**Knä- och belastningsbesvär.** Knät är särskilt utsatt vid idrott och belastning. Besvär som låser sig, sviktar eller inte förbättras trots träning kan behöva bedömas av en läkare. Osäker på vart du ska vända dig? Se [vilken läkare vid knäsmärta](/artiklar/vilken-lakare-knasmarta).",
-            "**Nervrelaterad eller utstrålande smärta.** Smärta som strålar ut i arm eller ben, ibland med domningar eller stickningar, kan höra ihop med nerver i rygg eller nacke. Det är en vanlig anledning att söka ortopedisk bedömning – läs mer om [ortopedisk smärtbehandling i Göteborg](/smartbehandling/goteborg).",
+            "**Nervrelaterad eller utstrålande smärta.** Smärta som strålar ut i arm eller ben, ibland med domningar eller stickningar, kan höra ihop med nerver i rygg eller nacke. Det är en vanlig anledning att söka ortopedisk bedömning – läs mer om [privat smärtmottagning i Göteborg](/specialiteter/smartlakare/goteborg).",
           ],
         },
         {
@@ -224,7 +224,7 @@ export const city: City = {
         {
           question: "Vem är läkaren jag träffar?",
           answer:
-            "Du träffar Dr. Masoud Sorkhabi, specialistläkare i ortopedi i Göteborg med mer än 20 års klinisk erfarenhet, med inriktning på bland annat rygg-, nack- och knäbesvär samt nervrelaterad och långvarig smärta. Den medicinska bedömningen och behandlingen utförs av läkaren; Specialistdirekt förmedlar kontakten och är inte vårdgivare.",
+            "Du träffar Dr. Masoud Sorkhabi, specialistläkare i ortopedi och specialist i smärtlindring i Göteborg med mer än 20 års klinisk erfarenhet, med inriktning på bland annat rygg-, nack- och knäbesvär samt nervrelaterad och långvarig smärta. Den medicinska bedömningen och behandlingen utförs av läkaren; Specialistdirekt förmedlar kontakten och är inte vårdgivare.",
         },
         {
           question: "Kan jag boka tid direkt hos ortopeden?",
@@ -254,7 +254,7 @@ export const city: City = {
         {
           question: "Kan ortopeden bedöma rygg- och nackbesvär?",
           answer:
-            "Ja. Rygg- och nackbesvär hör till den anslutna kompetensens inriktning, inklusive smärta som strålar ut mot arm. Ortopeden gör en medicinsk bedömning av dina aktuella besvär.",
+            "Ja. Rygg- och nackbesvär hör till läkarens inriktning, inklusive smärta som strålar ut mot arm. Ortopeden gör en medicinsk bedömning utifrån dina symtom och en klinisk undersökning.",
         },
         {
           question: "Kan jag boka tid för knäsmärta?",
@@ -264,7 +264,7 @@ export const city: City = {
         {
           question: "Kan ortopeden bedöma diskrelaterad eller nervrelaterad smärta?",
           answer:
-            "Ja. Diskrelaterade besvär och nervrelaterad, utstrålande smärta hör till den anslutna kompetensens inriktning. Ortopeden bedömer dina aktuella symtom och vad som är rimliga nästa steg.",
+            "Ja. Diskrelaterade besvär och nervrelaterad, utstrålande smärta hör till läkarens inriktning. Ortopeden väger samman dina symtom och undersökningen och föreslår nästa steg.",
         },
         {
           question: "Behöver jag ha gjort MR eller röntgen före besöket?",
@@ -294,7 +294,7 @@ export const city: City = {
         {
           question: "Är Specialistdirekt en privat ortopedklinik?",
           answer:
-            "Nej. Specialistdirekt är en förmedlingstjänst, inte en ortopedklinik. Vi hjälper dig att boka tid hos Dr. Masoud Sorkhabi, specialistläkare i ortopedi i Göteborg.",
+            "Nej. Specialistdirekt är en förmedlingstjänst, inte en ortopedklinik. Vi hjälper dig att boka tid hos Dr. Masoud Sorkhabi, specialistläkare i ortopedi och specialist i smärtlindring i Göteborg.",
         },
         {
           question: "Vem ansvarar för den medicinska bedömningen?",
