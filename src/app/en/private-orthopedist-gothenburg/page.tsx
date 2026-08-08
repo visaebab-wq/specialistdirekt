@@ -3,7 +3,6 @@ import Link from "next/link";
 import { site } from "@/lib/site";
 import { getSpecialty } from "@/lib/specialties";
 import { getCitySpecialtyVisual, getVisualDimensions } from "@/lib/medical-visuals";
-import { LeadForm } from "@/components/LeadForm";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { FaqList } from "@/components/FaqList";
 import { PageVisual } from "@/components/PageVisual";
@@ -262,19 +261,19 @@ export default function EnglishOrthopedistGothenburgPage() {
               </p>
 
               <section className="mt-10 rounded-2xl border border-brand-200 bg-brand-50 p-6 sm:p-8">
-                <h2 className="text-xl font-bold text-ink-900">Send a free appointment request</h2>
+                <h2 className="text-xl font-bold text-ink-900">Book an appointment</h2>
                 <p className="mt-2 text-ink-700">
-                  Briefly describe the problem you need help with and which times usually suit you.
-                  We will get back to you as soon as possible with a possible time and the current
-                  price. You then decide whether to proceed. The request form below is in Swedish –
-                  it asks for your name, email, phone, city, what you need help with, and preferred
-                  dates.
+                  Book a physical visit in Gothenburg (2,000 SEK) or a digital video visit from
+                  anywhere in Sweden (1,000 SEK) directly in the calendar. You pay when booking, and
+                  the amount is refunded if you cancel. The booking calendar is in Swedish.
                 </p>
                 <a
-                  href="#request"
+                  href={BOOKING_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="mt-5 inline-flex items-center justify-center rounded-xl bg-brand-600 px-6 py-3.5 text-base font-semibold text-white shadow-[0_12px_28px_rgba(13,148,136,0.24)] transition-all hover:-translate-y-0.5 hover:bg-brand-700"
                 >
-                  Go to the request form
+                  Book with Dr. Masoud Sorkhabi
                 </a>
               </section>
 
@@ -314,18 +313,9 @@ export default function EnglishOrthopedistGothenburgPage() {
                   Book with Dr. Masoud Sorkhabi
                 </a>
                 <p className="mt-2 text-xs text-ink-500">
-                  Opens the booking calendar in a new tab (in Swedish).
+                  Opens the booking calendar in a new tab (in Swedish). You pay when booking – the
+                  amount is refunded if you cancel.
                 </p>
-                <p className="mt-4 text-center text-sm text-ink-600">
-                  or send a request below
-                </p>
-              </div>
-              <div id="request" className="form-panel scroll-mt-24 p-6">
-                <h2 className="text-lg font-bold text-ink-900">Send an appointment request</h2>
-                <p className="mt-1 text-sm text-ink-600">Free and without obligation. Form in Swedish.</p>
-                <div className="mt-6">
-                  <LeadForm defaultSpecialty="ortoped" />
-                </div>
               </div>
             </aside>
           </div>

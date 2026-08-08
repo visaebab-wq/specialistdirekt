@@ -125,7 +125,7 @@ export default function HomePage() {
           <div>
             <h1 className="text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">
               Hitta rätt privat specialist
-              <span className="block text-brand-300">– enkelt och tryggt</span>
+              <span className="block text-brand-300">enkelt och tryggt</span>
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-sky-100/90">
               Välj specialist, välj område och skicka en bokningsförfrågan. Specialistdirekt

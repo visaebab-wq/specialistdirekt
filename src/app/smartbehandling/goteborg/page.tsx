@@ -3,7 +3,6 @@ import Link from "next/link";
 import { site } from "@/lib/site";
 import { getSpecialty } from "@/lib/specialties";
 import { getCitySpecialtyVisual } from "@/lib/medical-visuals";
-import { LeadForm } from "@/components/LeadForm";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { PageVisual } from "@/components/PageVisual";
 import { RecoReviews } from "@/components/RecoReviews";
@@ -236,17 +235,10 @@ export default function SmartbehandlingGoteborgPage() {
                 >
                   Boka tid hos Dr. Masoud Sorkhabi
                 </a>
-                <p className="mt-2 text-xs text-ink-500">Öppnar bokningskalendern i en ny flik.</p>
-                <p className="mt-4 text-center text-sm text-ink-600">
-                  eller skicka en tidsförfrågan nedan
+                <p className="mt-2 text-xs text-ink-500">
+                  Öppnar bokningskalendern i en ny flik. Du betalar i samband med bokningen –
+                  beloppet återbetalas om du avbokar.
                 </p>
-              </div>
-              <div id="tidsforfragan" className="form-panel scroll-mt-24 p-6">
-                <h2 className="text-lg font-bold text-ink-900">Skicka tidsförfrågan</h2>
-                <p className="mt-1 text-sm text-ink-600">Kostnadsfritt och utan förpliktelser.</p>
-                <div className="mt-6">
-                  <LeadForm defaultSpecialty="ortoped" />
-                </div>
               </div>
             </aside>
           </div>
@@ -277,7 +269,7 @@ export default function SmartbehandlingGoteborgPage() {
             areaServed: { "@type": "City", name: "Göteborg" },
             url: abs(PATH),
             description:
-              "Förmedling av tidsförfrågan till Dr. Masoud Sorkhabi för ortopedisk bedömning av rygg-, nack-, knä- och nervrelaterad samt långvarig smärta. Specialistdirekt är en förmedlingstjänst, inte vårdgivare.",
+              "Bokning hos Dr. Masoud Sorkhabi för ortopedisk bedömning av rygg-, nack-, knä- och nervrelaterad samt långvarig smärta. Specialistdirekt är en förmedlingstjänst, inte vårdgivare.",
           },
           faqSchema(faqs),
         ]}

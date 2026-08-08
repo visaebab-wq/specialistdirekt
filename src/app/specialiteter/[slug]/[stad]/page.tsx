@@ -259,18 +259,37 @@ export default async function CitySpecialtyPage({
               </section>
             ))}
 
-            {/* Primär CTA i innehållsflödet – hoppar till formuläret. */}
-            {local?.leadCta && (
+            {/* Primär CTA i innehållsflödet. Vid direktbokning → bokningsknapp,
+                annars → hoppa till tidsförfrågan-formuläret. */}
+            {local?.bookingCta ? (
               <section className="mt-10 rounded-2xl border border-brand-200 bg-brand-50 p-6 sm:p-8">
-                <h2 className="text-xl font-bold text-ink-900">{local.leadCta.heading}</h2>
-                <p className="mt-2 text-ink-700">{renderInline(local.leadCta.body)}</p>
+                <h2 className="text-xl font-bold text-ink-900">Boka tid direkt</h2>
+                <p className="mt-2 text-ink-700">
+                  Boka ett fysiskt eller digitalt besök direkt i kalendern. Du betalar i samband med
+                  bokningen, och beloppet återbetalas om du avbokar.
+                </p>
                 <a
-                  href="#tidsforfragan"
+                  href={local.bookingCta.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="mt-5 inline-flex items-center justify-center rounded-xl bg-brand-600 px-6 py-3.5 text-base font-semibold text-white shadow-[0_12px_28px_rgba(13,148,136,0.24)] transition-all hover:-translate-y-0.5 hover:bg-brand-700"
                 >
-                  {local.leadCta.buttonLabel}
+                  {local.bookingCta.label}
                 </a>
               </section>
+            ) : (
+              local?.leadCta && (
+                <section className="mt-10 rounded-2xl border border-brand-200 bg-brand-50 p-6 sm:p-8">
+                  <h2 className="text-xl font-bold text-ink-900">{local.leadCta.heading}</h2>
+                  <p className="mt-2 text-ink-700">{renderInline(local.leadCta.body)}</p>
+                  <a
+                    href="#tidsforfragan"
+                    className="mt-5 inline-flex items-center justify-center rounded-xl bg-brand-600 px-6 py-3.5 text-base font-semibold text-white shadow-[0_12px_28px_rgba(13,148,136,0.24)] transition-all hover:-translate-y-0.5 hover:bg-brand-700"
+                  >
+                    {local.leadCta.buttonLabel}
+                  </a>
+                </section>
+              )
             )}
 
             {local && local.faqs && local.faqs.length > 0 && (
@@ -291,8 +310,8 @@ export default async function CitySpecialtyPage({
                     Boka {specialty.title.toLowerCase()} i {city.name}
                   </h2>
                   <p className="mt-2 text-ink-600">
-                    Boka tid direkt i kalendern, eller skicka en kostnadsfri tidsförfrågan så
-                    återkommer vi med besked om tid och pris. Läs mer på vår översikt om{" "}
+                    Boka tid direkt i kalendern. Du betalar i samband med bokningen, och beloppet
+                    återbetalas om du avbokar. Läs mer på vår översikt om{" "}
                     <Link
                       href={`/specialiteter/${specialty.slug}`}
                       className="font-semibold text-brand-700 hover:underline"
@@ -402,20 +421,19 @@ export default async function CitySpecialtyPage({
                 {local.bookingCta.note && (
                   <p className="mt-2 text-xs text-ink-500">{local.bookingCta.note}</p>
                 )}
-                <p className="mt-4 text-center text-sm text-ink-600">
-                  eller skicka en tidsförfrågan nedan
-                </p>
               </div>
             )}
-            <div id="tidsforfragan" className="form-panel scroll-mt-24 p-6">
-              <h2 className="text-lg font-bold text-ink-900">
-                Skicka tidsförfrågan i {city.name}
-              </h2>
-              <p className="mt-1 text-sm text-ink-600">Kostnadsfritt och utan förpliktelser.</p>
-              <div className="mt-6">
-                <LeadForm defaultSpecialty={specialty.slug} />
+            {!local?.bookingCta && (
+              <div id="tidsforfragan" className="form-panel scroll-mt-24 p-6">
+                <h2 className="text-lg font-bold text-ink-900">
+                  Skicka tidsförfrågan i {city.name}
+                </h2>
+                <p className="mt-1 text-sm text-ink-600">Kostnadsfritt och utan förpliktelser.</p>
+                <div className="mt-6">
+                  <LeadForm defaultSpecialty={specialty.slug} />
+                </div>
               </div>
-            </div>
+            )}
           </aside>
         </div>
       </div>

@@ -4,7 +4,7 @@ export const extra: SpecialtyExtra = {
   bookingCta: {
     label: "Boka tid hos Dr. Masoud Sorkhabi",
     url: "/boka/ortoped-goteborg",
-    note: "Öppnar bokningskalendern i en ny flik. Föredrar du att vi återkommer? Använd tidsförfrågan nedan.",
+    note: "Öppnar bokningskalendern i en ny flik. Du betalar i samband med bokningen – beloppet återbetalas om du avbokar.",
   },
   featureBox: {
     heading: "Privat ortoped i Göteborg",

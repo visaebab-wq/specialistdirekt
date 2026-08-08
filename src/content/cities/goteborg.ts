@@ -20,7 +20,7 @@ export const city: City = {
     kardiolog:
       "Genom Specialistdirekt kan du skicka en tidsförfrågan till ansluten privat kardiologisk specialistkompetens i Göteborg. Den anslutna mottagningen erbjuder kardiologbesök samt EKG, hjärtultraljud, arbets-EKG, långtids-EKG och 24-timmars blodtrycksmätning. Du kan söka som självbetalande patient, och mottagningen kan även ta emot försäkringspatienter efter godkännande från försäkringsbolaget. Priset beror på vilken konsultation eller undersökning som bokas och lämnas innan du bestämmer dig. Specialistdirekt är en förmedlingstjänst och inte vårdgivare – undersökningar, medicinsk bedömning och behandling utförs av den mottagning som tar emot dig.",
     ortoped:
-      "Söker du en privat ortoped? Här kan du boka tid hos Dr. Masoud Sorkhabi, specialistläkare i ortopedi med mer än 20 års klinisk erfarenhet – för bland annat rygg-, nack- och knäbesvär samt diskrelaterad, nervrelaterad och långvarig smärta från rörelseapparaten. Besöket kan vara fysiskt i Göteborg (2 000 kr) eller ett digitalt videobesök från hela Sverige (1 000 kr). Boka tid direkt i kalendern eller skicka en kostnadsfri tidsförfrågan via Specialistdirekt.",
+      "Söker du en privat ortoped? Här kan du boka tid hos Dr. Masoud Sorkhabi, specialistläkare i ortopedi med mer än 20 års klinisk erfarenhet – för bland annat rygg-, nack- och knäbesvär samt diskrelaterad, nervrelaterad och långvarig smärta från rörelseapparaten. Besöket kan vara fysiskt i Göteborg (2 000 kr) eller ett digitalt videobesök från hela Sverige (1 000 kr). Du bokar tid direkt i kalendern och betalar i samband med bokningen – beloppet återbetalas om du avbokar.",
     hudlakare:
       "Hudbesvär, från återkommande utslag till födelsemärken du vill få kontrollerade, kan bedömas av en hudläkare på någon av Göteborgs många dermatologiska mottagningar. Här samsas offentlig vård med ett flertal privata aktörer, vilket ger valfrihet. Låt Specialistdirekt matcha dig med en hudläkare i området.",
     gynekolog:
@@ -32,9 +32,9 @@ export const city: City = {
   },
   specialtyLocal: {
     ortoped: {
-      metaTitle: "Privat ortoped Göteborg utan remiss – skicka tidsförfrågan",
+      metaTitle: "Privat ortoped Göteborg – boka direkt utan remiss",
       metaDescription:
-        "Privat ortoped i Göteborg för rygg-, nack- och knäbesvär. Skicka en kostnadsfri tidsförfrågan utan remiss via Specialistdirekt – du får tid och pris innan du bestämmer dig.",
+        "Boka privat ortoped i Göteborg hos Dr. Masoud Sorkhabi – rygg, nacke, knä. Fysiskt besök 2 000 kr eller digitalt 1 000 kr, utan remiss. Betala vid bokning, återbetalning vid avbokning.",
       h1: "Privat ortoped i Göteborg",
       hideCityIntro: true,
       altLanguage: {
@@ -44,7 +44,7 @@ export const city: City = {
       bookingCta: {
         label: "Boka tid hos Dr. Masoud Sorkhabi",
         url: "/boka/ortoped-goteborg",
-        note: "Öppnar bokningskalendern i en ny flik. Föredrar du att vi återkommer? Använd tidsförfrågan nedan.",
+        note: "Öppnar bokningskalendern i en ny flik. Du betalar i samband med bokningen – beloppet återbetalas om du avbokar.",
       },
       quickFacts: [
         { label: "Läkare", value: "Dr. Masoud Sorkhabi, specialist i ortopedi" },
@@ -56,7 +56,7 @@ export const city: City = {
         { label: "Patienttyp", value: "Självbetalande" },
         { label: "Remiss", value: "Behövs inte" },
         { label: "Publikt omdöme", value: "4,9 av 5 · 63 omdömen på Reco (Dr. Masoud Sorkhabi)" },
-        { label: "Tidsförfrågan", value: "Kostnadsfri och utan förpliktelser" },
+        { label: "Betalning", value: "Betala vid bokning – återbetalas om du avbokar" },
         { label: "Roll", value: "Specialistdirekt är förmedlingstjänst – inte vårdgivare" },
       ],
       redFlag: {
@@ -78,14 +78,14 @@ export const city: City = {
           heading: "Om Dr. Masoud Sorkhabi – ortoped i Göteborg",
           body: [
             "Hos Specialistdirekt kan du boka tid hos **Dr. Masoud Sorkhabi**, specialistläkare i ortopedi i Göteborg med **mer än 20 års klinisk erfarenhet**. Inriktningen omfattar bland annat rygg-, nack- och knäbesvär samt diskrelaterad, nervrelaterad och långvarig smärta från rörelseapparaten.",
-            "Du kan **boka tid direkt i kalendern**, eller skicka en kostnadsfri tidsförfrågan så återkommer vi med besked om tid och pris. Den medicinska bedömningen och behandlingen utförs av Dr. Masoud Sorkhabi; Specialistdirekt förmedlar kontakten och är inte vårdgivare. Läs mer om [Dr. Masoud Sorkhabi](/lakare/masoud-sorkhabi).",
+            "Du **bokar tid direkt i kalendern** och betalar i samband med bokningen – beloppet återbetalas om du avbokar. Den medicinska bedömningen och behandlingen utförs av Dr. Masoud Sorkhabi; Specialistdirekt förmedlar kontakten och är inte vårdgivare. Läs mer om [Dr. Masoud Sorkhabi](/lakare/masoud-sorkhabi).",
           ],
         },
         {
           id: "kompetens-ortoped-goteborg",
           heading: "Vilka besvär kan vara aktuella för ortopedisk bedömning?",
           body: [
-            "Den anslutna ortopediska specialistkompetensen i Göteborg är särskilt inriktad på besvär från **rygg, nacke och knä** samt diskrelaterad, nervrelaterad och långvarig smärta från rörelseapparaten. Nedan ser du exempel på när en ortopedisk bedömning kan vara relevant – det är just exempel, inte ett löfte om att varje tillstånd kan tas emot eller behandlas.",
+            "Dr. Masoud Sorkhabi är i Göteborg särskilt inriktad på besvär från **rygg, nacke och knä** samt diskrelaterad, nervrelaterad och långvarig smärta från rörelseapparaten. Nedan ser du exempel på när en ortopedisk bedömning kan vara relevant – det är just exempel, inte ett löfte om att varje tillstånd kan tas emot eller behandlas.",
           ],
           bullets: [
             "**Ryggbesvär** – långvarig eller återkommande smärta i ländrygg eller bröstrygg",
@@ -142,8 +142,8 @@ export const city: City = {
           id: "utan-remiss-ortoped-goteborg",
           heading: "Kan jag söka privat ortoped i Göteborg utan remiss?",
           body: [
-            "Ja. Som självbetalande patient behöver du ingen remiss för att skicka en tidsförfrågan till den aktuella anslutna ortopediska kapaciteten i Göteborg.",
-            "Några saker är bra att känna till: detta gäller den **privata självbetalar-vägen**. Regionfinansierad vård i Västra Götalandsregionen kan ha andra krav, och vill du använda en privat sjukvårdsförsäkring behöver försäkringsbolaget oftast godkänna besöket först. Att skicka en tidsförfrågan är inte samma sak som en färdig, bekräftad bokning – du bestämmer själv om du vill gå vidare efter att du fått besked om tid och pris. Läs mer i [ortoped utan remiss](/artiklar/ortoped-utan-remiss).",
+            "Ja. Som självbetalande patient behöver du ingen remiss för att boka tid hos Dr. Masoud Sorkhabi i Göteborg.",
+            "Några saker är bra att känna till: detta gäller den **privata självbetalar-vägen**. Regionfinansierad vård i Västra Götalandsregionen kan ha andra krav, och vill du använda en privat sjukvårdsförsäkring behöver försäkringsbolaget oftast godkänna besöket först. Du bokar tid direkt i kalendern och betalar i samband med bokningen; om du avbokar återbetalas beloppet. Läs mer i [ortoped utan remiss](/artiklar/ortoped-utan-remiss).",
           ],
         },
         {
@@ -166,18 +166,17 @@ export const city: City = {
           ],
         },
         {
-          id: "sa-fungerar-tidsforfragan-ortoped-goteborg",
-          heading: "Så fungerar en tidsförfrågan genom Specialistdirekt",
+          id: "sa-bokar-du-tid-ortoped-goteborg",
+          heading: "Så bokar du tid hos Dr. Masoud Sorkhabi",
           body: [
-            "Vägen från förfrågan till besök är enkel, och du behåller kontrollen i varje steg:",
+            "Vägen till besök är enkel och du har kontroll i varje steg:",
           ],
           bullets: [
-            "Du beskriver kort dina aktuella besvär och vilka tider som brukar passa.",
-            "Specialistdirekt granskar uppgifterna **administrativt – inte medicinskt**.",
-            "Förfrågan förmedlas till ansluten ortopedisk specialistkompetens i Göteborg.",
-            "Du får besked om möjlig tid, plats och aktuellt pris.",
-            "Du väljer själv om du vill gå vidare.",
-            "Den medicinska bedömningen och det medicinska ansvaret ligger hos den mottagning som tar emot dig.",
+            "Välj **fysiskt besök i Göteborg (2 000 kr)** eller **digitalt videobesök (1 000 kr)** i bokningskalendern.",
+            "Välj en tid som passar dig.",
+            "Du betalar i samband med bokningen.",
+            "Behöver du avboka återbetalas beloppet.",
+            "Den medicinska bedömningen och behandlingen utförs av Dr. Masoud Sorkhabi; Specialistdirekt är inte vårdgivare.",
           ],
         },
         {
@@ -201,7 +200,7 @@ export const city: City = {
           id: "forbered-bilddiagnostik-goteborg",
           heading: "Behöver jag ordna MR eller röntgen först?",
           body: [
-            "Nej. Du behöver inte ordna MR eller röntgen på egen hand bara för att skicka en första tidsförfrågan. Har du redan sådant material är det bra att ta med det, men beställ inga undersökningar i onödan – läkaren avgör vad som är motiverat. Om en bildundersökning av ryggen skulle bli aktuell kan du läsa på i [privat MR av ryggen](/artiklar/privat-mr-rygg-kostnad).",
+            "Nej. Du behöver inte ordna MR eller röntgen på egen hand bara för att boka en tid. Har du redan sådant material är det bra att ta med det, men beställ inga undersökningar i onödan – läkaren avgör vad som är motiverat. Om en bildundersökning av ryggen skulle bli aktuell kan du läsa på i [privat MR av ryggen](/artiklar/privat-mr-rygg-kostnad).",
           ],
         },
         {
@@ -217,9 +216,9 @@ export const city: City = {
         },
       ],
       leadCta: {
-        heading: "Skicka en kostnadsfri tidsförfrågan",
-        body: "Beskriv kort vilka besvär du söker hjälp för och vilka tider som brukar passa. Vi återkommer så snart som möjligt med besked om möjlig tid och aktuellt pris. Du bestämmer därefter själv om du vill gå vidare.",
-        buttonLabel: "Skicka tidsförfrågan",
+        heading: "Boka tid hos Dr. Masoud Sorkhabi",
+        body: "Boka ett fysiskt eller digitalt besök direkt i kalendern. Du betalar i samband med bokningen, och beloppet återbetalas om du avbokar.",
+        buttonLabel: "Boka tid",
       },
       faqs: [
         {
@@ -230,12 +229,12 @@ export const city: City = {
         {
           question: "Kan jag boka tid direkt hos ortopeden?",
           answer:
-            "Ja. Du kan boka tid direkt i Dr. Masoud Sorkhabis bokningskalender via knappen \"Boka tid\" på sidan. Föredrar du att vi återkommer med förslag på tid och pris kan du i stället skicka en kostnadsfri tidsförfrågan.",
+            "Ja. Du bokar tid direkt i Dr. Masoud Sorkhabis bokningskalender via knappen \"Boka tid\" på sidan. Du betalar i samband med bokningen, och beloppet återbetalas om du avbokar.",
         },
         {
           question: "Behöver jag remiss till privat ortoped i Göteborg?",
           answer:
-            "Nej. Som självbetalande patient behöver du ingen remiss för att boka tid eller skicka en tidsförfrågan till Dr. Masoud Sorkhabi i Göteborg. Regionfinansierad vård kan ha andra krav, och med privat sjukvårdsförsäkring går du oftast via försäkringsbolaget. Läs mer i [ortoped utan remiss](/artiklar/ortoped-utan-remiss).",
+            "Nej. Som självbetalande patient behöver du ingen remiss för att boka tid hos Dr. Masoud Sorkhabi i Göteborg. Regionfinansierad vård kan ha andra krav, och med privat sjukvårdsförsäkring går du oftast via försäkringsbolaget. Läs mer i [ortoped utan remiss](/artiklar/ortoped-utan-remiss).",
         },
         {
           question: "Vad kostar ett besök hos Dr. Masoud Sorkhabi?",
@@ -248,9 +247,9 @@ export const city: City = {
             "Ja. Dr. Masoud Sorkhabi tar emot digitala videobesök från hela Sverige för 1 000 kr. Det passar bra för en första bedömning av dina besvär; vissa besvär kan behöva ett fysiskt besök i Göteborg, som kostar 2 000 kr.",
         },
         {
-          question: "Hur snabbt kan jag få besked om en möjlig tid?",
+          question: "Hur snabbt kan jag få en tid?",
           answer:
-            "Vi återkommer så snart som möjligt med besked om möjlig tid. Vi kan inte utlova en viss väntetid, eftersom tillgången varierar. Du får besked om tid och pris innan du bestämmer dig.",
+            "Du ser lediga tider direkt i bokningskalendern och väljer den som passar dig. Tillgången varierar, så vi kan inte utlova en viss tid. Du bokar och betalar direkt, och beloppet återbetalas om du avbokar.",
         },
         {
           question: "Kan ortopeden bedöma rygg- och nackbesvär?",
@@ -258,7 +257,7 @@ export const city: City = {
             "Ja. Rygg- och nackbesvär hör till den anslutna kompetensens inriktning, inklusive smärta som strålar ut mot arm. Ortopeden gör en medicinsk bedömning av dina aktuella besvär.",
         },
         {
-          question: "Kan jag skicka en tidsförfrågan för knäsmärta?",
+          question: "Kan jag boka tid för knäsmärta?",
           answer:
             "Ja. Knäbesvär – till exempel smärta, svullnad, låsningar eller instabilitet – är ett vanligt skäl att söka ortoped. Vill du först läsa på om vart du ska vända dig finns [vilken läkare vid knäsmärta](/artiklar/vilken-lakare-knasmarta).",
         },
@@ -270,7 +269,7 @@ export const city: City = {
         {
           question: "Behöver jag ha gjort MR eller röntgen före besöket?",
           answer:
-            "Nej, du behöver inte ordna MR eller röntgen på egen hand bara för att skicka en första tidsförfrågan. Har du redan sådant material är det bra att ta med det. Läs mer om [privat MR av ryggen](/artiklar/privat-mr-rygg-kostnad) om en bildundersökning skulle bli aktuell.",
+            "Nej, du behöver inte ordna MR eller röntgen på egen hand bara för att boka en tid. Har du redan sådant material är det bra att ta med det. Läs mer om [privat MR av ryggen](/artiklar/privat-mr-rygg-kostnad) om en bildundersökning skulle bli aktuell.",
         },
         {
           question: "Kan jag använda privat sjukvårdsförsäkring?",
@@ -295,17 +294,17 @@ export const city: City = {
         {
           question: "Är Specialistdirekt en privat ortopedklinik?",
           answer:
-            "Nej. Specialistdirekt är en förmedlingstjänst, inte en ortopedklinik. Vi förmedlar din tidsförfrågan till ansluten ortopedisk specialistkompetens i Göteborg.",
+            "Nej. Specialistdirekt är en förmedlingstjänst, inte en ortopedklinik. Vi hjälper dig att boka tid hos Dr. Masoud Sorkhabi, specialistläkare i ortopedi i Göteborg.",
         },
         {
           question: "Vem ansvarar för den medicinska bedömningen?",
           answer:
-            "Den medicinska bedömningen, behandlingen och det medicinska ansvaret ligger hos den mottagning som tar emot dig. Specialistdirekt är inte vårdgivare och ger inte medicinsk rådgivning.",
+            "Den medicinska bedömningen, behandlingen och det medicinska ansvaret ligger hos Dr. Masoud Sorkhabi. Specialistdirekt är inte vårdgivare och ger inte medicinsk rådgivning.",
         },
         {
-          question: "Kostar det något att skicka en tidsförfrågan?",
+          question: "När betalar jag – och får jag pengarna tillbaka om jag avbokar?",
           answer:
-            "Nej. Att skicka en tidsförfrågan är kostnadsfritt och utan förpliktelser. Du bestämmer själv om du vill gå vidare efter att du fått besked om tid och pris.",
+            "Du betalar i samband med att du bokar tiden. Om du avbokar återbetalas beloppet. Ett fysiskt besök i Göteborg kostar 2 000 kr och ett digitalt videobesök 1 000 kr.",
         },
       ],
     },

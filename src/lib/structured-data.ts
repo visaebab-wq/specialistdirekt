@@ -236,17 +236,17 @@ export function citySpecialtyServiceSchema(specialty: Specialty, city: City, pat
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: `Förmedling av tidsförfrågan till privat ${title} i ${city.name}`,
+    name: `Förmedling av privat ${title} i ${city.name}`,
     serviceType: "Vårdförmedling",
     provider: { "@id": `${site.url}/#organization` },
     areaServed: { "@type": "City", name: city.name },
     url: abs(path),
-    description: `Specialistdirekt förmedlar kostnadsfritt din tidsförfrågan till ansluten ${title}kompetens i ${city.name}. Specialistdirekt är en förmedlingstjänst och inte vårdgivare – den medicinska bedömningen utförs av den mottagning som tar emot dig.`,
+    description: `Specialistdirekt hjälper dig till privat ${title} i ${city.name}. Specialistdirekt är en förmedlingstjänst och inte vårdgivare.`,
     offers: {
       "@type": "Offer",
       price: "0",
       priceCurrency: "SEK",
-      description: "Kostnadsfri förmedling av tidsförfrågan.",
+      description: "Kostnadsfri förmedling.",
     },
   };
 }
