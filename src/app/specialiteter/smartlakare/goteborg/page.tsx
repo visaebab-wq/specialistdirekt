@@ -16,9 +16,9 @@ const BOOKING = "/boka/ortoped-goteborg";
 const abs = (p: string) => `${site.url}${p}`;
 
 export const metadata: Metadata = {
-  title: "Privat smärtläkare i Göteborg – specialist i smärtlindring",
+  title: "Privat smärtläkare i Göteborg – ortoped och ryggkirurg",
   description:
-    "Privat smärtläkare i Göteborg vid långvarig eller komplex smärta. Boka Dr. Masoud Sorkhabi, specialistläkare i ortopedi och specialist i smärtlindring. Fysiskt 2 000 kr eller digitalt 1 000 kr, utan remiss.",
+    "Privat smärtläkare i Göteborg vid långvarig eller komplex smärta. Boka Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi. Fysiskt 2 000 kr eller digitalt 1 000 kr, utan remiss.",
   keywords: [
     "privat smärtmottagning Göteborg",
     "smärtläkare Göteborg",
@@ -29,9 +29,9 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: PATH },
   openGraph: {
-    title: "Privat smärtläkare i Göteborg – specialist i smärtlindring",
+    title: "Privat smärtläkare i Göteborg – ortoped och ryggkirurg",
     description:
-      "Privat smärtläkare i Göteborg vid långvarig eller komplex smärta. Boka Dr. Masoud Sorkhabi, specialistläkare i ortopedi och specialist i smärtlindring.",
+      "Privat smärtläkare i Göteborg vid långvarig eller komplex smärta. Boka Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi.",
     url: PATH,
     type: "article",
   },
@@ -41,12 +41,12 @@ const faqs = [
   {
     question: "Finns det privat smärtmottagning i Göteborg?",
     answer:
-      "Ja. Vid långvarig eller komplex smärta kan du i Göteborg boka Dr. Masoud Sorkhabi, specialistläkare i ortopedi och specialist i smärtlindring. Ett fysiskt besök kostar 2 000 kr och ett digitalt videobesök 1 000 kr.",
+      "Ja. Vid långvarig eller oförklarlig smärta kan du i Göteborg boka Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi. Ett fysiskt besök kostar 2 000 kr och ett digitalt videobesök 1 000 kr.",
   },
   {
-    question: "Kan en läkare vara specialist både i ortopedi och smärtlindring?",
+    question: "Är Dr. Sorkhabi specialist i smärtlindring?",
     answer:
-      "Ja. Smärtlindring är en medicinsk tilläggsspecialitet. Dr. Masoud Sorkhabi har specialistkompetens inom både ortopedi och smärtlindring, vilket innebär att hans kompetens omfattar både rörelseapparaten och bedömning av långvariga eller komplexa smärttillstånd.",
+      "Nej. Han är specialist i ortopedi och ryggkirurgi, med över 20 års erfarenhet av ortopedi och kirurgi. Inriktningen omfattar bland annat kronisk och oförklarlig smärta, nack- och ryggbesvär och diskbråck. Behöver du en smärtmottagning med ett bredare smärtteam kan en annan vårdgivare passa bättre.",
   },
   {
     question: "Kan jag boka smärtmottagning i Göteborg utan remiss?",
@@ -66,7 +66,7 @@ const faqs = [
   {
     question: "Passar Dr. Sorkhabi för min smärta, eller behöver jag en annan specialist?",
     answer:
-      "Hans kombination av ortopedi och smärtlindring passar särskilt vid smärta från leder, skelett, senor eller nerver, och vid smärta som blivit långvarig. Har besvären en annan karaktär kan en annan specialist passa bättre – se vår guide om långvarig smärta – vilken läkare?",
+      "Hans inriktning passar särskilt vid smärta från nacke och rygg, diskbråck och smärta som blivit kronisk eller är oförklarlig. Har besvären en annan karaktär kan en annan specialist passa bättre – se vår guide om långvarig smärta – vilken läkare?",
   },
   {
     question: "När ska jag söka akut vård i stället?",
@@ -88,8 +88,11 @@ export default function SmartlakareGoteborgPage() {
   ];
 
   const facts = [
-    { label: "Specialist", value: "Dr. Masoud Sorkhabi, specialistläkare i ortopedi och specialist i smärtlindring" },
-    { label: "Inriktning", value: "Långvarig eller komplex smärta – rygg, nacke, leder och nervrelaterad smärta" },
+    { label: "Specialist", value: "Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi" },
+    {
+      label: "Inriktning",
+      value: "Kronisk och oförklarlig smärta, nack- och ryggbesvär, diskbråck, huvudvärk och migrän",
+    },
     { label: "Besök", value: "Fysiskt i Göteborg eller digitalt i hela Sverige" },
     { label: "Pris", value: "Fysiskt 2 000 kr · digitalt 1 000 kr" },
     { label: "Remiss", value: "Behövs inte för självbetalande" },
@@ -109,11 +112,11 @@ export default function SmartlakareGoteborgPage() {
             </h1>
           </div>
           <p className="internal-hero-text">
-            Söker du en privat smärtläkare i Göteborg? Dr. Masoud Sorkhabi är specialistläkare i
-            ortopedi och specialist i smärtlindring. Kombinationen ger särskild kompetens vid
-            långvariga eller komplexa smärtbesvär, inte minst när rörelseapparaten – rygg, nacke och
-            leder – är involverad. Besöket kan vara fysiskt i Göteborg eller ett digitalt videobesök
-            från hela Sverige, utan remiss för självbetalande.
+            Söker du en privat smärtläkare i Göteborg? Dr. Masoud Sorkhabi är specialist i ortopedi
+            och ryggkirurgi med över 20 års erfarenhet av ortopedi och kirurgi. Inriktningen omfattar
+            bland annat kronisk och oförklarlig smärta, nack- och ryggbesvär och diskbråck. Besöket
+            kan vara fysiskt i Göteborg eller ett digitalt videobesök från hela Sverige, utan remiss
+            för självbetalande.
           </p>
           <PageVisual visual={visual} className="mt-10 max-w-3xl" priority />
         </div>
@@ -147,22 +150,22 @@ export default function SmartlakareGoteborgPage() {
               </h2>
               <p className="mt-3">
                 I Göteborg kan du boka{" "}
-                <strong>Dr. Masoud Sorkhabi</strong>, specialistläkare i ortopedi och specialist i
-                smärtlindring med mer än 20 års klinisk erfarenhet. Den dubbla kompetensen omfattar
-                både rörelseapparaten – rygg, nacke, leder samt disk- och nervrelaterad smärta – och
-                bedömning av långvariga eller komplexa smärttillstånd. En bedömning bygger på ett
-                samtal om dina besvär och en klinisk undersökning. Den här sidan ger allmän
-                information och ställer ingen diagnos.
+                <strong>Dr. Masoud Sorkhabi</strong>, specialist i ortopedi och ryggkirurgi med över
+                20 års erfarenhet av ortopedi och kirurgi. Inriktningen omfattar nack- och
+                ryggbesvär, diskbråck samt kronisk och oförklarlig smärta. En bedömning bygger på ett
+                samtal om dina besvär och en klinisk undersökning, med genomgång av din sjukhistoria
+                och aktuella radiologiska undersökningar. Den här sidan ger allmän information och
+                ställer ingen diagnos.
               </p>
 
               <h2 className="article-section-title mt-10 text-2xl font-bold">
-                Är en specialist i smärtlindring rätt för dig?
+                Är Dr. Sorkhabi rätt läkare för din smärta?
               </h2>
               <p className="mt-3">
-                Dr. Sorkhabis kombination av ortopedi och smärtlindring passar särskilt när
-                rörelseapparaten är involverad – smärta från leder, skelett, senor eller nerver – och
-                när smärtan blivit långvarig eller sammansatt. All smärta har dock inte en ortopedisk
-                orsak, och en enskild läkare ersätter inte ett helt smärtteam. Har din smärta en annan
+                Dr. Sorkhabi är specialist i ortopedi och ryggkirurgi, inte i smärtlindring. Hans
+                inriktning passar särskilt när rörelseapparaten är involverad – nacke, rygg och
+                diskbråck – och när smärtan blivit kronisk eller är oförklarlig. All smärta har dock
+                inte en ortopedisk orsak, och en enskild läkare ersätter inte ett helt smärtteam. Har din smärta en annan
                 karaktär kan en annan specialist passa bättre – vår guide{" "}
                 <Link
                   href="/artiklar/langvarig-smarta-vilken-lakare"
@@ -286,7 +289,7 @@ export default function SmartlakareGoteborgPage() {
             "@type": "WebPage",
             "@id": `${abs(PATH)}#webpage`,
             url: abs(PATH),
-            name: "Privat smärtläkare i Göteborg – specialist i smärtlindring",
+            name: "Privat smärtläkare i Göteborg – ortoped och ryggkirurg",
             inLanguage: site.lang,
             isPartOf: { "@id": `${site.url}/#website` },
             publisher: { "@id": `${site.url}/#organization` },
@@ -300,7 +303,7 @@ export default function SmartlakareGoteborgPage() {
             areaServed: { "@type": "City", name: "Göteborg" },
             url: abs(PATH),
             description:
-              "Bokning hos Dr. Masoud Sorkhabi, specialistläkare i ortopedi och specialist i smärtlindring i Göteborg. Specialistdirekt är en förmedlingstjänst, inte vårdgivare.",
+              "Bokning hos Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi i Göteborg. Specialistdirekt är en förmedlingstjänst, inte vårdgivare.",
           },
           faqSchema(faqs),
         ]}

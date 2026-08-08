@@ -19,31 +19,35 @@ const MONEY_PAGE = "/specialiteter/ortoped/goteborg";
 const abs = (p: string) => `${site.url}${p}`;
 
 export const metadata: Metadata = {
-  title: "Dr. Masoud Sorkhabi – privat ortoped och smärtläkare i Göteborg",
+  title: "Dr. Masoud Sorkhabi – privat ortoped och ryggkirurg i Göteborg",
   description:
-    "Dr. Masoud Sorkhabi är specialistläkare i ortopedi och specialist i smärtlindring i Göteborg, med mer än 20 års erfarenhet av rygg-, nack- och knäbesvär samt långvarig och nervrelaterad smärta. Fysiskt 2 000 kr, digitalt 1 000 kr – utan remiss.",
+    "Dr. Masoud Sorkhabi är specialist i ortopedi och ryggkirurgi i Göteborg med över 20 års erfarenhet av ortopedi och kirurgi – nack- och ryggbesvär, diskbråck samt kronisk och oförklarlig smärta. Fysiskt 2 000 kr, digitalt 1 000 kr – utan remiss.",
   keywords: [
     "Masoud Sorkhabi",
     "Dr Masoud Sorkhabi ortoped",
     "privat ortoped Göteborg",
-    "Masoud Sorkhabi smärta Göteborg",
-    "ortoped smärta Göteborg",
+    "Masoud Sorkhabi ryggkirurg",
+    "ortoped ryggkirurgi Göteborg",
   ],
   alternates: { canonical: PATH },
   openGraph: {
     type: "profile",
-    title: "Dr. Masoud Sorkhabi – privat ortoped och smärtläkare i Göteborg",
+    title: "Dr. Masoud Sorkhabi – privat ortoped och ryggkirurg i Göteborg",
     description:
-      "Specialistläkare i ortopedi och specialist i smärtlindring i Göteborg med mer än 20 års erfarenhet. Fysiskt 2 000 kr, digitalt 1 000 kr – utan remiss.",
+      "Specialist i ortopedi och ryggkirurgi i Göteborg med över 20 års erfarenhet av ortopedi och kirurgi. Fysiskt 2 000 kr, digitalt 1 000 kr – utan remiss.",
     url: PATH,
   },
 };
 
 const facts: { label: string; value: string }[] = [
   { label: "Läkare", value: "Dr. Masoud Sorkhabi" },
-  { label: "Specialitet", value: "Specialistläkare i ortopedi och specialist i smärtlindring" },
-  { label: "Erfarenhet", value: "Mer än 20 års klinisk erfarenhet" },
-  { label: "Inriktning", value: "Rygg, nacke, knä, disk-/nervrelaterad och långvarig smärta" },
+  { label: "Specialitet", value: "Specialist i ortopedi och ryggkirurgi" },
+  { label: "Erfarenhet", value: "Över 20 års erfarenhet av ortopedi och kirurgi" },
+  {
+    label: "Inriktning",
+    value:
+      "Nacke och ryggbesvär, diskbråck, kronisk och oförklarlig smärta, huvudvärk och migrän, axel- och armbågssmärta, höft/bäcken/knä",
+  },
   { label: "Ort", value: "Göteborg (fysiskt) · digitalt i hela Sverige" },
   { label: "Pris", value: "Fysiskt besök 2 000 kr · digitalt videobesök 1 000 kr" },
   { label: "Remiss", value: "Behövs inte för självbetalande" },
@@ -52,9 +56,9 @@ const facts: { label: string; value: string }[] = [
 
 const faqs = [
   {
-    question: "Kan en läkare vara specialist både i ortopedi och smärtlindring?",
+    question: "Vad är Dr. Masoud Sorkhabi specialist i?",
     answer:
-      "Ja. Smärtlindring är en medicinsk tilläggsspecialitet. Dr. Masoud Sorkhabi har specialistkompetens inom både ortopedi och smärtlindring, vilket innebär att hans kompetens omfattar både rörelseapparaten och bedömning av långvariga eller komplexa smärttillstånd.",
+      "Han är specialist i ortopedi och ryggkirurgi och har över 20 års erfarenhet av ortopedi och kirurgi. Under sin karriär har han behandlat patienter med rygg-, nack-, höft-, knä- och fotoperationer, och hans erfarenhet är omfattande inom både kirurgiska och icke-kirurgiska behandlingsmetoder.",
   },
 ];
 
@@ -77,16 +81,16 @@ export default function MasoudSorkhabiPage() {
           <Breadcrumbs items={crumbs} />
           <div className="mt-6">
             <p className="internal-hero-kicker">
-              Specialistläkare i ortopedi och specialist i smärtlindring · Göteborg
+              Specialist i ortopedi och ryggkirurgi · Göteborg
             </p>
             <h1 className="internal-hero-title">Dr. Masoud Sorkhabi</h1>
           </div>
           <p className="internal-hero-text">
-            Dr. Masoud Sorkhabi är specialistläkare i ortopedi och specialist i smärtlindring i
-            Göteborg, med mer än 20 års klinisk erfarenhet. Inriktningen omfattar bland annat rygg-,
-            nack- och knäbesvär samt disk-, nervrelaterad och långvarig smärta. Du kan boka ett
-            fysiskt besök i Göteborg eller ett digitalt videobesök från hela Sverige – utan remiss
-            för självbetalande.
+            Dr. Masoud Sorkhabi är specialist i ortopedi och ryggkirurgi i Göteborg och har över
+            20 års erfarenhet av ortopedi och kirurgi. Inriktningen omfattar bland annat nack- och
+            ryggbesvär, diskbråck samt kronisk och oförklarlig smärta. Du kan boka ett fysiskt besök
+            i Göteborg eller ett digitalt videobesök från hela Sverige – utan remiss för
+            självbetalande.
           </p>
           <PageVisual visual={visual} className="mt-10 max-w-3xl" priority />
         </div>
@@ -115,20 +119,19 @@ export default function MasoudSorkhabiPage() {
 
               <h2 className="article-section-title text-2xl font-bold">Kompetens och inriktning</h2>
               <p className="mt-3">
-                Som specialistläkare i ortopedi och specialist i smärtlindring bedömer Dr. Masoud
-                Sorkhabi både besvär från rörelseapparaten – särskilt rygg, nacke och knä – och
-                långvariga eller komplexa smärttillstånd, inklusive diskrelaterad och nervrelaterad
-                smärta. En bedömning börjar med ett samtal om dina besvär och en klinisk
+                Som specialist i ortopedi och ryggkirurgi bedömer Dr. Masoud Sorkhabi besvär från
+                rörelseapparaten – framför allt nacke och rygg – samt smärta som blivit kronisk eller
+                är oförklarlig. En bedömning börjar med ett samtal om dina besvär och en klinisk
                 undersökning, där läkaren föreslår hur du kan gå vidare.
               </p>
               <ul className="mt-4 space-y-2">
                 {[
-                  "Ryggbesvär – långvarig eller återkommande smärta",
-                  "Nackbesvär, ibland med utstrålning mot arm",
-                  "Knäbesvär – smärta, svullnad, låsningar eller instabilitet",
-                  "Diskrelaterade besvär och nervrelaterad, utstrålande smärta",
-                  "Idrotts- och överbelastningsbesvär",
-                  "Långvarig smärta från rörelseapparaten",
+                  "Nacke- och ryggbesvär",
+                  "Diskbråck (ländrygg eller nacke)",
+                  "Kronisk och oförklarlig smärta",
+                  "Huvudvärk och migrän",
+                  "Axel- och armbågssmärta",
+                  "Höft-, bäcken- och knäsmärta",
                 ].map((b) => (
                   <li key={b} className="flex gap-3 text-ink-700">
                     <span
@@ -147,20 +150,22 @@ export default function MasoudSorkhabiPage() {
               </h2>
               <p className="mt-3">
                 Dr. Masoud Sorkhabi arbetar utifrån en tydlig princip: att försöka identifiera den
-                bakomliggande orsaken till smärtan, inte bara behandla symtomen. En bedömning bygger
-                på en noggrann genomgång av dina besvär och din sjukhistoria, en klinisk undersökning
-                samt en analys av rörelsemönster och biomekanik. Utifrån helhetsbilden läggs en
-                individanpassad plan – varje patient utvärderas efter sina egna förutsättningar.
+                bakomliggande orsaken till smärtan, inte bara behandla symtomen. Undersökningen är
+                omfattande och grundlig och inkluderar en noggrann genomgång av din tidigare
+                sjukhistoria samt en granskning av aktuella radiologiska undersökningar. Utifrån den
+                utvärderingen bedöms om du är kandidat för operation eller om icke-kirurgisk
+                behandling är ett bättre alternativ.
               </p>
               <p className="mt-3">
-                Med specialistkompetens i både ortopedi och smärtlindring arbetar han med såväl
-                kirurgiska som icke-kirurgiska behandlingsmetoder, och särskilt med långvariga och
-                sammansatta smärttillstånd i rygg, nacke och leder. Den här sidan ger allmän
-                information och ställer ingen diagnos.
+                Under sin karriär har han behandlat patienter med rygg-, nack-, höft-, knä- och
+                fotoperationer, och hans erfarenhet är omfattande inom både kirurgiska och
+                icke-kirurgiska behandlingsmetoder. Den här sidan ger allmän information och ställer
+                ingen diagnos.
               </p>
               <blockquote className="mt-4 border-l-4 border-brand-200 pl-4 text-ink-700 italic">
-                ”Det finns alltid en orsak till patientens besvär. Att hitta källan till besvären är
-                avgörande för en framgångsrik behandling.” – Dr. Masoud Sorkhabi
+                ”Jag har alltid haft ett starkt intresse för att analysera smärtproblematik för att
+                kunna erbjuda rätt behandling – både för opererade och icke-opererade patienter”, säger
+                Dr. Sorkhabi.
               </blockquote>
 
               <h2 className="article-section-title mt-10 text-2xl font-bold">Besök och pris</h2>
@@ -208,9 +213,9 @@ export default function MasoudSorkhabiPage() {
               </h2>
               <p className="mt-3">
                 Dr. Masoud Sorkhabi är medicinsk granskare för Specialistdirekts innehåll inom
-                ortopedi och smärta. Hans dubbla specialistkompetens – i ortopedi och i smärtlindring
-                – gör att artiklarna nedan är faktagranskade av honom, så att den medicinska
-                informationen ska vara korrekt och aktuell. Innehållet är allmän information och
+                ortopedi och smärta. Hans specialistkompetens i ortopedi och ryggkirurgi gör att
+                artiklarna nedan är faktagranskade av honom, så att den medicinska informationen ska
+                vara korrekt och aktuell. Innehållet är allmän information och
                 ersätter inte en individuell medicinsk bedömning.
               </p>
               {reviewedArticles.length > 0 && (
@@ -287,18 +292,19 @@ export default function MasoudSorkhabiPage() {
             "@type": "Person",
             "@id": `${abs(PATH)}#person`,
             name: "Dr. Masoud Sorkhabi",
-            jobTitle: "Specialistläkare i ortopedi och specialist i smärtlindring",
+            jobTitle: "Specialist i ortopedi och ryggkirurgi",
             description:
-              "Specialistläkare i ortopedi och specialist i smärtlindring i Göteborg med mer än 20 års klinisk erfarenhet av rygg-, nack- och knäbesvär samt disk-, nervrelaterad och långvarig smärta. Medicinsk granskare för Specialistdirekts innehåll inom ortopedi och smärta.",
+              "Specialist i ortopedi och ryggkirurgi i Göteborg med över 20 års erfarenhet av ortopedi och kirurgi – nack- och ryggbesvär, diskbråck samt kronisk och oförklarlig smärta. Medicinsk granskare för Specialistdirekts innehåll inom ortopedi och smärta.",
             knowsAbout: [
               "Ortopedi",
-              "Smärtlindring",
+              "Ryggkirurgi",
               "Ryggbesvär",
               "Nackbesvär",
-              "Knäbesvär",
               "Diskbråck",
-              "Nervrelaterad smärta",
-              "Långvarig smärta",
+              "Kronisk smärta",
+              "Huvudvärk och migrän",
+              "Axel- och armbågssmärta",
+              "Höft-, bäcken- och knäsmärta",
             ],
             sameAs: [recoProfileUrl],
             url: abs(PATH),
@@ -308,7 +314,7 @@ export default function MasoudSorkhabiPage() {
             "@type": "WebPage",
             "@id": `${abs(PATH)}#webpage`,
             url: abs(PATH),
-            name: "Dr. Masoud Sorkhabi – specialistläkare i ortopedi och specialist i smärtlindring",
+            name: "Dr. Masoud Sorkhabi – specialist i ortopedi och ryggkirurgi",
             inLanguage: site.lang,
             isPartOf: { "@id": `${site.url}/#website` },
             publisher: { "@id": `${site.url}/#organization` },

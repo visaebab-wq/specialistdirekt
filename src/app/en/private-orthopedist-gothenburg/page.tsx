@@ -46,7 +46,7 @@ const faqs = [
   {
     question: "Who is the doctor?",
     answer:
-      "You see Dr. Masoud Sorkhabi, an orthopedic specialist in Gothenburg with more than 20 years of clinical experience, focusing on back, neck and knee problems as well as disc-related, nerve-related and long-term pain. The medical assessment and treatment are provided by the doctor; Specialistdirekt arranges the contact and is not a healthcare provider.",
+      "You see Dr. Masoud Sorkhabi, a specialist in orthopedics and spine surgery in Gothenburg with over 20 years of experience in orthopedics and surgery, focusing on neck and back problems, disc herniation, hip and knee pain as well as chronic and unexplained pain. The medical assessment and treatment are provided by the doctor; Specialistdirekt arranges the contact and is not a healthcare provider.",
   },
   {
     question: "Can I see a private orthopedist in Gothenburg without a referral?",
@@ -96,7 +96,7 @@ const faqs = [
   {
     question: "Is Specialistdirekt an orthopedic clinic?",
     answer:
-      "No. Specialistdirekt is an intermediary service, not an orthopedic clinic. We connect you with Dr. Masoud Sorkhabi, an orthopedic specialist in Gothenburg.",
+      "No. Specialistdirekt is an intermediary service, not an orthopedic clinic. We connect you with Dr. Masoud Sorkhabi, a specialist in orthopedics and spine surgery in Gothenburg.",
   },
   {
     question: "Who is responsible for my medical care?",
@@ -106,7 +106,7 @@ const faqs = [
 ];
 
 const quickFacts = [
-  { label: "Doctor", value: "Dr. Masoud Sorkhabi, orthopedic specialist" },
+  { label: "Doctor", value: "Dr. Masoud Sorkhabi, specialist in orthopedics and spine surgery" },
   { label: "Visit", value: "In person in Gothenburg or digital across Sweden" },
   { label: "Price", value: "In person 2,000 SEK · digital video 1,000 SEK" },
   { label: "Specialty", value: "Orthopedics" },
@@ -151,8 +151,9 @@ export default function EnglishOrthopedistGothenburgPage() {
           </div>
           <p className="internal-hero-text">
             Looking for a private orthopedist in Gothenburg? You can book an appointment with Dr.
-            Masoud Sorkhabi, an orthopedic specialist with more than 20 years of clinical
-            experience, or submit a free appointment request via Specialistdirekt. No referral is
+            Masoud Sorkhabi, a specialist in orthopedics and spine surgery with over 20 years of
+            experience in orthopedics and surgery, or submit a free appointment request via
+            Specialistdirekt. No referral is
             required for the current private pathway.
           </p>
           <PageVisual visual={visual} className="mt-10 max-w-3xl" priority />

@@ -208,7 +208,7 @@ export const article: Article = {
       id: "smartmottagning-goteborg",
       heading: "Privat smärtmottagning i Göteborg – verifierat pris",
       body: [
-        "Bor du i Göteborgsområdet och har långvarig eller komplex smärta kan du boka **Dr. Masoud Sorkhabi**, specialistläkare i ortopedi och specialist i smärtlindring, till fasta priser: **fysiskt besök 2 000 kr** eller **digitalt videobesök 1 000 kr** (kan bokas från hela Sverige). Ingen remiss krävs för självbetalande, och beloppet återbetalas om du avbokar. Läs mer på [privat smärtmottagning i Göteborg](/specialiteter/smartlakare/goteborg).",
+        "Bor du i Göteborgsområdet och har långvarig eller komplex smärta kan du boka **Dr. Masoud Sorkhabi**, specialist i ortopedi och ryggkirurgi, till fasta priser: **fysiskt besök 2 000 kr** eller **digitalt videobesök 1 000 kr** (kan bokas från hela Sverige). Ingen remiss krävs för självbetalande, och beloppet återbetalas om du avbokar. Läs mer på [privat smärtmottagning i Göteborg](/specialiteter/smartlakare/goteborg).",
       ],
     },
     {

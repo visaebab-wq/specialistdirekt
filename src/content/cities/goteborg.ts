@@ -20,7 +20,7 @@ export const city: City = {
     kardiolog:
       "Genom Specialistdirekt kan du skicka en tidsförfrågan till ansluten privat kardiologisk specialistkompetens i Göteborg. Den anslutna mottagningen erbjuder kardiologbesök samt EKG, hjärtultraljud, arbets-EKG, långtids-EKG och 24-timmars blodtrycksmätning. Du kan söka som självbetalande patient, och mottagningen kan även ta emot försäkringspatienter efter godkännande från försäkringsbolaget. Priset beror på vilken konsultation eller undersökning som bokas och lämnas innan du bestämmer dig. Specialistdirekt är en förmedlingstjänst och inte vårdgivare – undersökningar, medicinsk bedömning och behandling utförs av den mottagning som tar emot dig.",
     ortoped:
-      "Söker du en privat ortoped? Här kan du boka tid hos Dr. Masoud Sorkhabi, specialistläkare i ortopedi och specialist i smärtlindring med mer än 20 års klinisk erfarenhet – för bland annat rygg-, nack- och knäbesvär samt diskrelaterad, nervrelaterad och långvarig smärta från rörelseapparaten. Besöket kan vara fysiskt i Göteborg (2 000 kr) eller ett digitalt videobesök från hela Sverige (1 000 kr). Du bokar tid direkt i kalendern och betalar i samband med bokningen – beloppet återbetalas om du avbokar.",
+      "Söker du en privat ortoped? Här kan du boka tid hos Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi med över 20 års erfarenhet av ortopedi och kirurgi – för bland annat nack- och ryggbesvär, diskbråck, höft- och knäsmärta samt kronisk och oförklarlig smärta. Besöket kan vara fysiskt i Göteborg (2 000 kr) eller ett digitalt videobesök från hela Sverige (1 000 kr). Du bokar tid direkt i kalendern och betalar i samband med bokningen – beloppet återbetalas om du avbokar.",
     hudlakare:
       "Hudbesvär, från återkommande utslag till födelsemärken du vill få kontrollerade, kan bedömas av en hudläkare på någon av Göteborgs många dermatologiska mottagningar. Här samsas offentlig vård med ett flertal privata aktörer, vilket ger valfrihet. Låt Specialistdirekt matcha dig med en hudläkare i området.",
     gynekolog:
@@ -47,10 +47,10 @@ export const city: City = {
         note: "Öppnar bokningskalendern i en ny flik. Du betalar i samband med bokningen – beloppet återbetalas om du avbokar.",
       },
       quickFacts: [
-        { label: "Läkare", value: "Dr. Masoud Sorkhabi, specialist i ortopedi och smärtlindring" },
+        { label: "Läkare", value: "Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi" },
         { label: "Besök", value: "Fysiskt i Göteborg eller digitalt i hela Sverige" },
         { label: "Pris", value: "Fysiskt 2 000 kr · digitalt videobesök 1 000 kr" },
-        { label: "Specialitet", value: "Ortopedi och smärtlindring" },
+        { label: "Specialitet", value: "Ortopedi och ryggkirurgi" },
         { label: "Erfarenhet", value: "Mer än 20 års klinisk erfarenhet" },
         { label: "Kompetensområden", value: "Rygg, nacke, knä och nervrelaterade besvär" },
         { label: "Patienttyp", value: "Självbetalande" },
@@ -77,7 +77,7 @@ export const city: City = {
           id: "om-lakaren-goteborg",
           heading: "Om Dr. Masoud Sorkhabi – ortoped i Göteborg",
           body: [
-            "Hos Specialistdirekt kan du boka tid hos **Dr. Masoud Sorkhabi**, specialistläkare i ortopedi och specialist i smärtlindring i Göteborg med **mer än 20 års klinisk erfarenhet**. Inriktningen omfattar bland annat rygg-, nack- och knäbesvär samt besvär från disk och nerver och smärta som blivit långvarig.",
+            "Hos Specialistdirekt kan du boka tid hos **Dr. Masoud Sorkhabi**, specialist i ortopedi och ryggkirurgi i Göteborg med **över 20 års erfarenhet av ortopedi och kirurgi**. Inriktningen omfattar bland annat nack- och ryggbesvär, diskbråck, höft- och knäsmärta samt smärta som blivit kronisk eller är oförklarlig.",
             "Du **bokar tid direkt i kalendern** och betalar i samband med bokningen – beloppet återbetalas om du avbokar. Den medicinska bedömningen och behandlingen utförs av Dr. Masoud Sorkhabi; Specialistdirekt förmedlar kontakten och är inte vårdgivare. Läs mer om [Dr. Masoud Sorkhabi](/lakare/masoud-sorkhabi).",
           ],
         },
@@ -224,7 +224,7 @@ export const city: City = {
         {
           question: "Vem är läkaren jag träffar?",
           answer:
-            "Du träffar Dr. Masoud Sorkhabi, specialistläkare i ortopedi och specialist i smärtlindring i Göteborg med mer än 20 års klinisk erfarenhet, med inriktning på bland annat rygg-, nack- och knäbesvär samt nervrelaterad och långvarig smärta. Den medicinska bedömningen och behandlingen utförs av läkaren; Specialistdirekt förmedlar kontakten och är inte vårdgivare.",
+            "Du träffar Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi i Göteborg med över 20 års erfarenhet av ortopedi och kirurgi, med inriktning på bland annat nack- och ryggbesvär, diskbråck samt kronisk och oförklarlig smärta. Den medicinska bedömningen och behandlingen utförs av läkaren; Specialistdirekt förmedlar kontakten och är inte vårdgivare.",
         },
         {
           question: "Kan jag boka tid direkt hos ortopeden?",
@@ -294,7 +294,7 @@ export const city: City = {
         {
           question: "Är Specialistdirekt en privat ortopedklinik?",
           answer:
-            "Nej. Specialistdirekt är en förmedlingstjänst, inte en ortopedklinik. Vi hjälper dig att boka tid hos Dr. Masoud Sorkhabi, specialistläkare i ortopedi och specialist i smärtlindring i Göteborg.",
+            "Nej. Specialistdirekt är en förmedlingstjänst, inte en ortopedklinik. Vi hjälper dig att boka tid hos Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi i Göteborg.",
         },
         {
           question: "Vem ansvarar för den medicinska bedömningen?",

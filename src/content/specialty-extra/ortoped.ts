@@ -8,7 +8,7 @@ export const extra: SpecialtyExtra = {
   },
   featureBox: {
     heading: "Privat ortoped i Göteborg",
-    body: "I Göteborg kan du boka direkt hos Dr. Masoud Sorkhabi, specialistläkare i ortopedi med mer än 20 års erfarenhet. Fysiskt besök 2 000 kr eller digitalt videobesök i hela Sverige 1 000 kr – utan remiss.",
+    body: "I Göteborg kan du boka direkt hos Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi med över 20 års erfarenhet av ortopedi och kirurgi. Fysiskt besök 2 000 kr eller digitalt videobesök i hela Sverige 1 000 kr – utan remiss.",
     ctaLabel: "Privat ortoped i Göteborg",
     ctaHref: "/specialiteter/ortoped/goteborg",
   },

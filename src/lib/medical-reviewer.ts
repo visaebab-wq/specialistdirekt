@@ -6,7 +6,7 @@ import type { Article } from "./articles-types";
 
 export const DR_SORKHABI_REVIEWER = {
   name: "Dr. Masoud Sorkhabi",
-  title: "Specialistläkare i ortopedi och specialist i smärtlindring",
+  title: "Specialist i ortopedi och ryggkirurgi",
   url: "/lakare/masoud-sorkhabi",
 };
 

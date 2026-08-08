@@ -101,7 +101,7 @@ export const article: Article = {
       id: "privat-ortoped-goteborg-kostnad",
       heading: "Aktuellt pris i Göteborg via Specialistdirekt",
       body: [
-        "Via Specialistdirekt kan du boka **Dr. Masoud Sorkhabi**, specialistläkare i ortopedi i Göteborg, till fasta priser. Ingen remiss krävs för självbetalande. Läs mer och boka på [privat ortoped i Göteborg](/specialiteter/ortoped/goteborg).",
+        "Via Specialistdirekt kan du boka **Dr. Masoud Sorkhabi**, specialist i ortopedi och ryggkirurgi i Göteborg, till fasta priser. Ingen remiss krävs för självbetalande. Läs mer och boka på [privat ortoped i Göteborg](/specialiteter/ortoped/goteborg).",
       ],
       bullets: [
         "**Fysiskt besök i Göteborg – 2 000 kr**",
