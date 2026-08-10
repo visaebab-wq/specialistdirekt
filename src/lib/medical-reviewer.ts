@@ -1,6 +1,6 @@
-// Medicinsk granskare för ortopedi-/smärtartiklar. Dr. Masoud Sorkhabi har
-// granskat dessa artiklar medicinskt (bekräftat av uppdragsgivaren). Ger ett
-// äkta E-E-A-T-signal: namngiven specialist som granskat YMYL-innehållet.
+// Medicinsk granskare för sajtens artiklar. Dr. Masoud Sorkhabi har granskat
+// samtliga artiklar medicinskt (bekräftat av uppdragsgivaren). Ger ett äkta
+// E-E-A-T-signal: namngiven specialist som granskat YMYL-innehållet.
 
 import type { Article } from "./articles-types";
 
@@ -10,9 +10,8 @@ export const DR_SORKHABI_REVIEWER = {
   url: "/lakare/masoud-sorkhabi",
 };
 
-/** Returnerar den medicinska granskaren för en artikel, eller undefined. */
-export function medicalReviewerFor(article: Article) {
-  return article.category === "Ortopedi" || article.category === "Smärta"
-    ? DR_SORKHABI_REVIEWER
-    : undefined;
+/** Returnerar den medicinska granskaren för en artikel. Samtliga artiklar är
+ *  granskade av Dr. Masoud Sorkhabi. */
+export function medicalReviewerFor(_article: Article) {
+  return DR_SORKHABI_REVIEWER;
 }

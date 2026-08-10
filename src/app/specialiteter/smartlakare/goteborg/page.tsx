@@ -44,9 +44,9 @@ const faqs = [
       "Ja. Vid långvarig eller oförklarlig smärta kan du i Göteborg boka Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi. Ett fysiskt besök kostar 2 000 kr och ett digitalt videobesök 1 000 kr.",
   },
   {
-    question: "Är Dr. Sorkhabi specialist i smärtlindring?",
+    question: "Vilken kompetens har Dr. Sorkhabi för smärta?",
     answer:
-      "Nej. Han är specialist i ortopedi och ryggkirurgi, med över 20 års erfarenhet av ortopedi och kirurgi. Inriktningen omfattar bland annat kronisk och oförklarlig smärta, nack- och ryggbesvär och diskbråck. Behöver du en smärtmottagning med ett bredare smärtteam kan en annan vårdgivare passa bättre.",
+      "Dr. Masoud Sorkhabi är specialist i ortopedi och ryggkirurgi med över 20 års erfarenhet av ortopedi och kirurgi. Han bedömer och behandlar bland annat smärta som blivit kronisk eller oförklarlig samt nack- och ryggbesvär och diskbråck – ofta rätt kompetens vid långvarig smärta från nacke, rygg och rörelseapparaten.",
   },
   {
     question: "Kan jag boka smärtmottagning i Göteborg utan remiss?",
@@ -64,9 +64,9 @@ const faqs = [
       "Ja. Ett digitalt videobesök (1 000 kr) kan bokas från hela Sverige och passar bra för en första bedömning. Vissa besvär kan behöva ett fysiskt besök i Göteborg (2 000 kr).",
   },
   {
-    question: "Passar Dr. Sorkhabi för min smärta, eller behöver jag en annan specialist?",
+    question: "Passar Dr. Sorkhabi för min smärta?",
     answer:
-      "Hans inriktning passar särskilt vid smärta från nacke och rygg, diskbråck och smärta som blivit kronisk eller är oförklarlig. Har besvären en annan karaktär kan en annan specialist passa bättre – se vår guide om långvarig smärta – vilken läkare?",
+      "Hans inriktning passar särskilt vid smärta från nacke och rygg, diskbråck och smärta som blivit kronisk eller oförklarlig, med över 20 års erfarenhet av ortopedi och kirurgi. Vill du läsa mer om olika vägar vid långvarig smärta finns vår guide långvarig smärta – vilken läkare?",
   },
   {
     question: "När ska jag söka akut vård i stället?",
@@ -159,21 +159,21 @@ export default function SmartlakareGoteborgPage() {
               </p>
 
               <h2 className="article-section-title mt-10 text-2xl font-bold">
-                Är Dr. Sorkhabi rätt läkare för din smärta?
+                Så kan Dr. Sorkhabi hjälpa dig med din smärta
               </h2>
               <p className="mt-3">
-                Dr. Sorkhabi är specialist i ortopedi och ryggkirurgi, inte i smärtlindring. Hans
-                inriktning passar särskilt när rörelseapparaten är involverad – nacke, rygg och
-                diskbråck – och när smärtan blivit kronisk eller är oförklarlig. All smärta har dock
-                inte en ortopedisk orsak, och en enskild läkare ersätter inte ett helt smärtteam. Har din smärta en annan
-                karaktär kan en annan specialist passa bättre – vår guide{" "}
+                Dr. Sorkhabi är specialist i ortopedi och ryggkirurgi med över 20 års erfarenhet av
+                ortopedi och kirurgi. Hans inriktning passar särskilt när rörelseapparaten är
+                involverad – nacke, rygg och diskbråck – och när smärtan blivit kronisk eller är
+                oförklarlig. Vill du läsa mer om hur du hittar rätt vid långvarig smärta finns vår
+                guide{" "}
                 <Link
                   href="/artiklar/langvarig-smarta-vilken-lakare"
                   className="font-semibold text-brand-700 hover:underline"
                 >
                   långvarig smärta – vilken läkare?
                 </Link>{" "}
-                hjälper dig välja. Se även{" "}
+                Se även{" "}
                 <Link href="/specialiteter/smartlakare" className="font-semibold text-brand-700 hover:underline">
                   smärtläkare och smärtmottagning
                 </Link>

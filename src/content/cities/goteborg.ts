@@ -113,7 +113,7 @@ export const city: City = {
           body: [
             "Den som söker efter de högst betygsatta ortopederna i Göteborg bör väga in mer än bara snittbetyget. Titta också på hur aktuella omdömena är, vilken kompetens och erfarenhet läkaren har, och om mottagningen arbetar med just de besvär du söker hjälp för.",
             "Dr. Masoud Sorkhabi har fått mycket starka patientomdömen – **4,9 av 5** baserat på 63 publicerade omdömen på Reco. Betyget gäller läkaren som genomför besöket och inte Specialistdirekt. Omdömen kan vara en relevant förtroendesignal, men är ingen garanti för ett visst medicinskt resultat.",
-            "När du jämför ortopeder – i Göteborg eller någon annanstans – är det värt att väga in flera saker samtidigt:",
+            "Dr. Masoud Sorkhabi uppfyller de punkter som brukar vara viktigast när man väljer ortoped i Göteborg:",
           ],
           bullets: [
             "**Betyg och hur aktuellt det är** – ett högt snitt säger mer om det bygger på färska omdömen.",
@@ -125,15 +125,15 @@ export const city: City = {
         },
         {
           id: "nar-ortoped-ratt-goteborg",
-          heading: "När är en ortoped rätt – och när passar annan vård bättre?",
+          heading: "Vilka besvär kan Dr. Masoud Sorkhabi hjälpa dig med?",
           body: [
-            "En ortoped är inte alltid det första steget. Vid många muskel- och ledbesvär är vårdcentral eller fysioterapeut en bra början, medan andra situationer talar för en läkarbedömning. Listan nedan är en förenklad vägledning – den ställer ingen diagnos och avgör inte ditt enskilda fall.",
+            "Många muskel- och ledbesvär är särskilt värda en ortopedisk bedömning, medan enstaka akuta situationer i stället behöver omedelbar vård. Den här vägledningen ställer ingen diagnos och avgör inte ditt enskilda fall.",
           ],
           bullets: [
-            "**Gradvis muskelvärk utan tydlig skada** → ofta fysioterapeut eller vårdcentral först.",
-            "**Låsning, instabilitet eller misstänkt ledskada** → läkarbedömning, ibland ortoped.",
-            "**Långvariga besvär trots rekommenderad behandling** → läkarbedömning eller ortoped.",
-            "**Domningar, utstrålande smärta eller kraftnedsättning** → läkarbedömning.",
+            "**Långvariga besvär trots vila, träning eller egenvård** → värt en ortopedisk bedömning.",
+            "**Låsning, instabilitet eller misstänkt ledskada** → boka en läkarbedömning hos ortoped.",
+            "**Smärta som återkommer eller påverkar sömn, arbete och vardag** → värt att boka en bedömning.",
+            "**Domningar, utstrålande smärta eller kraftnedsättning** → bör bedömas av läkare.",
             "**Misstänkt fraktur eller akut svår skada** → akutmottagning eller jourvård.",
             "**Feber tillsammans med en snabbt svullen och mycket smärtsam led** → sök vård skyndsamt.",
           ],

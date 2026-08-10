@@ -212,16 +212,16 @@ export default function MasoudSorkhabiPage() {
                 Medicinsk granskare för Specialistdirekt
               </h2>
               <p className="mt-3">
-                Dr. Masoud Sorkhabi är medicinsk granskare för Specialistdirekts innehåll inom
-                ortopedi och smärta. Hans specialistkompetens i ortopedi och ryggkirurgi gör att
-                artiklarna nedan är faktagranskade av honom, så att den medicinska informationen ska
-                vara korrekt och aktuell. Innehållet är allmän information och
-                ersätter inte en individuell medicinsk bedömning.
+                Dr. Masoud Sorkhabi är medicinsk granskare för Specialistdirekts artiklar. Med
+                specialistkompetens i ortopedi och ryggkirurgi och över 20 års klinisk erfarenhet
+                faktagranskar han innehållet, så att den medicinska informationen ska vara korrekt
+                och aktuell. Innehållet är allmän information och ersätter inte en individuell
+                medicinsk bedömning.
               </p>
               {reviewedArticles.length > 0 && (
                 <>
                   <h3 className="mt-6 text-lg font-bold text-ink-900">
-                    Senast medicinskt granskade artiklar
+                    Artiklar som Dr. Masoud har granskat
                   </h3>
                   <ul className="mt-3 space-y-2">
                     {reviewedArticles.map((a) => (
