@@ -21,7 +21,7 @@ export const extra: SpecialtyExtra = {
       id: "gastroenterolog-eller-vardcentral",
       heading: "Gastroenterolog eller vårdcentral – vad är skillnaden?",
       body: [
-        "Vårdcentralen är oftast första kontakten och klarar en bra grundläggande bedömning: samtal, undersökning, basprover och vid behov remiss vidare. För många magbesvär räcker det. En gastroenterolog blir aktuell när besvären är långvariga eller återkommande, när proverna behöver tolkas i ett större sammanhang, eller när en endoskopisk undersökning kan bli aktuell.",
+        "Vårdcentralen kan vara en första kontakt och göra en grundläggande bedömning: samtal, undersökning, basprover och vid behov remiss vidare. En gastroenterolog är rätt när besvären är långvariga eller återkommande, när proverna behöver tolkas i ett större sammanhang, eller när en endoskopisk undersökning kan bli aktuell.",
         "Skillnaden handlar om bredd kontra djup: allmänläkaren ser hela kroppen, medan gastroenterologen arbetar dagligen med mage och tarm. Är du osäker på vart du ska vända dig kan du läsa vår guide [ont i magen – vilken läkare?](/artiklar/ont-i-magen-vilken-lakare), och vill du veta mer om vägen in utan remiss finns [privat gastroenterolog](/privat-gastroenterolog).",
         "Vid **kraftig eller ihållande buksmärta**, blodiga kräkningar, svart avföring eller hög feber med buksmärta ska du söka akut vård eller ringa 112. Det här innehållet är allmän information och ersätter inte en medicinsk bedömning.",
       ],

@@ -21,7 +21,7 @@ export const extra: SpecialtyExtra = {
       id: "kardiolog-eller-vardcentral",
       heading: "Kardiolog eller vårdcentral – vad är skillnaden?",
       body: [
-        "Vårdcentralen är oftast den första kontakten i vården och kan göra en bra grundläggande bedömning, ta ett vilo-EKG och vid behov skriva en remiss vidare. För många besvär räcker det utmärkt. En kardiolog kommer in i bilden när symtomen behöver utredas djupare, när tidigare prover varit svårtolkade, eller när du önskar en mer specialiserad bedömning.",
+        "Vårdcentralen kan vara en första kontakt och göra en grundläggande bedömning, ta ett vilo-EKG och vid behov skriva en remiss vidare. En kardiolog är rätt när symtomen behöver utredas djupare, när tidigare prover varit svårtolkade, eller när du vill ha en mer specialiserad hjärtbedömning – något du kan boka privat utan att vänta på remiss.",
         "Skillnaden handlar alltså om bredd kontra djup. Allmänläkaren ser hela kroppen, medan kardiologen är fokuserad på hjärta och kärl och har vanan att tolka exempelvis arbets-EKG och hjärtultraljud. Är du osäker på vart du ska vända dig kan du läsa mer i vår guide [hjärtklappning – vilken läkare?](/artiklar/hjartklappning-vilken-lakare).",
         "Vid **akut, plötslig bröstsmärta**, svår andnöd eller misstanke om hjärtinfarkt ska du alltid ringa 112. Det här innehållet ersätter inte en akut bedömning och utgör inte medicinsk rådgivning.",
       ],

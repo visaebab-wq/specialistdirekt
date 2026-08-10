@@ -22,7 +22,7 @@ export const extra: SpecialtyExtra = {
       id: "psykiater-eller-vardcentral",
       heading: "Psykiater eller vårdcentral – vad är skillnaden?",
       body: [
-        "Vårdcentralen är oftast första kontakten vid psykisk ohälsa och kan göra en första bedömning, erbjuda samtalsstöd och vid behov skriva remiss vidare. För många besvär räcker det. En psykiater blir aktuell när besvären är mer komplexa eller långvariga, när en diagnos behöver bekräftas, eller när läkemedelsbehandling behöver bedömas eller justeras.",
+        "Vårdcentralen kan vara en första kontakt vid psykisk ohälsa och göra en bedömning, erbjuda samtalsstöd och vid behov skriva remiss vidare. En psykiater är rätt när besvären är mer komplexa eller långvariga, när en diagnos behöver bekräftas, eller när läkemedelsbehandling behöver bedömas eller justeras.",
         "Skillnaden handlar om bredd kontra djup. Är du osäker på vägen in kan du läsa mer om vad vården kan kosta i [privat psykiater: kostnad](/artiklar/privat-psykiater-kostnad), och om neuropsykiatrisk utredning i [ADHD-utredning som vuxen](/artiklar/adhd-utredning-vuxen).",
         "Vid **allvarliga tankar på att skada dig själv eller andra**, eller vid en psykiatrisk kris, ska du inte vänta – ring **112** eller kontakta närmaste psykiatriska akutmottagning. För rådgivning dygnet runt når du **1177**. Specialistdirekt är inte en akutverksamhet och ger ingen medicinsk rådgivning.",
       ],

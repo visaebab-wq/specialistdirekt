@@ -21,7 +21,7 @@ export const extra: SpecialtyExtra = {
       id: "endokrinolog-eller-vardcentral",
       heading: "Endokrinolog eller vårdcentral – vad är skillnaden?",
       body: [
-        "Vårdcentralen hanterar mycket inom hormon och ämnesomsättning: den vanligaste sköldkörtelbehandlingen, typ 2-diabetes och basala prover. För många räcker det. En endokrinolog blir aktuell vid svårinställda värden, oklara provsvar, misstanke om ovanligare hormonsjukdom, knöl på sköldkörteln eller när flera hormonsystem behöver bedömas ihop.",
+        "Vårdcentralen hanterar mycket inom hormon och ämnesomsättning: den vanligaste sköldkörtelbehandlingen, typ 2-diabetes och basala prover. En endokrinolog är rätt vid svårinställda värden, oklara provsvar, misstanke om ovanligare hormonsjukdom, knöl på sköldkörteln eller när flera hormonsystem behöver bedömas ihop.",
         "Skillnaden handlar om bredd kontra djup – endokrinologen arbetar dagligen med att tolka hormonprover i sitt sammanhang. Vill du veta mer om vad vården kan kosta finns [privat endokrinolog: kostnad](/artiklar/privat-endokrinolog-kostnad).",
         "Vid **mycket högt eller lågt blodsocker med påverkat allmäntillstånd**, kraftig uttorkning, förvirring eller snabb försämring ska du söka akut vård. Det här innehållet är allmän information, ger inga läkemedelsråd och ersätter inte en läkarbedömning.",
       ],

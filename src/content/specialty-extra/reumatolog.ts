@@ -21,7 +21,7 @@ export const extra: SpecialtyExtra = {
       id: "reumatolog-eller-vardcentral",
       heading: "Reumatolog, ortoped eller vårdcentral – vad är skillnaden?",
       body: [
-        "**Vårdcentralen** är oftast första kontakten vid ledbesvär och kan ta basprover och skriva remiss vidare. **Ortopeden** arbetar med skador, slitage och kirurgi i rörelseapparaten. **Reumatologen** kommer in när besvären misstänks vara inflammatoriska eller när flera leder är engagerade.",
+        "**Vårdcentralen** kan vara en första kontakt vid ledbesvär och ta basprover och skriva remiss vidare. **Ortopeden** arbetar med skador, slitage och kirurgi i rörelseapparaten. **Reumatologen** är rätt när besvären misstänks vara inflammatoriska eller när flera leder är engagerade.",
         "En vanlig ledtråd är mönstret: inflammatorisk ledsmärta ger ofta **morgonstelhet som varar länge**, svullnad och besvär som lindras av rörelse – medan slitagesmärta typiskt förvärras av belastning. Men mönstren överlappar, och det är läkaren som gör bedömningen. Vill du veta mer om kostnader finns [privat reumatolog: kostnad](/artiklar/privat-reumatolog-kostnad).",
         "Vid **hög feber tillsammans med en kraftigt svullen, röd och mycket smärtande led** ska du söka akut vård – det kan vara en infektion i leden. Vid plötsliga neurologiska symtom, som svaghet eller domningar, sök också akut. Det här innehållet är allmän information, ger inga läkemedelsråd och ersätter inte en läkarbedömning.",
       ],

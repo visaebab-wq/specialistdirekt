@@ -21,7 +21,7 @@ export const extra: SpecialtyExtra = {
       id: "neurolog-vs-vardcentral",
       heading: "Neurolog eller vårdcentral – var börjar du?",
       body: [
-        "För de allra flesta nya besvär är **vårdcentralen** en bra första kontakt. Allmänläkaren kan göra en första bedömning, ta enklare prover och behandla många vanliga tillstånd, till exempel spänningshuvudvärk eller övergående yrsel. Vårdcentralen kan också skriva en remiss vidare till neurolog om besvären behöver utredas på specialistnivå.",
+        "**Vårdcentralen** kan vara en första kontakt vid nya besvär: allmänläkaren kan göra en bedömning, ta enklare prover och behandla många vanliga tillstånd som spänningshuvudvärk eller övergående yrsel, och vid behov skriva remiss vidare. En **neurolog** är rätt när besvären behöver utredas på specialistnivå – till exempel vid återkommande eller svårförklarad huvudvärk, yrsel, domningar eller andra symtom från nervsystemet.",
         "En **neurolog** blir aktuell när symtomen är mer uttalade, återkommande, svårtolkade eller inte svarar på den behandling som redan provats. Det kan handla om migrän som inte blir bättre, yrsel som inte går över, domningar som sprider sig, eller minnesbesvär som påverkar vardagen. Att träffa en specialist kan korta vägen till rätt undersökningar och en tydligare plan.",
         "Vill du veta mer om hur en privat utredning kan gå till kan du läsa vår guide om [privat neurolog](/artiklar/privat-neurolog-utredning). Är du osäker på vilken läkare just dina besvär hör hemma hos hjälper Specialistdirekt dig kostnadsfritt att hitta rätt – [kontakta oss](/kontakt) så återkommer vi.",
       ],
