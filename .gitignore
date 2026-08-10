@@ -46,3 +46,4 @@ leads*.jsonl
 lost-leads.txt
 resend-lost-leads.mjs
 stats.mjs
+stats-bookings.mjs

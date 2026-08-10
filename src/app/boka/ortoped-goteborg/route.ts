@@ -17,7 +17,13 @@ export async function GET(req: Request) {
     const file = join(process.cwd(), ".data", "booking-clicks.jsonl");
     mkdirSync(dirname(file), { recursive: true });
     const ua = req.headers.get("user-agent") || "";
-    const isBot = /bot|crawl|spider|slurp|bingpreview|facebookexternalhit|preview/i.test(ua);
+    // Bot/automatiserat om UA saknas eller matchar crawler-/verktygsmönster
+    // (curl, wget, python, headless m.fl. – så att egna tester inte räknas som riktiga klick).
+    const isBot =
+      ua === "" ||
+      /bot|crawl|spider|slurp|bingpreview|facebookexternalhit|preview|curl|wget|python|go-http|java\/|okhttp|node-fetch|axios|libwww|httpclient|headless|phantom|puppeteer|playwright|scrapy|monitor|uptime|dataforseo|semrush/i.test(
+        ua,
+      );
     appendFileSync(
       file,
       JSON.stringify({
