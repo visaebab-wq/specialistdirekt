@@ -231,7 +231,7 @@ export const article: Article = {
       heading: "Skolios hos barn",
       body: [
         "**Skolios innebär att ryggraden är böjd åt sidan.** Många har lindrig skolios utan större besvär, medan en del behöver behandling. Barn undersöks också inom elevhälsan för att skolios ska kunna upptäckas.",
-        "Misstänkt skolios innebär inte automatiskt att barnet behöver operation. Hur ryggraden ser ut, hur stor krökningen är och hur mycket barnet har kvar att växa påverkar uppföljningen.",
+        "Mer om [skolios hos barn – tecken och undersökning](/artiklar/skolios-hos-barn). Misstänkt skolios innebär inte automatiskt att barnet behöver operation. Hur ryggraden ser ut, hur stor krökningen är och hur mycket barnet har kvar att växa påverkar uppföljningen.",
         "Tecken som kan väcka misstanke är exempelvis att:",
       ],
       bullets: [
