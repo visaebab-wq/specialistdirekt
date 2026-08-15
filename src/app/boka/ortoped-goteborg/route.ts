@@ -19,9 +19,16 @@ export async function GET(req: Request) {
     const ua = req.headers.get("user-agent") || "";
     // Bot/automatiserat om UA saknas eller matchar crawler-/verktygsmönster
     // (curl, wget, python, headless m.fl. – så att egna tester inte räknas som riktiga klick).
+    //
+    // Andra raden: crawlers vars UA INTE innehåller ordet "bot" och som därför
+    // räknades som riktiga besökare. GoogleOther var värst – den såg ut som en
+    // vanlig Android-Chrome ända fram till "(compatible; GoogleOther)" på slutet.
     const isBot =
       ua === "" ||
       /bot|crawl|spider|slurp|bingpreview|facebookexternalhit|preview|curl|wget|python|go-http|java\/|okhttp|node-fetch|axios|libwww|httpclient|headless|phantom|puppeteer|playwright|scrapy|monitor|uptime|dataforseo|semrush/i.test(
+        ua,
+      ) ||
+      /googleother|google-|ahrefs|amazonbot|petalbot|yandex|applebot|perplexity|bytespider|meta-external|dotbot|barkrowler|imagesift/i.test(
         ua,
       );
     appendFileSync(
@@ -31,7 +38,10 @@ export async function GET(req: Request) {
         target: "ortoped-goteborg",
         ref: req.headers.get("referer") || "",
         bot: isBot,
-        ua: ua.slice(0, 160),
+        // 300, inte 160: crawlern skriver sitt namn SIST i UA-strängen, och vid
+        // 160 kapades det bort ("…(compatible; GoogleO") så att loggen inte gick
+        // att analysera i efterhand.
+        ua: ua.slice(0, 300),
       }) + "\n",
     );
   } catch {
