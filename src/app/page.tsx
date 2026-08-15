@@ -6,6 +6,7 @@ import { specialties } from "@/lib/specialties";
 import { articles } from "@/lib/articles";
 import { faqs } from "@/lib/faq";
 import { AreaSelector } from "@/components/AreaSelector";
+import { BodyMapSection } from "@/components/BodyMapSection";
 import { FaqList } from "@/components/FaqList";
 import { JsonLd } from "@/components/JsonLd";
 import { faqSchema, serviceSchema } from "@/lib/structured-data";
@@ -233,6 +234,11 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Var har du besvär? – kroppskartan. Ligger efter specialist- och
+          områdesvalen: besökare som redan vet vad de söker konverterar ovanför,
+          de som utgår från sina besvär hittar vägen här. */}
+      <BodyMapSection />
 
       {/* Så fungerar det */}
       <section className="bg-sky-50">
