@@ -37,9 +37,6 @@ export const article: Article = {
   readMinutes: 9,
   wordCount: 1900,
   relatedSpecialty: "ortoped",
-  // Skriven och publicerad 2026-08-15. Dr. Sorkhabi har INTE granskat denna
-  // slutversion än – byline och reviewedBy utelämnas tills granskning skett.
-  medicallyReviewed: false,
   summary: [
     "Knäsmärta hos barn och tonåringar är vanligt och hänger ofta ihop med idrott och växande.",
     "De flesta besvär går över av sig själva med anpassad belastning.",
