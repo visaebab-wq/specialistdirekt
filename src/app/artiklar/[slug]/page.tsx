@@ -227,9 +227,13 @@ export default async function ArticlePage({
                       <li key={i} className="flex gap-3 text-ink-700">
                         <span
                           aria-hidden
-                          className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-100 text-xs text-brand-700"
+                          className={
+                            section.bulletTone === "warning"
+                              ? "mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-800"
+                              : "mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-100 text-xs text-brand-700"
+                          }
                         >
-                          ✓
+                          {section.bulletTone === "warning" ? "!" : "✓"}
                         </span>
                         <span>{renderInline(b)}</span>
                       </li>

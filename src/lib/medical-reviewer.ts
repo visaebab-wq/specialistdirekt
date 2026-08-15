@@ -10,8 +10,13 @@ export const DR_SORKHABI_REVIEWER = {
   url: "/lakare/masoud-sorkhabi",
 };
 
-/** Returnerar den medicinska granskaren för en artikel. Samtliga artiklar är
- *  granskade av Dr. Masoud Sorkhabi. */
-export function medicalReviewerFor(_article: Article) {
+/**
+ * Returnerar den medicinska granskaren för en artikel, eller `undefined` om
+ * artikeln ännu inte är granskad (`medicallyReviewed: false`). Då utelämnas
+ * både bylinen och `reviewedBy`/`lastReviewed` i schemat – vi påstår aldrig att
+ * en text är granskad innan slutversionen faktiskt är godkänd.
+ */
+export function medicalReviewerFor(article: Article) {
+  if (article.medicallyReviewed === false) return undefined;
   return DR_SORKHABI_REVIEWER;
 }

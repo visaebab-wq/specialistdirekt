@@ -16,6 +16,12 @@ export type ArticleSection = {
   body: string[];
   /** Valfri punktlista efter styckena. */
   bullets?: string[];
+  /**
+   * Ton på punktlistan. Standard är en positiv bock (✓) som passar råd och
+   * fördelar. Sätt "warning" för röda flaggor och sök-vård-akut-listor – en
+   * grön bock intill "kan inte stödja på benet" läser fel.
+   */
+  bulletTone?: "warning";
 };
 
 export type ArticleFaq = { question: string; answer: string };
@@ -41,6 +47,13 @@ export type Article = {
   wordCount: number;
   /** Valfri koppling till en specialitet (slug i specialties.ts). */
   relatedSpecialty?: string;
+  /**
+   * Sätt false för en artikel som ännu INTE har granskats av den medicinska
+   * granskaren. Då visas varken byline eller `reviewedBy` i schemat. Utelämnad
+   * = granskad (gäller sajtens befintliga artiklar). Etiketten får aldrig sättas
+   * innan den faktiska slutversionen är godkänd.
+   */
+  medicallyReviewed?: boolean;
   /**
    * "Snabb sammanfattning" – punktlista högst upp. Mycket viktig för att
    * AI-sökmotorer (ChatGPT, Perplexity, Google AI) lätt ska kunna citera sidan.
