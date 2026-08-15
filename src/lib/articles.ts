@@ -248,10 +248,22 @@ export function articlesForSpecialty(specialtySlug: string): Article[] {
 }
 
 /**
- * Relevansrankade relaterade artiklar (smart internlänkning). Poängsätter varje
- * annan artikel efter gemensam specialitet, kategori och delade sökord – så att
- * "Läs vidare" alltid visar de mest relevanta artiklarna, inte bara de första.
+ * Ämneskluster: slug → kluster-id. Ett kluster är en redaktionellt sammanhållen
+ * grupp (pelare + spokes) där läsaren naturligt rör sig mellan sidorna. Lägg
+ * till nya kluster här – rankningen nedan är generisk och har inga specialfall.
  */
+const ARTICLE_CLUSTERS: Record<string, string> = {
+  barnortopedi: "barnortopedi",
+  "ont-i-knat-barn": "barnortopedi",
+  "ryggont-hos-barn": "barnortopedi",
+  "ont-i-halen-hos-barn": "barnortopedi",
+  "barn-haltar": "barnortopedi",
+  "ont-i-hoften-hos-barn": "barnortopedi",
+  "skolios-hos-barn": "barnortopedi",
+  "plattfot-hos-barn": "barnortopedi",
+  "vaxtvark-hos-barn": "barnortopedi",
+};
+
 function specialtySet(a: Article): Set<string> {
   const s = new Set<string>();
   if (a.relatedSpecialty) s.add(a.relatedSpecialty);
@@ -259,24 +271,85 @@ function specialtySet(a: Article): Set<string> {
   return s;
 }
 
+/**
+ * Artiklar som redan är länkade i den egna brödtexten. "Läs vidare" ska inte
+ * upprepa en länk läsaren redan passerat – platsen är mer värd för en artikel
+ * som inte nämns i texten. Vi skannar samtliga textbärande fält, inte bara
+ * sections.body, och matchar sökvägen i sig så att formatvariationer i den
+ * inline-markup som beskrivs i articles-types.ts inte kan missas.
+ */
+function editorialArticleLinks(a: Article): Set<string> {
+  const text = [
+    ...(a.summary ?? []),
+    ...a.intro,
+    ...a.sections.flatMap((s) => [...s.body, ...(s.bullets ?? [])]),
+    ...a.faqs.flatMap((f) => [f.question, f.answer]),
+  ].join("\n");
+  const found = new Set<string>();
+  for (const m of text.matchAll(/\/artiklar\/([a-z0-9-]+)/g)) found.add(m[1]);
+  return found;
+}
+
+/**
+ * Relationsnivå mellan två artiklar. Nivåerna är *garanterat* rangordnade:
+ * ett gemensamt sökord kan aldrig konkurrera ut en artikel i samma kluster.
+ *   4 samma ämneskluster · 3 gemensam specialitet · 2 samma kategori
+ *   1 gemensamt sökord   · 0 ingen relation (visas inte)
+ */
+function relationTier(current: Article, candidate: Article): number {
+  const cluster = ARTICLE_CLUSTERS[current.slug];
+  if (cluster && ARTICLE_CLUSTERS[candidate.slug] === cluster) return 4;
+  const specialties = specialtySet(current);
+  for (const sp of specialtySet(candidate)) if (specialties.has(sp)) return 3;
+  if (candidate.category === current.category) return 2;
+  const keywords = new Set(current.keywords.map((k) => k.toLowerCase()));
+  for (const k of candidate.keywords) if (keywords.has(k.toLowerCase())) return 1;
+  return 0;
+}
+
+function sharedKeywordCount(current: Article, candidate: Article): number {
+  const keywords = new Set(current.keywords.map((k) => k.toLowerCase()));
+  return candidate.keywords.filter((k) => keywords.has(k.toLowerCase())).length;
+}
+
+/**
+ * Stabil, källmedveten hash (FNV-1a) som slutgiltig tie-break. Tidigare avgjorde
+ * `updated` – och eftersom artiklar publicerade samma dag ger identiskt värde
+ * föll sorteringen tillbaka på registerordningen, vilket gjorde att de senast
+ * tillagda artiklarna tog nästan alla "Läs vidare"-platser på hela sajten.
+ * Hashen är deterministisk, oberoende av publiceringsordning, och ger olika
+ * ordning för olika källartiklar i stället för samma topplista överallt.
+ */
+function stableRank(from: string, to: string): number {
+  const s = `${from}|${to}`;
+  let h = 0x811c9dc5;
+  for (let i = 0; i < s.length; i++) {
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 0x01000193) >>> 0;
+  }
+  return h;
+}
+
+/**
+ * Relaterade artiklar för "Läs vidare". Relevans går före antal: kandidater utan
+ * relation (nivå 0) tas bort helt, så en sida kan visa färre än `limit` länkar –
+ * eller inget block alls – i stället för att fyllas ut med orelaterat innehåll.
+ */
 export function relatedArticles(slug: string, limit = 4): Article[] {
   const current = getArticle(slug);
-  if (!current) return articles.filter((a) => a.slug !== slug).slice(0, limit);
-
-  const currentKeywords = new Set(current.keywords.map((k) => k.toLowerCase()));
-  const currentSpecialties = specialtySet(current);
+  if (!current) return [];
+  const alreadyLinked = editorialArticleLinks(current);
 
   return articles
-    .filter((a) => a.slug !== slug)
-    .map((a) => {
-      let score = 0;
-      // Delade specialiteter (egna + korsreferenser) väger tyngst.
-      for (const sp of specialtySet(a)) if (currentSpecialties.has(sp)) score += 4;
-      if (a.category === current.category) score += 3;
-      for (const k of a.keywords) if (currentKeywords.has(k.toLowerCase())) score += 1;
-      return { a, score };
-    })
-    .sort((x, y) => y.score - x.score || y.a.updated.localeCompare(x.a.updated))
+    .filter((a) => a.slug !== slug && !alreadyLinked.has(a.slug))
+    .map((a) => ({ a, tier: relationTier(current, a) }))
+    .filter((x) => x.tier > 0)
+    .sort(
+      (x, y) =>
+        y.tier - x.tier ||
+        sharedKeywordCount(current, y.a) - sharedKeywordCount(current, x.a) ||
+        stableRank(slug, x.a.slug) - stableRank(slug, y.a.slug),
+    )
     .slice(0, limit)
     .map((x) => x.a);
 }
