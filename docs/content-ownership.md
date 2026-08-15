@@ -16,6 +16,7 @@ Status: uppdaterad 2026-08-05. Gäller ortopedivertikalen.
 | Knä-routing (vilken läkare vid knäsmärta) | `/artiklar/vilken-lakare-knasmarta` |
 | Rygg-routing (ont i ryggen – vilken läkare) | `/artiklar/ont-i-ryggen-vilken-lakare` |
 | Rygg-routing (ortoped **eller** fysioterapeut) | `/artiklar/ryggsmarta-ortoped-eller-fysioterapeut` |
+| Barnortopedi / ortoped för barn | `/artiklar/barnortopedi` |
 | Ortoped utan remiss (nationellt) | `/artiklar/ortoped-utan-remiss` |
 | Specialist utan remiss (alla specialiteter) | `/artiklar/boka-specialist-utan-remiss` |
 | Nationell översikt | `/specialiteter/ortoped` |
@@ -30,6 +31,12 @@ Status: uppdaterad 2026-08-05. Gäller ortopedivertikalen.
   `ortoped-utan-remiss`. Den generella `boka-specialist-utan-remiss` täcker alla
   specialiteter och egenremiss steg-för-steg; ortoped-artikeln fokuserar på just
   ortopedvägen och länkar till den generella. De ska korslänka, inte upprepa.
+- **Barn**: `barnortopedi` äger den *nationella* barnortopedi-/barnortoped-intentionen
+  och all symtomrouting för barn (hälta, växtvärk, Schlatter, skolios, plattfot).
+  Den äger INTE lokal bokning, pris eller betyg – de intentionerna ligger kvar på
+  Göteborgssidan respektive kostnadsartikeln, och barn-artikeln länkar dit.
+  Läkaren beskrivs som "specialist i ortopedi och ryggkirurgi som även tar emot
+  barn" – **aldrig** som barnortoped (den specialisttiteln är inte dokumenterad).
 - **Rygg: ortoped eller fysioterapeut** → `ryggsmarta-ortoped-eller-fysioterapeut`
   äger *valet mellan vårdgivartyper*. `ont-i-ryggen-vilken-lakare` äger den
   bredare "vilken läkare"-frågan. Håll vinklarna åtskilda och korslänka.
@@ -67,6 +74,12 @@ handkirurg, fotspecialist, barnortoped, protes-/rygg-/knäkirurg i Göteborg.
 Nuvarande verifierade utbud: **en** anonym ortopedisk kapacitet i Göteborg
 (fysiskt besök, självbetalande, ingen remiss krävs).
 
+**Undantag (2026-08-15, barn):** kapaciteten tar även emot barn, samma pris som
+för vuxna. Det motiverar **artikeln** `/artiklar/barnortopedi`, men INTE en egen
+tjänste-/stadssida för barnortopedi (t.ex. `/specialiteter/barnortoped/goteborg`)
+– doorway-spärren gäller fortfarande för sådana sidor. Se även källnoteringen i
+avsnitt 5.
+
 ## 5. Enkapacitets-ärlighet (Göteborg ortoped)
 Det finns just nu **en** ansluten anonym ortopedisk kapacitet i Göteborg.
 
@@ -78,6 +91,15 @@ anslutna ortopeder", "vi hittar den bästa ortopeden", "vi kontrollerar
 tillgänglighet hos flera mottagningar".
 
 Uppdateras i en separat dokumenterad release när mer verifierat utbud tillkommer.
+
+**Utbudsnotering 2026-08-15 – barn.** Kapaciteten tar emot barn för ortopediska
+bedömningar till samma pris som vuxna. **Källa: sajtägaren.** Detta går INTE att
+verifiera mot vårdgivarens egen publika källa (nopainclinic.se nämner varken
+barn, ungdomar eller åldersgräns; titel, >20 års erfarenhet och pris 2 000 kr
+fysiskt / 1 000 kr digitalt är däremot verifierade där). Ingen åldersgräns är
+publicerad – lägg till en så snart den är känd, så att sidan inte drar till sig
+frågor utanför kapacitetens kompetensområde (t.ex. medfödda felställningar och
+höftinstabilitet hos spädbarn, som hör till högspecialiserad barnortopedi).
 
 ## 6. Anonymitet
 Läkarens och mottagningens identitet publiceras aldrig på Specialistdirekt

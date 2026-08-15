@@ -5,6 +5,7 @@ import type { Article } from "./articles-types";
 
 import { article as guide } from "@/content/articles/hitta-ratt-specialistlakare-guide";
 import { article as ontIKnatBarn } from "@/content/articles/ont-i-knat-barn";
+import { article as barnortopedi } from "@/content/articles/barnortopedi";
 import { article as ryggontHosBarn } from "@/content/articles/ryggont-hos-barn";
 import { article as ontIHalenHosBarn } from "@/content/articles/ont-i-halen-hos-barn";
 import { article as kardiolog } from "@/content/articles/privat-kardiolog-kostnad";
@@ -62,6 +63,7 @@ export const articles: Article[] = [
   ontIHalenHosBarn,
   ryggontHosBarn,
   ontIKnatBarn,
+  barnortopedi,
   gorKoloskopiOnt,
   forberedelseKoloskopi,
   langvarigSmarta,
