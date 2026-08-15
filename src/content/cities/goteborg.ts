@@ -227,6 +227,11 @@ export const city: City = {
             "Du träffar Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi i Göteborg med över 20 års erfarenhet av ortopedi och kirurgi, med inriktning på bland annat nack- och ryggbesvär, diskbråck samt kronisk och oförklarlig smärta. Den medicinska bedömningen och behandlingen utförs av läkaren; Specialistdirekt förmedlar kontakten och är inte vårdgivare.",
         },
         {
+          question: "Tar ortopeden emot barn?",
+          answer:
+            "Ja. Dr. Masoud Sorkhabi är specialist i ortopedi och ryggkirurgi och tar även emot barn för ortopediska bedömningar – priset är detsamma som för vuxna. Läs mer om [ortoped för barn i Göteborg](/artiklar/barnortopedi). Medfödda tillstånd, komplicerade felställningar och neuromuskulära sjukdomar utreds inom specialiserad barnsjukvård.",
+        },
+        {
           question: "Kan jag boka tid direkt hos ortopeden?",
           answer:
             "Ja. Du bokar tid direkt i Dr. Masoud Sorkhabis bokningskalender via knappen \"Boka tid\" på sidan. Du betalar i samband med bokningen, och beloppet återbetalas om du avbokar.",
@@ -294,7 +299,7 @@ export const city: City = {
         {
           question: "Är Specialistdirekt en privat ortopedklinik?",
           answer:
-            "Nej. Specialistdirekt är en förmedlingstjänst, inte en ortopedklinik. Vi hjälper dig att boka tid hos Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi i Göteborg.",
+            "Nej. Vi förmedlar tiden – vården ges av Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi, på hans mottagning i Göteborg.",
         },
         {
           question: "Vem ansvarar för den medicinska bedömningen?",
