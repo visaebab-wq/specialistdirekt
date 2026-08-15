@@ -46,8 +46,8 @@ export function BodyMapSection() {
           </h3>
           <ul className="mt-3 grid gap-x-8 gap-y-2 sm:grid-cols-2">
             {index.map((row) => (
-              <li key={row.label} className="text-sm leading-relaxed text-ink-600">
-                <span className="font-semibold text-ink-800">{row.label}:</span>{" "}
+              <li key={row.labels.join("|")} className="text-sm leading-relaxed text-ink-600">
+                <span className="font-semibold text-ink-800">{row.labels.join(", ")}:</span>{" "}
                 {row.links.map((l, i) => (
                   <span key={l.href}>
                     {i > 0 && <span aria-hidden> · </span>}

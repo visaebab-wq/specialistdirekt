@@ -95,8 +95,8 @@ export const BODY_REGIONS: BodyRegion[] = [
     views: ["framsida", "baksida"],
     enabled: true,
     destinations: [
-      { kind: "article", slug: "yrsel-vilken-lakare" },
       { kind: "article", slug: "privat-neurolog-utredning" },
+      { kind: "article", slug: "yrsel-vilken-lakare" },
       { kind: "specialty", slug: "neurolog" },
       { kind: "specialty", slug: "oron-nasa-hals" },
     ],
@@ -137,9 +137,9 @@ export const BODY_REGIONS: BodyRegion[] = [
     views: ["framsida", "baksida"],
     enabled: true,
     destinations: [
+      { kind: "specialty", slug: "ortoped" },
       { kind: "article", slug: "ortoped-utan-remiss" },
       { kind: "article", slug: "privat-ortoped-kostnad" },
-      { kind: "specialty", slug: "ortoped" },
     ],
   },
   {
@@ -228,8 +228,8 @@ export const BODY_REGIONS: BodyRegion[] = [
     views: ["framsida", "baksida"],
     enabled: true,
     destinations: [
-      { kind: "article", slug: "ortoped-utan-remiss" },
       { kind: "article", slug: "privat-ortoped-kostnad" },
+      { kind: "article", slug: "ortoped-utan-remiss" },
       { kind: "article", slug: "langvarig-smarta-vilken-lakare" },
       { kind: "specialty", slug: "ortoped" },
     ],
@@ -243,9 +243,8 @@ export const BODY_REGIONS: BodyRegion[] = [
     views: ["framsida", "baksida"],
     enabled: true,
     destinations: [
-      { kind: "article", slug: "ortoped-utan-remiss" },
-      { kind: "article", slug: "privat-ortoped-kostnad" },
       { kind: "specialty", slug: "ortoped" },
+      { kind: "article", slug: "ortoped-utan-remiss" },
     ],
   },
   {
@@ -276,9 +275,8 @@ export const BODY_REGIONS: BodyRegion[] = [
     views: ["framsida", "baksida"],
     enabled: true,
     destinations: [
-      { kind: "article", slug: "ortoped-utan-remiss" },
-      { kind: "article", slug: "privat-ortoped-kostnad" },
       { kind: "specialty", slug: "ortoped" },
+      { kind: "article", slug: "ortoped-utan-remiss" },
     ],
   },
   {
@@ -289,9 +287,9 @@ export const BODY_REGIONS: BodyRegion[] = [
     views: ["framsida", "baksida"],
     enabled: true,
     destinations: [
-      { kind: "article", slug: "domningar-hander-fotter-vilken-lakare" },
-      { kind: "article", slug: "privat-ortoped-kostnad" },
       { kind: "specialty", slug: "ortoped" },
+      { kind: "article", slug: "domningar-hander-fotter-vilken-lakare" },
+      { kind: "article", slug: "ortoped-utan-remiss" },
     ],
   },
 ];
@@ -373,22 +371,69 @@ export function buildRegionViews(view: BodyView): BodyRegionView[] {
   }));
 }
 
+/** En rad i indexlistan. Flera områden kan dela rad när destinationen är densamma. */
+export type CrawlableRow = { labels: string[]; links: ResolvedLink[] };
+
 /**
- * Serverrenderad, krypbar länklista: en rad per område med dess primära
- * verifierade destinationer. Fungerar också som fallback utan JavaScript.
+ * Serverrenderad, krypbar indexlista – fungerar också som fallback utan
+ * JavaScript.
+ *
+ * Två regler håller listan ärlig i stället för att spegla varje träffyta:
+ *
+ * 1. Områden med IDENTISK primär destination slås ihop till en rad
+ *    ("Axel och överarm, Armbåge och underarm, Höft: …"). Fem rader som
+ *    upprepar samma två ortopedlänkar är intern länkbrus, inte navigering.
+ * 2. En URL får förekomma en gång. Dubbletter faller bort, men varje rad
+ *    behåller alltid minst en destination så att den som surfar utan
+ *    JavaScript kommer vidare från sitt område.
+ *
+ * Hela uppsättningen länkar per område finns kvar i den interaktiva panelen –
+ * indexlistan är vägen in, inte en komplett spegling.
  */
-export function crawlableRegionIndex(): { label: string; links: ResolvedLink[] }[] {
+export function crawlableRegionIndex(): CrawlableRow[] {
   const seen = new Set<BodyRegionId>();
-  const rows: { label: string; links: ResolvedLink[] }[] = [];
+  const ordered: { label: string; links: ResolvedLink[] }[] = [];
 
   for (const view of ["framsida", "baksida"] as BodyView[]) {
     for (const region of regionsForView(view)) {
       if (seen.has(region.id)) continue;
       seen.add(region.id);
       const links = resolveDestinations(region.destinations).slice(0, 2);
-      if (links.length > 0) rows.push({ label: region.label, links });
+      if (links.length > 0) ordered.push({ label: region.label, links });
     }
   }
 
-  return rows;
+  // 1. Slå ihop områden som pekar på samma destinationer. Nyckeln sorteras, så
+  //    att t.ex. Axel och Höft hamnar på samma rad även när de rangordnar sina
+  //    två främsta länkar olika.
+  const groups = new Map<string, CrawlableRow>();
+  for (const row of ordered) {
+    const key = row.links.map((l) => l.href).slice().sort().join("|");
+    const existing = groups.get(key);
+    if (existing) existing.labels.push(row.label);
+    else groups.set(key, { labels: [row.label], links: [...row.links] });
+  }
+
+  // 2. Låt varje URL förekomma en gång, men lämna aldrig en rad tom.
+  const used = new Set<string>();
+  const rows: CrawlableRow[] = [];
+  for (const group of groups.values()) {
+    const fresh = group.links.filter((l) => !used.has(l.href));
+    const links = fresh.length > 0 ? fresh : group.links.slice(0, 1);
+    for (const l of links) used.add(l.href);
+    rows.push({ labels: group.labels, links });
+  }
+
+  // 3. Avdubbleringen kan lämna två rader med identisk länkuppsättning (flera
+  //    områden som till slut bara har ortopedsidan kvar). Slå ihop dem, så att
+  //    varje URL står på exakt en rad.
+  const merged: CrawlableRow[] = [];
+  for (const row of rows) {
+    const key = row.links.map((l) => l.href).join("|");
+    const twin = merged.find((m) => m.links.map((l) => l.href).join("|") === key);
+    if (twin) twin.labels.push(...row.labels);
+    else merged.push(row);
+  }
+
+  return merged;
 }
