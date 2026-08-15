@@ -75,7 +75,7 @@ export const article: Article = {
       heading: "Kan det vara något allvarligt?",
       body: [
         "Oftast inte. **Det går i de flesta fall inte att hitta någon tydlig orsak till barnets ryggont**, och det i sig är ett lugnande besked snarare än ett oroande.",
-        "Ibland hittas en förklaring, exempelvis diskbråck eller skolios. Skolios innebär att ryggraden är böjd åt sidan; många har en lindrig form utan större besvär, och barn undersöks också inom elevhälsan för att den ska kunna upptäckas. Mer om det finns i vår guide om [ortopedisk bedömning för barn](/artiklar/barnortopedi).",
+        "Ibland hittas en förklaring, exempelvis diskbråck eller skolios. Skolios innebär att ryggraden är böjd åt sidan; många har en lindrig form utan större besvär, och barn undersöks också inom elevhälsan för att den ska kunna upptäckas. Mer om det finns i guiden om [skolios hos barn](/artiklar/skolios-hos-barn).",
         "Att ingen tydlig orsak hittas betyder inte att barnets smärta inte är verklig. Det betyder att behandlingen inriktas på funktion och belastning i stället för på en diagnos.",
       ],
     },

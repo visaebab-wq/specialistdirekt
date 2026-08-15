@@ -106,7 +106,7 @@ export const article: Article = {
       heading: "När bör barnet undersökas – utan att det är akut?",
       body: [
         "Här går den gräns som är svårast för föräldrar att sätta själv. 1177 anger att du bör kontakta en vårdcentral om barnet har ont i knät och **det inte blir bättre av vila**, om knät är svullet, eller om en svullnad i knävecket funnits i mer än två veckor.",
-        "Ett barn som **haltar utan tydlig förklaring** bör alltid bedömas medicinskt, även om barnet inte klagar särskilt mycket. Hälta kan ha orsaker på flera nivåer i rörelseapparaten – i leder, muskler, nerver eller skelett – och behöver därför undersökas snarare än tolkas hemma. Vid hälta i kombination med feber eller påverkat allmäntillstånd bör barnet bedömas samma dag.",
+        "Ett barn som **haltar utan tydlig förklaring** bör alltid bedömas medicinskt, även om barnet inte klagar särskilt mycket. Hälta kan ha orsaker på flera nivåer i rörelseapparaten – i leder, muskler, nerver eller skelett – och behöver därför undersökas snarare än tolkas hemma. Besvär från höftleden kan dessutom ge smärta som känns vid knät, vilket är ett skäl att läsa om [ont i höften hos barn](/artiklar/ont-i-hoften-hos-barn) om barnet både haltar och pekar på knät. Vid hälta i kombination med feber eller påverkat allmäntillstånd bör barnet bedömas samma dag.",
         "Utöver det är det rimligt att låta barnet bli undersökt om:",
       ],
       bullets: [
@@ -205,7 +205,7 @@ export const article: Article = {
     {
       question: "Mitt barn haltar – räcker det att avvakta?",
       answer:
-        "Nej. Ett barn som haltar utan tydlig förklaring bör bedömas medicinskt, eftersom hälta kan ha orsaker i leder, muskler, nerver eller skelett. Vid hälta tillsammans med feber eller påverkat allmäntillstånd bör barnet bedömas samma dag.",
+        "Nej. Ett barn som haltar utan tydlig förklaring bör bedömas medicinskt, eftersom hälta kan ha orsaker i leder, muskler, nerver eller skelett. Vid hälta tillsammans med feber eller påverkat allmäntillstånd bör barnet bedömas samma dag. Mer om [barn som haltar](/artiklar/barn-haltar).",
     },
   ],
 };

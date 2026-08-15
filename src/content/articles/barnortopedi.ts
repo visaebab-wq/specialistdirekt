@@ -188,7 +188,7 @@ export const article: Article = {
       heading: "Fotbesvär och plattfot hos barn",
       body: [
         "Barns fötter utvecklas mycket under uppväxten, och allt som ser annorlunda ut behöver inte vara sjukligt. 1177 beskriver ett brett spektrum av fotbesvär hos barn, från platta fötter som inte behöver behandlas till mer komplicerade tillstånd.",
-        "**Plattfot hos barn** innebär alltså inte automatiskt att behandling behövs – många variationer är normala under uppväxten. Det som är mer relevant är om fotställningen ger **smärta, stelhet eller funktionsproblem**.",
+        "Mer om [plattfot hos barn och om inlägg behövs](/artiklar/plattfot-hos-barn). **Plattfot hos barn** innebär alltså inte automatiskt att behandling behövs – många variationer är normala under uppväxten. Det som är mer relevant är om fotställningen ger **smärta, stelhet eller funktionsproblem**.",
         "Går barnet med fötterna inåt är det bland annat hur uttalad rotationen är, om båda sidor ser likadana ut, barnets ålder, om barnet snubblar mycket och om gången påverkas tydligt som avgör om det behöver undersökas.",
         "En bedömning kan bli aktuell om barnet har:",
       ],

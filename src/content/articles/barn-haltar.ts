@@ -104,7 +104,7 @@ export const article: Article = {
       body: [
         "Ja. En av de vanligaste orsakerna till hälta hos yngre barn är **coxitis simplex**, som ibland kallas höftsnuva eller övergående inflammation i höftleden. Enligt 1177 förekommer den i åldrarna två till tolv år men är vanligast i fem–sexårsåldern, och ofta har barnet haft en förkylning innan höftbesvären börjar.",
         "Det luriga är att barnet inte alltid säger att det gör ont just i höften. 1177 beskriver att det kan göra ont i höften, låret och ibland vid knät.",
-        "Coxitis simplex går för det mesta över utan någon risk för komplikationer i framtiden, men andra tillstånd kan ge ett liknande rörelsemönster. Därför ska man inte automatiskt anta att all hälta efter en förkylning är höftsnuva. Har barnet samtidigt feber, verkar sjukt eller inte kan stödja på benet behöver andra orsaker uteslutas skyndsamt.",
+        "Coxitis simplex går för det mesta över utan någon risk för komplikationer i framtiden, men andra tillstånd kan ge ett liknande rörelsemönster. Därför ska man inte automatiskt anta att all hälta efter en förkylning är höftsnuva. Har barnet samtidigt feber, verkar sjukt eller inte kan stödja på benet behöver andra orsaker uteslutas skyndsamt. Mer om [ont i höften hos barn](/artiklar/ont-i-hoften-hos-barn) och vad barnets ålder betyder för vilka orsaker som är relevanta.",
       ],
     },
     {

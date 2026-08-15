@@ -126,7 +126,7 @@ export const article: Article = {
       heading: "När bör barnet undersökas?",
       body: [
         "Vanlig hälsmärta hos ett aktivt barn kräver sällan akut vård – 1177 anger att ont i hälen sällan är tecken på något allvarligt. Ring 1177 om ni är osäkra på besvären eller på vart ni ska vända er.",
-        "En bedömning är rimlig om besvären är långdragna eller återkommande, om de tydligt påverkar gång och idrott, eller om ni är osäkra på om bilden verkligen stämmer med Severs. Då kan orsaken klarläggas, andra orsaker uteslutas och belastningen anpassas.",
+        "En bedömning är rimlig om besvären är långdragna eller återkommande, om de tydligt påverkar gång och idrott, eller om ni är osäkra på om bilden verkligen stämmer med Severs. Haltar barnet tydligt finns en egen guide om [barn som haltar](/artiklar/barn-haltar). Då kan orsaken klarläggas, andra orsaker uteslutas och belastningen anpassas.",
         "Låt barnet bli bedömt utan att vänta om något av följande stämmer:",
       ],
       bulletTone: "warning",
