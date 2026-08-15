@@ -42,7 +42,10 @@ export const metadata: Metadata = {
 const facts: { label: string; value: string }[] = [
   { label: "Läkare", value: "Dr. Masoud Sorkhabi" },
   { label: "Specialitet", value: "Specialist i ortopedi och ryggkirurgi" },
-  { label: "Erfarenhet", value: "Över 20 års erfarenhet av ortopedi och kirurgi" },
+  {
+    label: "Erfarenhet",
+    value: "Över 20 års erfarenhet av ortopedi och kirurgi – har arbetat med både vuxna och barn",
+  },
   {
     label: "Inriktning",
     value:

@@ -13,9 +13,9 @@ import type { Article } from "@/lib/articles-types";
 // - Handläggningsdetaljerna (lokalstatus fot till höft, röntgen/ultraljud vid
 //   avvikande status, växtvärk utan dagsymtom, barn under 1 år till
 //   barnakutmottagning, specialistbedömning vid utebliven förbättring efter en
-//   vecka) kommer från det regionala kliniska kunskapsstödet VISS. VISS ligger
-//   inte i ALLOWED_EXTERNAL_DOMAINS och länkas därför inte – den namnges i text
-//   och i källistan, medan de länkade källorna är 1177-sidorna.
+//   vecka) kommer från det regionala kliniska kunskapsstödet VISS, som sedan
+//   2026-08-15 finns i ALLOWED_EXTERNAL_DOMAINS och länkas kontextuellt en gång
+//   per avsnitt där den är källan.
 //
 // AVGRÄNSNINGAR:
 // - /artiklar/ont-i-knat-barn äger knäsmärta hos barn, /artiklar/ont-i-halen-hos-barn
@@ -134,7 +134,7 @@ export const article: Article = {
       heading: "Är växtvärk en vanlig orsak till hälta?",
       body: [
         "**Typisk växtvärk ska normalt inte ge hälta på dagen.**",
-        "Det regionala kliniska kunskapsstödet VISS beskriver växtvärk som oftast bilateral diffus värk nattetid i lår, knän eller underben, utan symtom dagtid. Ensidiga besvär förekommer, men ska då växla sida.",
+        "Det regionala kliniska kunskapsstödet [VISS](https://viss.nu/kunskapsstod/vardprogram/halta-hos-barn) beskriver växtvärk som oftast bilateral diffus värk nattetid i lår, knän eller underben, utan symtom dagtid. Ensidiga besvär förekommer, men ska då växla sida.",
         "Det innebär att man bör vara försiktig med att förklara en tydlig och återkommande daghälta med enbart växtvärk. Om ett barn haltar under dagen är det bättre att försöka förstå varför än att automatiskt hänföra besvären till att barnet växer.",
       ],
     },
@@ -159,7 +159,7 @@ export const article: Article = {
       heading: "När ska ett haltande barn söka vård snabbt?",
       body: [
         "1177 är tydlig här: **kontakta genast en vårdcentral eller en jouröppen mottagning om barnet har symtom på höftbesvär och samtidigt har feber eller inte kan stå på benet.** Är mottagningen stängd får ni söka akut vård.",
-        "För barn under ett års ålder anger VISS att hälta ska handläggas via barnakutmottagning.",
+        "För barn under ett års ålder anger [VISS](https://viss.nu/kunskapsstod/vardprogram/halta-hos-barn) att hälta ska handläggas via barnakutmottagning.",
         "Ring 1177 om du är osäker på hur snabbt barnet behöver vård, och 112 vid ett allvarligt eller livshotande tillstånd. Sök också skyndsamt bedömning om:",
       ],
       bulletTone: "warning",
@@ -193,7 +193,7 @@ export const article: Article = {
       heading: "Vad undersöker läkaren när ett barn haltar?",
       body: [
         "En viktig del av undersökningen sker redan innan barnet ligger på undersökningsbritsen. Hur barnet går, står, belastar respektive ben, sätter ner foten och rör sig spontant kan ge viktig information.",
-        "Vid oklar hälta anger VISS att lokalstatus bör tas **från fot till höft, i den ordningen** – med bedömning av bland annat palpationsömhet, rörelseinskränkning, sträckdefekt, artrittecken och muskelatrofi. Vid behov kan även rygg och neurologi behöva undersökas.",
+        "Vid oklar hälta anger [VISS](https://viss.nu/kunskapsstod/vardprogram/halta-hos-barn) att lokalstatus bör tas **från fot till höft, i den ordningen** – med bedömning av bland annat palpationsömhet, rörelseinskränkning, sträckdefekt, artrittecken och muskelatrofi. Vid behov kan även rygg och neurologi behöva undersökas.",
         "Det är särskilt viktigt hos barn, eftersom platsen där barnet säger att det gör ont inte alltid är platsen där problemet sitter.",
       ],
     },
@@ -201,7 +201,7 @@ export const article: Article = {
       id: "behovs-rontgen-ultraljud-mr",
       heading: "Behövs röntgen, ultraljud eller MR?",
       body: [
-        "Inte alltid. Bildundersökningar används när symtomen och den kliniska undersökningen ger anledning till det. VISS anger att röntgen eller ultraljud bör göras vid:",
+        "Inte alltid. Bildundersökningar används när symtomen och den kliniska undersökningen ger anledning till det. [VISS](https://viss.nu/kunskapsstod/vardprogram/halta-hos-barn) anger att röntgen eller ultraljud bör göras vid:",
       ],
       bullets: [
         "avvikande status",
@@ -214,7 +214,7 @@ export const article: Article = {
       heading: "När kan en ortopedisk bedömning vara aktuell?",
       body: [
         "Många barn med nytillkommen hälta bedöms först inom primärvården. Vilken vårdnivå som är rätt beror på barnets ålder, symtombild och vad som framkommer vid undersökningen.",
-        "VISS anger exempelvis specialistbedömning när misstänkt coxitis simplex inte förbättrats efter ungefär en vecka, samt när röntgenbilden inger misstanke om stressfraktur eller morbus Perthes.",
+        "[VISS](https://viss.nu/kunskapsstod/vardprogram/halta-hos-barn) anger exempelvis specialistbedömning när misstänkt coxitis simplex inte förbättrats efter ungefär en vecka, samt när röntgenbilden inger misstanke om stressfraktur eller morbus Perthes.",
         "Mer om när barn kan behöva en ortopedisk bedömning finns i guiden om [ortopedisk bedömning för barn](/artiklar/barnortopedi). En ortopedisk bedömning kan bli aktuell exempelvis när:",
       ],
       bullets: [
@@ -244,7 +244,7 @@ export const article: Article = {
       bullets: [
         "[1177 – Höftbesvär hos barn](https://www.1177.se/sjukdomar--besvar/skelett-leder-och-muskler/hofter/hoftbesvar-hos-barn/)",
         "[1177 för vårdpersonal – Hälta hos barn](https://vardpersonal.1177.se/kunskapsstod/kliniska-kunskapsstod/halta-hos-barn/)",
-        "VISS – Hälta hos barn, regionalt kliniskt kunskapsstöd i Region Stockholm (vårdprogram riktat till vårdpersonal).",
+        "[VISS – Hälta hos barn](https://viss.nu/kunskapsstod/vardprogram/halta-hos-barn), regionalt kliniskt kunskapsstöd i Region Stockholm (vårdprogram riktat till vårdpersonal).",
       ],
     },
   ],

@@ -94,7 +94,7 @@ export const article: Article = {
       heading: "Privat ortoped för barn i Göteborg",
       body: [
         "Föräldrar som söker efter *barnortoped i Göteborg*, *barnortopedi Göteborg* eller *privat ortoped för barn* söker oftast samma sak: någon med ortopedisk specialistkompetens som kan bedöma varför barnet har ont eller inte rör sig som vanligt.",
-        "Via Specialistdirekt kan barn få en privat ortopedisk bedömning i Göteborg hos [Dr. Masoud Sorkhabi](/lakare/masoud-sorkhabi), **specialist i ortopedi och ryggkirurgi, som även tar emot barn**. Han har mer än 20 års erfarenhet av ortopedi och kirurgi. Vi använder medvetet inte titeln barnortoped – hans dokumenterade specialistkompetens är ortopedi och ryggkirurgi.",
+        "Via Specialistdirekt kan barn få en privat ortopedisk bedömning i Göteborg hos [Dr. Masoud Sorkhabi](/lakare/masoud-sorkhabi), **specialist i ortopedi och ryggkirurgi, som även tar emot barn**. **Dr. Masoud Sorkhabi har över 20 års erfarenhet av ortopedi och har arbetat med både vuxna och barn.** Vi använder medvetet inte titeln barnortoped – hans dokumenterade specialistkompetens är ortopedi och ryggkirurgi.",
         "För den privata självbetalarvägen behövs ingen remiss. Ett fysiskt besök i Göteborg kostar 2 000 kr, samma pris som för vuxna. Mer om prisbilden finns i guiden om [privat ortoped – kostnad, väntetid och hur du bokar](/artiklar/privat-ortoped-kostnad).",
         "Bokning och tider finns på sidan för [privat ortoped i Göteborg](/specialiteter/ortoped/goteborg).",
         "En privat ortopedisk bedömning kan vara relevant vid besvär från:",

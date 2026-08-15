@@ -156,6 +156,9 @@ const ALLOWED_EXTERNAL_DOMAINS = [
   "folkhalsomyndigheten.se",
   "lakemedelsverket.se",
   "internetmedicin.se",
+  // Regionalt kliniskt kunskapsstöd (Region Stockholm). Kunskapsstöd riktat till
+  // vårdpersonal – varken vårdgivare eller kommersiell aktör.
+  "viss.nu",
   // Systersajt för second opinion – medveten cross-site-router (sekundär).
   "andrabedomning.se",
 ] as const;
