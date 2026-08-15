@@ -6,8 +6,13 @@ import type { Article } from "@/lib/articles-types";
 // SERP-läget som motiverar sidan: topplistan består nästan uteslutande av
 // kliniker och produktförsäljare (hälkoppor, inlägg, naprapati) – 1177 syns inte
 // alls i toppen. Sidans värde ligger i att koppla ihop söktermen "Severs" med
-// 1177:s faktiska beskrivning, och att vara tydlig med att tillståndet normalt
-// inte kräver medicinsk behandling.
+// 1177:s faktiska beskrivning.
+//
+// KÄLLDISCIPLIN: 1177 säger att ont i hälen "sällan är tecken på något
+// allvarligt", att symtomen "går efter hand över av sig själva" och att
+// tillståndet "leder inte till några komplikationer i framtiden" – men INTE att
+// medicinsk behandling är onödig. Sidan får därför inte påstå det. 1177 anger
+// också att symtomen "kan lindras" med hälinlägg och tjocksulade skor.
 //
 // AVGRÄNSNINGAR:
 // - Pelaren /artiklar/barnortopedi behåller sitt korta hälavsnitt.
@@ -19,7 +24,7 @@ export const article: Article = {
   title: "Ont i hälen hos barn – Severs sjukdom, orsaker och vad som hjälper",
   metaTitle: "Ont i hälen hos barn – vad är Severs sjukdom?",
   metaDescription:
-    "Ont i hälen är mycket vanligt hos aktiva barn, särskilt pojkar 11–14 år. Läs vad Severs sjukdom är, hur länge det håller i sig och varför det sällan behöver behandlas.",
+    "Ont i hälen är mycket vanligt hos aktiva barn, särskilt pojkar 11–14 år. Läs vad Severs sjukdom är, hur länge besvären brukar hålla i sig och när barnet bör bedömas.",
   category: "Ortopedi",
   primaryKeyword: "ont i hälen hos barn",
   keywords: [
@@ -32,7 +37,7 @@ export const article: Article = {
     "hälsmärta växande barn",
   ],
   excerpt:
-    "Ont i hälen är mycket vanligt hos aktiva barn. Så känner du igen Severs, vad som faktiskt hjälper – och varför besvären sällan kräver medicinsk behandling.",
+    "Ont i hälen är mycket vanligt hos aktiva barn. Så känner du igen den typiska bilden vid Severs, vad som lindrar – och när besvären bör bedömas av vården.",
   published: "2026-08-15",
   updated: "2026-08-15",
   readMinutes: 7,
@@ -43,23 +48,25 @@ export const article: Article = {
     "Ont i hälen är **mycket vanligt** hos barn, framför allt hos pojkar mellan 11 och 14 år.",
     "Vanligast hos barn som är mycket fysiskt aktiva, särskilt inom fotboll och basket.",
     "Smärtan sitter oftast baktill i hälen och märks tydligast på kvällen efter aktivitet.",
-    "**Tillståndet kräver enligt 1177 ingen medicinsk behandling och ger inga framtida komplikationer.**",
-    "Besvären avtar successivt, men kan finnas kvar i varierande grad i två till tre år.",
+    "Enligt 1177 är ont i hälen **sällan tecken på något allvarligt**, och tillståndet leder inte till några komplikationer i framtiden.",
+    "Symtomen kan samtidigt vara ganska intensiva och finnas kvar i varierande grad i två till tre år.",
     "Skorna spelar roll: träningsskor med dämpning är bättre än fotbollsskor, och silikoninlägg kan lindra.",
+    "**All hälsmärta hos barn är inte Severs** – vid långdragna, oklara eller funktionspåverkande besvär kan en bedömning behövas.",
     "Haltar barnet utan tydlig förklaring, eller har feber samtidigt, bör det bedömas.",
   ],
   intro: [
-    "**Ont i hälen hos barn kallas ofta Severs sjukdom – men det är varken en sjukdom i vanlig mening eller något som brukar kräva behandling.** Det handlar om att hälbenets tillväxtzon belastas mer än den tål under en period då barnet växer och tränar mycket.",
+    "**Ont i hälen hos barn kallas ofta Severs sjukdom, eller calcaneal apofysit.** Det handlar om att tillväxtzonen i hälbenet belastas mer än den tål under en period då barnet växer och tränar mycket. Enligt 1177 är ont i hälen sällan tecken på något allvarligt.",
     "Söker man på Severs möts man snabbt av hälkoppor, inlägg och behandlingsupplägg. Därför är det värt att börja i den andra änden: vad besvären faktiskt är, hur länge de brukar hålla i sig, och vad som är rimligt att göra.",
-    "**Kort svar:** ont i hälen är mycket vanligt hos aktiva barn, särskilt pojkar mellan 11 och 14 år. Enligt 1177 kräver det ingen medicinsk behandling och ger inga framtida komplikationer. Besvären avtar successivt men kan hålla i sig i varierande grad i två till tre år. Skobyte och silikoninlägg kan lindra.",
+    "**Kort svar:** ont i hälen är mycket vanligt hos aktiva barn, särskilt pojkar mellan 11 och 14 år. Enligt 1177 går besvären efter hand över av sig själva och leder inte till några komplikationer i framtiden – men symtomen kan under tiden vara ganska intensiva och hålla i sig i varierande grad i två till tre år. Hälinlägg av silikon och skor med tjock sula kan lindra. All hälsmärta hos barn är däremot inte Severs: är besvären långdragna, oklara eller påverkar gång och idrott kan en medicinsk bedömning behövas.",
   ],
   sections: [
     {
       id: "vad-ar-severs",
       heading: "Vad är Severs sjukdom?",
       body: [
-        "Severs är namnet som ofta används när ett barn får ont baktill i hälen under en period av tillväxt och hög belastning. 1177 beskriver besvären utan att använda diagnosnamnet – där heter det helt enkelt att barnet har **ont i hälarna**.",
-        "Det är alltså samma sak: söktermen kommer från kliniker och behandlingsaktörer, medan beskrivningen av besvären är densamma. Namnet i sig säger ingenting om hur allvarligt det är.",
+        "Severs sjukdom, även kallad **calcaneal apofysit**, innebär att tillväxtzonen i hälbenet belastas mer än den tål under en period av snabb tillväxt och hög aktivitet. Smärtan sitter typiskt baktill i hälen.",
+        "1177 använder inte diagnosnamnet Severs på sin sida om fotbesvär hos barn, utan beskriver besvären som **ont i hälarna** hos barn. Beskrivningen där – belastningsrelaterad hälsmärta hos aktiva barn i en viss ålder – överlappar den typiska bilden vid Severs.",
+        "**All hälsmärta hos barn är däremot inte Severs.** Smärta i hälen kan också ha andra orsaker, till exempel en skada, och den typiska bilden stämmer inte alltid. Det är ett av skälen till att långdragna eller oklara besvär bör bedömas.",
       ],
     },
     {
@@ -88,10 +95,11 @@ export const article: Article = {
     },
     {
       id: "behover-barnet-behandling",
-      heading: "Behöver barnet behandling?",
+      heading: "Behöver besvären behandlas?",
       body: [
-        "**Nej.** 1177 är tydlig på den punkten: tillståndet **kräver ingen medicinsk behandling och ger inga framtida komplikationer**.",
-        "Det är värt att hålla fast vid, eftersom mycket av det som syns när man söker på Severs är produkter och behandlingsupplägg. Att lindra besvären är rimligt – men det är något annat än att besvären måste behandlas för att barnet ska bli bra.",
+        "Enligt 1177 går symtomen **efter hand över av sig själva**, och tillståndet **leder inte till några komplikationer i framtiden**. Samtidigt kan symtomen vara ganska intensiva under perioder.",
+        "Behandlingen handlar därför i första hand om att lindra och avlasta snarare än att bota. 1177 anger att symtomen **kan lindras** med hälinlägg av silikon, och att skor med tjock sula under hälen kan minska belastningen på den ömma hälen.",
+        "En medicinsk bedömning kan ändå vara motiverad – inte för att besvären ovillkorligen måste behandlas, utan för att få klarhet i vad smärtan beror på, utesluta andra orsaker och få råd om belastning och återgång till idrott. Det är särskilt rimligt om bilden inte stämmer med den typiska.",
       ],
     },
     {
@@ -110,16 +118,18 @@ export const article: Article = {
       id: "maste-barnet-sluta-idrotta",
       heading: "Måste barnet sluta idrotta?",
       body: [
-        "Råden ovan handlar om att göra belastningen mer tålig – inte om att barnet ska sluta röra på sig. Att anpassa underlag, skor och träningsmängd under de perioder då hälen är öm är oftast en rimligare väg än ett totalstopp.",
-        "Blir barnet däremot allt sämre trots anpassning, eller börjar halta, är det ett skäl att låta undersöka hälen i stället för att fortsätta prova på egen hand.",
+        "Barnet behöver inte automatiskt sluta med all idrott. Belastningen bör anpassas efter smärtan, och aktiviteter som tydligt förvärrar besvären kan behöva minskas tillfälligt.",
+        "1177:s skoråd pekar åt samma håll: träningsskor med stötdämpning för hälen är bättre än fotbollsskor med dobbar, som inte alltid är uppbyggda inne i skon.",
+        "Blir barnet sämre trots anpassning, eller börjar halta, är det ett skäl att låta undersöka hälen i stället för att fortsätta prova på egen hand.",
       ],
     },
     {
       id: "nar-bor-barnet-undersokas",
       heading: "När bör barnet undersökas?",
       body: [
-        "Vanlig hälsmärta hos ett aktivt barn behöver normalt ingen akut bedömning. Ring 1177 om ni är osäkra på besvären eller på vart ni ska vända er.",
-        "Låt barnet bli bedömt om något av följande stämmer:",
+        "Vanlig hälsmärta hos ett aktivt barn kräver sällan akut vård – 1177 anger att ont i hälen sällan är tecken på något allvarligt. Ring 1177 om ni är osäkra på besvären eller på vart ni ska vända er.",
+        "En bedömning är rimlig om besvären är långdragna eller återkommande, om de tydligt påverkar gång och idrott, eller om ni är osäkra på om bilden verkligen stämmer med Severs. Då kan orsaken klarläggas, andra orsaker uteslutas och belastningen anpassas.",
+        "Låt barnet bli bedömt utan att vänta om något av följande stämmer:",
       ],
       bulletTone: "warning",
       bullets: [
@@ -135,7 +145,7 @@ export const article: Article = {
       id: "nar-ar-ortopedbedomning-aktuell",
       heading: "När kan en ortopedbedömning vara aktuell?",
       body: [
-        "Eftersom hälsmärta hos växande barn normalt inte kräver behandling är en ortopedisk bedömning sällan första steget. Den kan däremot bli aktuell om besvären inte stämmer med den vanliga bilden, om de förvärras trots anpassning, eller om något annat behöver uteslutas.",
+        "Vid en typisk bild av Severs är vårdcentral eller fysioterapeut oftast första steget. En ortopedisk bedömning kan bli aktuell om besvären inte stämmer med den vanliga bilden, om de är långdragna eller förvärras trots anpassning, eller om något annat behöver uteslutas.",
         "Vägen dit går normalt via vårdcentralen. Mer om när barn kan behöva en ortopedisk bedömning finns i guiden om [barnortopedi](/artiklar/barnortopedi).",
         "Har barnet i stället besvär från knät eller ryggen finns egna guider om [ont i knät hos barn](/artiklar/ont-i-knat-barn) och [ryggont hos barn](/artiklar/ryggont-hos-barn) – båda är, precis som hälsmärta, ofta belastnings- och tillväxtrelaterade.",
       ],
@@ -171,7 +181,7 @@ export const article: Article = {
     {
       question: "Behöver Severs behandlas?",
       answer:
-        "Nej. Enligt 1177 kräver tillståndet ingen medicinsk behandling och ger inga framtida komplikationer. Skobyte och silikoninlägg kan däremot lindra besvären.",
+        "Enligt 1177 går symtomen efter hand över av sig själva och tillståndet leder inte till några komplikationer i framtiden. Symtomen kan lindras med hälinlägg av silikon och skor med tjock sula. En medicinsk bedömning kan ändå vara motiverad vid långdragna, oklara eller funktionspåverkande besvär.",
     },
     {
       question: "Vilka skor är bäst vid hälsmärta?",
@@ -181,7 +191,12 @@ export const article: Article = {
     {
       question: "Måste barnet sluta med fotboll?",
       answer:
-        "Oftast inte. Att anpassa skor, underlag och träningsmängd under perioder då hälen är öm är vanligtvis rimligare än ett totalstopp. Förvärras besvären trots anpassning bör hälen bedömas.",
+        "Barnet behöver inte automatiskt sluta med all idrott. Belastningen bör anpassas efter smärtan, och aktiviteter som tydligt förvärrar besvären kan behöva minskas tillfälligt. Förvärras besvären trots anpassning bör hälen bedömas.",
+    },
+    {
+      question: "Är all hälsmärta hos barn Severs sjukdom?",
+      answer:
+        "Nej. Beskrivningen av belastningsrelaterad hälsmärta hos aktiva barn överlappar den typiska bilden vid Severs, men hälsmärta kan också ha andra orsaker, till exempel en skada. Stämmer inte bilden, eller är besvären långdragna, bör barnet bedömas.",
     },
     {
       question: "När ska barnet undersökas för hälsmärta?",

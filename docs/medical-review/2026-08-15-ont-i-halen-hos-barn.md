@@ -33,18 +33,47 @@ ringa 1177 vid osäkerhet. Punkterna är skrivna som allmän triagering.
 3. Saknas något du vill ha med – eller finns något som bör strykas för att inte
    över-triagera ett i grunden godartat tillstånd?
 
-### Fråga 2 – Påståendet att behandling inte behövs
+### Fråga 2 – Hur långt beskedet om behandling ska gå
 
-Publicerad formulering:
+**Rättat 2026-08-15:** artikeln påstod först att tillståndet "kräver ingen
+medicinsk behandling". Det står **inte** i 1177. Källans ordalydelse är i stället
+att ont i hälen "sällan är tecken på något allvarligt", att symtomen "går efter
+hand över av sig själva", att tillståndet "leder inte till några komplikationer i
+framtiden" – och att symtomen "kan lindras" med hälinlägg av silikon och skor
+med tjock sula. Texten är omskriven till det.
 
-> **Nej.** 1177 är tydlig på den punkten: tillståndet **kräver ingen medicinsk
-> behandling och ger inga framtida komplikationer**.
+Nuvarande formulering:
 
-**Källäge:** ordagrant stöd i 1177 (*Fotbesvär hos barn*).
+> Enligt 1177 går symtomen **efter hand över av sig själva**, och tillståndet
+> **leder inte till några komplikationer i framtiden**. Samtidigt kan symtomen
+> vara ganska intensiva under perioder.
+>
+> En medicinsk bedömning kan ändå vara motiverad – inte för att besvären
+> ovillkorligen måste behandlas, utan för att få klarhet i vad smärtan beror på,
+> utesluta andra orsaker och få råd om belastning och återgång till idrott.
 
 **Frågor:**
-1. Är det rimligt att ge det beskedet så kategoriskt till föräldrar?
-2. Bör det nyanseras för de barn som har uttalade och långdragna besvär?
+1. Är avvägningen rimlig – lugnande utan att avråda från en bedömning som kan
+   vara befogad?
+2. Bör något sägas om när symtomlindring (inlägg, skor) inte räcker?
+
+---
+
+### Fråga 3 – Differentialdiagnoser vid hälsmärta
+
+Artikeln säger nu att all hälsmärta hos barn inte är Severs:
+
+> Smärta i hälen kan också ha andra orsaker, till exempel en skada, och den
+> typiska bilden stämmer inte alltid.
+
+**Källäge:** 1177:s sida om fotbesvär hos barn listar inga differentialdiagnoser
+för hälsmärta. Formuleringen är medvetet hållen vag för att inte påstå mer än
+källan.
+
+**Frågor:**
+1. Vilka andra orsaker till hälsmärta hos barn bör nämnas vid namn, om några?
+2. Finns tillstånd som är viktiga nog att en förälder ska känna igen dem?
+3. Eller är det bättre att sidan förblir generell och hänvisar till bedömning?
 
 ---
 
