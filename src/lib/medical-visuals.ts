@@ -131,6 +131,12 @@ const articleImagesBySlug: Record<string, string> = {
   "privat-kirurg-kostnad": baseImages.gastroenterology,
   "privat-lunglakare-kostnad": baseImages.cardiology,
   "privat-barnlakare-kostnad": baseImages.generalCare,
+  // Barnartiklarna använder page-visuals i stället för /real-medical/. Bilden är
+  // en ren konsultationsscen utan inbränd text – i page-visuals-biblioteket finns
+  // i dag ingen artefaktfri bild som föreställer barn eller rygg. Läggs en riktig
+  // /page-visuals/article-ryggont-hos-barn-hero.webp till senare tar
+  // resolveVisual() den automatiskt, utan kodändring.
+  "ryggont-hos-barn": pageImage("article-privat-barnlakare-kostnad-hero"),
   "privat-endokrinolog-kostnad": baseImages.generalCare,
   "privat-psykiater-kostnad": baseImages.generalCare,
 };
@@ -212,13 +218,21 @@ export function getArticleVisuals(article: Article): MedicalVisual[] {
   const primary = getArticleVisual(article);
   const count = article.wordCount >= 1600 ? 3 : 1;
 
-  return Array.from({ length: count }, (_, index) => ({
-    src: index === 0 ? primary.src : pageImage(`article-${article.slug}-inline-${index}`),
-    alt:
-      index === 0
-        ? primary.alt
-        : `${article.title} - kompletterande realistisk vårdbild med människa ${index + 1}`,
-  }));
+  // Inline-bilderna gick tidigare förbi fileExists-kontrollen ovan och pekade
+  // därför på /page-visuals/article-<slug>-inline-N.webp även för artiklar där
+  // filen aldrig genererats -> två trasiga <img> per ny lång artikel. Här tas
+  // en inline-bild med bara om den faktiskt ligger i public/.
+  const inline = Array.from({ length: Math.max(count - 1, 0) }, (_, i) =>
+    pageImage(`article-${article.slug}-inline-${i + 1}`),
+  ).filter(fileExists);
+
+  return [
+    primary,
+    ...inline.map((src, i) => ({
+      src,
+      alt: `${article.title} - kompletterande realistisk vårdbild med människa ${i + 2}`,
+    })),
+  ];
 }
 
 export function getArticleBaseImage(article: Article): string {
