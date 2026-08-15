@@ -156,7 +156,7 @@ export const article: Article = {
       heading: "Mitt barn haltar – behöver vi söka vård?",
       body: [
         "Hälta är ett viktigt symtom eftersom orsaken kan finnas på flera nivåer i rörelseapparaten. 1177:s kliniska kunskapsstöd beskriver att hälta hos barn bland annat kan ha orsaker i leder, muskler, nerver eller skelett.",
-        "Ett barn kan halta efter en mindre skada eller överbelastning, men hälta kan också komma från höft, knä, ben eller fot. **Ny och oförklarad hälta bör inte diagnostiseras hemma.**",
+        "Ett barn kan halta efter en mindre skada eller överbelastning, men hälta kan också komma från höft, knä, ben eller fot. **Ny och oförklarad hälta bör inte diagnostiseras hemma.** Mer om [varför barn haltar och när det bör undersökas](/artiklar/barn-haltar).",
         "Var extra uppmärksam om barnet:",
       ],
       bullets: [

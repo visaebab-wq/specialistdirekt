@@ -8,6 +8,7 @@ import { article as ontIKnatBarn } from "@/content/articles/ont-i-knat-barn";
 import { article as barnortopedi } from "@/content/articles/barnortopedi";
 import { article as ryggontHosBarn } from "@/content/articles/ryggont-hos-barn";
 import { article as ontIHalenHosBarn } from "@/content/articles/ont-i-halen-hos-barn";
+import { article as barnHaltar } from "@/content/articles/barn-haltar";
 import { article as kardiolog } from "@/content/articles/privat-kardiolog-kostnad";
 import { article as knasmarta } from "@/content/articles/vilken-lakare-knasmarta";
 import { article as vantetid } from "@/content/articles/vantetid-specialist-vardgaranti";
@@ -60,6 +61,7 @@ import { article as forberedelseKoloskopi } from "@/content/articles/forberedels
 // Ordning: pelarguiden först, sedan nyast överst.
 export const articles: Article[] = [
   guide,
+  barnHaltar,
   ontIHalenHosBarn,
   ryggontHosBarn,
   ontIKnatBarn,
