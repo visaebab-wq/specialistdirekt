@@ -4,15 +4,6 @@
 import type { Article } from "./articles-types";
 
 import { article as guide } from "@/content/articles/hitta-ratt-specialistlakare-guide";
-import { article as ontIKnatBarn } from "@/content/articles/ont-i-knat-barn";
-import { article as barnortopedi } from "@/content/articles/barnortopedi";
-import { article as ryggontHosBarn } from "@/content/articles/ryggont-hos-barn";
-import { article as ontIHalenHosBarn } from "@/content/articles/ont-i-halen-hos-barn";
-import { article as barnHaltar } from "@/content/articles/barn-haltar";
-import { article as ontIHoftenHosBarn } from "@/content/articles/ont-i-hoften-hos-barn";
-import { article as skoliosHosBarn } from "@/content/articles/skolios-hos-barn";
-import { article as plattfotHosBarn } from "@/content/articles/plattfot-hos-barn";
-import { article as vaxtvarkHosBarn } from "@/content/articles/vaxtvark-hos-barn";
 import { article as kardiolog } from "@/content/articles/privat-kardiolog-kostnad";
 import { article as knasmarta } from "@/content/articles/vilken-lakare-knasmarta";
 import { article as vantetid } from "@/content/articles/vantetid-specialist-vardgaranti";
@@ -61,6 +52,17 @@ import { article as ryggsmartaFysio } from "@/content/articles/ryggsmarta-ortope
 import { article as langvarigSmarta } from "@/content/articles/langvarig-smarta-vilken-lakare";
 import { article as gorKoloskopiOnt } from "@/content/articles/gor-koloskopi-ont";
 import { article as forberedelseKoloskopi } from "@/content/articles/forberedelse-infor-koloskopi";
+import { article as mrUtanRemiss } from "@/content/articles/mr-utan-remiss";
+import { article as mrKna } from "@/content/articles/mr-kna-vad-visar";
+import { article as barnortopedi } from "@/content/articles/barnortopedi";
+import { article as ontIKnatBarn } from "@/content/articles/ont-i-knat-barn";
+import { article as ryggontHosBarn } from "@/content/articles/ryggont-hos-barn";
+import { article as ontIHalenHosBarn } from "@/content/articles/ont-i-halen-hos-barn";
+import { article as barnHaltar } from "@/content/articles/barn-haltar";
+import { article as ontIHoftenHosBarn } from "@/content/articles/ont-i-hoften-hos-barn";
+import { article as skoliosHosBarn } from "@/content/articles/skolios-hos-barn";
+import { article as plattfotHosBarn } from "@/content/articles/plattfot-hos-barn";
+import { article as vaxtvarkHosBarn } from "@/content/articles/vaxtvark-hos-barn";
 
 // Ordning: pelarguiden först, sedan nyast överst.
 export const articles: Article[] = [
@@ -74,6 +76,8 @@ export const articles: Article[] = [
   ryggontHosBarn,
   ontIKnatBarn,
   barnortopedi,
+  mrKna,
+  mrUtanRemiss,
   gorKoloskopiOnt,
   forberedelseKoloskopi,
   langvarigSmarta,
@@ -215,6 +219,7 @@ export function getArticle(slug: string): Article | undefined {
  */
 const ARTICLE_EXTRA_SPECIALTIES: Record<string, string[]> = {
   "privat-mr-kostnad": ["ortoped", "neurolog", "urolog"],
+  "mr-utan-remiss": ["ortoped", "neurolog"],
   "privat-smartlakare-kostnad": ["ortoped", "neurolog", "reumatolog"],
   "privat-handkirurg-kostnad": ["ortoped", "neurolog"],
   "privat-kirurg-kostnad": ["gastroenterolog"],

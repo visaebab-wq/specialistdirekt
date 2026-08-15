@@ -8,6 +8,8 @@ import { deliverLead } from "@/lib/lead-delivery";
 const validSpecialtySlugs = new Set([
   ...specialties.map((s) => s.slug),
   "vet-inte",
+  // Bilddiagnostik – inte en specialitet, men ett eget val i formuläret (/privat-mr).
+  "privat-mr",
 ]);
 
 // Maxlängder per fält – hindrar att någon fyller disk/e-post med enorma svar.

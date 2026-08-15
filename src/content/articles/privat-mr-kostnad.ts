@@ -196,6 +196,14 @@ export const article: Article = {
       ],
     },
     {
+      id: "boka-privat-mr",
+      heading: "Vill du starta en MR-förfrågan?",
+      body: [
+        "Du kan [boka privat MR](/privat-mr) direkt via Specialistdirekt. Där beskriver du dina besvär och vilken kroppsdel det gäller.",
+        "Specialistdirekt gör ingen egen medicinsk bedömning – bedömningen görs av läkare. En läkare går igenom dina uppgifter och kan utfärda remiss när det behövs, magnetkameraundersökningen genomförs på röntgenmottagning där radiolog granskar bilderna, och därefter går en specialistläkare igenom resultatet med dig.",
+      ],
+    },
+    {
       id: "din-forfragan",
       heading: "Vad ska jag skriva i min bokningsförfrågan?",
       body: [

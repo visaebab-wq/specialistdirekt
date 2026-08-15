@@ -234,6 +234,61 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Privat MR – egen tjänsteingång (bilddiagnostik är ingen specialitet och
+          syns därför inte i specialistväljaren ovan). Serverrenderad, vanliga
+          länkar – ingen JS krävs för att nå innehållet eller CTA:n. */}
+      <section id="privat-mr" className="scroll-mt-20">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+          <div className="rounded-3xl border border-ink-200 bg-white p-6 shadow-sm sm:p-10">
+            <div className="grid items-center gap-8 lg:grid-cols-[auto_1fr_auto]">
+              <span
+                aria-hidden
+                className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-50 text-brand-700"
+              >
+                <svg viewBox="0 0 24 24" className="h-7 w-7" {...ico}>
+                  <rect x="3" y="6" width="18" height="12" rx="3" />
+                  <circle cx="12" cy="12" r="3" />
+                  <path d="M8 3h8M8 21h8" />
+                </svg>
+              </span>
+              <div>
+                <h2 className="text-2xl font-bold text-ink-900 sm:text-3xl">Privat MR</h2>
+                <p className="mt-3 max-w-2xl text-ink-700">
+                  Få hjälp med medicinsk bedömning och, när det behövs, remiss inför en
+                  magnetkameraundersökning. Efter undersökningen går en specialistläkare i ortopedi
+                  igenom MR-svaret med dig, förklarar fynden och hjälper dig vidare med nästa steg.
+                </p>
+              </div>
+              <div className="flex flex-col gap-3 sm:flex-row lg:flex-col lg:items-stretch">
+                <Link
+                  href="/privat-mr"
+                  className="rounded-full bg-brand-500 px-6 py-3 text-center text-base font-semibold text-white shadow-sm transition-colors hover:bg-brand-600"
+                >
+                  Boka privat MR
+                </Link>
+                <Link
+                  href="/artiklar/privat-mr-kostnad"
+                  className="rounded-full border border-ink-200 px-6 py-3 text-center text-base font-semibold text-ink-800 transition-colors hover:bg-ink-100"
+                >
+                  Läs om privat MR
+                </Link>
+              </div>
+            </div>
+            <p className="mt-6 text-sm text-ink-600">
+              Röntgenläkare granskar bilderna och skriver utlåtandet – ortopedläkaren går sedan
+              igenom vad MR-svaret betyder för dina besvär. Undrar du vad det innebär att göra{" "}
+              <Link
+                href="/artiklar/mr-utan-remiss"
+                className="font-semibold text-brand-700 hover:underline"
+              >
+                MR utan remiss
+              </Link>
+              ? Läs guiden.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Så fungerar det */}
       <section className="bg-sky-50">
         <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6">
@@ -257,30 +312,6 @@ export default function HomePage() {
 
       {/* Patientomdömen från Reco (riktiga omdömen om läkaren) */}
       <RecoReviews />
-
-      {/* Förtroende / ansvar */}
-      <section className="bg-ink-100">
-        <div className="mx-auto flex max-w-5xl flex-col gap-6 px-4 py-12 sm:flex-row sm:items-center sm:px-6">
-          <span
-            aria-hidden
-            className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white text-brand-600 shadow-sm"
-          >
-            <svg viewBox="0 0 24 24" className="h-7 w-7" {...ico}>
-              <path d="M12 20.5C7 17 3.5 13.8 3.5 9.8 3.5 7 5.7 5 8.2 5c1.7 0 3.1.9 3.8 2.2C12.7 5.9 14 5 15.8 5 18.3 5 20.5 7 20.5 9.8c0 4-3.5 7.2-8.5 10.7z" />
-            </svg>
-          </span>
-          <ul className="grid gap-2 text-ink-700 sm:grid-cols-2">
-            {trustPoints.map((t) => (
-              <li key={t} className="flex items-start gap-2">
-                <span aria-hidden className="mt-1 text-brand-600">
-                  •
-                </span>
-                <span>{t}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
 
       {/* Värde / varför oss (ersätter foton med tematiska kort) */}
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
@@ -350,6 +381,32 @@ export default function HomePage() {
               );
             })}
           </div>
+        </div>
+      </section>
+
+      {/* Förtroende / ansvar. Ligger medvetet långt ned, i FAQ-/legal-zonen:
+          ansvarsfriskrivningen ska finnas kvar men inte upprepas mitt i
+          konverteringsflödet (särskilt inte intill MR-CTA:n ovan). */}
+      <section className="bg-ink-100">
+        <div className="mx-auto flex max-w-5xl flex-col gap-6 px-4 py-12 sm:flex-row sm:items-center sm:px-6">
+          <span
+            aria-hidden
+            className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white text-brand-600 shadow-sm"
+          >
+            <svg viewBox="0 0 24 24" className="h-7 w-7" {...ico}>
+              <path d="M12 20.5C7 17 3.5 13.8 3.5 9.8 3.5 7 5.7 5 8.2 5c1.7 0 3.1.9 3.8 2.2C12.7 5.9 14 5 15.8 5 18.3 5 20.5 7 20.5 9.8c0 4-3.5 7.2-8.5 10.7z" />
+            </svg>
+          </span>
+          <ul className="grid gap-2 text-ink-700 sm:grid-cols-2">
+            {trustPoints.map((t) => (
+              <li key={t} className="flex items-start gap-2">
+                <span aria-hidden className="mt-1 text-brand-600">
+                  •
+                </span>
+                <span>{t}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

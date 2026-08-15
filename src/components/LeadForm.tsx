@@ -141,6 +141,13 @@ export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
               {s.title} – {s.name}
             </option>
           ))}
+          {/* Bilddiagnostik är ingen specialitet i specialties.ts, men måste gå att
+              välja direkt – annars måste den som söker MR gissa specialistkategori.
+              Avgränsat till rörelseapparaten: uppföljningen görs av ortoped, så vi
+              tar medvetet inte in t.ex. MR hjärna som vi inte kan följa upp. */}
+          {/* Utan "och": etiketten kapades annars i den stängda selecten på
+              mobil (275px text i 250px utrymme vid 390px viewport). */}
+          <option value="privat-mr">Privat MR – rygg, knä, axel, höft</option>
         </select>
         <FieldError message={state.errors.specialty} />
       </div>
