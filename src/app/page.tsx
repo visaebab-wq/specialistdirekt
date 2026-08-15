@@ -6,6 +6,7 @@ import { specialties } from "@/lib/specialties";
 import { articles } from "@/lib/articles";
 import { faqs } from "@/lib/faq";
 import { AreaSelector } from "@/components/AreaSelector";
+import { AnatomyHeroVisual } from "@/components/AnatomyHeroVisual";
 import { FaqList } from "@/components/FaqList";
 import { JsonLd } from "@/components/JsonLd";
 import { faqSchema, serviceSchema } from "@/lib/structured-data";
@@ -21,7 +22,7 @@ const homeFaqs = faqs.slice(0, 5);
 // Stegen i hero (ikon + etikett).
 const heroSteps = [
   {
-    label: "Välj specialist",
+    label: "Välj kroppsdel",
     icon: (
       <>
         <circle cx="11" cy="11" r="7" />
@@ -75,23 +76,6 @@ const valueProps = [
   },
 ];
 
-const specialistNeonImages: Record<string, string> = {
-  kardiolog: "/specialist-neon/01-kardiolog.webp",
-  ortoped: "/specialist-neon/02-ortoped.webp",
-  hudlakare: "/specialist-neon/03-hudlakare.webp",
-  gynekolog: "/specialist-neon/04-gynekolog.webp",
-  neurolog: "/specialist-neon/05-neurolog.webp",
-  psykiater: "/specialist-neon/06-psykiater.webp",
-  ogonlakare: "/specialist-neon/07-ogonlakare.webp",
-  "oron-nasa-hals": "/specialist-neon/08-onh-specialist.webp",
-  urolog: "/specialist-neon/09-urolog.webp",
-  gastroenterolog: "/specialist-neon/10-gastroenterolog.webp",
-  endokrinolog: "/specialist-neon/11-endokrinolog.webp",
-  reumatolog: "/specialist-neon/12-reumatolog.webp",
-  allmanmedicin: "/specialist-neon/13-allmanmedicin.webp",
-  hematolog: "/specialist-neon/14-hematolog.webp",
-};
-
 const popularSpecialties = [
   "kardiolog",
   "neurolog",
@@ -128,7 +112,7 @@ export default function HomePage() {
               <span className="block text-brand-300">enkelt och tryggt</span>
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-sky-100/90">
-              Välj specialist, välj område och skicka en bokningsförfrågan. Specialistdirekt
+              Välj kroppsdel, välj område och skicka en bokningsförfrågan. Specialistdirekt
               hjälper dig vidare till rätt privata mottagning.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -136,7 +120,7 @@ export default function HomePage() {
                 href="#valj-specialist"
                 className="rounded-full bg-brand-500 px-6 py-3 text-base font-semibold text-white shadow-sm transition-colors hover:bg-brand-600"
               >
-                Hitta specialist
+                Utforska kroppen
               </Link>
               <Link
                 href="/sa-fungerar-det"
@@ -191,30 +175,21 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Välj specialist */}
+      {/* Interaktiv kroppsväljare – ersätter tills vidare specialistkorten. */}
       <section id="valj-specialist" className="scroll-mt-20 bg-sky-50">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-          <h2 className="text-center text-3xl font-bold text-ink-900">Välj specialist</h2>
-          <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-            {specialties.map((s) => (
-              <Link
-                key={s.slug}
-                href={`/specialiteter/${s.slug}`}
-                className="group flex flex-col items-center rounded-2xl border border-sky-100 bg-white p-4 text-center transition-all hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md"
-              >
-                <span className="specialist-motion-media">
-                  <img
-                    src={specialistNeonImages[s.slug]}
-                    alt=""
-                    className="specialist-motion-image"
-                    loading="lazy"
-                  />
-                </span>
-                <span className="mt-3 text-sm font-semibold text-ink-800 group-hover:text-brand-700">
-                  {s.title}
-                </span>
-              </Link>
-            ))}
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
+          <div className="text-center">
+            <p className="internal-hero-kicker">Interaktiv kroppsguide</p>
+            <h2 className="mt-3 text-3xl font-bold text-ink-900 sm:text-4xl">
+              Var i kroppen har du besvär?
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-ink-600">
+              Välj kvinna eller man och växla mellan organ framifrån och skelett bakifrån.
+              Klicka på kroppen för att byta vy.
+            </p>
+          </div>
+          <div className="home-anatomy-explorer mx-auto mt-8">
+            <AnatomyHeroVisual />
           </div>
         </div>
       </section>
