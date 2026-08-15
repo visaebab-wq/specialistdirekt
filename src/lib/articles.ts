@@ -5,6 +5,7 @@ import type { Article } from "./articles-types";
 
 import { article as guide } from "@/content/articles/hitta-ratt-specialistlakare-guide";
 import { article as ontIKnatBarn } from "@/content/articles/ont-i-knat-barn";
+import { article as ryggontHosBarn } from "@/content/articles/ryggont-hos-barn";
 import { article as kardiolog } from "@/content/articles/privat-kardiolog-kostnad";
 import { article as knasmarta } from "@/content/articles/vilken-lakare-knasmarta";
 import { article as vantetid } from "@/content/articles/vantetid-specialist-vardgaranti";
@@ -57,6 +58,7 @@ import { article as forberedelseKoloskopi } from "@/content/articles/forberedels
 // Ordning: pelarguiden först, sedan nyast överst.
 export const articles: Article[] = [
   guide,
+  ryggontHosBarn,
   ontIKnatBarn,
   gorKoloskopiOnt,
   forberedelseKoloskopi,
