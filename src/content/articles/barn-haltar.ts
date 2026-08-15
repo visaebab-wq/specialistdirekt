@@ -135,7 +135,7 @@ export const article: Article = {
       body: [
         "**Typisk växtvärk ska normalt inte ge hälta på dagen.**",
         "Det regionala kliniska kunskapsstödet [VISS](https://viss.nu/kunskapsstod/vardprogram/halta-hos-barn) beskriver växtvärk som oftast bilateral diffus värk nattetid i lår, knän eller underben, utan symtom dagtid. Ensidiga besvär förekommer, men ska då växla sida.",
-        "Det innebär att man bör vara försiktig med att förklara en tydlig och återkommande daghälta med enbart växtvärk. Om ett barn haltar under dagen är det bättre att försöka förstå varför än att automatiskt hänföra besvären till att barnet växer.",
+        "Det innebär att man bör vara försiktig med att förklara en tydlig och återkommande daghälta med enbart växtvärk. Om ett barn haltar under dagen är det bättre att försöka förstå varför än att automatiskt hänföra besvären till att barnet växer. Mer om [växtvärk hos barn](/artiklar/vaxtvark-hos-barn) och vad som talar emot den bilden.",
       ],
     },
     {

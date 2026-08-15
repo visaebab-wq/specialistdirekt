@@ -246,7 +246,7 @@ export const article: Article = {
       heading: "Växtvärk – eller något som behöver undersökas?",
       body: [
         "Det här är en av de viktigaste frågorna för föräldrar. Typisk växtvärk förekommer framför allt på **kvällen eller natten**, sitter ofta i låren, underbenen eller kring knäna, och barnet är besvärsfritt under dagen. 1177 anger att växtvärk är vanligast mellan ungefär tre och tio års ålder och att smärtan inte brukar finnas på dagen eller när barnet rör sig.",
-        "**All långvarig bensmärta hos ett växande barn bör alltså inte automatiskt kallas växtvärk.** Det passar sämre med vanlig växtvärk om barnet exempelvis:",
+        "Mer om [växtvärk hos barn och när det är något annat](/artiklar/vaxtvark-hos-barn). **All långvarig bensmärta hos ett växande barn bör alltså inte automatiskt kallas växtvärk.** Det passar sämre med vanlig växtvärk om barnet exempelvis:",
       ],
       bullets: [
         "haltar",
