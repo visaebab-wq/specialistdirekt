@@ -173,7 +173,7 @@ export const article: Article = {
       heading: "Höftsmärta hos barn",
       body: [
         "Höftproblem hos barn kan visa sig på flera sätt, och bedömningen påverkas mycket av barnets ålder och symtombild. Ett barn med höftbesvär beskriver ibland smärta längre ned mot lår eller knä, vilket gör att området där barnet säger att det gör ont inte alltid är där problemet sitter.",
-        "Det är därför klokt att låta ett barn med kvarstående hälta eller höftbesvär bli undersökt. Barnet kan exempelvis:",
+        "Mer om [ont i höften hos barn och vad åldern betyder](/artiklar/ont-i-hoften-hos-barn). Det är därför klokt att låta ett barn med kvarstående hälta eller höftbesvär bli undersökt. Barnet kan exempelvis:",
       ],
       bullets: [
         "ha ont i höften eller ljumsken",
