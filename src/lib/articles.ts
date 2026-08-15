@@ -264,6 +264,16 @@ const ARTICLE_CLUSTERS: Record<string, string> = {
   "vaxtvark-hos-barn": "barnortopedi",
 };
 
+/**
+ * Undantag: artiklar utanför ett kluster som ändå får föreslås på klustrets
+ * sidor. Kräver att artikeln är genuint tillämplig för klustrets målgrupp – för
+ * barnortopedi räcker det alltså INTE att den delar specialiteten ortopedi.
+ * Tom lista = klustret håller sig helt inom sig självt.
+ */
+const CLUSTER_EXTERNAL_ALLOW: Record<string, string[]> = {
+  barnortopedi: [],
+};
+
 function specialtySet(a: Article): Set<string> {
   const s = new Set<string>();
   if (a.relatedSpecialty) s.add(a.relatedSpecialty);
@@ -339,9 +349,23 @@ export function relatedArticles(slug: string, limit = 4): Article[] {
   const current = getArticle(slug);
   if (!current) return [];
   const alreadyLinked = editorialArticleLinks(current);
+  const cluster = ARTICLE_CLUSTERS[current.slug];
 
   return articles
-    .filter((a) => a.slug !== slug && !alreadyLinked.has(a.slug))
+    .filter((a) => {
+      if (a.slug === slug || alreadyLinked.has(a.slug)) return false;
+      // En sida inne i ett kluster föreslår bara sitt eget kluster. Utan den
+      // regeln föll barnsidorna tillbaka på vuxenartiklar som råkar dela
+      // specialiteten ortopedi – barnortopedi-pelaren rekommenderade vuxen
+      // ryggsmärta och smärtläkare. Färre länkar är bättre än fel målgrupp.
+      if (cluster) {
+        return (
+          ARTICLE_CLUSTERS[a.slug] === cluster ||
+          (CLUSTER_EXTERNAL_ALLOW[cluster] ?? []).includes(a.slug)
+        );
+      }
+      return true;
+    })
     .map((a) => ({ a, tier: relationTier(current, a) }))
     .filter((x) => x.tier > 0)
     .sort(
