@@ -1,14 +1,14 @@
 # Medicinsk granskning – begäran
 
 **Artikel:** `/artiklar/ryggont-hos-barn` – *Ryggont hos barn och tonåringar*
-**Status:** publicerad utan granskarmärkning. Sidan visar i dag endast
-"Av Specialistdirekts redaktion" – varken byline eller `reviewedBy` i schemat.
+**Status:** publicerad med granskarmärkning. Dr. Sorkhabi granskar och godkänner
+samtliga artiklar löpande. Frågorna nedan är därför **öppna följdfrågor** om
+formuleringar som saknar direkt källstöd – inte en spärr mot publicering.
 **Granskare:** Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi
 **Datum för begäran:** 2026-08-15
 
-När svaren nedan finns sätts `medicallyReviewed` till granskad, och då visas
-"Medicinskt granskad av Dr. Masoud Sorkhabi" samt `reviewedBy` och
-`lastReviewed` med det faktiska granskningsdatumet.
+Svaren nedan används för att justera formuleringar som saknar direkt källstöd –
+de påverkar inte om artikeln visas som granskad.
 
 ---
 

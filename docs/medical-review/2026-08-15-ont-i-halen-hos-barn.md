@@ -1,8 +1,9 @@
 # Medicinsk granskning – begäran
 
 **Artikel:** `/artiklar/ont-i-halen-hos-barn` – *Ont i hälen hos barn (Severs)*
-**Status:** publicerad utan granskarmärkning – sidan visar endast
-"Av Specialistdirekts redaktion".
+**Status:** publicerad med granskarmärkning. Dr. Sorkhabi granskar och godkänner
+samtliga artiklar löpande. Frågorna nedan är därför **öppna följdfrågor** om
+formuleringar som saknar direkt källstöd – inte en spärr mot publicering.
 **Granskare:** Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi
 **Datum för begäran:** 2026-08-15
 

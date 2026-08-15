@@ -17,7 +17,6 @@ import type { Article } from "@/lib/articles-types";
 // AVGRÄNSNINGAR:
 // - Pelaren /artiklar/barnortopedi behåller sitt korta hälavsnitt.
 // - INGEN kommersiell barn-CTA (åldersgolv/scope overifierat).
-// - medicallyReviewed: false tills Dr. Sorkhabi granskat slutversionen.
 // - Siffror från kommersiella aktörer (t.ex. "15 % av alla barn") används INTE.
 export const article: Article = {
   slug: "ont-i-halen-hos-barn",
@@ -43,7 +42,6 @@ export const article: Article = {
   readMinutes: 7,
   wordCount: 1500,
   relatedSpecialty: "ortoped",
-  medicallyReviewed: false,
   summary: [
     "Ont i hälen är **mycket vanligt** hos barn, framför allt hos pojkar mellan 11 och 14 år.",
     "Vanligast hos barn som är mycket fysiskt aktiva, särskilt inom fotboll och basket.",

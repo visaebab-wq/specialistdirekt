@@ -11,7 +11,6 @@ import type { Article } from "@/lib/articles-types";
 //   kvar sitt korta skolios-avsnitt – här nämns skolios bara i förbigående.
 // - INGEN kommersiell barn-CTA: åldersgolv och pediatrisk scope är inte
 //   verifierade. Vårdrouting hålls neutral (vårdcentral/1177/fysioterapeut/akut).
-// - medicallyReviewed: false tills Dr. Sorkhabi granskat denna slutversion.
 export const article: Article = {
   slug: "ryggont-hos-barn",
   title: "Ryggont hos barn och tonåringar – orsaker och när barnet bör undersökas",
@@ -36,7 +35,6 @@ export const article: Article = {
   readMinutes: 8,
   wordCount: 1700,
   relatedSpecialty: "ortoped",
-  medicallyReviewed: false,
   summary: [
     "Ryggont är ovanligt hos yngre barn men blir vanligare i puberteten, när barnet växer snabbt.",
     "Det går oftast **inte** att hitta någon tydlig orsak – och det betyder sällan att något är allvarligt.",
