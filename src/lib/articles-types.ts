@@ -63,6 +63,18 @@ export type Article = {
   priceTable?: { label: string; price: string }[];
   /** "Vem passar detta för?" – punktlista (konvertering). */
   suitableFor?: string[];
+  /**
+   * Ersätter den generiska specialitets-CTA:n ("Behöver du en ortoped?") när
+   * artikeln har en egen målgrupp eller väg vidare. Utan detta får en sida om
+   * barn samma uppmaning som en sida om vuxna, vilket varken matchar läsarens
+   * situation eller den faktiska mottagningens villkor.
+   */
+  cta?: {
+    heading: string;
+    body: string;
+    label: string;
+    href: string;
+  };
   /** Inledande stycken (före första h2). */
   intro: string[];
   sections: ArticleSection[];

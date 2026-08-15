@@ -293,18 +293,25 @@ export default async function ArticlePage({
         {/* CTA till lead-formuläret */}
         <div className="mt-10 rounded-3xl bg-navy-800 px-6 py-10 text-center text-white shadow-[0_22px_50px_rgba(15,23,42,0.16)]">
           <h2 className="text-2xl font-bold">
-            {specialty
-              ? `Behöver du en ${specialty.title.toLowerCase()}?`
-              : "Behöver du hjälp att hitta rätt specialist?"}
+            {article.cta
+              ? article.cta.heading
+              : specialty
+                ? `Behöver du en ${specialty.title.toLowerCase()}?`
+                : "Behöver du hjälp att hitta rätt specialist?"}
           </h2>
           <p className="mx-auto mt-2 max-w-md text-brand-50">
-            Skicka en kostnadsfri förfrågan så matchar vi dig med rätt specialist.
+            {article.cta?.body ??
+              "Skicka en kostnadsfri förfrågan så matchar vi dig med rätt specialist."}
           </p>
           <Link
-            href={specialty ? `/specialiteter/${specialty.slug}` : "/kontakt"}
+            href={article.cta?.href ?? (specialty ? `/specialiteter/${specialty.slug}` : "/kontakt")}
             className="mt-6 inline-block rounded-full bg-white px-7 py-3 text-sm font-semibold text-brand-700 hover:scale-[1.02]"
           >
-            {specialty ? `Hitta en ${specialty.title.toLowerCase()}` : "Skicka din förfrågan"}
+            {article.cta
+              ? article.cta.label
+              : specialty
+                ? `Hitta en ${specialty.title.toLowerCase()}`
+                : "Skicka din förfrågan"}
           </Link>
         </div>
 

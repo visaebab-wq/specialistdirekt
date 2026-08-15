@@ -1,4 +1,5 @@
 import type { City } from "@/lib/cities-types";
+import { BARN_SCOPE } from "@/lib/barn-scope";
 
 export const city: City = {
   slug: "goteborg",
@@ -54,6 +55,7 @@ export const city: City = {
         { label: "Erfarenhet", value: "Mer än 20 års klinisk erfarenhet" },
         { label: "Kompetensområden", value: "Rygg, nacke, knä och nervrelaterade besvär" },
         { label: "Patienttyp", value: "Självbetalande" },
+        { label: "Barn och ungdomar", value: `Tas emot – ${BARN_SCOPE.short}` },
         { label: "Remiss", value: "Behövs inte" },
         { label: "Publikt omdöme", value: "4,9 av 5 · 63 omdömen på Reco (Dr. Masoud Sorkhabi)" },
         { label: "Betalning", value: "Betala vid bokning – återbetalas om du avbokar" },
@@ -96,6 +98,33 @@ export const city: City = {
             "**SI-ledsbesvär** – smärta från bäckenets iliosakralleder",
             "**Idrotts- och överbelastningsbesvär** – besvär efter träning eller belastning",
             "**Långvarig smärta från rörelseapparaten** – besvär som inte gått över trots tid och egenvård",
+          ],
+        },
+        {
+          id: "ortoped-for-barn-goteborg",
+          heading: "Ortoped för barn i Göteborg",
+          body: [
+            `**Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi, tar även emot barn och ungdomar – ${BARN_SCOPE.label} (${BARN_SCOPE.short}) – på mottagningen i Göteborg.** Vi kallar honom inte barnortoped: den dokumenterade specialistkompetensen är ortopedi och ryggkirurgi. Från 18 års ålder bokas besöket som vuxen.`,
+            "Ingen remiss behövs för den privata självbetalarvägen, och ett fysiskt besök kostar 2 000 kr – samma pris som för vuxna. Ni bokar tiden själva i kalendern och beloppet återbetalas vid avbokning.",
+            "Vanliga skäl att söka ortopedisk bedömning för ett barn:",
+          ],
+          bullets: [
+            "**Knäsmärta** – långvarig eller återkommande, ofta i samband med idrott",
+            "**Hälta** – ny, oförklarad eller kvarstående",
+            "**Höftbesvär** – smärta i ljumske, lår eller knä",
+            "**Fotbesvär och plattfot** – smärta, stelhet eller påverkad funktion",
+            "**Hälsmärta** – belastningsrelaterade besvär hos växande barn",
+            "**Ryggbesvär och misstänkt skolios**",
+            "**Idrotts- och belastningsbesvär** samt kvarstående problem efter en skada",
+          ],
+        },
+        {
+          id: "barn-begransningar-goteborg",
+          heading: "När passar den privata vägen inte för ett barn?",
+          body: [
+            "Medfödda tillstånd, komplicerade felställningar, neuromuskulära sjukdomar och behov av barnkirurgi eller multidisciplinär vård utreds inom regionens specialiserade barnsjukvård. Ett privat självbetalarbesök ersätter inte den vården.",
+            "Vid akut skada med kraftig smärta, oförmåga att belasta, eller feber tillsammans med en svullen och mycket smärtsam led ska barnet bedömas akut – inte vänta på en planerad tid. Ring **112** vid livshotande tillstånd och **1177** vid osäkerhet.",
+            "Enligt 1177 har barn och ungdomar under 20 år **fri hälso- och sjukvård** i Västra Götalandsregionen. Den privata vägen innebär alltså att ni betalar för att kunna välja tid utan remiss – inte för en vård som annars saknas. En utförlig genomgång av när ett barn behöver bedömas, vad som brukar gå över av sig självt och hur undersökningen går till finns i guiden om [barnortopedi och ortopedisk bedömning för barn](/artiklar/barnortopedi).",
           ],
         },
         {
@@ -228,8 +257,7 @@ export const city: City = {
         },
         {
           question: "Tar ortopeden emot barn?",
-          answer:
-            "Ja. Dr. Masoud Sorkhabi är specialist i ortopedi och ryggkirurgi och tar även emot barn för ortopediska bedömningar – priset är detsamma som för vuxna. Läs mer om [ortoped för barn i Göteborg](/artiklar/barnortopedi). Medfödda tillstånd, komplicerade felställningar och neuromuskulära sjukdomar utreds inom specialiserad barnsjukvård.",
+          answer: `Ja. Dr. Masoud Sorkhabi är specialist i ortopedi och ryggkirurgi och tar även emot barn och ungdomar, ${BARN_SCOPE.label} (${BARN_SCOPE.short}) – priset är detsamma som för vuxna. Läs mer om [ortoped för barn i Göteborg](/artiklar/barnortopedi). Medfödda tillstånd, komplicerade felställningar och neuromuskulära sjukdomar utreds inom specialiserad barnsjukvård.`,
         },
         {
           question: "Kan jag boka tid direkt hos ortopeden?",

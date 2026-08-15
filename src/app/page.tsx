@@ -3,7 +3,7 @@ import { RecoReviews } from "@/components/RecoReviews";
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
 import { specialties } from "@/lib/specialties";
-import { articles } from "@/lib/articles";
+import { articles, getArticle } from "@/lib/articles";
 import { faqs } from "@/lib/faq";
 import { AreaSelector } from "@/components/AreaSelector";
 import { AnatomyHeroVisual } from "@/components/AnatomyHeroVisual";
@@ -99,6 +99,30 @@ const ico = {
   strokeLinecap: "round" as const,
   strokeLinejoin: "round" as const,
 };
+
+// Startsidans tre guidekort valdes tidigare med articles.slice(0, 3), vilket bara
+// speglade registrets ordning. Följden var att två godtyckliga barn-spokes –
+// växtvärk och plattfot – fick startsidans länkkraft, medan barnortopedi-pelaren
+// som de själva pekar tillbaka på saknade väg in från startsidan helt. Urvalet är
+// därför redaktionellt: ett kluster representeras av sin pelare, inte av en spoke.
+const HOME_FEATURED_SLUGS = [
+  "barnortopedi",
+  "privat-ortoped-kostnad",
+  "hitta-ratt-specialistlakare-guide",
+];
+
+const featuredArticles = (() => {
+  const picked = HOME_FEATURED_SLUGS.map((slug) => getArticle(slug)).filter(
+    (a) => a !== undefined,
+  );
+  // Faller tillbaka på registret om en slug skulle försvinna, så kortraden aldrig
+  // blir kortare än tre.
+  for (const a of articles) {
+    if (picked.length >= 3) break;
+    if (!picked.some((p) => p.slug === a.slug)) picked.push(a);
+  }
+  return picked.slice(0, 3);
+})();
 
 export default function HomePage() {
   return (
@@ -323,7 +347,7 @@ export default function HomePage() {
             </Link>
           </div>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {articles.slice(0, 3).map((a) => {
+            {featuredArticles.map((a) => {
               const visual = getArticleCardVisual(a, "home");
 
               return (

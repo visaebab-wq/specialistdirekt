@@ -279,6 +279,72 @@ const CLUSTER_EXTERNAL_ALLOW: Record<string, string[]> = {
   barnortopedi: [],
 };
 
+/**
+ * Presentationsdata per kluster: rubrik och vilken artikel som är pelare.
+ * Används av specialitetssidorna för att visa klustret som en egen grupp med
+ * pelaren först, i stället för att lösa upp det i en platt lista där pelaren
+ * hamnar mellan sina egna spokes.
+ */
+const CLUSTER_META: Record<string, { title: string; pillar: string; intro: string }> = {
+  barnortopedi: {
+    title: "Barnortopedi",
+    pillar: "barnortopedi",
+    intro: "Ortopediska besvär hos barn och ungdomar – börja med guiden och fördjupa dig i det som liknar ert.",
+  },
+};
+
+export type ArticleClusterGroup = {
+  id: string;
+  title: string;
+  intro: string;
+  pillar: Article;
+  spokes: Article[];
+};
+
+/**
+ * Delar upp en artikellista i kluster + övrigt. Ett kluster tas bara med om
+ * dess pelare finns i listan – annars vore gruppen en rubrik utan huvudresurs.
+ * Artiklar som inte tillhör något kluster returneras oförändrade i `rest`, med
+ * ordningen bevarad.
+ */
+export function groupArticlesByCluster(list: Article[]): {
+  clusters: ArticleClusterGroup[];
+  rest: Article[];
+} {
+  const byCluster = new Map<string, Article[]>();
+  const rest: Article[] = [];
+
+  for (const a of list) {
+    const cluster = ARTICLE_CLUSTERS[a.slug];
+    if (!cluster || !CLUSTER_META[cluster]) {
+      rest.push(a);
+      continue;
+    }
+    const bucket = byCluster.get(cluster);
+    if (bucket) bucket.push(a);
+    else byCluster.set(cluster, [a]);
+  }
+
+  const clusters: ArticleClusterGroup[] = [];
+  for (const [id, members] of byCluster) {
+    const meta = CLUSTER_META[id];
+    const pillar = members.find((a) => a.slug === meta.pillar);
+    if (!pillar) {
+      rest.push(...members);
+      continue;
+    }
+    clusters.push({
+      id,
+      title: meta.title,
+      intro: meta.intro,
+      pillar,
+      spokes: members.filter((a) => a.slug !== meta.pillar),
+    });
+  }
+
+  return { clusters, rest };
+}
+
 function specialtySet(a: Article): Set<string> {
   const s = new Set<string>();
   if (a.relatedSpecialty) s.add(a.relatedSpecialty);

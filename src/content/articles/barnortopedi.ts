@@ -1,4 +1,5 @@
 import type { Article } from "@/lib/articles-types";
+import { BARN_SCOPE } from "@/lib/barn-scope";
 
 // OBS (innehållsägande): den lokala kommersiella intentionen för Göteborg ägs av
 // /specialiteter/ortoped/goteborg. Den här artikeln äger den nationella
@@ -33,6 +34,17 @@ export const article: Article = {
   readMinutes: 12,
   wordCount: 2600,
   relatedSpecialty: "ortoped",
+  // Den generiska CTA:n ("Behöver du en ortoped?") talar till en vuxen patient om
+  // sig själv. Läsaren här är en förälder, och besökets villkor – åldersspann,
+  // fysisk mottagning, pris – avgör om bokningen alls är relevant. Länken går till
+  // barnsektionen på Göteborgssidan, där bokningsknappen och villkoren finns
+  // samlade, i stället för rakt in i kalendern.
+  cta: {
+    heading: "Behöver ditt barn en ortopedisk bedömning?",
+    body: `Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi, tar emot barn och ungdomar ${BARN_SCOPE.label} på mottagningen i Göteborg. Ingen remiss behövs och besöket kostar 2 000 kr.`,
+    label: "Boka ortopedisk bedömning för barn i Göteborg",
+    href: "/specialiteter/ortoped/goteborg#ortoped-for-barn-goteborg",
+  },
   summary: [
     "Barnortopedi rör skador och besvär i barnets växande skelett, leder, muskler och rygg.",
     "**Barn är inte små vuxna** – tillväxtzonerna är aktiva, så samma symtom kan betyda olika saker hos barn och vuxna.",
@@ -40,7 +52,7 @@ export const article: Article = {
     "Sök bedömning vid smärta som inte går över, återkommande besvär, hälta, svårighet att belasta ett ben eller besvär efter en skada.",
     "Vid akut skada, kraftig smärta eller oförmåga att belasta ska akut vård väljas – inte ett planerat privat besök.",
     "Komplicerade och medfödda tillstånd hör hemma i specialiserad barnsjukvård, inte på en privat självbetalarväg.",
-    "I Göteborg tar Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi, även emot barn för ortopedisk bedömning.",
+    `I Göteborg tar Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi, även emot barn och ungdomar – ${BARN_SCOPE.label} – för ortopedisk bedömning på plats.`,
   ],
   intro: [
     "**Barnortopedi handlar om skador, smärta och andra problem i barnets växande skelett, leder, muskler och rörelseapparat.** Ett barn kan behöva ortopedisk bedömning vid exempelvis långvarig knäsmärta, hälta, höftbesvär, fotproblem, ryggsmärta, idrottsskador eller besvär efter en tidigare skada.",
@@ -95,6 +107,7 @@ export const article: Article = {
       body: [
         "Föräldrar som söker efter *barnortoped i Göteborg*, *barnortopedi Göteborg* eller *privat ortoped för barn* söker oftast samma sak: någon med ortopedisk specialistkompetens som kan bedöma varför barnet har ont eller inte rör sig som vanligt.",
         "Via Specialistdirekt kan barn få en privat ortopedisk bedömning i Göteborg hos [Dr. Masoud Sorkhabi](/lakare/masoud-sorkhabi), **specialist i ortopedi och ryggkirurgi, som även tar emot barn**. **Dr. Masoud Sorkhabi har över 20 års erfarenhet av ortopedi och har arbetat med både vuxna och barn.** Vi använder medvetet inte titeln barnortoped – hans dokumenterade specialistkompetens är ortopedi och ryggkirurgi.",
+        `**Vilka åldrar tas emot?** Barn och ungdomar, ${BARN_SCOPE.label} (${BARN_SCOPE.short}). Från 18 års ålder bokas besöket som vuxen. Mottagningen ligger i Göteborg.`,
         "För den privata självbetalarvägen behövs ingen remiss. Ett fysiskt besök i Göteborg kostar 2 000 kr, samma pris som för vuxna. Mer om prisbilden finns i guiden om [privat ortoped – kostnad, väntetid och hur du bokar](/artiklar/privat-ortoped-kostnad).",
         "Bokning och tider finns på sidan för [privat ortoped i Göteborg](/specialiteter/ortoped/goteborg).",
         "En privat ortopedisk bedömning kan vara relevant vid besvär från:",
@@ -308,6 +321,14 @@ export const article: Article = {
       ],
     },
     {
+      id: "efter-undersokningen",
+      heading: "Vad händer efter undersökningen?",
+      body: [
+        "Läkaren går igenom vad undersökningen visade och vad fynden betyder för just ert barn. Därefter tas ställning till om besvären kan följas med råd om belastning, aktivitet och tid, om fysioterapi är relevant, eller om röntgen, MR eller annan utredning behövs för att komma vidare.",
+        "Visar bedömningen att barnets problem kräver en annan vårdnivå kan läkaren rekommendera specialiserad barnsjukvård eller annan specialist. Ett privat besök låser alltså inte fast er i en privat vårdväg.",
+      ],
+    },
+    {
       id: "rontgen-eller-mr",
       heading: "Behöver barnet röntgen eller MR?",
       body: [
@@ -340,6 +361,22 @@ export const article: Article = {
         "Det beror på vilken vårdform ni väljer. Inom den **offentliga** specialistvården kan remiss eller vårdbegäran krävas, och regionens barnsjukvård tar emot barn med besvär från rörelseorganen efter sådan bedömning.",
         "För ett **privat självbetalande** besök hos Dr. Masoud Sorkhabi via Specialistdirekt behövs ingen remiss. Läs mer om den vägen i guiden om [ortoped utan remiss](/artiklar/ortoped-utan-remiss).",
         "Privat ortopedisk bedömning är dock inte rätt väg i alla situationer. Barn med medfödda tillstånd, komplicerade felställningar, neuromuskulära sjukdomar, behov av avancerad kirurgi, allvarliga skador eller behov av multidisciplinär barnsjukvård utreds inom specialiserad barnsjukvård. En privat ortoped kan också efter bedömning rekommendera annan specialist- eller sjukhusvård om barnets problem kräver det.",
+      ],
+    },
+    {
+      id: "privat-eller-offentlig-barnortopedi",
+      heading: "Privat eller offentlig barnortopedi i Göteborg?",
+      body: [
+        "Båda vägarna leder till en läkarbedömning. Skillnaden ligger i hur ni kommer dit, vad besöket kostar och vilka tillstånd som hör hemma var.",
+        "**Offentlig väg.** Vägen börjar oftast hos vårdcentral, BVC eller elevhälsa, som bedömer barnet och vid behov skickar remiss eller vårdbegäran vidare. Enligt 1177 har barn och ungdomar under 20 år i Västra Götalandsregionen **fri hälso- och sjukvård**. Komplicerade och medfödda tillstånd, neuromuskulära sjukdomar och behov av barnkirurgi eller multidisciplinär vård hör hemma i regionens specialiserade barnsjukvård – de kan inte ersättas av ett privat självbetalarbesök.",
+        "Två praktiska detaljer är värda att känna till för Göteborg. Ortopedimottagningen på Östra, som är den barnortopediska mottagningen inom Sahlgrenska Universitetssjukhuset, anger på 1177 att den tar emot *patienter som är 16 år eller yngre* och att nybesök sker efter vårdbegäran. En 17-åring med ortopediska besvär hör alltså inte till den mottagningens åldersspann, och ett nybesök där förutsätter att någon skickat en vårdbegäran.",
+        `**Privat självbetalande väg.** Ingen remiss behövs, ni väljer en ledig tid själva i kalendern och ett fysiskt besök i Göteborg kostar 2 000 kr. Åldersspannet är ${BARN_SCOPE.short}. Bedömningen görs av Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi.`,
+        "**Så väljer ni.** En privat bedömning kan passa när ni vill få barnets muskuloskeletala besvär bedömda av en ortoped och själva vill bestämma när det sker. Den ersätter varken akut vård eller specialiserad barnsjukvård – och för ett barn med besvär som redan utreds i regionen är det oftast bättre att fortsätta den påbörjade vägen än att starta en parallell.",
+      ],
+      bulletTone: "warning",
+      bullets: [
+        "Akut skada, kraftig smärta, feber med svullen led eller oförmåga att belasta → akut vård, inte ett planerat besök.",
+        "Misstänkt medfödd eller komplicerad barnortopedisk sjukdom → specialiserad barnsjukvård.",
       ],
     },
     {
@@ -400,6 +437,8 @@ export const article: Article = {
         "[1177 – Skolios](https://www.1177.se/sjukdomar--besvar/skelett-leder-och-muskler/rygg-och-nacke/skolios/)",
         "[1177 – Växtvärk](https://www.1177.se/sjukdomar--besvar/skelett-leder-och-muskler/vaxtvark/)",
         "[1177 för vårdpersonal – Hälta hos barn](https://vardpersonal.1177.se/kunskapsstod/kliniska-kunskapsstod/halta-hos-barn/)",
+        "[1177 Västra Götaland – Patientavgifter](https://www.1177.se/Vastra-Gotaland/sa-fungerar-varden/kostnader-och-ersattningar/patientavgifter-i-vastra-gotaland/)",
+        "[1177 – Ortopedimottagning Östra, Göteborg](https://www.1177.se/hitta-vard/kontaktkort/Ortopedimottagning-Ostra-Goteborg/)",
       ],
     },
   ],
@@ -418,6 +457,15 @@ export const article: Article = {
       question: "Finns privat ortoped för barn i Göteborg?",
       answer:
         "Ja. Via Specialistdirekt kan barn få en privat ortopedisk bedömning i Göteborg hos Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi. Bokning sker via sidan för [privat ortoped i Göteborg](/specialiteter/ortoped/goteborg).",
+    },
+    {
+      question: "Vilken ålder tar ni emot?",
+      answer: `Barn och ungdomar ${BARN_SCOPE.label}, alltså ${BARN_SCOPE.short}. Från 18 års ålder bokas besöket som vuxen – priset är detsamma.`,
+    },
+    {
+      question: "Vad kostar en privat ortopedisk bedömning för barn?",
+      answer:
+        "Ett fysiskt besök i Göteborg kostar 2 000 kr, samma pris som för vuxna. I Västra Götalandsregionen är offentlig hälso- och sjukvård avgiftsfri för barn och ungdomar under 20 år, så den privata vägen innebär att ni betalar för att själva kunna välja tid utan remiss.",
     },
     {
       question: "Är Dr. Masoud Sorkhabi barnortoped?",

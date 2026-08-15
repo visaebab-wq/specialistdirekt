@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getSpecialty, specialties } from "@/lib/specialties";
-import { articlesForSpecialty } from "@/lib/articles";
+import { articlesForSpecialty, groupArticlesByCluster } from "@/lib/articles";
 import { cities, hasCityPages } from "@/lib/cities";
 import { getSpecialtyExtra } from "@/lib/specialty-extra";
 import { site } from "@/lib/site";
@@ -79,7 +79,9 @@ export default async function SpecialtyPage({
   // (förutsatt att specialties har fler än 3 poster).
   const selfIndex = specialties.findIndex((s) => s.slug === specialty.slug);
   const related = [1, 2, 3].map((step) => specialties[(selfIndex + step) % specialties.length]);
-  const relatedArticles = articlesForSpecialty(specialty.slug);
+  const { clusters: articleClusters, rest: otherArticles } = groupArticlesByCluster(
+    articlesForSpecialty(specialty.slug),
+  );
   const showCities = hasCityPages(specialty.slug);
   const extra = getSpecialtyExtra(specialty.slug);
   const visual = getSpecialtyVisual(specialty);
@@ -207,13 +209,51 @@ export default async function SpecialtyPage({
               </div>
             )}
 
-            {relatedArticles.length > 0 && (
+            {/* Ämneskluster får en egen grupp med pelaren först. I en platt lista
+                hamnade barnortopedi-pelaren mellan sina egna spokes, så varken
+                läsare eller sökmotor kunde se vilken sida som var huvudresursen. */}
+            {articleClusters.map((cluster) => (
+              <div key={cluster.id} className="mt-10">
+                <h2 className="text-xl font-bold text-ink-900">{cluster.title}</h2>
+                <p className="mt-2 text-sm text-ink-600">{cluster.intro}</p>
+                <Link
+                  href={`/artiklar/${cluster.pillar.slug}`}
+                  className="mt-4 block rounded-2xl border border-brand-200 bg-brand-50/60 p-5 transition-colors hover:border-brand-400"
+                >
+                  <span className="text-xs font-semibold uppercase tracking-wide text-brand-700">
+                    Börja här
+                  </span>
+                  <span className="mt-1 block font-semibold text-brand-800">
+                    {cluster.pillar.title}
+                  </span>
+                  <span className="mt-1 block text-sm text-ink-600">
+                    {cluster.pillar.excerpt}
+                  </span>
+                </Link>
+                {cluster.spokes.length > 0 && (
+                  <ul className="mt-4 space-y-3">
+                    {cluster.spokes.map((a) => (
+                      <li key={a.slug}>
+                        <Link
+                          href={`/artiklar/${a.slug}`}
+                          className="font-semibold text-brand-700 hover:underline"
+                        >
+                          {a.title}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            ))}
+
+            {otherArticles.length > 0 && (
               <div className="mt-10">
                 <h2 className="text-xl font-bold text-ink-900">
                   Läs mer om {specialty.name.toLowerCase()}
                 </h2>
                 <ul className="mt-4 space-y-3">
-                  {relatedArticles.map((a) => (
+                  {otherArticles.map((a) => (
                     <li key={a.slug}>
                       <Link
                         href={`/artiklar/${a.slug}`}
