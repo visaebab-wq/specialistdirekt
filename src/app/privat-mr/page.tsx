@@ -126,7 +126,11 @@ export default function PrivatMrPage() {
             <div className="mt-8">
               <p className="internal-hero-kicker">Bilddiagnostik · Magnetkamera</p>
               <h1 className="mt-3 max-w-2xl text-4xl font-extrabold leading-[1.06] tracking-tight text-ink-900 sm:text-5xl lg:text-6xl">
-                Boka privat MR
+                {/* Mellanslaget är avsiktligt: JSX kapar radbrytningen mellan
+                    texten och <span>, så textContent blev "MRmed" – det som
+                    Google, skärmläsare och AI-svarsmotorer faktiskt läser.
+                    <span> är block, så mellanslaget syns inte i layouten. */}
+                Boka privat MR{" "}
                 <span className="mt-2 block text-brand-700">med läkarbedömning</span>
               </h1>
             </div>

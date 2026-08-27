@@ -1,10 +1,18 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
 import { useFormStatus } from "react-dom";
 import { submitLead } from "@/app/actions";
 import { initialLeadState } from "@/lib/lead";
 import { specialties } from "@/lib/specialties";
+import { TrackEvent } from "@/components/TrackEvent";
+
+/**
+ * Värdet i specialitetsväljaren som betyder "det här är en MR-förfrågan".
+ * Samma sträng som <option value="privat-mr"> längre ned – ändras den ena
+ * måste den andra följa med, annars slutar mätningen tyst att räkna MR.
+ */
+const MR_SPECIALTY = "privat-mr";
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -36,12 +44,36 @@ export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
   const [state, formAction] = useActionState(submitLead, initialLeadState);
   const today = new Date().toISOString().slice(0, 10);
 
+  // Speglar VALD specialitet enbart för mätning. Fältet förblir okontrollerat
+  // (defaultValue, inte value), så det som skickas till servern är oförändrat
+  // DOM-värdet – den här state:en ligger vid sidan av och rör inte payloaden.
+  const [selectedSpecialty, setSelectedSpecialty] = useState(defaultSpecialty ?? "");
+
   if (state.status === "success") {
     return (
       <div
         role="status"
         className="rounded-2xl border border-brand-200 bg-brand-50 p-8 text-center"
       >
+        {/* Mätning av genomförd MR-förfrågan. Renderas ENDAST i success-grenen,
+            dvs. efter att serveråtgärden svarat status "success" – aldrig vid
+            sidladdning, CTA-klick eller valideringsfel. TrackEvent skickar en
+            gång vid montering och kan inte kasta vidare in i formuläret;
+            förfrågan är redan inskickad när den monteras. Inga fältvärden
+            följer med – enbart händelsenamnet.
+
+            HÄNDELSENS BETYDELSE, exakt: förfrågan är MOTTAGEN OCH PERSISTERAD
+            enligt appens befintliga success-kontrakt. Den betyder INTE att
+            e-post har levererats. `persistLead()` i lead-delivery.ts skriver
+            leaden till .data/leads.jsonl INNAN någon leverans försöks, och
+            submitLead returnerar "success" även när result.delivered är false
+            (den loggar bara en varning). En SMTP-miss gör alltså inte leaden
+            ogiltig – den är fortfarande en inskickad förfrågan och går att
+            återsända. Koppla INTE den här mätningen till leveransutfallet, och
+            ändra INTE success-villkoret i serveråtgärden för mätningens skull.
+            Behövs leveransutfall någon gång är det en EGEN händelse, inte en
+            omdefiniering av den här. */}
+        {selectedSpecialty === MR_SPECIALTY && <TrackEvent name="mr_request_submitted" />}
         <div
           aria-hidden
           className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-brand-600 text-2xl text-white"
@@ -133,6 +165,7 @@ export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
           id="specialty"
           name="specialty"
           defaultValue={defaultSpecialty ?? ""}
+          onChange={(e) => setSelectedSpecialty(e.target.value)}
           required
           className={fieldClass}
         >
