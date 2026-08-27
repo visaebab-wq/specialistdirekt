@@ -25,7 +25,7 @@ export const article: Article = {
   readMinutes: 10,
   wordCount: 1820,
   summary: [
-    "Ett första besök hos privat lungläkare börjar ofta **från cirka 3 000 kr**, medan en mer omfattande utredning kan kosta 5 000–20 000 kr eller mer.",
+    "Ett första besök hos en privat lungläkare kostar ofta **från cirka 3 000 kr**, medan en mer omfattande utredning kan kosta 5 000–20 000 kr eller mer.",
     "Har du privat sjukvårdsförsäkring kan den ofta täcka hela eller delar av kostnaden för besök och utredning, beroende på dina villkor.",
     "Aktuellt vid andfåddhet, långvarig hosta, pip i bröstet, misstänkt astma eller KOL, återkommande luftvägsinfektioner eller sömnrelaterad andning.",
     "[Specialistdirekt](/kontakt) hjälper dig skicka en bokningsförfrågan till en relevant privat mottagning.",
@@ -51,7 +51,7 @@ export const article: Article = {
       id: "kostnad",
       heading: "Kort svar: vad kostar privat lungläkare?",
       body: [
-        "Ett första besök hos privat lungläkare börjar ofta från **cirka 3 000 kr** och varierar uppåt beroende på mottagning, ort och vad besöket omfattar.",
+        "Ett första besök hos en privat lungläkare börjar ofta från **cirka 3 000 kr** och varierar uppåt beroende på mottagning, ort och vad besöket omfattar.",
         "En mer omfattande utredning med flera undersökningar – till exempel spirometri, reversibilitetstest, allergiprover, lungröntgen, CT eller sömnutredning – kan kosta **5 000–20 000 kr eller mer**, beroende på hur mycket som behöver göras. **Har du privat sjukvårdsförsäkring kan du ofta få hjälp med betalningen** – försäkringen kan täcka hela eller delar av kostnaden, beroende på dina villkor.",
         "Om mottagningen arbetar på uppdrag av regionen kan vanlig patientavgift gälla, men då kan remiss eller egen vårdbegäran krävas.",
       ],
@@ -147,7 +147,7 @@ export const article: Article = {
     },
     {
       id: "pris-paverkan",
-      heading: "Vad påverkar priset hos privat lungläkare?",
+      heading: "Vad påverkar priset hos en privat lungläkare?",
       body: [
         "Priset beror på flera saker, och ett första besök börjar ofta från **cirka 3 000 kr** medan en omfattande utredning kan kosta **5 000–20 000 kr eller mer**:",
       ],
@@ -232,7 +232,7 @@ export const article: Article = {
       id: "sammanfattning",
       heading: "Sammanfattning",
       body: [
-        "Privat lungläkare kan vara aktuellt vid andfåddhet, långvarig hosta, pip i bröstet, misstänkt astma eller KOL, återkommande luftvägsinfektioner eller sömnrelaterad andning. Kostnaden varierar, men ett första privatbesök börjar ofta från **cirka 3 000 kr**, medan en omfattande utredning kan kosta **5 000–20 000 kr eller mer** – och med privat sjukvårdsförsäkring kan du ofta få hjälp med betalningen. Remisskrav och väntetid skiljer sig mellan olika mottagningar. Läs gärna mer om [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
+        "Det kan vara aktuellt med en privat lungläkare vid andfåddhet, långvarig hosta, pip i bröstet, misstänkt astma eller KOL, återkommande luftvägsinfektioner eller sömnrelaterad andning. Kostnaden varierar, men ett första privatbesök börjar ofta från **cirka 3 000 kr**, medan en omfattande utredning kan kosta **5 000–20 000 kr eller mer** – och med privat sjukvårdsförsäkring kan du ofta få hjälp med betalningen. Remisskrav och väntetid skiljer sig mellan olika mottagningar. Läs gärna mer om [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
         "Du väljer specialist, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Vi hjälper dig vidare till en privat mottagning som kan vara relevant för ditt behov.",
       ],
     },
@@ -241,7 +241,7 @@ export const article: Article = {
     {
       question: "Vad kostar privat lungläkare?",
       answer:
-        "Ett första privatbesök börjar ofta från cirka 3 000 kr. En mer omfattande lungutredning med flera undersökningar kan kosta 5 000–20 000 kr eller mer, beroende på mottagning, ort och vad som ingår.",
+        "Ett första privatbesök kostar ofta från cirka 3 000 kr. En mer omfattande lungutredning med flera undersökningar kan kosta 5 000–20 000 kr eller mer, beroende på mottagning, ort och vad som ingår.",
     },
     {
       question: "Behöver jag remiss till lungläkare?",

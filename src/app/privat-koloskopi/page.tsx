@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { FaqList } from "@/components/FaqList";
 import { Prose } from "@/components/RichText";
@@ -16,17 +17,19 @@ const visual = {
 };
 
 export const metadata: Metadata = {
-  title: "Privat koloskopi utan remiss – väntetid och bokning",
+  title: "Privat koloskopi utan remiss – boka en tid",
   description:
-    "Privat koloskopi utan remiss: så går undersökningen till, laxering, förberedelser och vad som styr väntetiden. Vi matchar dig kostnadsfritt med en mottagning.",
+    "Boka privat koloskopi utan remiss. Mottagningen gör en medicinsk bedömning inför undersökningen. Skicka en kostnadsfri tidsförfrågan.",
   alternates: { canonical: "/privat-koloskopi" },
   openGraph: {
     type: "article",
-    title: "Privat koloskopi utan remiss – väntetid och bokning",
+    title: "Privat koloskopi utan remiss – boka en tid",
     description:
-      "Privat koloskopi utan remiss: så går undersökningen till, laxering och vad som styr väntetiden.",
+      "Boka privat koloskopi utan remiss. Skicka en kostnadsfri tidsförfrågan och få information om möjlig tid och aktuellt pris.",
     url: "/privat-koloskopi",
-    images: [{ url: visual.src, alt: visual.alt, ...getVisualDimensions(visual.src) }],
+    images: [
+      { url: visual.src, alt: visual.alt, ...getVisualDimensions(visual.src) },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -43,7 +46,7 @@ const faqs: Faq[] = [
   {
     question: "Kan jag boka koloskopi utan remiss?",
     answer:
-      "Som självbetalande kan du oftast boka en koloskopi direkt hos en privat mottagning, utan remiss. Med sjukvårdsförsäkring går du vanligtvis via försäkringsbolaget, och inom regionfinansierad vård krävs oftast remiss. Reglerna varierar mellan mottagningar – kontrollera i förväg.",
+      "Ja. Som självbetalande kan du boka privat koloskopi utan remiss. Mottagningen gör en medicinsk bedömning inför undersökningen för att säkerställa att koloskopi är rätt undersökning för dig. Med sjukvårdsförsäkring går du vanligtvis via försäkringsbolaget, och inom regionfinansierad vård krävs oftast remiss.",
   },
   {
     question: "Vad kostar en privat koloskopi?",
@@ -74,12 +77,25 @@ export default function PrivatKoloskopiPage() {
         <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6 lg:py-16">
           <Breadcrumbs items={crumbs} />
           <p className="internal-hero-kicker mt-6">Undersökning</p>
-          <h1 className="internal-hero-title">Privat koloskopi – utan remiss</h1>
+          <h1 className="internal-hero-title">
+            Privat koloskopi – utan remiss
+          </h1>
           <p className="internal-hero-text">
-            En koloskopi undersöker tjocktarm och ändtarm med en böjlig kamera. Här går vi igenom
-            när den behövs, hur den går till, laxeringen inför undersökningen och väntetid –
-            och hur du hittar en privat mottagning.
+            Som självbetalande kan du boka privat koloskopi utan remiss.
+            Mottagningen gör en medicinsk bedömning inför undersökningen för att
+            säkerställa att koloskopi är rätt undersökning för dig.
           </p>
+          <div className="mt-6 flex flex-wrap items-center gap-4">
+            <Link
+              href="#tidsforfragan"
+              className="inline-flex rounded-xl bg-brand-600 px-6 py-3.5 font-semibold text-white shadow-[0_12px_28px_rgba(13,148,136,0.24)] transition hover:-translate-y-0.5 hover:bg-brand-700"
+            >
+              Begär tid utan remiss
+            </Link>
+            <span className="text-sm font-medium text-ink-700">
+              Kostnadsfritt och utan förpliktelser
+            </span>
+          </div>
           <PageVisual visual={visual} className="mt-10" priority />
         </div>
       </div>
@@ -87,7 +103,9 @@ export default function PrivatKoloskopiPage() {
       <div className="content-shell">
         <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
           <article className="article-body readable-card p-6 sm:p-8">
-            <h2 className="article-section-title text-2xl font-bold">Vad är en koloskopi?</h2>
+            <h2 className="article-section-title text-2xl font-bold">
+              Vad är en koloskopi?
+            </h2>
             <Prose
               paragraphs={[
                 "En **koloskopi** är en undersökning av **ändtarm** och **tjocktarm** med ett böjligt instrument som har en kamera i änden. Läkaren för in instrumentet via ändtarmsöppningen och kan se tarmens slemhinna direkt på en skärm.",
@@ -104,7 +122,9 @@ export default function PrivatKoloskopiPage() {
               ]}
             />
 
-            <h2 className="article-section-title mt-10 text-2xl font-bold">När behövs en koloskopi?</h2>
+            <h2 className="article-section-title mt-10 text-2xl font-bold">
+              När behövs en koloskopi?
+            </h2>
             <Prose
               paragraphs={[
                 "En koloskopi kan vara aktuell när symtom från tjocktarmen behöver utredas eller när en känd tarmsjukdom ska följas upp. Vanliga anledningar är:",
@@ -119,7 +139,9 @@ export default function PrivatKoloskopiPage() {
               <li>Uppföljning av inflammatorisk tarmsjukdom (IBD)</li>
               <li>Misstänkt inflammation</li>
               <li>Ärftlig risk för tarmsjukdom</li>
-              <li>Andra symtom där en medicinsk bedömning talar för undersökning</li>
+              <li>
+                Andra symtom där en medicinsk bedömning talar för undersökning
+              </li>
             </ul>
 
             <h2 className="article-section-title mt-10 text-2xl font-bold">
@@ -127,7 +149,7 @@ export default function PrivatKoloskopiPage() {
             </h2>
             <Prose
               paragraphs={[
-                "Vägen in beror på finansieringen. Som **självbetalande** kan du ofta boka direkt hos en privat mottagning utan remiss. Har du en **sjukvårdsförsäkring** går du normalt via försäkringsbolaget, som avgör vad som täcks. Inom **regionfinansierad vård** krävs oftast en remiss och undersökningen följer regionens rutiner. Kontrollera alltid vad som gäller hos den mottagning du väljer.",
+                "Som **självbetalande** kan du boka privat koloskopi utan remiss. Innan undersökningen gör mottagningen en medicinsk bedömning för att säkerställa att koloskopi är rätt undersökning för dig. Har du en **sjukvårdsförsäkring** går du normalt via försäkringsbolaget, som avgör vad som täcks. Inom **regionfinansierad vård** krävs oftast en remiss och undersökningen följer regionens rutiner.",
               ]}
             />
 
@@ -151,7 +173,9 @@ export default function PrivatKoloskopiPage() {
               ]}
             />
 
-            <h2 className="article-section-title mt-10 text-2xl font-bold">Så går undersökningen till</h2>
+            <h2 className="article-section-title mt-10 text-2xl font-bold">
+              Så går undersökningen till
+            </h2>
             <Prose
               paragraphs={[
                 "En koloskopi följer vanligen några typiska steg. Efter förberedelse och laxering för läkaren in det böjliga instrumentet via ändtarmen. **Luft eller koldioxid** används ofta för att vidga tarmen så att slemhinnan syns bättre, vilket kan ge en tillfällig känsla av uppblåsthet.",
@@ -159,7 +183,9 @@ export default function PrivatKoloskopiPage() {
               ]}
             />
 
-            <h2 className="article-section-title mt-10 text-2xl font-bold">Förberedelser och laxering</h2>
+            <h2 className="article-section-title mt-10 text-2xl font-bold">
+              Förberedelser och laxering
+            </h2>
             <ul className="mt-4 space-y-2 text-ink-700">
               <li>Tarmrengöring (laxering) enligt mottagningens schema</li>
               <li>Exakt schema för laxermedlet från kliniken</li>
@@ -168,7 +194,9 @@ export default function PrivatKoloskopiPage() {
               <li>Blodförtunnande mediciner ska stämmas av med vårdgivaren</li>
               <li>Diabetesmediciner ska stämmas av med vårdgivaren</li>
               <li>En tillräcklig rengöring är avgörande för resultatet</li>
-              <li>Ordna transport – lugnande medicin kan påverka körförmågan</li>
+              <li>
+                Ordna transport – lugnande medicin kan påverka körförmågan
+              </li>
             </ul>
             <Prose
               paragraphs={[
@@ -176,7 +204,9 @@ export default function PrivatKoloskopiPage() {
               ]}
             />
 
-            <h2 className="article-section-title mt-10 text-2xl font-bold">När ska du söka vård direkt?</h2>
+            <h2 className="article-section-title mt-10 text-2xl font-bold">
+              När ska du söka vård direkt?
+            </h2>
             <div className="warning-card mt-4 p-5">
               <p className="text-ink-800">Sök akut vård eller ring 112 vid:</p>
               <ul className="mt-3 space-y-2 text-ink-800">
@@ -188,8 +218,8 @@ export default function PrivatKoloskopiPage() {
                 <li>Akut och snabb försämring</li>
               </ul>
               <p className="mt-3 text-ink-800">
-                Vid akuta symtom – ring 112 eller sök akutmottagning. Använd aldrig vårt formulär i
-                en akut situation.
+                Vid akuta symtom – ring 112 eller sök akutmottagning. Använd
+                aldrig vårt formulär i en akut situation.
               </p>
             </div>
 
@@ -201,8 +231,18 @@ export default function PrivatKoloskopiPage() {
                 "Specialistdirekt är en kostnadsfri förmedlingstjänst. Du beskriver ditt behov, så hjälper vi dig att hitta en privat mottagning för koloskopi. Tillgång och pris beror på mottagningen, och vi ger ingen medicinsk rådgivning. Vill du läsa mer om specialisten bakom undersökningen? Se [privat gastroenterolog](/privat-gastroenterolog). Ska övre magtarmkanalen undersökas kan i stället en [gastroskopi](/privat-gastroskopi) vara aktuell.",
               ]}
             />
-            <div className="mt-6">
-              <LeadForm defaultSpecialty="gastroenterolog" />
+            <div id="tidsforfragan" className="mt-6 scroll-mt-28">
+              <h2 className="text-2xl font-bold text-ink-900">
+                Begär tid utan remiss
+              </h2>
+              <p className="mt-2 text-ink-700">
+                Skicka en kostnadsfri tidsförfrågan. Du får information om
+                möjlig tid, aktuellt pris och vad som ingår innan du bestämmer
+                dig.
+              </p>
+              <div className="mt-6">
+                <LeadForm defaultSpecialty="gastroenterolog" />
+              </div>
             </div>
 
             <MedicalDisclaimer />

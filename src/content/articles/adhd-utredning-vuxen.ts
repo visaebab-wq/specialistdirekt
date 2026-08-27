@@ -142,6 +142,18 @@ export const article: Article = {
       ],
     },
   ],
+  sources: [
+    {
+      label: "Adhd",
+      url: "https://www.1177.se/sjukdomar--besvar/hjarna-och-nerver/neuropsykiatriska-funktionsnedsattningar/adhd/",
+      publisher: "1177 Vårdguiden",
+    },
+    {
+      label: "Neuropsykiatrisk utredning",
+      url: "https://www.1177.se/undersokning-behandling/undersokningar-och-provtagning/psykiatriska-utredningar/neuropsykiatrisk-utredning/",
+      publisher: "1177 Vårdguiden",
+    },
+  ],
   faqs: [
     {
       question: "Hur vet jag om jag bör göra en ADHD-utredning som vuxen?",

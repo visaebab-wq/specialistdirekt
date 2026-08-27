@@ -18,14 +18,14 @@ export const article: Article = {
     "sjukvårdsförsäkring reumatolog",
   ],
   excerpt:
-    "Privat reumatolog kan vara aktuellt vid ledvärk, svullna leder och misstänkt reumatism. Vi går igenom kostnad från cirka 3 000 kr, remiss, väntetid och försäkring.",
+    "Det kan vara aktuellt med en privat reumatolog vid ledvärk, svullna leder och misstänkt reumatism. Vi går igenom kostnad från cirka 3 000 kr, remiss, väntetid och försäkring.",
   published: "2026-06-24",
   updated: "2026-06-24",
   readMinutes: 9,
   wordCount: 1450,
   relatedSpecialty: "reumatolog",
   summary: [
-    "En privat reumatologisk bedömning börjar ofta **från cirka 3 000 kr** och uppåt; en mer omfattande utredning kan hamna på 5 000–15 000 kr eller mer.",
+    "En privat reumatologisk bedömning kostar ofta **från cirka 3 000 kr** och uppåt; en mer omfattande utredning kan hamna på 5 000–15 000 kr eller mer.",
     "Sjukvårdsförsäkring kan ibland täcka kostnaden.",
     "Aktuellt vid svullna leder, långvarig ledvärk, morgonstelhet, misstänkt reumatism, gikt eller psoriasisartrit.",
     "[Specialistdirekt](/kontakt) hjälper dig skicka en bokningsförfrågan till en relevant privat mottagning.",
@@ -53,7 +53,7 @@ export const article: Article = {
       id: "kostnad",
       heading: "Kort svar: vad kostar privat reumatolog?",
       body: [
-        "Ett privat besök eller en privat reumatologisk utredning börjar ofta **från cirka 3 000 kr** och uppåt, beroende på mottagning, ort, besökets omfattning och vad som behöver ingå.",
+        "Ett privat besök eller en privat reumatologisk utredning kostar ofta **från cirka 3 000 kr** och uppåt, beroende på mottagning, ort, besökets omfattning och vad som behöver ingå.",
         "Om utredningen kräver blodprover, röntgen, ultraljud av leder, MR, injektionsbehandling eller uppföljande specialistbesök kan kostnaden bli högre. En mer omfattande privat reumatologisk utredning kan därför hamna på **5 000–15 000 kr eller mer**.",
         "Har du privat sjukvårdsförsäkring kan försäkringen i vissa fall täcka hela eller delar av kostnaden, beroende på avtal, om ärendet godkänns, om mottagningen ingår i nätverket och om utredningen bedöms medicinskt motiverad. Be alltid mottagningen eller försäkringsbolaget bekräfta pris och villkor innan du bokar.",
       ],
@@ -160,7 +160,7 @@ export const article: Article = {
     },
     {
       id: "pris-paverkan",
-      heading: "Vad påverkar priset hos privat reumatolog?",
+      heading: "Vad påverkar priset hos en privat reumatolog?",
       body: [
         "Specialistdirekt avgör inte vilken undersökning eller behandling du behöver. Flera faktorer påverkar priset:",
       ],
@@ -177,9 +177,9 @@ export const article: Article = {
     },
     {
       id: "vantetid",
-      heading: "Hur snabbt kan man få tid hos privat reumatolog?",
+      heading: "Hur snabbt kan man få tid hos en privat reumatolog?",
       body: [
-        "En privat reumatologisk bedömning börjar ofta **från cirka 3 000 kr** och uppåt. Om flera undersökningar, prover eller uppföljningar behövs kan totalpriset bli betydligt högre.",
+        "En privat reumatologisk bedömning kostar ofta **från cirka 3 000 kr** och uppåt. Om flera undersökningar, prover eller uppföljningar behövs kan totalpriset bli betydligt högre.",
         "Väntetiden varierar mellan mottagningar och orter. Reumatologi är ett specialistområde där tillgängligheten ibland kan vara begränsad. I privat specialistvård kan en första bedömning ibland gå snabbare än via offentlig vård, men det beror på kapacitet, ort och typ av besvär. Specialistdirekt kan inte garantera en viss tid. Läs gärna mer om [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
       ],
     },
@@ -233,7 +233,7 @@ export const article: Article = {
       id: "sammanfattning",
       heading: "Sammanfattning",
       body: [
-        "Privat reumatolog kan vara aktuellt vid svullna leder, långvarig ledvärk, morgonstelhet, misstänkt reumatisk sjukdom, gikt eller psoriasisartrit. En privat reumatologisk bedömning börjar ofta **från cirka 3 000 kr** och uppåt. Om provtagning, bilddiagnostik eller uppföljning behövs kan totalpriset bli högre. I vissa fall kan sjukvårdsförsäkring täcka kostnaden.",
+        "Det kan vara aktuellt med en privat reumatolog vid svullna leder, långvarig ledvärk, morgonstelhet, misstänkt reumatisk sjukdom, gikt eller psoriasisartrit. En privat reumatologisk bedömning kostar ofta **från cirka 3 000 kr** och uppåt. Om provtagning, bilddiagnostik eller uppföljning behövs kan totalpriset bli högre. I vissa fall kan sjukvårdsförsäkring täcka kostnaden.",
         "Har du ont i ryggen och är osäker på vart du ska vända dig kan du också läsa vår guide om [ont i ryggen – vilken läkare](/artiklar/ont-i-ryggen-vilken-lakare). Du väljer specialist, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Vi hjälper dig vidare till en privat mottagning som kan vara relevant för ditt behov.",
       ],
     },
@@ -247,7 +247,7 @@ export const article: Article = {
     {
       question: "Vad kostar privat reumatolog?",
       answer:
-        "En privat reumatologisk bedömning börjar ofta från cirka 3 000 kr och uppåt. Om prover, bilddiagnostik, injektionsbehandling eller uppföljningar behövs kan totalpriset bli högre.",
+        "En privat reumatologisk bedömning kostar ofta från cirka 3 000 kr och uppåt. Om prover, bilddiagnostik, injektionsbehandling eller uppföljningar behövs kan totalpriset bli högre.",
     },
     {
       question: "Kan sjukvårdsförsäkring betala reumatolog?",

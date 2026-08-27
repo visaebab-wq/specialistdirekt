@@ -93,7 +93,7 @@ export const article: Article = {
       id: "nar-aktuellt",
       heading: "När kan privat MR rygg vara aktuellt?",
       body: [
-        "Privat MR rygg kan vara aktuellt om du har rygg- eller nervsymtom där vårdgivare bedömer att bilddiagnostik kan behövas, och du vill undersöka privata alternativ. Det kan till exempel gälla om:",
+        "Det kan vara aktuellt med en privat MR rygg om du har rygg- eller nervsymtom där vårdgivare bedömer att bilddiagnostik kan behövas, och du vill undersöka privata alternativ. Det kan till exempel gälla om:",
       ],
       bullets: [
         "du har långvarig ryggsmärta",
@@ -251,7 +251,7 @@ export const article: Article = {
       id: "sammanfattning",
       heading: "Sammanfattning",
       body: [
-        "Privat MR rygg kan vara aktuellt vid långvarig ryggsmärta, misstänkt diskbråck, ischias, nervpåverkan, domningar, svaghet eller behov av specialistbedömning. En riktad privat MR rygg börjar ofta från cirka **8 000 kr och uppåt**, medan mer omfattande undersökningar som helrygg kan kosta betydligt mer. I vissa fall kan sjukvårdsförsäkring täcka hela eller delar av kostnaden.",
+        "Det kan vara aktuellt med en privat MR rygg vid långvarig ryggsmärta, misstänkt diskbråck, ischias, nervpåverkan, domningar, svaghet eller behov av specialistbedömning. En riktad privat MR rygg kostar ofta från cirka **8 000 kr och uppåt**, medan mer omfattande undersökningar som helrygg kan kosta betydligt mer. I vissa fall kan sjukvårdsförsäkring täcka hela eller delar av kostnaden.",
         "Specialistdirekt hjälper dig vidare. Du beskriver dina besvär, anger önskat område och skickar en [bokningsförfrågan](/kontakt) till relevant privat mottagning eller specialist.",
       ],
     },

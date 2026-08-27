@@ -92,7 +92,7 @@ export const city: City = {
             "Ja. Som självbetalande kan du hos många privata mottagningar boka utan remiss, via egen vårdbegäran. Inom regionfinansierad vård krävs oftast remiss från vårdcentralen. Vad som gäller beror på mottagning och finansiering – vi hjälper dig kostnadsfritt att reda ut vägen in.",
         },
         {
-          question: "Vad kostar ett privat besök hos kardiolog i Mölndal?",
+          question: "Vad kostar ett privat besök hos en kardiolog i Mölndal?",
           answer:
             "Från cirka 3 000 kr. Det är ett frånpris för själva läkarbesöket – undersökningar som EKG, hjärtultraljud, långtids-EKG eller arbetsprov prissätts ofta separat, så slutsumman beror på vad läkaren bedömer att du behöver. Be alltid om ett samlat pris i förväg.",
         },
@@ -274,7 +274,7 @@ export const city: City = {
             "Ja. Som självbetalande kan du oftast boka direkt, utan remiss. Har du en sjukvårdsförsäkring går du normalt via försäkringsbolaget. Reglerna varierar mellan mottagningar – vi hjälper dig kostnadsfritt att reda ut vägen in.",
         },
         {
-          question: "Vad kostar ett besök hos privat allmänläkare i Mölndal?",
+          question: "Vad kostar ett besök hos en privat allmänläkare i Mölndal?",
           answer:
             "Från cirka 3 000 kr. Det är ett frånpris för själva besöket – prover och kompletterande undersökningar prissätts ofta separat, så slutsumman beror på vad läkaren bedömer att du behöver. Be alltid om ett samlat pris i förväg.",
         },
@@ -393,7 +393,7 @@ export const city: City = {
             "Nej, inget beställs rutinmässigt. Läkaren träffar dig, går igenom symtom och sjukhistoria och avgör sedan vad som är medicinskt motiverat. En stor del av utredningarna stannar vid samtal och prover.",
         },
         {
-          question: "Vad kostar ett privat besök hos gastroenterolog?",
+          question: "Vad kostar ett privat besök hos en gastroenterolog?",
           answer:
             "Priser varierar mellan mottagningar och det finns inget enhetligt pris. Konsultation, provtagning och eventuell endoskopi prissätts ofta separat. Vi anger inga fasta belopp – be alltid om ett samlat pris i förväg och fråga vad som ingår. Se [privat gastroenterolog: kostnad](/artiklar/privat-gastroenterolog-kostnad).",
         },

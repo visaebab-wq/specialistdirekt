@@ -105,7 +105,7 @@ export const article: Article = {
         "Priserna nedan är **ungefärliga** och **varierar** kraftigt mellan kliniker och orter. Ofta tillkommer undersökningar som gastroskopi eller koloskopi utöver själva läkarbesöket, så det är summan av delarna som avgör din slutkostnad. Be alltid kliniken om ett samlat pris innan du bokar.",
       ],
       bullets: [
-        "Nybesök hos privat gastroenterolog: ungefär 1 500–3 500 kr",
+        "Nybesök hos en privat gastroenterolog: ungefär 1 500–3 500 kr",
         "Gastroskopi (kameraundersökning av magsäcken): ungefär 5 000–10 000 kr",
         "Koloskopi (kameraundersökning av tjocktarmen): ungefär 6 000–12 000 kr",
         "Enklare blod- och avföringsprover: ofta några hundra kronor",
@@ -115,7 +115,7 @@ export const article: Article = {
       id: "vid-besoket",
       heading: "Vad händer vid ett gastroenterologbesök?",
       body: [
-        "Ett besök hos gastroenterolog börjar med ett samtal om dina besvär: när det började, var det gör ont, vad som utlöser eller lindrar smärtan, hur dina tarmvanor ser ut och om du märkt något av varningstecknen ovan. Därefter följer en undersökning av magen.",
+        "Ett besök hos en gastroenterolog börjar med ett samtal om dina besvär: när det började, var det gör ont, vad som utlöser eller lindrar smärtan, hur dina tarmvanor ser ut och om du märkt något av varningstecknen ovan. Därefter följer en undersökning av magen.",
         "Utifrån samtalet och undersökningen avgör specialisten om fler undersökningar behövs. **Gastroskopi** innebär att en tunn slang med kamera förs ned via munnen för att titta på matstrupe och magsäck, medan **koloskopi** undersöker tjocktarmen på motsvarande sätt. Blodprover och avföringsprover används ofta som komplement. Alla magbesvär kräver inte kameraundersökning – ibland räcker samtal, prover och en behandlingsplan.",
         "Behandlingen anpassas efter orsaken och kan vara allt från kost- och livsstilsråd till läkemedel eller fortsatt utredning. Är du osäker på vilken specialist du behöver kan du bläddra bland fler [specialiteter](/specialiteter).",
       ],
@@ -128,6 +128,13 @@ export const article: Article = {
         "Vill du veta exakt hur förmedlingen går till steg för steg kan du läsa [så fungerar det](/sa-fungerar-det). Är du redo att komma vidare, fyll i en förfrågan via [kontaktsidan](/kontakt) så återkommer vi med förslag på lämplig specialist.",
         "Kom ihåg att priserna i den här guiden är ungefärliga och kan ha ändrats. Det säkraste är alltid att be den aktuella kliniken om ett bekräftat pris innan du bokar.",
       ],
+    },
+  ],
+  sources: [
+    {
+      label: "Ont i magen hos vuxna",
+      url: "https://www.1177.se/sjukdomar--besvar/mage-och-tarm/magsack-och-matstrupe/ont-i-magen-hos-vuxna/",
+      publisher: "1177 Vårdguiden",
     },
   ],
   faqs: [
@@ -152,9 +159,9 @@ export const article: Article = {
         "Hos de flesta **privata** mottagningar behövs ingen remiss – du kan boka direkt. I offentlig vård krävs ofta remiss från vårdcentral, men många regioner tillåter egenremiss. Läs mer i vår guide om att [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
     },
     {
-      question: "Vad kostar ett privat besök hos gastroenterolog?",
+      question: "Vad kostar ett privat besök hos en gastroenterolog?",
       answer:
-        "Ett nybesök hos privat gastroenterolog kostar **ungefärligt** 1 500–3 500 kr. Undersökningar som gastroskopi och koloskopi tillkommer ofta separat. Alla siffror är ungefärliga och **varierar** mellan kliniker och orter, så be alltid om ett samlat pris i förväg.",
+        "Ett nybesök hos en privat gastroenterolog kostar **ungefärligt** 1 500–3 500 kr. Undersökningar som gastroskopi och koloskopi tillkommer ofta separat. Alla siffror är ungefärliga och **varierar** mellan kliniker och orter, så be alltid om ett samlat pris i förväg.",
     },
     {
       question: "Vad kostar det att använda Specialistdirekt?",

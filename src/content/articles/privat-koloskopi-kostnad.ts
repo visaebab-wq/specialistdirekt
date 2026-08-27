@@ -90,7 +90,7 @@ export const article: Article = {
       id: "nar-aktuellt",
       heading: "När kan privat koloskopi vara aktuellt?",
       body: [
-        "Privat koloskopi kan vara aktuellt när du behöver utredning av tjocktarmen och vill undersöka privata alternativ, kortare väntetid eller en sjukvårdsförsäkring. Det gäller till exempel om:",
+        "Det kan vara aktuellt med en privat koloskopi när du behöver utredning av tjocktarmen och vill undersöka privata alternativ, kortare väntetid eller en sjukvårdsförsäkring. Det gäller till exempel om:",
       ],
       bullets: [
         "du har remiss men lång väntetid",
@@ -133,7 +133,7 @@ export const article: Article = {
       heading: "Behöver man remiss till privat koloskopi?",
       body: [
         "Det beror på mottagning och vårdväg. Det finns tre vanliga vägar:",
-        "**1. Via remiss:** Du börjar hos vårdcentral eller [gastroenterolog](/specialiteter/gastroenterolog) som vid behov skriver remiss till en endoskopimottagning. Det är vanligt vid till exempel blod i avföringen, järnbrist eller långvarig diarré.",
+        "**1. Via remiss:** Du börjar på en vårdcentral eller hos en [gastroenterolog](/specialiteter/gastroenterolog) som vid behov skriver en remiss till en endoskopimottagning. Det är vanligt vid till exempel blod i avföringen, järnbrist eller långvarig diarré.",
         "**2. Privatbetalande:** Vissa mottagningar tar emot privatbetalande patienter, men går ändå ofta igenom dina symtom först innan koloskopi bokas.",
         "**3. Via sjukvårdsförsäkring:** Försäkringsbolaget bedömer ärendet och hänvisar till en ansluten mottagning. Läs gärna mer om [att boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
       ],
@@ -158,7 +158,7 @@ export const article: Article = {
       id: "pris-paverkan",
       heading: "Vad påverkar priset på privat koloskopi?",
       body: [
-        "Priset på en privat koloskopi börjar ofta från cirka 8 800 kr, men flera saker kan göra totalpriset betydligt högre:",
+        "En privat koloskopi kostar ofta från cirka 8 800 kr, men flera saker kan göra totalpriset betydligt högre:",
       ],
       bullets: [
         "om det är enbart koloskopi eller en kombinerad undersökning",
@@ -292,7 +292,7 @@ export const article: Article = {
       id: "sammanfattning",
       heading: "Sammanfattning",
       body: [
-        "Privat koloskopi kan vara aktuellt vid blod i avföringen, långvarig diarré, förändrade avföringsvanor, misstänkta polyper, uppföljning, järnbrist eller vidare mag- och tarmutredning. Priset börjar ofta från cirka **8 800 kr**, och tillägg som vävnadsprover, polypborttagning, sedering, narkos och uppföljning kan göra det högre.",
+        "Det kan vara aktuellt med en privat koloskopi vid blod i avföringen, långvarig diarré, förändrade avföringsvanor, misstänkta polyper, uppföljning, järnbrist eller vidare mag- och tarmutredning. Priset ligger ofta på minst **8 800 kr**, och tillägg som vävnadsprover, polypborttagning, sedering, narkos och uppföljning kan göra det högre.",
         "Sjukvårdsförsäkring kan i vissa fall täcka kostnaden. Specialistdirekt ställer ingen diagnos, men hjälper dig vidare med en [bokningsförfrågan](/kontakt) till en relevant privat mottagning för ditt behov och din ort.",
       ],
     },

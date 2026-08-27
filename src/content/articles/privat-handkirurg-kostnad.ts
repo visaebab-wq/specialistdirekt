@@ -25,7 +25,7 @@ export const article: Article = {
   readMinutes: 10,
   wordCount: 2050,
   summary: [
-    "En första bedömning hos privat handkirurg börjar ofta **från cirka 3 000 kr**, en mindre åtgärd 8 000–25 000 kr och en operation 12 000–40 000 kr eller mer.",
+    "En första bedömning hos en privat handkirurg kostar ofta **från cirka 3 000 kr**, en mindre åtgärd 8 000–25 000 kr och en operation 12 000–40 000 kr eller mer.",
     "Har du privat sjukvårdsförsäkring kan den ofta täcka hela eller delar av kostnaden för bedömning, utredning och operation, beroende på dina villkor.",
     "Aktuellt vid karpaltunnelsyndrom, triggerfinger, Dupuytrens kontraktur, ganglion, tumbasartros, handledsbesvär eller besvär efter en skada.",
     "[Specialistdirekt](/kontakt) hjälper dig skicka en bokningsförfrågan till en relevant privat mottagning.",
@@ -52,7 +52,7 @@ export const article: Article = {
       id: "kostnad",
       heading: "Kort svar: vad kostar privat handkirurg?",
       body: [
-        "En första bedömning eller ett första besök hos privat handkirurg börjar ofta från cirka **3 000 kr** och varierar uppåt beroende på mottagning, ort och vad besöket omfattar.",
+        "En första bedömning eller ett första besök hos en privat handkirurg kostar ofta från cirka **3 000 kr** och varierar uppåt beroende på mottagning, ort och vad besöket omfattar.",
         "En mindre åtgärd, till exempel en injektion eller ett enklare ingrepp i lokalbedövning, kan kosta ungefär **8 000–25 000 kr eller mer**. En operation, exempelvis vid karpaltunnelsyndrom, triggerfinger eller Dupuytrens kontraktur, ligger ofta i intervallet **12 000–40 000 kr eller mer** beroende på ingreppets omfattning, narkos och eftervård.",
         "**Har du privat sjukvårdsförsäkring kan du ofta få hjälp med betalningen** – försäkringen kan täcka hela eller delar av kostnaden, beroende på dina villkor. Om mottagningen arbetar på uppdrag av regionen kan vanlig patientavgift gälla, men då kan remiss eller egen vårdbegäran krävas.",
       ],
@@ -184,9 +184,9 @@ export const article: Article = {
     },
     {
       id: "pris-paverkan",
-      heading: "Vad påverkar priset hos privat handkirurg?",
+      heading: "Vad påverkar priset hos en privat handkirurg?",
       body: [
-        "Priset hos en privat handkirurg beror på flera saker. En första bedömning eller ett besök börjar ofta från cirka **3 000 kr**, en mindre åtgärd kan kosta ungefär **8 000–25 000 kr eller mer** och en operation ligger ofta i intervallet **12 000–40 000 kr eller mer**. Priset påverkas bland annat av:",
+        "Priset hos en privat handkirurg beror på flera saker. En första bedömning eller ett besök kostar ofta från cirka **3 000 kr**, en mindre åtgärd kan kosta ungefär **8 000–25 000 kr eller mer** och en operation ligger ofta i intervallet **12 000–40 000 kr eller mer**. Priset påverkas bland annat av:",
       ],
       bullets: [
         "om det är ett första besök, en utredning eller en åtgärd",
@@ -237,7 +237,7 @@ export const article: Article = {
       id: "sammanfattning",
       heading: "Sammanfattning",
       body: [
-        "Privat handkirurg kan vara aktuellt vid besvär i hand, handled, fingrar, nerver och senor – till exempel karpaltunnelsyndrom, triggerfinger, Dupuytrens kontraktur, ganglion, tumbasartros eller besvär efter skada. En första bedömning börjar ofta från cirka **3 000 kr**, en mindre åtgärd kostar ungefär **8 000–25 000 kr eller mer** och en operation ofta **12 000–40 000 kr eller mer**. Med privat sjukvårdsförsäkring kan du ofta få hjälp med betalningen. Vissa besvär ska bedömas akut, och remisskrav och väntetid skiljer sig mellan mottagningar.",
+        "Det kan vara aktuellt med en privat handkirurg vid besvär i hand, handled, fingrar, nerver och senor – till exempel karpaltunnelsyndrom, triggerfinger, Dupuytrens kontraktur, ganglion, tumbasartros eller besvär efter skada. En första bedömning kostar ofta från cirka **3 000 kr**, en mindre åtgärd kostar ungefär **8 000–25 000 kr eller mer** och en operation ofta **12 000–40 000 kr eller mer**. Med privat sjukvårdsförsäkring kan du ofta få hjälp med betalningen. Vissa besvär ska bedömas akut, och remisskrav och väntetid skiljer sig mellan mottagningar.",
         "Du väljer specialist, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Vi hjälper dig vidare till en privat mottagning som kan vara relevant för ditt behov. Vill du läsa mer om skillnaderna mellan privat och offentlig vård finns vår guide om [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
       ],
     },
@@ -251,7 +251,7 @@ export const article: Article = {
     {
       question: "Vad kostar privat handkirurg?",
       answer:
-        "En första bedömning börjar ofta från cirka 3 000 kr. En mindre åtgärd kostar ungefär 8 000–25 000 kr eller mer, och en operation ofta 12 000–40 000 kr eller mer beroende på ingrepp, narkos och eftervård.",
+        "En första bedömning kostar ofta från cirka 3 000 kr. En mindre åtgärd kostar ungefär 8 000–25 000 kr eller mer, och en operation ofta 12 000–40 000 kr eller mer beroende på ingrepp, narkos och eftervård.",
     },
     {
       question: "Kan sjukvårdsförsäkring täcka handkirurg?",

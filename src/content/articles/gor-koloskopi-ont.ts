@@ -89,11 +89,33 @@ export const article: Article = {
       ],
     },
     {
+      id: "nar-soka-vard-efterat",
+      heading: "När ska du söka vård efter undersökningen?",
+      body: [
+        "Komplikationer efter koloskopi är ovanliga, men de kan komma först när du kommit hem. Lätt uppblåsthet och gaser är väntat. Följande är det inte – då ska du söka vård akut, och ringa **112** om du blir allmänpåverkad:",
+      ],
+      bullets: [
+        "Kraftig eller tilltagande buksmärta som inte ger med sig",
+        "Hård, spänd buk",
+        "Feber eller frossa",
+        "Riklig blödning från ändtarmen, eller blödning som inte avtar",
+        "Yrsel, svimningskänsla eller kraftig hjärtklappning",
+      ],
+      bulletTone: "warning",
+    },
+    {
       id: "boka",
       heading: "Boka privat koloskopi",
       body: [
         "Söker du privat kan du läsa mer och skicka en tidsförfrågan på sidan om [privat koloskopi i Göteborg](/privat-koloskopi/goteborg). Där får du information om vilka alternativ för lugnande som finns och vad som ingår innan du bestämmer dig. Vad en privat koloskopi kan kosta går vi igenom i [privat koloskopi: kostnad](/artiklar/privat-koloskopi-kostnad).",
       ],
+    },
+  ],
+  sources: [
+    {
+      label: "Koloskopi",
+      url: "https://www.1177.se/undersokning-behandling/undersokningar-och-provtagning/undersokning-och-behandling-med-endoskopi/koloskopi/",
+      publisher: "1177 Vårdguiden",
     },
   ],
   faqs: [

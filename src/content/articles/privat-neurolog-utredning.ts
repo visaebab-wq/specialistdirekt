@@ -25,7 +25,7 @@ export const article: Article = {
   wordCount: 1420,
   relatedSpecialty: "neurolog",
   summary: [
-    "Ett första besök hos privat neurolog börjar ofta **från cirka 3 000 kr**, och en omfattande utredning kan kosta 5 000–20 000 kr eller mer.",
+    "Ett första besök hos en privat neurolog kostar ofta **från cirka 3 000 kr**, och en omfattande utredning kan kosta 5 000–20 000 kr eller mer.",
     "Sjukvårdsförsäkring kan ibland täcka kostnaden.",
     "Aktuellt vid huvudvärk, migrän, yrsel, domningar, nervsmärta, svaghet, tremor eller frågor kring ett MR-svar.",
     "[Specialistdirekt](/kontakt) hjälper dig skicka en bokningsförfrågan till en relevant privat mottagning.",
@@ -50,7 +50,7 @@ export const article: Article = {
       id: "kostnad",
       heading: "Kort svar: vad kostar privat neurolog?",
       body: [
-        "Ett första besök hos privat neurolog börjar ofta från **cirka 3 000 kr** och varierar uppåt beroende på mottagning, ort och vad besöket omfattar.",
+        "Ett första besök hos en privat neurolog börjar ofta från **cirka 3 000 kr** och varierar uppåt beroende på mottagning, ort och vad besöket omfattar.",
         "En **omfattande utredning kan kosta 5 000–20 000 kr eller mer**, exempelvis om den innehåller flera besök, bildundersökningar som MR, neurofysiologiska undersökningar och uppföljning. Ett kortare nybesök eller en konsultation ligger i den nedre delen av spannet.",
         "**Har du privat sjukvårdsförsäkring kan du ofta få hjälp med betalningen** – försäkringen kan täcka hela eller delar av kostnaden, beroende på dina villkor. Om mottagningen arbetar på uppdrag av regionen kan vanlig patientavgift gälla, men då kan remiss eller egen vårdbegäran krävas.",
       ],
@@ -124,7 +124,7 @@ export const article: Article = {
       id: "forsakring",
       heading: "Kan sjukvårdsförsäkring täcka neurolog?",
       body: [
-        "Privat sjukvårdsförsäkring kan ofta hjälpa till med betalningen för besök hos neurolog och för delar av en utredning. Villkoren skiljer sig åt mellan försäkringsbolag och avtal. Det är bra att känna till att:",
+        "Privat sjukvårdsförsäkring kan ofta hjälpa till med betalningen för besök hos en neurolog och för delar av en utredning. Villkoren skiljer sig åt mellan försäkringsbolag och avtal. Det är bra att känna till att:",
       ],
       bullets: [
         "försäkringen kan täcka hela eller delar av kostnaden för besök och utredning",
@@ -151,7 +151,7 @@ export const article: Article = {
     },
     {
       id: "pris-paverkan",
-      heading: "Vad påverkar priset hos privat neurolog?",
+      heading: "Vad påverkar priset hos en privat neurolog?",
       body: [
         "Priset varierar beroende på vad besöket och utredningen omfattar. Ett enklare nybesök börjar **från cirka 3 000 kr**, medan en **omfattande utredning kan kosta 5 000–20 000 kr eller mer**. Det som påverkar priset är bland annat:",
       ],
@@ -235,9 +235,21 @@ export const article: Article = {
       id: "sammanfattning",
       heading: "Sammanfattning",
       body: [
-        "Privat neurolog kan vara aktuellt vid besvär som huvudvärk, migrän, yrsel, domningar, stickningar, nervsmärta, svaghet, tremor eller frågor kring ett MR-svar. Ett första privatbesök börjar **från cirka 3 000 kr**, och en **omfattande utredning kan kosta 5 000–20 000 kr eller mer**. Med privat sjukvårdsförsäkring kan du ofta få hjälp med betalningen. Vid plötsliga, allvarliga symtom ska du alltid söka akut vård eller ringa 112.",
+        "Det kan vara aktuellt med en privat neurolog vid besvär som huvudvärk, migrän, yrsel, domningar, stickningar, nervsmärta, svaghet, tremor eller frågor kring ett MR-svar. Ett första privatbesök börjar **från cirka 3 000 kr**, och en **omfattande utredning kan kosta 5 000–20 000 kr eller mer**. Med privat sjukvårdsförsäkring kan du ofta få hjälp med betalningen. Vid plötsliga, allvarliga symtom ska du alltid söka akut vård eller ringa 112.",
         "Du väljer specialist, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Vi hjälper dig vidare till en privat mottagning som kan vara relevant för ditt behov. Vill du förstå skillnaderna mellan privat och offentlig vård kan du läsa mer om [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
       ],
+    },
+  ],
+  sources: [
+    {
+      label: "Yrsel",
+      url: "https://www.1177.se/sjukdomar--besvar/hjarna-och-nerver/yrsel-svimning-och-kramper/yrsel/",
+      publisher: "1177 Vårdguiden",
+    },
+    {
+      label: "Polyneuropati, en sjukdom i flera nerver",
+      url: "https://www.1177.se/sjukdomar--besvar/hjarna-och-nerver/nerver/polyneuropati-en-sjukdom-i-flera-nerver/",
+      publisher: "1177 Vårdguiden",
     },
   ],
   faqs: [

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { site } from "@/lib/site";
 import { getSpecialty } from "@/lib/specialties";
 import { getCitySpecialtyVisual } from "@/lib/medical-visuals";
+import { BOOKING_CTA_NOTE, BookingCtaBanner } from "@/components/BookingCtaBanner";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { FaqList } from "@/components/FaqList";
 import { PageVisual } from "@/components/PageVisual";
@@ -21,7 +22,7 @@ const abs = (p: string) => `${site.url}${p}`;
 export const metadata: Metadata = {
   title: "Dr. Masoud Sorkhabi – privat ortoped och ryggkirurg i Göteborg",
   description:
-    "Dr. Masoud Sorkhabi är specialist i ortopedi och ryggkirurgi i Göteborg med över 20 års erfarenhet av ortopedi och kirurgi – nack- och ryggbesvär, diskbråck samt kronisk och oförklarlig smärta. Fysiskt 2 000 kr, digitalt 1 000 kr – utan remiss.",
+    "Dr. Masoud Sorkhabi är specialist i ortopedi och ryggkirurgi i Göteborg med över 20 års erfarenhet av ortopedi och kirurgi – nack- och ryggbesvär, diskbråck samt kronisk och oförklarlig smärta. Besök i Göteborg 2 000 kr – utan remiss.",
   keywords: [
     "Masoud Sorkhabi",
     "Dr Masoud Sorkhabi ortoped",
@@ -34,13 +35,16 @@ export const metadata: Metadata = {
     type: "profile",
     title: "Dr. Masoud Sorkhabi – privat ortoped och ryggkirurg i Göteborg",
     description:
-      "Specialist i ortopedi och ryggkirurgi i Göteborg med över 20 års erfarenhet av ortopedi och kirurgi. Fysiskt 2 000 kr, digitalt 1 000 kr – utan remiss.",
+      "Specialist i ortopedi och ryggkirurgi i Göteborg med över 20 års erfarenhet av ortopedi och kirurgi. Besök i Göteborg 2 000 kr – utan remiss.",
     url: PATH,
   },
 };
 
 const facts: { label: string; value: string }[] = [
   { label: "Läkare", value: "Dr. Masoud Sorkhabi" },
+  // Titeln står här därför att artiklarnas byline ("Masoud Sorkhabi, överläkare")
+  // länkar hit. Påstår bylinen en titel måste sidan den pekar på bekräfta den.
+  { label: "Titel", value: "Överläkare" },
   { label: "Specialitet", value: "Specialist i ortopedi och ryggkirurgi" },
   {
     label: "Erfarenhet",
@@ -51,8 +55,8 @@ const facts: { label: string; value: string }[] = [
     value:
       "Nacke och ryggbesvär, diskbråck, kronisk och oförklarlig smärta, huvudvärk och migrän, axel- och armbågssmärta, höft/bäcken/knä",
   },
-  { label: "Ort", value: "Göteborg (fysiskt) · digitalt i hela Sverige" },
-  { label: "Pris", value: "Fysiskt besök 2 000 kr · digitalt videobesök 1 000 kr" },
+  { label: "Ort", value: "Göteborg" },
+  { label: "Pris", value: "2 000 kr – betalas på plats vid besöket" },
   { label: "Remiss", value: "Behövs inte för självbetalande" },
   { label: "Publikt omdöme", value: "4,9 av 5 · 63 omdömen på Reco" },
 ];
@@ -91,10 +95,10 @@ export default function MasoudSorkhabiPage() {
           <p className="internal-hero-text">
             Dr. Masoud Sorkhabi är specialist i ortopedi och ryggkirurgi i Göteborg och har över
             20 års erfarenhet av ortopedi och kirurgi. Inriktningen omfattar bland annat nack- och
-            ryggbesvär, diskbråck samt kronisk och oförklarlig smärta. Du kan boka ett fysiskt besök
-            i Göteborg eller ett digitalt videobesök från hela Sverige – utan remiss för
-            självbetalande.
+            ryggbesvär, diskbråck samt kronisk och oförklarlig smärta. Du kan boka ett besök i
+            Göteborg – utan remiss för självbetalande.
           </p>
+          <BookingCtaBanner href={BOOKING} label="Boka tid hos Dr. Masoud Sorkhabi" />
           <PageVisual visual={visual} className="mt-10 max-w-3xl" priority />
         </div>
       </div>
@@ -182,9 +186,7 @@ export default function MasoudSorkhabiPage() {
                 </li>
                 <li className="flex gap-3 text-ink-700">
                   <span aria-hidden className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" />
-                  <span>
-                    <strong>Digitalt videobesök – 1 000 kr</strong>, kan bokas från hela Sverige
-                  </span>
+                  <span>Betalas på plats vid besöket – ingen betalning sker när du bokar</span>
                 </li>
               </ul>
               <p className="mt-4">
@@ -269,16 +271,13 @@ export default function MasoudSorkhabiPage() {
                 <h2 className="text-lg font-bold text-ink-900">Boka tid direkt</h2>
                 <a
                   href={BOOKING}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-brand-600 px-6 py-3.5 text-center text-base font-semibold text-white shadow-[0_12px_28px_rgba(13,148,136,0.24)] transition-all hover:-translate-y-0.5 hover:bg-brand-700"
                 >
                   Boka tid hos Dr. Masoud Sorkhabi
                 </a>
-                <p className="mt-2 text-xs text-ink-500">
-                  Öppnar bokningskalendern i en ny flik. Du betalar i samband med bokningen –
-                  beloppet återbetalas om du avbokar.
-                </p>
+                {/* Samma text som bannern överst – sidan får inte säga två olika
+                    saker om samma bokning. */}
+                <p className="mt-2 text-xs text-ink-500">{BOOKING_CTA_NOTE}</p>
               </div>
             </aside>
           </div>
@@ -294,8 +293,14 @@ export default function MasoudSorkhabiPage() {
             "@context": "https://schema.org",
             "@type": "Person",
             "@id": `${abs(PATH)}#person`,
-            name: "Dr. Masoud Sorkhabi",
-            jobTitle: "Specialist i ortopedi och ryggkirurgi",
+            // Samma @id används av artiklarnas reviewedBy. Namn och jobTitle måste
+            // därför stämma överens med bylinen – annars beskriver två scheman
+            // samma entitet på två olika sätt. Båda titlarna är sanna: överläkare
+            // är tjänstetiteln, specialist i ortopedi och ryggkirurgi är
+            // specialiteten.
+            name: "Masoud Sorkhabi",
+            honorificPrefix: "Dr.",
+            jobTitle: ["Överläkare", "Specialist i ortopedi och ryggkirurgi"],
             description:
               "Specialist i ortopedi och ryggkirurgi i Göteborg med över 20 års erfarenhet av ortopedi och kirurgi – nack- och ryggbesvär, diskbråck samt kronisk och oförklarlig smärta. Medicinsk granskare för Specialistdirekts innehåll inom ortopedi och smärta.",
             knowsAbout: [

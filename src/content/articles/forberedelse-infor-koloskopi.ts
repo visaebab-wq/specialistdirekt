@@ -85,11 +85,32 @@ export const article: Article = {
       ],
     },
     {
+      id: "nar-kontakta-mottagningen",
+      heading: "När ska du kontakta vården under förberedelserna?",
+      body: [
+        "Laxeringen innebär att du tömmer tarmen och förlorar mycket vätska. Att må lite illa och känna sig hängig är vanligt. Kontakta mottagningen – eller **1177** när den är stängd – om något av det här händer, och ring **112** vid kraftig allmänpåverkan:",
+      ],
+      bullets: [
+        "Du kräks så mycket att du inte får i dig laxeringen eller vätskan",
+        "Kraftig buksmärta, spänd buk eller ingen tarmtömning alls trots laxering",
+        "Tecken på uttorkning: mycket lite urin, kraftig yrsel, förvirring",
+        "Du är osäker på hur dina vanliga läkemedel ska tas – särskilt blodförtunnande eller diabetesmedicin",
+      ],
+      bulletTone: "warning",
+    },
+    {
       id: "boka",
       heading: "Boka privat koloskopi",
       body: [
         "Söker du privat kan du läsa mer och skicka en tidsförfrågan på sidan om [privat koloskopi i Göteborg](/privat-koloskopi/goteborg). Du får då mottagningens exakta förberedelseinstruktioner inför besöket. Undrar du över kostnaden finns [privat koloskopi: kostnad](/artiklar/privat-koloskopi-kostnad).",
       ],
+    },
+  ],
+  sources: [
+    {
+      label: "Koloskopi",
+      url: "https://www.1177.se/undersokning-behandling/undersokningar-och-provtagning/undersokning-och-behandling-med-endoskopi/koloskopi/",
+      publisher: "1177 Vårdguiden",
     },
   ],
   faqs: [

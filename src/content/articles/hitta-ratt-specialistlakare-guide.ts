@@ -132,6 +132,18 @@ export const article: Article = {
       ],
     },
   ],
+  sources: [
+    {
+      label: "Remiss och egen vårdbegäran",
+      url: "https://www.1177.se/sa-fungerar-varden/att-valja-vardmottagning/remiss/",
+      publisher: "1177 Vårdguiden",
+    },
+    {
+      label: "Vårdgaranti",
+      url: "https://www.1177.se/sa-fungerar-varden/lagar-och-bestammelser/vardgaranti/",
+      publisher: "1177 Vårdguiden",
+    },
+  ],
   faqs: [
     {
       question: "Behöver jag remiss för att träffa en specialistläkare?",

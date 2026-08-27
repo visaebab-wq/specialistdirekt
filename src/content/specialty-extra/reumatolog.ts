@@ -7,7 +7,7 @@ export const extra: SpecialtyExtra = {
       heading: "Vad en reumatolog gör – och vanliga undersökningar",
       body: [
         "En reumatolog är en specialistläkare inom inflammatoriska sjukdomar i leder, muskler och bindväv – till exempel ledgångsreumatism (RA), psoriasisartrit, ankyloserande spondylit och systemiska bindvävssjukdomar.",
-        "En viktig del av arbetet är att skilja **inflammatorisk** ledsmärta från **belastnings- och slitagerelaterad** smärta, som ofta hör hemma hos ortoped eller fysioterapeut. Vanliga moment är:",
+        "En viktig del av arbetet är att skilja **inflammatorisk** ledsmärta från **belastnings- och slitagerelaterad** smärta, som ofta hör hemma hos en ortoped eller fysioterapeut. Vanliga moment är:",
         "Vilka prover och undersökningar som blir aktuella beror på frågeställningen – det är läkaren som avgör vad som är motiverat.",
       ],
       bullets: [

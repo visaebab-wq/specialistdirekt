@@ -4,11 +4,14 @@ export const extra: SpecialtyExtra = {
   bookingCta: {
     label: "Boka tid hos Dr. Masoud Sorkhabi",
     url: "/boka/ortoped-goteborg",
-    note: "Öppnar bokningskalendern i en ny flik. Du betalar i samband med bokningen – beloppet återbetalas om du avbokar.",
+    // Beskriver sajtens EGEN bokning. Den gamla texten ("öppnar i en ny flik",
+    // "du betalar i samband med bokningen") gällde patient.nu och stämde inte
+    // längre: bokningen sker här, ingen betalning sker vid bokningstillfället.
+    note: "Du väljer en tid och bekräftar den via en länk i mejlet. Kostnadsfri avbokning fram till 3 timmar före besöket.",
   },
   featureBox: {
     heading: "Privat ortoped i Göteborg",
-    body: "I Göteborg kan du boka direkt hos Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi med över 20 års erfarenhet av ortopedi och kirurgi. Fysiskt besök 2 000 kr eller digitalt videobesök i hela Sverige 1 000 kr – utan remiss.",
+    body: "I Göteborg kan du boka direkt hos Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi med över 20 års erfarenhet av ortopedi och kirurgi. Besöket kostar 2 000 kr och betalas på plats vid besöket – utan remiss.",
     ctaLabel: "Privat ortoped i Göteborg",
     ctaHref: "/specialiteter/ortoped/goteborg",
   },
@@ -42,7 +45,7 @@ export const extra: SpecialtyExtra = {
       heading: "Vanliga tillstånd en ortoped utreder",
       body: [
         "Ortopediska besvär spänner över hela kroppen, men vissa tillstånd är särskilt vanliga. Översikten nedan är allmän information och ersätter inte en individuell bedömning – endast en läkare kan avgöra vad just dina symtom beror på.",
-        "**Artros** innebär att ledbrosket gradvis förslits, oftast i knä och höft, och ger smärta, stelhet och nedsatt funktion. Mycket kan göras med träning, viktkontroll och smärtlindring innan en eventuell operation blir aktuell. **Menisk- och korsbandsskador** uppstår ofta vid idrott eller vridvåld mot knät och utreds med klinisk undersökning och vid behov MR.",
+        "**Artros** innebär att ledbrosket gradvis förslits, oftast i knä och höft, och ger smärta, stelhet och nedsatt funktion. Mycket kan göras med träning, viktkontroll och smärtlindring innan en eventuell operation blir aktuell. **Menisk- och korsbandsskador** uppstår ofta vid idrott eller vridvåld mot knät och utreds med klinisk undersökning och vid behov MR. Hakar knät upp sig eller låser det sig kan du läsa om [bedömning när knät låser sig](/kna-laser-sig).",
         "**Axelbesvär** omfattar bland annat inklämning, slemsäcksinflammation och senskador i rotatorkuffen, medan **höftbesvär** kan handla om artros, inklämning eller besvär i senfästen. Även hand-, fot- och ryggbesvär hör till ortopedins område. Den gemensamma nämnaren är att en strukturerad bedömning hjälper till att skilja besvär som läker med tid och träning från sådana som behöver mer aktiv åtgärd.",
       ],
       bullets: [
@@ -71,7 +74,7 @@ export const extra: SpecialtyExtra = {
     {
       question: "Vad kostar det att gå till en privat ortoped?",
       answer:
-        "Priset varierar mellan mottagningar, ort och om bilddiagnostik ingår, så uppgifterna nedan är ungefärliga. Ett nybesök hos privat ortoped utan vårdavtal landar ofta i några tusenlappar, och röntgen eller MR tillkommer separat. Inom regionfinansierad vård gäller vanlig patientavgift och högkostnadsskydd. Läs mer i vår genomgång av [privat ortoped: kostnad](/artiklar/privat-ortoped-kostnad).",
+        "Priset varierar mellan mottagningar, ort och om bilddiagnostik ingår, så uppgifterna nedan är ungefärliga. Ett nybesök hos en privat ortoped utan vårdavtal landar ofta i några tusenlappar, och röntgen eller MR tillkommer separat. Inom regionfinansierad vård gäller vanlig patientavgift och högkostnadsskydd. Läs mer i vår genomgång av [privat ortoped: kostnad](/artiklar/privat-ortoped-kostnad).",
     },
     {
       question: "Hur lång är väntetiden till en ortoped?",

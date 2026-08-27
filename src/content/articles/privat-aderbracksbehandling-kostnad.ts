@@ -80,7 +80,7 @@ export const article: Article = {
       id: "nar-aktuellt",
       heading: "När kan privat åderbråcksbehandling vara aktuellt?",
       body: [
-        "Privat åderbråcksbehandling kan vara aktuell om du har besvär av åderbråck och vill få en bedömning av kärlkirurg eller privat mottagning. Det kan gälla om:",
+        "Privat åderbråcksbehandling kan vara aktuell om du har besvär av åderbråck och vill få en bedömning av en kärlkirurg eller en privat mottagning. Det kan gälla om:",
       ],
       bullets: [
         "benen känns tunga, värker eller svullnar under dagen",
@@ -237,7 +237,7 @@ export const article: Article = {
       id: "sammanfattning",
       heading: "Sammanfattning",
       body: [
-        "Privat åderbråcksbehandling kan vara aktuellt om du har synliga åderbråck med tyngdkänsla, svullnad, värk, klåda, hudförändringar eller vill få en kärlkirurgisk bedömning.",
+        "Det kan vara aktuellt med en privat åderbråcksbehandling om du har synliga åderbråck med tyngdkänsla, svullnad, värk, klåda, hudförändringar eller vill få en kärlkirurgisk bedömning.",
         "Privat behandling av ett ben kostar ofta cirka **13 500–29 000 kr**, medan båda benen ofta kan ligga runt 18 500–36 500 kr eller mer. I vissa fall kan sjukvårdsförsäkring täcka utredning eller behandling, men kosmetiska åtgärder täcks ofta inte. Specialistdirekt hjälper dig vidare – skicka en [bokningsförfrågan](/kontakt) till relevant privat kärlmottagning. Läs gärna mer om [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
       ],
     },

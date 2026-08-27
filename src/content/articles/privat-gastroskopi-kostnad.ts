@@ -83,7 +83,7 @@ export const article: Article = {
       id: "nar-aktuellt",
       heading: "När kan privat gastroskopi vara aktuellt?",
       body: [
-        "Privat gastroskopi kan vara aktuellt när du behöver utredning av matstrupe eller magsäck och vill undersöka privata alternativ, kortare väntetid eller en sjukvårdsförsäkring. Det gäller till exempel om:",
+        "Det kan vara aktuellt med en privat gastroskopi när du behöver utredning av matstrupe eller magsäck och vill undersöka privata alternativ, kortare väntetid eller en sjukvårdsförsäkring. Det gäller till exempel om:",
       ],
       bullets: [
         "du har långvarig reflux eller halsbränna",
@@ -125,7 +125,7 @@ export const article: Article = {
       heading: "Behöver man remiss till privat gastroskopi?",
       body: [
         "Det beror på mottagning och vårdväg. Det finns tre vanliga vägar:",
-        "**1. Gastroskopi via remiss:** Du börjar hos vårdcentral, [gastroenterolog](/specialiteter/gastroenterolog) eller annan läkare som vid behov skickar remiss till endoskopimottagning. Vanligt vid sväljsvårigheter, järnbrist, viktnedgång eller långvariga magsmärtor.",
+        "**1. Gastroskopi via remiss:** Du börjar på en vårdcentral eller hos en [gastroenterolog](/specialiteter/gastroenterolog) eller annan läkare som vid behov skickar en remiss till en endoskopimottagning. Det är vanligt vid sväljsvårigheter, järnbrist, viktnedgång eller långvariga magsmärtor.",
         "**2. Privat gastroskopi som privatbetalande:** Vissa mottagningar tar emot privatbetalande patienter, men går ändå ofta igenom dina symtom först innan undersökningen bokas.",
         "**3. Gastroskopi via sjukvårdsförsäkring:** Försäkringsbolaget bedömer ärendet och hänvisar till en ansluten mottagning. Läs gärna mer om [att boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
       ],
@@ -242,8 +242,8 @@ export const article: Article = {
       id: "sammanfattning",
       heading: "Sammanfattning",
       body: [
-        "Privat gastroskopi kan vara aktuellt vid sväljsvårigheter, långvarig reflux, halsbränna, magsmärta i övre magen, illamående, misstänkt magsår, järnbrist eller behov av vidare mag- och tarmutredning.",
-        "Privat gastroskopi börjar ofta från cirka **6 400 kr och uppåt**. Om vävnadsprover, sedering, narkos eller uppföljning tillkommer kan totalpriset bli högre. I vissa fall kan sjukvårdsförsäkring täcka hela eller delar av kostnaden. Specialistdirekt hjälper dig vidare – skicka en [bokningsförfrågan](/kontakt) till relevant privat mottagning.",
+        "Det kan vara aktuellt med en privat gastroskopi vid sväljsvårigheter, långvarig reflux, halsbränna, magsmärta i övre magen, illamående, misstänkt magsår, järnbrist eller behov av vidare mag- och tarmutredning.",
+        "Privat gastroskopi kostar ofta från cirka **6 400 kr och uppåt**. Om vävnadsprover, sedering, narkos eller uppföljning tillkommer kan totalpriset bli högre. I vissa fall kan sjukvårdsförsäkring täcka hela eller delar av kostnaden. Specialistdirekt hjälper dig vidare – skicka en [bokningsförfrågan](/kontakt) till relevant privat mottagning.",
       ],
     },
   ],

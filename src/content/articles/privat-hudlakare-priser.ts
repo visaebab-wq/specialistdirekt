@@ -18,14 +18,14 @@ export const article: Article = {
     "sjukvårdsförsäkring hudläkare",
   ],
   excerpt:
-    "Privat hudläkare kan vara aktuellt vid hudförändringar, födelsemärken, akne, eksem och psoriasis. Vi går igenom kostnad, väntetid, remiss och hur du bokar.",
+    "Det kan vara aktuellt med en privat hudläkare vid hudförändringar, födelsemärken, akne, eksem och psoriasis. Vi går igenom kostnad, väntetid, remiss och hur du bokar.",
   published: "2026-05-21",
   updated: "2026-06-24",
   readMinutes: 10,
   wordCount: 1312,
   relatedSpecialty: "hudlakare",
   summary: [
-    "Ett privat hudläkarbesök börjar ofta **från cirka 3 000 kr**, och en mer omfattande hudutredning eller behandling kan kosta 5 000–15 000 kr eller mer.",
+    "Ett privat hudläkarbesök kostar ofta **från cirka 3 000 kr**, och en mer omfattande hudutredning eller behandling kan kosta 5 000–15 000 kr eller mer.",
     "Sjukvårdsförsäkring kan ibland täcka kostnaden.",
     "Aktuellt vid hudförändringar, födelsemärken, akne, eksem, psoriasis, håravfall eller sår som inte läker.",
     "[Specialistdirekt](/kontakt) hjälper dig skicka en bokningsförfrågan till en relevant privat mottagning.",
@@ -49,7 +49,7 @@ export const article: Article = {
       id: "kostnad",
       heading: "Kort svar: vad kostar privat hudläkare?",
       body: [
-        "Ett privat hudläkarbesök eller en dermatologisk bedömning börjar ofta **från cirka 3 000 kr** och uppåt. Ett enklare besök kan kosta mindre, men med dermatoskopi, bedömning av flera hudförändringar, provtagning, biopsi, recept, uppföljning eller mindre kirurgisk åtgärd kan totalpriset bli högre.",
+        "Ett privat hudläkarbesök eller en dermatologisk bedömning kostar ofta **från cirka 3 000 kr** och uppåt. Ett enklare besök kan kosta mindre, men med dermatoskopi, bedömning av flera hudförändringar, provtagning, biopsi, recept, uppföljning eller mindre kirurgisk åtgärd kan totalpriset bli högre.",
         "En mer omfattande privat hudutredning eller behandling kan ofta hamna på **5 000–15 000 kr eller mer**. Har du privat sjukvårdsförsäkring kan den i vissa fall täcka hela eller delar av kostnaden. Be alltid mottagningen eller försäkringsbolaget bekräfta pris och villkor innan du bokar.",
       ],
     },
@@ -154,7 +154,7 @@ export const article: Article = {
     },
     {
       id: "pris-paverkan",
-      heading: "Vad påverkar priset hos privat hudläkare?",
+      heading: "Vad påverkar priset hos en privat hudläkare?",
       body: ["Priset påverkas av flera faktorer:"],
       bullets: [
         "nybesök eller återbesök",
@@ -248,9 +248,21 @@ export const article: Article = {
       id: "sammanfattning",
       heading: "Sammanfattning",
       body: [
-        "Privat hudläkare kan vara aktuellt vid hudförändringar, födelsemärken, akne, eksem, psoriasis, rosacea, håravfall, nagelbesvär eller sår som inte läker. Ett besök eller bedömning börjar ofta **från cirka 3 000 kr** och uppåt; med dermatoskopi, biopsi, provtagning, operation eller uppföljning kan totalpriset bli högre, ofta **5 000–15 000 kr eller mer**.",
+        "Det kan vara aktuellt med en privat hudläkare vid hudförändringar, födelsemärken, akne, eksem, psoriasis, rosacea, håravfall, nagelbesvär eller sår som inte läker. Ett besök eller en bedömning kostar ofta **från cirka 3 000 kr** och uppåt; med dermatoskopi, biopsi, provtagning, operation eller uppföljning kan totalpriset bli högre, ofta **5 000–15 000 kr eller mer**.",
         "I vissa fall kan sjukvårdsförsäkring täcka kostnaden. Du beskriver dina besvär, anger önskat område och skickar en [bokningsförfrågan](/kontakt) – vi hjälper dig vidare till en relevant mottagning.",
       ],
+    },
+  ],
+  sources: [
+    {
+      label: "Födelsemärken, leverfläckar",
+      url: "https://www.1177.se/sjukdomar--besvar/hud-har-och-naglar/fodelsemarken-och-hudforandringar/fodelsemarken-leverflackar/",
+      publisher: "1177 Vårdguiden",
+    },
+    {
+      label: "Malignt melanom – hudcancer",
+      url: "https://www.1177.se/sjukdomar--besvar/cancer/cancerformer/malignt-melanom--hudcancer/",
+      publisher: "1177 Vårdguiden",
     },
   ],
   faqs: [

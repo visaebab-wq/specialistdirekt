@@ -111,7 +111,7 @@ export const article: Article = {
       heading: "För- och nackdelar: kostnad och högkostnadsskydd",
       body: [
         "Att söka **specialist utan remiss** kan spara tid, men det finns både fördelar och nackdelar att väga in – särskilt kring **kostnad** och **högkostnadsskydd**.",
-        "Går du via **egenremiss i den offentliga vården** betalar du en vanlig **patientavgift** och omfattas av **högkostnadsskyddet** och **frikortet** precis som annars. Väljer du istället en **helt privat mottagning** kan du ofta boka snabbare och utan remisskrav, men då betalar du **hela priset själv** och högkostnadsskyddet gäller inte. Läs mer i [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
+        "Går du via **egenremiss i den offentliga vården** betalar du en vanlig **patientavgift** och omfattas av **högkostnadsskyddet** och **frikortet** precis som annars. Väljer du i stället en **helt privat mottagning** kan du ofta boka snabbare och utan remisskrav, men då betalar du **hela priset själv** och högkostnadsskyddet gäller inte. Läs mer i [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
       ],
       bullets: [
         "**Fördel:** ofta snabbare väg förbi remisskrångel, du behåller initiativet.",
@@ -153,7 +153,7 @@ export const article: Article = {
     {
       question: "Vilka specialister tar oftast emot utan remiss?",
       answer:
-        "På privata mottagningar är tröskeln ofta lägre, exempelvis hos hudläkare, gynekolog och psykiater. Vilka mottagningar som tar emot direkt varierar dock, så kontrollera alltid i förväg.",
+        "På privata mottagningar är tröskeln ofta lägre, exempelvis hos en hudläkare, gynekolog och psykiater. Vilka mottagningar som tar emot direkt varierar dock, så kontrollera alltid i förväg.",
     },
     {
       question: "Hur kan Specialistdirekt hjälpa mig?",

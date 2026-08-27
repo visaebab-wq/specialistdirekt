@@ -53,7 +53,7 @@ export const article: Article = {
       id: "kostnad",
       heading: "Kort svar: vad kostar privat psykiater?",
       body: [
-        "Ett privat besök hos psykiater börjar ofta **från cirka 3 000 kr** och uppåt, beroende på mottagning, ort, besökets längd och vad som ingår.",
+        "Ett privat besök hos en psykiater kostar ofta **från cirka 3 000 kr** och uppåt, beroende på mottagning, ort, besökets längd och vad som ingår.",
         "Vid en mer omfattande psykiatrisk bedömning, läkemedelsgenomgång, ADHD-bedömning, intyg, uppföljning eller flera besök kan kostnaden bli betydligt högre. En privat psykiatrisk utredning eller längre behandlingskontakt kan hamna på **5 000–20 000 kr eller mer**.",
         "Har du privat sjukvårdsförsäkring kan den i vissa fall täcka hela eller delar av kostnaden, beroende på avtal, om ärendet godkänns, om mottagningen ingår i nätverket och om besvären omfattas. Be alltid mottagningen eller försäkringsbolaget bekräfta pris och villkor innan du bokar.",
       ],
@@ -174,9 +174,9 @@ export const article: Article = {
     },
     {
       id: "pris-paverkan",
-      heading: "Vad påverkar priset hos privat psykiater?",
+      heading: "Vad påverkar priset hos en privat psykiater?",
       body: [
-        "Ett privat psykiaterbesök börjar ofta **från cirka 3 000 kr** och uppåt, medan en mer omfattande bedömning kan bli betydligt dyrare. Priset påverkas bland annat av:",
+        "Ett privat psykiaterbesök kostar ofta **från cirka 3 000 kr** och uppåt, medan en mer omfattande bedömning kan bli betydligt dyrare. Priset påverkas bland annat av:",
       ],
       bullets: [
         "om det är nybesök eller återbesök",
@@ -192,7 +192,7 @@ export const article: Article = {
     },
     {
       id: "vantetid",
-      heading: "Hur snabbt kan man få tid hos privat psykiater?",
+      heading: "Hur snabbt kan man få tid hos en privat psykiater?",
       body: [
         "Väntetiden varierar och psykiatri har ofta hög efterfrågan. I privat vård kan en första bedömning ibland gå snabbare än i offentlig vård, men det beror på kapacitet och ärendets typ.",
         "Specialistdirekt kan inte garantera en viss tid, men vi kan hjälpa dig skicka en tydlig bokningsförfrågan. Läs gärna mer om [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
@@ -238,7 +238,7 @@ export const article: Article = {
       id: "sammanfattning",
       heading: "Sammanfattning",
       body: [
-        "Privat psykiater kan vara aktuellt vid depression, ångest, ADHD-frågor, läkemedelsbedömning eller andra besvär där specialistbedömning behövs. Ett besök börjar ofta **från cirka 3 000 kr** och uppåt; omfattande utredningar, ADHD-bedömningar eller intyg kan kosta **betydligt mer (5 000–20 000 kr eller mer)**. I vissa fall kan sjukvårdsförsäkring täcka kostnaden.",
+        "Det kan vara aktuellt med en privat psykiater vid depression, ångest, ADHD-frågor, läkemedelsbedömning eller andra besvär där specialistbedömning behövs. Ett besök kostar ofta **från cirka 3 000 kr** och uppåt; omfattande utredningar, ADHD-bedömningar eller intyg kan kosta **betydligt mer (5 000–20 000 kr eller mer)**. I vissa fall kan sjukvårdsförsäkring täcka kostnaden.",
         "Du beskriver dina besvär, anger önskat område eller digitalt besök och skickar en [bokningsförfrågan](/kontakt). Vi hjälper dig vidare till en privat mottagning som kan vara relevant för ditt behov.",
       ],
     },
@@ -252,7 +252,7 @@ export const article: Article = {
     {
       question: "Vad kostar privat psykiater?",
       answer:
-        "Ett besök börjar ofta från cirka 3 000 kr och uppåt. Omfattande bedömningar, ADHD-utredningar eller intyg kan kosta betydligt mer.",
+        "Ett besök kostar ofta från cirka 3 000 kr och uppåt. Omfattande bedömningar, ADHD-utredningar eller intyg kan kosta betydligt mer.",
     },
     {
       question: "Kan sjukvårdsförsäkring betala psykiater?",

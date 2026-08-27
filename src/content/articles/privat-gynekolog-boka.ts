@@ -25,7 +25,7 @@ export const article: Article = {
   wordCount: 1500,
   relatedSpecialty: "gynekolog",
   summary: [
-    "Ett privat gynekologbesök börjar ofta **från cirka 3 000 kr**, och en mer omfattande utredning kan kosta 5 000–15 000 kr eller mer.",
+    "Ett privat gynekologbesök kostar ofta **från cirka 3 000 kr**, och en mer omfattande utredning kan kosta 5 000–15 000 kr eller mer.",
     "Sjukvårdsförsäkring kan ibland täcka kostnaden.",
     "Aktuellt vid blödningsrubbningar, underlivssmärta, klimakteriebesvär, vaginalt ultraljud eller fertilitetsfrågor.",
     "[Specialistdirekt](/kontakt) hjälper dig skicka en bokningsförfrågan till en relevant privat mottagning.",
@@ -41,7 +41,7 @@ export const article: Article = {
     "vill få en snabbare bedömning eller ultraljud",
   ],
   intro: [
-    "Gynekologiska besvär kan vara både fysiskt påfrestande och känsliga – smärta, blödningsrubbningar, mellanblödningar, klimakteriebesvär, misstänkt infektion, cellförändringar, fertilitetsfrågor, urinläckage eller behov av gynekologiskt ultraljud. Många börjar hos vårdcentral, barnmorskemottagning eller ungdomsmottagning. Om besvären återkommer, påverkar vardagen eller kräver specialistbedömning kan en gynekolog bli aktuell.",
+    "Gynekologiska besvär kan vara både fysiskt påfrestande och känsliga – smärta, blödningsrubbningar, mellanblödningar, klimakteriebesvär, misstänkt infektion, cellförändringar, fertilitetsfrågor, urinläckage eller behov av gynekologiskt ultraljud. Många börjar på en vårdcentral, barnmorskemottagning eller ungdomsmottagning. Om besvären återkommer, påverkar vardagen eller kräver specialistbedömning kan en gynekolog bli aktuell.",
     "Specialistdirekt hjälper dig hitta rätt väg till privat specialistvård. Vi är inte en vårdgivare, ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en relevant mottagning. Läs gärna mer om [hur det fungerar](/sa-fungerar-det).",
   ],
   sections: [
@@ -49,7 +49,7 @@ export const article: Article = {
       id: "kostnad",
       heading: "Kort svar: vad kostar privat gynekolog?",
       body: [
-        "Ett privat gynekologbesök eller en privat gynekologisk utredning börjar ofta **från cirka 3 000 kr** och uppåt. Ett enklare besök kan kosta mindre, men med gynekologisk undersökning, vaginalt ultraljud, provtagning, cellprov, hormonbedömning eller uppföljning kan totalpriset bli högre.",
+        "Ett privat gynekologbesök eller en privat gynekologisk utredning kostar ofta **från cirka 3 000 kr** och uppåt. Ett enklare besök kan kosta mindre, men med gynekologisk undersökning, vaginalt ultraljud, provtagning, cellprov, hormonbedömning eller uppföljning kan totalpriset bli högre.",
         "En mer omfattande privat gynekologisk utredning kan ofta hamna på **5 000–15 000 kr eller mer**. Har du privat sjukvårdsförsäkring kan den i vissa fall täcka hela eller delar av kostnaden. Be alltid mottagningen eller försäkringsbolaget bekräfta pris och villkor innan du bokar.",
       ],
     },
@@ -126,7 +126,7 @@ export const article: Article = {
       heading: "Behöver man remiss till gynekolog?",
       body: [
         "Det beror på mottagning, region och finansiering. Det finns tre vanliga vägar:",
-        "**1. Via vårdcentral, barnmorska eller remiss:** Du börjar hos vårdcentral eller barnmorskemottagning, som bedömer om du behöver remiss vidare till gynekolog.",
+        "**1. Via vårdcentral, barnmorska eller remiss:** Du börjar på en vårdcentral eller barnmorskemottagning, som bedömer om du behöver remiss vidare till en gynekolog.",
         "**2. Via egenremiss:** Vissa mottagningar tar emot egen vårdbegäran. Då beskriver du själv dina besvär och mottagningen bedömer om de kan ta emot dig.",
         "**3. Privat bokning eller sjukvårdsförsäkring:** Vissa privata mottagningar tar emot privatbetalande patienter eller patienter via försäkring. Kontakta försäkringsbolaget för godkännande först. Läs mer i vår guide om [att boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
       ],
@@ -158,7 +158,7 @@ export const article: Article = {
     },
     {
       id: "pris-paverkan",
-      heading: "Vad påverkar priset hos privat gynekolog?",
+      heading: "Vad påverkar priset hos en privat gynekolog?",
       body: ["Priset beror på flera saker:"],
       bullets: [
         "om det är nybesök eller återbesök",
@@ -264,7 +264,7 @@ export const article: Article = {
       id: "sammanfattning",
       heading: "Sammanfattning",
       body: [
-        "Privat gynekolog kan vara aktuellt vid blödningsrubbningar, underlivssmärta, klimakteriebesvär, vaginalt ultraljud, fertilitetsfrågor, urinläckage eller cellförändringar. Ett besök eller en bedömning börjar ofta **från cirka 3 000 kr** och uppåt; med ultraljud, provtagning, uppföljning eller åtgärder kan totalpriset bli högre, och en omfattande utredning kan hamna på **5 000–15 000 kr eller mer**. I vissa fall kan sjukvårdsförsäkring täcka kostnaden.",
+        "Det kan vara aktuellt med en privat gynekolog vid blödningsrubbningar, underlivssmärta, klimakteriebesvär, vaginalt ultraljud, fertilitetsfrågor, urinläckage eller cellförändringar. Ett besök eller en bedömning kostar ofta **från cirka 3 000 kr** och uppåt; med ultraljud, provtagning, uppföljning eller åtgärder kan totalpriset bli högre, och en omfattande utredning kan hamna på **5 000–15 000 kr eller mer**. I vissa fall kan sjukvårdsförsäkring täcka kostnaden.",
         "Du beskriver dina besvär, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Vi hjälper dig vidare till en privat mottagning som kan vara relevant för ditt behov.",
       ],
     },
@@ -278,7 +278,7 @@ export const article: Article = {
     {
       question: "Vad kostar privat gynekolog?",
       answer:
-        "Ett besök eller en bedömning börjar ofta från cirka 3 000 kr och uppåt. Med ultraljud, provtagning, uppföljning eller åtgärder kan totalpriset bli högre, och en omfattande utredning kan hamna på 5 000–15 000 kr eller mer.",
+        "Ett besök eller en bedömning kostar ofta från cirka 3 000 kr och uppåt. Med ultraljud, provtagning, uppföljning eller åtgärder kan totalpriset bli högre, och en omfattande utredning kan hamna på 5 000–15 000 kr eller mer.",
     },
     {
       question: "Kan sjukvårdsförsäkring betala gynekolog?",
@@ -286,7 +286,7 @@ export const article: Article = {
         "Ja, ibland. Det kan gälla besök, utredning, ultraljud eller uppföljning, men det beror på bolag och villkor. Kontakta ditt försäkringsbolag innan du bokar.",
     },
     {
-      question: "Ingår ultraljud hos privat gynekolog?",
+      question: "Ingår ultraljud hos en privat gynekolog?",
       answer:
         "Ibland ingår vaginalt ultraljud i besöket, ibland debiteras det separat eller ingår i ett paket. Fråga mottagningen vad som ingår innan du bokar.",
     },

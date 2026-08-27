@@ -54,7 +54,7 @@ export const article: Article = {
       id: "nar-kan-kardiolog-bli-aktuell",
       heading: "När kan en kardiolog bli aktuell?",
       body: [
-        "En **specialistbedömning** – hos kardiolog eller annan relevant specialist – kan bli aktuell i vissa situationer. Det är alltid en läkare som avgör om och när det är motiverat, men vanliga skäl är:",
+        "En **specialistbedömning** – hos en kardiolog eller annan relevant specialist – kan bli aktuell i vissa situationer. Det är alltid en läkare som avgör om och när det är motiverat, men vanliga skäl är:",
       ],
       bullets: [
         "**Högt blodtryck trots medicin** – blodtrycket når inte målet trots flera läkemedel i adekvat dos (ibland kallat svårbehandlad hypertoni).",
@@ -107,6 +107,13 @@ export const article: Article = {
         "Neurologiska symtom som svaghet, domningar, sluddrigt tal eller ansiktsförlamning (kan vara tecken på stroke)",
         "Förvirring eller kraftigt påverkat allmäntillstånd",
       ],
+    },
+  ],
+  sources: [
+    {
+      label: "Högt blodtryck",
+      url: "https://www.1177.se/sjukdomar--besvar/hjarta-och-blodkarl/blodtryck/hogt-blodtryck/",
+      publisher: "1177 Vårdguiden",
     },
   ],
   faqs: [

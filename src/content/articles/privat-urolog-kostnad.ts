@@ -25,13 +25,13 @@ export const article: Article = {
   wordCount: 1650,
   relatedSpecialty: "urolog",
   summary: [
-    "Ett första besök hos privat urolog börjar ofta runt **3 000 kr** och varierar uppåt beroende på mottagning, ort och vad besöket omfattar.",
+    "Ett första besök hos en privat urolog börjar ofta runt **3 000 kr** och varierar uppåt beroende på mottagning, ort och vad besöket omfattar.",
     "Sjukvårdsförsäkring kan ibland täcka kostnaden.",
     "Aktuellt vid vattenkastningsbesvär, prostatabesvär, förhöjt PSA, blod i urinen, smärta i testiklar eller frågor om erektion och sterilisering.",
     "[Specialistdirekt](/kontakt) hjälper dig skicka en bokningsförfrågan till en relevant privat mottagning.",
   ],
   priceTable: [
-    { label: "Första besök hos privat urolog", price: "från cirka 3 000 kr" },
+    { label: "Första besök hos en privat urolog", price: "från cirka 3 000 kr" },
     { label: "Kortare nybesök eller konsultation", price: "i nedre delen av prisspannet" },
     { label: "Besök med provtagning, ultraljud, cystoskopi eller utredning", price: "kan kosta mer" },
     { label: "Med privat sjukvårdsförsäkring", price: "hela eller delar av kostnaden kan täckas" },
@@ -53,7 +53,7 @@ export const article: Article = {
       id: "kostnad",
       heading: "Kort svar: vad kostar privat urolog?",
       body: [
-        "Ett första besök hos privat urolog börjar ofta runt **3 000 kr** och varierar uppåt beroende på mottagning, ort och vad besöket omfattar.",
+        "Ett första besök hos en privat urolog börjar ofta runt **3 000 kr** och varierar uppåt beroende på mottagning, ort och vad besöket omfattar.",
         "Ett kortare nybesök eller konsultation kan ligga i den nedre delen, medan besök som kräver mer tid, provtagning, ultraljud, cystoskopi eller annan utredning kan kosta mer. **Har du privat sjukvårdsförsäkring kan du ofta få hjälp med betalningen** – försäkringen kan täcka hela eller delar av kostnaden, beroende på dina villkor.",
         "Om mottagningen arbetar på uppdrag av regionen kan vanlig patientavgift gälla, men då kan remiss eller egen vårdbegäran krävas.",
       ],
@@ -124,7 +124,7 @@ export const article: Article = {
     },
     {
       id: "pris-paverkan",
-      heading: "Vad påverkar priset hos privat urolog?",
+      heading: "Vad påverkar priset hos en privat urolog?",
       body: ["Priset beror på flera saker:"],
       bullets: [
         "om det är nybesök eller återbesök",
@@ -182,7 +182,7 @@ export const article: Article = {
       id: "sammanfattning",
       heading: "Sammanfattning",
       body: [
-        "Privat urolog kan vara aktuellt vid besvär från urinvägar, prostata, urinblåsa, njurar eller manliga könsorgan. Kostnaden varierar, men ett första privatbesök börjar ofta runt **3 000 kr** – och med privat sjukvårdsförsäkring kan du ofta få hjälp med betalningen. Remisskrav och väntetid skiljer sig mellan olika mottagningar.",
+        "Det kan vara aktuellt med en privat urolog vid besvär från urinvägar, prostata, urinblåsa, njurar eller manliga könsorgan. Kostnaden varierar, men ett första privatbesök börjar ofta runt **3 000 kr** – och med privat sjukvårdsförsäkring kan du ofta få hjälp med betalningen. Remisskrav och väntetid skiljer sig mellan olika mottagningar.",
         "Du väljer specialist, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Vi hjälper dig vidare till en privat mottagning som kan vara relevant för ditt behov.",
       ],
     },

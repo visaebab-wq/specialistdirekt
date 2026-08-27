@@ -1,6 +1,7 @@
 "use server";
 
 import { headers } from "next/headers";
+import { redirect } from "next/navigation";
 import { specialties } from "@/lib/specialties";
 import type { LeadState } from "@/lib/lead";
 import { deliverLead } from "@/lib/lead-delivery";
@@ -95,10 +96,11 @@ export async function submitLead(
   if (!isEmail(email) || email.length > MAX.email) errors.email = "Ange en giltig e-postadress.";
   if (phone.length < 6 || phone.length > MAX.phone) errors.phone = "Ange ett telefonnummer.";
   if (city.length < 2 || city.length > MAX.city) errors.city = "Ange stad.";
-  if ((specialty && !validSpecialtySlugs.has(specialty)) || specialty.length > MAX.specialty)
+  if (!specialty || !validSpecialtySlugs.has(specialty) || specialty.length > MAX.specialty)
     errors.specialty = "Välj en specialitet i listan.";
-  if (message.length < 10 || message.length > MAX.message)
-    errors.message = `Beskriv vad du vill boka tid för (10–${MAX.message} tecken).`;
+  // Beskrivningen är frivillig – uppgifterna räcker för att kunna återkomma.
+  if (message.length > MAX.message)
+    errors.message = `Beskrivningen får vara högst ${MAX.message} tecken.`;
   if (!isIsoDate(preferredDate1)) errors.preferredDate1 = "Ange första möjliga datum.";
   if (!isIsoDate(preferredDate2)) errors.preferredDate2 = "Ange andra möjliga datum.";
   if (preferredDate3 && !isIsoDate(preferredDate3))
@@ -133,4 +135,150 @@ export async function submitLead(
       "Tack! Din tidsförfrågan är mottagen. Vi återkommer normalt inom en arbetsdag med förslag på en passande mottagning.",
     errors: {},
   };
+}
+
+// ---------------------------------------------------------------------------
+// Direktbokning hos Dr Masoud Sorkhabi
+// ---------------------------------------------------------------------------
+
+export type BookingState = {
+  status: "idle" | "success" | "error";
+  message: string;
+  errors: Record<string, string>;
+};
+
+/**
+ * Tar emot en bokning. Ordningen är medveten:
+ *   1. validera
+ *   2. ta luckan och SKRIV NER bokningen (under lås)
+ *   3. skicka mejl
+ *
+ * Steg 3 får aldrig kunna radera steg 2. Går mejlet fel finns bokningen kvar
+ * på disk och notisen syns i serverloggen – ingen patient försvinner tyst.
+ */
+export async function submitBooking(
+  _prev: BookingState,
+  formData: FormData,
+): Promise<BookingState> {
+  const { isValidSlot } = await import("@/lib/booking-slots");
+  const { claimSlot } = await import("@/lib/booking-store");
+  const { sendPatientConfirmation, sendOwnerPending } = await import("@/lib/booking-email");
+
+  if ((formData.get("company") as string)?.trim()) {
+    return { status: "success", message: "Tack! Du får ett bekräftelsemejl.", errors: {} };
+  }
+  if (await isRateLimited()) {
+    return {
+      status: "error",
+      message: "För många försök just nu. Vänta en stund och försök igen.",
+      errors: {},
+    };
+  }
+
+  const str = (k: string, max: number) =>
+    ((formData.get(k) as string) || "").trim().slice(0, max);
+  const slot = str("slot", 40);
+  const name = str("name", 100);
+  const email = str("email", 160);
+  const phone = str("phone", 40);
+  const message = str("message", 2000);
+  const bookingType = formData.get("bookingType") === "child" ? "child" : "adult";
+  const childName = str("childName", 100);
+  const childBirthDate = str("childBirthDate", 10);
+
+  const errors: Record<string, string> = {};
+  if (!slot) errors.slot = "Välj en tid.";
+  else if (!isValidSlot(slot)) errors.slot = "Tiden är inte längre giltig. Välj en annan.";
+  if (name.length < 2) errors.name = "Fyll i ditt namn.";
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) errors.email = "Fyll i en giltig e-postadress.";
+  if (phone.replace(/\D/g, "").length < 6) errors.phone = "Fyll i ett telefonnummer.";
+  if (bookingType === "child") {
+    if (childName.length < 2) errors.childName = "Fyll i barnets namn.";
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(childBirthDate)) {
+      errors.childBirthDate = "Fyll i barnets födelsedatum.";
+    } else {
+      const born = new Date(`${childBirthDate}T12:00:00Z`);
+      const now = new Date();
+      const oldest = new Date(Date.UTC(now.getUTCFullYear() - 18, now.getUTCMonth(), now.getUTCDate()));
+      const normalized = Number.isNaN(born.getTime()) ? "" : born.toISOString().slice(0, 10);
+      if (normalized !== childBirthDate || born > now || born <= oldest) {
+        errors.childBirthDate = "Barnet behöver vara 0–17 år vid bokningen.";
+      }
+    }
+  }
+  if (!formData.get("consent")) errors.consent = "Du behöver godkänna villkoren.";
+  if (Object.keys(errors).length > 0) {
+    return { status: "error", message: "Kontrollera fälten nedan.", errors };
+  }
+
+  const claim = claimSlot({
+    slot,
+    name,
+    email,
+    phone,
+    message,
+    bookingType,
+    ...(bookingType === "child" ? { childName, childBirthDate } : {}),
+  });
+  if (!claim.ok) {
+    return {
+      status: "error",
+      message: "Tyvärr, någon hann boka den tiden precis före dig. Välj en annan tid.",
+      errors: { slot: "Tiden är upptagen." },
+    };
+  }
+
+  const rec = claim.record;
+  const [toPatient] = await Promise.all([
+    sendPatientConfirmation(rec),
+    sendOwnerPending(rec).catch(() => ({ sent: false })),
+  ]);
+
+  if (!toPatient.sent) {
+    // Bokningen ÄR sparad. Säg det rakt ut i stället för att låtsas att allt gick bra.
+    console.error("[booking] Bekräftelsemejl kunde inte skickas", rec.id, toPatient.error);
+    return {
+      status: "success",
+      message:
+        "Din tid är reserverad, men bekräftelsemejlet kunde inte skickas. Vi kontaktar dig – du behöver inte boka om.",
+      errors: {},
+    };
+  }
+
+  return {
+    status: "success",
+    message:
+      "Tack! Vi har skickat ett mejl till dig. Klicka på länken i mejlet för att bekräfta tiden och priset.",
+    errors: {},
+  };
+}
+
+/**
+ * Avbokning från länken i bekräftelsemejlet.
+ *
+ * Körs bara som POST från knappen på avbokningssidan – ALDRIG av att länken
+ * öppnas. Mejlklienter och skannrar hämtar länkar i förväg, och ett felklick i
+ * mejlet ska inte kunna radera tiden. Signaturen kontrolleras här igen: det
+ * dolda fältet i formuläret går att ändra, så sidans kontroll räcker inte.
+ */
+export async function cancelBookingFromLink(formData: FormData): Promise<void> {
+  const { cancelBooking, verifySignature } = await import("@/lib/booking-store");
+  const { sendOwnerCancelled } = await import("@/lib/booking-email");
+
+  const id = ((formData.get("id") as string) || "").trim().slice(0, 80);
+  const sig = ((formData.get("sig") as string) || "").trim().slice(0, 80);
+  if (!id || !sig || !verifySignature(id, sig)) redirect("/boka-tid/avboka?fel=lank");
+
+  const result = cancelBooking(id);
+  if (!result.ok) redirect("/boka-tid/avboka?fel=lank");
+
+  // Mottagningen måste få veta – annars står en tom tid kvar i kalendern.
+  // Avbokningen är redan skriven till loggen; ett trasigt mejl får inte ångra den.
+  if (!result.already) {
+    await sendOwnerCancelled(result.record, result.free).catch((err) =>
+      console.error("[booking] Kunde inte skicka avbokningsnotis", err),
+    );
+  }
+
+  redirect(`/boka-tid/avboka?id=${encodeURIComponent(id)}&sig=${encodeURIComponent(sig)}`);
 }

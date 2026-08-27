@@ -26,7 +26,7 @@ export const article: Article = {
   wordCount: 1288,
   relatedSpecialty: "oron-nasa-hals",
   summary: [
-    "Ett privat ÖNH-besök börjar ofta **från cirka 3 000 kr**; en mer omfattande ÖNH-utredning kan kosta **5 000–15 000 kr eller mer**.",
+    "Ett privat ÖNH-besök kostar ofta **från cirka 3 000 kr**; en mer omfattande ÖNH-utredning kan kosta **5 000–15 000 kr eller mer**.",
     "Privat sjukvårdsförsäkring kan i vissa fall täcka hela eller delar av kostnaden – kontakta alltid bolaget först.",
     "Aktuellt vid återkommande öronbesvär, hörselnedsättning, tinnitus, yrsel, nästäppa, bihålebesvär, halsproblem, heshet eller snarkning som inte går över.",
     "[Specialistdirekt](/kontakt) hjälper dig skicka en bokningsförfrågan till en relevant privat mottagning.",
@@ -54,7 +54,7 @@ export const article: Article = {
       id: "kostnad",
       heading: "Kort svar: vad kostar privat ÖNH-läkare?",
       body: [
-        "Ett privat besök eller en privat ÖNH-utredning börjar ofta **från cirka 3 000 kr** och uppåt. Om besöket kräver hörseltest, näsendoskopi, fiberundersökning, balansutredning, allergiutredning, provtagning, uppföljning eller mindre åtgärder kan kostnaden bli högre.",
+        "Ett privat besök eller en privat ÖNH-utredning kostar ofta **från cirka 3 000 kr** och uppåt. Om besöket kräver hörseltest, näsendoskopi, fiberundersökning, balansutredning, allergiutredning, provtagning, uppföljning eller mindre åtgärder kan kostnaden bli högre.",
         "En mer omfattande privat ÖNH-utredning kan ofta hamna på **5 000–15 000 kr eller mer**. Har du privat sjukvårdsförsäkring kan den i vissa fall täcka hela eller delar av kostnaden.",
         "Be alltid mottagningen eller försäkringsbolaget bekräfta pris och villkor innan du bokar.",
       ],
@@ -164,13 +164,13 @@ export const article: Article = {
     },
     {
       id: "pris-paverkan",
-      heading: "Vad påverkar priset hos privat ÖNH-läkare?",
+      heading: "Vad påverkar priset hos en privat ÖNH-läkare?",
       body: [
-        "Priset beror på flera saker. Ett privat ÖNH-besök börjar ofta **från cirka 3 000 kr** och uppåt, och om flera undersökningar, tester eller åtgärder behövs kan totalpriset bli betydligt högre. Faktorer som påverkar:",
+        "Priset beror på flera saker. Ett privat ÖNH-besök kostar ofta **från cirka 3 000 kr** och uppåt, och om flera undersökningar, tester eller åtgärder behövs kan totalpriset bli betydligt högre. Faktorer som påverkar:",
       ],
       bullets: [
         "om det är nybesök eller återbesök",
-        "om kamera-undersökning behövs",
+        "om kameraundersökning behövs",
         "om hörseltest ingår",
         "om allergiutredning eller provtagning behövs",
         "om balansutredning behövs",
@@ -235,7 +235,7 @@ export const article: Article = {
       id: "sammanfattning",
       heading: "Sammanfattning",
       body: [
-        "Privat ÖNH-läkare kan vara aktuellt vid återkommande öronbesvär, hörselnedsättning, tinnitus, yrsel, nästäppa, bihålebesvär, halsproblem, heshet, sväljbesvär eller snarkning. Ett besök börjar ofta **från cirka 3 000 kr** och uppåt; med kamera-undersökning, hörseltest, provtagning, balansutredning eller uppföljning kan totalpriset bli högre.",
+        "Det kan vara aktuellt med en privat ÖNH-läkare vid återkommande öronbesvär, hörselnedsättning, tinnitus, yrsel, nästäppa, bihålebesvär, halsproblem, heshet, sväljbesvär eller snarkning. Ett besök kostar ofta **från cirka 3 000 kr** och uppåt; med kameraundersökning, hörseltest, provtagning, balansutredning eller uppföljning kan totalpriset bli högre.",
         "I vissa fall kan sjukvårdsförsäkring täcka kostnaden. Du beskriver dina besvär, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Vi hjälper dig vidare till en relevant privat mottagning. Läs gärna mer om [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
       ],
     },
@@ -249,7 +249,7 @@ export const article: Article = {
     {
       question: "Vad kostar privat ÖNH-läkare?",
       answer:
-        "Från cirka 3 000 kr och uppåt. Med kamera-undersökning, hörseltest, provtagning, balansutredning eller uppföljning kan totalpriset bli högre.",
+        "Från cirka 3 000 kr och uppåt. Med kameraundersökning, hörseltest, provtagning, balansutredning eller uppföljning kan totalpriset bli högre.",
     },
     {
       question: "Kan sjukvårdsförsäkring betala ÖNH-läkare?",

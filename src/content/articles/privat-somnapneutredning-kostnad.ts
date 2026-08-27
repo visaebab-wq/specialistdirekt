@@ -85,7 +85,7 @@ export const article: Article = {
       id: "nar-aktuellt",
       heading: "När kan privat sömnapnéutredning vara aktuellt?",
       body: [
-        "Privat sömnapnéutredning kan vara aktuellt när du har symtom som kan tala för sömnapné och vill undersöka privata alternativ, kortare väntetid eller en sjukvårdsförsäkring. Det gäller till exempel om:",
+        "Det kan vara aktuellt med en privat sömnapnéutredning när du har symtom som kan tala för sömnapné och vill undersöka privata alternativ, kortare väntetid eller en sjukvårdsförsäkring. Det gäller till exempel om:",
       ],
       bullets: [
         "du snarkar kraftigt",
@@ -208,7 +208,7 @@ export const article: Article = {
       id: "pris-paverkan",
       heading: "Vad påverkar priset på privat sömnapnéutredning?",
       body: [
-        "Priset på en privat sömnapnéutredning börjar ofta från cirka 5 500 kr, men flera saker kan göra totalpriset högre:",
+        "En privat sömnapnéutredning kostar ofta från cirka 5 500 kr, men flera saker kan göra totalpriset högre:",
       ],
       bullets: [
         "om registreringen görs hemma eller på mottagning",
@@ -264,7 +264,7 @@ export const article: Article = {
       id: "sammanfattning",
       heading: "Sammanfattning",
       body: [
-        "Privat sömnapnéutredning kan vara aktuellt vid kraftig snarkning, andningsuppehåll, dagtrötthet, morgonhuvudvärk, koncentrationssvårigheter eller högt blodtryck där sömnapné misstänks. Priset börjar ofta från cirka **5 500 kr**, och tillägg som specialistbedömning, uppföljning, CPAP och apnébettskena kan göra det högre.",
+        "Det kan vara aktuellt med en privat sömnapnéutredning vid kraftig snarkning, andningsuppehåll, dagtrötthet, morgonhuvudvärk, koncentrationssvårigheter eller högt blodtryck där sömnapné misstänks. Priset ligger ofta på minst **5 500 kr**, och tillägg som specialistbedömning, uppföljning, CPAP och apnébettskena kan göra det högre.",
         "Sjukvårdsförsäkring kan i vissa fall täcka delar av utredningen. Specialistdirekt ställer ingen diagnos, men hjälper dig vidare med en [bokningsförfrågan](/kontakt) till en relevant privat mottagning för ditt behov och din ort.",
       ],
     },

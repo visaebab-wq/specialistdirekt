@@ -15,9 +15,9 @@ const COST = "/artiklar/privat-koloskopi-kostnad";
 const abs = (p: string) => `${site.url}${p}`;
 
 export const metadata: Metadata = {
-  title: "Privat koloskopi Göteborg – tidsförfrågan och information",
+  title: "Privat koloskopi Göteborg utan remiss – boka tid",
   description:
-    "Söker du privat koloskopi i Göteborg? Skicka en tidsförfrågan via Specialistdirekt. Så går undersökningen till, förberedelser, sedering och vad du behöver veta.",
+    "Boka privat koloskopi i Göteborg utan remiss. Mottagningen gör en medicinsk bedömning inför undersökningen. Skicka en kostnadsfri tidsförfrågan.",
   keywords: [
     "privat koloskopi Göteborg",
     "koloskopi Göteborg",
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: PATH },
   openGraph: {
-    title: "Privat koloskopi Göteborg – tidsförfrågan och information",
+    title: "Privat koloskopi Göteborg utan remiss – boka tid",
     description:
-      "Söker du privat koloskopi i Göteborg? Skicka en tidsförfrågan via Specialistdirekt.",
+      "Boka privat koloskopi i Göteborg utan remiss. Skicka en kostnadsfri tidsförfrågan.",
     url: PATH,
     type: "article",
   },
@@ -40,7 +40,7 @@ const faqs = [
   {
     question: "Kan jag boka privat koloskopi i Göteborg?",
     answer:
-      "Ja. Via Specialistdirekt kan du skicka en tidsförfrågan för privat koloskopi i Göteborg. Du beskriver kort dina besvär, så återkommer vi med information om möjlig tid, aktuellt pris och vad som ingår innan du bestämmer dig. Specialistdirekt är en förmedlingstjänst och inte vårdgivare.",
+      "Ja. Som självbetalande kan du boka privat koloskopi i Göteborg utan remiss. Mottagningen gör en medicinsk bedömning inför undersökningen. Via Specialistdirekt kan du skicka en kostnadsfri tidsförfrågan och få information om möjlig tid, aktuellt pris och vad som ingår innan du bestämmer dig.",
   },
   {
     question: "Var kan jag göra privat koloskopi i Göteborg?",
@@ -60,7 +60,7 @@ const faqs = [
   {
     question: "Kan jag boka koloskopi utan remiss?",
     answer:
-      "Det beror på den aktuella mottagningens bokningsrutiner. Du får information om ett eventuellt remisskrav innan du går vidare. Som självbetalande kan du hos många privata mottagningar boka mer direkt, medan regionfinansierad vård oftast kräver remiss.",
+      "Ja. Som självbetalande kan du boka privat koloskopi utan remiss. Mottagningen gör en medicinsk bedömning inför undersökningen för att säkerställa att koloskopi är rätt undersökning för dig. Inom regionfinansierad vård krävs oftast remiss.",
   },
   {
     question: "Behöver jag träffa en gastroenterolog före koloskopin?",
@@ -123,7 +123,10 @@ export default function KoloskopiGoteborgPage() {
   const gastro = getSpecialty("gastroenterolog");
   const visual = gastro
     ? getCitySpecialtyVisual(gastro, "goteborg", "Göteborg")
-    : { src: "/real-medical/gastroenterology.webp", alt: "Privat koloskopi i Göteborg" };
+    : {
+        src: "/real-medical/gastroenterology.webp",
+        alt: "Privat koloskopi i Göteborg",
+      };
 
   const crumbs = [
     { name: "Hem", path: "/" },
@@ -138,13 +141,24 @@ export default function KoloskopiGoteborgPage() {
           <Breadcrumbs items={crumbs} />
           <div className="mt-6">
             <p className="internal-hero-kicker">Gastroenterologi · Göteborg</p>
-            <h1 className="internal-hero-title">Privat koloskopi i Göteborg</h1>
+            <h1 className="internal-hero-title">
+              Privat koloskopi i Göteborg – utan remiss
+            </h1>
           </div>
           <p className="internal-hero-text">
-            Söker du privat koloskopi i Göteborg? Via Specialistdirekt kan du skicka en tidsförfrågan
-            för privat koloskopi i Göteborg. Du får information om möjlig tid, aktuellt pris och vad
-            som ingår innan du bestämmer dig.
+            Som självbetalande kan du boka privat koloskopi i Göteborg utan
+            remiss. Mottagningen gör en medicinsk bedömning inför
+            undersökningen. Skicka en kostnadsfri tidsförfrågan och få
+            information om möjlig tid, aktuellt pris och vad som ingår.
           </p>
+          <div className="mt-6">
+            <Link
+              href="#tidsforfragan"
+              className="inline-flex rounded-xl bg-brand-600 px-6 py-3.5 font-semibold text-white shadow-[0_12px_28px_rgba(13,148,136,0.24)] transition hover:-translate-y-0.5 hover:bg-brand-700"
+            >
+              Begär tid utan remiss
+            </Link>
+          </div>
           <PageVisual visual={visual} className="mt-10 max-w-3xl" priority />
         </div>
       </div>
@@ -153,11 +167,14 @@ export default function KoloskopiGoteborgPage() {
         <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:py-14">
           <div className="grid gap-12 lg:grid-cols-[1fr_400px]">
             <article className="article-body readable-card p-6 sm:p-8">
-              <h2 className="article-section-title text-2xl font-bold">Vad är en koloskopi?</h2>
+              <h2 className="article-section-title text-2xl font-bold">
+                Vad är en koloskopi?
+              </h2>
               <p className="mt-3">
-                En koloskopi är en undersökning av tjocktarmen med ett böjligt instrument (koloskop)
-                som har en liten kamera. Undersökningen används för att titta på tarmslemhinnan,
-                bedöma orsaken till mag- och tarmbesvär och vid behov ta vävnadsprov. Den utförs av
+                En koloskopi är en undersökning av tjocktarmen med ett böjligt
+                instrument (koloskop) som har en liten kamera. Undersökningen
+                används för att titta på tarmslemhinnan, bedöma orsaken till
+                mag- och tarmbesvär och vid behov ta vävnadsprov. Den utförs av
                 läkare med kompetens inom gastroenterologi.
               </p>
 
@@ -165,8 +182,9 @@ export default function KoloskopiGoteborgPage() {
                 När kan koloskopi bli aktuellt?
               </h2>
               <p className="mt-3">
-                Om en koloskopi är aktuell avgörs alltid av en läkare utifrån dina besvär. Exempel på
-                situationer där en läkare kan överväga koloskopi:
+                Om en koloskopi är aktuell avgörs alltid av en läkare utifrån
+                dina besvär. Exempel på situationer där en läkare kan överväga
+                koloskopi:
               </p>
               <ul className="mt-4 space-y-2">
                 {[
@@ -178,7 +196,10 @@ export default function KoloskopiGoteborgPage() {
                   "oförklarliga mag- och tarmsymtom där en läkare bedömer att koloskopi är motiverad",
                 ].map((b) => (
                   <li key={b} className="flex gap-3 text-ink-700">
-                    <span aria-hidden className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" />
+                    <span
+                      aria-hidden
+                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500"
+                    />
                     <span>{b}</span>
                   </li>
                 ))}
@@ -191,18 +212,20 @@ export default function KoloskopiGoteborgPage() {
                 >
                   blod i avföringen – vilken läkare
                 </Link>
-                . Sidan ställer ingen diagnos och avgör inte om just du behöver en koloskopi.
+                . Sidan ställer ingen diagnos och avgör inte om just du behöver
+                en koloskopi.
               </p>
 
               <h2 className="article-section-title mt-10 text-2xl font-bold">
                 Hur går en koloskopi till?
               </h2>
               <p className="mt-3">
-                Efter att tarmen tömts (laxering) för läkaren försiktigt in koloskopet via ändtarmen
-                och undersöker tjocktarmen med hjälp av kameran. När det är medicinskt motiverat kan
-                läkaren ta vävnadsprov. Själva undersökningen tar ofta ungefär 20–45 minuter, men
-                tiden varierar. Exakt hur det går till hos den aktuella mottagningen får du besked om
-                inför besöket.
+                Efter att tarmen tömts (laxering) för läkaren försiktigt in
+                koloskopet via ändtarmen och undersöker tjocktarmen med hjälp av
+                kameran. När det är medicinskt motiverat kan läkaren ta
+                vävnadsprov. Själva undersökningen tar ofta ungefär 20–45
+                minuter, men tiden varierar. Exakt hur det går till hos den
+                aktuella mottagningen får du besked om inför besöket.
               </p>
 
               <h2 className="article-section-title mt-10 text-2xl font-bold">
@@ -217,71 +240,87 @@ export default function KoloskopiGoteborgPage() {
                   "särskilt viktigt: informera om du tar blodförtunnande läkemedel",
                 ].map((b) => (
                   <li key={b} className="flex gap-3 text-ink-700">
-                    <span aria-hidden className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" />
+                    <span
+                      aria-hidden
+                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500"
+                    />
                     <span>{b}</span>
                   </li>
                 ))}
               </ul>
               <p className="mt-4">
-                Sluta aldrig med läkemedel på egen hand – informera vårdgivaren och följ dina
-                individuella instruktioner. Följ alltid mottagningens exakta anvisningar.
+                Sluta aldrig med läkemedel på egen hand – informera vårdgivaren
+                och följ dina individuella instruktioner. Följ alltid
+                mottagningens exakta anvisningar.
               </p>
 
-              <h2 className="article-section-title mt-10 text-2xl font-bold">Gör koloskopi ont?</h2>
+              <h2 className="article-section-title mt-10 text-2xl font-bold">
+                Gör koloskopi ont?
+              </h2>
               <p className="mt-3">
-                Upplevelsen skiljer sig från person till person. En del känner tryck eller
-                krampliknande obehag när instrumentet förs fram, medan andra tycker att det går bra.
-                Det finns ofta möjlighet till smärtlindring eller lugnande, men vilka alternativ som
-                erbjuds beror på mottagningens rutiner och din medicinska situation.
+                Upplevelsen skiljer sig från person till person. En del känner
+                tryck eller krampliknande obehag när instrumentet förs fram,
+                medan andra tycker att det går bra. Det finns ofta möjlighet
+                till smärtlindring eller lugnande, men vilka alternativ som
+                erbjuds beror på mottagningens rutiner och din medicinska
+                situation.
               </p>
 
               <h2 className="article-section-title mt-10 text-2xl font-bold">
                 Kan man få lugnande vid koloskopi?
               </h2>
               <p className="mt-3">
-                Vilken smärtlindring eller sedering som kan erbjudas beror på mottagningens rutiner
-                och din medicinska situation. Du får information om alternativen innan undersökningen
-                bokas.
+                Vilken smärtlindring eller sedering som kan erbjudas beror på
+                mottagningens rutiner och din medicinska situation. Du får
+                information om alternativen innan undersökningen bokas.
               </p>
 
               <h2 className="article-section-title mt-10 text-2xl font-bold">
                 Polyper och biopsi vid koloskopi
               </h2>
               <p className="mt-3">
-                Under en koloskopi kan läkaren ibland <strong>ta bort polyper</strong> och{" "}
-                <strong>ta vävnadsprov (biopsi)</strong> när det är medicinskt motiverat. Provet
-                skickas då för analys (patologi), och svaret på det kommer senare. Om just den
-                aktuella mottagningen erbjuder polypborttagning, och om biopsi eller analys påverkar
-                priset, får du information om innan du bestämmer dig.
+                Under en koloskopi kan läkaren ibland{" "}
+                <strong>ta bort polyper</strong> och{" "}
+                <strong>ta vävnadsprov (biopsi)</strong> när det är medicinskt
+                motiverat. Provet skickas då för analys (patologi), och svaret
+                på det kommer senare. Om just den aktuella mottagningen erbjuder
+                polypborttagning, och om biopsi eller analys påverkar priset,
+                får du information om innan du bestämmer dig.
               </p>
 
               <h2 className="article-section-title mt-10 text-2xl font-bold">
                 Vad kostar privat koloskopi i Göteborg?
               </h2>
               <p className="mt-3">
-                Du får information om aktuellt pris och vad som ingår innan du bestämmer dig. Vad som
-                kan påverka priset – och skillnaden mellan privat och offentlig väg – går vi igenom i
-                guiden om{" "}
-                <Link href={COST} className="font-semibold text-brand-700 hover:underline">
+                Du får information om aktuellt pris och vad som ingår innan du
+                bestämmer dig. Vad som kan påverka priset – och skillnaden
+                mellan privat och offentlig väg – går vi igenom i guiden om{" "}
+                <Link
+                  href={COST}
+                  className="font-semibold text-brand-700 hover:underline"
+                >
                   vad privat koloskopi kan kosta
                 </Link>
                 .
               </p>
 
               <div className="warning-card mt-10 p-5 text-sm">
-                <strong>Viktigt:</strong> Specialistdirekt ger inte medicinsk rådgivning. Vid större
-                blödning, svart avföring, svår buksmärta eller kraftigt påverkat allmäntillstånd –
-                sök vård akut eller ring 112. För sjukvårdsrådgivning, ring 1177.
+                <strong>Viktigt:</strong> Specialistdirekt ger inte medicinsk
+                rådgivning. Vid större blödning, svart avföring, svår buksmärta
+                eller kraftigt påverkat allmäntillstånd – sök vård akut eller
+                ring 112. För sjukvårdsrådgivning, ring 1177.
               </div>
 
               <h2 className="article-section-title mt-10 text-2xl font-bold">
                 Hur får jag tid för privat koloskopi i Göteborg?
               </h2>
               <p className="mt-3">
-                Beskriv kort dina besvär i formuläret, så förmedlar Specialistdirekt en tidsförfrågan
-                till en ansluten mottagning i Göteborgsområdet. Du får besked om möjlig tid, aktuellt
-                pris och vad som ingår innan du bestämmer dig om du vill gå vidare. Det medicinska
-                ansvaret ligger hos mottagningen – Specialistdirekt är inte vårdgivare.
+                Beskriv kort dina besvär i formuläret, så förmedlar
+                Specialistdirekt en tidsförfrågan till en ansluten mottagning i
+                Göteborgsområdet. Du får besked om möjlig tid, aktuellt pris och
+                vad som ingår innan du bestämmer dig om du vill gå vidare. Det
+                medicinska ansvaret ligger hos mottagningen – Specialistdirekt
+                är inte vårdgivare.
               </p>
 
               <section className="mt-10">
@@ -297,12 +336,18 @@ export default function KoloskopiGoteborgPage() {
                 <h2 className="text-xl font-bold text-ink-900">Läs mer</h2>
                 <ul className="mt-4 space-y-3">
                   <li>
-                    <Link href="/privat-koloskopi" className="font-semibold text-brand-700 hover:underline">
+                    <Link
+                      href="/privat-koloskopi"
+                      className="font-semibold text-brand-700 hover:underline"
+                    >
                       Privat koloskopi – så fungerar det
                     </Link>
                   </li>
                   <li>
-                    <Link href={COST} className="font-semibold text-brand-700 hover:underline">
+                    <Link
+                      href={COST}
+                      className="font-semibold text-brand-700 hover:underline"
+                    >
                       Privat koloskopi: kostnad, väntetid och bokning
                     </Link>
                   </li>
@@ -327,21 +372,25 @@ export default function KoloskopiGoteborgPage() {
                       href="/artiklar/blod-i-avforingen-gastroenterolog-koloskopi-akut-vard"
                       className="font-semibold text-brand-700 hover:underline"
                     >
-                      Blod i avföringen – gastroenterolog, koloskopi eller akut vård?
+                      Blod i avföringen – gastroenterolog, koloskopi eller akut
+                      vård?
                     </Link>
                   </li>
                 </ul>
               </div>
             </article>
 
-            <aside className="lg:sticky lg:top-24 lg:self-start">
+            <aside
+              id="tidsforfragan"
+              className="scroll-mt-28 lg:sticky lg:top-24 lg:self-start"
+            >
               <div className="form-panel p-6">
                 <h2 className="text-lg font-bold text-ink-900">
-                  Skicka tidsförfrågan för koloskopi i Göteborg
+                  Begär tid utan remiss i Göteborg
                 </h2>
                 <p className="mt-1 text-sm text-ink-600">
-                  Kostnadsfritt och utan förpliktelser. Du får besked om tid och pris innan du
-                  bestämmer dig.
+                  Kostnadsfritt och utan förpliktelser. Du får besked om tid och
+                  pris innan du bestämmer dig.
                 </p>
                 <div className="mt-6">
                   <LeadForm defaultSpecialty="gastroenterolog" />
@@ -374,7 +423,7 @@ export default function KoloskopiGoteborgPage() {
             areaServed: { "@type": "City", name: "Göteborg" },
             url: abs(PATH),
             description:
-              "Specialistdirekt förmedlar en tidsförfrågan för privat koloskopi i Göteborg. Specialistdirekt är en förmedlingstjänst, inte vårdgivare.",
+              "Som självbetalande kan du boka privat koloskopi i Göteborg utan remiss efter mottagningens medicinska bedömning. Specialistdirekt förmedlar tidsförfrågan och är inte vårdgivare.",
           },
           faqSchema(faqs),
         ]}

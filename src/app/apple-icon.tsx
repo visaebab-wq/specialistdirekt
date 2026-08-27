@@ -14,14 +14,17 @@ export default function AppleIcon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#0d9488",
-          color: "white",
-          fontSize: 120,
-          fontWeight: 800,
-          fontFamily: "sans-serif",
+          background: "#17324d",
+          borderRadius: 36,
         }}
       >
-        +
+        <svg width="132" height="132" viewBox="0 0 64 64">
+          <circle cx="32" cy="32" r="7" fill="#ffffff" />
+          <circle cx="32" cy="13" r="6" fill="#2dd4bf" />
+          <circle cx="32" cy="51" r="6" fill="#2dd4bf" />
+          <circle cx="13" cy="32" r="6" fill="#2dd4bf" />
+          <circle cx="51" cy="32" r="6" fill="#2dd4bf" />
+        </svg>
       </div>
     ),
     { ...size },

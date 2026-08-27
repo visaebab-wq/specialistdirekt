@@ -97,13 +97,31 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-bold text-ink-900">7. Cookies och statistik</h2>
+          <h2 className="text-xl font-bold text-ink-900">7. Cookies, statistik och annonsmätning</h2>
           <p className="mt-2">
-            Utöver nödvändiga cookies använder vi Google Analytics för anonym besöksstatistik, i
-            syfte att förbättra sajten. Dessa cookies sätts endast om du samtycker via vår
-            cookiebanner – innan dess är analys-cookies avstängda (Google Consent Mode). Du kan
-            när som helst ändra ditt val genom att rensa webbplatsens cookies. Vi sätter inga
-            cookies för annonsering eller profilering.
+            Utöver nödvändiga cookies använder vi cookies och liknande teknik för två saker, och
+            bara om du samtycker via vår cookiebanner:
+          </p>
+          <ul className="mt-3 list-disc space-y-2 pl-5">
+            <li>
+              <strong>Besöksstatistik.</strong> Google Analytics, för att förstå hur sajten används
+              och kunna förbättra den.
+            </li>
+            <li>
+              <strong>Annonsmätning.</strong> Google Ads-teknik, för att se vilka av våra annonser
+              som lett fram till en bokningsförfrågan. Det är enbart en mätning av resultatet av
+              våra annonser.
+            </li>
+          </ul>
+          <p className="mt-3">
+            Vi använder <strong>inte</strong> personanpassad annonsering, remarketing eller
+            profilering. Signalen för personanpassning (<code>ad_personalization</code>) hålls
+            nekad även när du samtyckt, och vi bygger inga målgrupper av ditt besök.
+          </p>
+          <p className="mt-3">
+            Innan du valt är samtliga dessa cookies avstängda (Google Consent Mode v2). Du kan neka
+            lika enkelt som du accepterar, och du kan när som helst ändra eller ta tillbaka ditt val
+            via länken <strong>Cookie-inställningar</strong> längst ned på varje sida.
           </p>
         </section>
 

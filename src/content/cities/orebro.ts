@@ -133,7 +133,7 @@ export const city: City = {
         {
           question: "När ska jag söka akut i stället för att boka kardiolog?",
           answer:
-            "Ring 112 vid bröstsmärta som inte går över, svår andnöd, svimning eller misstanke om hjärtinfarkt eller stroke. En bokad tid hos kardiolog är till för utredning av besvär som inte är akuta.",
+            "Ring 112 vid bröstsmärta som inte går över, svår andnöd, svimning eller misstanke om hjärtinfarkt eller stroke. En bokad tid hos en kardiolog är till för utredning av besvär som inte är akuta.",
         },
       ],
     },

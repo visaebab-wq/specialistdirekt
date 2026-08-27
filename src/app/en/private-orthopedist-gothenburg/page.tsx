@@ -56,12 +56,7 @@ const faqs = [
   {
     question: "How much does a visit with Dr. Masoud Sorkhabi cost?",
     answer:
-      "An in-person visit in Gothenburg is 2,000 SEK and a digital video visit is 1,000 SEK. The prices are fixed and shown before you book. A digital visit can be booked from anywhere in Sweden.",
-  },
-  {
-    question: "Can I have a digital visit if I don't live in Gothenburg?",
-    answer:
-      "Yes. Dr. Masoud Sorkhabi offers digital video visits across Sweden for 1,000 SEK. A digital visit suits a first assessment of your problem; some problems may need an in-person visit in Gothenburg, which is 2,000 SEK.",
+      "A visit in Gothenburg is 2,000 SEK, paid on site at the visit. The price is fixed and shown before you book.",
   },
   {
     question: "Can I see an orthopedist for back or neck pain?",
@@ -107,8 +102,8 @@ const faqs = [
 
 const quickFacts = [
   { label: "Doctor", value: "Dr. Masoud Sorkhabi, specialist in orthopedics and spine surgery" },
-  { label: "Visit", value: "In person in Gothenburg or digital across Sweden" },
-  { label: "Price", value: "In person 2,000 SEK · digital video 1,000 SEK" },
+  { label: "Visit", value: "In person in Gothenburg" },
+  { label: "Price", value: "2,000 SEK – paid on site at the visit" },
   { label: "Specialty", value: "Orthopedics" },
   { label: "Experience", value: "More than 20 years of clinical experience" },
   { label: "Focus", value: "Back, neck, knee and nerve-related problems" },
@@ -186,10 +181,9 @@ export default function EnglishOrthopedistGothenburgPage() {
                 The available specialist competence includes back, neck and knee problems,
                 disc-related conditions, nerve-related pain, SI joint problems, sports and overuse
                 injuries, and long-term musculoskeletal pain. Dr. Masoud Sorkhabi has more than 20
-                years of clinical experience. Visits can be in person in Gothenburg (2,000 SEK) or a
-                digital video visit from anywhere in Sweden (1,000 SEK). You receive information
-                about a possible appointment and the current price before deciding whether to
-                proceed.
+                years of clinical experience. Visits are in person in Gothenburg and cost 2,000 SEK, paid
+                on site at the visit. You receive information about a possible appointment and the
+                current price before deciding whether to proceed.
               </p>
               <p className="mt-3">
                 <strong>Specialistdirekt is an intermediary service, not a healthcare provider.</strong>{" "}
@@ -255,18 +249,17 @@ export default function EnglishOrthopedistGothenburgPage() {
 
               <h2 className="article-section-title mt-10 text-2xl font-bold">Price</h2>
               <p className="mt-3">
-                Dr. Masoud Sorkhabi&apos;s prices are fixed and shown before you book: an in-person
-                visit in Gothenburg is <strong>2,000 SEK</strong> and a digital video visit is{" "}
-                <strong>1,000 SEK</strong>. A digital visit can be booked from anywhere in Sweden
-                and suits a first assessment; some problems may need an in-person visit.
+                Dr. Masoud Sorkhabi&apos;s price is fixed and shown before you book: an in-person
+                visit in Gothenburg is <strong>2,000 SEK</strong>, paid on site at the visit.
               </p>
 
               <section className="mt-10 rounded-2xl border border-brand-200 bg-brand-50 p-6 sm:p-8">
                 <h2 className="text-xl font-bold text-ink-900">Book an appointment</h2>
                 <p className="mt-2 text-ink-700">
-                  Book a physical visit in Gothenburg (2,000 SEK) or a digital video visit from
-                  anywhere in Sweden (1,000 SEK) directly in the calendar. You pay when booking, and
-                  the amount is refunded if you cancel. The booking calendar is in Swedish.
+                  Book a visit in Gothenburg (2,000 SEK) directly in the calendar. You confirm the
+                  appointment through a link in the e-mail, and you pay on site at the visit.
+                  Cancellation is free up to 3 hours before the visit. The booking calendar is in
+                  Swedish.
                 </p>
                 <a
                   href={BOOKING_URL}
@@ -305,17 +298,16 @@ export default function EnglishOrthopedistGothenburgPage() {
             <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">
               <div className="form-panel p-6">
                 <h2 className="text-lg font-bold text-ink-900">Book an appointment</h2>
+                {/* No target="_blank": the booking lives on this site now. */}
                 <a
                   href={BOOKING_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-brand-600 px-6 py-3.5 text-center text-base font-semibold text-white shadow-[0_12px_28px_rgba(13,148,136,0.24)] transition-all hover:-translate-y-0.5 hover:bg-brand-700"
                 >
                   Book with Dr. Masoud Sorkhabi
                 </a>
                 <p className="mt-2 text-xs text-ink-500">
-                  Opens the booking calendar in a new tab (in Swedish). You pay when booking – the
-                  amount is refunded if you cancel.
+                  The booking calendar is in Swedish. You confirm the appointment through a link in
+                  the e-mail and pay on site at the visit. Free cancellation up to 3 hours before.
                 </p>
               </div>
             </aside>

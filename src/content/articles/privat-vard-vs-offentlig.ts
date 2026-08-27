@@ -91,7 +91,7 @@ export const article: Article = {
       heading: "Hur en sjukvårdsförsäkring påverkar bilden",
       body: [
         "En privat **sjukvårdsförsäkring** – ofta via arbetsgivaren – ändrar kalkylen rejält. Med en sådan är det försäkringsbolaget som betalar för den privata vården, och du slipper själv lägga ut hela priset. I gengäld kan det finnas en **självrisk**, krav på att försäkringsbolaget först godkänner besöket, och regler för vilka kliniker som ingår.",
-        "Har du en försäkring kan privat vård bli betydligt mer prisvärd för dig personligen, eftersom du inte bär hela kostnaden. Saknar du försäkring är det istället **ditt eget pris** mot den offentliga patientavgiften som ska jämföras – och då ser kalkylen helt annorlunda ut.",
+        "Har du en försäkring kan privat vård bli betydligt mer prisvärd för dig personligen, eftersom du inte bär hela kostnaden. Saknar du försäkring är det i stället **ditt eget pris** mot den offentliga patientavgiften som ska jämföras – och då ser kalkylen helt annorlunda ut.",
       ],
     },
     {
@@ -108,7 +108,7 @@ export const article: Article = {
       body: [
         "Det ärliga svaret är att det **beror på din situation**. Privat vård är inte automatiskt bättre, bara annorlunda. Nedan är en balanserad sammanställning som hjälper dig att väga för- och nackdelar.",
         "**Det kan löna sig att gå privat när:** du har en sjukvårdsförsäkring som täcker besöket, väntetiden i offentlig vård är lång och dina symtom påverkar din vardag, du behöver snabbt besked inför ett beslut, eller du vill ha kontinuitet hos samma läkare.",
-        "**Det lönar sig ofta inte att betala privat när:** du saknar försäkring och tillståndet inte är brådskande, du sannolikt kommer behöva många besök (där högkostnadsskyddet i offentlig vård skyddar plånboken), eller när det offentliga ändå kan ta emot dig inom rimlig tid. Vill du boka snabbt utan remisskrångel kan du läsa [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
+        "**Det lönar sig ofta inte att betala privat när:** du saknar försäkring och tillståndet inte är brådskande, du sannolikt kommer att behöva många besök (där högkostnadsskyddet i offentlig vård skyddar plånboken), eller när det offentliga ändå kan ta emot dig inom rimlig tid. Vill du boka snabbt utan remisskrångel kan du läsa [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
       ],
       bullets: [
         "**Talar för privat:** försäkring finns, lång offentlig väntetid, akut behov av besked, vill välja läkare.",

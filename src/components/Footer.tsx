@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CookieSettingsButton } from "@/components/CookieSettingsButton";
 import { mainNav, site } from "@/lib/site";
 import { specialties } from "@/lib/specialties";
 import { getArticle } from "@/lib/articles";
@@ -127,6 +128,9 @@ export function Footer() {
             <Link href="/integritetspolicy" className="hover:text-white">
               Integritetspolicy
             </Link>
+            <span aria-hidden>·</span>
+            {/* Samtycket ska gå att ta tillbaka lika enkelt som det gavs. */}
+            <CookieSettingsButton className="hover:text-white" />
             <span aria-hidden>·</span>
             <p>Inte en akuttjänst – ring 112 vid nödfall.</p>
           </div>

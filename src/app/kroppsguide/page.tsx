@@ -17,7 +17,8 @@ export default function KroppsguidePage() {
             Var i kroppen har du besvär?
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-ink-600">
-            Välj kvinna eller man. Växla mellan organ framifrån och skelett bakifrån.
+            Klicka på en kroppsdel eller välj ett område i listan. Du får en tydlig rekommendation
+            och en länk till rätt specialist.
           </p>
         </div>
 

@@ -325,6 +325,37 @@ export default async function ArticlePage({
           </section>
         )}
 
+        {/* Källor. Ligger efter FAQ:n men före "Läs vidare" – den som vill
+            kontrollera ett påstående ska hitta källan i artikeln, inte bland
+            interna länkar. Öppnas i ny flik: läsaren ska kunna jämföra utan att
+            tappa artikeln. */}
+        {article.sources && article.sources.length > 0 && (
+          <section className="mt-12 border-t border-ink-200 pt-8">
+            <h2 className="text-xl font-bold text-ink-900">Källor</h2>
+            {/* Ingen datumstämpel här. article.updated säger när TEXTEN
+                uppdaterades, inte när källorna lästes – att skriva ut den som
+                "kontrollerad" vore ett påstående vi inte kan stå för. */}
+            <p className="mt-2 text-sm text-ink-600">
+              Det medicinska innehållet bygger på offentliga vårdkällor.
+            </p>
+            <ul className="mt-4 space-y-3 text-sm">
+              {article.sources.map((s) => (
+                <li key={s.url}>
+                  <a
+                    href={s.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium text-brand-700 hover:underline"
+                  >
+                    {s.label}
+                  </a>
+                  <span className="text-ink-500"> – {s.publisher}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
         {/* Relaterade artiklar */}
         {related.length > 0 && (
         <section className="mt-12 border-t border-ink-200 pt-8">

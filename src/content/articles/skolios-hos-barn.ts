@@ -257,7 +257,7 @@ export const article: Article = {
       id: "ortopedisk-bedomning",
       heading: "När är en ortopedisk bedömning relevant?",
       body: [
-        "Alla barn med misstänkt skolios behöver inte börja hos ortoped. Elevhälsan har en viktig roll i att upptäcka skolios hos skolbarn, och yngre barn kan först bedömas på vårdcentral. 1177 beskriver att barnet kan remitteras till ortoped om elevhälsan bedömer att behandling kan behövas.",
+        "Alla barn med misstänkt skolios behöver inte börja hos en ortoped. Elevhälsan har en viktig roll i att upptäcka skolios hos skolbarn, och yngre barn kan först bedömas på vårdcentral. 1177 beskriver att barnet kan remitteras till ortoped om elevhälsan bedömer att behandling kan behövas.",
         "En ortopedisk bedömning handlar därför inte bara om **om** barnet har skolios, utan om hur den ser ut, om den förändras och om någon åtgärd behövs medan barnet växer. Läs mer om [barnortopedi](/artiklar/barnortopedi). Bedömningen kan bli relevant när:",
       ],
       bullets: [

@@ -30,7 +30,7 @@ export const article: Article = {
     "[Specialistdirekt](/kontakt) hjälper dig skicka en bokningsförfrågan till en relevant privat mottagning.",
   ],
   priceTable: [
-    { label: "Första besök hos privat barnläkare", price: "från ca 3 000 kr" },
+    { label: "Första besök hos en privat barnläkare", price: "från ca 3 000 kr" },
     { label: "Mer omfattande utredning (flera besök)", price: "ca 5 000–20 000 kr eller mer" },
     { label: "Med sjukvårdsförsäkring", price: "ofta hela eller delar av kostnaden täckt" },
   ],
@@ -150,7 +150,7 @@ export const article: Article = {
     },
     {
       id: "pris-paverkan",
-      heading: "Vad påverkar priset hos privat barnläkare?",
+      heading: "Vad påverkar priset hos en privat barnläkare?",
       body: ["Priset beror på flera saker:"],
       bullets: [
         "om det är nybesök eller återbesök",

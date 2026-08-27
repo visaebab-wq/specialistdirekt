@@ -6,6 +6,7 @@ import { articlesForSpecialty, groupArticlesByCluster } from "@/lib/articles";
 import { cities, hasCityPages } from "@/lib/cities";
 import { getSpecialtyExtra } from "@/lib/specialty-extra";
 import { site } from "@/lib/site";
+import { BookingCtaBanner } from "@/components/BookingCtaBanner";
 import { LeadForm } from "@/components/LeadForm";
 import { FaqList } from "@/components/FaqList";
 import { Prose, renderInline } from "@/components/RichText";
@@ -98,6 +99,17 @@ export default async function SpecialtyPage({
             </h1>
           </div>
           <p className="internal-hero-text">{specialty.intro}</p>
+
+          {/* Visas bara för specialiteter som faktiskt HAR egna tider (i praktiken
+              ortopedi); övriga får tidsförfrågan som förut. */}
+          {extra?.bookingCta && (
+            <BookingCtaBanner
+              href={extra.bookingCta.url}
+              label={extra.bookingCta.label}
+              note={extra.bookingCta.note}
+            />
+          )}
+
           <PageVisual visual={visual} className="mt-10 max-w-3xl" priority />
         </div>
       </div>
@@ -290,10 +302,10 @@ export default async function SpecialtyPage({
             {extra?.bookingCta ? (
               <div className="form-panel p-6">
                 <h2 className="text-lg font-bold text-ink-900">Boka tid direkt</h2>
+                {/* Ingen target="_blank": bokningen ligger numera på sajten
+                    själv, inte hos patient.nu. */}
                 <a
                   href={extra.bookingCta.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-brand-600 px-6 py-3.5 text-center text-base font-semibold text-white shadow-[0_12px_28px_rgba(13,148,136,0.24)] transition-all hover:-translate-y-0.5 hover:bg-brand-700"
                 >
                   {extra.bookingCta.label}

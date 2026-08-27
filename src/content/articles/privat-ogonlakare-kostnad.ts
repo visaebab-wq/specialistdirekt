@@ -26,7 +26,7 @@ export const article: Article = {
   wordCount: 1389,
   relatedSpecialty: "ogonlakare",
   summary: [
-    "En privat ögonutredning börjar ofta **från cirka 3 000 kr** och uppåt; operationer, linsbyte och ögonlaser kan kosta från tiotusentals kronor per öga.",
+    "En privat ögonutredning kostar ofta **från cirka 3 000 kr** och uppåt; operationer, linsbyte och ögonlaser kan kosta från tiotusentals kronor per öga.",
     "Sjukvårdsförsäkring kan ibland täcka kostnaden.",
     "Aktuellt vid synförändringar, misstänkt grå starr, högt ögontryck, ögonsmärta, återkommande inflammation eller diabetesrelaterade ögonbesvär.",
     "[Specialistdirekt](/kontakt) hjälper dig skicka en bokningsförfrågan till en relevant privat mottagning.",
@@ -54,7 +54,7 @@ export const article: Article = {
       id: "kostnad",
       heading: "Kort svar: vad kostar privat ögonläkare?",
       body: [
-        "Ett privat besök eller en privat ögonutredning hos ögonläkare börjar ofta från cirka **3 000 kr** och uppåt, beroende på mottagning, ort, besökets omfattning och vilka undersökningar som behövs.",
+        "Ett privat besök eller en privat ögonutredning hos ögonläkare kostar ofta från cirka **3 000 kr** och uppåt, beroende på mottagning, ort, besökets omfattning och vilka undersökningar som behövs.",
         "En enklare konsultation kan i vissa fall vara billigare, men mer omfattande ögonutredningar, bilddiagnostik, tryckmätning, synfältsundersökning, OCT, ögonbottenfotografering eller uppföljning kan göra att priset blir högre.",
         "Om det gäller operation eller behandling, till exempel gråstarroperation, linsbyte, ögonlaser eller vissa ögonlocksbesvär, handlar det ofta om helt andra prisnivåer. Då kan kostnaden ligga från flera tusen kronor upp till tiotusentals kronor per öga, beroende på åtgärd och mottagning.",
         "Har du privat sjukvårdsförsäkring kan försäkringen i vissa fall täcka hela eller delar av kostnaden. Det beror på ditt försäkringsavtal, om ärendet godkänns och vilken mottagning som ingår i försäkringsbolagets nätverk.",
@@ -163,7 +163,7 @@ export const article: Article = {
     },
     {
       id: "pris-paverkan",
-      heading: "Vad påverkar priset hos privat ögonläkare?",
+      heading: "Vad påverkar priset hos en privat ögonläkare?",
       body: ["Flera faktorer påverkar priset:"],
       bullets: [
         "om det är nybesök eller återbesök",
@@ -194,7 +194,7 @@ export const article: Article = {
     },
     {
       id: "vantetid",
-      heading: "Hur snabbt kan man få tid hos privat ögonläkare?",
+      heading: "Hur snabbt kan man få tid hos en privat ögonläkare?",
       body: [
         "Väntetiden varierar mellan mottagningar och orter. I privat ögonsjukvård kan det ibland finnas snabbare tider än i offentlig vård, men det beror på kapacitet, typ av besvär och undersökning.",
         "En första bedömning kan gå snabbare än operation eller avancerad utredning. Specialistdirekt kan inte garantera en viss tid men kan hjälpa dig skicka en tydlig bokningsförfrågan. Läs gärna mer om [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
@@ -239,7 +239,7 @@ export const article: Article = {
       id: "sammanfattning",
       heading: "Sammanfattning",
       body: [
-        "Privat ögonläkare kan vara aktuellt vid synförändringar, misstänkt grå starr, ögontrycksproblem, ögonsmärta, återkommande inflammation eller diabetesrelaterade ögonbesvär. En privat ögonutredning börjar ofta från cirka **3 000 kr** och uppåt. Operationer, linsbyte och ögonlaser kan kosta från tiotusentals kronor per öga. I vissa fall kan sjukvårdsförsäkring täcka kostnaden.",
+        "Det kan vara aktuellt med en privat ögonläkare vid synförändringar, misstänkt grå starr, ögontrycksproblem, ögonsmärta, återkommande inflammation eller diabetesrelaterade ögonbesvär. En privat ögonutredning kostar ofta från cirka **3 000 kr** och uppåt. Operationer, linsbyte och ögonlaser kan kosta från tiotusentals kronor per öga. I vissa fall kan sjukvårdsförsäkring täcka kostnaden.",
         "Du beskriver dina besvär, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Vi hjälper dig vidare till en privat mottagning som kan vara relevant för ditt behov.",
       ],
     },
@@ -253,7 +253,7 @@ export const article: Article = {
     {
       question: "Vad kostar privat ögonläkare?",
       answer:
-        "En privat ögonutredning börjar ofta från cirka 3 000 kr och uppåt. Operationer och behandlingar har ofta betydligt högre priser.",
+        "En privat ögonutredning kostar ofta från cirka 3 000 kr och uppåt. Operationer och behandlingar har ofta betydligt högre priser.",
     },
     {
       question: "Kan sjukvårdsförsäkring betala ögonläkare?",

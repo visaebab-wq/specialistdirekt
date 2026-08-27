@@ -29,7 +29,7 @@ export const article: Article = {
     "**Högt PSA betyder inte automatiskt prostatacancer** – PSA kan också vara förhöjt vid godartad prostataförstoring, urinvägsinfektion eller inflammation i prostatan.",
     "Ett PSA-värde över gränsvärdet bör utredas för att förstå orsaken.",
     "Urolog kan vara relevant om PSA är förhöjt, stiger över tid, om du har prostatabesvär eller om vården rekommenderat vidare utredning.",
-    "Privat prostatakontroll börjar ofta från cirka **3 000 kr**; MR prostata, biopsi eller mer omfattande utredning kan kosta betydligt mer.",
+    "Privat prostatakontroll kostar ofta från cirka **3 000 kr**; MR prostata, biopsi eller mer omfattande utredning kan kosta betydligt mer.",
     "Privat sjukvårdsförsäkring kan ibland täcka urologisk bedömning eller utredning, men försäkringsbolaget behöver ofta godkänna ärendet först.",
     "[Specialistdirekt](/kontakt) gör ingen medicinsk bedömning och tolkar inte PSA-värden. Vi hjälper dig vidare till relevant privat mottagning.",
   ],
@@ -112,7 +112,7 @@ export const article: Article = {
       id: "kostnad",
       heading: "Vad kostar privat prostatakontroll?",
       body: [
-        "Ett privat besök hos urolog eller en privat prostatabedömning börjar ofta från cirka **3 000 kr och uppåt**, beroende på mottagning, ort och vad som ingår.",
+        "Ett privat besök hos en urolog eller en privat prostatabedömning kostar ofta från cirka **3 000 kr och uppåt**, beroende på mottagning, ort och vad som ingår.",
         "Om utredningen kräver PSA-prov, urinprov, ultraljud, flödesmätning, MR prostata, biopsi eller uppföljning kan totalpriset bli betydligt högre (se tabellen ovan). Priser varierar kraftigt mellan kliniker – be alltid mottagningen bekräfta vad som ingår. Läs mer i vår guide om [privat urolog](/artiklar/privat-urolog-kostnad).",
       ],
     },
@@ -191,8 +191,20 @@ export const article: Article = {
       heading: "Sammanfattning",
       body: [
         "Högt PSA betyder inte automatiskt prostatacancer, men det bör bedömas på rätt sätt. PSA kan vara förhöjt vid godartad prostataförstoring, urinvägsinfektion, prostatainflammation eller prostatacancer.",
-        "Urolog kan vara relevant om PSA är över gränsvärdet, stiger över tid eller om du har urinbesvär, ärftlighet eller oro efter provsvar. Privat prostatakontroll börjar ofta från cirka **3 000 kr och uppåt**, medan MR prostata, biopsi och mer omfattande utredning kan kosta betydligt mer. Specialistdirekt hjälper dig vidare – skicka en [bokningsförfrågan](/kontakt).",
+        "Urolog kan vara relevant om PSA är över gränsvärdet, stiger över tid eller om du har urinbesvär, ärftlighet eller oro efter provsvar. Privat prostatakontroll kostar ofta från cirka **3 000 kr och uppåt**, medan MR prostata, biopsi och mer omfattande utredning kan kosta betydligt mer. Specialistdirekt hjälper dig vidare – skicka en [bokningsförfrågan](/kontakt).",
       ],
+    },
+  ],
+  sources: [
+    {
+      label: "PSA-prov för tidig upptäckt av prostatacancer",
+      url: "https://www.1177.se/undersokning-behandling/undersokningar-och-provtagning/upptack-och-forebygg-cancer/psa-prov-for-tidig-upptackt-av-prostatacancer/",
+      publisher: "1177 Vårdguiden",
+    },
+    {
+      label: "Prostatacancer",
+      url: "https://www.1177.se/sjukdomar--besvar/cancer/cancerformer/prostatacancer/",
+      publisher: "1177 Vårdguiden",
     },
   ],
   faqs: [
@@ -209,7 +221,7 @@ export const article: Article = {
     {
       question: "Vad kostar privat prostatakontroll?",
       answer:
-        "Privat urologbesök eller prostatabedömning börjar ofta från cirka 3 000 kr och uppåt. Om MR prostata, biopsi, ultraljud eller uppföljning behövs kan totalpriset bli betydligt högre.",
+        "Privat urologbesök eller prostatabedömning kostar ofta från cirka 3 000 kr och uppåt. Om MR prostata, biopsi, ultraljud eller uppföljning behövs kan totalpriset bli betydligt högre.",
     },
     {
       question: "Kan sjukvårdsförsäkring betala PSA-utredning?",

@@ -115,7 +115,7 @@ export const article: Article = {
       heading: "Remiss, kostnad och väg in",
       body: [
         "Vägen in beror på hur besöket finansieras. Som **självbetalande** kan du hos många privata mottagningar boka utan remiss, via en egen vårdbegäran. Har du **sjukvårdsförsäkring** går du normalt via försäkringsbolaget, som avgör vad som täcks. Inom **regionfinansierad vård** krävs oftast remiss från vårdcentralen. Se [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
-        "Ett första besök hos gastroenterolog börjar ofta **från cirka 3 000 kr** och uppåt. Det är ett **frånpris** för själva läkarbesöket – blodprover, ultraljud och eventuell elastografi prissätts normalt **separat**, och slutsumman beror på vad som är medicinskt motiverat i ditt fall. Det avgörs först efter bedömningen, så be alltid om ett samlat pris i förväg och fråga vad som ingår. Priserna varierar mellan mottagningar. Se [privat gastroenterolog: kostnad](/artiklar/privat-gastroenterolog-kostnad).",
+        "Ett första besök hos en gastroenterolog kostar ofta **från cirka 3 000 kr** och uppåt. Det är ett **frånpris** för själva läkarbesöket – blodprover, ultraljud och eventuell elastografi prissätts normalt **separat**, och slutsumman beror på vad som är medicinskt motiverat i ditt fall. Det avgörs först efter bedömningen, så be alltid om ett samlat pris i förväg och fråga vad som ingår. Priserna varierar mellan mottagningar. Se [privat gastroenterolog: kostnad](/artiklar/privat-gastroenterolog-kostnad).",
         "Ta med dina **provsvar** till besöket, gärna flera mätningar över tid om du har dem, samt en komplett läkemedelslista inklusive receptfritt och kosttillskott. Det är ofta det som gör bedömningen mest träffsäker – och kan bespara dig prover som redan är tagna.",
       ],
     },
@@ -174,7 +174,7 @@ export const article: Article = {
     {
       question: "Vad kostar en privat bedömning av levervärden?",
       answer:
-        "Ett första besök hos gastroenterolog börjar ofta från cirka 3 000 kr och uppåt. Det är ett frånpris för läkarbesöket – blodprover, ultraljud och eventuell elastografi prissätts normalt separat, så slutsumman beror på vad som behövs. Be alltid om ett samlat pris i förväg och fråga vad som ingår.",
+        "Ett första besök hos en gastroenterolog kostar ofta från cirka 3 000 kr och uppåt. Det är ett frånpris för läkarbesöket – blodprover, ultraljud och eventuell elastografi prissätts normalt separat, så slutsumman beror på vad som behövs. Be alltid om ett samlat pris i förväg och fråga vad som ingår.",
     },
     {
       question: "Är förhöjda levervärden farligt?",

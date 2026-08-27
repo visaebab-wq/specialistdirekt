@@ -113,7 +113,7 @@ export const article: Article = {
         "Priserna nedan är **ungefärliga** och **varierar** mellan kliniker och orter. Ofta tillkommer undersökningar som ENeG/EMG eller blodprover utöver själva läkarbesöket, så det är summan av delarna som avgör din slutkostnad. Be alltid kliniken om ett samlat pris innan du bokar.",
       ],
       bullets: [
-        "Nybesök hos privat neurolog: ungefär 2 000–4 000 kr",
+        "Nybesök hos en privat neurolog: ungefär 2 000–4 000 kr",
         "ENeG/EMG-undersökning: ungefär 2 000–5 000 kr",
         "Blodprover: ungefär 300–1 500 kr beroende på omfattning",
         "Magnetkamera vid behov: ungefär 4 000–8 000 kr",
@@ -127,6 +127,18 @@ export const article: Article = {
         "Vill du veta hur förmedlingen går till steg för steg kan du läsa [så fungerar det](/sa-fungerar-det). Är du redo att komma vidare, fyll i en förfrågan via [kontaktsidan](/kontakt) så återkommer vi med förslag på lämplig neurolog.",
         "Priserna i den här guiden är ungefärliga och kan ha ändrats – be alltid kliniken om ett bekräftat pris innan du bokar. Och vid plötsliga, akuta symtom ska du alltid ringa 112.",
       ],
+    },
+  ],
+  sources: [
+    {
+      label: "Polyneuropati, en sjukdom i flera nerver",
+      url: "https://www.1177.se/sjukdomar--besvar/hjarna-och-nerver/nerver/polyneuropati-en-sjukdom-i-flera-nerver/",
+      publisher: "1177 Vårdguiden",
+    },
+    {
+      label: "Karpaltunnelsyndrom",
+      url: "https://www.1177.se/sjukdomar--besvar/skelett-leder-och-muskler/armar-och-hander/karpaltunnelsyndrom/",
+      publisher: "1177 Vårdguiden",
     },
   ],
   faqs: [
@@ -153,7 +165,7 @@ export const article: Article = {
     {
       question: "Vad kostar ett privat neurologbesök?",
       answer:
-        "Ett nybesök hos privat neurolog kostar **ungefärligt** 2 000–4 000 kr. ENeG/EMG och eventuella blodprover tillkommer ofta separat. Alla siffror är ungefärliga och **varierar** mellan kliniker och orter, så be alltid om ett samlat pris i förväg.",
+        "Ett nybesök hos en privat neurolog kostar **ungefärligt** 2 000–4 000 kr. ENeG/EMG och eventuella blodprover tillkommer ofta separat. Alla siffror är ungefärliga och **varierar** mellan kliniker och orter, så be alltid om ett samlat pris i förväg.",
     },
     {
       question: "Vad kostar det att använda Specialistdirekt?",

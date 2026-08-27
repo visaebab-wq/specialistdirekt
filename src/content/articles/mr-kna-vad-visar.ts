@@ -146,7 +146,7 @@ export const article: Article = {
       heading: "Behöver man MR vid all långvarig knäsmärta?",
       body: [
         "Nej. Långvarig knäsmärta kan ha många orsaker, och den mest avancerade undersökningen är inte alltid den som ger mest användbar information.",
-        "Vid meniskbesvär av degenerativ typ står rehabilitering och fysioterapi i centrum – 1177 beskriver fysioterapi som den vanliga behandlingen, och operation blir aktuell framför allt vid större skador eller när knät låser sig. Det betyder att MR inte bör ses som ett automatiskt nästa steg bara för att smärtan har funnits länge. En klinisk bedömning kan först hjälpa till att avgöra vad som faktiskt behöver utredas. Läs även: [Vilken läkare ska jag söka för knäsmärta?](/artiklar/vilken-lakare-knasmarta)",
+        "Vid meniskbesvär av degenerativ typ står rehabilitering och fysioterapi i centrum – 1177 beskriver fysioterapi som den vanliga behandlingen, och operation blir aktuell framför allt vid större skador eller när knät låser sig. Det betyder att MR inte bör ses som ett automatiskt nästa steg bara för att smärtan har funnits länge. En klinisk bedömning kan först hjälpa till att avgöra vad som faktiskt behöver utredas – beskriver du att knät låser sig eller hakar upp sig finns [ortopedisk bedömning i Göteborg](/kna-laser-sig). Läs även: [Vilken läkare ska jag söka för knäsmärta?](/artiklar/vilken-lakare-knasmarta)",
         "Långvarig knäsmärta kan exempelvis handla om:",
       ],
       bullets: [

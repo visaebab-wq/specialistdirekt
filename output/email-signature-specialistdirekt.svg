@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320" role="img" aria-labelledby="title desc">
+  <title id="title">Specialistdirekt email signature</title>
+  <desc id="desc">Specialistdirekt logo, tagline, email address and website</desc>
+  <rect width="1200" height="320" fill="#ffffff"/>
+
+  <g transform="translate(64 72)">
+    <circle cx="88" cy="88" r="21" fill="#17324d"/>
+    <circle cx="88" cy="28" r="18" fill="#14b8a6"/>
+    <circle cx="88" cy="148" r="18" fill="#14b8a6"/>
+    <circle cx="28" cy="88" r="18" fill="#14b8a6"/>
+    <circle cx="148" cy="88" r="18" fill="#14b8a6"/>
+  </g>
+
+  <rect x="270" y="55" width="3" height="210" rx="1.5" fill="#ccfbf1"/>
+
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="330" y="126" font-size="58" font-weight="700" fill="#17324d">Specialist<tspan fill="#0d9488" font-weight="600">direkt</tspan></text>
+    <text x="332" y="171" font-size="24" fill="#475569">Hitta rätt specialistläkare – snabbt och tryggt</text>
+
+    <g transform="translate(332 215)" font-size="22" fill="#17324d">
+      <circle cx="9" cy="-7" r="7" fill="#14b8a6"/>
+      <text x="29" y="0">info@specialistdirekt.se</text>
+      <circle cx="348" cy="-7" r="4" fill="#94a3b8"/>
+      <text x="370" y="0">specialistdirekt.se</text>
+    </g>
+  </g>
+</svg>

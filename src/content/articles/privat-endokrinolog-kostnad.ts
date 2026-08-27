@@ -25,7 +25,7 @@ export const article: Article = {
   wordCount: 1550,
   relatedSpecialty: "endokrinolog",
   summary: [
-    "En privat endokrinologisk bedömning börjar ofta **från cirka 3 000 kr** och uppåt; en mer omfattande hormon- eller ämnesomsättningsutredning kan hamna på 5 000–15 000 kr eller mer.",
+    "En privat endokrinologisk bedömning kostar ofta **från cirka 3 000 kr** och uppåt; en mer omfattande hormon- eller ämnesomsättningsutredning kan hamna på 5 000–15 000 kr eller mer.",
     "Sjukvårdsförsäkring kan ibland täcka kostnaden.",
     "Aktuellt vid sköldkörtelproblem, diabetes, testosteronfrågor, avvikande hormonprover eller misstänkta hypofys- eller binjureproblem.",
     "[Specialistdirekt](/kontakt) hjälper dig skicka en bokningsförfrågan till en relevant privat mottagning.",
@@ -53,7 +53,7 @@ export const article: Article = {
       id: "kostnad",
       heading: "Kort svar: vad kostar privat endokrinolog?",
       body: [
-        "Ett privat besök eller en privat endokrinologisk utredning börjar ofta **från cirka 3 000 kr** och uppåt, beroende på mottagning, ort, besökets längd och vad som ingår. Om utredningen kräver blodprover, hormonprover, uppföljning, läkemedelsgenomgång, ultraljud, remiss för bilddiagnostik eller flera specialistbesök kan kostnaden bli högre.",
+        "Ett privat besök eller en privat endokrinologisk utredning kostar ofta **från cirka 3 000 kr** och uppåt, beroende på mottagning, ort, besökets längd och vad som ingår. Om utredningen kräver blodprover, hormonprover, uppföljning, läkemedelsgenomgång, ultraljud, remiss för bilddiagnostik eller flera specialistbesök kan kostnaden bli högre.",
         "En mer omfattande privat hormon- eller ämnesomsättningsutredning kan därför hamna på **5 000–15 000 kr eller mer**. Har du privat sjukvårdsförsäkring kan försäkringen i vissa fall täcka hela eller delar av kostnaden, beroende på avtal, om ärendet godkänns, om mottagningen ingår i nätverket och om utredningen bedöms medicinskt motiverad.",
         "Be alltid mottagningen eller försäkringsbolaget bekräfta pris och villkor innan du bokar.",
       ],
@@ -217,7 +217,7 @@ export const article: Article = {
     },
     {
       id: "pris-paverkan",
-      heading: "Vad påverkar priset hos privat endokrinolog?",
+      heading: "Vad påverkar priset hos en privat endokrinolog?",
       body: [
         "Specialistdirekt avgör inte vilken undersökning eller behandling du behöver. Priset påverkas av flera faktorer:",
       ],
@@ -234,9 +234,9 @@ export const article: Article = {
     },
     {
       id: "vantetid",
-      heading: "Hur snabbt kan man få tid hos privat endokrinolog?",
+      heading: "Hur snabbt kan man få tid hos en privat endokrinolog?",
       body: [
-        "En privat endokrinologisk bedömning börjar ofta **från cirka 3 000 kr** och uppåt. Om flera prover, uppföljningar eller kompletterande undersökningar behövs kan totalpriset bli betydligt högre.",
+        "En privat endokrinologisk bedömning kostar ofta **från cirka 3 000 kr** och uppåt. Om flera prover, uppföljningar eller kompletterande undersökningar behövs kan totalpriset bli betydligt högre.",
         "Väntetiden varierar mellan mottagningar och orter. Endokrinologi är ett specialistområde där tillgängligheten kan vara begränsad. I privat specialistvård kan en första bedömning ibland gå snabbare än via offentlig vård, men det beror på kapacitet, ort och typ av besvär. Specialistdirekt kan inte garantera en viss tid. Läs gärna mer om [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
       ],
     },
@@ -280,7 +280,7 @@ export const article: Article = {
       id: "sammanfattning",
       heading: "Sammanfattning",
       body: [
-        "Privat endokrinolog kan vara aktuellt vid hormonella besvär, sköldkörtelproblem, diabetes, testosteronfrågor, avvikande hormonprover eller misstänkta hypofys- eller binjureproblem. En privat endokrinologisk bedömning börjar ofta **från cirka 3 000 kr** och uppåt. Om provtagning, bilddiagnostik eller uppföljning behövs kan totalpriset bli högre. I vissa fall kan sjukvårdsförsäkring täcka kostnaden.",
+        "Det kan vara aktuellt med en privat endokrinolog vid hormonella besvär, sköldkörtelproblem, diabetes, testosteronfrågor, avvikande hormonprover eller misstänkta hypofys- eller binjureproblem. En privat endokrinologisk bedömning kostar ofta **från cirka 3 000 kr** och uppåt. Om provtagning, bilddiagnostik eller uppföljning behövs kan totalpriset bli högre. I vissa fall kan sjukvårdsförsäkring täcka kostnaden.",
         "Du beskriver dina besvär, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Vi hjälper dig vidare till en privat mottagning som kan vara relevant för ditt behov.",
       ],
     },
@@ -294,7 +294,7 @@ export const article: Article = {
     {
       question: "Vad kostar privat endokrinolog?",
       answer:
-        "En privat endokrinologisk bedömning börjar ofta från cirka 3 000 kr och uppåt. Om blodprover, hormonprover, bilddiagnostik eller uppföljning behövs kan totalpriset bli högre.",
+        "En privat endokrinologisk bedömning kostar ofta från cirka 3 000 kr och uppåt. Om blodprover, hormonprover, bilddiagnostik eller uppföljning behövs kan totalpriset bli högre.",
     },
     {
       question: "Kan sjukvårdsförsäkring betala endokrinolog?",

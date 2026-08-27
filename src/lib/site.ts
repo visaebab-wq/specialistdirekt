@@ -20,7 +20,14 @@ export const site = {
   // domän. Telefonnummer och fysisk adress publiceras medvetet inte – varken som
   // synlig text, tel:-länk eller i strukturerad data. Lägg INTE tillbaka phone/
   // address här utan verifierade företagsuppgifter (se kontakt-/integritetspolicy).
-  email: "kontakt@specialistdirekt.se",
+  //
+  // MÅSTE vara en brevlåda som verkligen finns. Adressen står i sidfoten på varje
+  // sida, i integritetspolicyn (dit GDPR-frågor ska skickas) och i strukturerad
+  // data. "kontakt@" fanns här t.o.m. 18 aug 2026 men saknade brevlåda –
+  // mejl dit studsade med "550 User unknown in virtual mailbox table", alltså
+  // varje läsare som hörde av sig. Kontrollera adressen mot mailservern innan
+  // den ändras.
+  email: "info@specialistdirekt.se",
   // Sociala profiler lämnas tomma tills riktiga URL:er finns – tomt döljs överallt.
   // Lägg till fullständiga profil-URL:er när de finns, t.ex.
   // "https://www.linkedin.com/company/specialistdirekt".
@@ -29,6 +36,18 @@ export const site = {
   foundingYear: 2026,
   // Google Analytics 4 (mätnings-ID). Tomt = av.
   gaMeasurementId: "G-NWLDYNC1TK",
+
+  // Google Ads – ENBART konverteringsmätning, aldrig remarketing. Taggen laddas
+  // vid sidan av GA4 och skickar en konvertering när en händelse i listan nedan
+  // inträffar. Tomt ID = ingen Ads-tagg alls.
+  adsConversionId: "AW-312691003",
+  // Händelse -> konverteringsetikett. Bara händelser som står här skickas till
+  // Google Ads. `booking_submitted` är kampanjens primära konvertering;
+  // `booking_confirmed` följs bara i GA4 och ska INTE ligga här, annars börjar
+  // budgivningen räkna samma patient två gånger.
+  adsConversionLabels: {
+    booking_submitted: "WfEmCP30_eMcELuSjZUB",
+  } as Record<string, string>,
 };
 
 export type Site = typeof site;

@@ -195,6 +195,18 @@ export const article: Article = {
       ],
     },
   ],
+  sources: [
+    {
+      label: "Blod i avföringen hos vuxna",
+      url: "https://www.1177.se/sjukdomar--besvar/mage-och-tarm/diarre-forstoppning-och-blod-i-avforingen/blod-i-avforingen-hos-vuxna/",
+      publisher: "1177 Vårdguiden",
+    },
+    {
+      label: "Koloskopi",
+      url: "https://www.1177.se/undersokning-behandling/undersokningar-och-provtagning/undersokning-och-behandling-med-endoskopi/koloskopi/",
+      publisher: "1177 Vårdguiden",
+    },
+  ],
   faqs: [
     {
       question: "Är blod i avföringen alltid farligt?",

@@ -178,6 +178,18 @@ export function articleSchema(article: Article) {
           lastReviewed: article.updated,
         }
       : {}),
+    // Källorna som artikeln vilar på. Ett granskat YMYL-innehåll utan angivna
+    // källor är svårt att verifiera – för både läsare och sökmotor.
+    ...(article.sources && article.sources.length > 0
+      ? {
+          citation: article.sources.map((s) => ({
+            "@type": "CreativeWork",
+            name: s.label,
+            url: s.url,
+            publisher: { "@type": "Organization", name: s.publisher },
+          })),
+        }
+      : {}),
     description: article.metaDescription,
     inLanguage: site.lang,
     datePublished: article.published,

@@ -51,7 +51,7 @@ export const article: Article = {
       id: "kostnad",
       heading: "Kort svar: vad kostar privat kardiolog?",
       body: [
-        "Ett privat besök hos kardiolog börjar ofta från **cirka 3 000 kr** och uppåt, beroende på mottagning, ort, besökets längd och vad som ingår.",
+        "Ett privat besök hos en kardiolog börjar ofta från **cirka 3 000 kr** och uppåt, beroende på mottagning, ort, besökets längd och vad som ingår.",
         "Om utredningen kräver EKG, långtids-EKG, ultraljud av hjärtat, arbetsprov, blodtrycksmätning över dygn, blodprover eller uppföljning kan kostnaden bli högre. En mer omfattande privat hjärtutredning kan ofta hamna på **5 000–20 000 kr eller mer**.",
         "Har du privat sjukvårdsförsäkring kan den i vissa fall täcka hela eller delar av kostnaden. Be alltid mottagningen eller försäkringsbolaget bekräfta pris och villkor innan du bokar.",
       ],
@@ -138,7 +138,7 @@ export const article: Article = {
     },
     {
       id: "undersokningar",
-      heading: "Vanliga undersökningar hos privat kardiolog",
+      heading: "Vanliga undersökningar hos en privat kardiolog",
       body: [
         "Det är alltid vårdgivaren som avgör vilka undersökningar som behövs. Vanliga undersökningar är till exempel:",
       ],
@@ -153,7 +153,7 @@ export const article: Article = {
     },
     {
       id: "pris-paverkan",
-      heading: "Vad påverkar priset hos privat kardiolog?",
+      heading: "Vad påverkar priset hos en privat kardiolog?",
       body: ["Priset beror på flera faktorer:"],
       bullets: [
         "om det är nybesök eller återbesök",
@@ -239,7 +239,7 @@ export const article: Article = {
       id: "sammanfattning",
       heading: "Sammanfattning",
       body: [
-        "Privat kardiolog kan vara aktuellt vid hjärtklappning, bröstbesvär, andfåddhet, högt blodtryck, avvikande EKG eller svimningskänsla. Ett besök börjar ofta från **cirka 3 000 kr** och uppåt; en omfattande hjärtutredning med EKG, ultraljud, långtids-EKG eller arbetsprov kan kosta **5 000–20 000 kr eller mer**.",
+        "Det kan vara aktuellt med en privat kardiolog vid hjärtklappning, bröstbesvär, andfåddhet, högt blodtryck, avvikande EKG eller svimningskänsla. Ett besök börjar ofta från **cirka 3 000 kr** och uppåt; en omfattande hjärtutredning med EKG, ultraljud, långtids-EKG eller arbetsprov kan kosta **5 000–20 000 kr eller mer**.",
         "I vissa fall kan sjukvårdsförsäkring täcka kostnaden. Du beskriver dina besvär, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Vill du jämföra vägar kan du läsa mer om [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
       ],
     },

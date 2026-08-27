@@ -3,9 +3,13 @@
 import Link from "next/link";
 import { useState } from "react";
 import { mainNav, site } from "@/lib/site";
+import { specialties } from "@/lib/specialties";
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [specialtiesOpen, setSpecialtiesOpen] = useState(false);
+
+  const navWithoutSpecialties = mainNav.filter((item) => item.href !== "/specialiteter");
 
   return (
     <header className="sticky top-0 z-50 border-b border-ink-200 bg-white/90 backdrop-blur">
@@ -29,7 +33,7 @@ export function Header() {
 
         {/* Desktop-navigering */}
         <nav aria-label="Huvudmeny" className="hidden items-center gap-6 md:flex">
-          {mainNav.map((item) => (
+          {navWithoutSpecialties.slice(0, 1).map((item) => (
             <Link
               key={item.href}
               href={item.href}
@@ -38,11 +42,54 @@ export function Header() {
               {item.label}
             </Link>
           ))}
+          <div className="group relative">
+            <Link
+              href="/specialiteter"
+              className="inline-flex items-center gap-1 text-sm font-medium text-ink-600 transition-colors hover:text-brand-700 focus:text-brand-700"
+              aria-haspopup="true"
+            >
+              Våra specialister
+              <svg viewBox="0 0 20 20" className="h-4 w-4 transition-transform group-hover:rotate-180 group-focus-within:rotate-180" aria-hidden>
+                <path d="m5 7.5 5 5 5-5" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </Link>
+            <div className="invisible absolute left-1/2 top-full z-50 w-[38rem] -translate-x-1/2 pt-4 opacity-0 transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+              <div className="rounded-2xl border border-ink-200 bg-white p-4 shadow-xl">
+                <div className="grid grid-cols-3 gap-1">
+                  {specialties.map((specialty) => (
+                    <Link
+                      key={specialty.slug}
+                      href={`/specialiteter/${specialty.slug}`}
+                      className="rounded-lg px-3 py-2.5 text-sm font-medium text-ink-700 transition-colors hover:bg-brand-50 hover:text-brand-700"
+                    >
+                      {specialty.title}
+                    </Link>
+                  ))}
+                </div>
+                <Link href="/specialiteter" className="mt-3 block border-t border-ink-100 px-3 pt-3 text-sm font-semibold text-brand-700 hover:text-brand-800">
+                  Se alla specialister →
+                </Link>
+              </div>
+            </div>
+          </div>
+          {navWithoutSpecialties.slice(1).map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="text-sm font-medium text-ink-600 transition-colors hover:text-brand-700"
+            >
+              {item.label}
+            </Link>
+          ))}
+          {/* Direktbokning finns BARA hos ortopeden. Knappen står i sidhuvudet på
+              varje sida – även på hud-, mag- och psykiatrisidorna – så den måste
+              säga vad som faktiskt går att boka. "Boka tid" ensamt lovar tider vi
+              inte har. */}
           <Link
-            href="/kontakt"
+            href="/boka-tid"
             className="rounded-full bg-brand-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand-700"
           >
-            Hitta specialist
+            Boka ortoped
           </Link>
         </nav>
 
@@ -69,7 +116,50 @@ export function Header() {
           className="border-t border-ink-200 bg-white md:hidden"
         >
           <ul className="mx-auto flex max-w-6xl flex-col px-4 py-2 sm:px-6">
-            {mainNav.map((item) => (
+            {navWithoutSpecialties.slice(0, 1).map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className="block rounded-lg px-2 py-3 text-base font-medium text-ink-700 hover:bg-brand-50"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+            <li className="border-y border-ink-100 py-1">
+              <button
+                type="button"
+                onClick={() => setSpecialtiesOpen((value) => !value)}
+                className="flex w-full items-center justify-between rounded-lg px-2 py-3 text-left text-base font-medium text-ink-700 hover:bg-brand-50"
+                aria-expanded={specialtiesOpen}
+              >
+                Våra specialister
+                <span aria-hidden className={`text-brand-700 transition-transform ${specialtiesOpen ? "rotate-180" : ""}`}>⌄</span>
+              </button>
+              {specialtiesOpen && (
+                <div className="grid grid-cols-2 gap-1 pb-3">
+                  {specialties.map((specialty) => (
+                    <Link
+                      key={specialty.slug}
+                      href={`/specialiteter/${specialty.slug}`}
+                      onClick={() => setOpen(false)}
+                      className="rounded-lg px-2 py-2 text-sm font-medium text-ink-700 hover:bg-brand-50 hover:text-brand-700"
+                    >
+                      {specialty.title}
+                    </Link>
+                  ))}
+                  <Link
+                    href="/specialiteter"
+                    onClick={() => setOpen(false)}
+                    className="col-span-2 mt-1 rounded-lg bg-brand-50 px-2 py-2 text-sm font-semibold text-brand-700"
+                  >
+                    Se alla specialister →
+                  </Link>
+                </div>
+              )}
+            </li>
+            {navWithoutSpecialties.slice(1).map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
@@ -82,11 +172,18 @@ export function Header() {
             ))}
             <li className="py-2">
               <Link
-                href="/kontakt"
+                href="/boka-tid"
                 onClick={() => setOpen(false)}
                 className="block rounded-full bg-brand-600 px-4 py-3 text-center text-base font-semibold text-white"
               >
-                Hitta specialist
+                Boka ortoped
+              </Link>
+              <Link
+                href="/kontakt"
+                onClick={() => setOpen(false)}
+                className="mt-2 block px-4 py-2 text-center text-sm font-semibold text-brand-700"
+              >
+                Hitta annan specialist
               </Link>
             </li>
           </ul>

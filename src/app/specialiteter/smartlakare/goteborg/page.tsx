@@ -3,6 +3,7 @@ import Link from "next/link";
 import { site } from "@/lib/site";
 import { getSpecialty } from "@/lib/specialties";
 import { getCitySpecialtyVisual } from "@/lib/medical-visuals";
+import { BOOKING_CTA_NOTE, BookingCtaBanner } from "@/components/BookingCtaBanner";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { FaqList } from "@/components/FaqList";
 import { PageVisual } from "@/components/PageVisual";
@@ -18,7 +19,7 @@ const abs = (p: string) => `${site.url}${p}`;
 export const metadata: Metadata = {
   title: "Privat smärtläkare i Göteborg – ortoped och ryggkirurg",
   description:
-    "Privat smärtläkare i Göteborg vid långvarig eller komplex smärta. Boka Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi. Fysiskt 2 000 kr eller digitalt 1 000 kr, utan remiss.",
+    "Privat smärtläkare i Göteborg vid långvarig eller komplex smärta. Boka Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi. Besök i Göteborg 2 000 kr, utan remiss.",
   keywords: [
     "privat smärtmottagning Göteborg",
     "smärtläkare Göteborg",
@@ -41,7 +42,7 @@ const faqs = [
   {
     question: "Finns det privat smärtmottagning i Göteborg?",
     answer:
-      "Ja. Vid långvarig eller oförklarlig smärta kan du i Göteborg boka Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi. Ett fysiskt besök kostar 2 000 kr och ett digitalt videobesök 1 000 kr.",
+      "Ja. Vid långvarig eller oförklarlig smärta kan du i Göteborg boka Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi. Besöket kostar 2 000 kr och betalas på plats vid besöket.",
   },
   {
     question: "Vilken kompetens har Dr. Sorkhabi för smärta?",
@@ -51,17 +52,12 @@ const faqs = [
   {
     question: "Kan jag boka smärtmottagning i Göteborg utan remiss?",
     answer:
-      "Ja. Som självbetalande patient behöver du ingen remiss för att boka tid. Du betalar i samband med bokningen och beloppet återbetalas om du avbokar.",
+      "Ja. Som självbetalande patient behöver du ingen remiss för att boka tid. Du bekräftar tiden via en länk i mejlet och kan avboka kostnadsfritt fram till 3 timmar före besöket.",
   },
   {
     question: "Vad kostar ett privat besök hos en specialist inom smärta i Göteborg?",
     answer:
-      "Ett fysiskt besök i Göteborg kostar 2 000 kr och ett digitalt videobesök 1 000 kr. Priserna är fasta och du ser dem innan du bokar. En generell guide finns i privat smärtläkare: kostnad.",
-  },
-  {
-    question: "Kan jag få ett digitalt besök för min smärta?",
-    answer:
-      "Ja. Ett digitalt videobesök (1 000 kr) kan bokas från hela Sverige och passar bra för en första bedömning. Vissa besvär kan behöva ett fysiskt besök i Göteborg (2 000 kr).",
+      "Ett besök i Göteborg kostar 2 000 kr, som du betalar på plats vid besöket. Priset är fast och du ser det innan du bokar. En generell guide finns i privat smärtläkare: kostnad.",
   },
   {
     question: "Passar Dr. Sorkhabi för min smärta?",
@@ -93,10 +89,10 @@ export default function SmartlakareGoteborgPage() {
       label: "Inriktning",
       value: "Kronisk och oförklarlig smärta, nack- och ryggbesvär, diskbråck, huvudvärk och migrän",
     },
-    { label: "Besök", value: "Fysiskt i Göteborg eller digitalt i hela Sverige" },
-    { label: "Pris", value: "Fysiskt 2 000 kr · digitalt 1 000 kr" },
+    { label: "Besök", value: "Fysiskt besök i Göteborg" },
+    { label: "Pris", value: "2 000 kr – betalas på plats vid besöket" },
     { label: "Remiss", value: "Behövs inte för självbetalande" },
-    { label: "Betalning", value: "Betala vid bokning – återbetalas om du avbokar" },
+    { label: "Avbokning", value: "Kostnadsfritt fram till 3 timmar före besöket" },
     { label: "Publikt omdöme", value: "4,9 av 5 · 63 omdömen på Reco" },
   ];
 
@@ -114,10 +110,10 @@ export default function SmartlakareGoteborgPage() {
           <p className="internal-hero-text">
             Söker du en privat smärtläkare i Göteborg? Dr. Masoud Sorkhabi är specialist i ortopedi
             och ryggkirurgi med över 20 års erfarenhet av ortopedi och kirurgi. Inriktningen omfattar
-            bland annat kronisk och oförklarlig smärta, nack- och ryggbesvär och diskbråck. Besöket
-            kan vara fysiskt i Göteborg eller ett digitalt videobesök från hela Sverige, utan remiss
-            för självbetalande.
+            bland annat kronisk och oförklarlig smärta, nack- och ryggbesvär och diskbråck. Besöket är ett
+            fysiskt besök i Göteborg, utan remiss för självbetalande.
           </p>
+          <BookingCtaBanner href={BOOKING} label="Boka tid hos Dr. Masoud Sorkhabi" />
           <PageVisual visual={visual} className="mt-10 max-w-3xl" priority />
         </div>
       </div>
@@ -191,13 +187,12 @@ export default function SmartlakareGoteborgPage() {
                 </li>
                 <li className="flex gap-3 text-ink-700">
                   <span aria-hidden className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" />
-                  <span>
-                    <strong>Digitalt videobesök – 1 000 kr</strong>, från hela Sverige
-                  </span>
+                  <span>Betalas på plats vid besöket – ingen betalning sker när du bokar</span>
                 </li>
               </ul>
               <p className="mt-4">
-                Du betalar i samband med bokningen och beloppet återbetalas om du avbokar. Mer om
+                Du bekräftar tiden via en länk i mejlet och kan avboka kostnadsfritt fram till 3
+                timmar före besöket. Mer om
                 pris, remiss och väntetid finns i{" "}
                 <Link
                   href="/artiklar/privat-smartlakare-kostnad"
@@ -263,16 +258,13 @@ export default function SmartlakareGoteborgPage() {
                 <h2 className="text-lg font-bold text-ink-900">Boka tid direkt</h2>
                 <a
                   href={BOOKING}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-brand-600 px-6 py-3.5 text-center text-base font-semibold text-white shadow-[0_12px_28px_rgba(13,148,136,0.24)] transition-all hover:-translate-y-0.5 hover:bg-brand-700"
                 >
                   Boka tid hos Dr. Masoud Sorkhabi
                 </a>
-                <p className="mt-2 text-xs text-ink-500">
-                  Öppnar bokningskalendern i en ny flik. Du betalar i samband med bokningen –
-                  beloppet återbetalas om du avbokar.
-                </p>
+                {/* Samma text som bannern överst – sidan får inte säga två olika
+                    saker om samma bokning. */}
+                <p className="mt-2 text-xs text-ink-500">{BOOKING_CTA_NOTE}</p>
               </div>
             </aside>
           </div>

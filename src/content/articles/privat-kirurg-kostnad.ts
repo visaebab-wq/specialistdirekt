@@ -25,7 +25,7 @@ export const article: Article = {
   readMinutes: 10,
   wordCount: 1750,
   summary: [
-    "Ett första besök hos privat kirurg börjar ofta **från cirka 3 000 kr**, en mindre åtgärd 5 000–20 000 kr och en större operation 20 000–80 000 kr eller mer.",
+    "Ett första besök hos en privat kirurg kostar ofta **från cirka 3 000 kr**, en mindre åtgärd 5 000–20 000 kr och en större operation 20 000–80 000 kr eller mer.",
     "Har du privat sjukvårdsförsäkring kan den ofta täcka hela eller delar av kostnaden för besök, utredning och operation, beroende på dina villkor.",
     "Aktuellt vid bråck, gallstensbesvär, hemorrojder, cystor, lipom, knutor eller hudförändringar som behöver tas bort.",
     "[Specialistdirekt](/kontakt) hjälper dig skicka en bokningsförfrågan till en relevant privat mottagning.",
@@ -51,7 +51,7 @@ export const article: Article = {
       id: "kostnad",
       heading: "Kort svar: vad kostar privat kirurg?",
       body: [
-        "Ett första besök hos en privat kirurg börjar ofta runt **från cirka 3 000 kr** och varierar uppåt beroende på mottagning, ort och vad besöket omfattar. Själva bedömningen kostar betydligt mindre än ett eventuellt ingrepp.",
+        "Ett första besök hos en privat kirurg kostar ofta **från cirka 3 000 kr**. Priset varierar beroende på mottagning, ort och vad besöket omfattar. Själva bedömningen kostar betydligt mindre än ett eventuellt ingrepp.",
         "En **mindre åtgärd, som att ta bort en cysta, ett lipom eller en hudförändring, kostar ofta 5 000–20 000 kr eller mer**. En **större operation, till exempel vid bråck eller gallsten, ligger ofta i intervallet 20 000–80 000 kr eller mer** beroende på ingreppets omfattning, narkos och eftervård.",
         "**Har du privat sjukvårdsförsäkring kan du ofta få hjälp med betalningen** – försäkringen kan täcka hela eller delar av kostnaden, beroende på dina villkor. Om mottagningen arbetar på uppdrag av regionen kan vanlig patientavgift gälla, men då kan remiss eller egen vårdbegäran krävas.",
       ],
@@ -140,7 +140,7 @@ export const article: Article = {
     },
     {
       id: "pris-paverkan",
-      heading: "Vad påverkar priset hos privat kirurg?",
+      heading: "Vad påverkar priset hos en privat kirurg?",
       body: [
         "Priset beror på flera saker, och skillnaden mellan en bedömning och en operation är stor:",
       ],
@@ -209,7 +209,7 @@ export const article: Article = {
       id: "sammanfattning",
       heading: "Sammanfattning",
       body: [
-        "Privat kirurg kan vara aktuellt vid bråck, gallstensbesvär, hemorrojder, cystor, lipom, knutor eller hudförändringar som behöver tas bort. Ett första besök börjar ofta **från cirka 3 000 kr**, en **mindre åtgärd kostar ofta 5 000–20 000 kr eller mer** och en **större operation ofta 20 000–80 000 kr eller mer** – och med privat sjukvårdsförsäkring kan du ofta få hjälp med betalningen. Läs gärna mer om [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
+        "Det kan vara aktuellt med en privat kirurg vid bråck, gallstensbesvär, hemorrojder, cystor, lipom, knutor eller hudförändringar som behöver tas bort. Ett första besök kostar ofta **från cirka 3 000 kr**, en **mindre åtgärd kostar ofta 5 000–20 000 kr eller mer** och en **större operation ofta 20 000–80 000 kr eller mer** – och med privat sjukvårdsförsäkring kan du ofta få hjälp med betalningen. Läs gärna mer om [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
         "Du väljer specialist, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Vi hjälper dig vidare till en privat mottagning som kan vara relevant för ditt behov.",
       ],
     },
@@ -223,7 +223,7 @@ export const article: Article = {
     {
       question: "Vad kostar privat kirurg?",
       answer:
-        "Ett första besök börjar ofta från cirka 3 000 kr. En mindre åtgärd kostar ofta 5 000–20 000 kr eller mer, och en större operation som bråck eller gallsten ligger ofta på 20 000–80 000 kr eller mer.",
+        "Ett första besök kostar ofta från cirka 3 000 kr. En mindre åtgärd kostar ofta 5 000–20 000 kr eller mer, och en större operation som bråck eller gallsten ligger ofta på 20 000–80 000 kr eller mer.",
     },
     {
       question: "Kan sjukvårdsförsäkring täcka privat kirurg?",

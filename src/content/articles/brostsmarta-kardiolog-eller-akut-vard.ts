@@ -29,7 +29,7 @@ export const article: Article = {
     "Vid stark, tryckande eller ihållande bröstsmärta ska du inte vänta på privat bokning.",
     "Ring **112** vid bröstsmärta som inte går över, eller med andfåddhet, kallsvettning, illamående, svimningskänsla eller smärta som strålar mot arm, käke, rygg eller hals.",
     "Privat kardiolog kan vara relevant vid återkommande, icke-akuta bröstbesvär, oro efter EKG, [högt blodtryck](/artiklar/hogt-blodtryck-nar-behovs-kardiolog) eller hjärtklappning.",
-    "Ett privat kardiologbesök börjar ofta från cirka **3 000 kr**; en mer komplett hjärtutredning kan kosta 5 000–20 000 kr eller mer.",
+    "Ett privat kardiologbesök kostar ofta från cirka **3 000 kr**; en mer komplett hjärtutredning kan kosta 5 000–20 000 kr eller mer.",
     "Sjukvårdsförsäkring kan ibland täcka privat kardiolog eller hjärtutredning.",
     "[Specialistdirekt](/kontakt) är inte en akut tjänst och gör ingen medicinsk bedömning. Vi hjälper dig vidare till relevant privat mottagning när ärendet inte är akut.",
   ],
@@ -75,7 +75,7 @@ export const article: Article = {
       id: "nar-kardiolog",
       heading: "När kan privat kardiolog vara aktuellt?",
       body: [
-        "Privat kardiolog kan vara aktuellt när bröstbesvären **inte är akuta**, men du ändå behöver specialistbedömning eller hjärtutredning. Det kan till exempel gälla om:",
+        "Det kan vara aktuellt med en privat kardiolog när bröstbesvären **inte är akuta**, men du ändå behöver specialistbedömning eller hjärtutredning. Det kan till exempel gälla om:",
       ],
       bullets: [
         "du har återkommande tryck eller obehag i bröstet",
@@ -118,7 +118,7 @@ export const article: Article = {
       id: "kostnad",
       heading: "Vad kostar privat kardiolog vid bröstbesvär?",
       body: [
-        "Ett privat kardiologbesök börjar ofta från cirka **3 000 kr och uppåt**, beroende på mottagning, ort, besökets längd och vad som ingår.",
+        "Ett privat kardiologbesök kostar ofta från cirka **3 000 kr och uppåt**, beroende på mottagning, ort, besökets längd och vad som ingår.",
         "Om besöket omfattar EKG, ultraljud av hjärtat, långtids-EKG, arbetsprov, blodtrycksmätning över dygn, blodprover eller uppföljning kan totalpriset bli högre – ofta 5 000–20 000 kr eller mer. Läs mer i vår guide om [privat kardiolog](/artiklar/privat-kardiolog-kostnad).",
       ],
     },
@@ -186,8 +186,20 @@ export const article: Article = {
       heading: "Sammanfattning",
       body: [
         "Bröstsmärta ska alltid tas på allvar. Vid stark, tryckande, ihållande eller nytillkommen bröstsmärta med andfåddhet, kallsvettning, illamående, svimningskänsla eller utstrålning ska du söka akut vård eller ringa **112**.",
-        "Privat kardiolog kan vara aktuellt vid återkommande eller icke-akuta bröstbesvär, hjärtklappning, avvikande EKG eller högt blodtryck. Ett besök börjar ofta från cirka 3 000 kr och uppåt. Specialistdirekt hjälper dig vidare när ärendet inte är akut – skicka en [bokningsförfrågan](/kontakt) så hjälper vi dig till relevant privat mottagning.",
+        "Det kan vara aktuellt med en privat kardiolog vid återkommande eller icke-akuta bröstbesvär, hjärtklappning, avvikande EKG eller högt blodtryck. Ett besök kostar ofta från cirka 3 000 kr och uppåt. Specialistdirekt hjälper dig vidare när ärendet inte är akut – skicka en [bokningsförfrågan](/kontakt) så hjälper vi dig till relevant privat mottagning.",
       ],
+    },
+  ],
+  sources: [
+    {
+      label: "Ont i bröstet",
+      url: "https://www.1177.se/sjukdomar--besvar/hjarta-och-blodkarl/ont-i-brostet/",
+      publisher: "1177 Vårdguiden",
+    },
+    {
+      label: "Hjärtinfarkt",
+      url: "https://www.1177.se/sjukdomar--besvar/hjarta-och-blodkarl/hjartbesvar-och-hjartfel/hjartinfarkt/",
+      publisher: "1177 Vårdguiden",
     },
   ],
   faqs: [
@@ -204,7 +216,7 @@ export const article: Article = {
     {
       question: "Vad kostar privat kardiolog?",
       answer:
-        "Ett privat kardiologbesök börjar ofta från cirka 3 000 kr och uppåt. En mer omfattande hjärtutredning kan ofta kosta 5 000–20 000 kr eller mer beroende på undersökningar.",
+        "Ett privat kardiologbesök kostar ofta från cirka 3 000 kr och uppåt. En mer omfattande hjärtutredning kan ofta kosta 5 000–20 000 kr eller mer beroende på undersökningar.",
     },
     {
       question: "Kan sjukvårdsförsäkring betala kardiolog?",

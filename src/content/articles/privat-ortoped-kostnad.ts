@@ -105,14 +105,14 @@ export const article: Article = {
       ],
       bullets: [
         "**Fysiskt besök i Göteborg – 2 000 kr**",
-        "**Digitalt videobesök, i hela Sverige – 1 000 kr**",
+        "Betalas **på plats vid besöket**",
       ],
     },
     {
       id: "vantetider",
       heading: "Väntetider hos ortoped",
       body: [
-        "I den offentliga vården kan väntan på ett besök hos ortoped variera från några veckor till flera månader, och för planerade operationer kan den bli ännu längre. Akuta skador prioriteras däremot snabbt.",
+        "I den offentliga vården kan väntan på ett besök hos en ortoped variera från några veckor till flera månader, och för planerade operationer kan den bli ännu längre. Akuta skador prioriteras däremot snabbt.",
         "Privat är en av de stora fördelarna just kortare väntetid. Många privata kliniker kan erbjuda en tid inom dagar eller någon eller ett par veckor. Behöver du en MR går det ofta snabbare privat, vilket kan korta hela utredningen.",
         "Hur lång väntan blir beror på efterfrågan i ditt område och hur akuta besvären är. Bor du i en större stad finns oftast fler kliniker att välja mellan, vilket pressar väntetiderna nedåt.",
       ],

@@ -43,7 +43,7 @@ export const article: Article = {
     heading: "Behöver ditt barn en ortopedisk bedömning?",
     body: `Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi, tar emot barn och ungdomar ${BARN_SCOPE.label} på mottagningen i Göteborg. Ingen remiss behövs och besöket kostar 2 000 kr.`,
     label: "Boka ortopedisk bedömning för barn i Göteborg",
-    href: "/specialiteter/ortoped/goteborg#ortoped-for-barn-goteborg",
+    href: "/boka-tid/barn",
   },
   summary: [
     "Barnortopedi rör skador och besvär i barnets växande skelett, leder, muskler och rygg.",
@@ -109,7 +109,7 @@ export const article: Article = {
         "Via Specialistdirekt kan barn få en privat ortopedisk bedömning i Göteborg hos [Dr. Masoud Sorkhabi](/lakare/masoud-sorkhabi), **specialist i ortopedi och ryggkirurgi, som även tar emot barn**. **Dr. Masoud Sorkhabi har över 20 års erfarenhet av ortopedi och har arbetat med både vuxna och barn.** Vi använder medvetet inte titeln barnortoped – hans dokumenterade specialistkompetens är ortopedi och ryggkirurgi.",
         `**Vilka åldrar tas emot?** Barn och ungdomar, ${BARN_SCOPE.label} (${BARN_SCOPE.short}). Från 18 års ålder bokas besöket som vuxen. Mottagningen ligger i Göteborg.`,
         "För den privata självbetalarvägen behövs ingen remiss. Ett fysiskt besök i Göteborg kostar 2 000 kr, samma pris som för vuxna. Mer om prisbilden finns i guiden om [privat ortoped – kostnad, väntetid och hur du bokar](/artiklar/privat-ortoped-kostnad).",
-        "Bokning och tider finns på sidan för [privat ortoped i Göteborg](/specialiteter/ortoped/goteborg).",
+        "[Se lediga tider och boka ortopedisk bedömning för barn](/boka-tid/barn).",
         "En privat ortopedisk bedömning kan vara relevant vid besvär från:",
       ],
       bullets: [

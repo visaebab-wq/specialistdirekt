@@ -49,7 +49,7 @@ export const article: Article = {
       body: [
         "För de flesta är **vårdcentralen** en bra första kontakt vid knäsmärta. Allmänläkaren gör en första bedömning, undersöker knät, utesluter allvarliga orsaker och kan skriva remiss vidare om det behövs. Det är ofta den smidigaste vägen om du är osäker på vad besvären beror på.",
         "En **fysioterapeut** (sjukgymnast) är ofta rätt om smärtan kommit gradvis utan ett tydligt trauma – till exempel vid överbelastning, löparknä eller stelhet. Du kan i många regioner boka fysioterapeut direkt utan remiss, och en stor del av all knäsmärta blir bättre med rätt övningar och belastningsråd.",
-        "En **ortoped** är specialistläkare på rörelseapparaten och blir aktuell vid tydlig skada, låsningar, instabilitet, kraftig svullnad eller besvär som inte ger med sig trots behandling. Ortopeden bedömer behov av röntgen, magnetkamera (MR) eller ingrepp. Läs mer om vad specialiteten omfattar på vår sida om [ortoped](/specialiteter/ortoped).",
+        "En **ortoped** är specialistläkare på rörelseapparaten och blir aktuell vid tydlig skada, låsningar, instabilitet, kraftig svullnad eller besvär som inte ger med sig trots behandling. Ortopeden bedömer behov av röntgen, magnetkamera (MR) eller ingrepp. Läs mer om vad specialiteten omfattar på vår sida om [ortoped](/specialiteter/ortoped). Är det just låsningar som återkommer kan du läsa om [ortopedisk bedömning när knät låser sig](/kna-laser-sig).",
       ],
       bullets: [
         "Vårdcentral: första bedömning och eventuell remiss vidare",
@@ -104,7 +104,7 @@ export const article: Article = {
         "Priserna nedan är **ungefärliga** och **varierar** kraftigt mellan kliniker och orter. Ofta tillkommer bilddiagnostik utöver själva läkarbesöket, så det är summan av delarna som avgör din slutkostnad. Be alltid kliniken om ett samlat pris innan du bokar.",
       ],
       bullets: [
-        "Nybesök hos privat ortoped: ungefär 1 500–3 500 kr",
+        "Nybesök hos en privat ortoped: ungefär 1 500–3 500 kr",
         "Röntgen av knät: ungefär 1 000–2 500 kr",
         "Magnetkamera (MR) av knät: ungefär 3 000–6 000 kr",
         "Besök hos fysioterapeut: ungefär 500–1 200 kr per gång",
@@ -114,7 +114,7 @@ export const article: Article = {
       id: "vid-besoket",
       heading: "Vad händer vid ett ortopedbesök?",
       body: [
-        "Ett besök hos ortoped börjar med ett samtal om dina besvär: när smärtan började, vad som utlöser den, om du haft en skada och hur det påverkar din vardag. Därefter följer en klinisk undersökning där läkaren känner på knät, testar rörlighet, stabilitet och vilka rörelser som gör ont.",
+        "Ett besök hos en ortoped börjar med ett samtal om dina besvär: när smärtan började, vad som utlöser den, om du haft en skada och hur det påverkar din vardag. Därefter följer en klinisk undersökning där läkaren känner på knät, testar rörlighet, stabilitet och vilka rörelser som gör ont.",
         "Utifrån undersökningen avgör ortopeden om bilddiagnostik behövs. **Röntgen** visar framför allt skelettet och kan tala för till exempel artros, medan **magnetkamera (MR)** visar mjukdelar som menisk, brosk och ledband tydligare. Alla knäbesvär kräver inte bilddiagnostik – ofta räcker undersökningen för att lägga en plan.",
         "Behandlingen anpassas efter orsaken och kan vara allt från anpassad träning och fysioterapi till avlastning, sprutor eller, i utvalda fall, operation. Många knäbesvär blir bättre utan kirurgi. Är du osäker på vilken specialist du behöver kan du bläddra bland fler [specialiteter](/specialiteter).",
       ],
@@ -123,7 +123,7 @@ export const article: Article = {
       id: "privat-ortoped-goteborg",
       heading: "Söker du privat ortoped för knäsmärta i Göteborg?",
       body: [
-        "Bor du i Göteborgsområdet kan du boka **Dr. Masoud Sorkhabi**, specialist i ortopedi och ryggkirurgi med över 20 års erfarenhet av ortopedi och kirurgi, inklusive knäbesvär. **Fysiskt besök i Göteborg 2 000 kr** eller **digitalt videobesök i hela Sverige 1 000 kr** – utan remiss för självbetalande.",
+        "Bor du i Göteborgsområdet kan du boka **Dr. Masoud Sorkhabi**, specialist i ortopedi och ryggkirurgi med över 20 års erfarenhet av ortopedi och kirurgi, inklusive knäbesvär. **Fysiskt besök i Göteborg 2 000 kr**, som betalas på plats vid besöket – utan remiss för självbetalande.",
         "Läs mer och boka på [privat ortoped i Göteborg](/specialiteter/ortoped/goteborg). Specialistdirekt är en förmedlingstjänst och inte vårdgivare; den medicinska bedömningen görs av läkaren.",
       ],
     },
@@ -135,6 +135,18 @@ export const article: Article = {
         "Vill du veta exakt hur förmedlingen går till steg för steg kan du läsa [så fungerar det](/sa-fungerar-det). Är du redo att komma vidare, fyll i en förfrågan via [kontaktsidan](/kontakt) så återkommer vi med förslag på lämplig ortoped.",
         "Kom ihåg att priserna i den här guiden är ungefärliga och kan ha ändrats. Det säkraste är alltid att be den aktuella kliniken om ett bekräftat pris innan du bokar.",
       ],
+    },
+  ],
+  sources: [
+    {
+      label: "Knäledsartros",
+      url: "https://www.1177.se/sjukdomar--besvar/skelett-leder-och-muskler/leder/knaledsartros/",
+      publisher: "1177 Vårdguiden",
+    },
+    {
+      label: "Meniskskada",
+      url: "https://www.1177.se/olyckor--skador/skador-pa-armar-och-ben/meniskskada/",
+      publisher: "1177 Vårdguiden",
     },
   ],
   faqs: [
@@ -156,7 +168,7 @@ export const article: Article = {
     {
       question: "Vad kostar ett privat ortopedbesök för knät?",
       answer:
-        "Ett nybesök hos privat ortoped kostar **ungefärligt** 1 500–3 500 kr. Röntgen och magnetkamera (MR) tillkommer ofta separat. Alla siffror är ungefärliga och **varierar** mellan kliniker och orter, så be alltid om ett samlat pris i förväg.",
+        "Ett nybesök hos en privat ortoped kostar **ungefärligt** 1 500–3 500 kr. Röntgen och magnetkamera (MR) tillkommer ofta separat. Alla siffror är ungefärliga och **varierar** mellan kliniker och orter, så be alltid om ett samlat pris i förväg.",
     },
     {
       question: "Behöver jag alltid röntgen eller MR vid knäsmärta?",
@@ -171,7 +183,7 @@ export const article: Article = {
     {
       question: "Kan jag boka en privat ortoped för knäbesvär i Göteborg?",
       answer:
-        "Ja. Du kan boka Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi i Göteborg, vars inriktning omfattar knäbesvär. Fysiskt besök 2 000 kr eller digitalt 1 000 kr, utan remiss för självbetalande. Läs mer på [privat ortoped i Göteborg](/specialiteter/ortoped/goteborg).",
+        "Ja. Du kan boka Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi i Göteborg, vars inriktning omfattar knäbesvär. Besöket kostar 2 000 kr och betalas på plats, utan remiss för självbetalande. Läs mer på [privat ortoped i Göteborg](/specialiteter/ortoped/goteborg).",
     },
   ],
 };

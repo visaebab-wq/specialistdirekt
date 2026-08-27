@@ -120,7 +120,7 @@ export const article: Article = {
         "Priserna nedan är **ungefärliga** och **varierar** kraftigt mellan kliniker och orter. Ofta tillkommer undersökningar som långtidsregistrering eller ultraljud utöver själva läkarbesöket, så det är summan av delarna som avgör din slutkostnad. Be alltid kliniken om ett samlat pris innan du bokar. En djupare genomgång av kostnaderna finns i vår artikel om [privat kardiolog kostnad](/artiklar/privat-kardiolog-kostnad).",
       ],
       bullets: [
-        "Nybesök hos privat kardiolog: ungefär 2 000–4 000 kr",
+        "Nybesök hos en privat kardiolog: ungefär 2 000–4 000 kr",
         "EKG i samband med besöket: ofta ungefär 300–800 kr",
         "Holter / 24-timmars-EKG: ungefär 2 000–4 000 kr",
         "Ultraljud av hjärtat: ungefär 2 500–5 000 kr",
@@ -134,6 +134,18 @@ export const article: Article = {
         "Vill du veta exakt hur förmedlingen går till steg för steg kan du läsa [så fungerar det](/sa-fungerar-det). Är du redo att komma vidare, fyll i en förfrågan via [kontaktsidan](/kontakt) så återkommer vi med förslag på lämplig kardiolog.",
         "Kom ihåg att priserna i den här guiden är ungefärliga och kan ha ändrats. Det säkraste är alltid att be den aktuella kliniken om ett bekräftat pris innan du bokar – och att vid akuta symtom som bröstsmärta, andnöd eller svimning alltid ringa 112.",
       ],
+    },
+  ],
+  sources: [
+    {
+      label: "Hjärtklappning",
+      url: "https://www.1177.se/sjukdomar--besvar/hjarta-och-blodkarl/hjartrytm/hjartklappning/",
+      publisher: "1177 Vårdguiden",
+    },
+    {
+      label: "Förmaksflimmer",
+      url: "https://www.1177.se/sjukdomar--besvar/hjarta-och-blodkarl/hjartrytm/formaksflimmer/",
+      publisher: "1177 Vårdguiden",
     },
   ],
   faqs: [
@@ -165,7 +177,7 @@ export const article: Article = {
     {
       question: "Vad kostar ett privat kardiologbesök?",
       answer:
-        "Ett nybesök hos privat kardiolog kostar **ungefärligt** 2 000–4 000 kr. Undersökningar som Holter eller ultraljud av hjärtat tillkommer ofta separat. Alla siffror är ungefärliga och **varierar** mellan kliniker och orter, så be alltid om ett samlat pris i förväg.",
+        "Ett nybesök hos en privat kardiolog kostar **ungefärligt** 2 000–4 000 kr. Undersökningar som Holter eller ultraljud av hjärtat tillkommer ofta separat. Alla siffror är ungefärliga och **varierar** mellan kliniker och orter, så be alltid om ett samlat pris i förväg.",
     },
   ],
 };

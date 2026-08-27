@@ -113,8 +113,8 @@ export const article: Article = {
         "Priserna nedan är **ungefärliga** och **varierar** kraftigt mellan kliniker och orter. Ofta tillkommer bilddiagnostik utöver själva läkarbesöket, så det är summan av delarna som avgör din slutkostnad. Be alltid kliniken om ett samlat pris innan du bokar.",
       ],
       bullets: [
-        "Nybesök hos privat ortoped: ungefär 1 500–3 500 kr",
-        "Nybesök hos privat neurolog: ungefär 2 000–4 000 kr",
+        "Nybesök hos en privat ortoped: ungefär 1 500–3 500 kr",
+        "Nybesök hos en privat neurolog: ungefär 2 000–4 000 kr",
         "Magnetkamera (MR) av ryggen: ungefär 3 000–6 000 kr",
         "Besök hos fysioterapeut eller naprapat: ungefär 500–1 200 kr per gång",
       ],
@@ -127,6 +127,18 @@ export const article: Article = {
         "Vill du veta exakt hur förmedlingen går till steg för steg kan du läsa [så fungerar det](/sa-fungerar-det). Är du redo att komma vidare, fyll i en förfrågan via [kontaktsidan](/kontakt) så återkommer vi med förslag på lämplig specialist.",
         "Kom ihåg att priserna i den här guiden är ungefärliga och kan ha ändrats. Det säkraste är alltid att be den aktuella kliniken om ett bekräftat pris innan du bokar. Och vid varningstecken som beskrivs ovan – sök vård i stället för att vänta.",
       ],
+    },
+  ],
+  sources: [
+    {
+      label: "Ont i ryggen",
+      url: "https://www.1177.se/sjukdomar--besvar/skelett-leder-och-muskler/rygg-och-nacke/ont-i-ryggen/",
+      publisher: "1177 Vårdguiden",
+    },
+    {
+      label: "Diskbråck",
+      url: "https://www.1177.se/sjukdomar--besvar/skelett-leder-och-muskler/rygg-och-nacke/diskbrack/",
+      publisher: "1177 Vårdguiden",
     },
   ],
   faqs: [
@@ -153,7 +165,7 @@ export const article: Article = {
     {
       question: "Vad kostar ett privat besök för ryggbesvär?",
       answer:
-        "Ett nybesök hos privat ortoped kostar **ungefärligt** 1 500–3 500 kr och hos neurolog ungefär 2 000–4 000 kr. Magnetkamera (MR) tillkommer ofta separat. Siffrorna är ungefärliga och **varierar** mellan kliniker, så be alltid om ett samlat pris i förväg.",
+        "Ett nybesök hos en privat ortoped kostar **ungefärligt** 1 500–3 500 kr och hos en neurolog ungefär 2 000–4 000 kr. Magnetkamera (MR) tillkommer ofta separat. Siffrorna är ungefärliga och **varierar** mellan kliniker, så be alltid om ett samlat pris i förväg.",
     },
     {
       question: "Vad kostar det att använda Specialistdirekt?",

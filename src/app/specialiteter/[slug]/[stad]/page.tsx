@@ -6,6 +6,7 @@ import { cities, getCity, hasCityPages, CITY_SPECIALTY_SLUGS } from "@/lib/citie
 import { articlesForSpecialty } from "@/lib/articles";
 import { specialties } from "@/lib/specialties";
 import { site } from "@/lib/site";
+import { BookingCtaBanner } from "@/components/BookingCtaBanner";
 import { LeadForm } from "@/components/LeadForm";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { FaqList } from "@/components/FaqList";
@@ -135,6 +136,17 @@ export default async function CitySpecialtyPage({
             </h1>
           </div>
           <p className="internal-hero-text">{pairIntro}</p>
+
+          {/* Bara stad/specialitet-par som har egna tider (i praktiken ortoped
+              i Göteborg). Övriga par har ingen kalender att skicka någon till. */}
+          {local?.bookingCta && (
+            <BookingCtaBanner
+              href={local.bookingCta.url}
+              label={local.bookingCta.label}
+              note={local.bookingCta.note}
+            />
+          )}
+
           <PageVisual visual={visual} className="mt-10 max-w-3xl" priority />
         </div>
       </div>
@@ -265,13 +277,11 @@ export default async function CitySpecialtyPage({
               <section className="mt-10 rounded-2xl border border-brand-200 bg-brand-50 p-6 sm:p-8">
                 <h2 className="text-xl font-bold text-ink-900">Boka tid direkt</h2>
                 <p className="mt-2 text-ink-700">
-                  Boka ett fysiskt eller digitalt besök direkt i kalendern. Du betalar i samband med
-                  bokningen, och beloppet återbetalas om du avbokar.
+                  Välj en ledig tid direkt i kalendern. Du bekräftar tiden via en länk i mejlet, och
+                  kan avboka kostnadsfritt fram till 3 timmar före besöket.
                 </p>
                 <a
                   href={local.bookingCta.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="mt-5 inline-flex items-center justify-center rounded-xl bg-brand-600 px-6 py-3.5 text-base font-semibold text-white shadow-[0_12px_28px_rgba(13,148,136,0.24)] transition-all hover:-translate-y-0.5 hover:bg-brand-700"
                 >
                   {local.bookingCta.label}
@@ -310,8 +320,8 @@ export default async function CitySpecialtyPage({
                     Boka {specialty.title.toLowerCase()} i {city.name}
                   </h2>
                   <p className="mt-2 text-ink-600">
-                    Boka tid direkt i kalendern. Du betalar i samband med bokningen, och beloppet
-                    återbetalas om du avbokar. Läs mer på vår översikt om{" "}
+                    Boka tid direkt i kalendern. Du bekräftar tiden via en länk i mejlet och kan
+                    avboka kostnadsfritt fram till 3 timmar före besöket. Läs mer på vår översikt om{" "}
                     <Link
                       href={`/specialiteter/${specialty.slug}`}
                       className="font-semibold text-brand-700 hover:underline"
@@ -410,10 +420,9 @@ export default async function CitySpecialtyPage({
             {local?.bookingCta && (
               <div className="form-panel p-6">
                 <h2 className="text-lg font-bold text-ink-900">Boka tid direkt</h2>
+                {/* Ingen target="_blank": bokningen ligger på sajten själv. */}
                 <a
                   href={local.bookingCta.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-brand-600 px-6 py-3.5 text-center text-base font-semibold text-white shadow-[0_12px_28px_rgba(13,148,136,0.24)] transition-all hover:-translate-y-0.5 hover:bg-brand-700"
                 >
                   {local.bookingCta.label}

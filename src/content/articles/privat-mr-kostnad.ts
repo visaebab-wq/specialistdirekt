@@ -26,7 +26,7 @@ export const article: Article = {
   readMinutes: 9,
   wordCount: 1350,
   summary: [
-    "En riktad privat MR börjar ofta **från cirka 6 000 kr**; mer omfattande undersökningar (hjärna, prostata, buk, helrygg, helkropp) kan kosta **10 000–25 000 kr eller mer**.",
+    "En riktad privat MR kostar ofta **från cirka 6 000 kr**; mer omfattande undersökningar (hjärna, prostata, buk, helrygg, helkropp) kan kosta **10 000–25 000 kr eller mer**.",
     "Privat sjukvårdsförsäkring kan i vissa fall täcka hela eller delar av kostnaden, men ofta krävs godkännande i förväg – kontakta alltid bolaget först.",
     "Aktuellt vid långvarig ryggsmärta, knä- eller axelbesvär, idrottsskada, neurologiska symtom eller prostatabesvär – men ibland är det bättre att träffa rätt specialist först.",
     "[Specialistdirekt](/kontakt) hjälper dig skicka en bokningsförfrågan till en relevant privat mottagning.",
@@ -53,7 +53,7 @@ export const article: Article = {
       id: "kostnad",
       heading: "Kort svar: vad kostar privat MR?",
       body: [
-        "En privat MR-undersökning börjar ofta **från cirka 6 000 kr** och uppåt, beroende på kroppsdel, om kontrast behövs, omfattning och klinik.",
+        "En privat MR-undersökning kostar ofta **från cirka 6 000 kr** och uppåt, beroende på kroppsdel, om kontrast behövs, omfattning och klinik.",
         "Mindre avgränsade undersökningar (knä, fot, handled eller en del av ryggen) kan ofta ligga **från cirka 6 000–9 000 kr**. Mer omfattande undersökningar (MR hjärna, buk, prostata, helrygg eller flera kroppsdelar) kan ofta hamna på **10 000–25 000 kr** eller mer. Helkropps-MR eller avancerade paket kan kosta ännu mer.",
         "Har du privat sjukvårdsförsäkring kan den i vissa fall täcka hela eller delar av kostnaden, men ofta krävs godkännande i förväg. Be alltid kliniken eller försäkringsbolaget bekräfta pris och villkor innan du bokar.",
       ],
@@ -214,7 +214,7 @@ export const article: Article = {
       id: "sammanfattning",
       heading: "Sammanfattning",
       body: [
-        "Privat MR kan vara aktuellt vid ryggsmärta, knäskada, axelbesvär, neurologiska symtom, huvudvärk med medicinsk frågeställning, prostatabesvär eller bukbesvär. En riktad privat MR börjar ofta **från cirka 6 000 kr** och uppåt, medan mer omfattande undersökningar (hjärna, prostata, buk, helrygg, helkropp) kan kosta **10 000–25 000 kr** eller mer. I vissa fall kan sjukvårdsförsäkring täcka kostnaden.",
+        "Det kan vara aktuellt med en privat MR vid ryggsmärta, knäskada, axelbesvär, neurologiska symtom, huvudvärk med medicinsk frågeställning, prostatabesvär eller bukbesvär. En riktad privat MR kostar ofta **från cirka 6 000 kr** och uppåt, medan mer omfattande undersökningar (hjärna, prostata, buk, helrygg, helkropp) kan kosta **10 000–25 000 kr** eller mer. I vissa fall kan sjukvårdsförsäkring täcka kostnaden.",
         "Det är inte alltid bäst att börja med MR – ibland är det bättre att träffa rätt specialist först. Läs gärna mer om [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig) eller skicka en [bokningsförfrågan](/kontakt) så hjälper vi dig vidare.",
       ],
     },

@@ -117,6 +117,20 @@ export const article: Article = {
       ],
     },
     {
+      id: "nar-soka-vard-akut",
+      heading: "När ska du söka vård akut?",
+      body: [
+        "Grå starr i sig utvecklas långsamt och är ingen akut sjukdom. Men vissa ögonsymtom ska bedömas samma dag, både före och efter en operation – särskilt de första veckorna efteråt. Sök akut ögonsjukvård vid:",
+      ],
+      bullets: [
+        "Plötslig synförsämring eller synbortfall",
+        "Kraftig smärta i ögat, eller ett rött öga som blir allt sämre",
+        "Nytillkomna ljusblixtar, en skur av rörliga prickar eller en skugga som skjuter in i synfältet",
+        "Ökande rodnad, var eller svullnad efter en operation",
+      ],
+      bulletTone: "warning",
+    },
+    {
       id: "specialistdirekt",
       heading: "Så hjälper Specialistdirekt dig vidare",
       body: [
@@ -124,6 +138,23 @@ export const article: Article = {
         "Vill du se hur förmedlingen går till steg för steg kan du läsa [så fungerar det](/sa-fungerar-det). Är du redo att komma vidare fyller du i en förfrågan via [kontaktsidan](/kontakt), så återkommer vi med förslag på en lämplig ögonläkare.",
         "Kom ihåg att väntetider och priser i den här guiden är ungefärliga och kan ha ändrats. Det säkraste är alltid att be den aktuella kliniken om ett bekräftat besked innan du bokar.",
       ],
+    },
+  ],
+  sources: [
+    {
+      label: "Grå starr – katarakt",
+      url: "https://www.1177.se/sjukdomar--besvar/ogon/ogonsjukdomar/gra-starr-katarakt/",
+      publisher: "1177 Vårdguiden",
+    },
+    {
+      label: "Operation vid grå starr",
+      url: "https://www.1177.se/undersokning-behandling/operationer/operationer-av-ogon/operation-vid-gra-starr/",
+      publisher: "1177 Vårdguiden",
+    },
+    {
+      label: "Vårdgaranti",
+      url: "https://www.1177.se/sa-fungerar-varden/lagar-och-bestammelser/vardgaranti/",
+      publisher: "1177 Vårdguiden",
     },
   ],
   faqs: [

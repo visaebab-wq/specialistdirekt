@@ -127,15 +127,21 @@ export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
 
       <div>
         <label htmlFor="specialty" className="mb-1 block text-sm font-medium text-ink-700">
-          Specialitet
+          Specialitet <span className="text-red-500">*</span>
         </label>
         <select
           id="specialty"
           name="specialty"
           defaultValue={defaultSpecialty ?? ""}
+          required
           className={fieldClass}
         >
-          <option value="">Vet inte / annat</option>
+          {/* Tomt värde är bara en platshållare – ett aktivt val krävs. Den som
+              inte vet väljer "Vet inte / annat", vilket är ett svar i sig. */}
+          <option value="" disabled>
+            Välj specialitet
+          </option>
+          <option value="vet-inte">Vet inte / annat</option>
           {specialties.map((s) => (
             <option key={s.slug} value={s.slug}>
               {s.title} – {s.name}
@@ -154,14 +160,13 @@ export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
 
       <div>
         <label htmlFor="message" className="mb-1 block text-sm font-medium text-ink-700">
-          Vad vill du boka tid för? <span className="text-red-500">*</span>
+          Vad vill du boka tid för? <span className="text-ink-400">(valfritt)</span>
         </label>
         <textarea
           id="message"
           name="message"
           rows={5}
           placeholder="Beskriv kort besväret eller vilken undersökning/specialist du vill boka tid för."
-          required
           className={fieldClass}
         />
         <FieldError message={state.errors.message} />

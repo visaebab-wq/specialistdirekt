@@ -26,6 +26,24 @@ export type ArticleSection = {
 
 export type ArticleFaq = { question: string; answer: string };
 
+/**
+ * En källa artikeln vilar på. Visas som en "Källor"-lista sist i artikeln och
+ * som `citation` i schemat.
+ *
+ * Två regler, båda av samma skäl – en påhittad källa är värre än ingen alls:
+ *   1. Länka bara till sidor som du faktiskt öppnat och sett innehållet på.
+ *   2. Bara myndighets- eller vårdgivarkällor (1177, Socialstyrelsen,
+ *      Läkemedelsverket, nationella vårdprogram). Inga bloggar, inga
+ *      konkurrenter, inga AI-genererade sammanfattningar.
+ */
+export type ArticleSource = {
+  /** Sidans titel, som den står hos källan. */
+  label: string;
+  url: string;
+  /** Utgivare, t.ex. "1177 Vårdguiden". */
+  publisher: string;
+};
+
 export type Article = {
   slug: string;
   /** H1 på sidan. */
@@ -54,6 +72,12 @@ export type Article = {
    * innan den faktiska slutversionen är godkänd.
    */
   medicallyReviewed?: boolean;
+  /**
+   * Källor artikelns medicinska innehåll vilar på. Utelämnad = inga källor
+   * visas (gäller t.ex. rena pris- och vägledningsartiklar som inte gör några
+   * medicinska påståenden).
+   */
+  sources?: ArticleSource[];
   /**
    * "Snabb sammanfattning" – punktlista högst upp. Mycket viktig för att
    * AI-sökmotorer (ChatGPT, Perplexity, Google AI) lätt ska kunna citera sidan.

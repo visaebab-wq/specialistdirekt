@@ -25,7 +25,7 @@ export const article: Article = {
   readMinutes: 8,
   wordCount: 1150,
   summary: [
-    "En mer omfattande första genomgång hos privat dietist kostar ofta **2 500–4 500 kr**; paket med kostplan och uppföljning **5 000–15 000 kr eller mer**.",
+    "En mer omfattande första genomgång hos en privat dietist kostar ofta **2 500–4 500 kr**; paket med kostplan och uppföljning **5 000–15 000 kr eller mer**.",
     "Privat sjukvårdsförsäkring kan i vissa fall täcka dietist, särskilt om rådgivningen är kopplad till medicinska besvär eller diagnos – kontakta alltid bolaget först.",
     "Aktuellt vid vikt, IBS och magbesvär, diabetes, högt kolesterol eller behov av en individuell kostplan som fungerar i vardagen.",
     "[Specialistdirekt](/kontakt) hjälper dig skicka en bokningsförfrågan till en relevant privat mottagning.",
@@ -148,7 +148,7 @@ export const article: Article = {
     },
     {
       id: "pris-paverkan",
-      heading: "Vad påverkar priset hos privat dietist?",
+      heading: "Vad påverkar priset hos en privat dietist?",
       body: ["Flera faktorer påverkar priset:"],
       bullets: [
         "besökets längd",
@@ -193,7 +193,7 @@ export const article: Article = {
       id: "sammanfattning",
       heading: "Sammanfattning",
       body: [
-        "Privat dietist kan vara aktuellt vid viktfrågor, IBS, diabetes, högt kolesterol, magbesvär, aptitproblem eller behov av en individuell kostplan. En seriös första genomgång börjar ofta från cirka **2 500–4 500 kr** och paket med uppföljning kan kosta betydligt mer.",
+        "Det kan vara aktuellt med en privat dietist vid viktfrågor, IBS, diabetes, högt kolesterol, magbesvär, aptitproblem eller behov av en individuell kostplan. En seriös första genomgång kostar ofta från cirka **2 500–4 500 kr** och paket med uppföljning kan kosta betydligt mer.",
         "I vissa fall kan sjukvårdsförsäkring täcka dietist, särskilt om kontakten är kopplad till medicinska besvär eller diagnos. Vill du läsa mer om skillnaderna kan du läsa vår guide om [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
       ],
     },

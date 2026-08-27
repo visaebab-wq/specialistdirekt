@@ -25,7 +25,7 @@ export const article: Article = {
   readMinutes: 10,
   wordCount: 1620,
   summary: [
-    "Ett första besök hos privat allergolog börjar ofta **från cirka 3 000 kr**, medan en omfattande utredning kan kosta 5 000–15 000 kr eller mer.",
+    "Ett första besök hos en privat allergolog kostar ofta **från cirka 3 000 kr**, medan en omfattande utredning kan kosta 5 000–15 000 kr eller mer.",
     "Har du privat sjukvårdsförsäkring kan den ofta täcka hela eller delar av kostnaden för besök och allergiutredning, beroende på dina villkor.",
     "Aktuellt vid pollenallergi, allergi mot pälsdjur eller kvalster, födoämnesallergi, nässelutslag, astma, eksem, svullnad och klåda.",
     "[Specialistdirekt](/kontakt) hjälper dig skicka en bokningsförfrågan till en relevant privat mottagning.",
@@ -51,7 +51,7 @@ export const article: Article = {
       id: "kostnad",
       heading: "Kort svar: vad kostar privat allergolog?",
       body: [
-        "Ett första besök hos privat allergolog börjar ofta **från cirka 3 000 kr** och varierar uppåt beroende på mottagning, ort och vad besöket omfattar.",
+        "Ett första besök hos en privat allergolog kostar ofta **från cirka 3 000 kr** och varierar uppåt beroende på mottagning, ort och vad besöket omfattar.",
         "En kortare konsultation eller ett nybesök kan ligga i den nedre delen, medan en mer **omfattande utredning med flera provtagningar, pricktest och lungfunktionsmätning kan kosta 5 000–15 000 kr eller mer**. Priset beror på hur många allergener som testas och hur omfattande utredningen blir.",
         "**Har du privat sjukvårdsförsäkring kan du ofta få hjälp med betalningen** – försäkringen kan täcka hela eller delar av kostnaden, beroende på dina villkor. Om mottagningen arbetar på uppdrag av regionen kan vanlig patientavgift gälla, men då kan remiss eller egen vårdbegäran krävas.",
       ],
@@ -148,9 +148,9 @@ export const article: Article = {
     },
     {
       id: "pris-paverkan",
-      heading: "Vad påverkar priset hos privat allergolog?",
+      heading: "Vad påverkar priset hos en privat allergolog?",
       body: [
-        "Ett första besök börjar ofta **från cirka 3 000 kr**, medan en omfattande utredning kan kosta **5 000–15 000 kr eller mer**. Priset beror på flera saker:",
+        "Ett första besök kostar ofta **från cirka 3 000 kr**, medan en omfattande utredning kan kosta **5 000–15 000 kr eller mer**. Priset beror på flera saker:",
       ],
       bullets: [
         "om det är nybesök eller återbesök",
@@ -241,7 +241,7 @@ export const article: Article = {
       id: "sammanfattning",
       heading: "Sammanfattning",
       body: [
-        "Privat allergolog kan vara aktuellt vid pollenallergi, allergi mot pälsdjur eller kvalster, födoämnesallergi, nässelutslag, astma, eksem, svullnad och klåda. Ett första besök börjar ofta **från cirka 3 000 kr**, medan en mer **omfattande utredning kan kosta 5 000–15 000 kr eller mer** – och med privat sjukvårdsförsäkring kan du ofta få hjälp med betalningen.",
+        "Det kan vara aktuellt med en privat allergolog vid pollenallergi, allergi mot pälsdjur eller kvalster, födoämnesallergi, nässelutslag, astma, eksem, svullnad och klåda. Ett första besök kostar ofta **från cirka 3 000 kr**, medan en mer **omfattande utredning kan kosta 5 000–15 000 kr eller mer** – och med privat sjukvårdsförsäkring kan du ofta få hjälp med betalningen.",
         "Vill du jämföra fördelar och kostnader kan vår guide om [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig) vara till hjälp. När du är redo väljer du specialist, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Vi hjälper dig vidare till en privat mottagning som kan vara relevant för ditt behov.",
       ],
     },
@@ -255,7 +255,7 @@ export const article: Article = {
     {
       question: "Vad kostar privat allergolog?",
       answer:
-        "Ett första besök börjar ofta från cirka 3 000 kr. En mer omfattande utredning med flera provtagningar, pricktest och lungfunktionsmätning kan kosta 5 000–15 000 kr eller mer.",
+        "Ett första besök kostar ofta från cirka 3 000 kr. En mer omfattande utredning med flera provtagningar, pricktest och lungfunktionsmätning kan kosta 5 000–15 000 kr eller mer.",
     },
     {
       question: "Kan sjukvårdsförsäkring täcka allergolog?",

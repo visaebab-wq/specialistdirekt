@@ -24,7 +24,7 @@ export const article: Article = {
   readMinutes: 9,
   wordCount: 1400,
   summary: [
-    "Ett privat besök hos smärtläkare börjar ofta **från cirka 3 000 kr**; en mer omfattande smärtutredning eller behandlingsplan kan kosta **5 000–20 000 kr eller mer**.",
+    "Ett privat besök hos en smärtläkare kostar ofta **från cirka 3 000 kr**; en mer omfattande smärtutredning eller behandlingsplan kan kosta **5 000–20 000 kr eller mer**.",
     "Privat sjukvårdsförsäkring kan i vissa fall täcka hela eller delar av kostnaden – kontakta alltid bolaget först.",
     "Aktuellt vid långvarig smärta, ryggsmärta, nervsmärta, komplex värk, smärta efter operation eller skada när tidigare vård inte gett tillräcklig hjälp.",
     "[Specialistdirekt](/kontakt) hjälper dig skicka en bokningsförfrågan till en relevant privat mottagning.",
@@ -44,7 +44,7 @@ export const article: Article = {
   ],
   intro: [
     "Långvarig smärta kan påverka hela livet. Privat smärtvård kan bli aktuell vid exempelvis långvarig rygg- eller nacksmärta, nervrelaterad smärta, ledsmärta eller mer sammansatta smärttillstånd som inte förbättrats trots tidigare insatser.",
-    "Många börjar hos vårdcentral, fysioterapeut, [ortoped](/specialiteter/ortoped) eller [neurolog](/specialiteter/neurolog). Men om smärtan är långvarig, komplex eller svår att förstå kan en smärtläkare eller smärtspecialist bli aktuell. Osäker på vilken läkare du ska söka? Se [långvarig smärta – vilken läkare?](/artiklar/langvarig-smarta-vilken-lakare) och [smärtläkare och smärtmottagning](/specialiteter/smartlakare).",
+    "Många börjar på en vårdcentral eller hos en fysioterapeut, [ortoped](/specialiteter/ortoped) eller [neurolog](/specialiteter/neurolog). Men om smärtan är långvarig, komplex eller svår att förstå kan en smärtläkare eller smärtspecialist bli aktuell. Osäker på vilken läkare du ska söka? Se [långvarig smärta – vilken läkare?](/artiklar/langvarig-smarta-vilken-lakare) och [smärtläkare och smärtmottagning](/specialiteter/smartlakare).",
     "Specialistdirekt hjälper dig hitta rätt väg till privat specialistvård. Vi är inte en vårdgivare, ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en relevant mottagning. Läs mer om [hur det fungerar](/sa-fungerar-det).",
   ],
   sections: [
@@ -52,7 +52,7 @@ export const article: Article = {
       id: "kostnad",
       heading: "Kort svar: vad kostar privat smärtläkare?",
       body: [
-        "Ett privat besök hos smärtläkare eller smärtspecialist börjar ofta **från cirka 3 000 kr** och uppåt. Om besöket kräver genomgång av tidigare journaler, läkemedelsgenomgång, neurologisk eller ortopedisk bedömning, injektionsbehandling, blockad, remiss för MR eller uppföljning kan kostnaden bli högre.",
+        "Ett privat besök hos en smärtläkare eller smärtspecialist kostar ofta **från cirka 3 000 kr** och uppåt. Om besöket kräver genomgång av tidigare journaler, läkemedelsgenomgång, neurologisk eller ortopedisk bedömning, injektionsbehandling, blockad, remiss för MR eller uppföljning kan kostnaden bli högre.",
         "En mer omfattande privat smärtutredning eller behandlingsplan kan ofta hamna på **5 000–20 000 kr eller mer**. Har du privat sjukvårdsförsäkring kan den i vissa fall täcka hela eller delar av kostnaden.",
         "Be alltid mottagningen eller försäkringsbolaget bekräfta pris och villkor innan du bokar.",
       ],
@@ -174,7 +174,7 @@ export const article: Article = {
     },
     {
       id: "pris-paverkan",
-      heading: "Vad påverkar priset hos privat smärtläkare?",
+      heading: "Vad påverkar priset hos en privat smärtläkare?",
       body: ["Priset beror på flera saker:"],
       bullets: [
         "om det är nybesök eller återbesök",
@@ -208,7 +208,7 @@ export const article: Article = {
       id: "smartmottagning-goteborg",
       heading: "Privat smärtmottagning i Göteborg – verifierat pris",
       body: [
-        "Bor du i Göteborgsområdet och har långvarig eller komplex smärta kan du boka **Dr. Masoud Sorkhabi**, specialist i ortopedi och ryggkirurgi, till fasta priser: **fysiskt besök 2 000 kr** eller **digitalt videobesök 1 000 kr** (kan bokas från hela Sverige). Ingen remiss krävs för självbetalande, och beloppet återbetalas om du avbokar. Läs mer på [privat smärtmottagning i Göteborg](/specialiteter/smartlakare/goteborg).",
+        "Bor du i Göteborgsområdet och har långvarig eller komplex smärta kan du boka **Dr. Masoud Sorkhabi**, specialist i ortopedi och ryggkirurgi, till fast pris: **fysiskt besök i Göteborg 2 000 kr**, som betalas på plats vid besöket. Ingen remiss krävs för självbetalande, och avbokning är kostnadsfri fram till 3 timmar före besöket. Läs mer på [privat smärtmottagning i Göteborg](/specialiteter/smartlakare/goteborg).",
       ],
     },
     {
@@ -242,7 +242,7 @@ export const article: Article = {
       id: "sammanfattning",
       heading: "Sammanfattning",
       body: [
-        "Privat smärtläkare kan vara aktuellt vid långvarig smärta, ryggsmärta, nervsmärta, smärta efter operation eller komplex värk. Ett besök börjar ofta **från cirka 3 000 kr** och uppåt; en mer omfattande utredning eller behandling kan kosta **5 000–20 000 kr eller mer**. I vissa fall kan sjukvårdsförsäkring täcka kostnaden.",
+        "Det kan vara aktuellt med en privat smärtläkare vid långvarig smärta, ryggsmärta, nervsmärta, smärta efter operation eller komplex värk. Ett besök kostar ofta **från cirka 3 000 kr** och uppåt; en mer omfattande utredning eller behandling kan kosta **5 000–20 000 kr eller mer**. I vissa fall kan sjukvårdsförsäkring täcka kostnaden.",
         "Du beskriver besvären, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Vi hjälper dig vidare till en privat mottagning som passar ditt behov. Vill du läsa mer om skillnaderna kan du börja med [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
       ],
     },

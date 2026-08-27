@@ -1,13 +1,13 @@
 // Klick-spårning för direktbokning. Loggar varje klick server-side (durabelt,
-// funkar även med adblock) och skickar sedan vidare till bokningskalendern.
+// funkar även med adblock) och skickar sedan vidare till bokningssidan.
 // Så kan vi räkna HUR MÅNGA som går från sajten till bokningen.
-// (Själva den slutförda bokningen sker hos patient.nu – den statistiken finns där.)
 
-import { NextResponse } from "next/server";
 import { appendFileSync, mkdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 
-const TARGET = "https://patient.nu/portal/calendar/2f36b293-a438-4f6d-ad10-1bc749b788fa";
+// Pekar numera på sajtens egen bokning i stället för patient.nu. Klickspårningen
+// nedan behålls oförändrad, så siffrorna går att jämföra före och efter bytet.
+const TARGET = "/boka-tid";
 
 // Route-handler måste köras per anrop (aldrig cachas).
 export const dynamic = "force-dynamic";
@@ -47,5 +47,9 @@ export async function GET(req: Request) {
   } catch {
     // Spårning får aldrig blockera själva bokningen.
   }
-  return NextResponse.redirect(TARGET, 302);
+  // RELATIV Location, avsiktligt. Appen kör bakom nginx på 127.0.0.1:3000, så
+  // req.url innehåller den interna adressen – en absolut omdirigering skickade
+  // besökaren till localhost:3000 och bokningen dog där. Webbläsaren löser en
+  // relativ Location mot den publika värden och hamnar rätt oavsett miljö.
+  return new Response(null, { status: 302, headers: { Location: TARGET } });
 }

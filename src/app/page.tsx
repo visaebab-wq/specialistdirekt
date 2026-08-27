@@ -76,20 +76,22 @@ const valueProps = [
   },
 ];
 
-const popularSpecialties = [
-  "kardiolog",
-  "neurolog",
-  "gastroenterolog",
-  "ortoped",
-  "allmanmedicin",
-];
-
-const popularSpecialtyImages: Record<string, string> = {
-  kardiolog: "/page-visuals/home-popular-kardiolog.webp",
-  neurolog: "/page-visuals/home-popular-neurolog.webp",
-  gastroenterolog: "/page-visuals/home-popular-gastroenterolog.webp",
-  ortoped: "/page-visuals/specialty-ortoped-hero.webp",
-  allmanmedicin: "/page-visuals/home-popular-allmanmedicin.webp",
+// Neon-porträtten till specialistrutnätet i hero.
+const specialistNeonImages: Record<string, string> = {
+  kardiolog: "/specialist-neon/01-kardiolog.webp",
+  ortoped: "/specialist-neon/02-ortoped.webp",
+  hudlakare: "/specialist-neon/03-hudlakare.webp",
+  gynekolog: "/specialist-neon/04-gynekolog.webp",
+  neurolog: "/specialist-neon/05-neurolog.webp",
+  psykiater: "/specialist-neon/06-psykiater.webp",
+  ogonlakare: "/specialist-neon/07-ogonlakare.webp",
+  "oron-nasa-hals": "/specialist-neon/08-onh-specialist.webp",
+  urolog: "/specialist-neon/09-urolog.webp",
+  gastroenterolog: "/specialist-neon/10-gastroenterolog.webp",
+  endokrinolog: "/specialist-neon/11-endokrinolog.webp",
+  reumatolog: "/specialist-neon/12-reumatolog.webp",
+  allmanmedicin: "/specialist-neon/13-allmanmedicin-v2.webp",
+  hematolog: "/specialist-neon/14-hematolog-v2.webp",
 };
 
 const ico = {
@@ -140,18 +142,32 @@ export default function HomePage() {
               hjälper dig vidare till rätt privata mottagning.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
+              {/* Egna tider finns bara hos ortopeden – knappen får inte antyda
+                  att alla specialiteter går att boka direkt. */}
               <Link
-                href="#valj-specialist"
+                href="/boka-tid"
                 className="rounded-full bg-brand-500 px-6 py-3 text-base font-semibold text-white shadow-sm transition-colors hover:bg-brand-600"
               >
-                Utforska kroppen
+                Boka ortoped
               </Link>
               <Link
-                href="/sa-fungerar-det"
+                href="#valj-specialist"
                 className="rounded-full border border-white/30 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-white/10"
               >
-                Så fungerar det
+                Hitta annan specialist
               </Link>
+            </div>
+            <div className="mt-6 grid max-w-xl gap-2 text-sm text-sky-100/90 sm:grid-cols-2">
+              <p className="rounded-xl border border-white/15 bg-white/5 px-4 py-3">
+                {/* Direktbokning finns bara hos ortopeden – står det inte här
+                    tror besökaren att alla specialiteter går att boka direkt. */}
+                <strong className="block text-white">Direktbokning: ortoped</strong>
+                Göteborg · 40 min · 2 000 kr
+              </p>
+              <p className="rounded-xl border border-white/15 bg-white/5 px-4 py-3">
+                <strong className="block text-white">Övriga specialister</strong>
+                Skicka en kostnadsfri tidsförfrågan så hjälper vi dig vidare
+              </p>
             </div>
 
             <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-4">
@@ -168,38 +184,43 @@ export default function HomePage() {
             </ul>
           </div>
 
-          {/* Populära specialiteter med bildkort i samma neon/realistiska stil som resten av sajten. */}
+          {/* Alla specialiteter, som lista. Ett urval av "populära" gömde de
+              övriga: den som söker t.ex. hematolog ska se sin specialist direkt
+              i hero, inte behöva leta längre ner på sidan. */}
           <div className="rounded-3xl bg-white/5 p-6 ring-1 ring-white/10 backdrop-blur sm:p-8">
-            <p className="text-sm font-medium text-sky-100/80">Populära specialiteter</p>
-            <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-5 lg:grid-cols-2 xl:grid-cols-5">
-              {popularSpecialties.map((slug) => {
-                const s = specialties.find((x) => x.slug === slug)!;
-                return (
+            <p className="text-xl font-bold text-white sm:text-2xl">Våra specialister</p>
+            <p className="mt-1 text-sm text-sky-100/80">
+              Alla {specialties.length} specialiteter – välj din direkt.
+            </p>
+            <ul className="mt-5 grid grid-cols-3 gap-3 sm:grid-cols-5 lg:grid-cols-4 xl:grid-cols-5">
+              {specialties.map((s, i) => (
+                <li key={s.slug}>
                   <Link
-                    key={slug}
-                    href={`/specialiteter/${slug}`}
-                    className="group overflow-hidden rounded-2xl bg-white/95 text-center shadow-sm ring-1 ring-white/20 transition-all hover:-translate-y-0.5 hover:bg-white hover:shadow-lg"
+                    href={`/specialiteter/${s.slug}`}
+                    className="group block overflow-hidden rounded-2xl bg-white/95 text-center shadow-sm ring-1 ring-white/20 transition-all hover:-translate-y-0.5 hover:bg-white hover:shadow-lg"
                   >
                     <span className="specialist-motion-media rounded-none">
                       <img
-                        src={popularSpecialtyImages[slug]}
+                        src={specialistNeonImages[s.slug]}
                         alt=""
                         className="specialist-motion-image transition duration-500 group-hover:scale-105"
-                        loading="eager"
+                        // De översta korten syns direkt i hero; resten får vänta
+                        // så att de inte konkurrerar med sidans LCP.
+                        loading={i < 5 ? "eager" : "lazy"}
                       />
                     </span>
-                    <span className="block px-3 py-3 text-xs font-semibold text-ink-800 group-hover:text-brand-700">
+                    <span className="block px-2 py-2.5 text-[0.7rem] font-semibold leading-tight text-ink-800 group-hover:text-brand-700 sm:text-xs">
                       {s.title}
                     </span>
                   </Link>
-                );
-              })}
-            </div>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
 
-      {/* Interaktiv kroppsväljare – ersätter tills vidare specialistkorten. */}
+      {/* Interaktiv kroppsväljare – för den som utgår från besväret. */}
       <section id="valj-specialist" className="scroll-mt-20 bg-sky-50">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
           <div className="text-center">
@@ -208,8 +229,8 @@ export default function HomePage() {
               Var i kroppen har du besvär?
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-lg text-ink-600">
-              Välj kvinna eller man och växla mellan organ framifrån och skelett bakifrån.
-              Klicka på kroppen för att byta vy.
+              Klicka på en kroppsdel eller välj ett område i listan. Vi visar vilken specialist
+              som är rätt första väg och hjälper dig vidare.
             </p>
           </div>
           <div className="home-anatomy-explorer mx-auto mt-8">
@@ -428,16 +449,25 @@ export default function HomePage() {
       {/* Slut-CTA */}
       <section className="bg-navy-800">
         <div className="mx-auto max-w-5xl px-4 py-16 text-center sm:px-6">
-          <h2 className="text-3xl font-bold text-white">Redo att hitta rätt specialist?</h2>
+          <h2 className="text-3xl font-bold text-white">Vad vill du boka?</h2>
           <p className="mx-auto mt-3 max-w-xl text-sky-100/90">
-            Välj specialist och område, så hjälper vi dig vidare.
+            Direktbokning finns hos vår ortoped i Göteborg. För alla andra specialiteter skickar du
+            en kostnadsfri tidsförfrågan.
           </p>
-          <Link
-            href="/kontakt"
-            className="mt-8 inline-block rounded-full bg-brand-500 px-8 py-3.5 text-base font-semibold text-white transition-colors hover:bg-brand-600"
-          >
-            Skicka bokningsförfrågan
-          </Link>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <Link
+              href="/boka-tid"
+              className="inline-block rounded-full bg-brand-500 px-8 py-3.5 text-base font-semibold text-white transition-colors hover:bg-brand-600"
+            >
+              Boka ortoped
+            </Link>
+            <Link
+              href="/kontakt"
+              className="inline-block rounded-full border border-white/30 px-8 py-3.5 text-base font-semibold text-white transition-colors hover:bg-white/10"
+            >
+              Hitta annan specialist
+            </Link>
+          </div>
         </div>
       </section>
 

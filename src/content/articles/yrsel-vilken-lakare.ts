@@ -114,8 +114,8 @@ export const article: Article = {
         "Priserna nedan är **ungefärliga** och **varierar** kraftigt mellan kliniker och orter. Ibland tillkommer kompletterande undersökningar utöver själva läkarbesöket, så det är summan av delarna som avgör din slutkostnad. Be alltid kliniken om ett samlat pris innan du bokar.",
       ],
       bullets: [
-        "Nybesök hos privat neurolog: ungefär 2 000–4 000 kr",
-        "Nybesök hos privat ÖNH-specialist: ungefär 1 500–3 000 kr",
+        "Nybesök hos en privat neurolog: ungefär 2 000–4 000 kr",
+        "Nybesök hos en privat ÖNH-specialist: ungefär 1 500–3 000 kr",
         "Balansutredning hos ÖNH: tillkommer ofta separat",
         "Eventuell bilddiagnostik (t.ex. MR): tillkommer separat",
       ],
@@ -128,6 +128,18 @@ export const article: Article = {
         "Vill du veta hur förmedlingen går till steg för steg kan du läsa [så fungerar det](/sa-fungerar-det). Är du redo att komma vidare, fyll i en förfrågan via [kontaktsidan](/kontakt) så återkommer vi med förslag på lämplig specialist.",
         "Priserna i guiden är ungefärliga och kan ha ändrats – be alltid kliniken om ett bekräftat pris innan du bokar. Och vid plötslig yrsel med talsvårigheter eller svaghet: vänta inte på en tid, ring 112.",
       ],
+    },
+  ],
+  sources: [
+    {
+      label: "Yrsel",
+      url: "https://www.1177.se/sjukdomar--besvar/hjarna-och-nerver/yrsel-svimning-och-kramper/yrsel/",
+      publisher: "1177 Vårdguiden",
+    },
+    {
+      label: "Kristallsjuka – godartad lägesyrsel",
+      url: "https://www.1177.se/sjukdomar--besvar/oron-nasa-och-hals/oron-och-balans/kristallsjuka--godartad-lagesyrsel/",
+      publisher: "1177 Vårdguiden",
     },
   ],
   faqs: [
@@ -159,7 +171,7 @@ export const article: Article = {
     {
       question: "Vad kostar ett privat besök för yrsel?",
       answer:
-        "Ett nybesök hos privat neurolog kostar **ungefärligt** 2 000–4 000 kr och hos ÖNH-specialist ungefär 1 500–3 000 kr. Balansutredning och bilddiagnostik tillkommer ofta separat. Alla siffror är ungefärliga och **varierar** mellan kliniker och orter, så be alltid om ett samlat pris i förväg.",
+        "Ett nybesök hos en privat neurolog kostar **ungefärligt** 2 000–4 000 kr och hos ÖNH-specialist ungefär 1 500–3 000 kr. Balansutredning och bilddiagnostik tillkommer ofta separat. Alla siffror är ungefärliga och **varierar** mellan kliniker och orter, så be alltid om ett samlat pris i förväg.",
     },
   ],
 };

@@ -61,7 +61,7 @@ export const city: City = {
           id: "vad-ingar-gastro-karlstad",
           heading: "Vad kostar besöket – och vad ingår?",
           body: [
-            "Ett privat besök hos gastroenterolog kostar **från cirka 3 000 kr**. Det är ett **frånpris**, och ordet spelar roll: summan avser läkarbesöket i sig – samtalet, kroppsundersökningen och bedömningen av vad som behöver utredas vidare. Den säger däremot ingenting om vad hela utredningen landar på.",
+            "Ett privat besök hos en gastroenterolog kostar **från cirka 3 000 kr**. Det är ett **frånpris**, och ordet spelar roll: summan avser läkarbesöket i sig – samtalet, kroppsundersökningen och bedömningen av vad som behöver utredas vidare. Den säger däremot ingenting om vad hela utredningen landar på.",
             "Anledningen är att ingen vet det i förväg, inte heller läkaren. Vad som tillkommer avgörs först **efter** bedömningen och beror på vad dina symtom motiverar: blod- och avföringsprover, celiakiprov, kalprotektin, eller en endoskopisk undersökning. De prissätts normalt var för sig.",
             "Praktiskt råd för dig som jämför: fråga inte bara efter priset, fråga vad som **ingår i det**. Två mottagningar med samma frånpris kan landa olika, och utan den frågan går de inte att jämföra rättvist. Kontrollera också om en eventuell sjukvårdsförsäkring täcker delar av kostnaden. Se [privat gastroenterolog: kostnad](/artiklar/privat-gastroenterolog-kostnad).",
           ],

@@ -8,10 +8,22 @@
 //
 // Utan konfiguration loggas förfrågan på servern så att inget tappas.
 
-import nodemailer from "nodemailer";
 import { appendFileSync, mkdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { site } from "./site";
+import { sendMail, smtpConfigured } from "./smtp";
+import { specialties } from "./specialties";
+
+/**
+ * Slug → läsbar titel i mejlet. Formuläret skickar slugar ("ortoped"), och
+ * "vet-inte" är ett riktigt svar sedan specialitet blev obligatoriskt.
+ */
+function specialtyLabel(slug: string): string {
+  if (!slug) return "(ej angivet)";
+  if (slug === "vet-inte") return "Vet inte / annat";
+  if (slug === "privat-mr") return "Privat MR";
+  return specialties.find((s) => s.slug === slug)?.title ?? slug;
+}
 
 // Durabel fallback: skriv ALLTID ner varje lead till en fil på disk, oavsett om
 // e-postleveransen lyckas. Så tappas en förfrågan aldrig spårlöst igen, även om
@@ -67,10 +79,10 @@ function buildEmail(lead: LeadData) {
     ["E-post", lead.email],
     ["Telefon", lead.phone],
     ["Stad", lead.city],
-    ["Specialitet", lead.specialty || "(ej angivet)"],
+    ["Specialitet", specialtyLabel(lead.specialty)],
     ["Möjliga datum", lead.preferredDates.join(", ")],
     ["Tid på dagen", timePreference],
-    ["Vad personen vill boka tid för", lead.message],
+    ["Vad personen vill boka tid för", lead.message || "(ej angivet)"],
   ];
   const html = `
     <h2>Ny förfrågan via ${site.name}</h2>
@@ -91,7 +103,7 @@ function buildEmail(lead: LeadData) {
 
 export async function deliverLead(lead: LeadData): Promise<DeliveryResult> {
   const to = process.env.LEAD_TO_EMAIL || site.email;
-  const subject = `Ny tidsförfrågan: ${lead.specialty || "specialist"} – ${lead.name}`;
+  const subject = `Ny tidsförfrågan: ${specialtyLabel(lead.specialty)} – ${lead.name}`;
   const { html, text } = buildEmail(lead);
 
   // Logga alltid (så att en förfrågan aldrig försvinner spårlöst).
@@ -101,27 +113,10 @@ export async function deliverLead(lead: LeadData): Promise<DeliveryResult> {
   const persisted = persistLead(lead);
 
   // 1) SMTP (t.ex. Gmail) – skickar till din inkorg.
-  if (process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS) {
-    try {
-      const transporter = nodemailer.createTransport({
-        host: process.env.SMTP_HOST,
-        port: Number(process.env.SMTP_PORT || 587),
-        secure: Number(process.env.SMTP_PORT) === 465,
-        auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
-      });
-      await transporter.sendMail({
-        from: `"${site.name}" <${process.env.SMTP_USER}>`,
-        to,
-        replyTo: lead.email,
-        subject,
-        text,
-        html,
-      });
-      return { delivered: true, channel: "smtp" };
-    } catch (err) {
-      console.error("[lead] SMTP-fel", err);
-      return { delivered: false, channel: "smtp", error: String(err) };
-    }
+  if (smtpConfigured()) {
+    const result = await sendMail({ to, replyTo: lead.email, subject, text, html }, "lead");
+    if (result.sent) return { delivered: true, channel: "smtp" };
+    return { delivered: false, channel: "smtp", error: result.error };
   }
 
   // 2) Resend (HTTP API) – alternativ.

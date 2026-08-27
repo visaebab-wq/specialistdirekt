@@ -26,7 +26,7 @@ export const article: Article = {
   wordCount: 2150,
   relatedSpecialty: "gastroenterolog",
   summary: [
-    "En privat utredning hos gastroenterolog börjar ofta **från cirka 3 000 kr** och uppåt; gastroskopi eller koloskopi ligger ofta på cirka 6 000–16 000 kr eller mer.",
+    "En privat utredning hos en gastroenterolog kostar ofta **från cirka 3 000 kr** och uppåt; gastroskopi eller koloskopi ligger ofta på cirka 6 000–16 000 kr eller mer.",
     "Sjukvårdsförsäkring kan ibland täcka kostnaden.",
     "Aktuellt vid återkommande magsmärta, diarré, förstoppning, reflux, blod i avföringen eller misstanke om inflammatorisk tarmsjukdom.",
     "[Specialistdirekt](/kontakt) hjälper dig skicka en bokningsförfrågan till en relevant privat mottagning.",
@@ -55,7 +55,7 @@ export const article: Article = {
       id: "kostnad",
       heading: "Kort svar: vad kostar privat gastroenterolog?",
       body: [
-        "Ett privat besök eller en privat utredning hos gastroenterolog börjar ofta från cirka **3 000 kr och uppåt**, beroende på mottagning, ort och vad som ingår.",
+        "Ett privat besök eller en privat utredning hos en gastroenterolog kostar ofta från cirka **3 000 kr och uppåt**, beroende på mottagning, ort och vad som ingår.",
         "Om utredningen kräver gastroskopi, koloskopi, provtagning, vävnadsprover eller annan undersökning blir kostnaden ofta betydligt högre. Privata endoskopiska undersökningar ligger ofta på cirka **6 000–16 000 kr eller mer**, beroende på undersökning, biopsier, eventuell sedering eller narkos och mottagningens prislista.",
         "Har du privat sjukvårdsförsäkring kan försäkringen i vissa fall **täcka hela eller delar av kostnaden** och hjälpa dig med betalningen. Det beror på ditt försäkringsavtal, dina symtom, om försäkringsbolaget godkänner ärendet och vilken mottagning som ingår i nätverket. Be alltid mottagningen eller försäkringsbolaget bekräfta pris och villkor innan du bokar.",
       ],
@@ -128,7 +128,7 @@ export const article: Article = {
       id: "forsakring",
       heading: "Kan sjukvårdsförsäkring täcka gastroenterolog?",
       body: [
-        "Ja, i vissa fall kan privat sjukvårdsförsäkring täcka besök hos gastroenterolog, gastroskopi, koloskopi eller annan mag- och tarmutredning. Det beror på:",
+        "Ja, i vissa fall kan privat sjukvårdsförsäkring täcka besök hos en gastroenterolog, gastroskopi, koloskopi eller annan mag- och tarmutredning. Det beror på:",
       ],
       bullets: [
         "vilket försäkringsbolag du har och vilka villkor som ingår",
@@ -151,7 +151,7 @@ export const article: Article = {
     },
     {
       id: "pris-paverkan",
-      heading: "Vad påverkar priset hos privat gastroenterolog?",
+      heading: "Vad påverkar priset hos en privat gastroenterolog?",
       body: ["Priset påverkas av flera faktorer:"],
       bullets: [
         "om det är nybesök eller återbesök",
@@ -166,7 +166,7 @@ export const article: Article = {
     },
     {
       id: "vantetid",
-      heading: "Hur snabbt kan man få tid hos privat gastroenterolog?",
+      heading: "Hur snabbt kan man få tid hos en privat gastroenterolog?",
       body: [
         "Väntetiden varierar mellan mottagningar och orter. I privat specialistvård kan det ibland gå snabbare än via den offentliga vården, men det beror på kapacitet, typ av besvär och vilken undersökning som behövs.",
         "Ett första rådgivande besök kan ibland vara lättare att boka än en endoskopisk undersökning, eftersom gastroskopi och koloskopi kräver särskild utrustning, personal och förberedelser. Specialistdirekt kan inte garantera en viss tid, men vi kan hjälpa dig skicka en tydlig bokningsförfrågan. Läs gärna mer om [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
@@ -210,8 +210,8 @@ export const article: Article = {
       id: "sammanfattning",
       heading: "Sammanfattning",
       body: [
-        "Privat gastroenterolog kan vara aktuellt vid återkommande eller långvariga mag- och tarmbesvär, till exempel magsmärta, diarré, förstoppning, reflux, blod i avföringen eller misstanke om inflammatorisk tarmsjukdom.",
-        "En privat mag- och tarmutredning börjar ofta från cirka **3 000 kr**, medan gastroskopi kostar ofta cirka 6 000–16 000 kr och koloskopi ofta cirka 11 000–16 000 kr. I vissa fall kan privat sjukvårdsförsäkring täcka hela eller delar av kostnaden. Du väljer specialist, anger önskat område och skickar en [bokningsförfrågan](/kontakt) – så hjälper vi dig vidare.",
+        "Det kan vara aktuellt med en privat gastroenterolog vid återkommande eller långvariga mag- och tarmbesvär, till exempel magsmärta, diarré, förstoppning, reflux, blod i avföringen eller misstanke om inflammatorisk tarmsjukdom.",
+        "En privat mag- och tarmutredning kostar ofta från cirka **3 000 kr**, medan gastroskopi kostar ofta cirka 6 000–16 000 kr och koloskopi ofta cirka 11 000–16 000 kr. I vissa fall kan privat sjukvårdsförsäkring täcka hela eller delar av kostnaden. Du väljer specialist, anger önskat område och skickar en [bokningsförfrågan](/kontakt) – så hjälper vi dig vidare.",
       ],
     },
   ],
@@ -224,12 +224,12 @@ export const article: Article = {
     {
       question: "Vad kostar privat gastroenterolog?",
       answer:
-        "En privat utredning hos gastroenterolog börjar ofta från cirka 3 000 kr. Om gastroskopi, koloskopi, vävnadsprov eller andra undersökningar behövs kan kostnaden ofta bli cirka 6 000–16 000 kr eller mer.",
+        "En privat utredning hos en gastroenterolog kostar ofta från cirka 3 000 kr. Om gastroskopi, koloskopi, vävnadsprov eller andra undersökningar behövs kan kostnaden ofta bli cirka 6 000–16 000 kr eller mer.",
     },
     {
       question: "Kan sjukvårdsförsäkring betala besöket?",
       answer:
-        "Ja, ibland. Privat sjukvårdsförsäkring kan i vissa fall täcka besök hos gastroenterolog eller undersökningar som gastroskopi och koloskopi. Kontakta alltid försäkringsbolaget först för att se vad som gäller i ditt avtal.",
+        "Ja, ibland. Privat sjukvårdsförsäkring kan i vissa fall täcka besök hos en gastroenterolog eller undersökningar som gastroskopi och koloskopi. Kontakta alltid försäkringsbolaget först för att se vad som gäller i ditt avtal.",
     },
     {
       question: "Vad är skillnaden mellan gastroenterolog och gastroskopi?",

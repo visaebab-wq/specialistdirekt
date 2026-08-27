@@ -25,7 +25,7 @@ export const article: Article = {
   readMinutes: 10,
   wordCount: 1740,
   summary: [
-    "En första bedömning hos privat fertilitetsläkare kostar ofta **3 000–5 000 kr** och en komplett utredning 4 000–8 000 kr; IVF ligger ofta på 45 000–60 000 kr per behandling.",
+    "En första bedömning hos en privat fertilitetsläkare kostar ofta **3 000–5 000 kr** och en komplett utredning 4 000–8 000 kr; IVF ligger ofta på 45 000–60 000 kr per behandling.",
     "Privat sjukvårdsförsäkring kan ibland täcka delar av en bedömning, men IVF och annan fertilitetsbehandling är oftast helt eller delvis undantaget – kontrollera dina villkor.",
     "Aktuellt om graviditet dröjer, vid utebliven ägglossning, upprepade missfall, PCOS, endometrios, nedsatt spermiekvalitet eller inför äggfrysning.",
     "[Specialistdirekt](/kontakt) hjälper dig skicka en bokningsförfrågan till en relevant privat mottagning.",
@@ -53,7 +53,7 @@ export const article: Article = {
       id: "kostnad",
       heading: "Kort svar: vad kostar privat fertilitetsläkare?",
       body: [
-        "En första bedömning hos privat fertilitetsläkare kostar ofta **3 000–5 000 kr**, beroende på mottagning, ort och vad besöket omfattar. En mer komplett fertilitetsutredning med flera prover och undersökningar kan landa på **4 000–8 000 kr eller mer**.",
+        "En första bedömning hos en privat fertilitetsläkare kostar ofta **3 000–5 000 kr**, beroende på mottagning, ort och vad besöket omfattar. En mer komplett fertilitetsutredning med flera prover och undersökningar kan landa på **4 000–8 000 kr eller mer**.",
         "Behandling kostar betydligt mer. En enskild IVF- eller ICSI-behandling ligger ofta på **45 000–60 000 kr per behandling**, och paket med flera försök kan kosta **90 000–120 000 kr eller mer**. Till detta tillkommer ofta läkemedel, fryskostnader och årsavgifter för förvaring.",
         "**Har du privat sjukvårdsförsäkring kan du ibland få hjälp med delar av kostnaden**, men IVF och annan fertilitetsbehandling är ofta helt eller delvis undantaget. Vilka villkor som gäller beror på din försäkring.",
       ],
@@ -184,7 +184,7 @@ export const article: Article = {
       heading: "Behöver man remiss till fertilitetsläkare?",
       body: [
         "Det beror på vilken väg du väljer. Det finns tre vanliga vägar:",
-        "**1. Via den offentligt finansierade vården:** Du börjar hos vårdcentral eller gynekolog, som vid behov skriver remiss till den offentliga fertilitetsvården. Här finns ofta subventionerade behandlingar, men också regler om ålder, antal försök och väntetider.",
+        "**1. Via den offentligt finansierade vården:** Du börjar på en vårdcentral eller hos en gynekolog, som vid behov skriver en remiss till den offentliga fertilitetsvården. Här finns ofta subventionerade behandlingar, men också regler om ålder, antal försök och väntetider.",
         "**2. Via privat klinik:** Många privata fertilitetskliniker tar emot patienter direkt, utan remiss. Då beskriver du själv din situation och kliniken bedömer hur de kan hjälpa dig.",
         "**3. Via sjukvårdsförsäkring:** Med sjukvårdsförsäkring kan delar av en bedömning ibland täckas, men kontrollera villkoren noga eftersom fertilitetsbehandling ofta är undantagen.",
       ],
@@ -243,7 +243,7 @@ export const article: Article = {
       id: "sammanfattning",
       heading: "Sammanfattning",
       body: [
-        "Privat fertilitetsläkare kan vara aktuellt om graviditet dröjer, vid besvär som kan påverka fertiliteten eller om du vill förstå dina möjligheter inför framtiden. En första bedömning kostar ofta **3 000–5 000 kr** och en komplett utredning **4 000–8 000 kr eller mer**. IVF kostar ofta **45 000–60 000 kr per behandling** och paket **90 000–120 000 kr eller mer**, medan äggfrysning ofta ligger på **35 000–45 000 kr** per omgång. Sjukvårdsförsäkring kan ibland täcka delar av en bedömning, men IVF är ofta undantaget. Vill du jämföra alternativen kan du läsa mer om [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
+        "Det kan vara aktuellt med en privat fertilitetsläkare om graviditet dröjer, vid besvär som kan påverka fertiliteten eller om du vill förstå dina möjligheter inför framtiden. En första bedömning kostar ofta **3 000–5 000 kr** och en komplett utredning **4 000–8 000 kr eller mer**. IVF kostar ofta **45 000–60 000 kr per behandling** och paket **90 000–120 000 kr eller mer**, medan äggfrysning ofta ligger på **35 000–45 000 kr** per omgång. Sjukvårdsförsäkring kan ibland täcka delar av en bedömning, men IVF är ofta undantaget. Vill du jämföra alternativen kan du läsa mer om [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
         "Du beskriver din situation, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Vi hjälper dig vidare till en privat mottagning eller fertilitetsklinik som kan vara relevant för ditt behov.",
       ],
     },
