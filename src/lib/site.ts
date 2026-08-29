@@ -28,10 +28,13 @@ export const site = {
   // varje läsare som hörde av sig. Kontrollera adressen mot mailservern innan
   // den ändras.
   email: "info@specialistdirekt.se",
-  // Sociala profiler lämnas tomma tills riktiga URL:er finns – tomt döljs överallt.
-  // Lägg till fullständiga profil-URL:er när de finns, t.ex.
-  // "https://www.linkedin.com/company/specialistdirekt".
-  social: [] as string[],
+  // Sociala profiler. Används på två ställen: `sameAs` i Organization-schemat
+  // (kopplar profilen till entiteten för Google och AI-assistenter) och som
+  // länkar i sidfoten. Tom lista döljs på båda ställena.
+  //
+  // Lägg bara in profiler som verkligen finns och som vi äger – en felstavad
+  // eller död URL i `sameAs` är en trasig entitetssignal, inte en neutral rad.
+  social: ["https://www.instagram.com/specialistdirekt.se/"] as string[],
   // Används i strukturerad data och “Om oss”.
   foundingYear: 2026,
   // Google Analytics 4 (mätnings-ID). Tomt = av.

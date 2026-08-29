@@ -4,6 +4,26 @@ import { mainNav, site } from "@/lib/site";
 import { specialties } from "@/lib/specialties";
 import { getArticle } from "@/lib/articles";
 
+/**
+ * Läsbart namn för en social profil-URL. Okända domäner faller tillbaka på
+ * värdnamnet i stället för att gissa – då syns felet i stället för att döljas.
+ */
+function socialLabel(url: string): string {
+  try {
+    const host = new URL(url).hostname.replace(/^www\./, "");
+    const known: Record<string, string> = {
+      "instagram.com": "Instagram",
+      "linkedin.com": "LinkedIn",
+      "facebook.com": "Facebook",
+      "youtube.com": "YouTube",
+      "x.com": "X",
+    };
+    return known[host] ?? host;
+  } catch {
+    return url;
+  }
+}
+
 // Utvalda guider för footern – ger internlänkar till artiklarna från varje sida.
 const footerGuideSlugs = [
   "privat-kardiolog-kostnad",
@@ -115,6 +135,21 @@ export function Footer() {
                 Kontakta oss via formuläret
               </Link>
             </li>
+            {/* Sociala profiler ur site.social – samma lista som `sameAs` i
+                Organization-schemat, så det synliga och det strukturerade
+                aldrig kan glida isär. Tom lista renderar ingenting. */}
+            {site.social.map((url) => (
+              <li key={url}>
+                <a
+                  href={url}
+                  rel="me noopener noreferrer"
+                  target="_blank"
+                  className="hover:text-white"
+                >
+                  {socialLabel(url)}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
