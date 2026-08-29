@@ -50,7 +50,7 @@ export const article: Article = {
   ],
   intro: [
     "Sömnapné innebär att andningen upprepat stannar eller minskar under sömnen, vanligast som obstruktiv sömnapné där luftvägen blockeras. En sömnapnéutredning görs oftast med en nattlig andningsregistrering där andning, syresättning och andningsuppehåll mäts under sömn, för att se om besvären beror på sömnapné och hur uttalad den i så fall är. Många söker privat sömnapnéutredning för att slippa lång väntetid, få snabbare besked eller för att de har en privat sjukvårdsförsäkring som kan användas.",
-    "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård och diagnostik. Vi är inte en vårdgivare, ställer ingen diagnos och utför ingen undersökning. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort.",
+    "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård och diagnostik. Vi ställer ingen diagnos och utför ingen undersökning. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort.",
   ],
   sections: [
     {
@@ -243,7 +243,7 @@ export const article: Article = {
       id: "sa-hjalper-vi",
       heading: "Så hjälper Specialistdirekt dig",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård – inte en vårdgivare. Så fungerar det:",
+        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Så fungerar det:",
       ],
       bullets: [
         "Du beskriver dina symtom i en kort bokningsförfrågan.",

@@ -92,7 +92,7 @@ export const city: City = {
         {
           question: "Hur bokar jag tid hos en privat gastroenterolog i Malmö?",
           answer:
-            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi kontaktar flera anslutna mottagningar och återkommer med den tidigaste tid vi hittar. Det medicinska ansvaret för vården ligger hos mottagningen – Specialistdirekt är inte vårdgivare.",
+            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi kontaktar flera anslutna mottagningar och återkommer med den tidigaste tid vi hittar. Det medicinska ansvaret för vården ligger hos mottagningen.",
         },
         {
           question: "Kan jag träffa en gastroenterolog i Malmö utan remiss?",

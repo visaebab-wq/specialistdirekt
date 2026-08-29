@@ -36,7 +36,7 @@ export const city: City = {
           id: "privat-kardiolog-molndal",
           heading: "Privat kardiolog i Mölndal – vägen in",
           body: [
-            "Mölndal har hjärtsjukvård både via **Mölndals sjukhus**, som är en del av Sahlgrenska Universitetssjukhuset, och via privata mottagningar i området. Eftersom Göteborg ligger några minuter bort kan du i praktiken välja bland båda städernas vårdgivare. Specialistdirekt är fristående – vi är inte vårdgivare och har ingen koppling till Sahlgrenska eller Västra Götalandsregionen.",
+            "Mölndal har hjärtsjukvård både via **Mölndals sjukhus**, som är en del av Sahlgrenska Universitetssjukhuset, och via privata mottagningar i området. Eftersom Göteborg ligger några minuter bort kan du i praktiken välja bland båda städernas vårdgivare. Specialistdirekt är fristående och har ingen koppling till Sahlgrenska eller Västra Götalandsregionen.",
             "Vägen in beror på finansieringen. Som **självbetalande** kan du hos många privata mottagningar boka utan remiss, via egen vårdbegäran. Inom **regionfinansierad** vård krävs oftast en remiss från vårdcentralen, och har du en **sjukvårdsförsäkring** går du normalt via försäkringsbolaget. Läs mer på vår [översikt om kardiolog](/specialiteter/kardiolog).",
           ],
         },
@@ -84,7 +84,7 @@ export const city: City = {
         {
           question: "Hur bokar jag tid hos en privat kardiolog i Mölndal?",
           answer:
-            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi kontaktar flera anslutna mottagningar och återkommer med den tidigaste tid vi hittar. Det medicinska ansvaret för vården ligger hos mottagningen – Specialistdirekt är inte vårdgivare.",
+            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi kontaktar flera anslutna mottagningar och återkommer med den tidigaste tid vi hittar. Det medicinska ansvaret för vården ligger hos mottagningen.",
         },
         {
           question: "Kan jag träffa en kardiolog i Mölndal utan remiss?",
@@ -127,7 +127,7 @@ export const city: City = {
           id: "privat-neurolog-molndal",
           heading: "Privat neurolog i Mölndal – vägen in vid nervbesvär",
           body: [
-            "Regionens neurologiska tyngdpunkt finns vid **Sahlgrenska Universitetssjukhuset**, med vård även vid **Mölndals sjukhus** som är en del av samma sjukhus. Vid sidan av regionens vård finns privata neurologmottagningar i Mölndal och Göteborg. Specialistdirekt är fristående – vi är inte vårdgivare och har ingen koppling till Sahlgrenska eller Västra Götalandsregionen.",
+            "Regionens neurologiska tyngdpunkt finns vid **Sahlgrenska Universitetssjukhuset**, med vård även vid **Mölndals sjukhus** som är en del av samma sjukhus. Vid sidan av regionens vård finns privata neurologmottagningar i Mölndal och Göteborg. Specialistdirekt är fristående och har ingen koppling till Sahlgrenska eller Västra Götalandsregionen.",
             "En **neurolog** utreder symtom och sjukdomar som utgår från hjärna, ryggmärg och nerver. Grunden är samtalet om dina symtom och ett **neurologiskt status**, där läkaren undersöker reflexer, känsel, styrka, koordination och balans. Läs mer på vår [översikt om neurolog](/specialiteter/neurolog).",
           ],
         },
@@ -175,7 +175,7 @@ export const city: City = {
         {
           question: "Hur bokar jag tid hos en privat neurolog i Mölndal?",
           answer:
-            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi kontaktar flera anslutna mottagningar och återkommer med den tidigaste tid vi hittar. Det medicinska ansvaret för vården ligger hos mottagningen – Specialistdirekt är inte vårdgivare.",
+            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi kontaktar flera anslutna mottagningar och återkommer med den tidigaste tid vi hittar. Det medicinska ansvaret för vården ligger hos mottagningen.",
         },
         {
           question: "Kan jag träffa en neurolog i Mölndal utan remiss?",
@@ -266,7 +266,7 @@ export const city: City = {
         {
           question: "Hur bokar jag tid hos en privat allmänläkare i Mölndal?",
           answer:
-            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi kontaktar flera anslutna mottagningar och återkommer med den tidigaste tid vi hittar. Det medicinska ansvaret för vården ligger hos mottagningen – Specialistdirekt är inte vårdgivare.",
+            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi kontaktar flera anslutna mottagningar och återkommer med den tidigaste tid vi hittar. Det medicinska ansvaret för vården ligger hos mottagningen.",
         },
         {
           question: "Kan jag boka privat allmänläkare i Mölndal utan remiss?",
@@ -311,7 +311,7 @@ export const city: City = {
           body: [
             "Mölndal är en egen kommun med drygt 70 000 invånare, men ligger tätt inpå Göteborg – och just det gör valet av mottagning till en praktisk fråga snarare än en medicinsk. **Mölndals sjukhus** är sedan länge en del av Sahlgrenska Universitetssjukhuset, vilket betyder att den regionfinansierade mag- och tarmvården på orten hänger ihop med Göteborgs. För dig som söker privat är upptagningsområdet i praktiken hela Göteborgsregionen.",
             "Det innebär att du sällan behöver begränsa dig till mottagningar med Mölndals-adress. Många som bor i Mölndal, Kållered eller Lindome har kortare restid till en mottagning i södra Göteborg än till centrala Mölndal. Vår rekommendation: väg restid mot hur snart mottagningen kan ta emot dig, och låt inte kommungränsen styra. Bor du närmare centrum kan du jämföra med [gastroenterolog i Göteborg](/specialiteter/gastroenterolog/goteborg).",
-            "Specialistdirekt är fristående och har ingen koppling till Sahlgrenska eller Västra Götalandsregionen. Vi är inte vårdgivare – vi hjälper dig kostnadsfritt att hitta en relevant privat mottagning i området.",
+            "Specialistdirekt är fristående och har ingen koppling till Sahlgrenska eller Västra Götalandsregionen. Vi hjälper dig kostnadsfritt att hitta en relevant privat mottagning i området.",
           ],
         },
         {
@@ -370,7 +370,7 @@ export const city: City = {
         {
           question: "Hur bokar jag tid hos en privat gastroenterolog i Mölndal?",
           answer:
-            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi kontaktar flera anslutna mottagningar och återkommer med den tidigaste tid vi hittar. Det medicinska ansvaret för vården ligger hos mottagningen – Specialistdirekt är inte vårdgivare.",
+            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi kontaktar flera anslutna mottagningar och återkommer med den tidigaste tid vi hittar. Det medicinska ansvaret för vården ligger hos mottagningen.",
         },
         {
           question: "Kan jag träffa en gastroenterolog i Mölndal utan remiss?",

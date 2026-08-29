@@ -50,7 +50,7 @@ export const article: Article = {
   ],
   intro: [
     "MR rygg, eller magnetkamera av ryggen, ger detaljerade bilder av diskar, nerver, ryggmärg och andra strukturer. MR använder magnetfält och radiovågor, inte vanlig röntgenstrålning. Många söker privat MR rygg för att slippa lång väntetid eller för att de har en sjukvårdsförsäkring som kan användas.",
-    "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård och diagnostik. Vi är inte en vårdgivare, ställer ingen diagnos och utför ingen undersökning. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning eller specialist som kan vara relevant för ditt behov och din ort.",
+    "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård och diagnostik. Vi ställer ingen diagnos och utför ingen undersökning. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning eller specialist som kan vara relevant för ditt behov och din ort.",
   ],
   sections: [
     {
@@ -237,7 +237,7 @@ export const article: Article = {
       id: "sa-hjalper-vi",
       heading: "Så hjälper Specialistdirekt dig",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård och diagnostik. Vi är inte en vårdgivare och gör ingen medicinsk bedömning. Du beskriver dina ryggbesvär, anger önskat område, och vi hjälper dig vidare till rätt väg: privat MR, specialistbedömning eller en mottagning som kan avgöra nästa steg. Det är alltid mottagningen som avgör om MR är rätt undersökning. Se även vår översikt om [privat MR](/artiklar/privat-mr-kostnad).",
+        "Specialistdirekt är en vägledningstjänst för privat specialistvård och diagnostik. Vi gör ingen medicinsk bedömning. Du beskriver dina ryggbesvär, anger önskat område, och vi hjälper dig vidare till rätt väg: privat MR, specialistbedömning eller en mottagning som kan avgöra nästa steg. Det är alltid mottagningen som avgör om MR är rätt undersökning. Se även vår översikt om [privat MR](/artiklar/privat-mr-kostnad).",
       ],
     },
     {

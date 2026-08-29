@@ -46,7 +46,7 @@ export const article: Article = {
   intro: [
     "Att det dröjer att bli gravid kan väcka många frågor och mycket oro. Det kan handla om att graviditet uteblir trots försök under lång tid, oregelbunden eller utebliven ägglossning, upprepade missfall, frågor kopplade till stigande ålder, nedsatt spermiekvalitet, endometrios eller PCOS. Andra söker för att förstå sina möjligheter inför framtiden, exempelvis genom äggfrysning.",
     "Många börjar i vårdcentralen, hos sin gynekolog eller i den offentligt finansierade fertilitetsvården. Men i vissa situationer vill man snabbare hitta rätt privat fertilitetsläkare eller fertilitetsklinik, särskilt om väntetiderna är långa, om tiden känns kort på grund av ålder eller om man vill påbörja en utredning utan dröjsmål.",
-    "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård. Vi är inte en vårdgivare, ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
+    "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
   ],
   sections: [
     {
@@ -223,7 +223,7 @@ export const article: Article = {
       id: "sa-hjalper-vi",
       heading: "Så hjälper Specialistdirekt dig",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Vi är inte en vårdgivare och gör ingen medicinsk bedömning. Så fungerar det:",
+        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Vi gör ingen medicinsk bedömning. Så fungerar det:",
       ],
       bullets: [
         "Du beskriver din situation i en kort bokningsförfrågan.",

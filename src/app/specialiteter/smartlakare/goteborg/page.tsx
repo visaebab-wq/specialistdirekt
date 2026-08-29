@@ -241,7 +241,7 @@ export default function SmartlakareGoteborgPage() {
                 >
                   Andrabedömning.se
                 </a>
-                . Specialistdirekt är en förmedlingstjänst och inte vårdgivare; den medicinska
+                . Specialistdirekt är en förmedlingstjänst; den medicinska
                 bedömningen görs av Dr. Masoud Sorkhabi.
               </div>
 
@@ -295,7 +295,7 @@ export default function SmartlakareGoteborgPage() {
             areaServed: { "@type": "City", name: "Göteborg" },
             url: abs(PATH),
             description:
-              "Bokning hos Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi i Göteborg. Specialistdirekt är en förmedlingstjänst, inte vårdgivare.",
+              "Bokning hos Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi i Göteborg. Specialistdirekt är en förmedlingstjänst.",
           },
           faqSchema(faqs),
         ]}

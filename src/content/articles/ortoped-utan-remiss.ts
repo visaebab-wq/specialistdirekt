@@ -27,7 +27,7 @@ export const article: Article = {
     "**Ja – som självbetalande patient kan du oftast boka en privat ortoped utan remiss** och själv skicka en tidsförfrågan.",
     "Inom **regionfinansierad** vård krävs oftast remiss från vårdcentralen, och med en **sjukvårdsförsäkring** går du normalt via försäkringsbolaget som kan kräva godkännande.",
     "Vid lindriga, gradvisa besvär är vårdcentral eller **fysioterapeut** ofta ett bra första steg; vid tydlig skada eller besvär som inte ger med sig blir en ortoped aktuell.",
-    "[Specialistdirekt](/kontakt) är en förmedlingstjänst, inte vårdgivare – den medicinska bedömningen görs av mottagningen.",
+    "[Specialistdirekt](/kontakt) är en förmedlingstjänst – den medicinska bedömningen görs av mottagningen.",
   ],
   suitableFor: [
     "vill boka en privat ortoped själv utan att gå via vårdcentralen",
@@ -109,7 +109,7 @@ export const article: Article = {
       id: "sa-skickar-du-tidsforfragan",
       heading: "Så skickar du en tidsförfrågan via Specialistdirekt",
       body: [
-        "Vill du slippa ringa runt kan Specialistdirekt förmedla din tidsförfrågan. Du beskriver kort dina besvär och vilka tider som passar, så återkommer vi med besked om möjlig tid och aktuellt pris – du bestämmer sedan själv om du vill gå vidare. Specialistdirekt är en **förmedlingstjänst och inte vårdgivare**; den medicinska bedömningen och behandlingen görs av den mottagning som tar emot dig.",
+        "Vill du slippa ringa runt kan Specialistdirekt förmedla din tidsförfrågan. Du beskriver kort dina besvär och vilka tider som passar, så återkommer vi med besked om möjlig tid och aktuellt pris – du bestämmer sedan själv om du vill gå vidare. Specialistdirekt är en **förmedlingstjänst**; den medicinska bedömningen och behandlingen görs av den mottagning som tar emot dig.",
         "Bor du i Göteborgsområdet kan du läsa mer och skicka en kostnadsfri förfrågan på sidan om [privat ortoped i Göteborg](/specialiteter/ortoped/goteborg), där du som självbetalande patient inte behöver någon remiss för den aktuella tidsförfrågan.",
       ],
     },
@@ -154,7 +154,7 @@ export const article: Article = {
     {
       question: "Hur bokar jag en privat ortoped själv?",
       answer:
-        "Du kan kontakta en privat mottagning direkt, eller skicka en kostnadsfri tidsförfrågan via Specialistdirekt. Du beskriver kort dina besvär, så återkommer vi med besked om möjlig tid och pris. Specialistdirekt är en förmedlingstjänst, inte vårdgivare.",
+        "Du kan kontakta en privat mottagning direkt, eller skicka en kostnadsfri tidsförfrågan via Specialistdirekt. Du beskriver kort dina besvär, så återkommer vi med besked om möjlig tid och pris. Specialistdirekt är en förmedlingstjänst.",
     },
   ],
 };

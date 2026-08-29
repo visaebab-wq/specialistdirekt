@@ -45,7 +45,7 @@ export const article: Article = {
   intro: [
     "Besvär i hand, fingrar och handled kan påverka nästan allt du gör – från att knäppa en skjorta till att arbeta, träna eller sova. Det kan handla om domningar, stickningar, smärta, låsningar eller svaghet, och bakom besvären kan ligga allt från karpaltunnelsyndrom, triggerfinger och Dupuytrens kontraktur till ganglion, tumbasartros, andra handledsbesvär eller besvär efter en skada.",
     "Många börjar hos vårdcentralen, en fysioterapeut eller en [ortoped](/specialiteter/ortoped) som gör en första bedömning. I vissa situationer vill man dock snabbare få hjälp att hitta rätt privat handkirurgisk mottagning, särskilt om besvären inte ger med sig, återkommer eller påverkar vardagen och arbetsförmågan.",
-    "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård. Vi är inte en vårdgivare, ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
+    "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
   ],
   sections: [
     {
@@ -217,7 +217,7 @@ export const article: Article = {
       id: "sa-hjalper-vi",
       heading: "Så hjälper Specialistdirekt dig",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Vi är inte en vårdgivare och gör ingen medicinsk bedömning. Så fungerar det:",
+        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Vi gör ingen medicinsk bedömning. Så fungerar det:",
       ],
       bullets: [
         "Du beskriver dina besvär i en kort bokningsförfrågan.",

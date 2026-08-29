@@ -46,7 +46,7 @@ export const article: Article = {
   intro: [
     "Urologiska besvär kan kännas både jobbiga och privata. Det kan handla om problem med att kissa, återkommande urinvägsbesvär, prostatabesvär, blod i urinen, smärta i testiklarna, erektionsproblem eller frågor om fertilitet och sterilisering.",
     "Många börjar i vårdcentralen. Men i vissa situationer vill man snabbare få hjälp att hitta rätt privat urologmottagning, särskilt om besvären påverkar vardagen eller om man redan vet att man behöver specialistbedömning.",
-    "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård. Vi är inte en vårdgivare, ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
+    "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
   ],
   sections: [
     {
@@ -162,7 +162,7 @@ export const article: Article = {
       id: "sa-hjalper-vi",
       heading: "Så hjälper Specialistdirekt dig",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Vi är inte en vårdgivare och gör ingen medicinsk bedömning. Så fungerar det:",
+        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Vi gör ingen medicinsk bedömning. Så fungerar det:",
       ],
       bullets: [
         "Du beskriver dina besvär i en kort bokningsförfrågan.",

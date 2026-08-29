@@ -44,7 +44,7 @@ export const article: Article = {
   intro: [
     "När ett barn har återkommande eller svårtolkade besvär kan oron växa snabbt. Det kan handla om täta infektioner, allergi, astma och andningsbesvär, magbesvär och förstoppning, envisa hudproblem, störd sömn, frågor om tillväxt och vikt, huvudvärk eller en trötthet som inte vill ge med sig. Som förälder vill ni förstå vad som ligger bakom och få en tydlig plan framåt.",
     "De flesta barn ska först bedömas i den ordinarie barnsjukvården. Vårdcentralen, BVC och skolhälsovården gör en första bedömning, och vid akuta besvär finns barnakuten. Ibland vill ni ändå snabbare hitta rätt till en privat barnläkare, särskilt om besvären drar ut på tiden, om ni redan vet att barnet behöver en specialistbedömning eller om ni har en sjukvårdsförsäkring som kan hjälpa till.",
-    "Specialistdirekt hjälper er att hitta rätt väg till privat specialistvård. Vi är inte en vårdgivare, ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa er vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för barnets behov och er ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
+    "Specialistdirekt hjälper er att hitta rätt väg till privat specialistvård. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa er vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för barnets behov och er ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
   ],
   sections: [
     {
@@ -212,7 +212,7 @@ export const article: Article = {
       id: "sa-hjalper-vi",
       heading: "Så hjälper Specialistdirekt er",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Vi är inte en vårdgivare och gör ingen medicinsk bedömning. Så fungerar det:",
+        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Vi gör ingen medicinsk bedömning. Så fungerar det:",
       ],
       bullets: [
         "Ni beskriver barnets besvär i en kort bokningsförfrågan.",

@@ -92,7 +92,7 @@ export const city: City = {
           id: "privat-kardiolog-orebro",
           heading: "Privat kardiolog i Örebro – utredning av hjärtat",
           body: [
-            "Vid hjärt- och kärlbesvär finns i Örebro kardiologisk kompetens både kopplad till Universitetssjukhuset Örebro (USÖ) och hos privata mottagningar. En privat mottagning är fristående från regionens vård – Specialistdirekt förmedlar kontakt men är inte en vårdgivare och har ingen koppling till USÖ. En **kardiolog** utreder besvär som hjärtklappning, bröstobehag, andfåddhet, högt blodtryck och avvikande EKG.",
+            "Vid hjärt- och kärlbesvär finns i Örebro kardiologisk kompetens både kopplad till Universitetssjukhuset Örebro (USÖ) och hos privata mottagningar. En privat mottagning är fristående från regionens vård – Specialistdirekt förmedlar kontakt och har ingen koppling till USÖ. En **kardiolog** utreder besvär som hjärtklappning, bröstobehag, andfåddhet, högt blodtryck och avvikande EKG.",
             "En kardiologisk bedömning börjar med ett samtal och en kroppsundersökning, och kompletteras vid behov med undersökningar. Vilka som blir aktuella avgör läkaren utifrån dina symtom. Läs mer på vår [översikt om kardiolog](/specialiteter/kardiolog).",
           ],
           bullets: [
@@ -146,7 +146,7 @@ export const city: City = {
           id: "privat-ortoped-orebro",
           heading: "Privat ortoped i Örebro – besvär i leder och skelett",
           body: [
-            "Har du besvär i leder, skelett eller efter en idrottsskada finns ortopedisk kompetens i Örebro både inom regionens vård, med Universitetssjukhuset Örebro (USÖ) som nav, och hos privata mottagningar. En privat mottagning är fristående från regionvården – Specialistdirekt förmedlar kontakt men är inte en vårdgivare. En **ortoped** utreder rörelseapparaten: skelett, leder, muskler och senor.",
+            "Har du besvär i leder, skelett eller efter en idrottsskada finns ortopedisk kompetens i Örebro både inom regionens vård, med Universitetssjukhuset Örebro (USÖ) som nav, och hos privata mottagningar. En privat mottagning är fristående från regionvården – Specialistdirekt förmedlar kontakt. En **ortoped** utreder rörelseapparaten: skelett, leder, muskler och senor.",
             "Ett ortopedbesök börjar med ett samtal och en klinisk undersökning där läkaren testar rörlighet, kraft och stabilitet. Vid behov kompletteras det med bilddiagnostik. Läs mer på vår [översikt om ortoped](/specialiteter/ortoped).",
           ],
           bullets: [
@@ -200,7 +200,7 @@ export const city: City = {
           id: "privat-neurolog-orebro",
           heading: "Privat neurolog i Örebro – utredning av nervsystemet",
           body: [
-            "Vid besvär från nervsystemet finns i Örebro neurologisk kompetens både vid Universitetssjukhuset Örebro (USÖ) och hos privata mottagningar. En privat mottagning är fristående från regionvården – Specialistdirekt förmedlar kontakt men är inte en vårdgivare och har ingen koppling till USÖ. En **neurolog** utreder sjukdomar i hjärna, ryggmärg och nerver, och en bedömning bygger på ett samtal och ett så kallat neurologiskt status där läkaren testar reflexer, känsel, styrka och balans.",
+            "Vid besvär från nervsystemet finns i Örebro neurologisk kompetens både vid Universitetssjukhuset Örebro (USÖ) och hos privata mottagningar. En privat mottagning är fristående från regionvården – Specialistdirekt förmedlar kontakt och har ingen koppling till USÖ. En **neurolog** utreder sjukdomar i hjärna, ryggmärg och nerver, och en bedömning bygger på ett samtal och ett så kallat neurologiskt status där läkaren testar reflexer, känsel, styrka och balans.",
             "Bland de vanligaste anledningarna att söka neurolog är återkommande **migrän** och svår huvudvärk, **yrsel** och balansbesvär samt **domningar** och stickningar. Vid behov kompletteras bedömningen med undersökningar som MR av hjärnan, EEG eller nervmätning. Läs mer på vår [översikt om neurolog](/specialiteter/neurolog).",
           ],
           bullets: [

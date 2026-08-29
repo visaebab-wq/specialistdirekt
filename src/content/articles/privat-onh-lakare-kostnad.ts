@@ -47,7 +47,7 @@ export const article: Article = {
   intro: [
     "Besvär från öron, näsa och hals kan påverka sömn, balans, andning, röst och vardag – återkommande öroninflammationer, nästäppa, bihålebesvär, halsproblem, snarkning, tinnitus, hörselbesvär, yrsel eller lock för örat.",
     "Många börjar hos vårdcentralen, men om besvären återkommer, inte går över eller kräver specialistbedömning kan en ÖNH-läkare (specialist inom öron-, näs- och halssjukdomar) bli aktuell.",
-    "Specialistdirekt hjälper dig hitta rätt väg till privat specialistvård. Vi är inte en vårdgivare, ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en relevant mottagning. Läs mer om [hur det fungerar](/sa-fungerar-det).",
+    "Specialistdirekt hjälper dig hitta rätt väg till privat specialistvård. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en relevant mottagning. Läs mer om [hur det fungerar](/sa-fungerar-det).",
   ],
   sections: [
     {
@@ -215,7 +215,7 @@ export const article: Article = {
       id: "sa-hjalper-vi",
       heading: "Så hjälper Specialistdirekt dig",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Vi är inte en vårdgivare och gör ingen medicinsk bedömning. Så fungerar det:",
+        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Vi gör ingen medicinsk bedömning. Så fungerar det:",
       ],
       bullets: [
         "Du beskriver dina besvär i en kort bokningsförfrågan.",

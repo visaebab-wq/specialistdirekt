@@ -176,7 +176,7 @@ export const article: Article = {
       id: "sa-hjalper-vi",
       heading: "Så hjälper Specialistdirekt dig",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård och diagnostik. Vi är inte en vårdgivare och gör ingen medicinsk bedömning. Vi kan hjälpa dig vidare när ärendet **inte är akut**: du beskriver dina symtom, anger önskat område, och vi hjälper dig vidare till en relevant privat mottagning. Det är alltid mottagningen som avgör om de kan ta emot dig och om gastroenterolog, koloskopi eller annan utredning är rätt väg.",
+        "Specialistdirekt är en vägledningstjänst för privat specialistvård och diagnostik. Vi gör ingen medicinsk bedömning. Vi kan hjälpa dig vidare när ärendet **inte är akut**: du beskriver dina symtom, anger önskat område, och vi hjälper dig vidare till en relevant privat mottagning. Det är alltid mottagningen som avgör om de kan ta emot dig och om gastroenterolog, koloskopi eller annan utredning är rätt väg.",
       ],
     },
     {

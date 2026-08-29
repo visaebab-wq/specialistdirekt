@@ -261,7 +261,7 @@ export default function MasoudSorkhabiPage() {
               </section>
 
               <div className="soft-info-card mt-8 p-6 text-sm text-ink-600">
-                Specialistdirekt är en förmedlingstjänst och inte vårdgivare. Den medicinska
+                Specialistdirekt är en förmedlingstjänst. Den medicinska
                 bedömningen, behandlingen och det medicinska ansvaret ligger hos Dr. Masoud Sorkhabi.
               </div>
             </article>

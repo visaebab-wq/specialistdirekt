@@ -43,7 +43,7 @@ export const article: Article = {
   intro: [
     "Neurologiska besvär kan vara svåra att tolka och ofta oroväckande. Det kan handla om huvudvärk eller migrän, yrsel, domningar, stickningar, nervsmärta, svaghet i armar eller ben, tremor (skakningar), balansproblem eller en allmän känsla av att kroppen inte fungerar som vanligt. Många känner också oro efter att ha fått ett MR-svar de inte riktigt förstår.",
     "De flesta börjar i vårdcentralen, som gör en första bedömning och avgör om besvären behöver utredas vidare av en specialist. I vissa situationer vill man dock snabbare hitta rätt väg till en privat neurologmottagning, särskilt om symtomen påverkar vardagen eller om man redan vet att man behöver specialistbedömning.",
-    "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård. Vi är inte en vårdgivare, ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
+    "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
   ],
   sections: [
     {
@@ -215,7 +215,7 @@ export const article: Article = {
       id: "sa-hjalper-vi",
       heading: "Så hjälper Specialistdirekt dig",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Vi är inte en vårdgivare och gör ingen medicinsk bedömning. Så fungerar det:",
+        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Vi gör ingen medicinsk bedömning. Så fungerar det:",
       ],
       bullets: [
         "Du beskriver dina besvär i en kort bokningsförfrågan.",

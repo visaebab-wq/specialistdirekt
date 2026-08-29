@@ -49,7 +49,7 @@ export const article: Article = {
   ],
   intro: [
     "Åderbråck är vidgade, synliga vener som ofta sitter på benen och uppstår när klaffarna i venerna inte fungerar som de ska. De kan vara mest kosmetiskt störande, men kan också ge tyngdkänsla, värk, svullnad eller hudförändringar. Många söker privat behandling för kortare väntetid eller för att kunna använda en sjukvårdsförsäkring.",
-    "Specialistdirekt är en vägledningstjänst och **inte en vårdgivare**. Vi ställer ingen diagnos, gör ingen medicinsk bedömning och utför ingen behandling. Vi hjälper dig vidare med en [bokningsförfrågan](/kontakt) till relevant privat kärlmottagning.",
+    "Specialistdirekt är en vägledningstjänst. Vi ställer ingen diagnos, gör ingen medicinsk bedömning och utför ingen behandling. Vi hjälper dig vidare med en [bokningsförfrågan](/kontakt) till relevant privat kärlmottagning.",
   ],
   sections: [
     {
@@ -223,7 +223,7 @@ export const article: Article = {
       id: "sa-hjalper-vi",
       heading: "Så hjälper Specialistdirekt dig",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård och behandlingar via externa mottagningar. Vi är inte en vårdgivare och gör ingen medicinsk bedömning. Du beskriver dina besvär, anger önskat område, och vi hjälper dig vidare till en privat mottagning eller kärlkirurg som kan vara relevant. Det är alltid mottagningen som avgör om åderbråcksbehandling är lämplig och vilken metod som passar.",
+        "Specialistdirekt är en vägledningstjänst för privat specialistvård och behandlingar via externa mottagningar. Vi gör ingen medicinsk bedömning. Du beskriver dina besvär, anger önskat område, och vi hjälper dig vidare till en privat mottagning eller kärlkirurg som kan vara relevant. Det är alltid mottagningen som avgör om åderbråcksbehandling är lämplig och vilken metod som passar.",
       ],
     },
     {

@@ -49,7 +49,7 @@ export const article: Article = {
   ],
   intro: [
     "Gastroskopi är en undersökning av matstrupe, magsäck och övre delen av tunntarmen, med ett gastroskop – en mjuk slang med kamera som förs in via munnen. Många söker privat gastroskopi för att slippa lång väntetid, få snabbare besked eller för att de har en sjukvårdsförsäkring som kan användas. Läs mer om [privat gastroskopi utan remiss](/privat-gastroskopi).",
-    "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård och diagnostik. Vi är inte en vårdgivare, ställer ingen diagnos och utför ingen undersökning. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort.",
+    "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård och diagnostik. Vi ställer ingen diagnos och utför ingen undersökning. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort.",
   ],
   sections: [
     {
@@ -228,7 +228,7 @@ export const article: Article = {
       id: "sa-hjalper-vi",
       heading: "Så hjälper Specialistdirekt dig",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård och diagnostik. Vi är inte en vårdgivare och gör ingen medicinsk bedömning. Du beskriver ditt behov, anger önskat område, och vi hjälper dig vidare till en privat mottagning eller specialist som kan vara relevant. Det är alltid mottagningen som avgör om de kan ta emot dig och om gastroskopi är rätt undersökning.",
+        "Specialistdirekt är en vägledningstjänst för privat specialistvård och diagnostik. Vi gör ingen medicinsk bedömning. Du beskriver ditt behov, anger önskat område, och vi hjälper dig vidare till en privat mottagning eller specialist som kan vara relevant. Det är alltid mottagningen som avgör om de kan ta emot dig och om gastroskopi är rätt undersökning.",
       ],
     },
     {

@@ -46,7 +46,7 @@ export const article: Article = {
   ],
   intro: [
     "MR (magnetkamera) används för att undersöka kroppens mjukdelar, leder, rygg, hjärna, buk, prostata och andra områden mer detaljerat. Många söker privat MR vid långvariga besvär, för snabbare besked eller tydligare bild inför specialistbedömning – t.ex. ryggsmärta, knäbesvär, axelproblem, huvudvärk, misstänkt diskbråck, idrottsskada eller prostatabesvär.",
-    "Specialistdirekt hjälper dig hitta rätt väg till privat specialistvård och diagnostik. Vi är inte en vårdgivare, ställer ingen diagnos och utför ingen undersökning. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en relevant mottagning/klinik. Läs mer om [hur det fungerar](/sa-fungerar-det).",
+    "Specialistdirekt hjälper dig hitta rätt väg till privat specialistvård och diagnostik. Vi ställer ingen diagnos och utför ingen undersökning. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en relevant mottagning/klinik. Läs mer om [hur det fungerar](/sa-fungerar-det).",
   ],
   sections: [
     {
@@ -186,7 +186,7 @@ export const article: Article = {
       id: "sa-hjalper-vi",
       heading: "Så hjälper Specialistdirekt dig",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård och diagnostik. Vi är inte en vårdgivare och gör ingen medicinsk bedömning. Så fungerar det:",
+        "Specialistdirekt är en vägledningstjänst för privat specialistvård och diagnostik. Vi gör ingen medicinsk bedömning. Så fungerar det:",
       ],
       bullets: [
         "Du beskriver behovet (kroppsdel, besvär, remiss).",

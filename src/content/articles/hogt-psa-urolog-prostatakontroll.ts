@@ -50,7 +50,7 @@ export const article: Article = {
   ],
   intro: [
     "PSA är ett protein som bildas i prostatan, och ett PSA-prov mäter nivån i blodet. Ett förhöjt PSA-värde kan väcka oro, men betyder inte automatiskt prostatacancer. Den här guiden hjälper dig förstå vad ett högt PSA kan betyda, när du bör träffa urolog och vad en privat prostatakontroll kan innehålla.",
-    "Specialistdirekt är en vägledningstjänst och **inte en vårdgivare**. Vi tolkar inte PSA-värden och gör ingen medicinsk bedömning. Vi hjälper dig vidare med en [bokningsförfrågan](/kontakt) till relevant privat mottagning.",
+    "Specialistdirekt är en vägledningstjänst. Vi tolkar inte PSA-värden och gör ingen medicinsk bedömning. Vi hjälper dig vidare med en [bokningsförfrågan](/kontakt) till relevant privat mottagning.",
   ],
   sections: [
     {
@@ -176,7 +176,7 @@ export const article: Article = {
       id: "sa-hjalper-vi",
       heading: "Så hjälper Specialistdirekt dig",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård och diagnostik. Vi är inte en vårdgivare och gör ingen medicinsk bedömning. Du beskriver din situation (PSA-värde, prostatabesvär, urinbesvär eller tidigare utredning), anger önskat område, och vi hjälper dig vidare till en relevant privat mottagning. Det är alltid mottagningen som avgör om de kan ta emot dig och vilken utredning som är medicinskt lämplig.",
+        "Specialistdirekt är en vägledningstjänst för privat specialistvård och diagnostik. Vi gör ingen medicinsk bedömning. Du beskriver din situation (PSA-värde, prostatabesvär, urinbesvär eller tidigare utredning), anger önskat område, och vi hjälper dig vidare till en relevant privat mottagning. Det är alltid mottagningen som avgör om de kan ta emot dig och vilken utredning som är medicinskt lämplig.",
       ],
     },
     {

@@ -46,7 +46,6 @@ const heroSteps = [
 ];
 
 const trustPoints = [
-  "Vi är inte en vårdgivare",
   "Vi ställer inte diagnos",
   "Vi hjälper dig hitta rätt mottagning",
   "Bokningsförfrågan skickas vidare till passande privat mottagning",

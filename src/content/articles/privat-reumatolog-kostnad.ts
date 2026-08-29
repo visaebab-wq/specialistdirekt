@@ -46,7 +46,7 @@ export const article: Article = {
   intro: [
     "Ledvärk, stelhet och svullna leder kan påverka hela vardagen. Ibland beror besvären på överbelastning, artros eller tidigare skada. I andra fall kan det finnas misstanke om inflammation eller reumatisk sjukdom, till exempel ledgångsreumatism, psoriasisartrit, inflammatorisk ryggsjukdom eller gikt.",
     "Många börjar hos vårdcentralen. Men om besvären är långvariga, återkommer, påverkar flera leder eller om du redan har provsvar som väcker frågor kan det vara aktuellt att träffa en reumatolog.",
-    "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård. Vi är inte en vårdgivare, ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
+    "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
   ],
   sections: [
     {
@@ -202,7 +202,7 @@ export const article: Article = {
       id: "sa-hjalper-vi",
       heading: "Så hjälper Specialistdirekt dig",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Vi är inte en vårdgivare. Så fungerar det:",
+        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Så fungerar det:",
       ],
       bullets: [
         "Du beskriver dina besvär i en kort bokningsförfrågan.",

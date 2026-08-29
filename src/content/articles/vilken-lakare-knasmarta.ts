@@ -124,7 +124,7 @@ export const article: Article = {
       heading: "Söker du privat ortoped för knäsmärta i Göteborg?",
       body: [
         "Bor du i Göteborgsområdet kan du boka **Dr. Masoud Sorkhabi**, specialist i ortopedi och ryggkirurgi med över 20 års erfarenhet av ortopedi och kirurgi, inklusive knäbesvär. **Fysiskt besök i Göteborg 2 000 kr**, som betalas på plats vid besöket – utan remiss för självbetalande.",
-        "Läs mer och boka på [privat ortoped i Göteborg](/specialiteter/ortoped/goteborg). Specialistdirekt är en förmedlingstjänst och inte vårdgivare; den medicinska bedömningen görs av läkaren.",
+        "Läs mer och boka på [privat ortoped i Göteborg](/specialiteter/ortoped/goteborg). Specialistdirekt är en förmedlingstjänst; den medicinska bedömningen görs av läkaren.",
       ],
     },
     {

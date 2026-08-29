@@ -8,7 +8,7 @@ export const faqs: Faq[] = [
   {
     question: "Vad är Specialistdirekt?",
     answer:
-      "Specialistdirekt hjälper dig att komma till rätt specialistläkare i Sverige. Du beskriver ditt behov, vi kontaktar flera anslutna mottagningar och återkommer med den tidigaste tid vi hittar. Vi är inte vårdgivare – det medicinska ansvaret för vården ligger hos mottagningen.",
+      "Specialistdirekt hjälper dig att komma till rätt specialistläkare i Sverige. Du beskriver ditt behov, vi kontaktar flera anslutna mottagningar och återkommer med den tidigaste tid vi hittar. Det medicinska ansvaret för vården ligger hos mottagningen.",
   },
   // Betalningsfrågorna är medvetet uppdelade per bokningsväg. Ett universellt
   // svar går inte att ge: vid direktbokning i Göteborg betalas 2 000 kr på
@@ -25,7 +25,7 @@ export const faqs: Faq[] = [
   {
     question: "Vem betalar jag till – Specialistdirekt eller vårdgivaren?",
     answer:
-      "Vid direktbokning hos Dr. Masoud Sorkhabi i Göteborg betalar du 2 000 kr direkt till vårdgivaren på plats vid besöket. Ingen betalning görs till Specialistdirekt i samband med bokningen.\n\nFör andra specialistbesök som förmedlas via Specialistdirekt kan betalningsupplägget vara annorlunda beroende på tjänsten.\n\nSpecialistdirekt är en förmedlingstjänst och inte vårdgivare. Det medicinska ansvaret för undersökning, bedömning och behandling ligger hos den vårdgivare som utför vården.",
+      "Vid direktbokning hos Dr. Masoud Sorkhabi i Göteborg betalar du 2 000 kr direkt till vårdgivaren på plats vid besöket. Ingen betalning görs till Specialistdirekt i samband med bokningen.\n\nFör andra specialistbesök som förmedlas via Specialistdirekt kan betalningsupplägget vara annorlunda beroende på tjänsten.\n\nSpecialistdirekt är en förmedlingstjänst. Det medicinska ansvaret för undersökning, bedömning och behandling ligger hos den vårdgivare som utför vården.",
   },
   {
     question: "Hur snabbt får jag svar?",

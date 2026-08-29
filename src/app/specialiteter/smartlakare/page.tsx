@@ -265,7 +265,7 @@ export default function SmartlakareHubPage() {
             areaServed: { "@type": "Country", name: "Sverige" },
             url: abs(PATH),
             description:
-              "Specialistdirekt hjälper dig att hitta rätt privat specialist eller mottagning vid smärta. Specialistdirekt är en förmedlingstjänst och inte vårdgivare.",
+              "Specialistdirekt hjälper dig att hitta rätt privat specialist eller mottagning vid smärta. Specialistdirekt är en förmedlingstjänst.",
           },
           faqSchema(faqs),
         ]}

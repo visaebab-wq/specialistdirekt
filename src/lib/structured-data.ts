@@ -54,10 +54,10 @@ export function organizationSchema() {
   });
 }
 
-// MedicalBusiness-schemat är borttaget: Specialistdirekt är en förmedlare/
-// koordinator, inte en vårdgivare, klinik eller MedicalBusiness. Att typa sajten
-// som en medicinsk enhet är felaktig strukturerad data på en YMYL-sajt.
-// Sajtentiteten beskrivs enbart som Organization + WebSite.
+// MedicalBusiness-schemat är borttaget. Specialistdirekt är en förmedlare och
+// koordinator; vården ges av mottagningen. MedicalBusiness beskriver en enhet
+// som själv bedriver vård, och att typa sajten så vore felaktig strukturerad
+// data på en YMYL-sajt. Sajtentiteten beskrivs enbart som Organization + WebSite.
 
 /** WebSite-objekt med SearchAction – ger ev. sitelinks-sökruta i Google. */
 export function websiteSchema() {
@@ -253,7 +253,7 @@ export function citySpecialtyServiceSchema(specialty: Specialty, city: City, pat
     provider: { "@id": `${site.url}/#organization` },
     areaServed: { "@type": "City", name: city.name },
     url: abs(path),
-    description: `Specialistdirekt hjälper dig till privat ${title} i ${city.name}. Specialistdirekt är en förmedlingstjänst och inte vårdgivare.`,
+    description: `Specialistdirekt hjälper dig till privat ${title} i ${city.name}. Specialistdirekt är en förmedlingstjänst.`,
     offers: {
       "@type": "Offer",
       price: "0",

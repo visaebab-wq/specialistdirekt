@@ -46,7 +46,7 @@ export const article: Article = {
   intro: [
     "Hormonella besvär kan vara svåra att förstå själv. Trötthet, viktförändring, frusenhet, svettningar, hjärtklappning, lågt testosteron, menstruationsrubbningar, diabetes, sköldkörtelproblem eller avvikande blodprover kan ha många olika orsaker.",
     "Många börjar hos vårdcentralen. Men om besvären är långvariga, provsvar är svårtolkade eller om du behöver specialistbedömning kan en endokrinolog bli aktuell.",
-    "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård. Vi är inte en vårdgivare, ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
+    "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
   ],
   sections: [
     {
@@ -260,7 +260,7 @@ export const article: Article = {
       id: "sa-hjalper-vi",
       heading: "Så hjälper Specialistdirekt dig",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Vi är inte en vårdgivare. Så fungerar det:",
+        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Så fungerar det:",
       ],
       bullets: [
         "Du beskriver dina besvär i en kort bokningsförfrågan.",

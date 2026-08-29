@@ -44,7 +44,7 @@ export const article: Article = {
   intro: [
     "Andningsbesvär kan vara både skrämmande och svåra att tolka. Det kan handla om andfåddhet vid ansträngning eller i vila, långvarig hosta, pip i bröstet, misstänkt astma eller KOL, återkommande luftvägsinfektioner, allergiska besvär eller sömnrelaterad andning. Många av dessa symtom är vanliga, men de förtjänar ändå en ordentlig bedömning.",
     "De flesta börjar hos sin vårdcentral, som gör en första bedömning och ofta kan inleda en utredning. Ibland vill man dock snabbare hitta rätt privat lungmottagning, särskilt om besvären påverkar vardagen, om de inte går över eller om man redan vet att man behöver en specialistbedömning av lungor och luftvägar.",
-    "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård. Vi är inte en vårdgivare, ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
+    "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
   ],
   sections: [
     {
@@ -212,7 +212,7 @@ export const article: Article = {
       id: "sa-hjalper-vi",
       heading: "Så hjälper Specialistdirekt dig",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Vi är inte en vårdgivare och gör ingen medicinsk bedömning. Så fungerar det:",
+        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Vi gör ingen medicinsk bedömning. Så fungerar det:",
       ],
       bullets: [
         "Du beskriver dina besvär i en kort bokningsförfrågan.",

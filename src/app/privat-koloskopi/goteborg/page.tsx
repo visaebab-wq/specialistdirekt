@@ -319,8 +319,7 @@ export default function KoloskopiGoteborgPage() {
                 Specialistdirekt en tidsförfrågan till en ansluten mottagning i
                 Göteborgsområdet. Du får besked om möjlig tid, aktuellt pris och
                 vad som ingår innan du bestämmer dig om du vill gå vidare. Det
-                medicinska ansvaret ligger hos mottagningen – Specialistdirekt
-                är inte vårdgivare.
+                medicinska ansvaret ligger hos mottagningen.
               </p>
 
               <section className="mt-10">
@@ -423,7 +422,7 @@ export default function KoloskopiGoteborgPage() {
             areaServed: { "@type": "City", name: "Göteborg" },
             url: abs(PATH),
             description:
-              "Som självbetalande kan du boka privat koloskopi i Göteborg utan remiss efter mottagningens medicinska bedömning. Specialistdirekt förmedlar tidsförfrågan och är inte vårdgivare.",
+              "Som självbetalande kan du boka privat koloskopi i Göteborg utan remiss efter mottagningens medicinska bedömning. Specialistdirekt förmedlar tidsförfrågan.",
           },
           faqSchema(faqs),
         ]}

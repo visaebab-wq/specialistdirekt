@@ -45,7 +45,7 @@ export const article: Article = {
   intro: [
     "Långvarig smärta kan påverka hela livet. Privat smärtvård kan bli aktuell vid exempelvis långvarig rygg- eller nacksmärta, nervrelaterad smärta, ledsmärta eller mer sammansatta smärttillstånd som inte förbättrats trots tidigare insatser.",
     "Många börjar på en vårdcentral eller hos en fysioterapeut, [ortoped](/specialiteter/ortoped) eller [neurolog](/specialiteter/neurolog). Men om smärtan är långvarig, komplex eller svår att förstå kan en smärtläkare eller smärtspecialist bli aktuell. Osäker på vilken läkare du ska söka? Se [långvarig smärta – vilken läkare?](/artiklar/langvarig-smarta-vilken-lakare) och [smärtläkare och smärtmottagning](/specialiteter/smartlakare).",
-    "Specialistdirekt hjälper dig hitta rätt väg till privat specialistvård. Vi är inte en vårdgivare, ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en relevant mottagning. Läs mer om [hur det fungerar](/sa-fungerar-det).",
+    "Specialistdirekt hjälper dig hitta rätt väg till privat specialistvård. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en relevant mottagning. Läs mer om [hur det fungerar](/sa-fungerar-det).",
   ],
   sections: [
     {
@@ -222,7 +222,7 @@ export const article: Article = {
       id: "sa-hjalper-vi",
       heading: "Så hjälper Specialistdirekt dig",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård – inte en vårdgivare. Så fungerar det:",
+        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Så fungerar det:",
       ],
       bullets: [
         "Du beskriver besvären (var smärtan sitter och hur länge den funnits).",

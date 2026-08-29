@@ -44,7 +44,7 @@ export const article: Article = {
   intro: [
     "Kirurgiska besvär kan se ut på många sätt. Det kan handla om ett ljumskbråck som buktar ut, gallstensbesvär med smärta under höger revbensbåge, hemorrojder eller andra anala besvär, hudförändringar som behöver tas bort, cystor, lipom och andra knutor under huden eller oklara bukbesvär.",
     "Många börjar hos sin vårdcentral, som gör en första bedömning och vid behov skriver remiss vidare. Men i vissa situationer vill man snabbare hitta rätt privat kirurgmottagning, särskilt om besvären påverkar vardagen eller om man redan vet att man behöver en specialistbedömning eller ett kirurgiskt ingrepp.",
-    "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård. Vi är inte en vårdgivare, ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
+    "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
   ],
   sections: [
     {
@@ -189,7 +189,7 @@ export const article: Article = {
       id: "sa-hjalper-vi",
       heading: "Så hjälper Specialistdirekt dig",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Vi är inte en vårdgivare och gör ingen medicinsk bedömning. Så fungerar det:",
+        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Vi gör ingen medicinsk bedömning. Så fungerar det:",
       ],
       bullets: [
         "Du beskriver dina besvär i en kort bokningsförfrågan.",

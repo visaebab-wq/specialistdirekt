@@ -27,7 +27,7 @@ export const article: Article = {
     "Vid **vanlig ryggsmärta utan varningstecken** är en **fysioterapeut** eller vårdcentral ofta ett bra första steg – de flesta ryggbesvär blir bättre med tid, rörelse och rätt belastning.",
     "En **ortoped** (eller annan läkare) blir mer aktuell vid **nervrelaterad, utstrålande smärta**, tydlig kraftnedsättning eller besvär som inte förbättras trots rimliga åtgärder.",
     "Vissa symtom är **röda flaggor** – då ska du söka vård direkt, inte boka en planerad tid.",
-    "[Specialistdirekt](/kontakt) är en förmedlingstjänst, inte vårdgivare; den medicinska bedömningen görs av mottagningen.",
+    "[Specialistdirekt](/kontakt) är en förmedlingstjänst; den medicinska bedömningen görs av mottagningen.",
   ],
   suitableFor: [
     "har ont i ryggen och vet inte om du ska boka fysioterapeut eller läkare",
@@ -105,7 +105,7 @@ export const article: Article = {
       heading: "Söker du privat ortoped i Göteborg?",
       body: [
         "Bor du i Göteborgsområdet kan Specialistdirekt förmedla din tidsförfrågan till **ansluten ortopedisk specialistkompetens i Göteborg**, med inriktning på bland annat rygg-, nack- och nervrelaterade besvär. Som självbetalande patient behöver du ingen remiss för den aktuella tidsförfrågan, och du får besked om möjlig tid och aktuellt pris innan du bestämmer dig.",
-        "Specialistdirekt är en förmedlingstjänst och inte vårdgivare. Läs mer och skicka en kostnadsfri förfrågan på sidan om [privat ortoped i Göteborg](/specialiteter/ortoped/goteborg).",
+        "Specialistdirekt är en förmedlingstjänst. Läs mer och skicka en kostnadsfri förfrågan på sidan om [privat ortoped i Göteborg](/specialiteter/ortoped/goteborg).",
       ],
     },
     {
@@ -149,7 +149,7 @@ export const article: Article = {
     {
       question: "Kostar det något att skicka en tidsförfrågan?",
       answer:
-        "Nej. Att skicka en tidsförfrågan via Specialistdirekt är kostnadsfritt och utan förpliktelser. Du får besked om möjlig tid och pris innan du bestämmer dig. Specialistdirekt är en förmedlingstjänst, inte vårdgivare.",
+        "Nej. Att skicka en tidsförfrågan via Specialistdirekt är kostnadsfritt och utan förpliktelser. Du får besked om möjlig tid och pris innan du bestämmer dig. Specialistdirekt är en förmedlingstjänst.",
     },
   ],
 };

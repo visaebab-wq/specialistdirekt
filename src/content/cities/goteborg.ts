@@ -19,7 +19,7 @@ export const city: City = {
     allmanmedicin:
       "Som Sveriges näst största stad har Göteborg ett brett utbud av privata läkarmottagningar där du kan få en bred medicinsk bedömning. En specialist i allmänmedicin kan hjälpa dig när symtomen är oklara eller berör flera områden, och vägleda dig rätt vidare. Specialistdirekt hjälper dig kostnadsfritt att hitta en mottagning i Göteborg.",
     kardiolog:
-      "Genom Specialistdirekt kan du skicka en tidsförfrågan till ansluten privat kardiologisk specialistkompetens i Göteborg. Den anslutna mottagningen erbjuder kardiologbesök samt EKG, hjärtultraljud, arbets-EKG, långtids-EKG och 24-timmars blodtrycksmätning. Du kan söka som självbetalande patient, och mottagningen kan även ta emot försäkringspatienter efter godkännande från försäkringsbolaget. Priset beror på vilken konsultation eller undersökning som bokas och lämnas innan du bestämmer dig. Specialistdirekt är en förmedlingstjänst och inte vårdgivare – undersökningar, medicinsk bedömning och behandling utförs av den mottagning som tar emot dig.",
+      "Genom Specialistdirekt kan du skicka en tidsförfrågan till ansluten privat kardiologisk specialistkompetens i Göteborg. Den anslutna mottagningen erbjuder kardiologbesök samt EKG, hjärtultraljud, arbets-EKG, långtids-EKG och 24-timmars blodtrycksmätning. Du kan söka som självbetalande patient, och mottagningen kan även ta emot försäkringspatienter efter godkännande från försäkringsbolaget. Priset beror på vilken konsultation eller undersökning som bokas och lämnas innan du bestämmer dig. Specialistdirekt är en förmedlingstjänst – undersökningar, medicinsk bedömning och behandling utförs av den mottagning som tar emot dig.",
     ortoped:
       "Söker du en privat ortoped? Här kan du boka tid hos Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi med över 20 års erfarenhet av ortopedi och kirurgi – för bland annat nack- och ryggbesvär, diskbråck, höft- och knäsmärta samt kronisk och oförklarlig smärta. Besöket är ett fysiskt besök i Göteborg och kostar 2 000 kr, som du betalar på plats. Du bokar tid direkt i kalendern och bekräftar den via en länk i mejlet. Avbokning är kostnadsfri fram till 3 timmar före besöket.",
     hudlakare:
@@ -59,7 +59,7 @@ export const city: City = {
         { label: "Remiss", value: "Behövs inte" },
         { label: "Publikt omdöme", value: "4,9 av 5 · 63 omdömen på Reco (Dr. Masoud Sorkhabi)" },
         { label: "Avbokning", value: "Kostnadsfritt fram till 3 timmar före besöket" },
-        { label: "Roll", value: "Specialistdirekt är förmedlingstjänst – inte vårdgivare" },
+        { label: "Roll", value: "Specialistdirekt är förmedlingstjänst" },
       ],
       redFlag: {
         heading: "När ska du söka akut vård i stället?",
@@ -80,7 +80,7 @@ export const city: City = {
           heading: "Om Dr. Masoud Sorkhabi – ortoped i Göteborg",
           body: [
             "Hos Specialistdirekt kan du boka tid hos **Dr. Masoud Sorkhabi**, specialist i ortopedi och ryggkirurgi i Göteborg med **över 20 års erfarenhet av ortopedi och kirurgi**. Inriktningen omfattar bland annat nack- och ryggbesvär, diskbråck, höft- och knäsmärta samt smärta som blivit kronisk eller är oförklarlig.",
-            "Du **bokar tid direkt i kalendern** och bekräftar tiden via en länk i mejlet; avbokning är kostnadsfri fram till 3 timmar före besöket. Den medicinska bedömningen och behandlingen utförs av Dr. Masoud Sorkhabi; Specialistdirekt förmedlar kontakten och är inte vårdgivare. Läs mer om [Dr. Masoud Sorkhabi](/lakare/masoud-sorkhabi).",
+            "Du **bokar tid direkt i kalendern** och bekräftar tiden via en länk i mejlet; avbokning är kostnadsfri fram till 3 timmar före besöket. Den medicinska bedömningen och behandlingen utförs av Dr. Masoud Sorkhabi; Specialistdirekt förmedlar kontakten. Läs mer om [Dr. Masoud Sorkhabi](/lakare/masoud-sorkhabi).",
           ],
         },
         {
@@ -198,7 +198,7 @@ export const city: City = {
             "Du får ett mejl med en länk – klicka på den för att bekräfta tiden.",
             "Du betalar på plats vid besöket – ingen betalning sker när du bokar.",
             "Behöver du avboka går det kostnadsfritt fram till 3 timmar före besöket.",
-            "Den medicinska bedömningen och behandlingen utförs av Dr. Masoud Sorkhabi; Specialistdirekt är inte vårdgivare.",
+            "Den medicinska bedömningen och behandlingen utförs av Dr. Masoud Sorkhabi.",
           ],
         },
         {
@@ -246,7 +246,7 @@ export const city: City = {
         {
           question: "Vem är läkaren jag träffar?",
           answer:
-            "Du träffar Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi i Göteborg med över 20 års erfarenhet av ortopedi och kirurgi, med inriktning på bland annat nack- och ryggbesvär, diskbråck samt kronisk och oförklarlig smärta. Den medicinska bedömningen och behandlingen utförs av läkaren; Specialistdirekt förmedlar kontakten och är inte vårdgivare.",
+            "Du träffar Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi i Göteborg med över 20 års erfarenhet av ortopedi och kirurgi, med inriktning på bland annat nack- och ryggbesvär, diskbråck samt kronisk och oförklarlig smärta. Den medicinska bedömningen och behandlingen utförs av läkaren; Specialistdirekt förmedlar kontakten.",
         },
         {
           question: "Tar ortopeden emot barn?",
@@ -313,14 +313,14 @@ export const city: City = {
             "Nej. Ett omdömesbetyg beskriver tidigare patienters upplevelser och är ingen garanti för ett visst medicinskt resultat i ditt fall.",
         },
         {
-          question: "Är Specialistdirekt en privat ortopedklinik?",
+          question: "Vilken roll har Specialistdirekt?",
           answer:
-            "Nej. Vi förmedlar tiden – vården ges av Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi, på hans mottagning i Göteborg.",
+            "Vi förmedlar tiden – vården ges av Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi, på hans mottagning i Göteborg.",
         },
         {
           question: "Vem ansvarar för den medicinska bedömningen?",
           answer:
-            "Den medicinska bedömningen, behandlingen och det medicinska ansvaret ligger hos Dr. Masoud Sorkhabi. Specialistdirekt är inte vårdgivare och ger inte medicinsk rådgivning.",
+            "Den medicinska bedömningen, behandlingen och det medicinska ansvaret ligger hos Dr. Masoud Sorkhabi. Specialistdirekt ger inte medicinsk rådgivning.",
         },
         {
           question: "Vad händer när jag bokat – och vad gäller om jag avbokar?",
@@ -338,7 +338,7 @@ export const city: City = {
           id: "privat-gastroenterolog-goteborg",
           heading: "Privat gastroenterolog i Göteborg – vägen in",
           body: [
-            "Vid långvariga mag- och tarmbesvär finns i Göteborg både regionens vård – med **Sahlgrenska Universitetssjukhuset**, **Östra sjukhuset** och **Mölndals sjukhus** – och privata mag- och tarmmottagningar. Som storstad kan du ofta jämföra flera vårdgivare innan du bestämmer dig. Specialistdirekt är fristående: vi är inte vårdgivare och har ingen koppling till Sahlgrenska eller Västra Götalandsregionen, utan hjälper dig kostnadsfritt att hitta en relevant privat mottagning.",
+            "Vid långvariga mag- och tarmbesvär finns i Göteborg både regionens vård – med **Sahlgrenska Universitetssjukhuset**, **Östra sjukhuset** och **Mölndals sjukhus** – och privata mag- och tarmmottagningar. Som storstad kan du ofta jämföra flera vårdgivare innan du bestämmer dig. Specialistdirekt är fristående och har ingen koppling till Sahlgrenska eller Västra Götalandsregionen, utan hjälper dig kostnadsfritt att hitta en relevant privat mottagning.",
             "En **gastroenterolog** (magspecialist, mag- och tarmläkare) utreder hela matsmältningskanalen samt lever, gallvägar och bukspottkörtel. Vägen in beror på finansieringen: som självbetalande kan du hos många privata mottagningar boka utan remiss, medan regionfinansierad vård oftast kräver remiss från vårdcentralen. Läs mer på [privat gastroenterolog](/privat-gastroenterolog).",
           ],
         },
@@ -379,7 +379,7 @@ export const city: City = {
         {
           question: "Hur bokar jag tid hos en privat gastroenterolog i Göteborg?",
           answer:
-            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi kontaktar flera anslutna mottagningar och återkommer med den tidigaste tid vi hittar. Det medicinska ansvaret för vården ligger hos mottagningen – Specialistdirekt är inte vårdgivare.",
+            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi kontaktar flera anslutna mottagningar och återkommer med den tidigaste tid vi hittar. Det medicinska ansvaret för vården ligger hos mottagningen.",
         },
         {
           question: "Kan jag träffa en gastroenterolog i Göteborg utan remiss?",
@@ -422,7 +422,7 @@ export const city: City = {
           id: "privat-allmanlakare-goteborg",
           heading: "Privat allmänläkare i Göteborg – när bredden är rätt väg",
           body: [
-            "I Göteborg finns ett brett utbud av privata läkarmottagningar vid sidan av regionens vårdcentraler och sjukhusen **Sahlgrenska**, **Östra** och **Mölndal**. Specialistdirekt är fristående – vi är inte vårdgivare och har ingen koppling till Västra Götalandsregionen.",
+            "I Göteborg finns ett brett utbud av privata läkarmottagningar vid sidan av regionens vårdcentraler och sjukhusen **Sahlgrenska**, **Östra** och **Mölndal**. Specialistdirekt är fristående och har ingen koppling till Västra Götalandsregionen.",
             "En **specialist i allmänmedicin** har bredden som specialitet: att väga samman symtom, sjukhistoria, läkemedel och prover till en helhetsbild. Det är särskilt användbart när det är oklart vad besvären beror på, eller när de berör flera områden samtidigt. Vet du redan vilket organ det gäller kan en organspecialist vara mer effektiv – se vår [översikt om allmänmedicin](/specialiteter/allmanmedicin).",
             "En praktisk sak värd att veta: **Mölndal** gränsar direkt till Göteborg, och för många i södra Göteborg är en mottagning där lika nära som en i centrum. Låt inte kommungränsen begränsa dig när du jämför – se [allmänläkare i Mölndal](/specialiteter/allmanmedicin/molndal).",
           ],
@@ -487,7 +487,7 @@ export const city: City = {
         {
           question: "Finns det allmänläkare nära mig?",
           answer:
-            "I Göteborgsområdet finns privata läkarmottagningar både centralt och i kranskommunerna, till exempel i [Mölndal](/specialiteter/allmanmedicin/molndal). Vilken som passar dig beror på var du bor och vad besvären gäller. Beskriv var i regionen du befinner dig i din förfrågan, så tar vi hänsyn till det när vi matchar. Det medicinska ansvaret för vården ligger hos mottagningen – Specialistdirekt är inte vårdgivare.",
+            "I Göteborgsområdet finns privata läkarmottagningar både centralt och i kranskommunerna, till exempel i [Mölndal](/specialiteter/allmanmedicin/molndal). Vilken som passar dig beror på var du bor och vad besvären gäller. Beskriv var i regionen du befinner dig i din förfrågan, så tar vi hänsyn till det när vi matchar. Det medicinska ansvaret för vården ligger hos mottagningen.",
         },
         {
           question: "Vilken är den bästa privata allmänläkaren i Göteborg?",
@@ -510,7 +510,7 @@ export const city: City = {
           id: "privat-neurolog-goteborg",
           heading: "Privat neurolog i Göteborg – vägen in vid nervbesvär",
           body: [
-            "Göteborg har ett av landets tyngsta neurologiska nav vid **Sahlgrenska Universitetssjukhuset**, med ytterligare vård vid **Östra sjukhuset** och **Mölndals sjukhus**. Vid sidan av regionens vård finns privata neurologmottagningar i staden. Specialistdirekt är fristående – vi är inte vårdgivare och har ingen koppling till Sahlgrenska eller Västra Götalandsregionen.",
+            "Göteborg har ett av landets tyngsta neurologiska nav vid **Sahlgrenska Universitetssjukhuset**, med ytterligare vård vid **Östra sjukhuset** och **Mölndals sjukhus**. Vid sidan av regionens vård finns privata neurologmottagningar i staden. Specialistdirekt är fristående och har ingen koppling till Sahlgrenska eller Västra Götalandsregionen.",
             "En **neurolog** utreder sjukdomar och symtom som utgår från hjärna, ryggmärg och nerver. Grunden i bedömningen är samtalet om dina symtom och ett **neurologiskt status**, där läkaren undersöker reflexer, känsel, styrka, koordination och balans. Som storstad gör Göteborg det ofta möjligt att jämföra flera vårdgivare innan du bestämmer dig. Läs mer på vår [översikt om neurolog](/specialiteter/neurolog).",
             "En praktisk sak värd att veta: **Mölndal** gränsar direkt till Göteborg, och för många i södra Göteborg är en mottagning där lika nära som en i centrum. Låt inte kommungränsen begränsa dig när du jämför – se [neurolog i Mölndal](/specialiteter/neurolog/molndal).",
           ],
@@ -549,7 +549,7 @@ export const city: City = {
         {
           question: "Hur bokar jag tid hos en privat neurolog i Göteborg?",
           answer:
-            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi kontaktar flera anslutna mottagningar och återkommer med den tidigaste tid vi hittar. Det medicinska ansvaret för vården ligger hos mottagningen – Specialistdirekt är inte vårdgivare.",
+            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi kontaktar flera anslutna mottagningar och återkommer med den tidigaste tid vi hittar. Det medicinska ansvaret för vården ligger hos mottagningen.",
         },
         {
           question: "Kan jag träffa en neurolog utan remiss?",
@@ -616,7 +616,7 @@ export const city: City = {
         { label: "Försäkring", value: "Mottagningen kan ta emot försäkringspatienter efter godkännande" },
         { label: "Pris", value: "Per konsultation/undersökning – lämnas innan bokning" },
         { label: "Tidsförfrågan", value: "Kostnadsfri och utan förpliktelser" },
-        { label: "Roll", value: "Specialistdirekt är förmedlingstjänst – inte vårdgivare" },
+        { label: "Roll", value: "Specialistdirekt är förmedlingstjänst" },
       ],
       redFlag: {
         heading: "När ska du ringa 112 i stället?",
@@ -635,7 +635,7 @@ export const city: City = {
           id: "privat-kardiolog-goteborg",
           heading: "Privat kardiolog i Göteborg – vägen in",
           body: [
-            "Göteborg är Sveriges näst största stad, och det märks på hjärtsjukvården. Regionens tyngdpunkt ligger vid **Sahlgrenska Universitetssjukhuset**, ett av Nordens största sjukhus, med ytterligare vård vid **Östra sjukhuset** och **Mölndals sjukhus**. Vid sidan av den regiondrivna vården finns flera privata hjärtmottagningar i staden. Specialistdirekt är en fristående förmedlingstjänst – vi är inte vårdgivare och har ingen koppling till Sahlgrenska eller Västra Götalandsregionen.",
+            "Göteborg är Sveriges näst största stad, och det märks på hjärtsjukvården. Regionens tyngdpunkt ligger vid **Sahlgrenska Universitetssjukhuset**, ett av Nordens största sjukhus, med ytterligare vård vid **Östra sjukhuset** och **Mölndals sjukhus**. Vid sidan av den regiondrivna vården finns flera privata hjärtmottagningar i staden. Specialistdirekt är en fristående förmedlingstjänst utan koppling till Sahlgrenska eller Västra Götalandsregionen.",
             "Genom Specialistdirekt förmedlas din förfrågan till **ansluten privat kardiologisk specialistkompetens i Göteborg** – du behöver inte ringa runt själv, och resvägen blir sällan lång oavsett stadsdel. Vägen in beror på finansieringen: som **självbetalande** patient behöver du ingen remiss för den aktuella tidsförfrågan, medan **regionfinansierad** vård i Västra Götalandsregionen oftast går via en remiss från vårdcentralen. Har du en **sjukvårdsförsäkring** går du normalt via försäkringsbolaget, som kan kräva ett godkännande först. Läs mer på vår [översikt om kardiolog](/specialiteter/kardiolog).",
             "En praktisk sak värd att veta: **Mölndal** gränsar direkt till Göteborg, och för många i södra Göteborg är en mottagning där lika nära som en i centrum. Låt inte kommungränsen begränsa dig när du jämför – se [kardiolog i Mölndal](/specialiteter/kardiolog/molndal).",
           ],
@@ -668,7 +668,7 @@ export const city: City = {
           heading: "Kan jag använda privat sjukvårdsförsäkring?",
           body: [
             "Den anslutna mottagningen kan ta emot patienter via privat sjukvårdsförsäkring. Kontakta först ditt försäkringsbolag för medicinsk rådgivning och godkännande av ärendet. Försäkringsbolaget avgör vilka besök och undersökningar som omfattas och om en betalningsförbindelse krävs.",
-            "Försäkringsärendet och den medicinska vården hanteras av den mottagning som tar emot dig. Specialistdirekt förmedlar tidsförfrågan och är inte vårdgivare.",
+            "Försäkringsärendet och den medicinska vården hanteras av den mottagning som tar emot dig. Specialistdirekt förmedlar tidsförfrågan.",
           ],
         },
         {
@@ -682,7 +682,7 @@ export const city: City = {
       ],
       leadCta: {
         heading: "Skicka en kostnadsfri tidsförfrågan",
-        body: "Beskriv kort dina besvär eller vilken undersökning du är intresserad av, och vilka tider som passar. Vi återkommer så snart som möjligt med besked om möjlig tid och aktuellt pris. Specialistdirekt är en förmedlingstjänst – inte vårdgivare.",
+        body: "Beskriv kort dina besvär eller vilken undersökning du är intresserad av, och vilka tider som passar. Vi återkommer så snart som möjligt med besked om möjlig tid och aktuellt pris. Specialistdirekt är en förmedlingstjänst.",
         buttonLabel: "Skicka tidsförfrågan",
       },
       faqs: [
@@ -709,7 +709,7 @@ export const city: City = {
         {
           question: "Tar mottagningen emot privat sjukvårdsförsäkring?",
           answer:
-            "Ja, den anslutna mottagningen kan ta emot försäkringspatienter. Kontakta först ditt försäkringsbolag för godkännande av ärendet. Försäkringsärendet hanteras av mottagningen – Specialistdirekt förmedlar tidsförfrågan och är inte vårdgivare.",
+            "Ja, den anslutna mottagningen kan ta emot försäkringspatienter. Kontakta först ditt försäkringsbolag för godkännande av ärendet. Försäkringsärendet hanteras av mottagningen – Specialistdirekt förmedlar tidsförfrågan.",
         },
         {
           question: "Kan kardiologen utreda hjärtklappning, andfåddhet eller yrsel?",
@@ -722,9 +722,9 @@ export const city: City = {
             "Ja. Du får alltid information om aktuellt pris för den konsultation eller undersökning som är aktuell innan bokningen bekräftas.",
         },
         {
-          question: "Är Specialistdirekt en hjärtmottagning?",
+          question: "Vilken roll har Specialistdirekt?",
           answer:
-            "Nej. Specialistdirekt är en förmedlingstjänst, inte en hjärtmottagning eller vårdgivare. Vi förmedlar din tidsförfrågan till ansluten kardiologisk specialistkompetens i Göteborg.",
+            "Specialistdirekt är en förmedlingstjänst. Vi förmedlar din tidsförfrågan till ansluten kardiologisk specialistkompetens i Göteborg – den medicinska bedömningen görs av mottagningen som tar emot dig.",
         },
         {
           question: "Behöver jag remiss till en privat kardiolog i Göteborg?",

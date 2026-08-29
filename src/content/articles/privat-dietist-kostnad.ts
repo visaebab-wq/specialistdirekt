@@ -45,7 +45,7 @@ export const article: Article = {
   ],
   intro: [
     "Kost och näring påverkar många delar av hälsan – vikt, magbesvär, IBS, diabetes, högt kolesterol, högt blodtryck, undervikt, aptitproblem, idrott, graviditet eller behov av en mer strukturerad kostplan. Många söker information på egen hand, men ibland räcker generella råd inte. Då kan en legitimerad dietist hjälpa till med en individuell bedömning och en plan som utgår från din hälsa, dina mål och din vardag.",
-    "Specialistdirekt hjälper dig hitta rätt väg vidare till privat vård och hälsorelaterad rådgivning. Vi är inte en vårdgivare, ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en relevant mottagning eller legitimerad yrkesperson. Läs mer om [hur det fungerar](/sa-fungerar-det).",
+    "Specialistdirekt hjälper dig hitta rätt väg vidare till privat vård och hälsorelaterad rådgivning. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en relevant mottagning eller legitimerad yrkesperson. Läs mer om [hur det fungerar](/sa-fungerar-det).",
   ],
   sections: [
     {
@@ -180,7 +180,7 @@ export const article: Article = {
       id: "sa-hjalper-vi",
       heading: "Så hjälper Specialistdirekt dig",
       body: [
-        "Specialistdirekt hjälper dig hitta rätt väg vidare – vi är inte en vårdgivare. Så fungerar det:",
+        "Specialistdirekt hjälper dig hitta rätt väg vidare. Så fungerar det:",
       ],
       bullets: [
         "Du beskriver vad du vill ha hjälp med (vikt, IBS, diabetes, kolesterol, kostplan).",

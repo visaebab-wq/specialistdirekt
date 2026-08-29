@@ -46,7 +46,7 @@ const faqs = [
   {
     question: "Who is the doctor?",
     answer:
-      "You see Dr. Masoud Sorkhabi, a specialist in orthopedics and spine surgery in Gothenburg with over 20 years of experience in orthopedics and surgery, focusing on neck and back problems, disc herniation, hip and knee pain as well as chronic and unexplained pain. The medical assessment and treatment are provided by the doctor; Specialistdirekt arranges the contact and is not a healthcare provider.",
+      "You see Dr. Masoud Sorkhabi, a specialist in orthopedics and spine surgery in Gothenburg with over 20 years of experience in orthopedics and surgery, focusing on neck and back problems, disc herniation, hip and knee pain as well as chronic and unexplained pain. The medical assessment and treatment are provided by the doctor; Specialistdirekt arranges the contact.",
   },
   {
     question: "Can I see a private orthopedist in Gothenburg without a referral?",
@@ -89,14 +89,14 @@ const faqs = [
       "State your language preference in the request and we will take it into account and check with the clinic. Many doctors in Sweden speak English, but this varies between clinics and individuals, so we cannot guarantee a specific language in advance.",
   },
   {
-    question: "Is Specialistdirekt an orthopedic clinic?",
+    question: "What is Specialistdirekt's role?",
     answer:
-      "No. Specialistdirekt is an intermediary service, not an orthopedic clinic. We connect you with Dr. Masoud Sorkhabi, a specialist in orthopedics and spine surgery in Gothenburg.",
+      "Specialistdirekt is an intermediary service. We connect you with Dr. Masoud Sorkhabi, a specialist in orthopedics and spine surgery in Gothenburg, who makes the medical assessment.",
   },
   {
     question: "Who is responsible for my medical care?",
     answer:
-      "The medical assessment, treatment and medical responsibility lie with Dr. Masoud Sorkhabi, who conducts the appointment. Specialistdirekt is not a healthcare provider and does not give medical advice.",
+      "The medical assessment, treatment and medical responsibility lie with Dr. Masoud Sorkhabi, who conducts the appointment. Specialistdirekt does not give medical advice.",
   },
 ];
 
@@ -111,7 +111,7 @@ const quickFacts = [
   { label: "Referral", value: "Not required" },
   { label: "Public rating", value: "4.9 out of 5 for Dr. Masoud Sorkhabi (checked 4 Aug 2026)" },
   { label: "Request", value: "Free and without obligation" },
-  { label: "Role", value: "Specialistdirekt is an intermediary – not a healthcare provider" },
+  { label: "Role", value: "Specialistdirekt is an intermediary service" },
 ];
 
 export default function EnglishOrthopedistGothenburgPage() {
@@ -186,7 +186,7 @@ export default function EnglishOrthopedistGothenburgPage() {
                 current price before deciding whether to proceed.
               </p>
               <p className="mt-3">
-                <strong>Specialistdirekt is an intermediary service, not a healthcare provider.</strong>{" "}
+                <strong>Specialistdirekt is an intermediary service.</strong>{" "}
                 Medical assessment and treatment are provided by the receiving clinic.
               </p>
 
@@ -339,7 +339,7 @@ export default function EnglishOrthopedistGothenburgPage() {
             areaServed: { "@type": "City", name: "Gothenburg" },
             url: `${site.url}${PATH}`,
             description:
-              "Specialistdirekt forwards your appointment request to connected orthopedic specialist capacity in Gothenburg. Specialistdirekt is an intermediary service, not a healthcare provider.",
+              "Specialistdirekt forwards your appointment request to connected orthopedic specialist capacity in Gothenburg. Specialistdirekt is an intermediary service.",
             offers: {
               "@type": "Offer",
               price: "0",
