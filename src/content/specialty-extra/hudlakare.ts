@@ -32,7 +32,7 @@ export const extra: SpecialtyExtra = {
       body: [
         "Besöket börjar med ett samtal: hur länge du haft besvären, hur de utvecklats, om något lindrar eller förvärrar och vad du provat tidigare. Därefter undersöker läkaren huden, ofta med dermatoskop vid födelsemärken eller oklara förändringar.",
         "Vid behov kan ett vävnadsprov tas direkt i lokalbedövning; svaret kommer då efter en tid från patologen. Besöket avslutas med läkarens bedömning och en plan framåt – det kan handla om behandling, uppföljning eller ytterligare provtagning.",
-        "Specialistdirekt är en kostnadsfri förmedling som matchar dig med en specialist utifrån dina besvär. Hör av dig via [kontakt](/kontakt), eller läs hur det fungerar på [så fungerar det](/sa-fungerar-det).",
+        "Hos Specialistdirekt skickar du en kostnadsfri förfrågan och får besked om hur du kan gå vidare. Hör av dig via [kontakt](/kontakt), eller läs hur det fungerar på [så fungerar det](/sa-fungerar-det).",
       ],
     },
     {

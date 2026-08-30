@@ -124,7 +124,7 @@ export const article: Article = {
       id: "sa-hjalper-vi",
       heading: "Så hjälper Specialistdirekt dig hitta rätt",
       body: [
-        "**Specialistdirekt** är en **kostnadsfri förmedlingstjänst** som matchar dig med rätt specialistläkare i Sverige. Vi hjälper dig att reda ut om du behöver remiss eller kan söka direkt, och guidar dig till en lämplig mottagning utifrån dina besvär.",
+        "**Specialistdirekt** är en **kostnadsfri förmedlingstjänst**. Du skickar en förfrågan och får besked om hur du kan gå vidare. Vi hjälper dig att reda ut om du behöver remiss eller kan söka direkt, och guidar dig till en lämplig mottagning utifrån dina besvär.",
         "Du beskriver din situation, så hjälper vi dig vidare – utan att du behöver tolka regelverket på egen hand. Vill du veta mer om hur det går till kan du läsa [så fungerar det](/sa-fungerar-det), eller [kontakta oss](/kontakt) så tar vi nästa steg tillsammans. Är väntetiden ett bekymmer hittar du även information om dina rättigheter i [väntetid hos specialist och vårdgarantin](/artiklar/vantetid-specialist-vardgaranti).",
       ],
     },
@@ -158,7 +158,7 @@ export const article: Article = {
     {
       question: "Hur kan Specialistdirekt hjälpa mig?",
       answer:
-        "Vi är en kostnadsfri förmedlingstjänst som hjälper dig avgöra om du behöver remiss eller kan söka direkt, och matchar dig med rätt specialist. Beskriv din situation via kontaktsidan så guidar vi dig vidare.",
+        "Vi är en kostnadsfri förmedlingstjänst som hjälper dig avgöra om du behöver remiss eller kan söka direkt. Beskriv din situation via kontaktsidan så guidar vi dig vidare.",
     },
   ],
 };

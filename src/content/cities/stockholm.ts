@@ -19,7 +19,7 @@ export const city: City = {
     allmanmedicin:
       "I Stockholm finns ett stort utbud av privata läkarmottagningar för dig som vill ha en bred medicinsk bedömning utan lång väntan. En allmänläkare kan reda ut oklara symtom och peka ut rätt väg vidare när flera områden är inblandade. Specialistdirekt vägleder dig kostnadsfritt till en mottagning som passar.",
     kardiolog:
-      "Söker du en kardiolog i Stockholm finns hjärt- och kärlspecialister på flera av stadens stora sjukhus såväl som på privata mottagningar. Eftersom utredningar av hjärtbesvär ibland kräver särskild utrustning kan det löna sig att jämföra olika mottagningar. Vi matchar dig med en hjärtspecialist som passar din situation.",
+      "Söker du en kardiolog i Stockholm finns hjärt- och kärlspecialister på flera av stadens stora sjukhus såväl som på privata mottagningar. Eftersom utredningar av hjärtbesvär ibland kräver särskild utrustning kan det löna sig att jämföra olika mottagningar. Skicka en kostnadsfri förfrågan så återkommer vi med besked.",
     ortoped:
       "I Stockholm finns gott om ortopeder som tar emot patienter med besvär i leder, skelett och idrottsskador. Tillgången är god, men efterfrågan är samtidigt hög i en storstad där många är fysiskt aktiva. Genom Specialistdirekt får du hjälp att snabbt komma i kontakt med en ortoped som passar just dina besvär.",
     hudlakare:

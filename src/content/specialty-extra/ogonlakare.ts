@@ -32,7 +32,7 @@ export const extra: SpecialtyExtra = {
       body: [
         "Besöket börjar med ett samtal om dina besvär: hur synen förändrats, om det gäller ett eller båda ögonen, hur snabbt det utvecklats och om du har andra sjukdomar som diabetes. Därefter mäts synskärpan och ofta ögontrycket.",
         "Läkaren undersöker ögat i spaltlampa och vid behov ögonbotten. Får du **pupillvidgande droppar** blir synen suddig och ljuskänslig i några timmar – planera därför så att du inte behöver köra bil hem. Besöket avslutas med läkarens bedömning och en plan framåt.",
-        "Specialistdirekt är en kostnadsfri förmedling som matchar dig med en specialist utifrån dina besvär. Hör av dig via [kontakt](/kontakt), eller läs mer på [så fungerar det](/sa-fungerar-det).",
+        "Hos Specialistdirekt skickar du en kostnadsfri förfrågan och får besked om hur du kan gå vidare. Hör av dig via [kontakt](/kontakt), eller läs mer på [så fungerar det](/sa-fungerar-det).",
       ],
     },
     {

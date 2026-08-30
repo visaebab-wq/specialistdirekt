@@ -32,7 +32,7 @@ export const extra: SpecialtyExtra = {
       body: [
         "Besöket börjar med ett samtal. Läkaren frågar om dina besvär, mens, eventuella graviditeter, preventivmedel och tidigare cellprov. Du berättar bara det du vill – men ju mer läkaren vet, desto bättre blir bedömningen.",
         "En gynekologisk undersökning görs vid behov och efter ditt samtycke. Många upplever den som obehaglig men kortvarig; säg alltid till om det gör ont, så anpassas undersökningen. Vid behov görs ultraljud eller provtagning i samband med besöket. Besöket avslutas med läkarens bedömning och en plan framåt.",
-        "Specialistdirekt är en kostnadsfri förmedling som matchar dig diskret med en specialist. Hör av dig via [kontakt](/kontakt), eller läs hur det fungerar på [så fungerar det](/sa-fungerar-det).",
+        "Hos Specialistdirekt skickar du en kostnadsfri förfrågan och får besked om hur du kan gå vidare. Hör av dig via [kontakt](/kontakt), eller läs hur det fungerar på [så fungerar det](/sa-fungerar-det).",
       ],
     },
     {

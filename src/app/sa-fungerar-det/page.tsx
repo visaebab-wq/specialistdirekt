@@ -9,7 +9,7 @@ import { PageVisual } from "@/components/PageVisual";
 export const metadata: Metadata = {
   title: "Så fungerar Specialistdirekt – steg för steg",
   description:
-    "Så fungerar Specialistdirekt: beskriv ditt behov, vi matchar dig med rätt specialistläkare och du kommer i kontakt – kostnadsfritt och utan förpliktelser.",
+    "Så fungerar Specialistdirekt: se lediga tider direkt i kalendern, eller skicka en kostnadsfri förfrågan om ingen tid passar.",
   alternates: { canonical: "/sa-fungerar-det" },
 };
 

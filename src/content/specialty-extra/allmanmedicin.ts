@@ -33,7 +33,7 @@ export const extra: SpecialtyExtra = {
       body: [
         "Besöket börjar med ett samtal, och det är oftast den längsta delen. Läkaren vill förstå dina besvär: när de började, hur de utvecklats, vad som lindrar eller förvärrar och hur de påverkar din vardag. Ju mer du berättar, desto bättre blir bedömningen.",
         "Därefter följer en kroppsundersökning anpassad efter frågeställningen, och ofta provtagning. Eftersom vissa provsvar tar tid kan bedömningen behöva kompletteras vid ett återbesök. Besöket avslutas med läkarens sammanfattning och en plan framåt – som ibland innebär en **rekommendation att gå vidare till en organspecialist**.",
-        "Specialistdirekt är en kostnadsfri förmedling som matchar dig med rätt mottagning utifrån ditt behov. Hör av dig via [kontakt](/kontakt), eller läs hur det fungerar steg för steg på [så fungerar det](/sa-fungerar-det).",
+        "Hos Specialistdirekt skickar du en kostnadsfri förfrågan och får besked om hur du kan gå vidare. Hör av dig via [kontakt](/kontakt), eller läs hur det fungerar steg för steg på [så fungerar det](/sa-fungerar-det).",
       ],
     },
     {

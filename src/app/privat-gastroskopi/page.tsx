@@ -18,7 +18,7 @@ const visual = {
 export const metadata: Metadata = {
   title: "Privat gastroskopi utan remiss – väntetid och bokning",
   description:
-    "Privat gastroskopi utan remiss: så går undersökningen till, hur du förbereder dig och vad som styr väntetiden. Vi matchar dig kostnadsfritt med en mottagning.",
+    "Privat gastroskopi utan remiss: så går undersökningen till, hur du förbereder dig och vad som styr väntetiden. Skicka en kostnadsfri förfrågan så återkommer vi med besked.",
   alternates: { canonical: "/privat-gastroskopi" },
   openGraph: {
     type: "article",

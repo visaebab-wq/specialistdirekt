@@ -14,7 +14,7 @@ export const city: City = {
     allmanmedicin:
       "I Karlstad finns privata läkarmottagningar för dig som vill ha en samlad medicinsk bedömning. En specialist i allmänmedicin kan hjälpa dig när symtomen är diffusa eller berör flera områden samtidigt. Specialistdirekt vägleder dig kostnadsfritt vidare.",
     kardiolog:
-      "Söker du en kardiolog i Karlstad finns hjärt- och kärlkompetens vid Centralsjukhuset i Karlstad (CSK) och hos privata mottagningar i Värmland. Eftersom hjärtutredningar ibland kräver särskild utrustning kan det vara värt att jämföra alternativ. Vi matchar dig kostnadsfritt med en hjärtspecialist som passar din situation.",
+      "Söker du en kardiolog i Karlstad finns hjärt- och kärlkompetens vid Centralsjukhuset i Karlstad (CSK) och hos privata mottagningar i Värmland. Eftersom hjärtutredningar ibland kräver särskild utrustning kan det vara värt att jämföra alternativ. Skicka en kostnadsfri förfrågan så återkommer vi med besked.",
     ortoped:
       "Har du besvär i leder, skelett eller efter en idrottsskada kan en ortoped i Karlstad hjälpa dig vidare. Ortopedisk vård finns både vid Centralsjukhuset i Karlstad (CSK) och hos privata aktörer i Värmland. Genom Specialistdirekt kommer du i kontakt med en ortoped som passar dina besvär.",
     hudlakare:

@@ -23,7 +23,7 @@ export const city: City = {
     ortoped:
       "Söker du en privat ortoped? Här kan du boka tid hos Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi med över 20 års erfarenhet av ortopedi och kirurgi – för bland annat nack- och ryggbesvär, diskbråck, höft- och knäsmärta samt kronisk och oförklarlig smärta. Besöket är ett fysiskt besök i Göteborg och kostar 2 000 kr, som du betalar på plats. Du bokar tid direkt i kalendern och bekräftar den via en länk i mejlet. Avbokning är kostnadsfri fram till 3 timmar före besöket.",
     hudlakare:
-      "Hudbesvär, från återkommande utslag till födelsemärken du vill få kontrollerade, kan bedömas av en hudläkare på någon av Göteborgs många dermatologiska mottagningar. Här samsas offentlig vård med ett flertal privata aktörer, vilket ger valfrihet. Låt Specialistdirekt matcha dig med en hudläkare i området.",
+      "Hudbesvär, från återkommande utslag till födelsemärken du vill få kontrollerade, kan bedömas av en hudläkare på någon av Göteborgs många dermatologiska mottagningar. Här samsas offentlig vård med ett flertal privata aktörer, vilket ger valfrihet. Skicka en kostnadsfri förfrågan så återkommer vi med besked.",
     gynekolog:
       "I Göteborg är tillgången till gynekologer god, med mottagningar inom såväl den regiondrivna vården som hos privata vårdgivare. Det gör att du som söker en gynekolog ofta har flera mottagningar att välja mellan i närheten. Specialistdirekt förmedlar kontakt kostnadsfritt så att du snabbare kan komma vidare.",
     psykiater:
@@ -487,17 +487,17 @@ export const city: City = {
         {
           question: "Finns det allmänläkare nära mig?",
           answer:
-            "I Göteborgsområdet finns privata läkarmottagningar både centralt och i kranskommunerna, till exempel i [Mölndal](/specialiteter/allmanmedicin/molndal). Vilken som passar dig beror på var du bor och vad besvären gäller. Beskriv var i regionen du befinner dig i din förfrågan, så tar vi hänsyn till det när vi matchar. Det medicinska ansvaret för vården ligger hos mottagningen.",
+            "I Göteborgsområdet finns privata läkarmottagningar både centralt och i kranskommunerna, till exempel i [Mölndal](/specialiteter/allmanmedicin/molndal). Vilken som passar dig beror på var du bor och vad besvären gäller. Beskriv var i regionen du befinner dig i din förfrågan, så tar vi hänsyn till det. Det medicinska ansvaret för vården ligger hos mottagningen.",
         },
         {
           question: "Vilken är den bästa privata allmänläkaren i Göteborg?",
           answer:
-            "Vi rangordnar inte mottagningar och utser ingen \"bästa\" – vad som passar bäst beror på dina besvär och vad du vill ha ut av besöket. Det du däremot kan väga in är: att läkaren är specialist i allmänmedicin, hur lång konsultationen är, om provtagning ingår, om mottagningen kan följa upp dig över tid, och att du får ett samlat pris i förväg. Berätta vad som är viktigast för dig, så föreslår vi en mottagning som matchar.",
+            "Vi rangordnar inte mottagningar och utser ingen \"bästa\" – vad som passar bäst beror på dina besvär och vad du vill ha ut av besöket. Det du däremot kan väga in är: att läkaren är specialist i allmänmedicin, hur lång konsultationen är, om provtagning ingår, om mottagningen kan följa upp dig över tid, och att du får ett samlat pris i förväg. Berätta vad som är viktigast för dig, så tar vi hänsyn till det.",
         },
         {
           question: "Finns det engelsktalande läkare i Göteborg?",
           answer:
-            "Många läkare i Sverige talar engelska, men det varierar mellan mottagningar och enskilda läkare – vi kan inte utlova ett visst språk i förväg. Ange vilket språk du föredrar i din förfrågan, så tar vi med det när vi matchar dig och stämmer av med mottagningen.",
+            "Många läkare i Sverige talar engelska, men det varierar mellan mottagningar och enskilda läkare – vi kan inte utlova ett visst språk i förväg. Ange vilket språk du föredrar i din förfrågan, så stämmer vi av det med mottagningen.",
         },
       ],
     },

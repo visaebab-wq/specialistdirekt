@@ -12,7 +12,7 @@ export const city: City = {
     allmanmedicin:
       "I Mölndal kan du få en bred medicinsk bedömning hos privata läkarmottagningar, med Göteborgs utbud bara några minuter bort. En specialist i allmänmedicin hjälper dig när symtomen är oklara eller berör flera områden. Specialistdirekt vägleder dig kostnadsfritt vidare.",
     kardiolog:
-      "Vid hjärtbesvär finns i Mölndal både regionens vård via Mölndals sjukhus och privata hjärtmottagningar i området. Närheten till Göteborg gör att du ofta kan jämföra flera vårdgivare innan du bokar. Specialistdirekt matchar dig kostnadsfritt med en kardiolog som passar din situation.",
+      "Vid hjärtbesvär finns i Mölndal både regionens vård via Mölndals sjukhus och privata hjärtmottagningar i området. Närheten till Göteborg gör att du ofta kan jämföra flera vårdgivare innan du bokar. Skicka en kostnadsfri förfrågan så återkommer vi med besked.",
     neurolog:
       "Besvär från nervsystemet – migrän, yrsel eller domningar – kan utredas av en neurolog i Mölndal eller i närliggande Göteborg. Regionens neurologiska tyngdpunkt finns vid Sahlgrenska, och vid sidan av den finns privata mottagningar. Specialistdirekt hjälper dig kostnadsfritt vidare.",
     gastroenterolog:

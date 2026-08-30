@@ -39,7 +39,7 @@ export const specialties: Specialty[] = [
     title: "Ortoped",
     short: "Besvär i leder, skelett, muskler, senor och ryggrad.",
     intro:
-      "En ortoped behandlar problem i rörelseapparaten – leder, skelett, muskler och senor. Vi matchar dig med en ortoped för utredning av knä- och höftsmärta, idrottsskador, artros eller ryggbesvär.",
+      "En ortoped behandlar problem i rörelseapparaten – leder, skelett, muskler och senor. Skicka en förfrågan om du vill ha hjälp med utredning av knä- och höftsmärta, idrottsskador, artros eller ryggbesvär.",
     reasons: [
       "Långvarig knä-, höft- eller axelsmärta",
       "Idrottsskador och meniskskador",
@@ -69,7 +69,7 @@ export const specialties: Specialty[] = [
     title: "Gynekolog",
     short: "Kvinnohälsa, menshälsa, klimakteriet och cellprover.",
     intro:
-      "En gynekolog är specialist på kvinnans underliv och reproduktiva hälsa. Vi matchar dig med en gynekolog för rådgivning kring menscykel, klimakteriebesvär, preventivmedel eller gynekologiska undersökningar.",
+      "En gynekolog är specialist på kvinnans underliv och reproduktiva hälsa. Skicka en förfrågan om du vill ha rådgivning kring menscykel, klimakteriebesvär, preventivmedel eller gynekologiska undersökningar.",
     reasons: [
       "Oregelbunden eller smärtsam mens",
       "Klimakteriebesvär",
@@ -99,7 +99,7 @@ export const specialties: Specialty[] = [
     title: "Psykiater",
     short: "Psykisk hälsa – nedstämdhet, ångest, ADHD-utredning och stress.",
     intro:
-      "En psykiater är läkare specialiserad på psykisk hälsa. Vi matchar dig diskret med en psykiater för bedömning av nedstämdhet, ångest, sömnproblem, utmattning eller utredning av ADHD och andra tillstånd.",
+      "En psykiater är läkare specialiserad på psykisk hälsa. Skicka en förfrågan om du vill ha en bedömning av nedstämdhet, ångest, sömnproblem, utmattning eller utredning av ADHD och andra tillstånd.",
     reasons: [
       "Nedstämdhet eller depression",
       "Ångest och oro",
@@ -129,7 +129,7 @@ export const specialties: Specialty[] = [
     title: "ÖNH-specialist",
     short: "Öron, näsa, hals, hörsel, bihålor och kronisk heshet.",
     intro:
-      "En ÖNH-specialist behandlar besvär i öron, näsa och hals. Vi matchar dig med en specialist för utredning av nedsatt hörsel, tinnitus, kroniska bihålebesvär, snarkning eller långvarig heshet.",
+      "En ÖNH-specialist behandlar besvär i öron, näsa och hals. Skicka en förfrågan om du vill ha hjälp med utredning av nedsatt hörsel, tinnitus, kroniska bihålebesvär, snarkning eller långvarig heshet.",
     reasons: [
       "Nedsatt hörsel eller tinnitus",
       "Återkommande bihåleinflammation",
@@ -159,7 +159,7 @@ export const specialties: Specialty[] = [
     title: "Gastroenterolog",
     short: "Mage, tarm och matsmältning – IBS, reflux och magont.",
     intro:
-      "En gastroenterolog utreder sjukdomar i mage, tarm, lever och matsmältningssystem. Vi matchar dig med en specialist för utredning av långvarig magsmärta, IBS, reflux eller förändrade tarmvanor.",
+      "En gastroenterolog utreder sjukdomar i mage, tarm, lever och matsmältningssystem. Skicka en förfrågan om du vill ha hjälp med utredning av långvarig magsmärta, IBS, reflux eller förändrade tarmvanor.",
     reasons: [
       "Återkommande magont eller uppblåsthet",
       "IBS och känslig mage",
@@ -189,7 +189,7 @@ export const specialties: Specialty[] = [
     title: "Reumatolog",
     short: "Inflammatoriska led- och muskelsjukdomar samt reumatism.",
     intro:
-      "En reumatolog behandlar inflammatoriska sjukdomar i leder, muskler och bindväv. Vi matchar dig med en reumatolog för utredning av ledvärk, stelhet, reumatism eller misstänkt autoimmun sjukdom.",
+      "En reumatolog behandlar inflammatoriska sjukdomar i leder, muskler och bindväv. Skicka en förfrågan om du vill ha hjälp med utredning av ledvärk, stelhet, reumatism eller misstänkt autoimmun sjukdom.",
     reasons: [
       "Ledvärk och morgonstelhet",
       "Svullna leder",
@@ -204,7 +204,7 @@ export const specialties: Specialty[] = [
     title: "Allmänläkare",
     short: "Bred medicinsk bedömning när du behöver rätt första väg vidare.",
     intro:
-      "En specialist i allmänmedicin kan göra en bred medicinsk bedömning och hjälpa dig vidare när symtomen är oklara eller berör flera områden. Vi matchar dig med rätt mottagning för en planerad privat bedömning.",
+      "En specialist i allmänmedicin kan göra en bred medicinsk bedömning och hjälpa dig vidare när symtomen är oklara eller berör flera områden. Skicka en förfrågan om du vill ha en planerad privat bedömning.",
     reasons: [
       "Oklara symtom som behöver första bedömning",
       "Trötthet, återkommande besvär eller allmän oro",

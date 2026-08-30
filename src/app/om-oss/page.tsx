@@ -37,7 +37,7 @@ const values = [
   {
     icon: "P",
     title: "Personligt",
-    text: "Bakom varje matchning finns en människa som läser din förfrågan och bryr sig om att det blir rätt.",
+    text: "Bakom varje förfrågan finns en människa som läser den och bryr sig om att det blir rätt.",
   },
 ];
 
@@ -66,8 +66,8 @@ export default function AboutPage() {
             Specialistdirekt grundades {site.foundingYear} för att lösa det problemet.
           </p>
           <p>
-            Vi är en oberoende förmedlingstjänst. Du beskriver ditt behov, och vi använder vårt
-            nätverk för att matcha dig med en passande, legitimerad specialist – kostnadsfritt och
+            Vi är en oberoende förmedlingstjänst. Du beskriver ditt behov och skickar en
+            förfrågan, så återkommer vi med besked om hur du kan gå vidare – kostnadsfritt och
             utan förpliktelser. Du behåller alltid full kontroll och väljer själv om och med vem du
             går vidare.
           </p>

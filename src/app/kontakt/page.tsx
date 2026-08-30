@@ -31,7 +31,7 @@ export default function ContactPage() {
           <Breadcrumbs items={crumbs} />
           <h1 className="internal-hero-title mt-6">Hitta din specialist</h1>
           <p className="internal-hero-text">
-            Fyll i formuläret så matchar vi dig med rätt specialistläkare. Det är kostnadsfritt
+            Fyll i formuläret så återkommer vi med besked. Det är kostnadsfritt
             och utan förpliktelser – vi återkommer normalt inom en arbetsdag.
           </p>
           <PageVisual visual={visual} className="mt-10 max-w-3xl" priority />

@@ -36,12 +36,12 @@ export const article: Article = {
     "Dig som vill förstå skillnaden mellan remiss, egenremiss och direkt bokning.",
     "Dig som vill jämföra offentlig och privat väg innan du bestämmer dig.",
     "Dig som vill veta hur du väljer rätt mottagning och förbereder ditt besök.",
-    "Dig som vill få hjälp att bli matchad med en lämplig specialistläkare.",
+    "Dig som vill ha hjälp att hitta rätt specialistläkare.",
   ],
   intro: [
     "Att **hitta rätt specialistläkare** kan kännas svårt när man väl behöver mer än vad husläkaren eller vårdcentralen kan erbjuda. Vägen till specialiserad vård i Sverige går via flera olika spår – remiss, egenremiss, offentlig och privat vård – och det är inte alltid självklart vilket som passar just din situation bäst.",
     "Den här guiden går igenom allt du behöver veta för att komma vidare: vad en specialistläkare egentligen är, hur du tar dig dit, vad det kan kosta och hur du väljer en mottagning du känner förtroende för. Vi länkar också vidare till mer djupgående artiklar för dig som vill veta mer om ett specifikt ämne.",
-    "Tanken är att du efter att ha läst ska ha en tydlig bild av dina möjligheter och kunna ta nästa steg med trygghet. Specialistdirekt är en kostnadsfri tjänst som hjälper dig att [hitta och bli matchad med rätt specialistläkare](/sa-fungerar-det) – men oavsett om du använder oss eller inte vill vi att du ska kunna fatta ett välgrundat beslut. Notera att den här guiden ger allmän vägledning och inte ersätter en individuell medicinsk bedömning. Vid akuta eller allvarliga besvär ska du alltid kontakta vården direkt eller ringa 112.",
+    "Tanken är att du efter att ha läst ska ha en tydlig bild av dina möjligheter och kunna ta nästa steg med trygghet. Specialistdirekt är en kostnadsfri tjänst som hjälper dig att [hitta rätt specialistläkare](/sa-fungerar-det) – men oavsett om du använder oss eller inte vill vi att du ska kunna fatta ett välgrundat beslut. Notera att den här guiden ger allmän vägledning och inte ersätter en individuell medicinsk bedömning. Vid akuta eller allvarliga besvär ska du alltid kontakta vården direkt eller ringa 112.",
   ],
   sections: [
     {
@@ -125,7 +125,7 @@ export const article: Article = {
       id: "sa-hjalper-specialistdirekt",
       heading: "Så hjälper Specialistdirekt dig vidare",
       body: [
-        "Att navigera mellan remiss, regioner, köer och mottagningar tar tid och energi – tid som du kanske hellre lägger på annat. Specialistdirekt är en **kostnadsfri** förmedlingstjänst som tar bort krånglet. Du beskriver dina besvär och dina önskemål, så matchar vi dig med en lämplig specialistläkare.",
+        "Att navigera mellan remiss, regioner, köer och mottagningar tar tid och energi – tid som du kanske hellre lägger på annat. Specialistdirekt är en **kostnadsfri** förmedlingstjänst som tar bort krånglet. Du beskriver dina besvär och dina önskemål och skickar en förfrågan. Vi återkommer med besked om hur du kan gå vidare.",
         "Det kostar inget att skicka in en förfrågan, och du förbinder dig inte till något. Vi hjälper dig att hitta en mottagning som passar din situation, så att du slipper ringa runt och jämföra på egen hand. Du bestämmer själv om du vill gå vidare med den mottagning vi föreslår.",
         "Att hitta rätt specialistläkare behöver alltså inte vara komplicerat. Med rätt information om remiss, väntetider, kostnader och dina valmöjligheter står du betydligt tryggare när du tar nästa steg. Och behöver du en hjälpande hand på vägen finns vi här.",
         "Vill du komma igång kan du [skicka in en kostnadsfri förfrågan](/kontakt) redan idag. Undrar du över hur processen ser ut steg för steg förklarar vi det under [så fungerar det](/sa-fungerar-det), och fler svar hittar du bland [våra vanliga frågor](/vanliga-fragor).",
@@ -168,7 +168,7 @@ export const article: Article = {
     {
       question: "Är Specialistdirekt gratis att använda?",
       answer:
-        "Ja. Det är kostnadsfritt att skicka in en förfrågan, och du förbinder dig inte till något. Vi matchar dig med en lämplig specialistläkare utifrån dina besvär och önskemål, och du bestämmer själv om du vill gå vidare. [Skicka in din förfrågan här](/kontakt).",
+        "Ja. Det är kostnadsfritt att skicka in en förfrågan, och du förbinder dig inte till något. Du skickar en förfrågan och får besked om hur du kan gå vidare. Du bestämmer själv om du vill gå vidare. [Skicka in din förfrågan här](/kontakt).",
     },
     {
       question: "Kan jag välja privat vård om väntetiden i offentlig vård är lång?",

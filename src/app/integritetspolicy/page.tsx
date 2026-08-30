@@ -65,7 +65,7 @@ export default function PrivacyPage() {
         <section>
           <h2 className="text-xl font-bold text-ink-900">3. Varför vi behandlar uppgifterna</h2>
           <p className="mt-2">
-            Vi behandlar uppgifterna för att kunna matcha dig med en lämplig specialist och
+            Vi behandlar uppgifterna för att kunna hantera din förfrågan och
             återkomma till dig. Den rättsliga grunden är ditt samtycke, som du lämnar när du
             skickar in formuläret. Du kan när som helst återkalla ditt samtycke.
           </p>

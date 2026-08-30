@@ -123,7 +123,7 @@ export const article: Article = {
       id: "specialistdirekt",
       heading: "Så hjälper Specialistdirekt dig vidare",
       body: [
-        "Specialistdirekt är en **kostnadsfri** förmedlingstjänst. Du beskriver kort dina ryggbesvär, så matchar vi dig med en privat specialist – till exempel en ortoped – som passar ditt ärende, utan att du själv behöver ringa runt mellan kliniker. Vi ställer inga diagnoser och ger ingen medicinsk rådgivning; vi hjälper dig att hitta rätt mottagning och få besked om tid och pris.",
+        "Specialistdirekt är en **kostnadsfri** förmedlingstjänst. Du beskriver kort dina ryggbesvär och skickar en förfrågan. Vi återkommer med besked om hur du kan gå vidare. Vi ställer inga diagnoser och ger ingen medicinsk rådgivning; vi hjälper dig att hitta rätt mottagning och få besked om tid och pris.",
         "Vill du veta exakt hur förmedlingen går till steg för steg kan du läsa [så fungerar det](/sa-fungerar-det). Är du redo att komma vidare, fyll i en förfrågan via [kontaktsidan](/kontakt) så återkommer vi med förslag på lämplig specialist.",
         "Kom ihåg att priserna i den här guiden är ungefärliga och kan ha ändrats. Det säkraste är alltid att be den aktuella kliniken om ett bekräftat pris innan du bokar. Och vid varningstecken som beskrivs ovan – sök vård i stället för att vänta.",
       ],
@@ -170,7 +170,7 @@ export const article: Article = {
     {
       question: "Vad kostar det att använda Specialistdirekt?",
       answer:
-        "Att använda Specialistdirekt är **kostnadsfritt**. Vi matchar dig med en lämplig privat specialist utifrån ditt ärende. Du betalar bara klinikens eventuella avgift för själva besöket. Skicka en förfrågan via [kontaktsidan](/kontakt) så hör vi av oss.",
+        "Att använda Specialistdirekt är **kostnadsfritt**. Du skickar en förfrågan och får besked om hur du kan gå vidare. Du betalar bara klinikens eventuella avgift för själva besöket. Skicka en förfrågan via [kontaktsidan](/kontakt) så hör vi av oss.",
     },
   ],
 };

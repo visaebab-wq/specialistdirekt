@@ -32,7 +32,7 @@ export const extra: SpecialtyExtra = {
       body: [
         "Besöket börjar med ett samtal: vilka leder som är drabbade, hur länge besvären funnits, om du har morgonstelhet och hur länge den varar, samt om du har hudbesvär, ögoninflammation, feber eller trötthet. Läkaren frågar också om ärftlighet, t.ex. psoriasis eller reumatisk sjukdom i familjen.",
         "Därefter görs ett ledstatus där läkaren undersöker lederna en och en. Blodprover är nästan alltid centrala, och ibland görs ultraljud i samband med besöket. Eftersom vissa svar tar tid kan bedömningen behöva kompletteras vid ett återbesök – reumatologiska diagnoser ställs sällan på ett enda prov.",
-        "Specialistdirekt är en kostnadsfri förmedling som matchar dig med en specialist utifrån dina besvär. Hör av dig via [kontakt](/kontakt), eller läs hur det fungerar på [så fungerar det](/sa-fungerar-det).",
+        "Hos Specialistdirekt skickar du en kostnadsfri förfrågan och får besked om hur du kan gå vidare. Hör av dig via [kontakt](/kontakt), eller läs hur det fungerar på [så fungerar det](/sa-fungerar-det).",
       ],
     },
     {

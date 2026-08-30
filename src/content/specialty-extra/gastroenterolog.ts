@@ -32,7 +32,7 @@ export const extra: SpecialtyExtra = {
       body: [
         "Besöket börjar med ett samtal där läkaren vill förstå dina besvär: när de började, hur de ser ut över tid, kopplingen till mat och avföringsvanor, och om du har varningssymtom som viktnedgång eller blod i avföringen. Därefter följer en kroppsundersökning där läkaren bland annat känner på magen.",
         "Ibland tas prover direkt i samband med besöket. Behövs en gastroskopi eller koloskopi bokas den oftast till ett separat tillfälle, eftersom den kräver förberedelser. Besöket avslutas med att läkaren går igenom sin bedömning och en plan framåt.",
-        "Specialistdirekt är en kostnadsfri förmedling som matchar dig med en specialist utifrån dina besvär. Hör av dig via [kontakt](/kontakt), eller läs hur upplägget fungerar steg för steg på [så fungerar det](/sa-fungerar-det).",
+        "Hos Specialistdirekt skickar du en kostnadsfri förfrågan och får besked om hur du kan gå vidare. Hör av dig via [kontakt](/kontakt), eller läs hur upplägget fungerar steg för steg på [så fungerar det](/sa-fungerar-det).",
       ],
     },
     {

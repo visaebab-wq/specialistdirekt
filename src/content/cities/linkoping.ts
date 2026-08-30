@@ -14,7 +14,7 @@ export const city: City = {
     allmanmedicin:
       "I Linköping finns privata läkarmottagningar för dig som vill ha en samlad medicinsk bedömning. En specialist i allmänmedicin kan hjälpa dig när symtomen är diffusa eller berör flera områden. Specialistdirekt vägleder dig kostnadsfritt vidare.",
     kardiolog:
-      "Letar du efter en kardiolog i Linköping finns hjärt- och kärlkompetens både på Universitetssjukhuset i Linköping (US) och hos privata mottagningar i regionen. Eftersom utredning av hjärtbesvär ibland kräver särskild utrustning kan det vara värt att jämföra olika alternativ. Vi matchar dig kostnadsfritt med en hjärtspecialist som passar din situation.",
+      "Letar du efter en kardiolog i Linköping finns hjärt- och kärlkompetens både på Universitetssjukhuset i Linköping (US) och hos privata mottagningar i regionen. Eftersom utredning av hjärtbesvär ibland kräver särskild utrustning kan det vara värt att jämföra olika alternativ. Skicka en kostnadsfri förfrågan så återkommer vi med besked.",
     ortoped:
       "Har du besvär i leder, skelett eller efter en idrottsskada kan en ortoped i Linköping hjälpa dig vidare. Här finns ortopedisk vård kopplad till Universitetssjukhuset i Linköping (US) liksom privata aktörer i Östergötland. Genom Specialistdirekt kommer du snabbt i kontakt med en ortoped som passar just dina besvär.",
     hudlakare:

@@ -270,7 +270,7 @@ export default async function ArticlePage({
           {specialty && (
             <div className="soft-info-card mt-8 flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:justify-between">
               <p className="text-ink-700">
-                Söker du en {specialty.title.toLowerCase()}? Vi matchar dig kostnadsfritt – läs
+                Söker du en {specialty.title.toLowerCase()}? Skicka en kostnadsfri förfrågan – läs
                 mer om{" "}
                 <Link
                   href={`/specialiteter/${specialty.slug}`}
@@ -301,7 +301,7 @@ export default async function ArticlePage({
           </h2>
           <p className="mx-auto mt-2 max-w-md text-brand-50">
             {article.cta?.body ??
-              "Skicka en kostnadsfri förfrågan så matchar vi dig med rätt specialist."}
+              "Skicka en kostnadsfri förfrågan så återkommer vi med besked."}
           </p>
           <Link
             href={article.cta?.href ?? (specialty ? `/specialiteter/${specialty.slug}` : "/kontakt")}

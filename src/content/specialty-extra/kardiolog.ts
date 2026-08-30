@@ -32,7 +32,7 @@ export const extra: SpecialtyExtra = {
       body: [
         "Ett första besök hos en kardiolog börjar nästan alltid med ett samtal. Läkaren vill förstå dina symtom: när de uppstår, hur ofta, vad som utlöser dem och hur de påverkar din vardag. Därefter följer ofta en kroppsundersökning där läkaren bland annat lyssnar på hjärta och lungor och mäter blodtryck och puls.",
         "Beroende på vad som framkommer kan ett eller flera prover göras direkt i samband med besöket, till exempel ett vilo-EKG. Ibland bokas kompletterande undersökningar – som arbets-EKG, Holter eller hjärtultraljud – till ett senare tillfälle. Besöket avslutas med att läkaren går igenom sin bedömning och en plan framåt.",
-        "Specialistdirekt är en kostnadsfri förmedling som matchar dig med en specialistläkare utifrån dina besvär. Vill du komma igång kan du höra av dig via [/kontakt](/kontakt), och du kan läsa hur upplägget fungerar steg för steg på [/sa-fungerar-det](/sa-fungerar-det).",
+        "Hos Specialistdirekt skickar du en kostnadsfri förfrågan och får besked om hur du kan gå vidare. Vill du komma igång kan du höra av dig via [/kontakt](/kontakt), och du kan läsa hur upplägget fungerar steg för steg på [/sa-fungerar-det](/sa-fungerar-det).",
       ],
     },
     {
@@ -65,7 +65,7 @@ export const extra: SpecialtyExtra = {
     {
       question: "Hur lång är väntetiden?",
       answer:
-        "Väntetiden är ungefärlig och varierar med var i landet du bor, vilken mottagning det gäller och hur brådskande dina besvär bedöms vara. Privata mottagningar har ofta kortare väntetider än regionvården, men det är inte en garanti. Specialistdirekt strävar efter att matcha dig så snabbt som möjligt.",
+        "Väntetiden är ungefärlig och varierar med var i landet du bor, vilken mottagning det gäller och hur brådskande dina besvär bedöms vara. Privata mottagningar har ofta kortare väntetider än regionvården, men det är inte en garanti. Vi återkommer med besked så snart vi kan.",
     },
     {
       question: "Behöver jag fasta innan ett besök hos en kardiolog?",

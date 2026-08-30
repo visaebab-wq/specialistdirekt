@@ -15,7 +15,7 @@ export const site = {
   country: "SE",
   tagline: "Hitta rätt specialistläkare – snabbt och tryggt",
   description:
-    "Specialistdirekt hjälper dig hitta rätt specialistläkare i Sverige. Beskriv ditt behov så matchar vi dig kostnadsfritt med en passande specialist.",
+    "Specialistdirekt hjälper dig hitta rätt specialistläkare i Sverige. Beskriv ditt behov och skicka en kostnadsfri förfrågan, så återkommer vi med besked.",
   // Kontakt. Vi publicerar tills vidare ENDAST en verifierad e-postadress på egen
   // domän. Telefonnummer och fysisk adress publiceras medvetet inte – varken som
   // synlig text, tel:-länk eller i strukturerad data. Lägg INTE tillbaka phone/

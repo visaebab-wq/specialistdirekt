@@ -127,11 +127,11 @@ export const article: Article = {
       ],
     },
     {
-      id: "sa-matchar-specialistdirekt",
+      id: "sa-hjalper-specialistdirekt",
       heading: "Så hjälper Specialistdirekt dig vidare",
       body: [
-        "Att hitta rätt ortoped, jämföra kliniker och få besked om pris och väntetid kan ta tid om du gör allt själv. Specialistdirekt är byggt för att korta den vägen: du beskriver dina besvär, och vi matchar dig med en ortoped som passar för just din situation.",
-        "Du fyller i ett kort formulär om vad du behöver hjälp med. Sedan kopplar vi ihop dig med en lämplig specialist, så att du snabbare kan få en tid – ofta utan att själv behöva ringa runt. Söker du lokalt har vi bland annat sidor om [privat ortoped i Göteborg](/specialiteter/ortoped/goteborg) och [ortoped i Örebro](/specialiteter/ortoped/orebro). Läs mer om [hur det fungerar](/sa-fungerar-det) eller hör av dig via vår [kontaktsida](/kontakt) om du har frågor.",
+        "Att hitta rätt ortoped, jämföra kliniker och få besked om pris och väntetid kan ta tid om du gör allt själv. Specialistdirekt är byggt för att korta den vägen: du beskriver dina besvär och skickar en förfrågan, så återkommer vi med besked.",
+        "Du fyller i ett kort formulär om vad du behöver hjälp med. Sedan återkommer vi med besked om hur du kan gå vidare. Söker du lokalt har vi bland annat sidor om [privat ortoped i Göteborg](/specialiteter/ortoped/goteborg) och [ortoped i Örebro](/specialiteter/ortoped/orebro). Läs mer om [hur det fungerar](/sa-fungerar-det) eller hör av dig via vår [kontaktsida](/kontakt) om du har frågor.",
         "Tanken är enkel: du ska kunna lägga din energi på att bli bättre, inte på att leta efter rätt klinik.",
       ],
     },

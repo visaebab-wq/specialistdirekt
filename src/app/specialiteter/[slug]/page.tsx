@@ -143,9 +143,8 @@ export default async function SpecialtyPage({
             <div className="soft-info-card mt-8 p-6">
               <h2 className="text-xl font-bold text-ink-900">Så hjälper Specialistdirekt dig</h2>
               <p className="mt-2 text-ink-600">
-                Du behöver inte själv leta efter rätt mottagning. Beskriv ditt behov i formuläret,
-                så matchar vi dig kostnadsfritt med en {specialty.title.toLowerCase()} som passar
-                – normalt återkommer vi inom en arbetsdag.
+                Beskriv ditt behov i formuläret och skicka en kostnadsfri förfrågan
+                – normalt återkommer vi inom en arbetsdag med besked om hur du kan gå vidare.
               </p>
             </div>
 

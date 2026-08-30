@@ -8,8 +8,8 @@ export const steps = [
   },
   {
     icon: "02",
-    title: "Vi matchar dig",
-    text: "Vi går igenom din förfrågan och hittar en eller flera specialister som passar just ditt behov.",
+    title: "Vi går igenom förfrågan",
+    text: "Vi läser din förfrågan och återkommer med besked om hur du kan gå vidare.",
   },
   {
     icon: "03",

@@ -53,7 +53,7 @@ export async function generateMetadata({
   const visual = getCitySpecialtyVisual(specialty, city.slug, city.name);
   const description =
     local?.metaDescription ??
-    `Privat ${specialty.title.toLowerCase()} i ${city.name}. Vi matchar dig kostnadsfritt med rätt specialist inom ${specialty.name.toLowerCase()} i ${city.region}.`;
+    `Privat ${specialty.title.toLowerCase()} i ${city.name}. Skicka en kostnadsfri förfrågan så återkommer vi med besked.`;
 
   // hreflang endast där en språkversion faktiskt finns. Varje sida canonical
   // mot sig själv – den engelska sidan får aldrig canonical mot den svenska.
@@ -337,7 +337,7 @@ export default async function CitySpecialtyPage({
                     Så hittar du en {specialty.title.toLowerCase()} i {city.name}
                   </h2>
                   <p className="mt-2 text-ink-600">
-                    Beskriv ditt behov i formuläret, så matchar vi dig kostnadsfritt med en{" "}
+                    Beskriv ditt behov i formuläret och skicka en kostnadsfri förfrågan, så återkommer vi med besked om{" "}
                     {specialty.title.toLowerCase()} i {city.name} eller {city.region}. Läs mer på vår
                     översikt om{" "}
                     <Link

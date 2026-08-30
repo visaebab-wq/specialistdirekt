@@ -14,7 +14,7 @@ export const city: City = {
     allmanmedicin:
       "I Örebro kan du få en bred medicinsk bedömning hos privata läkarmottagningar, som komplement till regionens vård. En allmänläkare ser helheten och hjälper dig hitta rätt väg vidare. Specialistdirekt förmedlar kontakt kostnadsfritt.",
     kardiolog:
-      "Vid hjärt- och kärlbesvär kan du i Örebro vända dig till specialistkompetens kopplad till Universitetssjukhuset Örebro samt till privata mottagningar i staden. Utredning av hjärtat kräver ibland särskild utrustning, vilket gör det värt att jämföra alternativen. Vi matchar dig med en kardiolog som passar din situation.",
+      "Vid hjärt- och kärlbesvär kan du i Örebro vända dig till specialistkompetens kopplad till Universitetssjukhuset Örebro samt till privata mottagningar i staden. Utredning av hjärtat kräver ibland särskild utrustning, vilket gör det värt att jämföra alternativen. Skicka en kostnadsfri förfrågan så återkommer vi med besked.",
     ortoped:
       "Har du besvär i leder, skelett eller en idrottsskada finns ortopedisk kompetens i Örebro, både inom regionens vård och hos privata aktörer. Som ett vårdnav i Mellansverige tar staden emot patienter från ett större upptagningsområde. Genom Specialistdirekt kommer du snabbt i kontakt med en ortoped som passar just dina besvär.",
     hudlakare:
@@ -47,7 +47,7 @@ export const city: City = {
           body: [
             "En vanlig anledning att söka psykiatrisk hjälp i Örebro är frågan om en **neuropsykiatrisk utredning** – alltså en utredning av ADHD, ADD, autism eller annan neuropsykiatrisk funktionsnedsättning (NPF). En sådan **ADHD-utredning** är inte ett enskilt test utan en samlad bedömning över flera besök: anamnes, frågeformulär, en strukturerad intervju och ibland psykologiska tester. Det är en legitimerad psykiater eller psykolog inom ett team som ansvarar för bedömningen.",
             "Behöver du remiss? I offentlig vård går vägen oftast via vårdcentralen, medan en **privat ADHD- eller NPF-utredning** i många fall kan påbörjas mer direkt. Priset för en privat utredning **varierar mycket** beroende på hur omfattande den är och vad som ingår – vi anger inga fasta belopp här eftersom de skiljer sig åt mellan mottagningar. Be alltid den aktuella mottagningen om en samlad offert i förväg.",
-            "En djupare genomgång av hur en utredning går till, vad som påverkar priset och vad som händer efter en diagnos finns i vår artikel [ADHD-utredning som vuxen](/artiklar/adhd-utredning-vuxen). Söker du hjälp i Örebro matchar vi dig kostnadsfritt med en privat psykiater eller mottagning som arbetar med neuropsykiatriska utredningar.",
+            "En djupare genomgång av hur en utredning går till, vad som påverkar priset och vad som händer efter en diagnos finns i vår artikel [ADHD-utredning som vuxen](/artiklar/adhd-utredning-vuxen). Söker du hjälp i Örebro skickar du en kostnadsfri förfrågan så återkommer vi med besked.",
           ],
           bullets: [
             "**Neuropsykiatrisk utredning** – samlad bedömning av ADHD, ADD, autism eller annan NPF.",
@@ -79,7 +79,7 @@ export const city: City = {
         {
           question: "Kan jag göra en NPF- eller autismutredning privat i Örebro?",
           answer:
-            "Ja, det finns privatpraktiserande psykiatrer och mottagningar som arbetar med neuropsykiatriska utredningar. Omfattning, väntetid och pris skiljer sig åt mellan mottagningar, så be om besked i förväg. Vi matchar dig kostnadsfritt med en relevant mottagning utifrån ditt behov.",
+            "Ja, det finns privatpraktiserande psykiatrer och mottagningar som arbetar med neuropsykiatriska utredningar. Omfattning, väntetid och pris skiljer sig åt mellan mottagningar, så be om besked i förväg. Skicka en kostnadsfri förfrågan så återkommer vi med besked.",
         },
       ],
     },

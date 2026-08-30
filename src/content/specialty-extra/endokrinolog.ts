@@ -32,7 +32,7 @@ export const extra: SpecialtyExtra = {
       body: [
         "Besöket börjar med ett samtal om dina symtom: trötthet, vikt, temperatur, svettningar, hjärtklappning, humör, sömn och mens – sådant som ofta hänger ihop med hormoner. Läkaren går också igenom din sjukdomshistoria, ärftlighet och dina läkemedel.",
         "Därefter följer en kroppsundersökning, ofta med känsel på halsen för att bedöma sköldkörteln. Blodprover är nästan alltid centrala, och ibland behöver de tas vid en viss tid på dygnet eller följas upp. Besöket avslutas med läkarens bedömning och en plan – ibland i väntan på provsvar.",
-        "Specialistdirekt är en kostnadsfri förmedling som matchar dig med en specialist utifrån dina besvär. Hör av dig via [kontakt](/kontakt), eller läs hur det fungerar på [så fungerar det](/sa-fungerar-det).",
+        "Hos Specialistdirekt skickar du en kostnadsfri förfrågan och får besked om hur du kan gå vidare. Hör av dig via [kontakt](/kontakt), eller läs hur det fungerar på [så fungerar det](/sa-fungerar-det).",
       ],
     },
     {

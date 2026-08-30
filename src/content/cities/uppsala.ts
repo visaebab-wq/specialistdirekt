@@ -23,11 +23,11 @@ export const city: City = {
     ortoped:
       "Behöver du träffa en ortoped i Uppsala kan vi förmedla kontakt med specialister på leder, skelett och idrottsskador. " +
       "Staden har både offentlig ortopedi vid Akademiska sjukhuset och privata mottagningar att välja mellan. " +
-      "Vår tjänst matchar dig med rätt vårdgivare helt utan kostnad.",
+      "Du skickar en kostnadsfri förfrågan och får besked om hur du kan gå vidare.",
     hudlakare:
       "Vill du komma till en hudläkare i Uppsala hjälper vi dig att hitta en dermatolog som tar emot för dina besvär. " +
       "Här finns specialister inom allt från hudförändringar och eksem till estetiska bedömningar. " +
-      "Vi sköter matchningen så att du slipper leta på egen hand.",
+      "Du skickar en förfrågan och får besked om hur du kan gå vidare.",
     gynekolog:
       "Letar du efter en gynekolog i Uppsala finns ett brett utbud av specialister inom kvinnosjukvård i staden. " +
       "Vi förmedlar kontakt med mottagningar som passar just det du behöver hjälp med. " +
@@ -39,6 +39,6 @@ export const city: City = {
     neurolog:
       "Behöver du träffa en neurolog i Uppsala förmedlar vi kontakt med specialister på nervsystemet och dess sjukdomar. " +
       "Akademiska sjukhuset har omfattande neurologisk kompetens och kompletteras av privata alternativ i regionen. " +
-      "Vår tjänst matchar dig med rätt specialist helt kostnadsfritt.",
+      "Du skickar en kostnadsfri förfrågan och får besked om hur du kan gå vidare.",
   },
 };

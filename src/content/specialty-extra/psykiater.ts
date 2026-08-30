@@ -33,7 +33,7 @@ export const extra: SpecialtyExtra = {
       body: [
         "Ett första besök hos en psykiater är framför allt ett samtal. Läkaren vill förstå dina besvär: när de började, hur de påverkar vardagen, sömn, arbete och relationer, samt din tidigare historia och eventuella läkemedel. Ibland används strukturerade frågeformulär som stöd.",
         "Psykiatern gör sedan en medicinsk bedömning och går igenom möjliga vägar framåt – det kan handla om fortsatt utredning, samtalsbehandling, läkemedel eller en kombination. Vid frågeställning om ADHD eller annan NPF krävs en mer omfattande utredning över flera besök, ofta tillsammans med psykolog.",
-        "Specialistdirekt är en kostnadsfri förmedling som matchar dig diskret med en specialist utifrån ditt behov. Hör av dig via [kontakt](/kontakt), eller läs hur det går till på [så fungerar det](/sa-fungerar-det).",
+        "Hos Specialistdirekt skickar du en kostnadsfri förfrågan och får besked om hur du kan gå vidare. Hör av dig via [kontakt](/kontakt), eller läs hur det går till på [så fungerar det](/sa-fungerar-det).",
       ],
     },
     {

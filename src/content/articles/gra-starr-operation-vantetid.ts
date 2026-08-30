@@ -134,7 +134,7 @@ export const article: Article = {
       id: "specialistdirekt",
       heading: "Så hjälper Specialistdirekt dig vidare",
       body: [
-        "Specialistdirekt är en **kostnadsfri** förmedlingstjänst. Du beskriver kort dina besvär, så matchar vi dig med en **ögonläkare** eller ögonklinik som passar ditt ärende – utan att du själv behöver ringa runt mellan mottagningar. Vi ställer inga diagnoser och ger ingen medicinsk rådgivning; vi hjälper dig att hitta rätt mottagning och få besked om tid och pris.",
+        "Specialistdirekt är en **kostnadsfri** förmedlingstjänst. Du beskriver kort dina besvär och skickar en förfrågan. Vi återkommer med besked om hur du kan gå vidare. Vi ställer inga diagnoser och ger ingen medicinsk rådgivning; vi hjälper dig att hitta rätt mottagning och få besked om tid och pris.",
         "Vill du se hur förmedlingen går till steg för steg kan du läsa [så fungerar det](/sa-fungerar-det). Är du redo att komma vidare fyller du i en förfrågan via [kontaktsidan](/kontakt), så återkommer vi med förslag på en lämplig ögonläkare.",
         "Kom ihåg att väntetider och priser i den här guiden är ungefärliga och kan ha ändrats. Det säkraste är alltid att be den aktuella kliniken om ett bekräftat besked innan du bokar.",
       ],
@@ -181,12 +181,12 @@ export const article: Article = {
     {
       question: "Behöver jag remiss för att boka en privat ögonläkare?",
       answer:
-        "Hos många privata ögonmottagningar kan du boka en bedömning direkt, medan den offentliga vägen ofta börjar via optiker eller vårdcentral. Vill du komma vidare snabbt kan du fylla i en förfrågan via [kontaktsidan](/kontakt), så matchar vi dig med en lämplig ögonläkare.",
+        "Hos många privata ögonmottagningar kan du boka en bedömning direkt, medan den offentliga vägen ofta börjar via optiker eller vårdcentral. Vill du komma vidare kan du fylla i en förfrågan via [kontaktsidan](/kontakt), så återkommer vi med besked.",
     },
     {
       question: "Vad kostar det att använda Specialistdirekt?",
       answer:
-        "Att använda Specialistdirekt är **kostnadsfritt**. Vi matchar dig med en lämplig ögonläkare utifrån ditt ärende. Du betalar bara klinikens eventuella avgift för bedömning eller operation. Skicka en förfrågan via [kontaktsidan](/kontakt) så hör vi av oss.",
+        "Att använda Specialistdirekt är **kostnadsfritt**. Du skickar en förfrågan och får besked om hur du kan gå vidare. Du betalar bara klinikens eventuella avgift för bedömning eller operation. Skicka en förfrågan via [kontaktsidan](/kontakt) så hör vi av oss.",
     },
   ],
 };

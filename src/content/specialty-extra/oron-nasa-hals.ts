@@ -32,7 +32,7 @@ export const extra: SpecialtyExtra = {
       body: [
         "Besöket börjar med ett samtal om dina besvär: hur länge de funnits, om de kommer i perioder, om de sitter på ena eller båda sidorna och vad som utlöser dem. Därefter undersöker läkaren öron, näsa och svalg.",
         "Vid behov görs hörselprov eller en fiberskopi i samband med besöket – den senare tar bara någon minut och görs efter bedövning i näsan. Besöket avslutas med läkarens bedömning och en plan framåt, som kan innefatta behandling, uppföljning eller kompletterande utredning.",
-        "Specialistdirekt är en kostnadsfri förmedling som matchar dig med en specialist utifrån dina besvär. Hör av dig via [kontakt](/kontakt), eller läs hur det fungerar på [så fungerar det](/sa-fungerar-det).",
+        "Hos Specialistdirekt skickar du en kostnadsfri förfrågan och får besked om hur du kan gå vidare. Hör av dig via [kontakt](/kontakt), eller läs hur det fungerar på [så fungerar det](/sa-fungerar-det).",
       ],
     },
     {

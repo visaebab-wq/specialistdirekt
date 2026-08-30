@@ -32,7 +32,7 @@ export const extra: SpecialtyExtra = {
       body: [
         "Besöket börjar med ett samtal om dina besvär: hur de ser ut, hur länge du haft dem och hur de påverkar vardagen. Urologen frågar ofta om vattenkastning, nattliga toalettbesök och eventuellt blod i urinen. Därefter följer en undersökning som anpassas efter frågeställningen.",
         "Ofta lämnas ett urinprov och ibland tas blodprov. Vid behov görs ultraljud eller flödesmätning i samband med besöket, medan exempelvis cystoskopi kan bokas separat. Besöket avslutas med läkarens bedömning och en plan framåt.",
-        "Specialistdirekt är en kostnadsfri förmedling som matchar dig diskret med en specialist. Hör av dig via [kontakt](/kontakt), eller läs hur det fungerar på [så fungerar det](/sa-fungerar-det).",
+        "Hos Specialistdirekt skickar du en kostnadsfri förfrågan och får besked om hur du kan gå vidare. Hör av dig via [kontakt](/kontakt), eller läs hur det fungerar på [så fungerar det](/sa-fungerar-det).",
       ],
     },
     {

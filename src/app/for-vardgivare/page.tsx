@@ -27,7 +27,7 @@ const benefits = [
   {
     icon: "01",
     title: "Relevanta patienter",
-    text: "Vi matchar dig med patienter som aktivt söker din specialitet i ditt område.",
+    text: "Vi vidarebefordrar förfrågningar från patienter som aktivt söker din specialitet i ditt område.",
   },
   {
     icon: "02",
@@ -49,7 +49,7 @@ const benefits = [
 const steps = [
   { n: 1, t: "Hör av dig", d: "Berätta om din mottagning och vilka specialiteter du erbjuder." },
   { n: 2, t: "Vi lär känna er", d: "Vi går igenom upptagningsområde, väntetider och vad ni tar emot." },
-  { n: 3, t: "Få förfrågningar", d: "Vi skickar matchande patientförfrågningar till er." },
+  { n: 3, t: "Få förfrågningar", d: "Vi skickar relevanta patientförfrågningar till er." },
 ];
 
 export default function ForProvidersPage() {
