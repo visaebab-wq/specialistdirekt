@@ -125,7 +125,7 @@ export const article: Article = {
       id: "specialistdirekt",
       heading: "Så hjälper Specialistdirekt dig vidare",
       body: [
-        "Vet du inte vilken specialist du behöver? Beskriv dina besvär, så hjälper Specialistdirekt dig att hitta rätt privat mottagning eller specialist att kontakta. Specialistdirekt är en förmedlingstjänst och ger inte medicinsk rådgivning.",
+        "Vet du inte vilken specialist du behöver? Beskriv dina besvär, så hjälper Specialistdirekt dig att hitta rätt privat mottagning eller specialist att kontakta. Specialistdirekt är en boknings- och informationstjänst och ger inte medicinsk rådgivning.",
         "Bor du i Göteborgsområdet och söker vård för långvarig smärta finns [privat smärtmottagning i Göteborg](/specialiteter/smartlakare/goteborg). Vill du läsa om pris, remiss och väntetid finns [privat smärtläkare: kostnad](/artiklar/privat-smartlakare-kostnad).",
       ],
     },
@@ -183,7 +183,7 @@ export const article: Article = {
     {
       question: "Kan Specialistdirekt hjälpa mig om jag inte vet vilken specialist jag behöver?",
       answer:
-        "Ja. Beskriv dina besvär, så hjälper Specialistdirekt dig att hitta rätt privat mottagning eller specialist att kontakta. Specialistdirekt är en förmedlingstjänst och ställer inga diagnoser.",
+        "Ja. Beskriv dina besvär, så hjälper Specialistdirekt dig att hitta rätt privat mottagning eller specialist att kontakta. Specialistdirekt är en boknings- och informationstjänst och ställer inga diagnoser.",
     },
     {
       question: "När ska jag söka akut vård i stället?",

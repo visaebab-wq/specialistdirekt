@@ -124,8 +124,8 @@ export const article: Article = {
       id: "specialistdirekt",
       heading: "Så hjälper Specialistdirekt dig vidare",
       body: [
-        "Specialistdirekt är en **kostnadsfri** förmedlingstjänst. Du beskriver kort dina besvär och skickar en förfrågan. Vi återkommer med besked om hur du kan gå vidare. Vi ställer inga diagnoser och ger ingen medicinsk rådgivning; vi hjälper dig att hitta rätt mottagning och få besked om tid och pris.",
-        "Vill du veta hur förmedlingen går till steg för steg kan du läsa [så fungerar det](/sa-fungerar-det). Är du redo att komma vidare, fyll i en förfrågan via [kontaktsidan](/kontakt) så återkommer vi med förslag på lämplig specialist.",
+        "Specialistdirekt är en **kostnadsfri** boknings- och informationstjänst. Du beskriver kort dina besvär och skickar en förfrågan. Vi återkommer med besked om hur du kan gå vidare. Vi ställer inga diagnoser och ger ingen medicinsk rådgivning; via Specialistdirekt kan du skicka en förfrågan om en privat mottagning och få besked om tid och pris.",
+        "Vill du veta hur tjänsten fungerar steg för steg kan du läsa [så fungerar det](/sa-fungerar-det). Är du redo att komma vidare, fyll i en förfrågan via [kontaktsidan](/kontakt) så återkommer vi med förslag på lämplig specialist.",
         "Priserna i guiden är ungefärliga och kan ha ändrats – be alltid kliniken om ett bekräftat pris innan du bokar. Och vid plötslig yrsel med talsvårigheter eller svaghet: vänta inte på en tid, ring 112.",
       ],
     },

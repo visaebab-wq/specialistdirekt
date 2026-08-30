@@ -190,7 +190,7 @@ export default function PrivatGastroskopiPage() {
             </h2>
             <Prose
               paragraphs={[
-                "Specialistdirekt är en kostnadsfri förmedlingstjänst. Du beskriver ditt behov, så hjälper vi dig att hitta en privat mottagning för gastroskopi. Tillgång och pris beror på mottagningen, och vi ger ingen medicinsk rådgivning. Vill du läsa mer om specialisten bakom undersökningen? Se [privat gastroenterolog](/privat-gastroenterolog). Ska även tjocktarmen undersökas kan en [koloskopi](/privat-koloskopi) vara aktuell.",
+                "Specialistdirekt är en kostnadsfri boknings- och informationstjänst. Du beskriver ditt behov, så hjälper vi dig att hitta en privat mottagning för gastroskopi. Tillgång och pris beror på mottagningen, och vi ger ingen medicinsk rådgivning. Vill du läsa mer om specialisten bakom undersökningen? Se [privat gastroenterolog](/privat-gastroenterolog). Ska även tjocktarmen undersökas kan en [koloskopi](/privat-koloskopi) vara aktuell.",
               ]}
             />
             <div className="mt-6">

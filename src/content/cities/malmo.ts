@@ -15,19 +15,19 @@ export const city: City = {
     gastroenterolog:
       "Söker du en gastroenterolog i Malmö finns mag- och tarmvård både i regionens vård och hos privata mottagningar i Skåne. Specialistdirekt hjälper dig kostnadsfritt att hitta en magspecialist som passar dina besvär.",
     allmanmedicin:
-      "I Malmö kan du vända dig till privata läkarmottagningar för en bred medicinsk bedömning när besvären är svårplacerade. En specialist i allmänmedicin ser helheten och hjälper dig vidare till rätt specialist vid behov. Specialistdirekt förmedlar kontakt kostnadsfritt.",
+      "I Malmö kan du vända dig till privata läkarmottagningar för en bred medicinsk bedömning när besvären är svårplacerade. En specialist i allmänmedicin ser helheten och hjälper dig vidare till rätt specialist vid behov. Specialistdirekt tar emot förfrågningar kostnadsfritt.",
     kardiolog:
-      "Söker du en kardiolog i Malmö finns både hjärtsjukvård vid Skånes universitetssjukhus och flera privata hjärtmottagningar i staden. Vi hjälper dig att hitta en specialist för utredning av till exempel hjärtklappning, högt blodtryck eller bröstsmärta, så att du slipper leta på egen hand. Förmedlingen är kostnadsfri och anpassad efter var i Malmöområdet du befinner dig.",
+      "Söker du en kardiolog i Malmö finns både hjärtsjukvård vid Skånes universitetssjukhus och flera privata hjärtmottagningar i staden. Du kan läsa om och skicka en förfrågan till en specialist för utredning av till exempel hjärtklappning, högt blodtryck eller bröstsmärta, så att du slipper leta på egen hand. Tjänsten är kostnadsfri och anpassad efter var i Malmöområdet du befinner dig.",
     ortoped:
       "Behöver du träffa en ortoped i Malmö kan det handla om allt från knä- och axelbesvär till idrottsskador och slitageförändringar. I regionen finns ortopedisk kompetens både inom den offentliga vården och hos privata specialistmottagningar i Malmö och Lund. Skicka en kostnadsfri förfrågan så återkommer vi med besked.",
     hudlakare:
-      "En hudläkare i Malmö kan hjälpa dig med exempelvis födelsemärken, eksem, akne eller andra hudförändringar. Tillgången på dermatologer är ofta bättre hos privata mottagningar, och i Öresundsregionen finns flera att välja mellan. Berätta vad du söker hjälp för, så förmedlar vi kontakt med en lämplig specialist i närheten.",
+      "En hudläkare i Malmö kan hjälpa dig med exempelvis födelsemärken, eksem, akne eller andra hudförändringar. Tillgången på dermatologer är ofta bättre hos privata mottagningar, och i Öresundsregionen finns flera att välja mellan. Berätta vad du söker hjälp för i en tidsförfrågan via Specialistdirekt.",
     gynekolog:
       "Vill du boka tid hos en gynekolog i Malmö finns det flera vägar att gå, både via Skånes universitetssjukhus och genom privata mottagningar i staden. Det kan röra sig om allt från återkommande besvär och hormonfrågor till rådgivning och kontroller. Vi hjälper dig kostnadsfritt att hitta en gynekolog som tar emot patienter i Malmöområdet.",
     psykiater:
-      "Att hitta en psykiater i Malmö kan kännas svårt, särskilt när behovet känns akut eller väntetiderna är långa. I regionen erbjuds psykiatrisk vård både offentligt och via privata specialister, vilket ger fler möjligheter att komma vidare. Vi förmedlar kontakt med en psykiater utifrån dina behov, utan att det kostar dig något.",
+      "Att hitta en psykiater i Malmö kan kännas svårt, särskilt när behovet känns akut eller väntetiderna är långa. I regionen erbjuds psykiatrisk vård både offentligt och via privata specialister, vilket ger fler möjligheter att komma vidare. Vi tar emot förfrågningar om en psykiater utifrån dina behov, utan att det kostar dig något.",
     neurolog:
-      "En neurolog i Malmö utreder och behandlar besvär som rör nervsystemet, till exempel återkommande huvudvärk, yrsel eller domningar. Neurologisk kompetens finns vid Skånes universitetssjukhus och hos privata specialistmottagningar i Öresundsregionen. Vi hjälper dig att hitta rätt neurolog så att du snabbare kan få en bedömning, helt kostnadsfritt.",
+      "En neurolog i Malmö utreder och behandlar besvär som rör nervsystemet, till exempel återkommande huvudvärk, yrsel eller domningar. Neurologisk kompetens finns vid Skånes universitetssjukhus och hos privata specialistmottagningar i Öresundsregionen. Du kan läsa om neurologi och skicka en förfrågan så att du snabbare kan få en bedömning, helt kostnadsfritt.",
   },
   specialtyLocal: {
     gastroenterolog: {

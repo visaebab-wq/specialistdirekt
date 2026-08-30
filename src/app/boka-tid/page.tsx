@@ -108,7 +108,7 @@ export default function BookaTidPage() {
 
             <div className="warning-card p-5 text-sm leading-relaxed">
               <strong>Inte en akuttjänst.</strong> Vid akuta besvär, ring 112. För
-              sjukvårdsrådgivning, ring 1177. Specialistdirekt förmedlar tiden och gör ingen
+              sjukvårdsrådgivning, ring 1177. Specialistdirekt hanterar bokningen och gör ingen
               medicinsk bedömning.
             </div>
           </aside>

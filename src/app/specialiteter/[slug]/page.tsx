@@ -37,7 +37,7 @@ export async function generateMetadata({
   const path = `/specialiteter/${specialty.slug}`;
   const visual = getSpecialtyVisual(specialty);
   // Kort meta-description (≤155 tecken) – specialty.intro är för lång för SERP.
-  const description = `Hitta rätt ${specialty.title.toLowerCase()} i Sverige. ${specialty.short} Kostnadsfri förmedling – beskriv ditt behov.`;
+  const description = `Hitta rätt ${specialty.title.toLowerCase()} i Sverige. ${specialty.short} Kostnadsfri förfrågan – beskriv ditt behov.`;
   return {
     title,
     description,
@@ -318,7 +318,7 @@ export default async function SpecialtyPage({
                 <h2 className="text-lg font-bold text-ink-900">
                   Skicka tidsförfrågan till {specialty.title.toLowerCase()}
                 </h2>
-                <p className="mt-1 text-sm text-ink-600">Kostnadsfritt och utan förpliktelser.</p>
+                <p className="mt-1 text-sm text-ink-600">Det kostar inget att skicka en förfrågan.</p>
                 <div className="mt-6">
                   <LeadForm defaultSpecialty={specialty.slug} />
                 </div>

@@ -437,7 +437,7 @@ export default async function CitySpecialtyPage({
                 <h2 className="text-lg font-bold text-ink-900">
                   Skicka tidsförfrågan i {city.name}
                 </h2>
-                <p className="mt-1 text-sm text-ink-600">Kostnadsfritt och utan förpliktelser.</p>
+                <p className="mt-1 text-sm text-ink-600">Det kostar inget att skicka en förfrågan.</p>
                 <div className="mt-6">
                   <LeadForm defaultSpecialty={specialty.slug} />
                 </div>

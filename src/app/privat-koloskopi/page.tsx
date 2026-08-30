@@ -93,7 +93,7 @@ export default function PrivatKoloskopiPage() {
               Begär tid utan remiss
             </Link>
             <span className="text-sm font-medium text-ink-700">
-              Kostnadsfritt och utan förpliktelser
+              Det kostar inget att skicka en förfrågan
             </span>
           </div>
           <PageVisual visual={visual} className="mt-10" priority />
@@ -228,7 +228,7 @@ export default function PrivatKoloskopiPage() {
             </h2>
             <Prose
               paragraphs={[
-                "Specialistdirekt är en kostnadsfri förmedlingstjänst. Du beskriver ditt behov, så hjälper vi dig att hitta en privat mottagning för koloskopi. Tillgång och pris beror på mottagningen, och vi ger ingen medicinsk rådgivning. Vill du läsa mer om specialisten bakom undersökningen? Se [privat gastroenterolog](/privat-gastroenterolog). Ska övre magtarmkanalen undersökas kan i stället en [gastroskopi](/privat-gastroskopi) vara aktuell.",
+                "Specialistdirekt är en kostnadsfri boknings- och informationstjänst. Du beskriver ditt behov, så hjälper vi dig att hitta en privat mottagning för koloskopi. Tillgång och pris beror på mottagningen, och vi ger ingen medicinsk rådgivning. Vill du läsa mer om specialisten bakom undersökningen? Se [privat gastroenterolog](/privat-gastroenterolog). Ska övre magtarmkanalen undersökas kan i stället en [gastroskopi](/privat-gastroskopi) vara aktuell.",
               ]}
             />
             <div id="tidsforfragan" className="mt-6 scroll-mt-28">

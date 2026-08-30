@@ -27,7 +27,7 @@ export const article: Article = {
     "De flesta upplever koloskopi som **obehagligt snarare än mycket smärtsamt** – tryck och kramp kan förekomma, men upplevelsen varierar mellan personer.",
     "Det finns oftast **möjlighet till lugnande eller smärtlindring**; vilka alternativ som erbjuds beror på mottagningens rutiner och din situation.",
     "Har du fått lugnande bör du inte köra bil efteråt – följ mottagningens instruktioner.",
-    "[Specialistdirekt](/privat-koloskopi/goteborg) kan förmedla en tidsförfrågan för privat koloskopi.",
+    "[Specialistdirekt](/privat-koloskopi/goteborg) kan ta emot en tidsförfrågan för privat koloskopi.",
   ],
   suitableFor: [
     "ska göra en koloskopi och är orolig för att det ska göra ont",

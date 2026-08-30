@@ -134,8 +134,8 @@ export const article: Article = {
       id: "specialistdirekt",
       heading: "Så hjälper Specialistdirekt dig vidare",
       body: [
-        "Specialistdirekt är en **kostnadsfri** förmedlingstjänst. Du beskriver kort dina besvär och skickar en förfrågan. Vi återkommer med besked om hur du kan gå vidare. Vi ställer inga diagnoser och ger ingen medicinsk rådgivning; vi hjälper dig att hitta rätt mottagning och få besked om tid och pris.",
-        "Vill du se hur förmedlingen går till steg för steg kan du läsa [så fungerar det](/sa-fungerar-det). Är du redo att komma vidare fyller du i en förfrågan via [kontaktsidan](/kontakt), så återkommer vi med förslag på en lämplig ögonläkare.",
+        "Specialistdirekt är en **kostnadsfri** boknings- och informationstjänst. Du beskriver kort dina besvär och skickar en förfrågan. Vi återkommer med besked om hur du kan gå vidare. Vi ställer inga diagnoser och ger ingen medicinsk rådgivning; via Specialistdirekt kan du skicka en förfrågan om en privat mottagning och få besked om tid och pris.",
+        "Vill du se hur tjänsten fungerar steg för steg kan du läsa [så fungerar det](/sa-fungerar-det). Är du redo att komma vidare fyller du i en förfrågan via [kontaktsidan](/kontakt), så återkommer vi med förslag på en lämplig ögonläkare.",
         "Kom ihåg att väntetider och priser i den här guiden är ungefärliga och kan ha ändrats. Det säkraste är alltid att be den aktuella kliniken om ett bekräftat besked innan du bokar.",
       ],
     },

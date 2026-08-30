@@ -21,7 +21,7 @@ export const city: City = {
       "Vi hjälper dig kostnadsfritt att hitta en hjärtspecialist som passar dina behov och din situation. " +
       "Du får hjälp att jämföra alternativ utan att själv behöva ringa runt.",
     ortoped:
-      "Behöver du träffa en ortoped i Uppsala kan vi förmedla kontakt med specialister på leder, skelett och idrottsskador. " +
+      "Behöver du träffa en ortoped i Uppsala kan du skicka en förfrågan om specialister på leder, skelett och idrottsskador. " +
       "Staden har både offentlig ortopedi vid Akademiska sjukhuset och privata mottagningar att välja mellan. " +
       "Du skickar en kostnadsfri förfrågan och får besked om hur du kan gå vidare.",
     hudlakare:
@@ -30,14 +30,14 @@ export const city: City = {
       "Du skickar en förfrågan och får besked om hur du kan gå vidare.",
     gynekolog:
       "Letar du efter en gynekolog i Uppsala finns ett brett utbud av specialister inom kvinnosjukvård i staden. " +
-      "Vi förmedlar kontakt med mottagningar som passar just det du behöver hjälp med. " +
-      "Förmedlingen är alltid kostnadsfri och anpassad efter dig.",
+      "Vi tar emot förfrågningar om mottagningar som passar just det du behöver hjälp med. " +
+      "Tjänsten är alltid kostnadsfri och anpassad efter dig.",
     psykiater:
       "Söker du en psykiater i Uppsala kan vi hjälpa dig att hitta rätt inom psykiatrisk specialistvård. " +
       "Staden har resurser både inom den offentliga vården och hos privata vårdgivare. " +
-      "Vi guidar dig till en mottagning utan att det kostar dig något.",
+      "Via Specialistdirekt kan du skicka en förfrågan om en mottagning utan att det kostar dig något.",
     neurolog:
-      "Behöver du träffa en neurolog i Uppsala förmedlar vi kontakt med specialister på nervsystemet och dess sjukdomar. " +
+      "Behöver du träffa en neurolog i Uppsala kan du skicka en förfrågan om specialister på nervsystemet och dess sjukdomar. " +
       "Akademiska sjukhuset har omfattande neurologisk kompetens och kompletteras av privata alternativ i regionen. " +
       "Du skickar en kostnadsfri förfrågan och får besked om hur du kan gå vidare.",
   },

@@ -259,13 +259,13 @@ export default function SmartlakareHubPage() {
           {
             "@context": "https://schema.org",
             "@type": "Service",
-            name: "Förmedling till privat smärtläkare och smärtmottagning",
-            serviceType: "Vårdförmedling",
+            name: "Bokning och information om privat smärtläkare",
+            serviceType: "Boknings- och informationstjänst",
             provider: { "@id": `${site.url}/#organization` },
             areaServed: { "@type": "Country", name: "Sverige" },
             url: abs(PATH),
             description:
-              "Specialistdirekt hjälper dig att hitta rätt privat specialist eller mottagning vid smärta. Specialistdirekt är en förmedlingstjänst.",
+              "Specialistdirekt hjälper dig att hitta rätt privat specialist eller mottagning vid smärta. Specialistdirekt är en boknings- och informationstjänst.",
           },
           faqSchema(faqs),
         ]}

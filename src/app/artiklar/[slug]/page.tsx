@@ -258,7 +258,7 @@ export default async function ArticlePage({
           <div className="warning-card mt-10 p-5 text-sm">
             <strong>Observera:</strong> Den här artikeln är allmän information och ersätter inte
             individuell medicinsk bedömning. Vid akuta besvär – ring 112. För sjukvårdsrådgivning,
-            ring 1177. Specialistdirekt är en kostnadsfri förmedlingstjänst och ger inte medicinsk
+            ring 1177. Specialistdirekt är en kostnadsfri boknings- och informationstjänst och ger inte medicinsk
             rådgivning.
           </div>
 

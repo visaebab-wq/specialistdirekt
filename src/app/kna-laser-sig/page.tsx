@@ -298,7 +298,7 @@ export default function KnaLaserSigPage() {
               ))}
             </ol>
             <p className="mt-4 text-sm text-ink-600">
-              Specialistdirekt förmedlar tiden. Den medicinska bedömningen
+              Specialistdirekt hanterar bokningen. Den medicinska bedömningen
               görs av läkaren vid besöket.
             </p>
 

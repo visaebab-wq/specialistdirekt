@@ -47,7 +47,7 @@ export default function OgImage() {
             Hitta rätt specialistläkare – snabbt och tryggt
           </div>
           <div style={{ marginTop: 28, fontSize: 32, opacity: 0.9 }}>
-            Kostnadsfri förmedling i hela Sverige
+            Kostnadsfri förfrågan i hela Sverige
           </div>
         </div>
       </div>

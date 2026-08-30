@@ -125,8 +125,8 @@ export const article: Article = {
       id: "sa-hjalper-specialistdirekt",
       heading: "Så hjälper Specialistdirekt dig vidare",
       body: [
-        "Att navigera mellan remiss, regioner, köer och mottagningar tar tid och energi – tid som du kanske hellre lägger på annat. Specialistdirekt är en **kostnadsfri** förmedlingstjänst som tar bort krånglet. Du beskriver dina besvär och dina önskemål och skickar en förfrågan. Vi återkommer med besked om hur du kan gå vidare.",
-        "Det kostar inget att skicka in en förfrågan, och du förbinder dig inte till något. Vi hjälper dig att hitta en mottagning som passar din situation, så att du slipper ringa runt och jämföra på egen hand. Du bestämmer själv om du vill gå vidare med den mottagning vi föreslår.",
+        "Att navigera mellan remiss, regioner, köer och mottagningar tar tid och energi – tid som du kanske hellre lägger på annat. Specialistdirekt är en **kostnadsfri** boknings- och informationstjänst som tar bort krånglet. Du beskriver dina besvär och dina önskemål och skickar en förfrågan. Vi återkommer med besked om hur du kan gå vidare.",
+        "Det kostar inget att skicka in en förfrågan. Du får besked om vilka bokningsmöjligheter som finns och vad som gäller för den aktuella tjänsten.",
         "Att hitta rätt specialistläkare behöver alltså inte vara komplicerat. Med rätt information om remiss, väntetider, kostnader och dina valmöjligheter står du betydligt tryggare när du tar nästa steg. Och behöver du en hjälpande hand på vägen finns vi här.",
         "Vill du komma igång kan du [skicka in en kostnadsfri förfrågan](/kontakt) redan idag. Undrar du över hur processen ser ut steg för steg förklarar vi det under [så fungerar det](/sa-fungerar-det), och fler svar hittar du bland [våra vanliga frågor](/vanliga-fragor).",
       ],

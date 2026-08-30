@@ -16,7 +16,7 @@ const visual = {
 export const metadata: Metadata = {
   title: "Specialiteter – hitta rätt specialistläkare",
   description:
-    "Bläddra bland specialiteter vi förmedlar – från kardiolog och ortoped till hudläkare och psykiater. Hitta rätt specialistläkare i Sverige, kostnadsfritt.",
+    "Bläddra bland medicinska specialiteter – från kardiolog och ortoped till hudläkare och psykiater. Läs mer om privat specialistvård i Sverige.",
   alternates: { canonical: "/specialiteter" },
 };
 
@@ -33,8 +33,8 @@ export default function SpecialtiesPage() {
           <Breadcrumbs items={crumbs} />
           <h1 className="internal-hero-title mt-6">Specialiteter</h1>
           <p className="internal-hero-text">
-            Vi förmedlar kontakt med specialistläkare inom en rad områden. Välj en specialitet för
-            att läsa mer – eller skicka en förfrågan direkt så hjälper vi dig att hitta rätt.
+            Här finns information om specialistläkare inom en rad områden. Välj en specialitet för
+            att läsa mer eller skicka en förfrågan om en tjänst som presenteras på webbplatsen.
           </p>
           <PageVisual visual={visual} className="mt-10 max-w-3xl" priority />
         </div>

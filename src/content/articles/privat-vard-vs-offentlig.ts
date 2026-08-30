@@ -128,7 +128,7 @@ export const article: Article = {
       id: "sa-hjalper-vi",
       heading: "Så kan Specialistdirekt hjälpa – oavsett väg",
       body: [
-        "**Specialistdirekt** är en **kostnadsfri förmedlingstjänst**. Du skickar en förfrågan och får besked om hur du kan gå vidare. Vi säljer ingen vård och tjänar inget på att du väljer dyrare alternativ – vårt jobb är att hjälpa dig hitta rätt, oavsett om du landar i offentlig eller privat vård.",
+        "**Specialistdirekt** är en **kostnadsfri boknings- och informationstjänst**. Du skickar en förfrågan och får besked om hur du kan gå vidare. Vi säljer ingen vård och tjänar inget på att du väljer dyrare alternativ – vårt jobb är att hjälpa dig hitta rätt, oavsett om du landar i offentlig eller privat vård.",
         "Du beskriver dina symtom och din situation, så hjälper vi dig vidare till en lämplig mottagning och förklarar vad som gäller kring kostnad och väntetid. Se vilka områden vi täcker under [våra specialiteter](/specialiteter), läs mer om [hur det går till](/sa-fungerar-det) eller [kontakta oss](/kontakt) så hjälper vi dig att ta nästa steg.",
       ],
     },
@@ -162,7 +162,7 @@ export const article: Article = {
     {
       question: "Hjälper Specialistdirekt även om jag vill stanna i offentlig vård?",
       answer:
-        "Ja. Vi är en kostnadsfri förmedlingstjänst och hjälper dig hitta rätt specialist oavsett om du väljer offentlig eller privat väg. Hör av dig via kontaktsidan så guidar vi dig vidare.",
+        "Ja. Vi är en kostnadsfri boknings- och informationstjänst och hjälper dig hitta rätt specialist oavsett om du väljer offentlig eller privat väg. Hör av dig via kontaktsidan så guidar vi dig vidare.",
     },
   ],
 };

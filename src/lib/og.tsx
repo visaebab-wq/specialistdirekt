@@ -53,7 +53,7 @@ export function ogImage({ eyebrow, title }: { eyebrow?: string; title: string })
         </div>
 
         <div style={{ fontSize: 26, opacity: 0.9 }}>
-          Kostnadsfri förmedling till rätt specialistläkare
+          Kostnadsfri förfrågan till rätt specialistläkare
         </div>
       </div>
     ),

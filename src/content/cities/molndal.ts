@@ -22,7 +22,7 @@ export const city: City = {
     hudlakare:
       "För hudbesvär som eksem, utslag eller bedömning av födelsemärken kan du vända dig till hudmottagningar i Mölndal och Göteborg. Det korta avståndet ger dig fler alternativ att välja mellan. Vi guidar dig kostnadsfritt till rätt dermatolog.",
     gynekolog:
-      "Söker du en gynekolog i Mölndal finns vård inom kvinnohälsa både i regionens vård och hos privata mottagningar, med Göteborgs utbud nära. Specialistdirekt förmedlar kontakt kostnadsfritt.",
+      "Söker du en gynekolog i Mölndal finns vård inom kvinnohälsa både i regionens vård och hos privata mottagningar, med Göteborgs utbud nära. Specialistdirekt tar emot förfrågningar kostnadsfritt.",
     psykiater:
       "Inom psykisk hälsa finns psykiatrisk kompetens i Mölndal och i angränsande Göteborg, både i regionens vård och hos privatpraktiserande psykiatrer. Vi hjälper dig kostnadsfritt att komma i kontakt med en psykiater.",
   },
@@ -30,7 +30,7 @@ export const city: City = {
     kardiolog: {
       metaTitle: "Privat kardiolog i Mölndal – utan remiss",
       metaDescription:
-        "Privat kardiolog i Mölndal utan remiss: hjärtundersökningar, från cirka 3 000 kr, remiss och när hjärtbesvär är akuta. Kostnadsfri förmedling.",
+        "Privat kardiolog i Mölndal utan remiss: hjärtundersökningar, från cirka 3 000 kr, remiss och när hjärtbesvär är akuta. Kostnadsfri förfrågan.",
       sections: [
         {
           id: "privat-kardiolog-molndal",
@@ -66,9 +66,9 @@ export const city: City = {
           id: "goco-health-innovation-city-molndal",
           heading: "GoCo Health Innovation City – vårdklustret i Mölndal",
           body: [
-            "En stor del av den privata specialistvården i Mölndal finns samlad i **GoCo Health Innovation City** vid Vetenskapens gränd. Det är ett life science-område där specialistmottagningar, diagnostik, kirurgi och forskning ligger på samma plats, strax söder om Göteborg. Flera av mottagningarna vi förmedlar kontakt med finns här.",
+            "En stor del av den privata specialistvården i Mölndal finns samlad i **GoCo Health Innovation City** vid Vetenskapens gränd. Det är ett life science-område där specialistmottagningar, diagnostik, kirurgi och forskning ligger på samma plats, strax söder om Göteborg. Flera av mottagningarna vi tar emot förfrågningar om finns här.",
             "Praktiskt betyder det två saker för dig. Dels att flera vårdgivare ligger inom samma område, så att ett byte av mottagning sällan innebär en ny resa åt ett helt annat håll. Dels att området nås enkelt från både Mölndals centrum och södra Göteborg – för många i södra Göteborg är det närmare hit än in till centrum.",
-            "Specialistdirekt är fristående och har ingen koppling till GoCo Health Innovation City, och vi driver ingen verksamhet där. Vi förmedlar kostnadsfritt kontakt med privata mottagningar i området. Vilka vårdgivare som finns på plats förändras över tid – hör av dig så återkommer vi med vad som är aktuellt för dina besvär.",
+            "Specialistdirekt är fristående och har ingen koppling till GoCo Health Innovation City, och vi driver ingen verksamhet där. Via webbplatsen kan du skicka en kostnadsfri förfrågan om privata alternativ i området. Vilka vårdgivare som finns på plats förändras över tid – hör av dig så återkommer vi med vad som är aktuellt för dina besvär.",
           ],
         },
         {
@@ -109,7 +109,7 @@ export const city: City = {
         {
           question: "Finns det privata specialistmottagningar i GoCo i Mölndal?",
           answer:
-            "Ja. GoCo Health Innovation City vid Vetenskapens gränd i Mölndal är ett life science-område där flera privata specialistmottagningar, diagnostik och forskning finns samlade. Flera av mottagningarna vi förmedlar kontakt med ligger där. Specialistdirekt är fristående och har ingen koppling till GoCo – vi driver ingen verksamhet i området. Beskriv dina besvär i en kostnadsfri förfrågan, så återkommer vi med förslag.",
+            "Ja. GoCo Health Innovation City vid Vetenskapens gränd i Mölndal är ett life science-område där flera privata specialistmottagningar, diagnostik och forskning finns samlade. Flera av mottagningarna vi tar emot förfrågningar om ligger där. Specialistdirekt är fristående och har ingen koppling till GoCo – vi driver ingen verksamhet i området. Beskriv dina besvär i en kostnadsfri förfrågan, så återkommer vi med förslag.",
         },
         {
           question: "När ska jag söka akut i stället för att boka kardiolog?",
@@ -121,7 +121,7 @@ export const city: City = {
     neurolog: {
       metaTitle: "Privat neurolog i Mölndal – utan remiss",
       metaDescription:
-        "Privat neurolog i Mölndal utan remiss: migrän, yrsel och domningar, MR/EEG/EMG-bedömning och pris från cirka 3 000 kr. Kostnadsfri förmedling.",
+        "Privat neurolog i Mölndal utan remiss: migrän, yrsel och domningar, MR/EEG/EMG-bedömning och pris från cirka 3 000 kr. Kostnadsfri förfrågan.",
       sections: [
         {
           id: "privat-neurolog-molndal",
@@ -157,9 +157,9 @@ export const city: City = {
           id: "goco-health-innovation-city-molndal",
           heading: "GoCo Health Innovation City – vårdklustret i Mölndal",
           body: [
-            "En stor del av den privata specialistvården i Mölndal finns samlad i **GoCo Health Innovation City** vid Vetenskapens gränd. Det är ett life science-område där specialistmottagningar, diagnostik, kirurgi och forskning ligger på samma plats, strax söder om Göteborg. Flera av mottagningarna vi förmedlar kontakt med finns här.",
+            "En stor del av den privata specialistvården i Mölndal finns samlad i **GoCo Health Innovation City** vid Vetenskapens gränd. Det är ett life science-område där specialistmottagningar, diagnostik, kirurgi och forskning ligger på samma plats, strax söder om Göteborg. Flera av mottagningarna vi tar emot förfrågningar om finns här.",
             "Praktiskt betyder det två saker för dig. Dels att flera vårdgivare ligger inom samma område, så att ett byte av mottagning sällan innebär en ny resa åt ett helt annat håll. Dels att området nås enkelt från både Mölndals centrum och södra Göteborg – för många i södra Göteborg är det närmare hit än in till centrum.",
-            "Specialistdirekt är fristående och har ingen koppling till GoCo Health Innovation City, och vi driver ingen verksamhet där. Vi förmedlar kostnadsfritt kontakt med privata mottagningar i området. Vilka vårdgivare som finns på plats förändras över tid – hör av dig så återkommer vi med vad som är aktuellt för dina besvär.",
+            "Specialistdirekt är fristående och har ingen koppling till GoCo Health Innovation City, och vi driver ingen verksamhet där. Via webbplatsen kan du skicka en kostnadsfri förfrågan om privata alternativ i området. Vilka vårdgivare som finns på plats förändras över tid – hör av dig så återkommer vi med vad som är aktuellt för dina besvär.",
           ],
         },
         {
@@ -200,7 +200,7 @@ export const city: City = {
         {
           question: "Finns det privata specialistmottagningar i GoCo i Mölndal?",
           answer:
-            "Ja. GoCo Health Innovation City vid Vetenskapens gränd i Mölndal är ett life science-område där flera privata specialistmottagningar, diagnostik och forskning finns samlade. Flera av mottagningarna vi förmedlar kontakt med ligger där. Specialistdirekt är fristående och har ingen koppling till GoCo – vi driver ingen verksamhet i området. Beskriv dina besvär i en kostnadsfri förfrågan, så återkommer vi med förslag.",
+            "Ja. GoCo Health Innovation City vid Vetenskapens gränd i Mölndal är ett life science-område där flera privata specialistmottagningar, diagnostik och forskning finns samlade. Flera av mottagningarna vi tar emot förfrågningar om ligger där. Specialistdirekt är fristående och har ingen koppling till GoCo – vi driver ingen verksamhet i området. Beskriv dina besvär i en kostnadsfri förfrågan, så återkommer vi med förslag.",
         },
         {
           question: "När ska jag söka akut i stället för att boka neurolog?",
@@ -212,7 +212,7 @@ export const city: City = {
     allmanmedicin: {
       metaTitle: "Privat allmänläkare i Mölndal – utan remiss",
       metaDescription:
-        "Privat allmänläkare i Mölndal utan remiss: bred medicinsk bedömning vid oklara symtom, från cirka 3 000 kr. Kostnadsfri förmedling via Specialistdirekt.",
+        "Privat allmänläkare i Mölndal utan remiss: bred medicinsk bedömning vid oklara symtom, från cirka 3 000 kr. Kostnadsfri förfrågan via Specialistdirekt.",
       sections: [
         {
           id: "privat-allmanlakare-molndal",
@@ -248,9 +248,9 @@ export const city: City = {
           id: "goco-health-innovation-city-molndal",
           heading: "GoCo Health Innovation City – vårdklustret i Mölndal",
           body: [
-            "En stor del av den privata specialistvården i Mölndal finns samlad i **GoCo Health Innovation City** vid Vetenskapens gränd. Det är ett life science-område där specialistmottagningar, diagnostik, kirurgi och forskning ligger på samma plats, strax söder om Göteborg. Flera av mottagningarna vi förmedlar kontakt med finns här.",
+            "En stor del av den privata specialistvården i Mölndal finns samlad i **GoCo Health Innovation City** vid Vetenskapens gränd. Det är ett life science-område där specialistmottagningar, diagnostik, kirurgi och forskning ligger på samma plats, strax söder om Göteborg. Flera av mottagningarna vi tar emot förfrågningar om finns här.",
             "Praktiskt betyder det två saker för dig. Dels att flera vårdgivare ligger inom samma område, så att ett byte av mottagning sällan innebär en ny resa åt ett helt annat håll. Dels att området nås enkelt från både Mölndals centrum och södra Göteborg – för många i södra Göteborg är det närmare hit än in till centrum.",
-            "Specialistdirekt är fristående och har ingen koppling till GoCo Health Innovation City, och vi driver ingen verksamhet där. Vi förmedlar kostnadsfritt kontakt med privata mottagningar i området. Vilka vårdgivare som finns på plats förändras över tid – hör av dig så återkommer vi med vad som är aktuellt för dina besvär.",
+            "Specialistdirekt är fristående och har ingen koppling till GoCo Health Innovation City, och vi driver ingen verksamhet där. Via webbplatsen kan du skicka en kostnadsfri förfrågan om privata alternativ i området. Vilka vårdgivare som finns på plats förändras över tid – hör av dig så återkommer vi med vad som är aktuellt för dina besvär.",
           ],
         },
         {
@@ -291,7 +291,7 @@ export const city: City = {
         {
           question: "Finns det privata specialistmottagningar i GoCo i Mölndal?",
           answer:
-            "Ja. GoCo Health Innovation City vid Vetenskapens gränd i Mölndal är ett life science-område där flera privata specialistmottagningar, diagnostik och forskning finns samlade. Flera av mottagningarna vi förmedlar kontakt med ligger där. Specialistdirekt är fristående och har ingen koppling till GoCo – vi driver ingen verksamhet i området. Beskriv dina besvär i en kostnadsfri förfrågan, så återkommer vi med förslag.",
+            "Ja. GoCo Health Innovation City vid Vetenskapens gränd i Mölndal är ett life science-område där flera privata specialistmottagningar, diagnostik och forskning finns samlade. Flera av mottagningarna vi tar emot förfrågningar om ligger där. Specialistdirekt är fristående och har ingen koppling till GoCo – vi driver ingen verksamhet i området. Beskriv dina besvär i en kostnadsfri förfrågan, så återkommer vi med förslag.",
         },
         {
           question: "När ska jag boka allmänläkare och när söka akut?",
@@ -380,7 +380,7 @@ export const city: City = {
         {
           question: "Hör Mölndals sjukhus till Sahlgrenska?",
           answer:
-            "Ja, Mölndals sjukhus är en del av Sahlgrenska Universitetssjukhuset inom Västra Götalandsregionen. Det gäller den regionfinansierade vården. Specialistdirekt är fristående och har ingen koppling till Sahlgrenska eller regionen – vi förmedlar kontakt med privata mottagningar.",
+            "Ja, Mölndals sjukhus är en del av Sahlgrenska Universitetssjukhuset inom Västra Götalandsregionen. Det gäller den regionfinansierade vården. Specialistdirekt är fristående och har ingen koppling till Sahlgrenska eller regionen – vi tar emot förfrågningar om privata mottagningar.",
         },
         {
           question: "Vad bör jag förbereda inför besöket?",

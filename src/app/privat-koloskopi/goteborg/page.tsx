@@ -45,7 +45,7 @@ const faqs = [
   {
     question: "Var kan jag göra privat koloskopi i Göteborg?",
     answer:
-      "Du kan skicka en tidsförfrågan här på sidan, så förmedlar vi kontakt till en ansluten mottagning i Göteborgsområdet. Du får besked om tid, pris och vad som ingår innan du väljer att gå vidare.",
+      "Du kan skicka en tidsförfrågan här på sidan för privat koloskopi i Göteborgsområdet. Du får besked om möjlig tid, pris och vad som ingår.",
   },
   {
     question: "Vad kostar privat koloskopi i Göteborg?",
@@ -315,8 +315,8 @@ export default function KoloskopiGoteborgPage() {
                 Hur får jag tid för privat koloskopi i Göteborg?
               </h2>
               <p className="mt-3">
-                Beskriv kort dina besvär i formuläret, så förmedlar
-                Specialistdirekt en tidsförfrågan till en ansluten mottagning i
+                Beskriv kort dina besvär i formuläret och skicka en
+                tidsförfrågan via Specialistdirekt för privat koloskopi i
                 Göteborgsområdet. Du får besked om möjlig tid, aktuellt pris och
                 vad som ingår innan du bestämmer dig om du vill gå vidare. Det
                 medicinska ansvaret ligger hos mottagningen.
@@ -388,7 +388,7 @@ export default function KoloskopiGoteborgPage() {
                   Begär tid utan remiss i Göteborg
                 </h2>
                 <p className="mt-1 text-sm text-ink-600">
-                  Kostnadsfritt och utan förpliktelser. Du får besked om tid och
+                  Det kostar inget att skicka en förfrågan. Du får besked om tid och
                   pris innan du bestämmer dig.
                 </p>
                 <div className="mt-6">
@@ -416,13 +416,13 @@ export default function KoloskopiGoteborgPage() {
           {
             "@context": "https://schema.org",
             "@type": "Service",
-            name: "Förmedling av tidsförfrågan för privat koloskopi i Göteborg",
-            serviceType: "Vårdförmedling",
+            name: "Tidsförfrågan för privat koloskopi i Göteborg",
+            serviceType: "Boknings- och informationstjänst",
             provider: { "@id": `${site.url}/#organization` },
             areaServed: { "@type": "City", name: "Göteborg" },
             url: abs(PATH),
             description:
-              "Som självbetalande kan du boka privat koloskopi i Göteborg utan remiss efter mottagningens medicinska bedömning. Specialistdirekt förmedlar tidsförfrågan.",
+              "Som självbetalande kan du boka privat koloskopi i Göteborg utan remiss efter mottagningens medicinska bedömning. Specialistdirekt hanterar tidsförfrågan.",
           },
           faqSchema(faqs),
         ]}

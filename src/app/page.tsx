@@ -47,15 +47,15 @@ const heroSteps = [
 
 const trustPoints = [
   "Vi ställer inte diagnos",
-  "Vi hjälper dig hitta rätt mottagning",
-  "Bokningsförfrågan skickas vidare till passande privat mottagning",
+  "Via Specialistdirekt kan du skicka en förfrågan om en privat mottagning",
+  "Förfrågan gäller den tjänst och ort du väljer",
   "Vid akuta symtom ska du söka akut vård – ring 112",
 ];
 
 const valueProps = [
   {
     title: "Kostnadsfritt",
-    text: "Att skicka en förfrågan är gratis och utan förpliktelser.",
+    text: "Att skicka en förfrågan är gratis.",
     icon: <path d="M12 3v18M7 7h7a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h8" />,
   },
   {

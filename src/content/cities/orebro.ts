@@ -12,7 +12,7 @@ export const city: City = {
     gastroenterolog:
       "I Örebro finns mag- och tarmkompetens vid Universitetssjukhuset Örebro (USÖ) och hos privata mottagningar. Specialistdirekt hjälper dig kostnadsfritt att hitta en gastroenterolog i staden.",
     allmanmedicin:
-      "I Örebro kan du få en bred medicinsk bedömning hos privata läkarmottagningar, som komplement till regionens vård. En allmänläkare ser helheten och hjälper dig hitta rätt väg vidare. Specialistdirekt förmedlar kontakt kostnadsfritt.",
+      "I Örebro kan du få en bred medicinsk bedömning hos privata läkarmottagningar, som komplement till regionens vård. En allmänläkare ser helheten och hjälper dig hitta rätt väg vidare. Specialistdirekt tar emot förfrågningar kostnadsfritt.",
     kardiolog:
       "Vid hjärt- och kärlbesvär kan du i Örebro vända dig till specialistkompetens kopplad till Universitetssjukhuset Örebro samt till privata mottagningar i staden. Utredning av hjärtat kräver ibland särskild utrustning, vilket gör det värt att jämföra alternativen. Skicka en kostnadsfri förfrågan så återkommer vi med besked.",
     ortoped:
@@ -22,7 +22,7 @@ export const city: City = {
     gynekolog:
       "Söker du en gynekolog i Örebro finns vård inom kvinnohälsa kopplad till Universitetssjukhuset Örebro och till privata mottagningar i staden. Det kan vara svårt att veta vilken mottagning som passar bäst för just dina frågor. Specialistdirekt hjälper dig att hitta en gynekolog utifrån dina önskemål och behov.",
     psykiater:
-      "Inom psykisk hälsa, inklusive utredning av exempelvis ADHD, finns psykiatrisk kompetens i Örebro genom regionens vård och privatpraktiserande psykiatrer. Vägen in i den psykiatriska vården kan ibland upplevas som otydlig. Vi hjälper dig att hitta en psykiater i Örebro och att komma rätt från början.",
+      "Inom psykisk hälsa, inklusive utredning av exempelvis ADHD, finns psykiatrisk kompetens i Örebro genom regionens vård och privatpraktiserande psykiatrer. Vägen in i den psykiatriska vården kan ibland upplevas som otydlig. På Specialistdirekt kan du läsa om psykiatri och skicka en förfrågan i Örebro.",
     neurolog:
       "Vid besvär från nervsystemet, som migrän eller yrsel, finns neurologisk specialistkompetens vid Universitetssjukhuset Örebro och hos privata mottagningar i staden. Neurologi är ett område där en tidig och rätt utredning kan göra stor skillnad. Genom Specialistdirekt kommer du kostnadsfritt i kontakt med en neurolog i Örebro.",
   },
@@ -30,7 +30,7 @@ export const city: City = {
     psykiater: {
       metaTitle: "Privat psykiater i Örebro – ADHD-utredning, pris och remiss",
       metaDescription:
-        "Privat psykiater i Örebro: neuropsykiatrisk utredning (ADHD, NPF, autism), remiss, vad som påverkar priset och hur du bokar. Kostnadsfri förmedling.",
+        "Privat psykiater i Örebro: neuropsykiatrisk utredning (ADHD, NPF, autism), remiss, vad som påverkar priset och hur du bokar. Kostnadsfri förfrågan.",
       sections: [
         {
           id: "privat-psykiatri-orebro",
@@ -86,13 +86,13 @@ export const city: City = {
     kardiolog: {
       metaTitle: "Privat kardiolog i Örebro – pris, remiss och boka tid",
       metaDescription:
-        "Privat kardiolog i Örebro: EKG, ultraljud och hjärtutredning, vad som påverkar priset, remiss och när hjärtbesvär är akut. Kostnadsfri förmedling.",
+        "Privat kardiolog i Örebro: EKG, ultraljud och hjärtutredning, vad som påverkar priset, remiss och när hjärtbesvär är akut. Kostnadsfri förfrågan.",
       sections: [
         {
           id: "privat-kardiolog-orebro",
           heading: "Privat kardiolog i Örebro – utredning av hjärtat",
           body: [
-            "Vid hjärt- och kärlbesvär finns i Örebro kardiologisk kompetens både kopplad till Universitetssjukhuset Örebro (USÖ) och hos privata mottagningar. En privat mottagning är fristående från regionens vård – Specialistdirekt förmedlar kontakt och har ingen koppling till USÖ. En **kardiolog** utreder besvär som hjärtklappning, bröstobehag, andfåddhet, högt blodtryck och avvikande EKG.",
+            "Vid hjärt- och kärlbesvär finns i Örebro kardiologisk kompetens både kopplad till Universitetssjukhuset Örebro (USÖ) och hos privata mottagningar. En privat mottagning är fristående från regionens vård – Specialistdirekt tar emot förfrågningar och har ingen koppling till USÖ. En **kardiolog** utreder besvär som hjärtklappning, bröstobehag, andfåddhet, högt blodtryck och avvikande EKG.",
             "En kardiologisk bedömning börjar med ett samtal och en kroppsundersökning, och kompletteras vid behov med undersökningar. Vilka som blir aktuella avgör läkaren utifrån dina symtom. Läs mer på vår [översikt om kardiolog](/specialiteter/kardiolog).",
           ],
           bullets: [
@@ -140,13 +140,13 @@ export const city: City = {
     ortoped: {
       metaTitle: "Privat ortoped i Örebro – pris, remiss och boka tid",
       metaDescription:
-        "Privat ortoped i Örebro: knä-, höft- och axelbesvär, röntgen och MR, vad som påverkar priset och remiss. Kostnadsfri förmedling via Specialistdirekt.",
+        "Privat ortoped i Örebro: knä-, höft- och axelbesvär, röntgen och MR, vad som påverkar priset och remiss. Kostnadsfri förfrågan via Specialistdirekt.",
       sections: [
         {
           id: "privat-ortoped-orebro",
           heading: "Privat ortoped i Örebro – besvär i leder och skelett",
           body: [
-            "Har du besvär i leder, skelett eller efter en idrottsskada finns ortopedisk kompetens i Örebro både inom regionens vård, med Universitetssjukhuset Örebro (USÖ) som nav, och hos privata mottagningar. En privat mottagning är fristående från regionvården – Specialistdirekt förmedlar kontakt. En **ortoped** utreder rörelseapparaten: skelett, leder, muskler och senor.",
+            "Har du besvär i leder, skelett eller efter en idrottsskada finns ortopedisk kompetens i Örebro både inom regionens vård, med Universitetssjukhuset Örebro (USÖ) som nav, och hos privata mottagningar. En privat mottagning är fristående från regionvården – Specialistdirekt tar emot förfrågningar. En **ortoped** utreder rörelseapparaten: skelett, leder, muskler och senor.",
             "Ett ortopedbesök börjar med ett samtal och en klinisk undersökning där läkaren testar rörlighet, kraft och stabilitet. Vid behov kompletteras det med bilddiagnostik. Läs mer på vår [översikt om ortoped](/specialiteter/ortoped).",
           ],
           bullets: [
@@ -194,13 +194,13 @@ export const city: City = {
     neurolog: {
       metaTitle: "Privat neurolog i Örebro – pris, remiss och boka tid",
       metaDescription:
-        "Privat neurolog i Örebro: migrän, yrsel och domningar, neurologiskt status, vad som påverkar priset och remiss. Kostnadsfri förmedling via Specialistdirekt.",
+        "Privat neurolog i Örebro: migrän, yrsel och domningar, neurologiskt status, vad som påverkar priset och remiss. Kostnadsfri förfrågan via Specialistdirekt.",
       sections: [
         {
           id: "privat-neurolog-orebro",
           heading: "Privat neurolog i Örebro – utredning av nervsystemet",
           body: [
-            "Vid besvär från nervsystemet finns i Örebro neurologisk kompetens både vid Universitetssjukhuset Örebro (USÖ) och hos privata mottagningar. En privat mottagning är fristående från regionvården – Specialistdirekt förmedlar kontakt och har ingen koppling till USÖ. En **neurolog** utreder sjukdomar i hjärna, ryggmärg och nerver, och en bedömning bygger på ett samtal och ett så kallat neurologiskt status där läkaren testar reflexer, känsel, styrka och balans.",
+            "Vid besvär från nervsystemet finns i Örebro neurologisk kompetens både vid Universitetssjukhuset Örebro (USÖ) och hos privata mottagningar. En privat mottagning är fristående från regionvården – Specialistdirekt tar emot förfrågningar och har ingen koppling till USÖ. En **neurolog** utreder sjukdomar i hjärna, ryggmärg och nerver, och en bedömning bygger på ett samtal och ett så kallat neurologiskt status där läkaren testar reflexer, känsel, styrka och balans.",
             "Bland de vanligaste anledningarna att söka neurolog är återkommande **migrän** och svår huvudvärk, **yrsel** och balansbesvär samt **domningar** och stickningar. Vid behov kompletteras bedömningen med undersökningar som MR av hjärnan, EEG eller nervmätning. Läs mer på vår [översikt om neurolog](/specialiteter/neurolog).",
           ],
           bullets: [

@@ -13,19 +13,19 @@ export const faqs: Faq[] = [
   // Betalningsfrågorna är medvetet uppdelade per bokningsväg. Ett universellt
   // svar går inte att ge: vid direktbokning i Göteborg betalas 2 000 kr på
   // plats hos vårdgivaren (se src/content/cities/goteborg.ts), medan upplägget
-  // för förmedlade besök kan skilja sig åt. Tidigare stod här att betalningen
+  // för bokade besök kan skilja sig åt. Tidigare stod här att betalningen
   // alltid går till Specialistdirekt och att avbokning/återbetalning sköts av
   // oss – det stämde inte för direktbokningen, alltså sajtens enda tjänst med
   // egen kalender. Skriv aldrig tillbaka ett generellt betalningspåstående här.
   {
     question: "Kostar det något att använda tjänsten?",
     answer:
-      "Kostnaden beror på vilken tjänst du bokar. Vid direktbokning hos Dr. Masoud Sorkhabi i Göteborg kostar ortopedbesöket 2 000 kr. Du betalar direkt till vårdgivaren på plats vid besöket och ingen betalning görs i samband med bokningen via Specialistdirekt.\n\nFör andra specialistbesök som förmedlas via Specialistdirekt kan pris och betalningsupplägg skilja sig mellan olika tjänster. Den aktuella informationen ska alltid framgå innan du går vidare med en bokning eller förfrågan.",
+      "Kostnaden beror på vilken tjänst du bokar. Vid direktbokning hos Dr. Masoud Sorkhabi i Göteborg kostar ortopedbesöket 2 000 kr. Du betalar direkt till vårdgivaren på plats vid besöket och ingen betalning görs i samband med bokningen via Specialistdirekt.\n\nFör andra specialistbesök som bokas via Specialistdirekt kan pris och betalningsupplägg skilja sig mellan olika tjänster. Den aktuella informationen ska alltid framgå innan du går vidare med en bokning eller förfrågan.",
   },
   {
     question: "Vem betalar jag till – Specialistdirekt eller vårdgivaren?",
     answer:
-      "Vid direktbokning hos Dr. Masoud Sorkhabi i Göteborg betalar du 2 000 kr direkt till vårdgivaren på plats vid besöket. Ingen betalning görs till Specialistdirekt i samband med bokningen.\n\nFör andra specialistbesök som förmedlas via Specialistdirekt kan betalningsupplägget vara annorlunda beroende på tjänsten.\n\nSpecialistdirekt är en förmedlingstjänst. Det medicinska ansvaret för undersökning, bedömning och behandling ligger hos den vårdgivare som utför vården.",
+      "Vid direktbokning hos Dr. Masoud Sorkhabi i Göteborg betalar du 2 000 kr direkt till vårdgivaren på plats vid besöket. Ingen betalning görs till Specialistdirekt i samband med bokningen.\n\nFör andra specialistbesök som bokas via Specialistdirekt kan betalningsupplägget vara annorlunda beroende på tjänsten.\n\nSpecialistdirekt är en boknings- och informationstjänst. Det medicinska ansvaret för undersökning, bedömning och behandling ligger hos den vårdgivare som utför vården.",
   },
   {
     question: "Hur snabbt får jag svar?",
@@ -35,7 +35,7 @@ export const faqs: Faq[] = [
   {
     question: "Ger ni medicinska råd eller diagnoser?",
     answer:
-      "Nej. Specialistdirekt ger inte medicinsk rådgivning och ställer inga diagnoser. Vi förmedlar kontakt med legitimerade specialister som gör den medicinska bedömningen.",
+      "Nej. Specialistdirekt ger inte medicinsk rådgivning och ställer inga diagnoser. Vi tar emot förfrågningar om legitimerade specialister som gör den medicinska bedömningen.",
   },
   {
     question: "Hur hanteras mina personuppgifter?",
@@ -50,7 +50,7 @@ export const faqs: Faq[] = [
   {
     question: "Vilka specialiteter kan jag få hjälp med?",
     answer:
-      "Vi förmedlar kontakt inom en rad områden – bland annat kardiologi, ortopedi, dermatologi, gynekologi, neurologi och psykiatri. Ser du inte din specialitet? Hör av dig ändå, så hjälper vi dig vidare.",
+      "Vi tar emot förfrågningar inom en rad områden – bland annat kardiologi, ortopedi, dermatologi, gynekologi, neurologi och psykiatri. Ser du inte din specialitet? Hör av dig ändå, så hjälper vi dig vidare.",
   },
   {
     question: "Är det här en akuttjänst?",

@@ -155,7 +155,7 @@ export default function PrivatMrPage() {
             </div>
 
             <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-ink-700">
-              {["Kostnadsfri förfrågan", "Svar normalt inom en arbetsdag", "Utan förpliktelser"].map(
+              {["Kostnadsfri förfrågan", "Svar normalt inom en arbetsdag", "Tydligt besked om nästa steg"].map(
                 (item) => (
                   <li key={item} className="flex items-center gap-2">
                     <svg aria-hidden viewBox="0 0 20 20" className="h-5 w-5 text-brand-600">
@@ -314,7 +314,7 @@ export default function PrivatMrPage() {
                   i ortopedi igenom MR-svaret och hjälper dig vidare.
                 </p>
                 <p className="mt-2 text-sm text-ink-600">
-                  Kostnadsfritt och utan förpliktelser. Beskriv dina besvär och vilken kroppsdel det
+                  Det kostar inget att skicka en förfrågan. Beskriv dina besvär och vilken kroppsdel det
                   gäller, så återkommer vi med besked.
                 </p>
                 <div className="mt-6">
@@ -342,12 +342,12 @@ export default function PrivatMrPage() {
           {
             "@context": "https://schema.org",
             "@type": "Service",
-            name: "Förmedling av privat MR – bedömning, remiss vid behov och vidare till röntgenmottagning",
-            serviceType: "Vårdförmedling",
+            name: "Privat MR – bedömning, remiss vid behov och undersökning på röntgenmottagning",
+            serviceType: "Boknings- och informationstjänst",
             provider: { "@id": `${site.url}/#organization` },
             url: abs(PATH),
             description:
-              "Specialistdirekt förmedlar förfrågningar om privat MR vid besvär från rörelseapparaten – rygg, knä, axel och höft. En läkare gör en medicinsk bedömning och kan utfärda remiss när det behövs. Magnetkameraundersökningen utförs på röntgenmottagning och en specialistläkare i ortopedi går därefter igenom MR-svaret med patienten.",
+              "Via Specialistdirekt kan du skicka en förfrågan om privat MR vid besvär från rörelseapparaten – rygg, knä, axel och höft. En läkare gör en medicinsk bedömning och kan utfärda remiss när det behövs. Magnetkameraundersökningen utförs på röntgenmottagning och en specialistläkare i ortopedi går därefter igenom MR-svaret med patienten.",
           },
           faqSchema(faqs),
         ]}

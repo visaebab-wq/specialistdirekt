@@ -21,7 +21,7 @@ export function FaqList({ items }: { items: Faq[] }) {
           </summary>
           {/* Tom rad i svaret blir ett eget stycke. Svaren var enradiga fram
               till betalningsfrågorna, som måste skilja på direktbokning och
-              förmedlade besök och därför behöver mer än ett stycke. Svar utan
+              bokade besök och därför behöver mer än ett stycke. Svar utan
               tom rad ger exakt ett <p> som förut – oförändrad rendering. */}
           <div className="max-w-2xl space-y-3 pb-5 leading-relaxed text-ink-600">
             {faq.answer.split("\n\n").map((paragraph, i) => (

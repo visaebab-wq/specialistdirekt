@@ -124,7 +124,7 @@ export const article: Article = {
       heading: "När du ska söka vård direkt",
       body: [
         "En planerad utredning av förhöjda levervärden är till för besvär som inte är akuta. Vissa symtom ska däremot inte vänta. Sök akut vård eller ring **112** vid gulfärgad hud eller ögonvitor som kommer snabbt, kraftig eller ihållande buksmärta, blodiga kräkningar, svart eller tjärliknande avföring, snabbt tilltagande buksvullnad, eller förvirring och kraftig trötthet i kombination med känd leversjukdom.",
-        "Specialistdirekt ger inte medicinsk rådgivning och bedömer inte hur brådskande dina besvär är. Är du osäker når du **1177** dygnet runt. Vi är en kostnadsfri förmedling – vi bokar tiden och tar betalt för besöket, medan det medicinska ansvaret ligger hos mottagningen.",
+        "Specialistdirekt ger inte medicinsk rådgivning och bedömer inte hur brådskande dina besvär är. Är du osäker når du **1177** dygnet runt. Vi är en kostnadsfri förfrågan – vi bokar tiden och tar betalt för besöket, medan det medicinska ansvaret ligger hos mottagningen.",
       ],
     },
     {

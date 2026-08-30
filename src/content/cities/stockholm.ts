@@ -27,7 +27,7 @@ export const city: City = {
     gynekolog:
       "Behöver du en gynekolog i Stockholm möter du ett brett utbud av mottagningar inriktade på kvinnohälsa, från allmän gynekologi till mer specialiserad vård. I en stad av Stockholms storlek kan det dock vara svårt att veta vilken mottagning som passar bäst. Specialistdirekt hjälper dig att hitta en gynekolog utifrån dina önskemål och behov.",
     psykiater:
-      "Inom psykisk hälsa, inklusive utredning av ADHD, finns i Stockholm ett stort antal psykiatriska mottagningar och privatpraktiserande psykiatrer. Eftersom efterfrågan är hög kan väntetiderna skilja sig åt mellan olika aktörer. Vi hjälper dig att hitta en psykiater i Stockholm och att hitta rätt väg in i vården.",
+      "Inom psykisk hälsa, inklusive utredning av ADHD, finns i Stockholm ett stort antal psykiatriska mottagningar och privatpraktiserande psykiatrer. Eftersom efterfrågan är hög kan väntetiderna skilja sig åt mellan olika aktörer. På Specialistdirekt kan du läsa om psykiatri och privata alternativ i Stockholm.",
     neurolog:
       "För besvär från nervsystemet, som migrän eller yrsel, finns neurologisk specialistkompetens på Stockholms sjukhus och hos privata neurologmottagningar. Neurologi är ett område där rätt utredning tidigt kan göra stor skillnad. Genom Specialistdirekt kommer du kostnadsfritt i kontakt med en neurolog i Stockholm som kan ta sig an dina besvär.",
   },

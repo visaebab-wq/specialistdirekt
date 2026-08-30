@@ -292,7 +292,7 @@ export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
 
       <SubmitButton />
       <p className="text-center text-xs text-ink-500">
-        Kostnadsfri tidsförfrågan och utan förpliktelser. Inte en akuttjänst – ring 112 vid nödfall.
+        Kostnadsfri tidsförfrågan. Inte en akuttjänst – ring 112 vid nödfall.
       </p>
     </form>
   );

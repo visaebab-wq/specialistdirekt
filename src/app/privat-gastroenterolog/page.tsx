@@ -232,7 +232,7 @@ export default function PrivatGastroenterologPage() {
             </h2>
             <Prose
               paragraphs={[
-                "Specialistdirekt är en kostnadsfri förmedlingstjänst. Du beskriver ditt behov, så hjälper vi dig att hitta relevant privat specialistvård inom mage och tarm. Tillgång och pris beror på de mottagningar som tar emot dig, och vi ställer inga diagnoser och ger ingen medicinsk rådgivning. Specialistdirekt är inte en akutverksamhet.",
+                "Specialistdirekt är en kostnadsfri boknings- och informationstjänst. Du beskriver ditt behov, så hjälper vi dig att hitta relevant privat specialistvård inom mage och tarm. Tillgång och pris beror på de mottagningar som tar emot dig, och vi ställer inga diagnoser och ger ingen medicinsk rådgivning. Specialistdirekt är inte en akutverksamhet.",
                 "Vill du hellre läsa mer om specialiteten först? Se vår översikt om [gastroenterologi](/specialiteter/gastroenterolog).",
               ]}
             />

@@ -153,7 +153,7 @@ export const articles: Article[] = [
  * Tillåtna externa domäner i artikelinnehåll.
  *
  * VIKTIGT: vi länkar ALDRIG ut till en klinik, mottagning eller vårdgivare. Vi är
- * en förmedlingstjänst – en utlänk till en vårdgivare skickar bort läsaren, kan
+ * en boknings- och informationstjänst – en utlänk till en vårdgivare skickar bort läsaren, kan
  * läsas som ett ställningstagande för just den aktören, och undergräver att vi
  * inte är bundna till en enskild klinik. Endast myndigheter och oberoende
  * medicinska kunskapskällor är tillåtna, som stöd för medicinska påståenden.

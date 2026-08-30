@@ -124,15 +124,15 @@ export const article: Article = {
       heading: "Söker du privat ortoped för knäsmärta i Göteborg?",
       body: [
         "Bor du i Göteborgsområdet kan du boka **Dr. Masoud Sorkhabi**, specialist i ortopedi och ryggkirurgi med över 20 års erfarenhet av ortopedi och kirurgi, inklusive knäbesvär. **Fysiskt besök i Göteborg 2 000 kr**, som betalas på plats vid besöket – utan remiss för självbetalande.",
-        "Läs mer och boka på [privat ortoped i Göteborg](/specialiteter/ortoped/goteborg). Specialistdirekt är en förmedlingstjänst; den medicinska bedömningen görs av läkaren.",
+        "Läs mer och boka på [privat ortoped i Göteborg](/specialiteter/ortoped/goteborg). Specialistdirekt är en boknings- och informationstjänst; den medicinska bedömningen görs av läkaren.",
       ],
     },
     {
       id: "specialistdirekt",
       heading: "Så hjälper Specialistdirekt dig vidare",
       body: [
-        "Specialistdirekt är en **kostnadsfri** förmedlingstjänst. Du beskriver kort dina knäbesvär och skickar en förfrågan. Vi återkommer med besked om hur du kan gå vidare. Vi ställer inga diagnoser och ger ingen medicinsk rådgivning; vi hjälper dig att hitta rätt mottagning och få besked om tid och pris.",
-        "Vill du veta exakt hur förmedlingen går till steg för steg kan du läsa [så fungerar det](/sa-fungerar-det). Är du redo att komma vidare, fyll i en förfrågan via [kontaktsidan](/kontakt) så återkommer vi med förslag på lämplig ortoped.",
+        "Specialistdirekt är en **kostnadsfri** boknings- och informationstjänst. Du beskriver kort dina knäbesvär och skickar en förfrågan. Vi återkommer med besked om hur du kan gå vidare. Vi ställer inga diagnoser och ger ingen medicinsk rådgivning; via Specialistdirekt kan du skicka en förfrågan om en privat mottagning och få besked om tid och pris.",
+        "Vill du veta exakt hur tjänsten fungerar steg för steg kan du läsa [så fungerar det](/sa-fungerar-det). Är du redo att komma vidare, fyll i en förfrågan via [kontaktsidan](/kontakt) så återkommer vi med förslag på lämplig ortoped.",
         "Kom ihåg att priserna i den här guiden är ungefärliga och kan ha ändrats. Det säkraste är alltid att be den aktuella kliniken om ett bekräftat pris innan du bokar.",
       ],
     },

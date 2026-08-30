@@ -34,7 +34,7 @@ const details = [
   },
   {
     q: "Vad kostar det?",
-    a: "Vår förmedling är helt kostnadsfri. Du betalar bara för själva vårdbesöket, enligt mottagningens ordinarie priser eller patientavgift.",
+    a: "Vår tjänst är helt kostnadsfri. Du betalar bara för själva vårdbesöket, enligt mottagningens ordinarie priser eller patientavgift.",
   },
 ];
 

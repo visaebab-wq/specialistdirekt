@@ -116,8 +116,8 @@ export const article: Article = {
       id: "specialistdirekt",
       heading: "Så kan Specialistdirekt hjälpa dig snabbare",
       body: [
-        "Specialistdirekt är en **kostnadsfri** förmedlingstjänst. Du beskriver kort ditt ärende och skickar en förfrågan. Vi återkommer med besked om hur du kan gå vidare. Vi ställer inga diagnoser och ger ingen medicinsk rådgivning, och vi kan inte påverka väntetiden i den offentliga vården. Det vi gör är att hjälpa dig hitta en privat mottagning och få besked om tid och pris.",
-        "Vill du veta exakt hur förmedlingen går till steg för steg kan du läsa [så fungerar det](/sa-fungerar-det). Är du redo att komma vidare fyller du i en förfrågan via [kontaktsidan](/kontakt) så återkommer vi med förslag på lämplig läkare.",
+        "Specialistdirekt är en **kostnadsfri** boknings- och informationstjänst. Du beskriver kort ditt ärende och skickar en förfrågan. Vi återkommer med besked om hur du kan gå vidare. Vi ställer inga diagnoser och ger ingen medicinsk rådgivning, och vi kan inte påverka väntetiden i den offentliga vården. Det vi gör är att hjälpa dig hitta en privat mottagning och få besked om tid och pris.",
+        "Vill du veta exakt hur tjänsten fungerar steg för steg kan du läsa [så fungerar det](/sa-fungerar-det). Är du redo att komma vidare fyller du i en förfrågan via [kontaktsidan](/kontakt) så återkommer vi med förslag på lämplig läkare.",
         "Att vända sig privat är ett komplement, inte ett krav – dina rättigheter i den offentliga vården enligt vårdgarantin finns kvar oavsett. Väg in hur bråttom du har och din ekonomi, och låt **1177** och din region vara stöd i beslutet.",
       ],
     },

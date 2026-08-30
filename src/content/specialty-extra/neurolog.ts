@@ -79,7 +79,7 @@ export const extra: SpecialtyExtra = {
     {
       question: "Kan Specialistdirekt hjälpa mig att hitta en neurolog?",
       answer:
-        "Ja. Specialistdirekt är en kostnadsfri förmedlingstjänst. Du skickar en förfrågan och får besked om hur du kan gå vidare. Du beskriver dina besvär, så hjälper vi dig att hitta en lämplig neurolog eller mottagning. Vi ställer inga diagnoser och ger ingen medicinsk rådgivning – vi hjälper dig att hitta rätt vård. [Kontakta oss](/kontakt) för att komma igång.",
+        "Ja. Specialistdirekt är en kostnadsfri boknings- och informationstjänst. Du skickar en förfrågan och får besked om hur du kan gå vidare. Du beskriver dina besvär, så hjälper vi dig att hitta en lämplig neurolog eller mottagning. Vi ställer inga diagnoser och ger ingen medicinsk rådgivning – vi hjälper dig att hitta rätt vård. [Kontakta oss](/kontakt) för att komma igång.",
     },
   ],
 };

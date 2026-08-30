@@ -1,17 +1,17 @@
 # Specialistdirekt
 
-> Specialistdirekt är en kostnadsfri, oberoende förmedlingstjänst som hjälper privatpersoner i Sverige att hitta och komma i kontakt med rätt specialistläkare. Användaren beskriver sitt behov i ett formulär, och en koordinator matchar hen med en eller flera passande, legitimerade specialister. Tjänsten ger inte medicinsk rådgivning och ställer inga diagnoser.
+> Specialistdirekt är en boknings- och informationstjänst om privat specialistvård i Sverige. På webbplatsen finns information om medicinska specialiteter och möjlighet att boka en tillgänglig tid eller skicka en tidsförfrågan. Specialistdirekt ger inte medicinsk rådgivning, ställer inga diagnoser och är inte vårdgivare. Medicinsk bedömning och behandling utförs av den läkare eller mottagning som tar emot patienten.
 
 ## Viktigt att veta
-- Tjänsten är kostnadsfri och utan förpliktelser.
+- Tjänsten är kostnadsfri.
 - Detta är INTE en akuttjänst. Vid livshotande tillstånd ska 112 ringas; för sjukvårdsrådgivning 1177.
 - Personuppgifter hanteras enligt GDPR och delas endast med vald specialist.
 
 ## Sidor
 - [Startsida](/): Översikt, så fungerar det och formulär för att hitta specialist.
 - [Så fungerar det](/sa-fungerar-det): Stegen från förfrågan till bokad tid.
-- [Specialiteter](/specialiteter): Lista över medicinska specialiteter som förmedlas.
-- [Om oss](/om-oss): Om förmedlingstjänsten och dess värderingar.
+- [Specialiteter](/specialiteter): Information om medicinska specialiteter.
+- [Om oss](/om-oss): Om boknings- och informationstjänsten och dess värderingar.
 - [Vanliga frågor](/vanliga-fragor): Svar på vanliga frågor.
 - [Kontakt](/kontakt): Skicka en förfrågan eller kontakta oss direkt.
 - [Integritetspolicy](/integritetspolicy): Hur personuppgifter behandlas enligt GDPR.

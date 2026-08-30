@@ -9,7 +9,7 @@ import { PageVisual } from "@/components/PageVisual";
 export const metadata: Metadata = {
   title: "Om Specialistdirekt – vilka vi är och hur vi arbetar",
   description:
-    "Specialistdirekt är en oberoende förmedlingstjänst som hjälper dig att hitta rätt specialistläkare i Sverige – snabbt, tryggt och kostnadsfritt.",
+    "Specialistdirekt är en boknings- och informationstjänst om privat specialistvård i Sverige.",
   alternates: { canonical: "/om-oss" },
 };
 
@@ -32,7 +32,7 @@ const values = [
   {
     icon: "T",
     title: "Trygghet",
-    text: "Vi förmedlar endast kontakt med legitimerade specialister och hanterar dina uppgifter enligt GDPR.",
+    text: "Bokningsbara tider gäller legitimerade specialister, och dina uppgifter hanteras enligt GDPR.",
   },
   {
     icon: "P",
@@ -66,14 +66,14 @@ export default function AboutPage() {
             Specialistdirekt grundades {site.foundingYear} för att lösa det problemet.
           </p>
           <p>
-            Vi är en oberoende förmedlingstjänst. Du beskriver ditt behov och skickar en
-            förfrågan, så återkommer vi med besked om hur du kan gå vidare – kostnadsfritt och
-            utan förpliktelser. Du behåller alltid full kontroll och väljer själv om och med vem du
-            går vidare.
+            Specialistdirekt samlar information om privat specialistvård och erbjuder bokning eller
+            tidsförfrågan för de tjänster som presenteras på webbplatsen. Specialistdirekt ger inte
+            medicinsk rådgivning och ställer inga diagnoser. Medicinsk bedömning och behandling
+            utförs alltid av den läkare eller mottagning som tar emot patienten.
           </p>
           <p>
-            Vi ställer inga diagnoser och ger ingen medicinsk rådgivning. Vår roll är att vara
-            länken som snabbt och tryggt för dig vidare till rätt vård.
+            Webbplatsen ersätter inte kontakt med vården. Specialistdirekt är inte vårdgivare;
+            det medicinska ansvaret ligger hos den läkare eller mottagning som utför vården.
           </p>
           <p>
             Du behöver aldrig ta vårt ord för att en läkare är legitimerad. Socialstyrelsen för ett

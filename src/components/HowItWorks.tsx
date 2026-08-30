@@ -1,4 +1,4 @@
-// Stegen i förmedlingsflödet. Återanvänds på startsidan och /sa-fungerar-det.
+// Stegen i bokningsflödet. Återanvänds på startsidan och /sa-fungerar-det.
 
 export const steps = [
   {
@@ -13,8 +13,8 @@ export const steps = [
   },
   {
     icon: "03",
-    title: "Kom i kontakt",
-    text: "Du får kontaktförslag och kan boka tid direkt med specialisten. Kostnadsfritt och utan förpliktelser.",
+    title: "Besked om bokning",
+    text: "Du får besked om möjlig tid och kan boka enligt informationen du får. Det kostar inget att skicka en förfrågan.",
   },
 ];
 

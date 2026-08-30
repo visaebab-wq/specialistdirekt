@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     "specialistläkare",
     "hitta specialist",
     "privat specialist",
-    "förmedling vård",
+    "boka specialistläkare",
     "specialistvård Sverige",
   ],
   alternates: { canonical: "/" },
