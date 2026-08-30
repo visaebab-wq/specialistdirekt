@@ -10,11 +10,15 @@ import { medicalReviewerFor } from "./medical-reviewer";
 
 const abs = (path: string) => `${site.url}${path.startsWith("/") ? path : `/${path}`}`;
 
-// OBS: Vi publicerar medvetet inget telefonnummer och ingen fysisk adress.
-// Därför finns här varken telephone, address/PostalAddress eller contactPoint.
-// Den enda kontaktuppgiften i strukturerad data är den verifierade e-postadressen,
-// som också visas synligt på sajten. Lägg inte tillbaka phone/address/contactPoint
-// utan verifierade företagsuppgifter.
+// Kontaktuppgifterna i Organization kommer från site.ts och är verifierade:
+// postadressen är ViSaeb AB:s registrerade adress hos Bolagsverket, numret är en
+// separat arbetslinje. Samtliga visas också synligt på sajten – schema som inte
+// motsvarar synligt innehåll är fel enligt Googles egna riktlinjer.
+//
+// PostalAddress beskriver BOLAGETS kontor. Den är medvetet INTE en besöksadress
+// och får aldrig återanvändas som mottagningsadress: ortopedibesöket sker hos
+// läkaren i Göteborg. Av samma skäl typas sajten fortfarande som Organization,
+// aldrig som MedicalBusiness eller LocalBusiness med öppettider.
 
 // Tar bort fält som är undefined/tomma så att schemat aldrig innehåller
 // platshållare eller tomma värden.
@@ -46,6 +50,23 @@ export function organizationSchema() {
     logo: abs("/icon.svg"),
     image: abs("/opengraph-image"),
     email: site.email,
+    telephone: site.phone,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: site.address.street,
+      postalCode: site.address.postalCode,
+      addressLocality: site.address.city,
+      addressRegion: site.address.region,
+      addressCountry: site.address.country,
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      telephone: site.phone,
+      email: site.email,
+      areaServed: "SE",
+      availableLanguage: ["sv"],
+    },
     foundingDate: String(site.foundingYear),
     description: site.description,
     areaServed: { "@type": "Country", name: "Sverige" },
@@ -54,7 +75,7 @@ export function organizationSchema() {
   });
 }
 
-// MedicalBusiness-schemat är borttaget. Specialistdirekt är en förmedlare och
+// MedicalBusiness-schemat är borttaget. Specialistdirekt är inte vårdgivare och
 // koordinator; vården ges av mottagningen. MedicalBusiness beskriver en enhet
 // som själv bedriver vård, och att typa sajten så vore felaktig strukturerad
 // data på en YMYL-sajt. Sajtentiteten beskrivs enbart som Organization + WebSite.
@@ -99,13 +120,13 @@ export function howToSchema(steps: { title: string; text: string }[]) {
   };
 }
 
-/** Service-schema för förmedlingstjänsten. */
+/** Service-schema för boknings- och informationstjänsten. */
 export function serviceSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Förmedling av specialistläkare",
-    serviceType: "Vårdförmedling",
+    name: "Bokning och information om specialistläkare",
+    serviceType: "Boknings- och informationstjänst",
     provider: { "@id": `${site.url}/#organization` },
     areaServed: { "@type": "Country", name: "Sverige" },
     description: site.description,
@@ -113,7 +134,7 @@ export function serviceSchema() {
       "@type": "Offer",
       price: "0",
       priceCurrency: "SEK",
-      description: "Kostnadsfri förmedling till patienter.",
+      description: "Det kostar inget att skicka en förfrågan.",
     },
   };
 }
@@ -238,27 +259,27 @@ export function webPageSchema(opts: {
 }
 
 /**
- * Service-schema för en stad×specialitet-förmedlingssida. Provider är ALLTID
+ * Service-schema för en stad×specialitet-informationssida. Provider är ALLTID
  * Specialistdirekt (Organization) – aldrig den anonyma mottagningen eller
  * läkaren. Ingen AggregateRating/Review och inget Offer med okänt medicinskt
- * pris; det enda priset är den kostnadsfria förmedlingen.
+ * pris; det enda priset är den kostnadsfria tjänsten.
  */
 export function citySpecialtyServiceSchema(specialty: Specialty, city: City, path: string) {
   const title = specialty.title.toLowerCase();
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: `Förmedling av privat ${title} i ${city.name}`,
-    serviceType: "Vårdförmedling",
+    name: `Bokning och information om privat ${title} i ${city.name}`,
+    serviceType: "Boknings- och informationstjänst",
     provider: { "@id": `${site.url}/#organization` },
     areaServed: { "@type": "City", name: city.name },
     url: abs(path),
-    description: `Specialistdirekt hjälper dig till privat ${title} i ${city.name}. Specialistdirekt är en förmedlingstjänst.`,
+    description: `Specialistdirekt hjälper dig till privat ${title} i ${city.name}. Specialistdirekt är en boknings- och informationstjänst.`,
     offers: {
       "@type": "Offer",
       price: "0",
       priceCurrency: "SEK",
-      description: "Kostnadsfri förmedling.",
+      description: "Kostnadsfri förfrågan.",
     },
   };
 }

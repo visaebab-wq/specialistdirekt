@@ -4,6 +4,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/structured-data";
 import { site } from "@/lib/site";
+import { PhoneLink } from "@/components/PhoneLink";
 import { PageVisual } from "@/components/PageVisual";
 
 export const metadata: Metadata = {
@@ -32,7 +33,7 @@ export default function ContactPage() {
           <h1 className="internal-hero-title mt-6">Hitta din specialist</h1>
           <p className="internal-hero-text">
             Fyll i formuläret så återkommer vi med besked. Det är kostnadsfritt
-            och utan förpliktelser – vi återkommer normalt inom en arbetsdag.
+            – vi återkommer normalt inom en arbetsdag.
           </p>
           <PageVisual visual={visual} className="mt-10 max-w-3xl" priority />
         </div>
@@ -61,6 +62,43 @@ export default function ContactPage() {
                     <a href={`mailto:${site.email}`} className="text-brand-700 hover:underline">
                       {site.email}
                     </a>
+                  </dd>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <span
+                  aria-hidden
+                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand-700"
+                >
+                  ☎
+                </span>
+                <div>
+                  <dt className="font-semibold text-ink-900">Telefon</dt>
+                  <dd>
+                    <PhoneLink className="text-brand-700 hover:underline" />
+                  </dd>
+                </div>
+              </div>
+              {/* Bolagets registrerade adress – ett kontor, inte en mottagning.
+                  Står här så att uppgifterna på sajten, i Organization-schemat
+                  och i Google Företagsprofil är identiska. */}
+              <div className="flex items-start gap-4">
+                <span
+                  aria-hidden
+                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand-700"
+                >
+                  ⌂
+                </span>
+                <div>
+                  <dt className="font-semibold text-ink-900">Postadress</dt>
+                  <dd>
+                    <address className="not-italic">
+                      {site.legalName}
+                      <br />
+                      {site.address.street}
+                      <br />
+                      {site.address.postalCode} {site.address.city}
+                    </address>
                   </dd>
                 </div>
               </div>

@@ -16,10 +16,14 @@ export const site = {
   tagline: "Hitta rätt specialistläkare – snabbt och tryggt",
   description:
     "Specialistdirekt hjälper dig hitta rätt specialistläkare i Sverige. Beskriv ditt behov och skicka en kostnadsfri förfrågan, så återkommer vi med besked.",
-  // Kontakt. Vi publicerar tills vidare ENDAST en verifierad e-postadress på egen
-  // domän. Telefonnummer och fysisk adress publiceras medvetet inte – varken som
-  // synlig text, tel:-länk eller i strukturerad data. Lägg INTE tillbaka phone/
-  // address här utan verifierade företagsuppgifter (se kontakt-/integritetspolicy).
+  // Kontakt. Telefonnummer och postadress publicerades tidigare inte alls, i
+  // väntan på verifierade företagsuppgifter. De uppgifterna finns nu:
+  // postadressen är ViSaeb AB:s registrerade adress (Bolagsverket) och numret
+  // är en separat arbetslinje, bekräftad av uppdragsgivaren 2026-08-30.
+  //
+  // VIKTIGT: adressen är bolagets kontorsadress – INTE en mottagning. Ortopedi-
+  // besöket sker hos läkaren i Göteborg, inte här. Skriv aldrig ut adressen som
+  // besöksadress på en behandlings- eller bokningssida.
   //
   // MÅSTE vara en brevlåda som verkligen finns. Adressen står i sidfoten på varje
   // sida, i integritetspolicyn (dit GDPR-frågor ska skickas) och i strukturerad
@@ -28,6 +32,20 @@ export const site = {
   // varje läsare som hörde av sig. Kontrollera adressen mot mailservern innan
   // den ändras.
   email: "info@specialistdirekt.se",
+  // Separat arbetsnummer – inte en privat mobil. Visas som tel:-länk och i
+  // Organization-schemat. Samma nummer ska stå på Google Företagsprofil och i
+  // katalogerna; skiljer de sig åt tappar NAP-signalen sitt värde.
+  phone: "+46728697203",
+  phoneDisplay: "072-869 72 03",
+  // Bolagets registrerade adress (ViSaeb AB, Bolagsverket). Kontorsadress –
+  // ingen mottagning. Se varningen ovan.
+  address: {
+    street: "Övre Hägnavägen 10",
+    postalCode: "436 51",
+    city: "Hovås",
+    region: "Västra Götalands län",
+    country: "SE",
+  },
   // Sociala profiler. Används på två ställen: `sameAs` i Organization-schemat
   // (kopplar profilen till entiteten för Google och AI-assistenter) och som
   // länkar i sidfoten. Tom lista döljs på båda ställena.

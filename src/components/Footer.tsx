@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CookieSettingsButton } from "@/components/CookieSettingsButton";
+import { PhoneLink } from "@/components/PhoneLink";
 import { mainNav, site } from "@/lib/site";
 import { specialties } from "@/lib/specialties";
 import { getArticle } from "@/lib/articles";
@@ -56,7 +57,7 @@ export function Footer() {
             Specialistdirekt
           </Link>
           <p className="mt-4 text-sm leading-relaxed text-ink-300">
-            Kostnadsfri förmedling till rätt specialistläkare i Sverige – snabbt, tryggt och
+            Kostnadsfri förfrågan till rätt specialistläkare i Sverige – snabbt, tryggt och
             personligt.
           </p>
         </div>
@@ -129,6 +130,22 @@ export function Footer() {
               <a href={`mailto:${site.email}`} className="hover:text-white">
                 {site.email}
               </a>
+            </li>
+            <li>
+              <PhoneLink className="hover:text-white" />
+            </li>
+            {/* Bolagets postadress. Står här för att namn, adress och telefon
+                ska vara samma på sajten, i Organization-schemat och i Google
+                Företagsprofil – glider de isär tappar signalen sitt värde.
+                Det är ett kontor, inte en mottagning; besöket sker hos läkaren. */}
+            <li className="pt-1 not-italic text-ink-400">
+              <address className="not-italic">
+                {site.legalName}
+                <br />
+                {site.address.street}
+                <br />
+                {site.address.postalCode} {site.address.city}
+              </address>
             </li>
             <li className="pt-1 text-ink-400">
               <Link href="/kontakt" className="hover:text-white">
