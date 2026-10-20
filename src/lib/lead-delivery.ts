@@ -138,14 +138,15 @@ export async function deliverLead(lead: LeadData): Promise<DeliveryResult> {
         body: JSON.stringify({ from, to: [to], reply_to: lead.email, subject, html, text }),
       });
       if (!res.ok) {
-        const body = await res.text();
-        console.error("[lead] Resend-fel", res.status, body);
+        // API-svaret kan återge mottagaradress eller andra delar av anropet.
+        // Statuskoden räcker för driftfelsökning utan att patientdata hamnar i journalen.
+        console.error("[lead] Resend-fel", { status: res.status });
         return { delivered: false, persisted, channel: "email", error: `Resend ${res.status}` };
       }
       return { delivered: true, persisted, channel: "email" };
-    } catch (err) {
-      console.error("[lead] Resend-fel", err);
-      return { delivered: false, persisted, channel: "email", error: String(err) };
+    } catch {
+      console.error("[lead] Resend-fel vid nätverksanrop");
+      return { delivered: false, persisted, channel: "email", error: "Resend network error" };
     }
   }
 

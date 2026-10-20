@@ -50,6 +50,28 @@ function isCertError(err: unknown): boolean {
 }
 
 /**
+ * Nodemailer-fel kan innehålla mottagaradress och hela SMTP-svaret. Logga och
+ * returnera därför bara ett litet tekniskt sammandrag, aldrig felobjektet,
+ * meddelandets ämnesrad eller andra patientuppgifter.
+ */
+function errorSummary(err: unknown): string {
+  const e = err as { code?: unknown; command?: unknown; responseCode?: unknown } | null;
+  const safeToken = (value: unknown) =>
+    typeof value === "string" && /^[A-Za-z0-9_-]{1,40}$/.test(value) ? value : undefined;
+  const code = safeToken(e?.code) ?? "unknown";
+  const command = safeToken(e?.command);
+  const responseCode =
+    typeof e?.responseCode === "number" && Number.isInteger(e.responseCode)
+      ? e.responseCode
+      : undefined;
+  return [
+    `code=${code}`,
+    ...(command ? [`command=${command}`] : []),
+    ...(responseCode !== undefined ? [`responseCode=${responseCode}`] : []),
+  ].join(";");
+}
+
+/**
  * Har vi redan konstaterat att certifikatet är trasigt? Då hoppas det strikta
  * försöket över nästa gång – annars kostar varje mejl en extra timeout.
  * Nollställs vid omstart, så ett förnyat certifikat används direkt igen.
@@ -76,7 +98,7 @@ export function smtpConfigured(): boolean {
  */
 export async function sendMail(mail: SmtpMail, tag = "mail"): Promise<SmtpResult> {
   if (!smtpConfigured()) {
-    console.warn(`[${tag}] SMTP saknas – mejl skickades inte:`, mail.subject);
+    console.warn(`[${tag}] SMTP saknas – mejl skickades inte`);
     return { sent: false, error: "smtp-not-configured" };
   }
 
@@ -98,8 +120,9 @@ export async function sendMail(mail: SmtpMail, tag = "mail"): Promise<SmtpResult
       return { sent: true };
     } catch (err) {
       if (forceStrict || !isCertError(err)) {
-        console.error(`[${tag}] SMTP-fel`, mail.subject, err);
-        return { sent: false, error: String(err) };
+        const error = errorSummary(err);
+        console.error(`[${tag}] SMTP-fel`, error);
+        return { sent: false, error };
       }
       certKnownBroken = true;
       console.warn(
@@ -115,7 +138,8 @@ export async function sendMail(mail: SmtpMail, tag = "mail"): Promise<SmtpResult
     await transport(true).sendMail(message);
     return { sent: true, insecureTls: true };
   } catch (err) {
-    console.error(`[${tag}] SMTP-fel`, mail.subject, err);
-    return { sent: false, error: String(err) };
+    const error = errorSummary(err);
+    console.error(`[${tag}] SMTP-fel`, error);
+    return { sent: false, error };
   }
 }
