@@ -25,6 +25,12 @@ const MAX = {
   message: 2000,
 };
 
+/** FormData kan innehålla File även för fält som gränssnittet visar som text. */
+function formString(formData: FormData, key: string): string {
+  const value = formData.get(key);
+  return typeof value === "string" ? value.trim() : "";
+}
+
 function isEmail(value: string) {
   // Enkel men robust e-postkontroll – tillräcklig för formulärvalidering.
   return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
@@ -64,7 +70,7 @@ export async function submitLead(
   formData: FormData,
 ): Promise<LeadState> {
   // Honungsfälla mot bottar: fältet är dolt och ska vara tomt.
-  if ((formData.get("company") as string)?.trim()) {
+  if (formString(formData, "company")) {
     return { status: "success", message: "Tack! Vi hör av oss snart.", errors: {} };
   }
 
@@ -77,16 +83,16 @@ export async function submitLead(
     };
   }
 
-  const name = (formData.get("name") as string)?.trim() ?? "";
-  const email = (formData.get("email") as string)?.trim() ?? "";
-  const phone = (formData.get("phone") as string)?.trim() ?? "";
-  const specialty = (formData.get("specialty") as string)?.trim() ?? "";
-  const message = (formData.get("message") as string)?.trim() ?? "";
-  const city = (formData.get("city") as string)?.trim() ?? "";
-  const preferredDate1 = (formData.get("preferredDate1") as string)?.trim() ?? "";
-  const preferredDate2 = (formData.get("preferredDate2") as string)?.trim() ?? "";
-  const preferredDate3 = (formData.get("preferredDate3") as string)?.trim() ?? "";
-  const timePreference = (formData.get("timePreference") as string)?.trim() ?? "";
+  const name = formString(formData, "name");
+  const email = formString(formData, "email");
+  const phone = formString(formData, "phone");
+  const specialty = formString(formData, "specialty");
+  const message = formString(formData, "message");
+  const city = formString(formData, "city");
+  const preferredDate1 = formString(formData, "preferredDate1");
+  const preferredDate2 = formString(formData, "preferredDate2");
+  const preferredDate3 = formString(formData, "preferredDate3");
+  const timePreference = formString(formData, "timePreference");
   const consent = formData.get("consent") === "on";
 
   const errors: Record<string, string> = {};
@@ -182,7 +188,7 @@ export async function submitBooking(
   const { claimSlot } = await import("@/lib/booking-store");
   const { sendPatientConfirmation, sendOwnerPending } = await import("@/lib/booking-email");
 
-  if ((formData.get("company") as string)?.trim()) {
+  if (formString(formData, "company")) {
     return { status: "success", message: "Tack! Du får ett bekräftelsemejl.", errors: {} };
   }
   if (await isRateLimited()) {
@@ -193,30 +199,35 @@ export async function submitBooking(
     };
   }
 
-  const str = (k: string, max: number) =>
-    ((formData.get(k) as string) || "").trim().slice(0, max);
-  const slot = str("slot", 40);
-  const name = str("name", 100);
-  const email = str("email", 160);
-  const phone = str("phone", 40);
-  const message = str("message", 2000);
-  const bookingType = formData.get("bookingType") === "child" ? "child" : "adult";
-  const childName = str("childName", 100);
-  const childBirthDate = str("childBirthDate", 10);
+  const slot = formString(formData, "slot");
+  const name = formString(formData, "name");
+  const email = formString(formData, "email");
+  const phone = formString(formData, "phone");
+  const message = formString(formData, "message");
+  const bookingType = formString(formData, "bookingType") === "child" ? "child" : "adult";
+  const childName = formString(formData, "childName");
+  const childBirthDate = formString(formData, "childBirthDate");
 
   const errors: Record<string, string> = {};
   if (!slot) errors.slot = "Välj en tid.";
+  else if (slot.length > 40) errors.slot = "Tiden är inte längre giltig. Välj en annan.";
   else if (!isValidSlot(slot)) errors.slot = "Tiden är inte längre giltig. Välj en annan.";
-  if (name.length < 2) errors.name = "Fyll i ditt namn.";
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) errors.email = "Fyll i en giltig e-postadress.";
-  if (phone.replace(/\D/g, "").length < 6) errors.phone = "Fyll i ett telefonnummer.";
+  if (name.length < 2 || name.length > MAX.name) errors.name = "Fyll i ditt namn.";
+  if (email.length > MAX.email || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email))
+    errors.email = "Fyll i en giltig e-postadress.";
+  if (phone.length > MAX.phone || phone.replace(/\D/g, "").length < 6)
+    errors.phone = "Fyll i ett telefonnummer.";
+  if (message.length > MAX.message)
+    errors.message = `Beskrivningen får vara högst ${MAX.message} tecken.`;
   if (bookingType === "child") {
-    if (childName.length < 2) errors.childName = "Fyll i barnets namn.";
+    if (childName.length < 2 || childName.length > MAX.name)
+      errors.childName = "Fyll i barnets namn.";
     if (!isChildBirthDate(childBirthDate)) {
       errors.childBirthDate = "Barnet behöver vara 0–17 år vid bokningen.";
     }
   }
-  if (!formData.get("consent")) errors.consent = "Du behöver godkänna villkoren.";
+  if (formData.get("consent") !== "on")
+    errors.consent = "Du behöver godkänna villkoren.";
   if (Object.keys(errors).length > 0) {
     return { status: "error", message: "Kontrollera fälten nedan.", errors };
   }
@@ -275,8 +286,8 @@ export async function cancelBookingFromLink(formData: FormData): Promise<void> {
   const { cancelBooking, verifySignature } = await import("@/lib/booking-store");
   const { sendOwnerCancelled } = await import("@/lib/booking-email");
 
-  const id = ((formData.get("id") as string) || "").trim().slice(0, 80);
-  const sig = ((formData.get("sig") as string) || "").trim().slice(0, 80);
+  const id = formString(formData, "id").slice(0, 80);
+  const sig = formString(formData, "sig").slice(0, 80);
   if (!id || !sig || !verifySignature(id, sig)) redirect("/boka-tid/avboka?fel=lank");
 
   const result = cancelBooking(id);

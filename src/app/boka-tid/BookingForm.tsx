@@ -191,7 +191,7 @@ export function BookingForm({
               <label htmlFor="bk-child-name" className="mb-1 block text-sm font-medium text-ink-700">
                 Barnets namn <span className="text-red-500">*</span>
               </label>
-              <input id="bk-child-name" name="childName" required className={field} autoComplete="off" />
+              <input id="bk-child-name" name="childName" required maxLength={100} className={field} autoComplete="off" />
               {state.errors.childName && <p className="mt-1 text-sm text-red-700">{state.errors.childName}</p>}
             </div>
             <div>
@@ -212,14 +212,14 @@ export function BookingForm({
             <label htmlFor="bk-name" className="mb-1 block text-sm font-medium text-ink-700">
               {patientType === "child" ? "Vårdnadshavarens namn" : "Namn"} <span className="text-red-500">*</span>
             </label>
-            <input id="bk-name" name="name" required className={field} autoComplete="name" />
+            <input id="bk-name" name="name" required maxLength={100} className={field} autoComplete="name" />
             {state.errors.name && <p className="mt-1 text-sm text-red-700">{state.errors.name}</p>}
           </div>
           <div>
             <label htmlFor="bk-phone" className="mb-1 block text-sm font-medium text-ink-700">
               Telefon <span className="text-red-500">*</span>
             </label>
-            <input id="bk-phone" name="phone" required className={field} autoComplete="tel" />
+            <input id="bk-phone" name="phone" required maxLength={40} className={field} autoComplete="tel" />
             {state.errors.phone && <p className="mt-1 text-sm text-red-700">{state.errors.phone}</p>}
           </div>
         </div>
@@ -227,7 +227,7 @@ export function BookingForm({
           <label htmlFor="bk-email" className="mb-1 block text-sm font-medium text-ink-700">
             E-post <span className="text-red-500">*</span>
           </label>
-          <input id="bk-email" name="email" type="email" required className={field} autoComplete="email" />
+          <input id="bk-email" name="email" type="email" required maxLength={160} className={field} autoComplete="email" />
           <p className="mt-1 text-xs text-ink-500">Bekräftelselänken skickas hit.</p>
           {state.errors.email && <p className="mt-1 text-sm text-red-700">{state.errors.email}</p>}
         </div>
@@ -235,7 +235,8 @@ export function BookingForm({
           <label htmlFor="bk-message" className="mb-1 block text-sm font-medium text-ink-700">
             Vad gäller besöket? (frivilligt)
           </label>
-          <textarea id="bk-message" name="message" rows={3} className={field} />
+          <textarea id="bk-message" name="message" rows={3} maxLength={2000} className={field} />
+          {state.errors.message && <p className="mt-1 text-sm text-red-700">{state.errors.message}</p>}
         </div>
       </fieldset>
 

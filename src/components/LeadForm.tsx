@@ -107,6 +107,7 @@ export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
             name="name"
             type="text"
             autoComplete="name"
+            maxLength={100}
             required
             className={fieldClass}
           />
@@ -121,6 +122,7 @@ export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
             name="email"
             type="email"
             autoComplete="email"
+            maxLength={160}
             required
             className={fieldClass}
           />
@@ -138,6 +140,7 @@ export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
             name="phone"
             type="tel"
             autoComplete="tel"
+            maxLength={40}
             required
             className={fieldClass}
           />
@@ -152,6 +155,7 @@ export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
             name="city"
             type="text"
             autoComplete="address-level2"
+            maxLength={80}
             required
             className={fieldClass}
           />
@@ -201,6 +205,7 @@ export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
           id="message"
           name="message"
           rows={5}
+          maxLength={2000}
           placeholder="Beskriv kort besväret eller vilken undersökning/specialist du vill boka tid för."
           className={fieldClass}
         />
