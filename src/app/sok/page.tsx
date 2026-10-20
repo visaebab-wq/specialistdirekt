@@ -15,6 +15,14 @@ export const metadata: Metadata = {
 
 type Hit = { title: string; url: string; type: string; haystack: string };
 
+/** Gör "ogonlakare" sökbart som "ögonläkare" utan att ändra visad text. */
+function normalizeSearch(value: string): string {
+  return value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLocaleLowerCase("sv-SE");
+}
+
 // Bygger ett enkelt sökindex över sajtens sidor.
 function buildIndex(): Hit[] {
   const hits: Hit[] = [];
@@ -23,7 +31,7 @@ function buildIndex(): Hit[] {
       title: `${s.title} – ${s.name}`,
       url: `/specialiteter/${s.slug}`,
       type: "Specialitet",
-      haystack: [s.title, s.name, s.short, ...s.keywords].join(" ").toLowerCase(),
+      haystack: normalizeSearch([s.slug, s.title, s.name, s.short, ...s.keywords].join(" ")),
     });
   }
   for (const a of articles) {
@@ -31,7 +39,9 @@ function buildIndex(): Hit[] {
       title: a.title,
       url: `/artiklar/${a.slug}`,
       type: "Artikel",
-      haystack: [a.title, a.excerpt, a.primaryKeyword, ...a.keywords].join(" ").toLowerCase(),
+      haystack: normalizeSearch(
+        [a.slug, a.title, a.excerpt, a.primaryKeyword, ...a.keywords].join(" "),
+      ),
     });
   }
   for (const slug of CITY_SPECIALTY_SLUGS) {
@@ -42,10 +52,30 @@ function buildIndex(): Hit[] {
         title: `${sp.title} i ${c.name}`,
         url: `/specialiteter/${slug}/${c.slug}`,
         type: "Stad",
-        haystack: `${sp.title} ${sp.name} ${c.name} ${c.region}`.toLowerCase(),
+        haystack: normalizeSearch(
+          `${slug} ${c.slug} ${sp.title} ${sp.name} ${c.name} ${c.region}`,
+        ),
       });
     }
   }
+  hits.push(
+    {
+      title: "Smärtläkare och smärtmottagning",
+      url: "/specialiteter/smartlakare",
+      type: "Specialitet",
+      haystack: normalizeSearch(
+        "smartlakare smärtläkare smärtmottagning smärtspecialist långvarig smärta",
+      ),
+    },
+    {
+      title: "Privat smärtläkare i Göteborg",
+      url: "/specialiteter/smartlakare/goteborg",
+      type: "Stad",
+      haystack: normalizeSearch(
+        "smartlakare smärtläkare smärtmottagning smärtspecialist långvarig smärta goteborg Göteborg",
+      ),
+    },
+  );
   return hits;
 }
 
@@ -55,7 +85,7 @@ export default async function SearchPage({
   searchParams: Promise<{ q?: SearchParamValue }>;
 }) {
   const q = singleSearchParam((await searchParams).q);
-  const query = q.trim().toLowerCase();
+  const query = normalizeSearch(q.trim());
   const results = query
     ? buildIndex()
         .filter((h) => query.split(/\s+/).every((term) => h.haystack.includes(term)))
@@ -72,7 +102,7 @@ export default async function SearchPage({
           defaultValue={q}
           placeholder="Sök specialitet, stad eller ämne…"
           aria-label="Sök"
-          className="w-full rounded-xl border border-ink-300 bg-white px-4 py-3 text-ink-900 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 focus:outline-none"
+          className="w-full rounded-xl border border-ink-500 bg-white px-4 py-3 text-ink-900 focus:border-brand-700 focus:ring-2 focus:ring-brand-200 focus:outline-none"
         />
         <button
           type="submit"
@@ -95,7 +125,7 @@ export default async function SearchPage({
               <span className="font-medium text-ink-800 group-hover:text-brand-700">
                 {h.title}
               </span>
-              <span className="shrink-0 text-xs font-semibold uppercase tracking-wide text-brand-600">
+              <span className="shrink-0 text-xs font-semibold uppercase tracking-wide text-brand-700">
                 {h.type}
               </span>
             </Link>
