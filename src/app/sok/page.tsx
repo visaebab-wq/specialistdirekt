@@ -86,11 +86,11 @@ export default async function SearchPage({
 }) {
   const q = singleSearchParam((await searchParams).q);
   const query = normalizeSearch(q.trim());
-  const results = query
+  const matchingResults = query
     ? buildIndex()
         .filter((h) => query.split(/\s+/).every((term) => h.haystack.includes(term)))
-        .slice(0, 30)
     : [];
+  const results = matchingResults.slice(0, 30);
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6">
@@ -114,7 +114,13 @@ export default async function SearchPage({
 
       {query && (
         <p className="mt-6 text-sm text-ink-500">
-          {results.length} träff{results.length === 1 ? "" : "ar"} för “{q}”
+          {matchingResults.length} träff{matchingResults.length === 1 ? "" : "ar"} för “{q}”
+        </p>
+      )}
+
+      {matchingResults.length > results.length && (
+        <p className="mt-2 text-sm text-ink-500">
+          Visar de första {results.length} träffarna. Lägg till fler sökord för att avgränsa sökningen.
         </p>
       )}
 
