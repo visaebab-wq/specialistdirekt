@@ -7,15 +7,13 @@
 // webbhotellet, så vi gör så här:
 //
 //   1. Försök alltid först med FULL certifikatkontroll.
-//   2. Bara om felet är ett certifikatfel – och bara då – görs ett nytt försök
-//      utan kontroll av certifikatet. Anslutningen är fortfarande krypterad,
-//      men äktheten kontrolleras inte. Det loggas som varning.
+//   2. Vid certifikatfel stoppas utskicket. Bokningen/leadet är redan sparat på
+//      disk och får aldrig skickas till en server vars identitet inte kan
+//      verifieras.
 //
-// Certifikatfel uppstår under TLS-handskakningen, alltså INNAN något meddelande
-// skickats. Därför kan andraförsöket aldrig ge ett dubbelmejl. Andra fel
-// (auth, timeout, avvisad mottagare) återförsöks aldrig, just av den anledningen.
-//
-// Sätt SMTP_STRICT_TLS=1 för att stänga av andraförsöket helt.
+// Endast vid ett uttryckligt, tillfälligt driftbeslut får nödläget
+// SMTP_ALLOW_INSECURE_TLS=1 slå på ett andra försök utan certifikatkontroll.
+// SMTP_STRICT_TLS=1 behålls som en extra spärr för äldre installationer.
 
 import nodemailer from "nodemailer";
 import { site } from "./site";
@@ -112,14 +110,19 @@ export async function sendMail(mail: SmtpMail, tag = "mail"): Promise<SmtpResult
     ...(mail.attachments ? { attachments: mail.attachments } : {}),
   };
 
-  const forceStrict = process.env.SMTP_STRICT_TLS === "1";
+  const allowInsecureTls =
+    process.env.SMTP_ALLOW_INSECURE_TLS === "1" && process.env.SMTP_STRICT_TLS !== "1";
+
+  // Om nödläget stängs av ska ett gammalt processminne aldrig hålla kvar den
+  // osäkra transporten.
+  if (!allowInsecureTls) certKnownBroken = false;
 
   if (!certKnownBroken) {
     try {
       await transport(false).sendMail(message);
       return { sent: true };
     } catch (err) {
-      if (forceStrict || !isCertError(err)) {
+      if (!allowInsecureTls || !isCertError(err)) {
         const error = errorSummary(err);
         console.error(`[${tag}] SMTP-fel`, error);
         return { sent: false, error };
@@ -127,9 +130,9 @@ export async function sendMail(mail: SmtpMail, tag = "mail"): Promise<SmtpResult
       certKnownBroken = true;
       console.warn(
         `[${tag}] SMTP-certifikatet på ${process.env.SMTP_HOST} går inte att verifiera ` +
-          `(${(err as { code?: string })?.code ?? "certifikatfel"}). ` +
-          "Mejlet skickas ändå över krypterad anslutning, men utan äkthetskontroll. " +
-          "Be webbhotellet förnya certifikatet.",
+          `(${errorSummary(err)}). ` +
+          "SMTP_ALLOW_INSECURE_TLS=1 tillåter ett nödförsök utan äkthetskontroll. " +
+          "Förnya certifikatet och stäng av nödläget omedelbart.",
       );
     }
   }
