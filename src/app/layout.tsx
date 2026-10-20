@@ -3,6 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { HeaderEn } from "@/components/HeaderEn";
+import { FooterEn } from "@/components/FooterEn";
+import { LocaleShell } from "@/components/LocaleShell";
 import { JsonLd } from "@/components/JsonLd";
 import { Analytics } from "@/components/Analytics";
 import { CookieConsent } from "@/components/CookieConsent";
@@ -77,20 +80,16 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang={site.lang} className={`${inter.variable} h-full`}>
+    <html lang="sv" suppressHydrationWarning className={`${inter.variable} h-full`}>
       <body className="flex min-h-full flex-col bg-white text-ink-800">
-        {/* Hoppa-till-innehåll för tangentbords- och skärmläsaranvändare. */}
-        <a
-          href="#innehall"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded focus:bg-brand-600 focus:px-4 focus:py-2 focus:text-white"
+        <LocaleShell
+          headerSv={<Header />}
+          headerEn={<HeaderEn />}
+          footerSv={<Footer />}
+          footerEn={<FooterEn />}
         >
-          Hoppa till innehåll
-        </a>
-        <Header />
-        <main id="innehall" className="flex-1">
           {children}
-        </main>
-        <Footer />
+        </LocaleShell>
 
         {/* Global strukturerad data – beskriver organisationen för Google & AI. */}
         <JsonLd data={[organizationSchema(), websiteSchema()]} />

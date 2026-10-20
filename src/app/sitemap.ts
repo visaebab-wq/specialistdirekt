@@ -37,7 +37,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/privat-mr", priority: 0.8, changeFrequency: "monthly" as const },
     // Symtomledd ortopedilandning (Ads + organiskt): "knä låser sig".
     { path: "/kna-laser-sig", priority: 0.8, changeFrequency: "monthly" as const },
-    // Engelsk landningssida (egen canonical + hreflang mot den svenska sidan).
+    // Engelska ingångar (egna canonical + hreflang mot svenska motsvarigheter).
+    { path: "/en", priority: 0.7, changeFrequency: "monthly" as const },
     { path: "/en/private-orthopedist-gothenburg", priority: 0.6, changeFrequency: "monthly" as const },
     // Läkarprofil (entity) + ortopedisk smärtbehandling-landning.
     { path: "/lakare/masoud-sorkhabi", priority: 0.7, changeFrequency: "monthly" as const },

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 // GDPR-cookiebanner med Google Consent Mode v2.
@@ -37,6 +38,8 @@ function updateConsent(granted: boolean) {
 }
 
 export function CookieConsent() {
+  const pathname = usePathname();
+  const english = pathname === "/en" || pathname.startsWith("/en/");
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -68,17 +71,16 @@ export function CookieConsent() {
   return (
     <div
       role="dialog"
-      aria-label="Cookie-samtycke"
+      aria-label={english ? "Cookie consent" : "Cookie-samtycke"}
       className="fixed inset-x-0 bottom-0 z-[90] border-t border-ink-200 bg-white/95 backdrop-blur"
     >
       <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-4 sm:px-6 md:flex-row md:items-center md:justify-between">
         <p className="text-sm text-ink-700">
-          Utöver nödvändiga cookies vill vi använda cookies för besöksstatistik och för att mäta
-          vilka av våra annonser som leder till en bokningsförfrågan. Vi använder dem inte för
-          personanpassad annonsering eller remarketing. Du väljer själv, och kan ändra dig när som
-          helst.{" "}
-          <Link href="/integritetspolicy" className="font-medium text-brand-700 underline">
-            Läs mer i integritetspolicyn
+          {english
+            ? "In addition to necessary cookies, we would like to use cookies for visitor statistics and to measure which ads lead to an appointment request. We do not use them for personalised advertising or remarketing. You can change your choice at any time. "
+            : "Utöver nödvändiga cookies vill vi använda cookies för besöksstatistik och för att mäta vilka av våra annonser som leder till en bokningsförfrågan. Vi använder dem inte för personanpassad annonsering eller remarketing. Du väljer själv, och kan ändra dig när som helst. "}
+          <Link href="/integritetspolicy" hrefLang="sv" className="font-medium text-brand-700 underline">
+            {english ? "Read the privacy policy (in Swedish)" : "Läs mer i integritetspolicyn"}
           </Link>
           .
         </p>
@@ -89,14 +91,14 @@ export function CookieConsent() {
             onClick={() => choose(false)}
             className={`${button} border-ink-300 bg-white text-ink-800 hover:border-ink-400`}
           >
-            Neka
+            {english ? "Reject" : "Neka"}
           </button>
           <button
             type="button"
             onClick={() => choose(true)}
             className={`${button} border-ink-300 bg-white text-ink-800 hover:border-ink-400`}
           >
-            Acceptera
+            {english ? "Accept" : "Acceptera"}
           </button>
         </div>
       </div>

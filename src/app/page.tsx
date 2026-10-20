@@ -14,7 +14,10 @@ import { getArticleCardVisual } from "@/lib/medical-visuals";
 
 export const metadata: Metadata = {
   description: site.description,
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    languages: { "sv-SE": "/", "en-SE": "/en", "x-default": "/" },
+  },
 };
 
 const homeFaqs = faqs.slice(0, 5);

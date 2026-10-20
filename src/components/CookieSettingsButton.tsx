@@ -8,7 +8,13 @@ import { CONSENT_KEY, CONSENT_REOPEN_EVENT } from "./CookieConsent";
 //
 // Vi nollställer valet och öppnar bannern igen, i stället för att bygga en egen
 // panel: bannern är redan platsen där omfattningen står beskriven.
-export function CookieSettingsButton({ className }: { className?: string }) {
+export function CookieSettingsButton({
+  className,
+  label = "Cookie-inställningar",
+}: {
+  className?: string;
+  label?: string;
+}) {
   return (
     <button
       type="button"
@@ -31,7 +37,7 @@ export function CookieSettingsButton({ className }: { className?: string }) {
         window.dispatchEvent(new Event(CONSENT_REOPEN_EVENT));
       }}
     >
-      Cookie-inställningar
+      {label}
     </button>
   );
 }

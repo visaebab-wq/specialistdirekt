@@ -79,11 +79,11 @@ export function Footer() {
             </li>
             <li>
               <Link
-                href="/en/private-orthopedist-gothenburg"
+                href="/en"
                 hrefLang="en"
                 className="text-ink-300 hover:text-white"
               >
-                English: Orthopedist in Gothenburg
+                English
               </Link>
             </li>
           </ul>

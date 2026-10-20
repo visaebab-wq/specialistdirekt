@@ -1,10 +1,18 @@
 import Link from "next/link";
 
+type Locale = "sv" | "en";
+
 // Visuella brödsmulor. Strukturerad data (BreadcrumbList) läggs separat
 // via JsonLd på sidorna för rich results.
-export function Breadcrumbs({ items }: { items: { name: string; path: string }[] }) {
+export function Breadcrumbs({
+  items,
+  locale = "sv",
+}: {
+  items: { name: string; path: string }[];
+  locale?: Locale;
+}) {
   return (
-    <nav aria-label="Brödsmulor" className="text-sm text-ink-500">
+    <nav aria-label={locale === "en" ? "Breadcrumbs" : "Brödsmulor"} className="text-sm text-ink-500">
       <ol className="flex flex-wrap items-center gap-1.5">
         {items.map((item, i) => {
           const last = i === items.length - 1;

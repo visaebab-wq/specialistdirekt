@@ -11,12 +11,14 @@ import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
 
 const PATH = "/en/private-orthopedist-gothenburg";
 const SV_PATH = "/specialiteter/ortoped/goteborg";
-const BOOKING_URL = "/boka/ortoped-goteborg";
+const BOOKING_URL = "/boka/ortoped-goteborg?src=/en/private-orthopedist-gothenburg&cta=en-landing";
+const TITLE = "Private Orthopedist in Gothenburg Without Referral | Specialistdirekt";
+const DESCRIPTION =
+  "Book a private orthopedist in Gothenburg without a referral. A 40-minute self-paid visit costs 2,000 SEK and is confirmed by e-mail.";
 
 export const metadata: Metadata = {
-  title: "Private Orthopedist in Gothenburg Without Referral | Specialistdirekt",
-  description:
-    "See a private orthopedist in Gothenburg without a referral. Self-paying patients can send a free appointment request for back, neck and knee problems via Specialistdirekt.",
+  title: TITLE,
+  description: DESCRIPTION,
   keywords: [
     "private orthopedist Gothenburg",
     "orthopedist Gothenburg without referral",
@@ -34,64 +36,59 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "article",
-    title: "Private Orthopedist in Gothenburg Without Referral | Specialistdirekt",
-    description:
-      "See a private orthopedist in Gothenburg without a referral. Self-paying patients can send a free appointment request via Specialistdirekt.",
+    title: TITLE,
+    description: DESCRIPTION,
     url: PATH,
     locale: "en_SE",
   },
+  twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION },
 };
 
 const faqs = [
   {
     question: "Who is the doctor?",
     answer:
-      "You see Dr. Masoud Sorkhabi, a specialist in orthopedics and spine surgery in Gothenburg with over 20 years of experience in orthopedics and surgery, focusing on neck and back problems, disc herniation, hip and knee pain as well as chronic and unexplained pain. The medical assessment and treatment are provided by the doctor; Specialistdirekt arranges the contact.",
+      "You see Dr. Masoud Sorkhabi, a specialist in orthopedics and spine surgery in Gothenburg with over 20 years of experience in orthopedics and surgery, focusing on neck and back problems, disc herniation, hip and knee pain as well as chronic and unexplained pain. The medical assessment and treatment are provided by the doctor; Specialistdirekt handles the booking.",
   },
   {
     question: "Can I see a private orthopedist in Gothenburg without a referral?",
     answer:
-      "Yes. As a self-paying patient you do not need a referral (remiss) to book an appointment or send a request to Dr. Masoud Sorkhabi in Gothenburg. Region-funded care may have other requirements, and private health insurance usually goes through the insurer.",
+      "Yes. As a self-paying patient you do not need a referral (remiss) to book an appointment with Dr. Masoud Sorkhabi in Gothenburg. Region-funded care may have different requirements, and private health insurance usually goes through the insurer.",
   },
   {
     question: "How much does a visit with Dr. Masoud Sorkhabi cost?",
     answer:
-      "A visit in Gothenburg is 2,000 SEK, paid on site at the visit. The price is fixed and shown before you book.",
+      "A visit in Gothenburg costs 2,000 SEK, paid at the clinic on the day. The price is fixed and shown before you book.",
   },
   {
     question: "Can I see an orthopedist for back or neck pain?",
     answer:
-      "Yes. Back and neck problems, including pain radiating into the arm, are within the connected specialist's focus. The orthopedist makes a medical assessment of your current symptoms.",
+      "Yes. Back and neck problems, including pain that radiates into the arm, are among Dr. Masoud Sorkhabi's focus areas. The orthopedist makes a medical assessment of your current symptoms.",
   },
   {
     question: "Can an orthopedist assess radiating or nerve-related pain?",
     answer:
-      "Yes. Disc-related and nerve-related, radiating pain are within the connected specialist's focus. The orthopedist assesses your current symptoms and reasonable next steps. This page does not provide a diagnosis.",
+      "Yes. Disc-related and nerve-related radiating pain are also among his focus areas. The orthopedist assesses your current symptoms and reasonable next steps. This page does not provide a diagnosis.",
   },
   {
-    question: "Can I request an appointment for knee pain?",
+    question: "Can I book an appointment for knee pain?",
     answer:
-      "Yes. Knee problems such as pain, swelling, locking or instability are a common reason to see an orthopedist. You describe your symptoms in the request and receive a possible time and price before deciding.",
+      "Yes. Knee problems such as pain, swelling, locking or instability are a common reason to see an orthopedist. You select an available time in the calendar and confirm it through the link sent by e-mail.",
   },
   {
     question: "Do I need an MRI before seeing an orthopedist?",
     answer:
-      "No. You do not need to arrange an MRI or X-ray yourself just to send a first appointment request. If you already have such material, it is good to bring it. The doctor decides what, if anything, is needed.",
-  },
-  {
-    question: "How do I find a highly rated orthopedist in Gothenburg?",
-    answer:
-      "Look beyond the average score: how recent the reviews are, the doctor's specialist competence and experience, whether the doctor works with your type of problem, and that you get a clear price. Dr. Masoud Sorkhabi had a public rating of 4.9 out of 5 when last checked on 4 August 2026 — a rating that applies to the doctor, not to Specialistdirekt, and that is no guarantee of a medical outcome.",
+      "No. You do not need to arrange an MRI or X-ray yourself before a first appointment. If you already have such material, it is good to bring it. The doctor decides what, if anything, is needed.",
   },
   {
     question: "Does the orthopedist speak English?",
     answer:
-      "State your language preference in the request and we will take it into account and check with the clinic. Many doctors in Sweden speak English, but this varies between clinics and individuals, so we cannot guarantee a specific language in advance.",
+      "The booking flow does not guarantee a consultation in English. Contact Specialistdirekt before booking if you need to confirm language availability with the clinic.",
   },
   {
     question: "What is Specialistdirekt's role?",
     answer:
-      "Specialistdirekt is an intermediary service. We connect you with Dr. Masoud Sorkhabi, a specialist in orthopedics and spine surgery in Gothenburg, who makes the medical assessment.",
+      "Specialistdirekt provides the booking service. Dr. Masoud Sorkhabi, a specialist in orthopedics and spine surgery in Gothenburg, makes the medical assessment.",
   },
   {
     question: "Who is responsible for my medical care?",
@@ -103,25 +100,25 @@ const faqs = [
 const quickFacts = [
   { label: "Doctor", value: "Dr. Masoud Sorkhabi, specialist in orthopedics and spine surgery" },
   { label: "Visit", value: "In person in Gothenburg" },
-  { label: "Price", value: "2,000 SEK – paid on site at the visit" },
+  { label: "Price", value: "2,000 SEK – paid at the clinic on the day" },
   { label: "Specialty", value: "Orthopedics" },
   { label: "Experience", value: "More than 20 years of clinical experience" },
   { label: "Focus", value: "Back, neck, knee and nerve-related problems" },
   { label: "Patient type", value: "Self-paying" },
   { label: "Referral", value: "Not required" },
-  { label: "Public rating", value: "4.9 out of 5 for Dr. Masoud Sorkhabi (checked 4 Aug 2026)" },
-  { label: "Request", value: "Free and without obligation" },
-  { label: "Role", value: "Specialistdirekt is an intermediary service" },
+  { label: "Booking", value: "Choose a time directly in the calendar" },
+  { label: "Role", value: "Specialistdirekt provides the booking service" },
 ];
 
 export default function EnglishOrthopedistGothenburgPage() {
   const specialty = getSpecialty("ortoped");
-  const visual = specialty
+  const baseVisual = specialty
     ? getCitySpecialtyVisual(specialty, "goteborg", "Gothenburg")
     : { src: "/real-medical/orthopedics.webp", alt: "Private orthopedic care in Gothenburg" };
+  const visual = { ...baseVisual, alt: "Private orthopedic consultation in Gothenburg" };
 
   const crumbs = [
-    { name: "Home", path: "/" },
+    { name: "Home", path: "/en" },
     { name: "Private orthopedist in Gothenburg", path: PATH },
   ];
 
@@ -129,7 +126,7 @@ export default function EnglishOrthopedistGothenburgPage() {
     <>
       <div className="internal-hero">
         <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:py-16">
-          <Breadcrumbs items={crumbs} />
+          <Breadcrumbs items={crumbs} locale="en" />
           <p className="mt-6">
             <Link
               href={SV_PATH}
@@ -145,11 +142,10 @@ export default function EnglishOrthopedistGothenburgPage() {
             <h1 className="internal-hero-title">Private orthopedist in Gothenburg</h1>
           </div>
           <p className="internal-hero-text">
-            Looking for a private orthopedist in Gothenburg? You can book an appointment with Dr.
-            Masoud Sorkhabi, a specialist in orthopedics and spine surgery with over 20 years of
-            experience in orthopedics and surgery, or submit a free appointment request via
-            Specialistdirekt. No referral is
-            required for the current private pathway.
+            Looking for a private orthopedist in Gothenburg? You can book a 40-minute appointment
+            with Dr. Masoud Sorkhabi, a specialist in orthopedics and spine surgery with over 20
+            years of experience in orthopedics and surgery. The visit costs 2,000 SEK and no
+            referral is required for this private, self-paid appointment.
           </p>
           <PageVisual visual={visual} className="mt-10 max-w-3xl" priority />
         </div>
@@ -178,16 +174,16 @@ export default function EnglishOrthopedistGothenburgPage() {
 
               <h2 className="article-section-title text-2xl font-bold">How it works</h2>
               <p className="mt-3">
-                The available specialist competence includes back, neck and knee problems,
+                Areas of expertise include back, neck and knee problems,
                 disc-related conditions, nerve-related pain, SI joint problems, sports and overuse
                 injuries, and long-term musculoskeletal pain. Dr. Masoud Sorkhabi has more than 20
-                years of clinical experience. Visits are in person in Gothenburg and cost 2,000 SEK, paid
-                on site at the visit. You receive information about a possible appointment and the
-                current price before deciding whether to proceed.
+                years of clinical experience. Visits are in person in Gothenburg and cost 2,000 SEK,
+                paid at the clinic on the day. You choose an available time in the calendar and
+                confirm the appointment through the link sent by e-mail.
               </p>
               <p className="mt-3">
-                <strong>Specialistdirekt is an intermediary service.</strong>{" "}
-                Medical assessment and treatment are provided by the receiving clinic.
+                <strong>Specialistdirekt provides the booking service.</strong>{" "}
+                The medical assessment and treatment are provided by the doctor.
               </p>
 
               <section aria-label="When to seek emergency care" className="warning-card mt-10 p-6">
@@ -202,7 +198,7 @@ export default function EnglishOrthopedistGothenburgPage() {
                     "sudden severe back pain with numbness around the groin, difficulty urinating or loss of bladder or bowel control",
                     "sudden or rapidly increasing weakness or numbness in an arm or leg",
                     "an arm or leg that becomes cold, pale or numb after an injury",
-                    "joint or back pain together with high fever and a strongly affected general condition",
+                    "joint or back pain together with a high fever and feeling severely unwell",
                   ].map((b) => (
                     <li key={b} className="flex gap-3 text-ink-700">
                       <span aria-hidden className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-amber-500" />
@@ -211,64 +207,48 @@ export default function EnglishOrthopedistGothenburgPage() {
                   ))}
                 </ul>
                 <p className="mt-4 text-sm text-ink-600">
-                  If in doubt, call <strong>1177</strong> for health care advice (in Swedish),
+                  If in doubt, call <strong>1177</strong> for healthcare advice (in Swedish),
                   available around the clock.
                 </p>
               </section>
-
-              <h2 className="article-section-title mt-10 text-2xl font-bold">
-                Highly rated orthopedists in Gothenburg – how to compare
-              </h2>
-              <p className="mt-3">
-                Dr. Masoud Sorkhabi had a public patient rating of 4.9 out of 5 when last checked
-                on 4 August 2026. The rating applies to the doctor conducting the appointment, not
-                to Specialistdirekt. Patient ratings do not guarantee a particular medical outcome.
-                When comparing orthopedists, weigh several
-                things at once: the score and how recent it is, specialist competence and
-                experience, relevance to your symptoms, a transparent price, and a clear division of
-                medical responsibility.
-              </p>
 
               <h2 className="article-section-title mt-10 text-2xl font-bold">
                 Do I need a referral? Self-paying vs region-funded care
               </h2>
               <p className="mt-3">
                 In Sweden, a <em>remiss</em> means a referral. As a self-paying (private) patient you
-                generally do not need a referral to request an appointment with the connected
-                orthopedic capacity in Gothenburg. Region-funded (public) care usually requires a
+                do not need a referral to book this self-paid appointment with the
+                orthopedist in Gothenburg. Region-funded (public) care usually requires a
                 referral from a health centre (vårdcentral), and if you want to use private health
                 insurance, the insurer normally needs to approve the case first.
               </p>
               <p className="mt-3">
                 Self-paying means you pay for the visit privately; the Swedish high-cost protection
-                (högkostnadsskydd) does not normally apply to a private visit. Practical details such
-                as payment and whether a Swedish personal number (personnummer) is needed are
-                confirmed as part of the booking process with the clinic. You do not need to be a
-                Swedish resident to send a request – visitors and newcomers are welcome to ask.
+                (högkostnadsskydd) does not normally apply to a private visit. If you intend to use
+                private health insurance, ask your insurer to confirm the applicable process before
+                booking.
               </p>
 
               <h2 className="article-section-title mt-10 text-2xl font-bold">Price</h2>
               <p className="mt-3">
                 Dr. Masoud Sorkhabi&apos;s price is fixed and shown before you book: an in-person
-                visit in Gothenburg is <strong>2,000 SEK</strong>, paid on site at the visit.
+                visit in Gothenburg is <strong>2,000 SEK</strong>, paid at the clinic on the day.
               </p>
 
               <section className="mt-10 rounded-2xl border border-brand-200 bg-brand-50 p-6 sm:p-8">
                 <h2 className="text-xl font-bold text-ink-900">Book an appointment</h2>
                 <p className="mt-2 text-ink-700">
                   Book a visit in Gothenburg (2,000 SEK) directly in the calendar. You confirm the
-                  appointment through a link in the e-mail, and you pay on site at the visit.
+                  appointment through a link in the e-mail, and you pay at the clinic on the day.
                   Cancellation is free up to 3 hours before the visit. The booking calendar is in
                   Swedish.
                 </p>
-                <a
+                <Link
                   href={BOOKING_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="mt-5 inline-flex items-center justify-center rounded-xl bg-brand-600 px-6 py-3.5 text-base font-semibold text-white shadow-[0_12px_28px_rgba(13,148,136,0.24)] transition-all hover:-translate-y-0.5 hover:bg-brand-700"
                 >
                   Book with Dr. Masoud Sorkhabi
-                </a>
+                </Link>
               </section>
 
               <section className="mt-10">
@@ -280,17 +260,9 @@ export default function EnglishOrthopedistGothenburgPage() {
 
               <div className="soft-info-card mt-8 p-6 text-sm text-ink-600">
                 <p>
-                  Health information on this page is editorially produced by Specialistdirekt from
-                  public primary sources, last checked 5 August 2026, including{" "}
-                  <a
-                    href="https://www.1177.se/en/other-languages/other-languages/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-medium text-brand-700 hover:underline"
-                  >
-                    1177 (Swedish health care guide)
-                  </a>
-                  . It is general information and not a substitute for individual medical assessment.
+                  This is general information and is not a substitute for an individual medical
+                  assessment. If you are unsure where to seek care in Sweden, call 1177 for
+                  healthcare advice.
                 </p>
               </div>
             </article>
@@ -307,7 +279,7 @@ export default function EnglishOrthopedistGothenburgPage() {
                 </a>
                 <p className="mt-2 text-xs text-ink-500">
                   The booking calendar is in Swedish. You confirm the appointment through a link in
-                  the e-mail and pay on site at the visit. Free cancellation up to 3 hours before.
+                  the e-mail and pay at the clinic on the day. Free cancellation up to 3 hours before.
                 </p>
               </div>
             </aside>
@@ -324,28 +296,10 @@ export default function EnglishOrthopedistGothenburgPage() {
             "@id": `${site.url}${PATH}#webpage`,
             url: `${site.url}${PATH}`,
             name: "Private orthopedist in Gothenburg",
-            description:
-              "See a private orthopedist in Gothenburg without a referral. Self-paying patients can send a free appointment request via Specialistdirekt.",
+            description: DESCRIPTION,
             inLanguage: "en",
             isPartOf: { "@id": `${site.url}/#website` },
             publisher: { "@id": `${site.url}/#organization` },
-          },
-          {
-            "@context": "https://schema.org",
-            "@type": "Service",
-            name: "Appointment request forwarding to a private orthopedist in Gothenburg",
-            serviceType: "Healthcare intermediary",
-            provider: { "@id": `${site.url}/#organization` },
-            areaServed: { "@type": "City", name: "Gothenburg" },
-            url: `${site.url}${PATH}`,
-            description:
-              "Specialistdirekt forwards your appointment request to connected orthopedic specialist capacity in Gothenburg. Specialistdirekt is an intermediary service.",
-            offers: {
-              "@type": "Offer",
-              price: "0",
-              priceCurrency: "SEK",
-              description: "Free appointment-request forwarding.",
-            },
           },
           faqSchema(faqs),
         ]}
