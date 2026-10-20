@@ -176,6 +176,33 @@ button.text-white:is(.bg-brand-500, .bg-brand-600):hover {
   överläggslayouten oförändrad.
 */
 @media (min-width: 1024px) {
+  /* På MR-sidan ligger illustrationen i en smal gridkolumn. Det tomma kortet
+     upprepar instruktionen och blockerar kroppens klickytor, så visa det först
+     efter ett val. Placera sedan resultatet till vänster om figuren; listan
+     flyttas ned men förblir tangentbordstillgänglig. */
+  .mr-hero .anatomy-organ-preview[data-empty="true"] { display: none; }
+
+  .mr-hero .anatomy-organ-preview[data-empty="false"] {
+    right: auto;
+    left: 0.75rem;
+  }
+
+  .mr-hero .mr-hero-visual[data-has-selection="true"] .anatomy-region-labels {
+    top: auto;
+    bottom: 1rem;
+    left: 0.75rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 14.5rem;
+    column-gap: 0.5rem;
+    row-gap: 0.2rem;
+  }
+
+  .mr-hero .mr-hero-visual[data-has-selection="true"] .anatomy-region-labels button {
+    min-width: 0;
+    padding: 0.15rem 0.05rem;
+    letter-spacing: 0.035em;
+  }
+
   .home-anatomy-explorer { max-width: 62rem; padding-bottom: 6rem; }
 
   .home-anatomy-explorer .mr-hero-visual {
@@ -429,11 +456,11 @@ button.text-white:is(.bg-brand-500, .bg-brand-600):hover {
 
   .anatomy-organ-preview {
     top: auto;
-    right: auto;
+    right: 0.75rem;
     bottom: 7rem;
-    left: 50%;
+    left: auto;
     width: 13rem;
-    transform: translateX(-50%);
+    transform: none;
     animation: none;
   }
 
@@ -480,15 +507,16 @@ button.text-white:is(.bg-brand-500, .bg-brand-600):hover {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .mr-anatomy-image,
-  .mr-anatomy-controls,
-  .mr-anatomy-toggle button,
-  .anatomy-region-labels button::before,
-  .anatomy-hitboxes ellipse {
-    transition-duration: 1ms;
+  html { scroll-behavior: auto; }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
   }
 
-  .anatomy-vascular-pulse { animation-duration: 1ms; }
 }
 
 .internal-hero nav {
@@ -636,7 +664,9 @@ button.text-white:is(.bg-brand-500, .bg-brand-600):hover {
 .article-body {
   color: var(--color-ink-700);
   font-size: 1.0625rem;
+  hyphens: auto;
   line-height: 1.82;
+  overflow-wrap: anywhere;
 }
 
 .article-body h2,

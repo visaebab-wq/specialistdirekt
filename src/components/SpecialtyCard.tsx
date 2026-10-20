@@ -22,9 +22,9 @@ export function SpecialtyCard({ specialty }: { specialty: Specialty }) {
         <span className="text-xs font-bold uppercase tracking-wide text-brand-700">
           {specialty.name}
         </span>
-        <h3 className="mt-1 font-semibold text-ink-900 group-hover:text-brand-700">
+        <h2 className="mt-1 font-semibold text-ink-900 group-hover:text-brand-700">
           {specialty.title}
-        </h3>
+        </h2>
         <span className="mt-1 flex-1 text-sm leading-relaxed text-ink-600">{specialty.short}</span>
         <span className="mt-4 text-sm font-medium text-brand-700">
           Läs mer

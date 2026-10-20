@@ -40,12 +40,7 @@ export function RecoReviews() {
       className="bg-white"
       onMouseEnter={() => setPointerPaused(true)}
       onMouseLeave={() => setPointerPaused(false)}
-      onFocusCapture={(event) => {
-        const target = event.target as HTMLElement;
-        // Själva start/stopp-knappen måste kunna slå på rotation med tangentbord
-        // utan att dess eget fokus samtidigt håller karusellen pausad.
-        setFocusPaused(!target.closest("[data-carousel-autoplay-control]"));
-      }}
+      onFocusCapture={() => setFocusPaused(true)}
       onBlurCapture={(event) => {
         if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
           setFocusPaused(false);
@@ -93,7 +88,7 @@ export function RecoReviews() {
             >
               ‹
             </button>
-            <div className="flex gap-2">
+            <div className="flex">
               {recoReviews.map((_, idx) => (
                 <button
                   key={idx}
@@ -101,10 +96,15 @@ export function RecoReviews() {
                   onClick={() => setI(idx)}
                   aria-label={`Visa omdöme ${idx + 1} av ${n}`}
                   aria-current={idx === i}
-                  className={`h-2.5 w-2.5 rounded-full transition-colors ${
-                    idx === i ? "bg-brand-600" : "bg-ink-200 hover:bg-ink-300"
-                  }`}
-                />
+                  className="group flex h-6 w-6 items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-brand-600"
+                >
+                  <span
+                    aria-hidden
+                    className={`h-2.5 w-2.5 rounded-full transition-colors ${
+                      idx === i ? "bg-brand-600" : "bg-ink-200 group-hover:bg-ink-300"
+                    }`}
+                  />
+                </button>
               ))}
             </div>
             <button
@@ -121,6 +121,9 @@ export function RecoReviews() {
               aria-pressed={!autoRotate}
               onClick={() => {
                 userControlledAutoRotate.current = true;
+                // Fokus pausar alltid karusellen. Bara ett uttryckligt klick på
+                // kontrollen får häva fokuspausen och starta den igen.
+                setFocusPaused(false);
                 setAutoRotate((current) => !current);
               }}
               className="rounded-full border border-ink-200 px-4 py-2 text-sm font-semibold text-ink-700 transition-colors hover:bg-sky-50"

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { mainNav, site } from "@/lib/site";
 import { specialties } from "@/lib/specialties";
 
@@ -10,6 +10,7 @@ export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [specialtiesOpen, setSpecialtiesOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   const navWithoutSpecialties = mainNav.filter((item) => item.href !== "/specialiteter");
 
@@ -29,6 +30,7 @@ export function Header() {
       if (event.key === "Escape") {
         setOpen(false);
         setSpecialtiesOpen(false);
+        menuButtonRef.current?.focus();
       }
     };
     window.addEventListener("keydown", onKey);
@@ -120,6 +122,7 @@ export function Header() {
 
         {/* Mobil meny-knapp */}
         <button
+          ref={menuButtonRef}
           type="button"
           onClick={() => (open ? closeMobileMenu() : setOpen(true))}
           className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-ink-200 text-ink-700 lg:hidden"

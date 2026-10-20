@@ -35,7 +35,7 @@ export function HowItWorks() {
           >
             {step.icon}
           </span>
-          <h3 className="mt-3 text-lg font-semibold text-ink-900">{step.title}</h3>
+          <h2 className="mt-3 text-lg font-semibold text-ink-900">{step.title}</h2>
           <p className="mt-2 text-ink-600 leading-relaxed">{step.text}</p>
         </li>
       ))}
