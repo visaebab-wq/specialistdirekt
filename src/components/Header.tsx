@@ -36,12 +36,12 @@ export function Header() {
             <circle cx="18.5" cy="12" r="2.1" fill="var(--color-brand-500)" />
           </svg>
           <span className="text-navy-800">
-            Specialist<span className="font-semibold text-brand-600">direkt</span>
+            Specialist<span className="font-semibold text-brand-700">direkt</span>
           </span>
         </Link>
 
         {/* Desktop-navigering */}
-        <nav aria-label="Huvudmeny" className="hidden items-center gap-6 md:flex">
+        <nav aria-label="Huvudmeny" className="hidden items-center gap-6 lg:flex">
           {navWithoutSpecialties.slice(0, 1).map((item) => (
             <Link
               key={item.href}
@@ -106,7 +106,7 @@ export function Header() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-ink-200 text-ink-700 md:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-ink-200 text-ink-700 lg:hidden"
           aria-expanded={open}
           aria-controls="mobil-meny"
           aria-label={open ? "Stäng meny" : "Öppna meny"}
@@ -122,7 +122,7 @@ export function Header() {
         <nav
           id="mobil-meny"
           aria-label="Mobilmeny"
-          className="border-t border-ink-200 bg-white md:hidden"
+          className="border-t border-ink-200 bg-white lg:hidden"
         >
           <ul className="mx-auto flex max-w-6xl flex-col px-4 py-2 sm:px-6">
             {navWithoutSpecialties.slice(0, 1).map((item) => (

@@ -61,7 +61,7 @@ export default function ArticlesPage() {
             />
           </span>
           <span className="block p-8">
-            <span className="text-sm font-semibold uppercase tracking-wide text-brand-600">
+            <span className="text-sm font-semibold uppercase tracking-wide text-brand-700">
               Utvald guide · {featured.category}
             </span>
             <h2 className="mt-2 text-2xl font-bold text-ink-900 group-hover:text-brand-700">
@@ -94,7 +94,7 @@ export default function ArticlesPage() {
                   />
                 </span>
                 <span className="flex flex-1 flex-col p-6">
-                  <span className="text-xs font-semibold uppercase tracking-wide text-brand-600">
+                  <span className="text-xs font-semibold uppercase tracking-wide text-brand-700">
                     {a.category}
                   </span>
                   <h3 className="mt-2 font-semibold text-ink-900 group-hover:text-brand-700">

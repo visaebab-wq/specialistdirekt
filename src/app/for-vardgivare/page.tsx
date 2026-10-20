@@ -115,7 +115,7 @@ export default function ForProvidersPage() {
           <ol className="mt-10 grid gap-6 md:grid-cols-3">
             {steps.map((s) => (
               <li key={s.n} className="relative rounded-2xl border border-ink-200 bg-white p-6">
-                <span className="absolute -top-3 left-6 rounded-full bg-brand-600 px-3 py-0.5 text-xs font-bold text-white">
+                <span className="absolute -top-3 left-6 rounded-full bg-brand-700 px-3 py-0.5 text-xs font-bold text-white">
                   Steg {s.n}
                 </span>
                 <h3 className="mt-3 text-lg font-semibold text-ink-900">{s.t}</h3>

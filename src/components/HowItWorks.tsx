@@ -26,7 +26,7 @@ export function HowItWorks() {
           key={step.title}
           className="relative rounded-2xl border border-ink-200 bg-white p-6"
         >
-          <span className="absolute -top-3 left-6 rounded-full bg-brand-600 px-3 py-0.5 text-xs font-bold text-white">
+          <span className="absolute -top-3 left-6 rounded-full bg-brand-700 px-3 py-0.5 text-xs font-bold text-white">
             Steg {i + 1}
           </span>
           <span

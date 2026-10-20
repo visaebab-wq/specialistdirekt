@@ -8,7 +8,7 @@ import { cities, CITY_SPECIALTY_SLUGS } from "@/lib/cities";
 const citySpecialties = new Set<string>(CITY_SPECIALTY_SLUGS);
 
 const selectClass =
-  "w-full rounded-xl border border-brand-100 bg-white/95 px-4 py-3 text-ink-900 shadow-sm transition focus:border-brand-400 focus:ring-2 focus:ring-brand-200 focus:outline-none";
+  "w-full rounded-xl border border-ink-500 bg-white/95 px-4 py-3 text-ink-900 shadow-sm transition focus:border-brand-700 focus:ring-2 focus:ring-brand-200 focus:outline-none";
 
 export function AreaSelector() {
   const router = useRouter();

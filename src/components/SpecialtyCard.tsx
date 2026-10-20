@@ -26,7 +26,7 @@ export function SpecialtyCard({ specialty }: { specialty: Specialty }) {
           {specialty.title}
         </h3>
         <span className="mt-1 flex-1 text-sm leading-relaxed text-ink-600">{specialty.short}</span>
-        <span className="mt-4 text-sm font-medium text-brand-600">
+        <span className="mt-4 text-sm font-medium text-brand-700">
           Läs mer
           <span aria-hidden className="ml-1 inline-block transition-transform group-hover:translate-x-1">
             →

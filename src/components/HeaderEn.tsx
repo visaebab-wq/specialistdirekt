@@ -38,7 +38,7 @@ export function HeaderEn() {
             <circle cx="18.5" cy="12" r="2.1" fill="var(--color-brand-500)" />
           </svg>
           <span className="text-navy-800">
-            Specialist<span className="font-semibold text-brand-600">direkt</span>
+            Specialist<span className="font-semibold text-brand-700">direkt</span>
           </span>
         </Link>
 
@@ -60,7 +60,9 @@ export function HeaderEn() {
             Svenska
           </Link>
           <Link
-            href="/en/private-orthopedist-gothenburg"
+            href="/boka-tid"
+            hrefLang="sv"
+            aria-label="Book an orthopedist (booking form in Swedish)"
             className="rounded-full bg-brand-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand-700"
           >
             Book an orthopedist
@@ -94,6 +96,15 @@ export function HeaderEn() {
               </li>
             ))}
             <li className="border-t border-ink-100 py-2">
+              <Link
+                href="/boka-tid"
+                hrefLang="sv"
+                aria-label="Book an orthopedist (booking form in Swedish)"
+                onClick={() => setOpen(false)}
+                className="mb-1 block rounded-lg bg-brand-600 px-4 py-3 text-center text-base font-semibold text-white hover:bg-brand-700"
+              >
+                Book an orthopedist
+              </Link>
               <Link
                 href="/"
                 hrefLang="sv"
