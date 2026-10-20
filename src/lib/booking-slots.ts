@@ -52,8 +52,12 @@ export const BOOKING_MIN_LEAD_MS = BOOKING_MIN_LEAD_HOURS * 60 * 60 * 1000;
 /** Hur länge en obekräftad bokning håller sin lucka innan den släpps. */
 export const BOOKING_PENDING_TTL_MS = 2 * 60 * 60 * 1000;
 
-/** Hur många veckor framåt som visas. */
-export const BOOKING_WEEKS_AHEAD = 2;
+/**
+ * Hur långt fram kalendern öppnas. Åtta veckor = ungefär två månader, alltså de
+ * åtta närmaste helgerna. Schemat i sig ändras inte: det är fortfarande bara
+ * lördag och söndag (BOOKING_WEEKDAYS) 10–16 som går att boka.
+ */
+export const BOOKING_WEEKS_AHEAD = 8;
 
 /**
  * Skillnaden mellan svensk lokaltid och UTC vid en given tidpunkt.
@@ -195,8 +199,11 @@ export function isValidSlot(iso: string, now: Date = new Date()): boolean {
   if (minutes < start || minutes + BOOKING_SLOT_MINUTES > end) return false;
   if ((minutes - start) % BOOKING_SLOT_MINUTES !== 0) return false;
 
-  // Måste ligga tillräckligt långt fram i tiden.
-  return d.getTime() >= now.getTime() + BOOKING_MIN_LEAD_MS;
+  // Måste ligga tillräckligt långt fram i tiden OCH finnas i samma åttaveckors-
+  // fönster som kalendern visar. Utan medlemskontrollen kunde en manipulerad
+  // POST boka en schemamässig helgtid godtyckligt långt in i framtiden.
+  if (d.getTime() < now.getTime() + BOOKING_MIN_LEAD_MS) return false;
+  return generateSlots(now).includes(iso);
 }
 
 /** Grupperar luckor per svensk dag, för presentation. */
