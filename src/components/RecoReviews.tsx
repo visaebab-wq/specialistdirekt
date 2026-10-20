@@ -1,12 +1,29 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { recoReviews, recoSummary, recoProfileUrl } from "@/lib/reco-reviews";
 
 export function RecoReviews() {
   const n = recoReviews.length;
   const [i, setI] = useState(0);
-  const [paused, setPaused] = useState(false);
+  const [autoRotate, setAutoRotate] = useState(true);
+  const [pointerPaused, setPointerPaused] = useState(false);
+  const [focusPaused, setFocusPaused] = useState(false);
+  const userControlledAutoRotate = useRef(false);
+  const paused = !autoRotate || pointerPaused || focusPaused;
+
+  useEffect(() => {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const syncPreference = () => {
+      if (!userControlledAutoRotate.current) {
+        setAutoRotate(!reducedMotion.matches);
+      }
+    };
+
+    syncPreference();
+    reducedMotion.addEventListener("change", syncPreference);
+    return () => reducedMotion.removeEventListener("change", syncPreference);
+  }, []);
 
   useEffect(() => {
     if (paused || n <= 1) return;
@@ -21,8 +38,19 @@ export function RecoReviews() {
     <section
       aria-label="Patientomdömen"
       className="bg-white"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
+      onMouseEnter={() => setPointerPaused(true)}
+      onMouseLeave={() => setPointerPaused(false)}
+      onFocusCapture={(event) => {
+        const target = event.target as HTMLElement;
+        // Själva start/stopp-knappen måste kunna slå på rotation med tangentbord
+        // utan att dess eget fokus samtidigt håller karusellen pausad.
+        setFocusPaused(!target.closest("[data-carousel-autoplay-control]"));
+      }}
+      onBlurCapture={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+          setFocusPaused(false);
+        }
+      }}
     >
       <div className="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6">
         <h2 className="text-3xl font-bold text-ink-900">Vad patienterna säger</h2>
@@ -43,7 +71,8 @@ export function RecoReviews() {
 
         <div className="relative mt-8">
           <blockquote
-            aria-live="polite"
+            aria-live={paused ? "polite" : "off"}
+            aria-atomic="true"
             className="readable-card mx-auto flex min-h-[210px] flex-col justify-center p-8"
           >
             <div aria-hidden className="text-xl tracking-widest text-amber-400">
@@ -55,7 +84,7 @@ export function RecoReviews() {
             </footer>
           </blockquote>
 
-          <div className="mt-6 flex items-center justify-center gap-4">
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
             <button
               type="button"
               onClick={() => setI((p) => (p - 1 + n) % n)}
@@ -85,6 +114,18 @@ export function RecoReviews() {
               className="flex h-10 w-10 items-center justify-center rounded-full border border-ink-200 text-xl text-ink-700 transition-colors hover:bg-sky-50"
             >
               ›
+            </button>
+            <button
+              type="button"
+              data-carousel-autoplay-control
+              aria-pressed={!autoRotate}
+              onClick={() => {
+                userControlledAutoRotate.current = true;
+                setAutoRotate((current) => !current);
+              }}
+              className="rounded-full border border-ink-200 px-4 py-2 text-sm font-semibold text-ink-700 transition-colors hover:bg-sky-50"
+            >
+              {autoRotate ? "Pausa automatisk växling" : "Fortsätt automatisk växling"}
             </button>
           </div>
         </div>

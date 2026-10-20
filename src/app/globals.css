@@ -32,6 +32,7 @@
   --color-ink-100: #f1f5f9;
   --color-ink-200: #e2e8f0;
   --color-ink-300: #cbd5e1;
+  --color-ink-400: #94a3b8;
   --color-ink-500: #64748b;
   --color-ink-600: #475569;
   --color-ink-700: #334155;
@@ -429,12 +430,16 @@ button.text-white:is(.bg-brand-500, .bg-brand-600):hover {
   .anatomy-organ-preview {
     top: auto;
     right: auto;
-    bottom: 4.8rem;
+    bottom: 7rem;
     left: 50%;
     width: 13rem;
     transform: translateX(-50%);
     animation: none;
   }
+
+  /* Instruktionen finns redan ovanför figuren och i de riktiga knapparna.
+     Det tomma kortet låg annars över kroppens klickytor på mobil/surfplatta. */
+  .anatomy-organ-preview[data-empty="true"] { display: none; }
 
   .anatomy-organ-preview-image { height: 6rem; }
   .anatomy-organ-preview-empty { min-height: 7.5rem; padding: 0.65rem; }
@@ -443,6 +448,12 @@ button.text-white:is(.bg-brand-500, .bg-brand-600):hover {
 @media (max-width: 639px) {
   .mr-hero-visual {
     min-height: 330px;
+  }
+
+  /* När ett resultatkort visas behövs höjd för både kortet och kontrollerna;
+     annars klipps kortets överkant i de kompaktare MR-hjältarna. */
+  .mr-hero-visual[data-has-selection="true"] {
+    min-height: 480px;
   }
 
   .mr-hero-visual img {

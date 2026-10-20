@@ -110,14 +110,14 @@ export function AnatomyHeroVisual() {
         </>
       )}
 
-      <svg className="anatomy-hitboxes" viewBox="0 0 480 720" role="group" aria-label="Välj del av kroppen">
+      <svg className="anatomy-hitboxes" viewBox="0 0 480 720" aria-hidden="true" focusable="false">
         {regions.flatMap((region) => (region.hitboxes ?? [region]).map((hitbox, index) => (
-          <ellipse key={`${region.id}-${index}`} role="button" tabIndex={0} aria-label={region.label} aria-pressed={selected === region.id} className={selected === region.id ? "is-active" : ""} cx={hitbox.cx} cy={hitbox.cy} rx={hitbox.rx} ry={hitbox.ry} onMouseEnter={() => setHovered(region.id)} onMouseLeave={() => setHovered(null)} onFocus={() => setHovered(region.id)} onBlur={() => setHovered(null)} onClick={() => choose(region.id)} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); choose(region.id); } }} />
+          <ellipse key={`${region.id}-${index}`} className={selected === region.id ? "is-active" : ""} cx={hitbox.cx} cy={hitbox.cy} rx={hitbox.rx} ry={hitbox.ry} onMouseEnter={() => setHovered(region.id)} onMouseLeave={() => setHovered(null)} onClick={() => choose(region.id)} />
         )))}
       </svg>
 
-      <div className="anatomy-region-labels" aria-label="Valbara kroppsdelar">
-        {regions.map((region) => <button key={region.id} type="button" data-selected={selected === region.id} data-hovered={hovered === region.id} onMouseEnter={() => setHovered(region.id)} onMouseLeave={() => setHovered(null)} onFocus={() => setHovered(region.id)} onBlur={() => setHovered(null)} onClick={() => choose(region.id)}>{region.label}</button>)}
+      <div className="anatomy-region-labels" role="group" aria-label="Valbara kroppsdelar">
+        {regions.map((region) => <button key={region.id} type="button" aria-pressed={selected === region.id} data-selected={selected === region.id} data-hovered={hovered === region.id} onMouseEnter={() => setHovered(region.id)} onMouseLeave={() => setHovered(null)} onFocus={() => setHovered(region.id)} onBlur={() => setHovered(null)} onClick={() => choose(region.id)}>{region.label}</button>)}
       </div>
 
       <aside className="anatomy-organ-preview" aria-live="polite" data-empty={activeRegion ? "false" : "true"}>
@@ -154,12 +154,12 @@ export function AnatomyHeroVisual() {
 
       <div className="mr-anatomy-controls">
         <div className="mr-anatomy-toggle" aria-label="Välj kropp" role="group">
-          <button type="button" data-selected={sex === "female"} onClick={() => { setSex("female"); setSelected(null); setHovered(null); }}>Kvinna</button>
-          <button type="button" data-selected={sex === "male"} onClick={() => { setSex("male"); setSelected(null); setHovered(null); }}>Man</button>
+          <button type="button" aria-pressed={sex === "female"} data-selected={sex === "female"} onClick={() => { setSex("female"); setSelected(null); setHovered(null); }}>Kvinna</button>
+          <button type="button" aria-pressed={sex === "male"} data-selected={sex === "male"} onClick={() => { setSex("male"); setSelected(null); setHovered(null); }}>Man</button>
         </div>
         <div className="mr-anatomy-toggle" aria-label="Välj vy" role="group">
-          <button type="button" data-selected={view === "front"} onClick={() => changeView("front")}>Organ fram</button>
-          <button type="button" data-selected={view === "back"} onClick={() => changeView("back")}>Skelett bak</button>
+          <button type="button" aria-pressed={view === "front"} data-selected={view === "front"} onClick={() => changeView("front")}>Organ fram</button>
+          <button type="button" aria-pressed={view === "back"} data-selected={view === "back"} onClick={() => changeView("back")}>Skelett bak</button>
         </div>
       </div>
     </div>
