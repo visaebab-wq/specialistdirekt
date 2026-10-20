@@ -42,6 +42,20 @@ export const article: Article = {
   readMinutes: 7,
   wordCount: 1500,
   relatedSpecialty: "ortoped",
+  // Barnspecifik bokningsmodul. Copy levererad av ChatGPT (logistisk text, inga
+  // medicinska påståenden). Faktaraden 0-17 ar / 40 minuter / 2 000 kr /
+  // ingen remiss renderas av komponenten fran barn-scope.ts och booking-slots.ts,
+  // sa den kan inte glida isar fran bokningssidan.
+  cta: {
+    heading: "Ortopedisk bedömning för barn i Göteborg",
+    body: "Besöket sker på plats hos Dr. Masoud Sorkhabi.",
+    label: "Se lediga tider för barn",
+    href: "/boka-tid/barn",
+    secondary: {
+      label: "Läs om ortopedisk bedömning för barn",
+      href: "/artiklar/barnortopedi",
+    },
+  },
   summary: [
     "Ont i hälen är **mycket vanligt** hos barn, framför allt hos pojkar mellan 11 och 14 år.",
     "Vanligast hos barn som är mycket fysiskt aktiva, särskilt inom fotboll och basket.",

@@ -98,6 +98,11 @@ export type Article = {
     body: string;
     label: string;
     href: string;
+    /**
+     * Valfri andrahandsväg. Används på symtomartiklarna för att leda vidare
+     * till ämnesnavet utan att konkurrera med den primära bokningslänken.
+     */
+    secondary?: { label: string; href: string };
   };
   /** Inledande stycken (före första h2). */
   intro: string[];

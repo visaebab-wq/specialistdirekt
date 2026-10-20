@@ -35,6 +35,20 @@ export const article: Article = {
   readMinutes: 8,
   wordCount: 1700,
   relatedSpecialty: "ortoped",
+  // Barnspecifik bokningsmodul. Copy levererad av ChatGPT (logistisk text, inga
+  // medicinska påståenden). Faktaraden 0-17 ar / 40 minuter / 2 000 kr /
+  // ingen remiss renderas av komponenten fran barn-scope.ts och booking-slots.ts,
+  // sa den kan inte glida isar fran bokningssidan.
+  cta: {
+    heading: "Ortopedisk bedömning för barn i Göteborg",
+    body: "Besöket sker på plats hos Dr. Masoud Sorkhabi.",
+    label: "Se lediga tider för barn",
+    href: "/boka-tid/barn",
+    secondary: {
+      label: "Läs om ortopedisk bedömning för barn",
+      href: "/artiklar/barnortopedi",
+    },
+  },
   summary: [
     "Ryggont är ovanligt hos yngre barn men blir vanligare i puberteten, när barnet växer snabbt.",
     "Det går oftast **inte** att hitta någon tydlig orsak – och det betyder sällan att något är allvarligt.",
@@ -135,9 +149,11 @@ export const article: Article = {
     {
       id: "nar-ar-ortopedbedomning-aktuell",
       heading: "När kan en ortopedbedömning vara aktuell?",
+      // 2026-09-13 (ägarbeslut): kontextuell länk till /boka-tid/barn direkt efter guidelänken.
+      // Medvetet här och INTE i sök-vård-snabbt-sektionen: bokning gäller icke-akuta besvär.
       body: [
         "En ortopedisk bedömning kan bli aktuell när ryggbesvären kvarstår trots anpassad belastning och fysioterapi, vid misstanke om skolios eller annan strukturell orsak, eller när en tidigare bildundersökning behöver sättas i sitt sammanhang.",
-        "Vägen dit går normalt via vårdcentralen, som kan remittera vidare. Det finns också privata alternativ där en ortopedisk bedömning kan bokas utan remiss – vad som gäller för barn beskriver vi i guiden om [barnortopedi](/artiklar/barnortopedi).",
+        "Vägen dit går normalt via vårdcentralen, som kan remittera vidare. Det finns också privata alternativ där en ortopedisk bedömning kan bokas utan remiss – vad som gäller för barn beskriver vi i guiden om [barnortopedi](/artiklar/barnortopedi). Om barnet behöver en ortopedisk bedömning i Göteborg kan du [se lediga tider här](/boka-tid/barn).",
         "Har barnet i stället besvär från knät finns en egen guide om [ont i knät hos barn](/artiklar/ont-i-knat-barn). Söker du information om ryggsmärta hos vuxna finns den i guiden om [ont i ryggen – vilken läkare](/artiklar/ont-i-ryggen-vilken-lakare).",
       ],
     },

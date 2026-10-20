@@ -37,6 +37,20 @@ export const article: Article = {
   readMinutes: 9,
   wordCount: 1900,
   relatedSpecialty: "ortoped",
+  // Barnspecifik bokningsmodul. Copy levererad av ChatGPT (logistisk text, inga
+  // medicinska påståenden). Faktaraden 0-17 ar / 40 minuter / 2 000 kr /
+  // ingen remiss renderas av komponenten fran barn-scope.ts och booking-slots.ts,
+  // sa den kan inte glida isar fran bokningssidan.
+  cta: {
+    heading: "Ortopedisk bedömning för barn i Göteborg",
+    body: "Besöket sker på plats hos Dr. Masoud Sorkhabi.",
+    label: "Se lediga tider för barn",
+    href: "/boka-tid/barn",
+    secondary: {
+      label: "Läs om ortopedisk bedömning för barn",
+      href: "/artiklar/barnortopedi",
+    },
+  },
   summary: [
     "Knäsmärta hos barn och tonåringar är vanligt och hänger ofta ihop med idrott och växande.",
     "De flesta besvär går över av sig själva med anpassad belastning.",
@@ -150,9 +164,11 @@ export const article: Article = {
     {
       id: "nar-ar-ortopedbedomning-aktuell",
       heading: "När kan en ortopedbedömning vara aktuell?",
+      // 2026-09-13 (ägarbeslut): kontextuell länk till /boka-tid/barn direkt efter guidelänken.
+      // Medvetet här och INTE i sök-vård-snabbt-sektionen: bokning gäller icke-akuta besvär.
       body: [
         "En ortopedisk bedömning kan vara relevant när knäbesvären kvarstår trots anpassad belastning och fysioterapi, när det finns misstanke om en strukturell skada i leden, när knät låser sig eller viker sig återkommande, eller när barnet redan har gjort en bildundersökning och fynden behöver sättas i sitt sammanhang.",
-        "Vägen dit går normalt via vårdcentralen, som kan remittera vidare. Det finns också privata alternativ där en ortopedisk bedömning kan bokas utan remiss – vad som gäller för barn, och vilka besvär som lämpar sig för vilken vårdnivå, beskriver vi i guiden om [barnortopedi](/artiklar/barnortopedi).",
+        "Vägen dit går normalt via vårdcentralen, som kan remittera vidare. Det finns också privata alternativ där en ortopedisk bedömning kan bokas utan remiss – vad som gäller för barn, och vilka besvär som lämpar sig för vilken vårdnivå, beskriver vi i guiden om [barnortopedi](/artiklar/barnortopedi). Om barnet behöver en ortopedisk bedömning i Göteborg kan du [se lediga tider här](/boka-tid/barn).",
         "Vissa tillstånd hos barn – medfödda felställningar, mer komplicerade höftproblem och ortopediska besvär vid neuromuskulär sjukdom – utreds inom specialiserad barnsjukvård och inte på en allmän ortopedmottagning.",
         "Söker du information om knäsmärta hos vuxna i stället finns den i guiden om [vilken läkare du ska söka för knäsmärta](/artiklar/vilken-lakare-knasmarta).",
       ],

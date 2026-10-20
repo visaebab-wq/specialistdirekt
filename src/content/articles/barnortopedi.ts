@@ -37,8 +37,7 @@ export const article: Article = {
   // Den generiska CTA:n ("Behöver du en ortoped?") talar till en vuxen patient om
   // sig själv. Läsaren här är en förälder, och besökets villkor – åldersspann,
   // fysisk mottagning, pris – avgör om bokningen alls är relevant. Länken går till
-  // barnsektionen på Göteborgssidan, där bokningsknappen och villkoren finns
-  // samlade, i stället för rakt in i kalendern.
+  // den egna bokningssidan för barn, där villkor och kalender finns samlade.
   cta: {
     heading: "Behöver ditt barn en ortopedisk bedömning?",
     body: `Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi, tar emot barn och ungdomar ${BARN_SCOPE.label} på mottagningen i Göteborg. Ingen remiss behövs och besöket kostar 2 000 kr.`,

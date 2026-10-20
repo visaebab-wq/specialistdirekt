@@ -47,6 +47,20 @@ export const article: Article = {
   readMinutes: 10,
   wordCount: 2100,
   relatedSpecialty: "ortoped",
+  // Barnspecifik bokningsmodul. Copy levererad av ChatGPT (logistisk text, inga
+  // medicinska påståenden). Faktaraden 0-17 ar / 40 minuter / 2 000 kr /
+  // ingen remiss renderas av komponenten fran barn-scope.ts och booking-slots.ts,
+  // sa den kan inte glida isar fran bokningssidan.
+  cta: {
+    heading: "Ortopedisk bedömning för barn i Göteborg",
+    body: "Besöket sker på plats hos Dr. Masoud Sorkhabi.",
+    label: "Se lediga tider för barn",
+    href: "/boka-tid/barn",
+    secondary: {
+      label: "Läs om ortopedisk bedömning för barn",
+      href: "/artiklar/barnortopedi",
+    },
+  },
   summary: [
     "Höftbesvär hos barn kan ge smärta i **höften, ljumsken, låret eller vid knät**.",
     "**Ett barn som haltar och säger att knät gör ont kan alltså ändå ha ett problem från höften.**",
@@ -247,10 +261,12 @@ export const article: Article = {
     {
       id: "ortopedisk-bedomning",
       heading: "När kan en ortopedisk bedömning vara relevant?",
+      // 2026-09-13 (ägarbeslut): kontextuell länk till /boka-tid/barn direkt efter guidelänken.
+      // Medvetet här och INTE i sök-vård-snabbt-sektionen: bokning gäller icke-akuta besvär.
       body: [
         "Många barn med nytillkommen höftsmärta bedöms först inom primärvård eller akut vård beroende på symtomen. En ortopedisk bedömning kan bli relevant när det finns misstanke om ett ortopediskt höftproblem eller när besvären inte utvecklas som förväntat.",
         "VISS anger bland annat specialistbedömning när misstänkt coxitis simplex inte har förbättrats efter cirka en vecka, och **akutmarkerad remiss till barnortopedi** när bilddiagnostiken inger misstanke om epifysiolys.",
-        "En ortopedisk bedömning handlar då inte bara om att titta på en röntgenbild – den kliniska frågan är hur barnets symtom, rörelseförmåga, ålder och eventuell bilddiagnostik hänger ihop. Läs mer om [barnortopedi och ortopedisk bedömning av barn](/artiklar/barnortopedi). Det kan exempelvis gälla:",
+        "En ortopedisk bedömning handlar då inte bara om att titta på en röntgenbild – den kliniska frågan är hur barnets symtom, rörelseförmåga, ålder och eventuell bilddiagnostik hänger ihop. Läs mer om [barnortopedi och ortopedisk bedömning av barn](/artiklar/barnortopedi). Om barnet behöver en ortopedisk bedömning i Göteborg kan du [se lediga tider här](/boka-tid/barn). Det kan exempelvis gälla:",
       ],
       bullets: [
         "kvarstående eller återkommande höftsmärta",

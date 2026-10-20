@@ -12,6 +12,8 @@ import { articleSchema, breadcrumbSchema, faqSchema } from "@/lib/structured-dat
 import { getArticleVisual, getArticleVisuals, getVisualDimensions } from "@/lib/medical-visuals";
 import { medicalReviewerFor } from "@/lib/medical-reviewer";
 import { RecoTrust } from "@/components/RecoTrust";
+import { BarnBookingCta } from "@/components/BarnBookingCta";
+import { isBarnArticle, BARN_NAV_SLUG } from "@/lib/barn-cta-scope";
 
 export function generateStaticParams() {
   return articles.map((a) => ({ slug: a.slug }));
@@ -150,6 +152,16 @@ export default async function ArticlePage({
           </aside>
         )}
 
+        {article.slug === BARN_NAV_SLUG && article.cta && (
+          <BarnBookingCta
+            heading={article.cta.heading}
+            body={article.cta.body}
+            label={article.cta.label}
+            href={article.cta.href}
+            variant="compact"
+          />
+        )}
+
         {/* Pristabell – tydlig prisöversikt (bra för SEO och AI). */}
         {article.priceTable && article.priceTable.length > 0 && (
           <div className="readable-card mb-8 overflow-hidden">
@@ -267,7 +279,7 @@ export default async function ArticlePage({
           {/* Internlänkning: artikel → specialitet → formulär. Placeras efter artikelns
               innehåll och medicinska säkerhetsinformation (röda flaggor + 112/1177),
               så att en kommersiell CTA aldrig visas före akutvägledningen. */}
-          {specialty && (
+          {specialty && !isBarnArticle(article.slug) && (
             <div className="soft-info-card mt-8 flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:justify-between">
               <p className="text-ink-700">
                 Söker du en {specialty.title.toLowerCase()}? Skicka en kostnadsfri förfrågan – läs
@@ -290,30 +302,42 @@ export default async function ArticlePage({
           )}
         </article>
 
+        {isBarnArticle(article.slug) && article.slug !== BARN_NAV_SLUG && article.cta && (
+          <BarnBookingCta
+            heading={article.cta.heading}
+            body={article.cta.body}
+            label={article.cta.label}
+            href={article.cta.href}
+            secondary={article.cta.secondary}
+          />
+        )}
+
         {/* CTA till lead-formuläret */}
-        <div className="mt-10 rounded-3xl bg-navy-800 px-6 py-10 text-center text-white shadow-[0_22px_50px_rgba(15,23,42,0.16)]">
-          <h2 className="text-2xl font-bold">
-            {article.cta
-              ? article.cta.heading
-              : specialty
-                ? `Behöver du en ${specialty.title.toLowerCase()}?`
-                : "Behöver du hjälp att hitta rätt specialist?"}
-          </h2>
-          <p className="mx-auto mt-2 max-w-md text-brand-50">
-            {article.cta?.body ??
-              "Skicka en kostnadsfri förfrågan så återkommer vi med besked."}
-          </p>
-          <Link
-            href={article.cta?.href ?? (specialty ? `/specialiteter/${specialty.slug}` : "/kontakt")}
-            className="mt-6 inline-block rounded-full bg-white px-7 py-3 text-sm font-semibold text-brand-700 hover:scale-[1.02]"
-          >
-            {article.cta
-              ? article.cta.label
-              : specialty
-                ? `Hitta en ${specialty.title.toLowerCase()}`
-                : "Skicka din förfrågan"}
-          </Link>
-        </div>
+        {!isBarnArticle(article.slug) && (
+          <div className="mt-10 rounded-3xl bg-navy-800 px-6 py-10 text-center text-white shadow-[0_22px_50px_rgba(15,23,42,0.16)]">
+            <h2 className="text-2xl font-bold">
+              {article.cta
+                ? article.cta.heading
+                : specialty
+                  ? `Behöver du en ${specialty.title.toLowerCase()}?`
+                  : "Behöver du hjälp att hitta rätt specialist?"}
+            </h2>
+            <p className="mx-auto mt-2 max-w-md text-brand-50">
+              {article.cta?.body ??
+                "Skicka en kostnadsfri förfrågan så återkommer vi med besked."}
+            </p>
+            <Link
+              href={article.cta?.href ?? (specialty ? `/specialiteter/${specialty.slug}` : "/kontakt")}
+              className="mt-6 inline-block rounded-full bg-white px-7 py-3 text-sm font-semibold text-brand-700 hover:scale-[1.02]"
+            >
+              {article.cta
+                ? article.cta.label
+                : specialty
+                  ? `Hitta en ${specialty.title.toLowerCase()}`
+                  : "Skicka din förfrågan"}
+            </Link>
+          </div>
+        )}
 
         {/* FAQ */}
         {article.faqs.length > 0 && (
@@ -357,8 +381,8 @@ export default async function ArticlePage({
         )}
 
         {/* Relaterade artiklar */}
-        {related.length > 0 && (
-        <section className="mt-12 border-t border-ink-200 pt-8">
+        {(related.length > 0 || article.slug === BARN_NAV_SLUG) && (
+          <section className="mt-12 border-t border-ink-200 pt-8">
             <h2 className="text-xl font-bold text-ink-900">Läs vidare</h2>
             <ul className="mt-4 space-y-3">
               {related.map((r) => (
@@ -371,6 +395,16 @@ export default async function ArticlePage({
                   </Link>
                 </li>
               ))}
+              {article.slug === BARN_NAV_SLUG && (
+                <li>
+                  <Link
+                    href="/specialiteter/ortoped"
+                    className="font-medium text-brand-700 hover:underline"
+                  >
+                    Läs mer om ortopedi
+                  </Link>
+                </li>
+              )}
             </ul>
           </section>
         )}

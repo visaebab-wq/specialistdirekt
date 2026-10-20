@@ -47,6 +47,20 @@ export const article: Article = {
   readMinutes: 10,
   wordCount: 2000,
   relatedSpecialty: "ortoped",
+  // Barnspecifik bokningsmodul. Copy levererad av ChatGPT (logistisk text, inga
+  // medicinska påståenden). Faktaraden 0-17 ar / 40 minuter / 2 000 kr /
+  // ingen remiss renderas av komponenten fran barn-scope.ts och booking-slots.ts,
+  // sa den kan inte glida isar fran bokningssidan.
+  cta: {
+    heading: "Ortopedisk bedömning för barn i Göteborg",
+    body: "Besöket sker på plats hos Dr. Masoud Sorkhabi.",
+    label: "Se lediga tider för barn",
+    href: "/boka-tid/barn",
+    secondary: {
+      label: "Läs om ortopedisk bedömning för barn",
+      href: "/artiklar/barnortopedi",
+    },
+  },
   summary: [
     "Hälta hos barn kan bero på besvär från **fot, ben, knä eller höft** – och ibland från andra delar av kroppen.",
     "Barn, särskilt yngre barn, kan ha svårt att ange exakt var det gör ont.",
@@ -212,10 +226,12 @@ export const article: Article = {
     {
       id: "ortopedisk-bedomning",
       heading: "När kan en ortopedisk bedömning vara aktuell?",
+      // 2026-09-13 (ägarbeslut): kontextuell länk till /boka-tid/barn direkt efter guidelänken.
+      // Medvetet här och INTE i sök-vård-snabbt-sektionen: bokning gäller icke-akuta besvär.
       body: [
         "Många barn med nytillkommen hälta bedöms först inom primärvården. Vilken vårdnivå som är rätt beror på barnets ålder, symtombild och vad som framkommer vid undersökningen.",
         "[VISS](https://viss.nu/kunskapsstod/vardprogram/halta-hos-barn) anger exempelvis specialistbedömning när misstänkt coxitis simplex inte förbättrats efter ungefär en vecka, samt när röntgenbilden inger misstanke om stressfraktur eller morbus Perthes.",
-        "Mer om när barn kan behöva en ortopedisk bedömning finns i guiden om [ortopedisk bedömning för barn](/artiklar/barnortopedi). En ortopedisk bedömning kan bli aktuell exempelvis när:",
+        "Mer om när barn kan behöva en ortopedisk bedömning finns i guiden om [ortopedisk bedömning för barn](/artiklar/barnortopedi). Om barnet behöver en ortopedisk bedömning i Göteborg kan du [se lediga tider här](/boka-tid/barn). En ortopedisk bedömning kan bli aktuell exempelvis när:",
       ],
       bullets: [
         "hältan är kvarstående eller återkommande och orsaken är oklar",

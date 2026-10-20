@@ -47,12 +47,14 @@ export const extra: SpecialtyExtra = {
         "Ortopediska besvär spänner över hela kroppen, men vissa tillstånd är särskilt vanliga. Översikten nedan är allmän information och ersätter inte en individuell bedömning – endast en läkare kan avgöra vad just dina symtom beror på.",
         "**Artros** innebär att ledbrosket gradvis förslits, oftast i knä och höft, och ger smärta, stelhet och nedsatt funktion. Mycket kan göras med träning, viktkontroll och smärtlindring innan en eventuell operation blir aktuell. **Menisk- och korsbandsskador** uppstår ofta vid idrott eller vridvåld mot knät och utreds med klinisk undersökning och vid behov MR. Hakar knät upp sig eller låser det sig kan du läsa om [bedömning när knät låser sig](/kna-laser-sig).",
         "**Axelbesvär** omfattar bland annat inklämning, slemsäcksinflammation och senskador i rotatorkuffen, medan **höftbesvär** kan handla om artros, inklämning eller besvär i senfästen. Även hand-, fot- och ryggbesvär hör till ortopedins område. Den gemensamma nämnaren är att en strukturerad bedömning hjälper till att skilja besvär som läker med tid och träning från sådana som behöver mer aktiv åtgärd.",
+        "För barn och ungdomar finns särskild information om vanliga ortopediska besvär som hälta samt problem från knä, höft, fot och rygg. Läs mer i vår guide om [barnortopedi](/artiklar/barnortopedi). Vill du boka en bedömning kan du [se lediga tider för ortopedisk bedömning av barn](/boka-tid/barn).",
       ],
       bullets: [
         "Artros i knä och höft – förslitning av ledbrosk",
         "Menisk- och korsbandsskador i knät",
         "Axelbesvär som inklämning och senskador",
         "Höftbesvär, inklusive artros och inklämning",
+        "Barn och ungdomar – ortopediska besvär från exempelvis knä, höft, fot och rygg",
       ],
     },
     {
