@@ -7,6 +7,7 @@ import { cities, hasCityPages } from "@/lib/cities";
 import { getSpecialtyExtra } from "@/lib/specialty-extra";
 import { site } from "@/lib/site";
 import { BookingCtaBanner } from "@/components/BookingCtaBanner";
+import { withClickSource } from "@/lib/click-source";
 import { LeadForm } from "@/components/LeadForm";
 import { FaqList } from "@/components/FaqList";
 import { Prose, renderInline } from "@/components/RichText";
@@ -104,7 +105,7 @@ export default async function SpecialtyPage({
               ortopedi); övriga får tidsförfrågan som förut. */}
           {extra?.bookingCta && (
             <BookingCtaBanner
-              href={extra.bookingCta.url}
+              href={withClickSource(extra.bookingCta.url, `/specialiteter/${specialty.slug}`, "hero")}
               label={extra.bookingCta.label}
               note={extra.bookingCta.note}
             />
@@ -304,7 +305,7 @@ export default async function SpecialtyPage({
                 {/* Ingen target="_blank": bokningen ligger numera på sajten
                     själv, inte hos patient.nu. */}
                 <a
-                  href={extra.bookingCta.url}
+                  href={withClickSource(extra.bookingCta.url, `/specialiteter/${specialty.slug}`, "sidebar")}
                   className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-brand-600 px-6 py-3.5 text-center text-base font-semibold text-white shadow-[0_12px_28px_rgba(13,148,136,0.24)] transition-all hover:-translate-y-0.5 hover:bg-brand-700"
                 >
                   {extra.bookingCta.label}

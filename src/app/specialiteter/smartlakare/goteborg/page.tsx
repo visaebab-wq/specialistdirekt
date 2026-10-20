@@ -13,7 +13,7 @@ import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
 import { recoProfileUrl } from "@/lib/reco-reviews";
 
 const PATH = "/specialiteter/smartlakare/goteborg";
-const BOOKING = "/boka/ortoped-goteborg";
+const BOOKING = "/boka/ortoped-goteborg?src=/specialiteter/smartlakare/goteborg&cta=smartlakare-gbg";
 const abs = (p: string) => `${site.url}${p}`;
 
 export const metadata: Metadata = {

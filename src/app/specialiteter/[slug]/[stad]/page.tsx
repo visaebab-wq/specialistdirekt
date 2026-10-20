@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { withClickSource } from "@/lib/click-source";
 import { getSpecialty } from "@/lib/specialties";
 import { cities, getCity, hasCityPages, CITY_SPECIALTY_SLUGS } from "@/lib/cities";
 import { articlesForSpecialty } from "@/lib/articles";
@@ -121,6 +122,7 @@ export default async function CitySpecialtyPage({
   );
   const relatedArticles = articlesForSpecialty(specialty.slug);
   const visual = getCitySpecialtyVisual(specialty, city.slug, city.name);
+  const ctaSource = `/specialiteter/${specialty.slug}/${city.slug}`;
 
   return (
     <>
@@ -141,7 +143,7 @@ export default async function CitySpecialtyPage({
               i Göteborg). Övriga par har ingen kalender att skicka någon till. */}
           {local?.bookingCta && (
             <BookingCtaBanner
-              href={local.bookingCta.url}
+              href={withClickSource(local.bookingCta.url, ctaSource, "hero-banner")}
               label={local.bookingCta.label}
               note={local.bookingCta.note}
             />
@@ -281,7 +283,7 @@ export default async function CitySpecialtyPage({
                   kan avboka kostnadsfritt fram till 3 timmar före besöket.
                 </p>
                 <a
-                  href={local.bookingCta.url}
+                  href={withClickSource(local.bookingCta.url, ctaSource, "content")}
                   className="mt-5 inline-flex items-center justify-center rounded-xl bg-brand-600 px-6 py-3.5 text-base font-semibold text-white shadow-[0_12px_28px_rgba(13,148,136,0.24)] transition-all hover:-translate-y-0.5 hover:bg-brand-700"
                 >
                   {local.bookingCta.label}
@@ -422,7 +424,7 @@ export default async function CitySpecialtyPage({
                 <h2 className="text-lg font-bold text-ink-900">Boka tid direkt</h2>
                 {/* Ingen target="_blank": bokningen ligger på sajten själv. */}
                 <a
-                  href={local.bookingCta.url}
+                  href={withClickSource(local.bookingCta.url, ctaSource, "sidebar")}
                   className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-brand-600 px-6 py-3.5 text-center text-base font-semibold text-white shadow-[0_12px_28px_rgba(13,148,136,0.24)] transition-all hover:-translate-y-0.5 hover:bg-brand-700"
                 >
                   {local.bookingCta.label}

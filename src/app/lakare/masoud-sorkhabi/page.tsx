@@ -15,7 +15,7 @@ import { articles } from "@/lib/articles";
 import { medicalReviewerFor } from "@/lib/medical-reviewer";
 
 const PATH = "/lakare/masoud-sorkhabi";
-const BOOKING = "/boka/ortoped-goteborg";
+const BOOKING = "/boka/ortoped-goteborg?src=/lakare/masoud-sorkhabi&cta=doctor-profile";
 const MONEY_PAGE = "/specialiteter/ortoped/goteborg";
 const abs = (p: string) => `${site.url}${p}`;
 
