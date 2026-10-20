@@ -123,8 +123,8 @@ export const article: Article = {
       id: "nar-soka-direkt",
       heading: "När du ska söka vård direkt",
       body: [
-        "En planerad utredning av förhöjda levervärden är till för besvär som inte är akuta. Vissa symtom ska däremot inte vänta. Sök akut vård eller ring **112** vid gulfärgad hud eller ögonvitor som kommer snabbt, kraftig eller ihållande buksmärta, blodiga kräkningar, svart eller tjärliknande avföring, snabbt tilltagande buksvullnad, eller förvirring och kraftig trötthet i kombination med känd leversjukdom.",
-        "Specialistdirekt ger inte medicinsk rådgivning och bedömer inte hur brådskande dina besvär är. Är du osäker når du **1177** dygnet runt. Vi är en kostnadsfri förfrågan – vi bokar tiden och tar betalt för besöket, medan det medicinska ansvaret ligger hos mottagningen.",
+        "En planerad utredning av förhöjda levervärden är till för besvär som inte är akuta. Kontakta en vårdcentral om huden eller ögonvitorna blir gula. Sök vård genast vid blodiga kräkningar, svart eller tjärliknande avföring, snabbt tilltagande buksvullnad eller om du blir förvirrad, extremt trött eller svimfärdig. Ring **112** vid ett livshotande tillstånd.",
+        "Specialistdirekt är en boknings- och informationstjänst och bedömer inte hur brådskande dina besvär är. Är du osäker kan du ringa **1177** dygnet runt för sjukvårdsrådgivning.",
       ],
     },
     {
@@ -189,7 +189,7 @@ export const article: Article = {
     {
       question: "När ska jag söka vård direkt i stället för att boka tid?",
       answer:
-        "Sök akut vård eller ring 112 vid snabbt insättande gulfärgning av hud eller ögonvitor, kraftig eller ihållande buksmärta, blodiga kräkningar, svart eller tjärliknande avföring, snabbt tilltagande buksvullnad, eller förvirring och kraftig trötthet vid känd leversjukdom. Är du osäker kan du ringa 1177.",
+        "Kontakta en vårdcentral om huden eller ögonvitorna blir gula. Sök vård genast vid blodiga kräkningar, svart avföring, snabbt tilltagande buksvullnad, förvirring, extrem trötthet eller svimfärdighet. Ring 112 vid ett livshotande tillstånd. Är du osäker kan du ringa 1177.",
     },
   ],
 };
