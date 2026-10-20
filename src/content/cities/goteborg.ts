@@ -1,5 +1,6 @@
 import type { City } from "@/lib/cities-types";
 import { BARN_SCOPE } from "@/lib/barn-scope";
+import { BOOKING_PRICE_SEK, BOOKING_SLOT_MINUTES, formatPrice } from "@/lib/booking-slots";
 
 export const city: City = {
   slug: "goteborg",
@@ -50,7 +51,8 @@ export const city: City = {
       quickFacts: [
         { label: "Läkare", value: "Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi" },
         { label: "Besök", value: "Fysiskt besök i Göteborg" },
-        { label: "Pris", value: "2 000 kr – betalas på plats vid besöket" },
+        { label: "Besökslängd", value: `${BOOKING_SLOT_MINUTES} minuter` },
+        { label: "Pris", value: `${formatPrice(BOOKING_PRICE_SEK)} kr – betalas på plats vid besöket` },
         { label: "Specialitet", value: "Ortopedi och ryggkirurgi" },
         { label: "Erfarenhet", value: "Mer än 20 års klinisk erfarenhet" },
         { label: "Kompetensområden", value: "Rygg, nacke, knä och nervrelaterade besvär" },
