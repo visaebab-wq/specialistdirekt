@@ -30,7 +30,7 @@ export default function BookaTidPage() {
   }));
 
   return (
-    <main className="content-shell">
+    <div className="content-shell">
       <section className="internal-hero">
         <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:py-16">
           <Breadcrumbs items={[{ name: "Hem", path: "/" }, { name: "Boka tid", path: "/boka-tid" }]} />
@@ -114,6 +114,6 @@ export default function BookaTidPage() {
           </aside>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

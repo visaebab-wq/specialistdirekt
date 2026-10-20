@@ -21,7 +21,7 @@ export const dynamic = "force-dynamic";
 
 function Shell({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <main className="content-shell">
+    <div className="content-shell">
       <section className="mx-auto max-w-2xl px-4 py-16 sm:px-6">
         <div className="form-panel overflow-hidden">
           <div className="border-b border-brand-100 bg-brand-50 px-6 py-5 sm:px-8">
@@ -33,7 +33,7 @@ function Shell({ title, children }: { title: string; children: React.ReactNode }
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
 

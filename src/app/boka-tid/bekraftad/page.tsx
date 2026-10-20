@@ -28,7 +28,7 @@ export default async function BookingConfirmedPage({
     (status === "confirmed" || status === "conflict");
 
   return (
-    <main className="content-shell">
+    <div className="content-shell">
       {validTransition && <BookingConfirmedEvent eventId={event} />}
       <section className="mx-auto max-w-2xl px-4 py-16 sm:px-6">
         <div className="readable-card p-6 sm:p-8">
@@ -62,6 +62,6 @@ export default async function BookingConfirmedPage({
           </Link>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

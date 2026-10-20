@@ -17,7 +17,7 @@ export const dynamic = "force-dynamic";
 
 function Shell({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <main className="content-shell">
+    <div className="content-shell">
       <section className="mx-auto max-w-2xl px-4 py-16 sm:px-6">
         <div className="readable-card p-6 sm:p-8">
           <h1 className="text-2xl font-bold text-ink-900">{title}</h1>
@@ -30,7 +30,7 @@ function Shell({ title, children }: { title: string; children: React.ReactNode }
           </Link>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
 

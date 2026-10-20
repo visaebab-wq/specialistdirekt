@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function KroppsguidePage() {
   return (
-    <main className="min-h-screen bg-sky-50">
+    <div className="min-h-screen bg-sky-50">
       <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:py-16">
         <div className="text-center">
           <p className="internal-hero-kicker">Interaktiv kroppsguide</p>
@@ -26,6 +26,6 @@ export default function KroppsguidePage() {
           <AnatomyHeroVisual />
         </div>
       </section>
-    </main>
+    </div>
   );
 }
