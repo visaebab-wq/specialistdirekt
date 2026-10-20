@@ -21,6 +21,13 @@ export async function POST(request: NextRequest) {
 
   const result = cancelBooking(id);
   if (!result.ok) {
+    if (result.reason !== "unknown") {
+      const detailsUrl = destination("/boka-tid/avboka");
+      detailsUrl.searchParams.set("id", id);
+      detailsUrl.searchParams.set("sig", sig);
+      if (result.reason === "unavailable") detailsUrl.searchParams.set("fel", "tekniskt");
+      return NextResponse.redirect(detailsUrl, 303);
+    }
     return NextResponse.redirect(destination("/boka-tid/avboka?fel=lank"), 303);
   }
 

@@ -37,11 +37,16 @@ function Shell({ title, children }: { title: string; children: React.ReactNode }
 export default async function BekraftaPage({
   searchParams,
 }: {
-  searchParams: Promise<{ id?: SearchParamValue; sig?: SearchParamValue }>;
+  searchParams: Promise<{
+    id?: SearchParamValue;
+    sig?: SearchParamValue;
+    fel?: SearchParamValue;
+  }>;
 }) {
   const params = await searchParams;
   const id = singleSearchParam(params.id);
   const sig = singleSearchParam(params.sig);
+  const technicalError = singleSearchParam(params.fel) === "tekniskt";
 
   // Signaturen måste stämma. Utan den skulle vem som helst kunna bekräfta
   // andras bokningar genom att gissa id.
@@ -103,6 +108,11 @@ export default async function BekraftaPage({
 
   return (
     <Shell title={alreadyVerified ? "Tiden är bekräftad" : "Bekräfta din tid"}>
+      {technicalError && (
+        <p role="alert" className="warning-card p-4 text-sm">
+          Bekräftelsen kunde inte sparas just nu. Försök igen om en stund.
+        </p>
+      )}
       <p>
         <strong>{formatSlot(rec.slot)}</strong>
         <br />

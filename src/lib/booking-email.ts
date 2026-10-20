@@ -333,7 +333,7 @@ function cancelledHtml(rec: BookingRecord, free: boolean): string {
           </td></tr>
 
           <tr><td bgcolor="#f8fafc" class="mobile-pad" style="padding:14px 28px;background-color:#f8fafc;font-size:11px;line-height:18px;color:#94a3b8">
-            Detta är ett automatiskt meddelande från ${site.name}. Den avbokade tiden är nu tillgänglig för bokning igen.
+            Detta är ett automatiskt meddelande från ${site.name}. Bokningen är markerad som avbokad i systemet.
           </td></tr>
         </table>
       </td></tr>
@@ -356,7 +356,7 @@ function cancelledText(rec: BookingRecord, free: boolean): string {
       .filter(([label]) => !["Tid", "Pris"].includes(label))
       .map(([label, value]) => `${label}: ${value}`),
     "",
-    "Den avbokade tiden är nu tillgänglig för bokning igen.",
+    "Bokningen är markerad som avbokad i systemet.",
   ].join("\n");
 }
 

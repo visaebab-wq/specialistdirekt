@@ -2,10 +2,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import {
   BOOKING_FREE_CANCEL_HOURS,
-  BOOKING_FREE_CANCEL_MS,
   formatSlot,
 } from "@/lib/booking-slots";
-import { findBooking, verifySignature } from "@/lib/booking-store";
+import { cancellationEligibility, findBooking, verifySignature } from "@/lib/booking-store";
 import { singleSearchParam, type SearchParamValue } from "@/lib/search-params";
 
 export const metadata: Metadata = {
@@ -50,6 +49,7 @@ export default async function AvbokaPage({
   const params = await searchParams;
   const id = singleSearchParam(params.id);
   const sig = singleSearchParam(params.sig);
+  const technicalError = singleSearchParam(params.fel) === "tekniskt";
 
   // Signaturen måste stämma – annars skulle vem som helst kunna avboka andras
   // tider genom att gissa id.
@@ -101,10 +101,41 @@ export default async function AvbokaPage({
     );
   }
 
-  const free = Date.parse(rec.slot) - Date.now() >= BOOKING_FREE_CANCEL_MS;
+  const eligibility = cancellationEligibility(rec);
+  if (!eligibility.ok) {
+    const rebookPath = rec.bookingType === "child" ? "/boka-tid/barn" : "/boka-tid";
+    const past = eligibility.reason === "past";
+    return (
+      <Shell title={past ? "Besökstiden har passerat" : "Reservationen har gått ut"}>
+        <p>
+          {past
+            ? "Den här besökstiden ligger i det förflutna och kan inte avbokas via länken."
+            : "Den preliminära reservationen håller inte längre tiden och behöver inte avbokas."}
+        </p>
+        <p>
+          {past ? (
+            <Link href="/kontakt" className="font-semibold text-brand-700 hover:underline">
+              Kontakta oss om något behöver rättas
+            </Link>
+          ) : (
+            <Link href={rebookPath} className="font-semibold text-brand-700 hover:underline">
+              Välj en ny tid
+            </Link>
+          )}
+        </p>
+      </Shell>
+    );
+  }
+
+  const free = eligibility.free;
 
   return (
     <Shell title="Vill du avboka din tid?">
+      {technicalError && (
+        <p role="alert" className="warning-card p-4 text-sm">
+          Avbokningen kunde inte sparas just nu. Tiden är kvar – försök igen om en stund.
+        </p>
+      )}
       <dl className="rounded-2xl border border-brand-100 bg-brand-50/60 p-5">
         <div>
           <dt className="text-xs font-bold tracking-wider text-brand-700 uppercase">Datum och tid</dt>

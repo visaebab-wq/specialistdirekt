@@ -1,7 +1,6 @@
 "use server";
 
 import { headers } from "next/headers";
-import { redirect } from "next/navigation";
 import { specialties } from "@/lib/specialties";
 import type { LeadState } from "@/lib/lead";
 import { deliverLead } from "@/lib/lead-delivery";
@@ -186,7 +185,7 @@ export async function submitBooking(
   formData: FormData,
 ): Promise<BookingState> {
   const { isValidSlot } = await import("@/lib/booking-slots");
-  const { claimSlot } = await import("@/lib/booking-store");
+  const { bookingSigningConfigured, claimSlot } = await import("@/lib/booking-store");
   const { sendPatientConfirmation, sendOwnerPending } = await import("@/lib/booking-email");
 
   if (formString(formData, "company")) {
@@ -199,17 +198,28 @@ export async function submitBooking(
       errors: {},
     };
   }
+  if (!bookingSigningConfigured()) {
+    console.error("[booking] BOOKING_SECRET saknas eller är för kort");
+    return {
+      status: "error",
+      message: "Bokningssystemet är tillfälligt otillgängligt. Ingen tid har reserverats.",
+      errors: {},
+    };
+  }
 
   const slot = formString(formData, "slot");
   const name = formString(formData, "name");
   const email = formString(formData, "email");
   const phone = formString(formData, "phone");
   const message = formString(formData, "message");
-  const bookingType = formString(formData, "bookingType") === "child" ? "child" : "adult";
+  const bookingTypeInput = formString(formData, "bookingType");
+  const bookingType = bookingTypeInput === "child" ? "child" : "adult";
   const childName = formString(formData, "childName");
   const childBirthDate = formString(formData, "childBirthDate");
 
   const errors: Record<string, string> = {};
+  if (bookingTypeInput !== "adult" && bookingTypeInput !== "child")
+    errors.bookingType = "Bokningstypen är inte giltig. Ladda om sidan och försök igen.";
   if (!slot) errors.slot = "Välj en tid.";
   else if (slot.length > 40) errors.slot = "Tiden är inte längre giltig. Välj en annan.";
   else if (!isValidSlot(slot)) errors.slot = "Tiden är inte längre giltig. Välj en annan.";
@@ -243,6 +253,14 @@ export async function submitBooking(
     ...(bookingType === "child" ? { childName, childBirthDate } : {}),
   });
   if (!claim.ok) {
+    if (claim.reason === "unavailable") {
+      return {
+        status: "error",
+        message:
+          "Bokningssystemet svarar inte just nu. Ingen tid har reserverats – försök igen om en stund.",
+        errors: {},
+      };
+    }
     return {
       status: "error",
       message: "Tyvärr, någon hann boka den tiden precis före dig. Välj en annan tid.",
@@ -262,7 +280,7 @@ export async function submitBooking(
     return {
       status: "success",
       message:
-        "Din tid är reserverad, men bekräftelsemejlet kunde inte skickas. Vi kontaktar dig – du behöver inte boka om.",
+        "Din tid är preliminärt reserverad, men bekräftelsemejlet kunde inte skickas. Kontakta oss så snart som möjligt för att bekräfta bokningen.",
       errors: {},
     };
   }
@@ -273,34 +291,4 @@ export async function submitBooking(
       "Tack! Vi har skickat ett mejl till dig. Klicka på länken i mejlet för att bekräfta tiden och priset.",
     errors: {},
   };
-}
-
-/**
- * Avbokning från länken i bekräftelsemejlet.
- *
- * Körs bara som POST från knappen på avbokningssidan – ALDRIG av att länken
- * öppnas. Mejlklienter och skannrar hämtar länkar i förväg, och ett felklick i
- * mejlet ska inte kunna radera tiden. Signaturen kontrolleras här igen: det
- * dolda fältet i formuläret går att ändra, så sidans kontroll räcker inte.
- */
-export async function cancelBookingFromLink(formData: FormData): Promise<void> {
-  const { cancelBooking, verifySignature } = await import("@/lib/booking-store");
-  const { sendOwnerCancelled } = await import("@/lib/booking-email");
-
-  const id = formString(formData, "id").slice(0, 80);
-  const sig = formString(formData, "sig").slice(0, 80);
-  if (!id || !sig || !verifySignature(id, sig)) redirect("/boka-tid/avboka?fel=lank");
-
-  const result = cancelBooking(id);
-  if (!result.ok) redirect("/boka-tid/avboka?fel=lank");
-
-  // Mottagningen måste få veta – annars står en tom tid kvar i kalendern.
-  // Avbokningen är redan skriven till loggen; ett trasigt mejl får inte ångra den.
-  if (!result.already) {
-    await sendOwnerCancelled(result.record, result.free).catch((err) =>
-      console.error("[booking] Kunde inte skicka avbokningsnotis", err),
-    );
-  }
-
-  redirect(`/boka-tid/avboka?id=${encodeURIComponent(id)}&sig=${encodeURIComponent(sig)}`);
 }

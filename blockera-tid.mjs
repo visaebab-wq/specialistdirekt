@@ -14,9 +14,10 @@
 // bekräftat – bara bekräftade bokningar håller sin lucka för alltid (obekräftade
 // släpps efter två timmar, och då hade tiden dykt upp i kalendern igen).
 
-import { appendFileSync, existsSync, mkdirSync, readFileSync } from "node:fs";
+import { appendFileSync, chmodSync, existsSync, mkdirSync, readFileSync } from "node:fs";
 import { randomUUID } from "node:crypto";
 import { dirname, join } from "node:path";
+import { withBookingLock } from "./booking-lock.mjs";
 
 const TZ = "Europe/Stockholm";
 const FILE = process.env.BOOKING_LOG_FILE || join(process.cwd(), ".data", "bookings.jsonl");
@@ -26,6 +27,7 @@ const WEEKDAYS = [6, 0]; // lördag, söndag
 const START_HOUR = 10;
 const END_HOUR = 16;
 const SLOT_MINUTES = 40;
+const PENDING_TTL_MS = 2 * 60 * 60 * 1000;
 
 function readEvents() {
   if (!existsSync(FILE)) return [];
@@ -125,8 +127,29 @@ function isRealSlot(d) {
 }
 
 function append(event) {
-  mkdirSync(dirname(FILE), { recursive: true });
-  appendFileSync(FILE, JSON.stringify(event) + "\n", "utf8");
+  const parent = dirname(FILE);
+  const parentExisted = existsSync(parent);
+  mkdirSync(parent, { recursive: true, mode: 0o700 });
+  if (!parentExisted || !process.env.BOOKING_LOG_FILE) chmodSync(parent, 0o700);
+  if (existsSync(FILE)) chmodSync(FILE, 0o600);
+  appendFileSync(FILE, JSON.stringify(event) + "\n", { encoding: "utf8", mode: 0o600 });
+  chmodSync(FILE, 0o600);
+}
+
+function holdsSlot(rec, now) {
+  if (rec.status === "cancelled") return false;
+  if (rec.status === "verified") return true;
+  return now - Date.parse(rec.createdAt) < PENDING_TTL_MS;
+}
+
+function locked(fn) {
+  try {
+    return withBookingLock(FILE, fn);
+  } catch (error) {
+    const code = error?.name === "BookingStoreBusyError" ? "busy" : error?.code || "unknown";
+    console.error(`Kunde inte låsa bokningsloggen (${String(code).slice(0, 40)}). Inget gjordes.`);
+    process.exit(1);
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -135,9 +158,11 @@ const args = process.argv.slice(2);
 
 if (args[0] === "--lista") {
   const now = Date.now();
-  const upcoming = allBookings()
-    .filter((b) => b.status !== "cancelled" && Date.parse(b.slot) > now)
-    .sort((a, b) => a.slot.localeCompare(b.slot));
+  const upcoming = locked(() =>
+    allBookings()
+      .filter((b) => holdsSlot(b, now) && Date.parse(b.slot) > now)
+      .sort((a, b) => a.slot.localeCompare(b.slot)),
+  );
   if (!upcoming.length) {
     console.log("Inga upptagna tider framåt.");
   } else {
@@ -151,16 +176,22 @@ if (args[0] === "--lista") {
 
 if (args[0] === "--avblockera") {
   const id = args[1];
-  const rec = allBookings().find((b) => b.id === id);
-  if (!rec) {
+  const result = locked(() => {
+    const rec = allBookings().find((b) => b.id === id);
+    if (!rec) return { status: "missing" };
+    if (rec.status === "cancelled") return { status: "already", rec };
+    append({ type: "cancelled", id, at: new Date().toISOString() });
+    return { status: "cancelled", rec };
+  });
+  const rec = result.rec;
+  if (result.status === "missing") {
     console.error(`Hittar ingen bokning med id ${id}. Kör --lista för att se dem.`);
     process.exit(1);
   }
-  if (rec.status === "cancelled") {
+  if (result.status === "already") {
     console.log(`${label(rec.slot)} är redan öppen igen.`);
     process.exit(0);
   }
-  append({ type: "cancelled", id, at: new Date().toISOString() });
   console.log(`Öppnad igen: ${label(rec.slot)} (${rec.name})`);
   process.exit(0);
 }
@@ -188,28 +219,35 @@ if (problem) {
 }
 
 const iso = instant.toISOString();
-const taken = allBookings().find((b) => b.slot === iso && b.status !== "cancelled");
-if (taken) {
+const result = locked(() => {
+  const nowDate = new Date();
+  const taken = allBookings().find((b) => b.slot === iso && holdsSlot(b, nowDate.getTime()));
+  if (taken) return { status: "taken", taken };
+
+  const id = randomUUID();
+  const now = nowDate.toISOString();
+  append({
+    type: "created",
+    id,
+    slot: iso,
+    name: note,
+    email: "",
+    phone: "",
+    message: "Blockerad med blockera-tid.mjs – bokad utanför sajten.",
+    status: "pending",
+    createdAt: now,
+  });
+  // Verified, annars släpps luckan igen efter två timmar.
+  append({ type: "verified", id, at: now });
+  return { status: "created", id };
+});
+
+if (result.status === "taken") {
+  const taken = result.taken;
   console.log(`${label(iso)} är redan upptagen av "${taken.name}" (${taken.status}). Inget gjordes.`);
   process.exit(0);
 }
 
-const id = randomUUID();
-const now = new Date().toISOString();
-append({
-  type: "created",
-  id,
-  slot: iso,
-  name: note,
-  email: "",
-  phone: "",
-  message: "Blockerad med blockera-tid.mjs – bokad utanför sajten.",
-  status: "pending",
-  createdAt: now,
-});
-// Verified, annars släpps luckan igen efter två timmar.
-append({ type: "verified", id, at: now });
-
 console.log(`Blockerad: ${label(iso)}`);
 console.log(`  Etikett: ${note}`);
-console.log(`  Id:      ${id}   (öppna igen med: node blockera-tid.mjs --avblockera ${id})`);
+console.log(`  Id:      ${result.id}   (öppna igen med: node blockera-tid.mjs --avblockera ${result.id})`);
