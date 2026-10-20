@@ -8,7 +8,7 @@ export const faqs: Faq[] = [
   {
     question: "Vad är Specialistdirekt?",
     answer:
-      "Specialistdirekt hjälper dig att komma till rätt specialistläkare i Sverige. Du beskriver ditt behov, vi kontaktar flera anslutna mottagningar och återkommer med den tidigaste tid vi hittar. Det medicinska ansvaret för vården ligger hos mottagningen.",
+      "Specialistdirekt är en boknings- och informationstjänst om privat specialistvård. För vissa tjänster väljer du en tid direkt och bekräftar den via e-post; för andra skickar du en kostnadsfri tidsförfrågan och får besked om nästa steg. Specialistdirekt är inte vårdgivare – det medicinska ansvaret ligger hos läkaren eller mottagningen som utför vården.",
   },
   // Betalningsfrågorna är medvetet uppdelade per bokningsväg. Ett universellt
   // svar går inte att ge: vid direktbokning i Göteborg betalas 2 000 kr på
@@ -30,7 +30,7 @@ export const faqs: Faq[] = [
   {
     question: "Hur snabbt får jag svar?",
     answer:
-      "Vi återkommer normalt inom en arbetsdag med förslag på en eller flera specialister som passar ditt behov. Vid hög belastning kan det ta upp till två arbetsdagar.",
+      "Vid direktbokning väljer du en ledig tid och får ett bekräftelsemejl. Tiden är preliminär tills du öppnar länken i mejlet och bekräftar bokningen. För en kostnadsfri tidsförfrågan återkommer vi normalt inom en arbetsdag; vid hög belastning kan det ta upp till två arbetsdagar.",
   },
   {
     question: "Ger ni medicinska råd eller diagnoser?",
@@ -50,7 +50,7 @@ export const faqs: Faq[] = [
   {
     question: "Vilka specialiteter kan jag få hjälp med?",
     answer:
-      "Vi tar emot förfrågningar inom en rad områden – bland annat kardiologi, ortopedi, dermatologi, gynekologi, neurologi och psykiatri. Ser du inte din specialitet? Hör av dig ändå, så hjälper vi dig vidare.",
+      "Vi tar emot förfrågningar inom en rad områden – bland annat kardiologi, ortopedi, dermatologi, gynekologi, neurologi och psykiatri. Ser du inte den specialitet du söker kan du kontakta oss för besked om vi kan ta emot förfrågan.",
   },
   {
     question: "Är det här en akuttjänst?",
