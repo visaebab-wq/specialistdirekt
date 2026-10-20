@@ -9,18 +9,20 @@
 // Körs av systemd-timern paminn-obekraftade.timer var tionde minut.
 // Manuellt, från projektmappen:
 //   node paminn-obekraftade.mjs          # skickar
-//   DRY=1 node paminn-obekraftade.mjs    # skriver ut i terminalen i stället
+//   DRY=1 node paminn-obekraftade.mjs    # visar antal utan personuppgifter
 //
 // Miljövariabler:
-//   DRY=1               – skicka inte, skriv ut
+//   DRY=1               – skicka inte; skriv bara en säker sammanfattning
 //   REMIND_AFTER_MIN=60 – ålder då påminnelsen skickas (default 60)
+//   BOOKING_LOG_FILE=... – alternativ bokningslogg (statusfilen följer med)
+//   REMINDER_LOG_FILE=... – explicit alternativ statusfil
 //
 // Idempotens: skickade påminnelser loggas i .data/booking-reminders.jsonl.
 // Medvetet en EGEN fil – bookings.jsonl är bokningssystemets händelselogg och
 // ska bara innehålla created/verified/cancelled. En okänd händelsetyp där skulle
 // vara en risk för allBookings() utan att ge oss något.
 
-import { appendFileSync, readFileSync, existsSync, mkdirSync } from "node:fs";
+import { appendFileSync, chmodSync, readFileSync, existsSync, mkdirSync } from "node:fs";
 import { createHmac } from "node:crypto";
 import { join, dirname } from "node:path";
 import nodemailer from "nodemailer";
@@ -30,10 +32,20 @@ const DRY = process.env.DRY === "1";
 
 // Måste matcha src/lib/booking-slots.ts. Ändras TTL:n där ska den ändras här.
 const PENDING_TTL_MIN = 120;
-const REMIND_AFTER_MIN = Number(process.env.REMIND_AFTER_MIN || 60);
 // Marginal så en påminnelse aldrig skickas i samma stund som luckan släpps –
 // då vore uppmaningen "bekräfta nu" redan osann när mejlet landar.
 const REMIND_BEFORE_MIN = PENDING_TTL_MIN - 5;
+const REMIND_AFTER_MIN = Number(process.env.REMIND_AFTER_MIN || 60);
+if (
+  !Number.isFinite(REMIND_AFTER_MIN) ||
+  REMIND_AFTER_MIN < 0 ||
+  REMIND_AFTER_MIN > REMIND_BEFORE_MIN
+) {
+  console.error(
+    `[paminnelse] REMIND_AFTER_MIN måste vara ett tal mellan 0 och ${REMIND_BEFORE_MIN} – inget skickades.`,
+  );
+  process.exit(1);
+}
 
 const DOCTOR = "Dr Masoud Sorkhabi";
 
@@ -49,22 +61,49 @@ try {
   console.error("Kunde inte läsa .env.local – kör skriptet från projektmappen.");
   process.exit(1);
 }
-const { SMTP_HOST, SMTP_PORT = "465", SMTP_USER, SMTP_PASS } = env;
-const BASE = env.BOOKING_BASE_URL || "https://specialistdirekt.se";
+const SMTP_HOST = process.env.SMTP_HOST || env.SMTP_HOST;
+const SMTP_PORT = process.env.SMTP_PORT || env.SMTP_PORT || "465";
+const SMTP_USER = process.env.SMTP_USER || env.SMTP_USER;
+const SMTP_PASS = process.env.SMTP_PASS || env.SMTP_PASS;
+const BASE =
+  process.env.BOOKING_BASE_URL || env.BOOKING_BASE_URL || "https://specialistdirekt.se";
 
-// Samma härledning som secret() i src/lib/booking-store.ts, annars blir
-// signaturen fel och bekräftelselänken avvisas.
-const SECRET =
-  env.BOOKING_SECRET || `fallback:${SMTP_PASS || ""}:${SMTP_USER || ""}`;
+// Samma krav som secret() i src/lib/booking-store.ts. En påminnelse får aldrig
+// signeras med en offentlig fallback-nyckel.
+const SECRET = process.env.BOOKING_SECRET || env.BOOKING_SECRET;
+if (!SECRET || SECRET.length < 16) {
+  console.error("[paminnelse] BOOKING_SECRET saknas eller är för kort – inget skickades.");
+  process.exit(1);
+}
 const sign = (id) =>
   createHmac("sha256", SECRET).update(id).digest("hex").slice(0, 32);
 
-const BOOKINGS = process.env.BOOKING_LOG_FILE || join(ROOT, ".data", "bookings.jsonl");
-const REMINDERS = join(ROOT, ".data", "booking-reminders.jsonl");
+const configuredBookingLog = process.env.BOOKING_LOG_FILE || env.BOOKING_LOG_FILE;
+const configuredReminderLog = process.env.REMINDER_LOG_FILE || env.REMINDER_LOG_FILE;
+const BOOKINGS = configuredBookingLog || join(ROOT, ".data", "bookings.jsonl");
+// En syntetisk/staging-bokningslogg får aldrig läsa eller skriva projektets
+// riktiga påminnelsestatus. Utan uttrycklig override följer statusfilen därför
+// med BOOKING_LOG_FILE till samma katalog.
+const REMINDERS =
+  configuredReminderLog ||
+  (configuredBookingLog
+    ? join(dirname(BOOKINGS), "booking-reminders.jsonl")
+    : join(ROOT, ".data", "booking-reminders.jsonl"));
+const reminderPathIsCustom = Boolean(configuredReminderLog || configuredBookingLog);
 
 // --- Läs händelseloggen på samma sätt som allBookings() ---
+function isUsableCreatedEvent(event) {
+  if (!event || typeof event !== "object") return false;
+  for (const field of ["id", "email", "createdAt", "slot"]) {
+    if (typeof event[field] !== "string" || event[field].trim() === "") return false;
+  }
+  return Number.isFinite(Date.parse(event.createdAt)) && Number.isFinite(Date.parse(event.slot));
+}
+
 function readBookings() {
   if (!existsSync(BOOKINGS)) return [];
+  if (!configuredBookingLog) chmodSync(dirname(BOOKINGS), 0o700);
+  chmodSync(BOOKINGS, 0o600);
   const recs = new Map();
   for (const line of readFileSync(BOOKINGS, "utf8").split("\n")) {
     if (!line.trim()) continue;
@@ -76,6 +115,10 @@ function readBookings() {
     }
     const type = ev.type || "created";
     if (type === "created") {
+      // En syntaktiskt korrekt men ofullständig/ogiltig JSON-rad ska inte kunna
+      // stoppa hela körningen i datumformatteringen. Hoppa över den tyst så att
+      // varken personuppgifter eller trasigt innehåll hamnar i driftloggen.
+      if (!isUsableCreatedEvent(ev)) continue;
       recs.set(ev.id, { ...ev, status: "pending" });
     } else if (recs.has(ev.id)) {
       if (type === "verified") recs.get(ev.id).status = "verified";
@@ -87,6 +130,8 @@ function readBookings() {
 
 function alreadyReminded() {
   if (!existsSync(REMINDERS)) return new Set();
+  if (!reminderPathIsCustom) chmodSync(dirname(REMINDERS), 0o700);
+  chmodSync(REMINDERS, 0o600);
   const ids = new Set();
   for (const line of readFileSync(REMINDERS, "utf8").split("\n")) {
     if (!line.trim()) continue;
@@ -130,16 +175,37 @@ if (due.length === 0) {
   process.exit(0);
 }
 
-const transporter = DRY
-  ? null
-  : nodemailer.createTransport({
-      host: SMTP_HOST,
-      port: Number(SMTP_PORT),
-      secure: Number(SMTP_PORT) === 465,
-      auth: { user: SMTP_USER, pass: SMTP_PASS },
-    });
+if (DRY) {
+  console.log(
+    `[paminnelse] DRY: ${due.length} påminnelse${due.length === 1 ? "" : "r"} skulle skickas; inga personuppgifter visas`,
+  );
+  process.exit(0);
+}
 
+const transporter = nodemailer.createTransport({
+  host: SMTP_HOST,
+  port: Number(SMTP_PORT),
+  secure: Number(SMTP_PORT) === 465,
+  requireTLS: Number(SMTP_PORT) !== 465,
+  auth: { user: SMTP_USER, pass: SMTP_PASS },
+});
+
+let sent = 0;
 let failed = 0;
+const failureCounts = new Map();
+
+const mailErrorSummary = (err) => {
+  const safe = (value) =>
+    typeof value === "string" && /^[A-Za-z0-9_-]{1,40}$/.test(value) ? value : undefined;
+  const code = safe(err?.code) || "unknown";
+  const command = safe(err?.command);
+  const responseCode = Number.isInteger(err?.responseCode) ? err.responseCode : undefined;
+  return [
+    `code=${code}`,
+    ...(command ? [`command=${command}`] : []),
+    ...(responseCode !== undefined ? [`responseCode=${responseCode}`] : []),
+  ].join(";");
+};
 
 for (const rec of due) {
   const when = formatSlot(rec.slot);
@@ -198,14 +264,6 @@ for (const rec of due) {
 
   const subject = `Din tid ${when} är inte bekräftad än – ${DOCTOR}`;
 
-  if (DRY) {
-    console.log("─".repeat(70));
-    console.log("TILL:   ", rec.email);
-    console.log("ÄMNE:   ", subject);
-    console.log(text);
-    continue;
-  }
-
   try {
     await transporter.sendMail({
       from: SMTP_USER,
@@ -216,16 +274,28 @@ for (const rec of due) {
     });
     // Loggas FÖRST efter att mejlet gått iväg – annars kunde en misslyckad
     // sändning markeras som påmind och personen aldrig få någon påminnelse.
-    mkdirSync(dirname(REMINDERS), { recursive: true });
-    appendFileSync(
-      REMINDERS,
-      JSON.stringify({ id: rec.id, at: new Date().toISOString(), slot: rec.slot }) + "\n",
-    );
-    console.log(`[paminnelse] skickad till bokning ${rec.id.slice(0, 8)} (${when})`);
+    const reminderParent = dirname(REMINDERS);
+    const reminderParentExisted = existsSync(reminderParent);
+    mkdirSync(reminderParent, { recursive: true, mode: 0o700 });
+    if (!reminderParentExisted || !reminderPathIsCustom) chmodSync(reminderParent, 0o700);
+    if (existsSync(REMINDERS)) chmodSync(REMINDERS, 0o600);
+    // Id:t är allt som behövs för idempotens. Tid och besökstid skulle bara
+    // skapa ytterligare hälsorelaterad metadata med egen lagringstid.
+    appendFileSync(REMINDERS, JSON.stringify({ id: rec.id }) + "\n", { mode: 0o600 });
+    chmodSync(REMINDERS, 0o600);
+    sent++;
   } catch (err) {
     failed++;
-    console.error(`[paminnelse] MISSLYCKADES för ${rec.id.slice(0, 8)}: ${err.message}`);
+    const summary = mailErrorSummary(err);
+    failureCounts.set(summary, (failureCounts.get(summary) || 0) + 1);
   }
 }
 
-process.exit(failed > 0 ? 1 : 0);
+console.log(`[paminnelse] klart: ${sent} skickade, ${failed} misslyckade`);
+for (const [summary, count] of failureCounts) {
+  console.error(`[paminnelse] fel ${summary}; antal=${count}`);
+}
+
+// Låt Node tömma stdout/stderr innan processen avslutas; process.exit() kan
+// kapa den aggregerade driftloggen när skriptet körs av systemd eller via pipe.
+process.exitCode = failed > 0 ? 1 : 0;

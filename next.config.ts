@@ -34,6 +34,11 @@ const sensitiveHeaders = [
 const nextConfig: NextConfig = {
   // nodemailer ska köras som vanligt Node-paket på servern (inte bundlas).
   serverExternalPackages: ["nodemailer"],
+  // Runtimefilerna innehåller kontaktuppgifter och medicinsk fritext. Nexts
+  // filspårning får aldrig ta med dem i standalone/serverless-byggartefakter.
+  outputFileTracingExcludes: {
+    "/*": [".data/**/*"],
+  },
   async headers() {
     return [
       { source: "/:path*", headers: securityHeaders },

@@ -77,10 +77,14 @@ function errorSummary(err: unknown): string {
 let certKnownBroken = false;
 
 function transport(insecure: boolean) {
+  const port = Number(process.env.SMTP_PORT || 587);
   return nodemailer.createTransport({
     host: process.env.SMTP_HOST,
-    port: Number(process.env.SMTP_PORT || 587),
-    secure: Number(process.env.SMTP_PORT) === 465,
+    port,
+    secure: port === 465,
+    // På submissionportar måste STARTTLS lyckas; annars får varken lösenord
+    // eller patientuppgifter fortsätta i klartext om TLS-annonsen saknas.
+    requireTLS: port !== 465,
     auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
     ...(insecure ? { tls: { rejectUnauthorized: false } } : {}),
   });

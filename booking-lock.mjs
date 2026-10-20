@@ -33,7 +33,8 @@ export class BookingStoreBusyError extends Error {
  */
 function processStartId(pid) {
   try {
-    const stat = readFileSync(`/proc/${pid}/stat`, "utf8");
+    const procStatFile = `/proc/${pid}/stat`;
+    const stat = readFileSync(/* turbopackIgnore: true */ procStatFile, "utf8");
     const commandEnd = stat.lastIndexOf(") ");
     if (commandEnd < 0) return null;
     return stat.slice(commandEnd + 2).trim().split(/\s+/)[19] || null;
@@ -85,7 +86,7 @@ function reapAbandonedLock(lockDir) {
   /** @type {string[]} */
   let entries;
   try {
-    entries = readdirSync(lockDir);
+    entries = readdirSync(/* turbopackIgnore: true */ lockDir);
   } catch (error) {
     if (error?.code === "ENOENT") return true;
     throw error;
@@ -93,9 +94,9 @@ function reapAbandonedLock(lockDir) {
 
   if (entries.length === 0) {
     try {
-      const ageMs = Date.now() - statSync(lockDir).mtimeMs;
+      const ageMs = Date.now() - statSync(/* turbopackIgnore: true */ lockDir).mtimeMs;
       if (ageMs < EMPTY_LOCK_STALE_MS) return false;
-      rmdirSync(lockDir);
+      rmdirSync(/* turbopackIgnore: true */ lockDir);
       return true;
     } catch (error) {
       if (error?.code === "ENOENT") return true;
@@ -109,15 +110,16 @@ function reapAbandonedLock(lockDir) {
   const owner = parseOwner(marker);
   if (!owner || !ownerIsGone(owner)) return false;
 
+  const abandonedMarkerPath = join(lockDir, marker);
   try {
-    unlinkSync(join(lockDir, marker));
+    unlinkSync(/* turbopackIgnore: true */ abandonedMarkerPath);
   } catch (error) {
     if (error?.code === "ENOENT") return true;
     throw error;
   }
 
   try {
-    rmdirSync(lockDir);
+    rmdirSync(/* turbopackIgnore: true */ lockDir);
     return true;
   } catch (error) {
     if (error?.code === "ENOENT") return true;
@@ -143,9 +145,9 @@ function reapAbandonedLock(lockDir) {
 export function withBookingLock(storeFile, fn, { timeoutMs = 5000 } = {}) {
   const lockDir = `${storeFile}.lock`;
   const parent = dirname(lockDir);
-  const parentExisted = existsSync(parent);
-  mkdirSync(parent, { recursive: true, mode: 0o700 });
-  if (!parentExisted) chmodSync(parent, 0o700);
+  const parentExisted = existsSync(/* turbopackIgnore: true */ parent);
+  mkdirSync(/* turbopackIgnore: true */ parent, { recursive: true, mode: 0o700 });
+  if (!parentExisted) chmodSync(/* turbopackIgnore: true */ parent, 0o700);
 
   const startId = processStartId(process.pid) || "unknown";
   const marker = `owner-${process.pid}-${startId}-${randomUUID()}`;
@@ -154,7 +156,7 @@ export function withBookingLock(storeFile, fn, { timeoutMs = 5000 } = {}) {
 
   for (;;) {
     try {
-      mkdirSync(lockDir, { mode: 0o700 });
+      mkdirSync(/* turbopackIgnore: true */ lockDir, { mode: 0o700 });
     } catch (error) {
       if (error?.code !== "EEXIST") throw error;
       if (reapAbandonedLock(lockDir)) continue;
@@ -164,11 +166,11 @@ export function withBookingLock(storeFile, fn, { timeoutMs = 5000 } = {}) {
     }
 
     try {
-      const fd = openSync(markerPath, "wx", 0o600);
+      const fd = openSync(/* turbopackIgnore: true */ markerPath, "wx", 0o600);
       closeSync(fd);
     } catch (error) {
       try {
-        rmdirSync(lockDir);
+        rmdirSync(/* turbopackIgnore: true */ lockDir);
       } catch {
         // Katalogen kan ha fått en post; lämna den då fail-closed.
       }
@@ -181,7 +183,7 @@ export function withBookingLock(storeFile, fn, { timeoutMs = 5000 } = {}) {
     return fn();
   } finally {
     try {
-      unlinkSync(markerPath);
+      unlinkSync(/* turbopackIgnore: true */ markerPath);
     } catch (error) {
       if (error?.code !== "ENOENT") {
         const code = typeof error?.code === "string" ? error.code : "unknown";
@@ -190,7 +192,7 @@ export function withBookingLock(storeFile, fn, { timeoutMs = 5000 } = {}) {
     }
 
     try {
-      rmdirSync(lockDir);
+      rmdirSync(/* turbopackIgnore: true */ lockDir);
     } catch (error) {
       if (error?.code !== "ENOENT") {
         const code = typeof error?.code === "string" ? error.code : "unknown";

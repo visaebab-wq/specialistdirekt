@@ -10,17 +10,34 @@
 // 3. En obekräftad bokning håller sin lucka i BOOKING_PENDING_TTL_MS och släpps
 //    sedan. Annars skulle en person som ångrar sig blockera tiden för alltid.
 
-import { appendFileSync, chmodSync, existsSync, mkdirSync, readFileSync } from "node:fs";
+import {
+  appendFileSync,
+  chmodSync,
+  closeSync,
+  existsSync,
+  fstatSync,
+  mkdirSync,
+  openSync,
+  readFileSync,
+  statSync,
+} from "node:fs";
 import { createHmac, randomUUID, timingSafeEqual } from "node:crypto";
 import { dirname, join } from "node:path";
 import { BookingStoreBusyError, withBookingLock } from "../../booking-lock.mjs";
 import {
-  BOOKING_FREE_CANCEL_MS,
+  BOOKING_FREE_CANCEL_HOURS,
   BOOKING_PENDING_TTL_MS,
+  BOOKING_PRICE_SEK,
   isValidSlot,
 } from "./booking-slots";
 
 export type BookingStatus = "pending" | "verified" | "cancelled";
+
+// Poster skapade före villkors-snapshotten saknar fälten nedan. Lås deras
+// historiska villkor här så att en framtida ändring av standarderna inte
+// retroaktivt ändrar redan gjorda bokningar.
+const LEGACY_BOOKING_PRICE_SEK = 2000;
+const LEGACY_FREE_CANCEL_HOURS = 3;
 
 export type BookingRecord = {
   id: string;
@@ -33,6 +50,9 @@ export type BookingRecord = {
   bookingType?: "adult" | "child";
   childName?: string;
   childBirthDate?: string;
+  /** Villkor vid bokningstillfället. Äldre poster saknar dem och använder fallback. */
+  priceSek?: number;
+  freeCancelHours?: number;
   status: BookingStatus;
   createdAt: string;
   verifiedAt?: string;
@@ -50,24 +70,83 @@ function storeFile(): string {
   return process.env.BOOKING_LOG_FILE || join(process.cwd(), ".data", "bookings.jsonl");
 }
 
+type EventCache = {
+  file: string;
+  fingerprint: string;
+  events: Event[];
+};
+
+let eventCache: EventCache | undefined;
+let replayedEvents: Event[] | undefined;
+let replayedBookings: BookingRecord[] = [];
+
+function clearBookingCache(): void {
+  eventCache = undefined;
+  replayedEvents = undefined;
+  replayedBookings = [];
+}
+
 function append(event: Event): void {
   const file = storeFile();
   const parent = dirname(file);
-  const parentExisted = existsSync(parent);
-  mkdirSync(parent, { recursive: true, mode: 0o700 });
-  if (!parentExisted || !process.env.BOOKING_LOG_FILE) chmodSync(parent, 0o700);
-  if (existsSync(file)) chmodSync(file, 0o600);
-  appendFileSync(file, JSON.stringify(event) + "\n", { encoding: "utf8", mode: 0o600 });
-  chmodSync(file, 0o600);
+  const parentExisted = existsSync(/* turbopackIgnore: true */ parent);
+  mkdirSync(/* turbopackIgnore: true */ parent, { recursive: true, mode: 0o700 });
+  if (!parentExisted || !process.env.BOOKING_LOG_FILE)
+    chmodSync(/* turbopackIgnore: true */ parent, 0o700);
+  if (existsSync(/* turbopackIgnore: true */ file))
+    chmodSync(/* turbopackIgnore: true */ file, 0o600);
+  appendFileSync(/* turbopackIgnore: true */ file, JSON.stringify(event) + "\n", {
+    encoding: "utf8",
+    mode: 0o600,
+  });
+  chmodSync(/* turbopackIgnore: true */ file, 0o600);
+  clearBookingCache();
 }
 
 function readEvents(): Event[] {
   const file = storeFile();
-  if (!existsSync(file)) return [];
-  if (!process.env.BOOKING_LOG_FILE) chmodSync(dirname(file), 0o700);
-  chmodSync(file, 0o600);
+  const parent = dirname(file);
+  if (!existsSync(/* turbopackIgnore: true */ file)) {
+    if (eventCache?.file !== file || eventCache.events.length > 0) clearBookingCache();
+    if (!eventCache) eventCache = { file, fingerprint: "missing", events: [] };
+    return eventCache.events;
+  }
+  if (!process.env.BOOKING_LOG_FILE)
+    chmodSync(/* turbopackIgnore: true */ parent, 0o700);
+  let stat = statSync(/* turbopackIgnore: true */ file);
+  if ((stat.mode & 0o077) !== 0) {
+    chmodSync(/* turbopackIgnore: true */ file, 0o600);
+    stat = statSync(/* turbopackIgnore: true */ file);
+  }
+
+  const fingerprint = `${stat.dev}:${stat.ino}:${stat.size}:${stat.mtimeMs}`;
+  if (eventCache?.file === file && eventCache.fingerprint === fingerprint) {
+    return eventCache.events;
+  }
+
+  // Läs och kontrollera samma öppna filbeskrivare. Om en återställning atomiskt
+  // ersätter sökvägen under läsningen kan vi annars råka märka inode A:s innehåll
+  // med inode B:s fingerprint och behålla fel snapshot i cachen.
+  const fd = openSync(/* turbopackIgnore: true */ file, "r");
+  let raw = "";
+  let beforeRead = stat;
+  let after = stat;
+  try {
+    beforeRead = fstatSync(fd);
+    raw = readFileSync(fd, "utf8");
+    after = fstatSync(fd);
+  } finally {
+    closeSync(fd);
+  }
+  const stableRead =
+    beforeRead.dev === after.dev &&
+    beforeRead.ino === after.ino &&
+    beforeRead.size === after.size &&
+    beforeRead.mtimeMs === after.mtimeMs &&
+    Buffer.byteLength(raw, "utf8") === after.size;
+
   const out: Event[] = [];
-  for (const line of readFileSync(file, "utf8").split("\n")) {
+  for (const line of raw.split("\n")) {
     if (!line.trim()) continue;
     try {
       out.push(JSON.parse(line) as Event);
@@ -76,13 +155,26 @@ function readEvents(): Event[] {
       console.error("[booking] Kunde inte tolka rad i bokningsloggen");
     }
   }
-  return out;
+  eventCache = {
+    file,
+    // Om filen ändrades under läsningen tvingar en avvikande fingerprint nästa
+    // anrop att läsa om. Byttes själva sökvägen får dess inode ett annat
+    // fingerprint än den öppna filbeskrivaren och upptäcks också nästa gång.
+    fingerprint: stableRead
+      ? `${after.dev}:${after.ino}:${after.size}:${after.mtimeMs}`
+      : `unstable:${Buffer.byteLength(raw, "utf8")}`,
+    events: out,
+  };
+  return eventCache.events;
 }
 
 /** Nuvarande tillstånd, framräknat ur loggen. */
 export function allBookings(): BookingRecord[] {
+  const events = readEvents();
+  if (events === replayedEvents) return replayedBookings.map((record) => ({ ...record }));
+
   const byId = new Map<string, BookingRecord>();
-  for (const ev of readEvents()) {
+  for (const ev of events) {
     if (ev.type === "created") {
       const { type: _type, ...rec } = ev;
       byId.set(rec.id, { ...rec });
@@ -99,7 +191,31 @@ export function allBookings(): BookingRecord[] {
       }
     }
   }
-  return [...byId.values()];
+  replayedEvents = events;
+  replayedBookings = [...byId.values()];
+  // Anropare uppdaterar ibland sin lokala post. Returnera därför kopior så
+  // att den delade cachen aldrig kan muteras utanför den här modulen.
+  return replayedBookings.map((record) => ({ ...record }));
+}
+
+/** Bokningens avtalade pris; äldre poster använder det låsta historiska priset. */
+export function bookingPriceSek(rec: BookingRecord): number {
+  const value = rec.priceSek;
+  return typeof value === "number" && Number.isInteger(value) && value >= 0 && value <= 1_000_000
+    ? value
+    : LEGACY_BOOKING_PRICE_SEK;
+}
+
+/** Bokningens avtalade fria avbokningsgräns; äldre poster använder historisk gräns. */
+export function bookingFreeCancelHours(rec: BookingRecord): number {
+  const value = rec.freeCancelHours;
+  return typeof value === "number" && Number.isInteger(value) && value >= 0 && value <= 24 * 365
+    ? value
+    : LEGACY_FREE_CANCEL_HOURS;
+}
+
+function bookingFreeCancelMs(rec: BookingRecord): number {
+  return bookingFreeCancelHours(rec) * 60 * 60 * 1000;
 }
 
 /**
@@ -177,6 +293,8 @@ export function claimSlot(input: {
         bookingType: input.bookingType ?? "adult",
         ...(input.childName ? { childName: input.childName } : {}),
         ...(input.childBirthDate ? { childBirthDate: input.childBirthDate } : {}),
+        priceSek: BOOKING_PRICE_SEK,
+        freeCancelHours: BOOKING_FREE_CANCEL_HOURS,
         status: "pending",
         createdAt: now.toISOString(),
       };
@@ -277,7 +395,13 @@ export type CancelResult =
   | { ok: true; record: BookingRecord; free: boolean; already: boolean }
   | {
       ok: false;
-      reason: "unknown" | "expired" | "invalid-slot" | "past" | "unavailable";
+      reason:
+        | "unknown"
+        | "expired"
+        | "invalid-slot"
+        | "past"
+        | "terms-changed"
+        | "unavailable";
     };
 
 export type CancellationEligibility =
@@ -297,7 +421,7 @@ export function cancellationEligibility(
   const slotMs = Date.parse(rec.slot);
   if (!Number.isFinite(slotMs)) return { ok: false, reason: "invalid-slot" };
   if (slotMs <= now.getTime()) return { ok: false, reason: "past" };
-  return { ok: true, free: slotMs - now.getTime() >= BOOKING_FREE_CANCEL_MS };
+  return { ok: true, free: slotMs - now.getTime() >= bookingFreeCancelMs(rec) };
 }
 
 /**
@@ -309,7 +433,13 @@ export function cancellationEligibility(
  * tiden stå tom. Ligger den för nära besöket avbokas den ändå, men mottagningen
  * får veta det i notismejlet.
  */
-export function cancelBooking(id: string, now: Date = new Date()): CancelResult {
+export function cancelBooking(
+  id: string,
+  {
+    expectedFree,
+    now = new Date(),
+  }: { expectedFree?: boolean; now?: Date } = {},
+): CancelResult {
   try {
     return withLock(() => {
       const rec = allBookings().find((b) => b.id === id);
@@ -317,12 +447,18 @@ export function cancelBooking(id: string, now: Date = new Date()): CancelResult 
 
       if (rec.status === "cancelled") {
         const slotMs = Date.parse(rec.slot);
-        const free = Number.isFinite(slotMs) && slotMs - now.getTime() >= BOOKING_FREE_CANCEL_MS;
+        const free =
+          Number.isFinite(slotMs) && slotMs - now.getTime() >= bookingFreeCancelMs(rec);
         return { ok: true, record: rec, free, already: true };
       }
 
       const eligibility = cancellationEligibility(rec, now);
       if (!eligibility.ok) return eligibility;
+      // Om GET-vyn lovade kostnadsfri avbokning men gränsen passerade innan
+      // POST-anropet ska patienten få se och godkänna de nya villkoren först.
+      if (expectedFree === true && !eligibility.free) {
+        return { ok: false, reason: "terms-changed" };
+      }
 
       const at = now.toISOString();
       append({ type: "cancelled", id, at });

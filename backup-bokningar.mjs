@@ -5,7 +5,7 @@
 //   node backup-bokningar.mjs
 //
 // Val (miljövariabler):
-//   DRY=1     – skriv ut i terminalen i stället för att mejla
+//   DRY=1     – skicka inte mejl; skriv bara ut antal poster
 //   FORCE=1   – mejla även om inget ändrats sedan förra utskicket
 //   TO=...    – annan mottagare än BOOKING_TO_EMAIL
 //
@@ -18,7 +18,7 @@
 // bokning notifieras redan direkt när den kommer in; det här är arkivet, och ett
 // identiskt mejl var sjätte timme skulle bara göra att man slutar läsa dem.
 
-import { appendFileSync, copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, unlinkSync, writeFileSync } from "node:fs";
+import { chmodSync, copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, unlinkSync, writeFileSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { join } from "node:path";
 import nodemailer from "nodemailer";
@@ -97,7 +97,11 @@ const STATUS = { pending: "Ej bekräftad", verified: "Bekräftad", cancelled: "A
 /** CSV med semikolon och BOM – öppnas rätt i svenska Excel. */
 function csv(headers, rows) {
   const cell = (v) => {
-    const s = String(v ?? "");
+    let s = String(v ?? "");
+    // Kalkylblad kan tolka användarinnehåll som formler även i en CSV-fil.
+    // Neutralisera farliga första tecken (också efter inledande blank/control)
+    // innan den vanliga CSV-citeringen görs.
+    if (/^[\u0000-\u0020]*[=+\-@]/.test(s) || /^[\u0000-\u001f]/.test(s)) s = `'${s}`;
     return /[";\n\r]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
   };
   return "﻿" + [headers, ...rows].map((r) => r.map(cell).join(";")).join("\r\n");
@@ -109,23 +113,31 @@ const stamp = new Date()
   .replace(/[-:]/g, "")
   .replace(/\..*/, "")
   .replace("T", "-");
-mkdirSync(DEST, { recursive: true });
+mkdirSync(DEST, { recursive: true, mode: 0o700 });
+chmodSync(DEST, 0o700);
+if (existsSync(DATA)) chmodSync(DATA, 0o700);
 
 const copied = [];
 for (const file of ["bookings.jsonl", "leads.jsonl", "booking-clicks.jsonl"]) {
   const src = join(DATA, file);
   if (!existsSync(src)) continue;
+  chmodSync(src, 0o600);
   const out = join(DEST, `${file.replace(".jsonl", "")}-${stamp}.jsonl`);
   copyFileSync(src, out);
+  chmodSync(out, 0o600);
   copied.push(out);
 }
 
 // Gallra: behåll de senaste KEEP per filtyp.
 for (const prefix of ["bookings-", "leads-", "booking-clicks-"]) {
-  const files = readdirSync(DEST)
-    .filter((f) => f.startsWith(prefix))
+  const files = readdirSync(DEST, { withFileTypes: true })
+    .filter((entry) => entry.isFile() && entry.name.startsWith(prefix))
+    .map((entry) => entry.name)
     .sort()
     .reverse();
+  // Äldre kopior kan ha skapats före de privata filrättigheterna infördes.
+  // Härda även dem innan gallringen så att kvarvarande historik blir 0600.
+  for (const snapshot of files) chmodSync(join(DEST, snapshot), 0o600);
   for (const old of files.slice(KEEP)) unlinkSync(join(DEST, old));
 }
 
@@ -135,10 +147,27 @@ const active = bs.filter((b) => b.status !== "cancelled");
 const leads = readJsonl("leads.jsonl");
 
 const bookingCsv = csv(
-  ["Tid", "Namn", "E-post", "Telefon", "Ärende", "Status", "Bokad", "Bekräftad", "Avbokad", "Boknings-id"],
+  [
+    "Tid",
+    "Bokningstyp",
+    "Kontaktperson",
+    "Barnets namn",
+    "Barnets födelsedatum",
+    "E-post",
+    "Telefon",
+    "Ärende",
+    "Status",
+    "Bokad",
+    "Bekräftad",
+    "Avbokad",
+    "Boknings-id",
+  ],
   bs.map((b) => [
     sv(b.slot),
+    b.bookingType === "child" ? "Barn" : "Vuxen",
     b.name,
+    b.childName || "",
+    b.childBirthDate || "",
     b.email,
     b.phone,
     b.message,
@@ -221,8 +250,7 @@ console.log(`Kopierade ${copied.length} datafiler till ${DEST}`);
 console.log(`${bs.length} bokningar (${active.length} aktiva), ${leads.length} förfrågningar`);
 
 if (DRY) {
-  console.log(`\n--- Skulle mejlas till ${TO} ---\n`);
-  console.log(text);
+  console.log("DRY: inget mejl skickades; personuppgifter och mottagare visas inte.");
   process.exit(0);
 }
 
@@ -248,14 +276,29 @@ const message = {
   ],
 };
 
-// Samma strategi som src/lib/smtp.ts: full certifikatkontroll först, och bara
-// vid certifikatfel ett nytt försök utan kontroll (webbhotellets cert gick ut
-// 17 aug 2026). Certifikatfel sker före sändning, så inget dubbelmejl kan uppstå.
+const errorSummary = (err) => {
+  const safe = (value) =>
+    typeof value === "string" && /^[A-Za-z0-9_-]{1,40}$/.test(value) ? value : undefined;
+  const code = safe(err?.code) || "unknown";
+  const command = safe(err?.command);
+  const responseCode = Number.isInteger(err?.responseCode) ? err.responseCode : undefined;
+  return [
+    `code=${code}`,
+    ...(command ? [`command=${command}`] : []),
+    ...(responseCode !== undefined ? [`responseCode=${responseCode}`] : []),
+  ].join(";");
+};
+
+// Full certifikatkontroll är standard. Eftersom bilagorna innehåller patient-
+// och hälsouppgifter får ett osäkert andraförsök bara ske efter ett uttryckligt,
+// tillfälligt driftbeslut.
 async function send() {
+  const smtpPort = Number(env.SMTP_PORT || 587);
   const base = {
     host: env.SMTP_HOST,
-    port: Number(env.SMTP_PORT || 587),
-    secure: Number(env.SMTP_PORT) === 465,
+    port: smtpPort,
+    secure: smtpPort === 465,
+    requireTLS: smtpPort !== 465,
     auth: { user: env.SMTP_USER, pass: env.SMTP_PASS },
   };
   try {
@@ -263,8 +306,14 @@ async function send() {
     return "verifierat certifikat";
   } catch (err) {
     const msg = `${err?.reason ?? ""} ${err?.message ?? ""}`;
-    if (!/certificate|self.signed|altname/i.test(msg)) throw err;
-    console.warn(`Certifikatet på ${env.SMTP_HOST} går inte att verifiera – skickar ändå (krypterat).`);
+    const allowInsecureTls =
+      (process.env.SMTP_ALLOW_INSECURE_TLS || env.SMTP_ALLOW_INSECURE_TLS) === "1" &&
+      (process.env.SMTP_STRICT_TLS || env.SMTP_STRICT_TLS) !== "1";
+    if (!allowInsecureTls || !/certificate|self.signed|altname/i.test(msg)) throw err;
+    console.warn(
+      `Certifikatet på ${env.SMTP_HOST} går inte att verifiera (${errorSummary(err)}). ` +
+        "SMTP_ALLOW_INSECURE_TLS=1 tillåter ett nödförsök utan äkthetskontroll.",
+    );
     await nodemailer.createTransport({ ...base, tls: { rejectUnauthorized: false } }).sendMail(message);
     return "utan certifikatkontroll";
   }
@@ -272,10 +321,11 @@ async function send() {
 
 try {
   const how = await send();
-  writeFileSync(STATE, fingerprint);
+  writeFileSync(STATE, fingerprint, { mode: 0o600 });
+  chmodSync(STATE, 0o600);
   console.log(`Mejlade uppgifterna till ${TO} (${how}).`);
 } catch (err) {
-  console.error("Kunde inte mejla:", err?.message ?? err);
+  console.error("Kunde inte mejla:", errorSummary(err));
   console.error("Filkopiorna i /root/backups/bokningsdata/ finns kvar.");
   process.exit(1);
 }

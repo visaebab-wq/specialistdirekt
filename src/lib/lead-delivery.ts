@@ -8,7 +8,7 @@
 //
 // Utan konfiguration loggas förfrågan på servern så att inget tappas.
 
-import { appendFileSync, mkdirSync } from "node:fs";
+import { appendFileSync, chmodSync, existsSync, mkdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { site } from "./site";
 import { sendMail, smtpConfigured } from "./smtp";
@@ -32,9 +32,21 @@ function specialtyLabel(slug: string): string {
 // gitignorerad. Sökväg kan överstyras med LEAD_LOG_FILE.
 function persistLead(lead: LeadData): boolean {
   try {
-    const file = process.env.LEAD_LOG_FILE || join(process.cwd(), ".data", "leads.jsonl");
-    mkdirSync(dirname(file), { recursive: true });
-    appendFileSync(file, JSON.stringify({ receivedAt: new Date().toISOString(), ...lead }) + "\n");
+    const file =
+      process.env.LEAD_LOG_FILE || join(process.cwd(), ".data", "leads.jsonl");
+    const parent = dirname(file);
+    const parentExisted = existsSync(/* turbopackIgnore: true */ parent);
+    mkdirSync(/* turbopackIgnore: true */ parent, { recursive: true, mode: 0o700 });
+    if (!parentExisted || !process.env.LEAD_LOG_FILE)
+      chmodSync(/* turbopackIgnore: true */ parent, 0o700);
+    if (existsSync(/* turbopackIgnore: true */ file))
+      chmodSync(/* turbopackIgnore: true */ file, 0o600);
+    appendFileSync(
+      /* turbopackIgnore: true */ file,
+      JSON.stringify({ receivedAt: new Date().toISOString(), ...lead }) + "\n",
+      { mode: 0o600 },
+    );
+    chmodSync(/* turbopackIgnore: true */ file, 0o600);
     return true;
   } catch (err) {
     console.error("[lead] Kunde inte spara lead till fil", err);
@@ -108,17 +120,11 @@ export async function deliverLead(lead: LeadData): Promise<DeliveryResult> {
   const subject = `Ny tidsförfrågan: ${specialtyLabel(lead.specialty)} – ${lead.name}`;
   const { html, text } = buildEmail(lead);
 
-  // Logga att flödet körts, men aldrig patientens namn, kontaktuppgifter eller
-  // fritext i serverloggen. Hela förfrågan sparas i den skyddade lead-filen.
-  console.info("[lead] Ny förfrågan", {
-    specialty: lead.specialty,
-    city: lead.city,
-    preferredDateCount: lead.preferredDates.length,
-    timePreference: lead.timePreference,
-  });
-
   // Skriv ALLTID ner hela förfrågan till disk först – oberoende av e-post.
   const persisted = persistLead(lead);
+  // Journalen får bara visa driftstatus. Specialitet, ort och tidsönskemål är
+  // hälsorelaterade uppgifter och hör enbart hemma i den skyddade lead-filen.
+  console.info("[lead] Förfrågan mottagen", { persisted });
 
   // 1) SMTP (t.ex. Gmail) – skickar till din inkorg.
   if (smtpConfigured()) {
