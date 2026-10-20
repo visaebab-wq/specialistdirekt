@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { specialties } from "@/lib/specialties";
 import type { LeadState } from "@/lib/lead";
 import { deliverLead } from "@/lib/lead-delivery";
+import { isValidPreferredDate } from "@/lib/lead-dates";
 
 const validSpecialtySlugs = new Set([
   ...specialties.map((s) => s.slug),
@@ -26,10 +27,6 @@ const MAX = {
 function isEmail(value: string) {
   // Enkel men robust e-postkontroll – tillräcklig för formulärvalidering.
   return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
-}
-
-function isIsoDate(value: string) {
-  return /^\d{4}-\d{2}-\d{2}$/.test(value);
 }
 
 // Enkel rate-limit i minnet (per IP) mot spam/abuse. Nollställs vid omstart,
@@ -101,10 +98,21 @@ export async function submitLead(
   // Beskrivningen är frivillig – uppgifterna räcker för att kunna återkomma.
   if (message.length > MAX.message)
     errors.message = `Beskrivningen får vara högst ${MAX.message} tecken.`;
-  if (!isIsoDate(preferredDate1)) errors.preferredDate1 = "Ange första möjliga datum.";
-  if (!isIsoDate(preferredDate2)) errors.preferredDate2 = "Ange andra möjliga datum.";
-  if (preferredDate3 && !isIsoDate(preferredDate3))
-    errors.preferredDate3 = "Ange ett giltigt tredje datum.";
+  if (!isValidPreferredDate(preferredDate1)) {
+    errors.preferredDate1 = "Ange ett giltigt datum från och med idag.";
+  }
+  if (!isValidPreferredDate(preferredDate2)) {
+    errors.preferredDate2 = "Ange ett giltigt datum från och med idag.";
+  } else if (preferredDate2 === preferredDate1) {
+    errors.preferredDate2 = "Välj ett annat datum än det första.";
+  }
+  if (preferredDate3) {
+    if (!isValidPreferredDate(preferredDate3)) {
+      errors.preferredDate3 = "Ange ett giltigt datum från och med idag.";
+    } else if (preferredDate3 === preferredDate1 || preferredDate3 === preferredDate2) {
+      errors.preferredDate3 = "Välj ett datum som skiljer sig från de andra.";
+    }
+  }
   if (!["before-noon", "after-noon"].includes(timePreference))
     errors.timePreference = "Välj före lunch eller efter lunch.";
   if (!consent) errors.consent = "Du behöver godkänna att vi behandlar dina uppgifter.";
@@ -129,10 +137,19 @@ export async function submitLead(
     console.warn("[lead] Ej levererad via e-post:", result.error ?? "okänt fel");
   }
 
+  if (!result.delivered && !result.persisted) {
+    return {
+      status: "error",
+      message:
+        "Vi kunde inte ta emot tidsförfrågan just nu. Försök igen om en stund eller kontakta oss direkt.",
+      errors: {},
+    };
+  }
+
   return {
     status: "success",
     message:
-      "Tack! Din tidsförfrågan är mottagen. Vi återkommer normalt inom en arbetsdag med förslag på en passande mottagning.",
+      "Tack! Din tidsförfrågan är mottagen. Vi återkommer normalt inom en arbetsdag med besked om möjliga bokningsalternativ.",
     errors: {},
   };
 }

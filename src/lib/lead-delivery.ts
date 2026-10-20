@@ -55,6 +55,8 @@ export type LeadData = {
 
 export type DeliveryResult = {
   delivered: boolean;
+  /** Hela förfrågan är durabelt sparad även om e-postkanalen fallerar. */
+  persisted: boolean;
   channel: "smtp" | "email" | "log";
   error?: string;
 };
@@ -106,8 +108,14 @@ export async function deliverLead(lead: LeadData): Promise<DeliveryResult> {
   const subject = `Ny tidsförfrågan: ${specialtyLabel(lead.specialty)} – ${lead.name}`;
   const { html, text } = buildEmail(lead);
 
-  // Logga alltid (så att en förfrågan aldrig försvinner spårlöst).
-  console.info("[lead] Ny förfrågan", { ...lead, message: `${lead.message.slice(0, 80)}…` });
+  // Logga att flödet körts, men aldrig patientens namn, kontaktuppgifter eller
+  // fritext i serverloggen. Hela förfrågan sparas i den skyddade lead-filen.
+  console.info("[lead] Ny förfrågan", {
+    specialty: lead.specialty,
+    city: lead.city,
+    preferredDateCount: lead.preferredDates.length,
+    timePreference: lead.timePreference,
+  });
 
   // Skriv ALLTID ner hela förfrågan till disk först – oberoende av e-post.
   const persisted = persistLead(lead);
@@ -115,8 +123,8 @@ export async function deliverLead(lead: LeadData): Promise<DeliveryResult> {
   // 1) SMTP (t.ex. Gmail) – skickar till din inkorg.
   if (smtpConfigured()) {
     const result = await sendMail({ to, replyTo: lead.email, subject, text, html }, "lead");
-    if (result.sent) return { delivered: true, channel: "smtp" };
-    return { delivered: false, channel: "smtp", error: result.error };
+    if (result.sent) return { delivered: true, persisted, channel: "smtp" };
+    return { delivered: false, persisted, channel: "smtp", error: result.error };
   }
 
   // 2) Resend (HTTP API) – alternativ.
@@ -132,17 +140,18 @@ export async function deliverLead(lead: LeadData): Promise<DeliveryResult> {
       if (!res.ok) {
         const body = await res.text();
         console.error("[lead] Resend-fel", res.status, body);
-        return { delivered: false, channel: "email", error: `Resend ${res.status}` };
+        return { delivered: false, persisted, channel: "email", error: `Resend ${res.status}` };
       }
-      return { delivered: true, channel: "email" };
+      return { delivered: true, persisted, channel: "email" };
     } catch (err) {
       console.error("[lead] Resend-fel", err);
-      return { delivered: false, channel: "email", error: String(err) };
+      return { delivered: false, persisted, channel: "email", error: String(err) };
     }
   }
 
   return {
     delivered: false,
+    persisted,
     channel: "log",
     error: persisted
       ? "Ingen e-postleverans konfigurerad – sparad till .data/leads.jsonl"

@@ -6,6 +6,7 @@ import { submitLead } from "@/app/actions";
 import { initialLeadState } from "@/lib/lead";
 import { specialties } from "@/lib/specialties";
 import { TrackEvent } from "@/components/TrackEvent";
+import { todayInStockholm } from "@/lib/lead-dates";
 
 /**
  * Värdet i specialitetsväljaren som betyder "det här är en MR-förfrågan".
@@ -42,7 +43,7 @@ function FieldError({ message }: { message?: string }) {
 /** Förvald specialitet kan sättas från en specialitetssida. */
 export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
   const [state, formAction] = useActionState(submitLead, initialLeadState);
-  const today = new Date().toISOString().slice(0, 10);
+  const today = todayInStockholm();
 
   // Speglar VALD specialitet enbart för mätning. Fältet förblir okontrollerat
   // (defaultValue, inte value), så det som skickas till servern är oförändrat
@@ -62,17 +63,11 @@ export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
             förfrågan är redan inskickad när den monteras. Inga fältvärden
             följer med – enbart händelsenamnet.
 
-            HÄNDELSENS BETYDELSE, exakt: förfrågan är MOTTAGEN OCH PERSISTERAD
-            enligt appens befintliga success-kontrakt. Den betyder INTE att
-            e-post har levererats. `persistLead()` i lead-delivery.ts skriver
-            leaden till .data/leads.jsonl INNAN någon leverans försöks, och
-            submitLead returnerar "success" även när result.delivered är false
-            (den loggar bara en varning). En SMTP-miss gör alltså inte leaden
-            ogiltig – den är fortfarande en inskickad förfrågan och går att
-            återsända. Koppla INTE den här mätningen till leveransutfallet, och
-            ändra INTE success-villkoret i serveråtgärden för mätningens skull.
-            Behövs leveransutfall någon gång är det en EGEN händelse, inte en
-            omdefiniering av den här. */}
+            HÄNDELSENS BETYDELSE, exakt: förfrågan har minst en hållbar
+            leveransväg. Den är antingen sparad i .data/leads.jsonl eller
+            levererad via e-post (oftast båda). Om båda vägarna fallerar
+            returnerar serveråtgärden error och den här grenen monteras aldrig.
+            Händelsen betyder inte nödvändigtvis att e-post har levererats. */}
         {selectedSpecialty === MR_SPECIALTY && <TrackEvent name="mr_request_submitted" />}
         <div
           aria-hidden
@@ -152,7 +147,14 @@ export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
           <label htmlFor="city" className="mb-1 block text-sm font-medium text-ink-700">
             Stad <span className="text-red-500">*</span>
           </label>
-          <input id="city" name="city" type="text" autoComplete="address-level2" required className={fieldClass} />
+          <input
+            id="city"
+            name="city"
+            type="text"
+            autoComplete="address-level2"
+            required
+            className={fieldClass}
+          />
           <FieldError message={state.errors.city} />
         </div>
       </div>
