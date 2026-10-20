@@ -42,6 +42,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/en/private-orthopedist-gothenburg", priority: 0.6, changeFrequency: "monthly" as const },
     // Läkarprofil (entity) + ortopedisk smärtbehandling-landning.
     { path: "/lakare/masoud-sorkhabi", priority: 0.7, changeFrequency: "monthly" as const },
+    // Ortopedins huvudsakliga direktbokning är indexerbar med egen canonical.
+    { path: "/boka-tid", priority: 0.8, changeFrequency: "monthly" as const },
     // Barnortopedins bokningssida – klustrets konverteringssida. Den är
     // index,follow med egen canonical och egen title, men saknades i sitemapen.
     // Utbudet för barn är verifierat (se docs/content-ownership.md, undantaget
