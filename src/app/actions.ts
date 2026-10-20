@@ -98,7 +98,8 @@ export async function submitLead(
   const errors: Record<string, string> = {};
   if (name.length < 2 || name.length > MAX.name) errors.name = "Ange ditt namn.";
   if (!isEmail(email) || email.length > MAX.email) errors.email = "Ange en giltig e-postadress.";
-  if (phone.length < 6 || phone.length > MAX.phone) errors.phone = "Ange ett telefonnummer.";
+  if (phone.length > MAX.phone || phone.replace(/\D/g, "").length < 6)
+    errors.phone = "Ange ett telefonnummer.";
   if (city.length < 2 || city.length > MAX.city) errors.city = "Ange stad.";
   if (!specialty || !validSpecialtySlugs.has(specialty) || specialty.length > MAX.specialty)
     errors.specialty = "Välj en specialitet i listan.";
