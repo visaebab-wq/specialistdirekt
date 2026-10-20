@@ -38,9 +38,20 @@ export async function POST(request: NextRequest) {
   }
 
   if (!result.already) {
-    await sendOwnerVerified(result.record, result.conflict).catch((error) =>
-      console.error("[booking] Kunde inte skicka bekräftelsenotis", error),
-    );
+    try {
+      const notice = await sendOwnerVerified(result.record, result.conflict);
+      if (!notice.sent) {
+        console.error("[booking] Kunde inte skicka bekräftelsenotis", {
+          code: notice.error ?? "unknown",
+        });
+      }
+    } catch {
+      // Statusövergången är redan beständig; ett mall-/formatteringsfel i
+      // notisen får inte byta patientens lyckade POST mot ett 500-svar.
+      console.error("[booking] Kunde inte skicka bekräftelsenotis", {
+        code: "unexpected-mail-error",
+      });
+    }
   }
 
   // En redan bekräftad bokning går tillbaka till detaljvyn. Ingen ny

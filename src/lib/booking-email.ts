@@ -12,13 +12,15 @@
 import { site } from "./site";
 import { sendMail } from "./smtp";
 import {
-  BOOKING_FREE_CANCEL_HOURS,
-  BOOKING_PRICE_SEK,
   BOOKING_SLOT_MINUTES,
   formatSlot,
 } from "./booking-slots";
 import type { BookingRecord } from "./booking-store";
-import { signBookingId } from "./booking-store";
+import {
+  bookingFreeCancelHours,
+  bookingPriceSek,
+  signBookingId,
+} from "./booking-store";
 
 const DOCTOR = "Dr Masoud Sorkhabi";
 const SPECIALTY = "Specialist i ortopedi och ryggkirurgi";
@@ -118,6 +120,8 @@ async function send(mail: Mail): Promise<{ sent: boolean; error?: string }> {
 /** 1. Bekräftelsemejl till patienten. */
 export async function sendPatientConfirmation(rec: BookingRecord) {
   const when = formatSlot(rec.slot);
+  const price = bookingPriceSek(rec);
+  const freeCancelHours = bookingFreeCancelHours(rec);
   const url = confirmUrl(rec);
   const cancel = cancelUrl(rec);
   const calendar = googleCalendarUrl(rec);
@@ -132,7 +136,7 @@ export async function sendPatientConfirmation(rec: BookingRecord) {
     `Du har fått en tid hos ${DOCTOR}:`,
     "",
     `    ${when}`,
-    `    Pris: ${BOOKING_PRICE_SEK} kr`,
+    `    Pris: ${price} kr`,
     `    Mottagning: ${CLINIC}`,
     `    Adress: ${CLINIC_ADDRESS}`,
     ...(childLine ? [`    ${childLine}`] : []),
@@ -147,7 +151,7 @@ export async function sendPatientConfirmation(rec: BookingRecord) {
     "",
     "Bekräftelselänken gäller i två timmar. Därefter släpps reservationen och du behöver välja en ny tid.",
     "",
-    `Kan du inte komma? Fram till ${BOOKING_FREE_CANCEL_HOURS} timmar före besöket avbokar du`,
+    `Kan du inte komma? Fram till ${freeCancelHours} timmar före besöket avbokar du`,
     "kostnadsfritt här (du får bekräfta avbokningen på sidan):",
     "",
     cancel,
@@ -183,7 +187,7 @@ export async function sendPatientConfirmation(rec: BookingRecord) {
             <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#f0fdfa" style="background-color:#f0fdfa;border:1px solid #cde9e5">
               <tr><td style="padding:16px 18px 5px;font-size:11px;font-weight:bold;letter-spacing:1px;color:#0f766e">DATUM OCH TID</td></tr>
               <tr><td style="padding:0 18px 12px;font-size:19px;line-height:26px;font-weight:bold;color:#172033">${escapeHtml(when)}</td></tr>
-              <tr><td style="padding:12px 18px;border-top:1px solid #cde9e5;font-size:14px;color:#334155">${BOOKING_SLOT_MINUTES} minuter&nbsp;&nbsp;•&nbsp;&nbsp;<strong>${BOOKING_PRICE_SEK} kr</strong></td></tr>
+              <tr><td style="padding:12px 18px;border-top:1px solid #cde9e5;font-size:14px;color:#334155">${BOOKING_SLOT_MINUTES} minuter&nbsp;&nbsp;•&nbsp;&nbsp;<strong>${price} kr</strong></td></tr>
             </table>
           </td></tr>
           <tr><td class="mobile-pad" style="padding:0 28px 12px;font-size:15px;line-height:23px;color:#334155">Bekräfta tiden och priset för att slutföra bokningen.</td></tr>
@@ -210,7 +214,7 @@ export async function sendPatientConfirmation(rec: BookingRecord) {
           </td></tr>
           <tr><td class="mobile-pad" style="padding:0 28px 18px;font-size:12px;line-height:19px;color:#9a3412">Bekräftelselänken gäller i två timmar. Därefter släpps reservationen och du behöver välja en ny tid.</td></tr>
           <tr><td class="mobile-pad" style="padding:16px 28px;border-top:1px solid #e2e8f0;font-size:12px;line-height:19px;color:#64748b">
-            Kan du inte komma? Fram till <strong>${BOOKING_FREE_CANCEL_HOURS} timmar</strong> före besöket kan du
+            Kan du inte komma? Fram till <strong>${freeCancelHours} timmar</strong> före besöket kan du
             <a href="${cancelHref}" style="color:#64748b;text-decoration:underline">avboka kostnadsfritt</a>.
           </td></tr>
           <tr><td bgcolor="#f8fafc" class="mobile-pad" style="padding:14px 28px;background-color:#f8fafc;font-size:11px;line-height:18px;color:#94a3b8">
@@ -249,7 +253,7 @@ function ownerRows(rec: BookingRecord): [string, string][] {
     ["E-post", rec.email],
     ["Telefon", rec.phone],
     ["Ärende", rec.message || "(inget angivet)"],
-    ["Pris", `${BOOKING_PRICE_SEK} kr`],
+    ["Pris", `${bookingPriceSek(rec)} kr`],
     ["Boknings-id", rec.id],
   ];
 }
@@ -278,9 +282,10 @@ function ownerText(heading: string, rec: BookingRecord, note?: string): string {
 
 function cancelledHtml(rec: BookingRecord, free: boolean): string {
   const when = formatSlot(rec.slot);
+  const freeCancelHours = bookingFreeCancelHours(rec);
   const timingLabel = free
     ? "Avbokningen gjordes inom den kostnadsfria gränsen."
-    : `Avbokningen gjordes mindre än ${BOOKING_FREE_CANCEL_HOURS} timmar före besöket.`;
+    : `Avbokningen gjordes mindre än ${freeCancelHours} timmar före besöket.`;
   const timingColor = free ? "#0f766e" : "#9a3412";
   const timingBackground = free ? "#f0fdfa" : "#fff7ed";
   const timingBorder = free ? "#99f6e4" : "#fed7aa";
@@ -342,9 +347,10 @@ function cancelledHtml(rec: BookingRecord, free: boolean): string {
 }
 
 function cancelledText(rec: BookingRecord, free: boolean): string {
+  const freeCancelHours = bookingFreeCancelHours(rec);
   const timing = free
     ? "Avbokningen gjordes inom den kostnadsfria gränsen."
-    : `Avbokningen gjordes mindre än ${BOOKING_FREE_CANCEL_HOURS} timmar före besöket.`;
+    : `Avbokningen gjordes mindre än ${freeCancelHours} timmar före besöket.`;
   return [
     "TIDEN ÄR AVBOKAD",
     "",
@@ -363,12 +369,13 @@ function cancelledText(rec: BookingRecord, free: boolean): string {
 /** 2. Notis när en tid tagits men ännu inte bekräftats. */
 export async function sendOwnerPending(rec: BookingRecord) {
   const heading = `Ny tid tagen (ej bekräftad) – ${formatSlot(rec.slot)}`;
+  const note = "Bokningen är sparad som preliminär och är ännu inte bekräftad av patienten.";
   return send({
     to: recipient(),
     replyTo: rec.email,
     subject: `Ny bokning (ej bekräftad): ${formatSlot(rec.slot)} – ${rec.name}`,
-    html: ownerHtml(heading, rec, "Patienten har fått bekräftelsemejlet men ännu inte klickat."),
-    text: ownerText(heading, rec, "Patienten har fått bekräftelsemejlet men ännu inte klickat."),
+    html: ownerHtml(heading, rec, note),
+    text: ownerText(heading, rec, note),
   });
 }
 

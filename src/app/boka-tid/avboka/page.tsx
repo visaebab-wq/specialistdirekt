@@ -1,10 +1,12 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { formatSlot } from "@/lib/booking-slots";
 import {
-  BOOKING_FREE_CANCEL_HOURS,
-  formatSlot,
-} from "@/lib/booking-slots";
-import { cancellationEligibility, findBooking, verifySignature } from "@/lib/booking-store";
+  bookingFreeCancelHours,
+  cancellationEligibility,
+  findBooking,
+  verifySignature,
+} from "@/lib/booking-store";
 import { singleSearchParam, type SearchParamValue } from "@/lib/search-params";
 
 export const metadata: Metadata = {
@@ -50,6 +52,7 @@ export default async function AvbokaPage({
   const id = singleSearchParam(params.id);
   const sig = singleSearchParam(params.sig);
   const technicalError = singleSearchParam(params.fel) === "tekniskt";
+  const termsChanged = singleSearchParam(params.fel) === "villkor";
 
   // Signaturen måste stämma – annars skulle vem som helst kunna avboka andras
   // tider genom att gissa id.
@@ -128,12 +131,19 @@ export default async function AvbokaPage({
   }
 
   const free = eligibility.free;
+  const freeCancelHours = bookingFreeCancelHours(rec);
 
   return (
     <Shell title="Vill du avboka din tid?">
       {technicalError && (
         <p role="alert" className="warning-card p-4 text-sm">
           Avbokningen kunde inte sparas just nu. Tiden är kvar – försök igen om en stund.
+        </p>
+      )}
+      {termsChanged && (
+        <p role="alert" className="warning-card p-4 text-sm">
+          Avbokningsvillkoren hann ändras medan sidan var öppen. Tiden är kvar. Läs den
+          uppdaterade informationen nedan och bekräfta igen om du fortfarande vill avboka.
         </p>
       )}
       <dl className="rounded-2xl border border-brand-100 bg-brand-50/60 p-5">
@@ -148,12 +158,12 @@ export default async function AvbokaPage({
       </dl>
       {free ? (
         <p>
-          Avbokningen är kostnadsfri – det är mer än {BOOKING_FREE_CANCEL_HOURS} timmar kvar till
+          Avbokningen är kostnadsfri – det är minst {freeCancelHours} timmar kvar till
           besöket.
         </p>
       ) : (
         <p className="warning-card p-4 text-sm">
-          Det är mindre än {BOOKING_FREE_CANCEL_HOURS} timmar kvar till besöket, så den
+          Det är mindre än {freeCancelHours} timmar kvar till besöket, så den
           kostnadsfria avbokningen gäller inte längre. Du kan avboka ändå – mottagningen hör av sig
           om vad som gäller för din tid.
         </p>
@@ -165,6 +175,7 @@ export default async function AvbokaPage({
       <form action="/boka-tid/avboka/utfor" method="post" className="mt-4 grid gap-3 sm:grid-cols-2">
         <input type="hidden" name="id" value={rec.id} />
         <input type="hidden" name="sig" value={sig} />
+        <input type="hidden" name="free" value={free ? "1" : "0"} />
         <Link
           href="/"
           className="order-1 rounded-xl bg-brand-600 px-6 py-3.5 text-center text-sm font-semibold text-white transition-colors hover:bg-brand-700 sm:order-2"

@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useState } from "react";
+import { useActionState, useEffect, useRef, useState } from "react";
 import { useFormStatus } from "react-dom";
 import { submitLead } from "@/app/actions";
 import { initialLeadState } from "@/lib/lead";
@@ -29,12 +29,12 @@ function SubmitButton() {
 }
 
 const fieldClass =
-  "w-full rounded-xl border border-brand-100 bg-white px-4 py-3 text-ink-900 shadow-sm placeholder:text-ink-500 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 focus:outline-none";
+  "w-full rounded-xl border border-ink-500 bg-white px-4 py-3 text-ink-900 shadow-sm placeholder:text-ink-500 focus:border-brand-700 focus:ring-2 focus:ring-brand-200 focus:outline-none";
 
-function FieldError({ message }: { message?: string }) {
+function FieldError({ id, message }: { id: string; message?: string }) {
   if (!message) return null;
   return (
-    <p role="alert" className="mt-1 text-sm text-red-600">
+    <p id={id} role="alert" className="mt-1 text-sm text-red-600">
       {message}
     </p>
   );
@@ -43,12 +43,20 @@ function FieldError({ message }: { message?: string }) {
 /** Förvald specialitet kan sättas från en specialitetssida. */
 export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
   const [state, formAction] = useActionState(submitLead, initialLeadState);
+  const formRef = useRef<HTMLFormElement>(null);
   const today = todayInStockholm();
 
   // Speglar VALD specialitet enbart för mätning. Fältet förblir okontrollerat
   // (defaultValue, inte value), så det som skickas till servern är oförändrat
   // DOM-värdet – den här state:en ligger vid sidan av och rör inte payloaden.
   const [selectedSpecialty, setSelectedSpecialty] = useState(defaultSpecialty ?? "");
+
+  useEffect(() => {
+    if (state.status !== "error") return;
+    formRef.current
+      ?.querySelector<HTMLElement>('[data-error-focus="true"], [aria-invalid="true"]')
+      ?.focus();
+  }, [state]);
 
   if (state.status === "success") {
     return (
@@ -68,7 +76,9 @@ export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
             levererad via e-post (oftast båda). Om båda vägarna fallerar
             returnerar serveråtgärden error och den här grenen monteras aldrig.
             Händelsen betyder inte nödvändigtvis att e-post har levererats. */}
-        {selectedSpecialty === MR_SPECIALTY && <TrackEvent name="mr_request_submitted" />}
+        {state.accepted && selectedSpecialty === MR_SPECIALTY && (
+          <TrackEvent name="mr_request_submitted" />
+        )}
         <div
           aria-hidden
           className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-brand-600 text-2xl text-white"
@@ -82,9 +92,20 @@ export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
   }
 
   return (
-    <form action={formAction} className="space-y-4" noValidate>
+    <form
+      key={state.attempt}
+      ref={formRef}
+      action={formAction}
+      className="space-y-4"
+      noValidate
+    >
       {state.status === "error" && state.message && (
-        <p role="alert" className="rounded-xl bg-red-50 px-4 py-3 text-sm text-red-700">
+        <p
+          role="alert"
+          tabIndex={Object.keys(state.errors).length === 0 ? -1 : undefined}
+          data-error-focus={Object.keys(state.errors).length === 0 ? "true" : undefined}
+          className="rounded-xl bg-red-50 px-4 py-3 text-sm text-red-700"
+        >
           {state.message}
         </p>
       )}
@@ -109,9 +130,12 @@ export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
             autoComplete="name"
             maxLength={100}
             required
+            defaultValue={state.values?.name ?? ""}
+            aria-invalid={Boolean(state.errors.name)}
+            aria-describedby={state.errors.name ? "name-error" : undefined}
             className={fieldClass}
           />
-          <FieldError message={state.errors.name} />
+          <FieldError id="name-error" message={state.errors.name} />
         </div>
         <div>
           <label htmlFor="email" className="mb-1 block text-sm font-medium text-ink-700">
@@ -124,9 +148,12 @@ export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
             autoComplete="email"
             maxLength={160}
             required
+            defaultValue={state.values?.email ?? ""}
+            aria-invalid={Boolean(state.errors.email)}
+            aria-describedby={state.errors.email ? "email-error" : undefined}
             className={fieldClass}
           />
-          <FieldError message={state.errors.email} />
+          <FieldError id="email-error" message={state.errors.email} />
         </div>
       </div>
 
@@ -142,9 +169,12 @@ export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
             autoComplete="tel"
             maxLength={40}
             required
+            defaultValue={state.values?.phone ?? ""}
+            aria-invalid={Boolean(state.errors.phone)}
+            aria-describedby={state.errors.phone ? "phone-error" : undefined}
             className={fieldClass}
           />
-          <FieldError message={state.errors.phone} />
+          <FieldError id="phone-error" message={state.errors.phone} />
         </div>
         <div>
           <label htmlFor="city" className="mb-1 block text-sm font-medium text-ink-700">
@@ -157,9 +187,12 @@ export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
             autoComplete="address-level2"
             maxLength={80}
             required
+            defaultValue={state.values?.city ?? ""}
+            aria-invalid={Boolean(state.errors.city)}
+            aria-describedby={state.errors.city ? "city-error" : undefined}
             className={fieldClass}
           />
-          <FieldError message={state.errors.city} />
+          <FieldError id="city-error" message={state.errors.city} />
         </div>
       </div>
 
@@ -170,9 +203,11 @@ export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
         <select
           id="specialty"
           name="specialty"
-          defaultValue={defaultSpecialty ?? ""}
+          defaultValue={state.values?.specialty ?? defaultSpecialty ?? ""}
           onChange={(e) => setSelectedSpecialty(e.target.value)}
           required
+          aria-invalid={Boolean(state.errors.specialty)}
+          aria-describedby={state.errors.specialty ? "specialty-error" : undefined}
           className={fieldClass}
         >
           {/* Tomt värde är bara en platshållare – ett aktivt val krävs. Den som
@@ -194,22 +229,25 @@ export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
               mobil (275px text i 250px utrymme vid 390px viewport). */}
           <option value="privat-mr">Privat MR – rygg, knä, axel, höft</option>
         </select>
-        <FieldError message={state.errors.specialty} />
+        <FieldError id="specialty-error" message={state.errors.specialty} />
       </div>
 
       <div>
         <label htmlFor="message" className="mb-1 block text-sm font-medium text-ink-700">
-          Vad vill du boka tid för? <span className="text-ink-400">(valfritt)</span>
+          Vad vill du boka tid för? <span className="text-ink-500">(valfritt)</span>
         </label>
         <textarea
           id="message"
           name="message"
           rows={5}
           maxLength={2000}
+          defaultValue={state.values?.message ?? ""}
+          aria-invalid={Boolean(state.errors.message)}
+          aria-describedby={state.errors.message ? "message-error" : undefined}
           placeholder="Beskriv kort besväret eller vilken undersökning/specialist du vill boka tid för."
           className={fieldClass}
         />
-        <FieldError message={state.errors.message} />
+        <FieldError id="message-error" message={state.errors.message} />
       </div>
 
       <fieldset className="rounded-xl border border-brand-100 bg-white/70 p-4">
@@ -230,9 +268,12 @@ export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
               type="date"
               min={today}
               required
+              defaultValue={state.values?.preferredDate1 ?? ""}
+              aria-invalid={Boolean(state.errors.preferredDate1)}
+              aria-describedby={state.errors.preferredDate1 ? "preferred-date-1-error" : undefined}
               className={fieldClass}
             />
-            <FieldError message={state.errors.preferredDate1} />
+            <FieldError id="preferred-date-1-error" message={state.errors.preferredDate1} />
           </div>
           <div>
             <label htmlFor="preferredDate2" className="mb-1 block text-sm font-medium text-ink-700">
@@ -244,22 +285,28 @@ export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
               type="date"
               min={today}
               required
+              defaultValue={state.values?.preferredDate2 ?? ""}
+              aria-invalid={Boolean(state.errors.preferredDate2)}
+              aria-describedby={state.errors.preferredDate2 ? "preferred-date-2-error" : undefined}
               className={fieldClass}
             />
-            <FieldError message={state.errors.preferredDate2} />
+            <FieldError id="preferred-date-2-error" message={state.errors.preferredDate2} />
           </div>
           <div>
             <label htmlFor="preferredDate3" className="mb-1 block text-sm font-medium text-ink-700">
-              Datum 3 <span className="text-ink-400">(valfritt)</span>
+              Datum 3 <span className="text-ink-500">(valfritt)</span>
             </label>
             <input
               id="preferredDate3"
               name="preferredDate3"
               type="date"
               min={today}
+              defaultValue={state.values?.preferredDate3 ?? ""}
+              aria-invalid={Boolean(state.errors.preferredDate3)}
+              aria-describedby={state.errors.preferredDate3 ? "preferred-date-3-error" : undefined}
               className={fieldClass}
             />
-            <FieldError message={state.errors.preferredDate3} />
+            <FieldError id="preferred-date-3-error" message={state.errors.preferredDate3} />
           </div>
         </div>
       </fieldset>
@@ -268,22 +315,36 @@ export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
         <label htmlFor="timePreference" className="mb-1 block text-sm font-medium text-ink-700">
           Tid på dagen <span className="text-red-500">*</span>
         </label>
-        <select id="timePreference" name="timePreference" required defaultValue="" className={fieldClass}>
+        <select
+          id="timePreference"
+          name="timePreference"
+          required
+          defaultValue={state.values?.timePreference ?? ""}
+          aria-invalid={Boolean(state.errors.timePreference)}
+          aria-describedby={state.errors.timePreference ? "time-preference-error" : undefined}
+          className={fieldClass}
+        >
           <option value="" disabled>
             Välj tid
           </option>
           <option value="before-noon">Före lunch</option>
           <option value="after-noon">Efter lunch</option>
         </select>
-        <FieldError message={state.errors.timePreference} />
+        <FieldError id="time-preference-error" message={state.errors.timePreference} />
       </div>
 
       <div>
         <label className="flex items-start gap-3 text-sm text-ink-600">
           <input
+            id="consent"
             type="checkbox"
             name="consent"
-            className="mt-1 h-4 w-4 rounded border-ink-300 text-brand-600 focus:ring-brand-500"
+            required
+            defaultChecked={state.values?.consent ?? false}
+            aria-required="true"
+            aria-invalid={Boolean(state.errors.consent)}
+            aria-describedby={state.errors.consent ? "consent-error" : undefined}
+            className="mt-1 h-4 w-4 rounded border-ink-500 text-brand-700 focus:ring-brand-700"
           />
           <span>
             Jag godkänner att Specialistdirekt behandlar mina uppgifter för att kunna hjälpa
@@ -294,7 +355,7 @@ export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
             . <span className="text-red-500">*</span>
           </span>
         </label>
-        <FieldError message={state.errors.consent} />
+        <FieldError id="consent-error" message={state.errors.consent} />
       </div>
 
       <SubmitButton />

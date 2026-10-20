@@ -1,7 +1,12 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { BOOKING_PRICE_SEK, formatSlot } from "@/lib/booking-slots";
-import { findBooking, pendingBookingValidity, verifySignature } from "@/lib/booking-store";
+import { formatSlot } from "@/lib/booking-slots";
+import {
+  bookingPriceSek,
+  findBooking,
+  pendingBookingValidity,
+  verifySignature,
+} from "@/lib/booking-store";
 import { singleSearchParam, type SearchParamValue } from "@/lib/search-params";
 
 export const metadata: Metadata = {
@@ -118,7 +123,7 @@ export default async function BekraftaPage({
         <br />
         Dr Masoud Sorkhabi, Göteborg
         <br />
-        Pris: {BOOKING_PRICE_SEK} kr
+        Pris: {bookingPriceSek(rec)} kr
       </p>
       {rec.conflict ? (
         <p className="warning-card p-4 text-sm">
