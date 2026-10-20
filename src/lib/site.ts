@@ -3,11 +3,10 @@
 
 export const site = {
   name: "Specialistdirekt",
-  // Verifierat registrerat firmanamn och organisationsnummer (Bolagsverket).
-  // "Specialistdirekt" är varumärket/tjänsten; Visaeb AB är den juridiska person
+  // Verifierat registrerat firmanamn.
+  // "Specialistdirekt" är varumärket/tjänsten; Visaeb Medical Group AB är den juridiska person
   // som driver tjänsten och är personuppgiftsansvarig.
-  legalName: "Visaeb AB",
-  orgNumber: "559403-7375",
+  legalName: "Visaeb Medical Group AB",
   // Kanonisk domän (www omdirigeras till apex i nginx).
   url: "https://specialistdirekt.se",
   locale: "sv_SE",
@@ -18,8 +17,8 @@ export const site = {
     "Specialistdirekt samlar information om privat specialistvård. Vissa tjänster kan bokas direkt; för andra kan du skicka en kostnadsfri tidsförfrågan.",
   // Kontakt. Telefonnummer och postadress publicerades tidigare inte alls, i
   // väntan på verifierade företagsuppgifter. De uppgifterna finns nu:
-  // postadressen är Visaeb AB:s registrerade adress (Bolagsverket) och numret
-  // är en separat arbetslinje, bekräftad av uppdragsgivaren 2026-08-30.
+  // postadressen är bolagets postadress och numret är en separat arbetslinje,
+  // bekräftad av uppdragsgivaren 2026-08-30.
   //
   // VIKTIGT: adressen är bolagets kontorsadress – INTE en mottagning. Ortopedi-
   // besöket sker hos läkaren i Göteborg, inte här. Skriv aldrig ut adressen som
@@ -37,8 +36,7 @@ export const site = {
   // katalogerna; skiljer de sig åt tappar NAP-signalen sitt värde.
   phone: "+46728697203",
   phoneDisplay: "072-869 72 03",
-  // Bolagets registrerade adress (Visaeb AB, Bolagsverket). Kontorsadress –
-  // ingen mottagning. Se varningen ovan.
+  // Bolagets postadress. Kontorsadress – ingen mottagning. Se varningen ovan.
   address: {
     street: "Övre Hägnavägen 10",
     postalCode: "436 51",

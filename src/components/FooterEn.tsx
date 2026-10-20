@@ -43,7 +43,7 @@ export function FooterEn() {
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 py-6 text-xs text-ink-400 sm:flex-row sm:px-6">
           <p>
             © {site.foundingYear} {site.name}. All rights reserved.
-            <span className="mt-1 block">Operated by {site.legalName}, company no. {site.orgNumber}.</span>
+            <span className="mt-1 block">Operated by {site.legalName}.</span>
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link href="/integritetspolicy" hrefLang="sv" className="hover:text-white">Privacy policy (Swedish)</Link>

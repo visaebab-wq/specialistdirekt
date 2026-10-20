@@ -43,8 +43,8 @@ export default function PrivacyPage() {
         <section>
           <h2 className="text-xl font-bold text-ink-900">1. Personuppgiftsansvarig</h2>
           <p className="mt-2">
-            {site.legalName}, organisationsnummer {site.orgNumber}, är personuppgiftsansvarig för
-            den behandling av personuppgifter som sker inom tjänsten {site.name}.
+            {site.legalName} är personuppgiftsansvarig för den behandling av personuppgifter som
+            sker inom tjänsten {site.name}.
           </p>
           <p className="mt-2">
             Kontakt:{" "}

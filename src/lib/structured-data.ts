@@ -10,9 +10,9 @@ import { medicalReviewerFor } from "./medical-reviewer";
 
 const abs = (path: string) => `${site.url}${path.startsWith("/") ? path : `/${path}`}`;
 
-// Kontaktuppgifterna i Organization kommer från site.ts och är verifierade:
-// postadressen är ViSaeb AB:s registrerade adress hos Bolagsverket, numret är en
-// separat arbetslinje. Samtliga visas också synligt på sajten – schema som inte
+// Kontaktuppgifterna i Organization kommer från site.ts:
+// postadressen är bolagets postadress och numret är en separat arbetslinje.
+// Samtliga visas också synligt på sajten – schema som inte
 // motsvarar synligt innehåll är fel enligt Googles egna riktlinjer.
 //
 // PostalAddress beskriver BOLAGETS kontor. Den är medvetet INTE en besöksadress
@@ -39,13 +39,8 @@ export function organizationSchema() {
     "@type": "Organization",
     "@id": `${site.url}/#organization`,
     name: site.name,
-    // Verifierat registrerat firmanamn (ViSaeb AB) och organisationsnummer.
+    // Verifierat registrerat firmanamn (Visaeb Medical Group AB).
     legalName: site.legalName,
-    identifier: {
-      "@type": "PropertyValue",
-      propertyID: "Organisationsnummer",
-      value: site.orgNumber,
-    },
     url: site.url,
     logo: abs("/icon.svg"),
     image: abs("/opengraph-image"),
