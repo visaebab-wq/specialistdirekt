@@ -1,10 +1,32 @@
+"use client";
+
 import Script from "next/script";
+import { usePathname } from "next/navigation";
 import { site } from "@/lib/site";
+import { isSensitivePath, outboundFilterSnippet } from "@/lib/sensitive-routes";
+import { AnalyticsGuard } from "@/components/AnalyticsGuard";
 
 // Webbanalys. Två alternativ stöds:
 //  - Google Analytics 4 (site.gaMeasurementId) – sätter cookies.
 //  - Plausible (NEXT_PUBLIC_PLAUSIBLE_DOMAIN) – cookiefritt, ingen banner krävs.
+//
+// KOMPONENTEN ÄR EN KLIENTKOMPONENT ENBART för att kunna läsa sökvägen och
+// avstå från att rendera taggen på token-bärande bokningsvyer. Den gör inget
+// annat klientarbete, och sidorna fortsätter förrenderas statiskt.
+//
+// VARFÖR INTE consent=denied ELLER send_page_view=false I STÄLLET:
+// Google-taggen skickar ändå anrop i alla samtyckeslägen – uppmätt lokalt: även
+// med samtycke nekat gick två collect-anrop iväg, båda med hela sidadressen och
+// därmed bokningsnyckeln. Det enda som håller är att taggen aldrig laddas på de
+// vyerna. Att rensa URL:en efteråt hjälper inte heller: då har anropet redan gått.
 export function Analytics() {
+  const pathname = usePathname();
+  const sensitive = isSensitivePath(pathname);
+
+  // På känsliga vyer renderas ingen tagg alls – varken GA4, Ads eller Plausible.
+  // AnalyticsGuard täcker fallet att taggen redan laddats på en tidigare sida.
+  if (sensitive) return <AnalyticsGuard pathname={pathname} />;
+
   const ga = site.gaMeasurementId;
   const ads = site.adsConversionId;
   const plausibleDomain = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
@@ -18,7 +40,10 @@ export function Analytics() {
             strategy="afterInteractive"
           />
           <Script id="ga4" strategy="afterInteractive">
-            {`window.dataLayer = window.dataLayer || [];
+            {`// Utgångsfiltret FÖRST: inget gtag('config') – och därmed inget anrop –
+// kan ske innan det är installerat. Se sensitive-routes.ts.
+${outboundFilterSnippet()}
+window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 // Consent Mode v2: allt nekat som standard tills besökaren samtycker (GDPR).
 gtag('consent', 'default', {

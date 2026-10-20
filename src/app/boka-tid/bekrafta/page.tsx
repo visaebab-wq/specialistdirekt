@@ -1,13 +1,15 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { BOOKING_PRICE_SEK, formatSlot } from "@/lib/booking-slots";
-import { findBooking, verifyBooking, verifySignature } from "@/lib/booking-store";
-import { sendOwnerVerified } from "@/lib/booking-email";
-import { TrackEvent } from "@/components/TrackEvent";
+import { findBooking, pendingBookingValidity, verifySignature } from "@/lib/booking-store";
 
 export const metadata: Metadata = {
   title: "Bekräfta din tid – Specialistdirekt",
   robots: { index: false, follow: false },
+  // URL:en innehåller bokningsnyckeln. no-referrer gäller även när besökaren
+  // klickar vidare efter en klientnavigering, då svarsheadern från
+  // next.config.ts inte längre är den som styr.
+  referrer: "no-referrer",
 };
 
 export const dynamic = "force-dynamic";
@@ -54,16 +56,14 @@ export default async function BekraftaPage({
     );
   }
 
-  const existing = findBooking(id);
-  const alreadyVerified = existing?.status === "verified";
-  const result = verifyBooking(id);
+  const rec = findBooking(id);
 
-  if (!result.ok) {
-    const rebookPath = existing?.bookingType === "child" ? "/boka-tid/barn" : "/boka-tid";
+  if (!rec || rec.status === "cancelled") {
+    const rebookPath = rec?.bookingType === "child" ? "/boka-tid/barn" : "/boka-tid";
     return (
-      <Shell title={result.reason === "cancelled" ? "Tiden är avbokad" : "Bokningen hittades inte"}>
+      <Shell title={rec?.status === "cancelled" ? "Tiden är avbokad" : "Bokningen hittades inte"}>
         <p>
-          {result.reason === "cancelled"
+          {rec?.status === "cancelled"
             ? "Den här tiden är avbokad. Vill du boka en ny tid gör du det nedan."
             : "Vi hittar ingen bokning för den här länken."}
         </p>
@@ -76,35 +76,62 @@ export default async function BekraftaPage({
     );
   }
 
-  // Notisera mottagaren – men bara första gången, så att ett omladdat fönster
-  // inte skickar samma mejl om och om igen.
-  if (!alreadyVerified) {
-    await sendOwnerVerified(result.record, result.conflict).catch((err) =>
-      console.error("[booking] Kunde inte skicka bekräftelsenotis", err),
-    );
+  if (rec.status === "pending") {
+    const validity = pendingBookingValidity(rec);
+    if (!validity.ok) {
+      const rebookPath = rec.bookingType === "child" ? "/boka-tid/barn" : "/boka-tid";
+      return (
+        <Shell title="Bekräftelselänken har gått ut">
+          <p>
+            Tiden reserverades i två timmar och kan inte längre bekräftas med den här länken.
+            Välj en ny ledig tid nedan.
+          </p>
+          <p>
+            <Link href={rebookPath} className="font-semibold text-brand-700 hover:underline">
+              Välj en ny tid
+            </Link>
+          </p>
+        </Shell>
+      );
+    }
   }
 
+  const alreadyVerified = rec.status === "verified";
+
   return (
-    <Shell title={alreadyVerified ? "Tiden är redan bekräftad" : "Tack – din tid är bekräftad"}>
-      {/* Konvertering: bokningen är bekräftad av patienten. Skickas bara första
-          gången, så att en omladdad flik inte räknas som ännu en bokning. */}
-      {!alreadyVerified && <TrackEvent name="booking_confirmed" />}
+    <Shell title={alreadyVerified ? "Tiden är bekräftad" : "Bekräfta din tid"}>
       <p>
-        <strong>{formatSlot(result.record.slot)}</strong>
+        <strong>{formatSlot(rec.slot)}</strong>
         <br />
         Dr Masoud Sorkhabi, Göteborg
         <br />
         Pris: {BOOKING_PRICE_SEK} kr
       </p>
-      {result.conflict ? (
+      {rec.conflict ? (
         <p className="warning-card p-4 text-sm">
           Tiden hade hunnit bli upptagen. Vi har tagit emot din bekräftelse och hör av oss för att
           ordna en tid åt dig – du behöver inte göra något mer.
         </p>
-      ) : (
+      ) : alreadyVerified ? (
         <p>Vi har noterat din bekräftelse. Din personliga avbokningslänk finns även i mejlet.</p>
+      ) : (
+        <>
+          <p>Kontrollera uppgifterna ovan och bekräfta sedan bokningen.</p>
+          {/* Bekräftelsen sker med POST. Mejlklienter och säkerhetsskannrar kan
+              öppna länken automatiskt, men får aldrig bekräfta tiden åt patienten. */}
+          <form action="/boka-tid/bekrafta/utfor" method="post" className="mt-4">
+            <input type="hidden" name="id" value={rec.id} />
+            <input type="hidden" name="sig" value={sig} />
+            <button
+              type="submit"
+              className="rounded-xl bg-brand-600 px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-brand-700"
+            >
+              Bekräfta tiden
+            </button>
+          </form>
+        </>
       )}
-      {!result.conflict && (
+      {alreadyVerified && !rec.conflict && (
         <p>
           <Link
             href={`/boka-tid/avboka?id=${encodeURIComponent(id)}&sig=${encodeURIComponent(sig)}`}

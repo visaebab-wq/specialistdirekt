@@ -13,7 +13,11 @@
 import { appendFileSync, closeSync, existsSync, mkdirSync, openSync, readFileSync, unlinkSync } from "node:fs";
 import { createHmac, randomUUID, timingSafeEqual } from "node:crypto";
 import { dirname, join } from "node:path";
-import { BOOKING_FREE_CANCEL_MS, BOOKING_PENDING_TTL_MS } from "./booking-slots";
+import {
+  BOOKING_FREE_CANCEL_MS,
+  BOOKING_PENDING_TTL_MS,
+  isValidSlot,
+} from "./booking-slots";
 
 export type BookingStatus = "pending" | "verified" | "cancelled";
 
@@ -200,23 +204,63 @@ export function findBooking(id: string): BookingRecord | undefined {
 }
 
 export type VerifyResult =
-  | { ok: true; record: BookingRecord; conflict: boolean }
-  | { ok: false; reason: "unknown" | "cancelled" };
+  | { ok: true; record: BookingRecord; conflict: boolean; already: boolean }
+  | { ok: false; reason: "unknown" | "cancelled" | "expired" | "invalid-slot" };
+
+export type PendingBookingValidity =
+  | { ok: true }
+  | { ok: false; reason: "expired" | "invalid-slot" };
+
+/**
+ * Kontrollerar att en väntande bokning fortfarande får bekräftas.
+ *
+ * Schemat och femtimmarsgränsen valideras mot skapandetiden, inte mot
+ * klickögonblicket. Annars skulle en korrekt bokad tid kunna bli omöjlig att
+ * bekräfta några minuter senare. Tvåtimmarsgränsen är däremot en riktig
+ * utgångstid: efter den har luckan släppts och länken får inte ta tillbaka den.
+ */
+export function pendingBookingValidity(
+  rec: BookingRecord,
+  now: Date = new Date(),
+): PendingBookingValidity {
+  const nowMs = now.getTime();
+  const createdMs = Date.parse(rec.createdAt);
+  const slotMs = Date.parse(rec.slot);
+
+  if (
+    !Number.isFinite(nowMs) ||
+    !Number.isFinite(createdMs) ||
+    createdMs > nowMs ||
+    !Number.isFinite(slotMs) ||
+    !isValidSlot(rec.slot, new Date(createdMs))
+  ) {
+    return { ok: false, reason: "invalid-slot" };
+  }
+  if (slotMs <= nowMs || nowMs - createdMs >= BOOKING_PENDING_TTL_MS) {
+    return { ok: false, reason: "expired" };
+  }
+  return { ok: true };
+}
 
 /**
  * Bekräftar en bokning. Om luckan under tiden tagits av någon annan bekräftas
  * den ändå – men flaggas som konflikt, så att den kan redas ut manuellt i
  * stället för att patienten tyst faller bort.
  */
-export function verifyBooking(id: string): VerifyResult {
+export function verifyBooking(id: string, now: Date = new Date()): VerifyResult {
   return withLock(() => {
-    const rec = allBookings().find((b) => b.id === id);
+    const bookings = allBookings();
+    const rec = bookings.find((b) => b.id === id);
     if (!rec) return { ok: false, reason: "unknown" };
     if (rec.status === "cancelled") return { ok: false, reason: "cancelled" };
-    if (rec.status === "verified") return { ok: true, record: rec, conflict: !!rec.conflict };
+    if (rec.status === "verified") {
+      return { ok: true, record: rec, conflict: !!rec.conflict, already: true };
+    }
 
-    const now = new Date();
-    const clash = allBookings().some(
+    const validity = pendingBookingValidity(rec, now);
+    if (validity.ok === false) return validity;
+
+    const clash = bookings.some(
       (b) => b.id !== id && b.slot === rec.slot && b.status === "verified",
     );
     append({ type: "verified", id, at: now.toISOString(), ...(clash ? { conflict: true } : {}) });
@@ -224,6 +268,7 @@ export function verifyBooking(id: string): VerifyResult {
       ok: true,
       record: { ...rec, status: "verified", verifiedAt: now.toISOString(), conflict: clash },
       conflict: clash,
+      already: false,
     };
   });
 }

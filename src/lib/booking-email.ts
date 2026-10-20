@@ -145,7 +145,7 @@ export async function sendPatientConfirmation(rec: BookingRecord) {
     `Lägg till i kalendern: ${calendar}`,
     `Visa vägbeskrivning: ${map}`,
     "",
-    "Om du inte bekräftar inom två timmar kan tiden erbjudas till någon annan.",
+    "Bekräftelselänken gäller i två timmar. Därefter släpps reservationen och du behöver välja en ny tid.",
     "",
     `Kan du inte komma? Fram till ${BOOKING_FREE_CANCEL_HOURS} timmar före besöket avbokar du`,
     "kostnadsfritt här (du får bekräfta avbokningen på sidan):",
@@ -208,7 +208,7 @@ export async function sendPatientConfirmation(rec: BookingRecord) {
               </td></tr>
             </table>
           </td></tr>
-          <tr><td class="mobile-pad" style="padding:0 28px 18px;font-size:12px;line-height:19px;color:#9a3412">Bekräfta inom två timmar. Därefter kan tiden erbjudas till någon annan.</td></tr>
+          <tr><td class="mobile-pad" style="padding:0 28px 18px;font-size:12px;line-height:19px;color:#9a3412">Bekräftelselänken gäller i två timmar. Därefter släpps reservationen och du behöver välja en ny tid.</td></tr>
           <tr><td class="mobile-pad" style="padding:16px 28px;border-top:1px solid #e2e8f0;font-size:12px;line-height:19px;color:#64748b">
             Kan du inte komma? Fram till <strong>${BOOKING_FREE_CANCEL_HOURS} timmar</strong> före besöket kan du
             <a href="${cancelHref}" style="color:#64748b;text-decoration:underline">avboka kostnadsfritt</a>.

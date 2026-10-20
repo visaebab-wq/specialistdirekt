@@ -10,6 +10,10 @@ import { findBooking, verifySignature } from "@/lib/booking-store";
 export const metadata: Metadata = {
   title: "Avboka din tid – Specialistdirekt",
   robots: { index: false, follow: false },
+  // URL:en innehåller bokningsnyckeln. no-referrer gäller även när besökaren
+  // klickar vidare efter en klientnavigering, då svarsheadern från
+  // next.config.ts inte längre är den som styr.
+  referrer: "no-referrer",
 };
 
 // Statusen ändras vid varje avbokning – sidan får aldrig serveras från cache.
