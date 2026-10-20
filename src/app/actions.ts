@@ -6,6 +6,7 @@ import { specialties } from "@/lib/specialties";
 import type { LeadState } from "@/lib/lead";
 import { deliverLead } from "@/lib/lead-delivery";
 import { isValidPreferredDate } from "@/lib/lead-dates";
+import { isChildBirthDate } from "@/lib/booking-patient";
 
 const validSpecialtySlugs = new Set([
   ...specialties.map((s) => s.slug),
@@ -211,16 +212,8 @@ export async function submitBooking(
   if (phone.replace(/\D/g, "").length < 6) errors.phone = "Fyll i ett telefonnummer.";
   if (bookingType === "child") {
     if (childName.length < 2) errors.childName = "Fyll i barnets namn.";
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(childBirthDate)) {
-      errors.childBirthDate = "Fyll i barnets födelsedatum.";
-    } else {
-      const born = new Date(`${childBirthDate}T12:00:00Z`);
-      const now = new Date();
-      const oldest = new Date(Date.UTC(now.getUTCFullYear() - 18, now.getUTCMonth(), now.getUTCDate()));
-      const normalized = Number.isNaN(born.getTime()) ? "" : born.toISOString().slice(0, 10);
-      if (normalized !== childBirthDate || born > now || born <= oldest) {
-        errors.childBirthDate = "Barnet behöver vara 0–17 år vid bokningen.";
-      }
+    if (!isChildBirthDate(childBirthDate)) {
+      errors.childBirthDate = "Barnet behöver vara 0–17 år vid bokningen.";
     }
   }
   if (!formData.get("consent")) errors.consent = "Du behöver godkänna villkoren.";
