@@ -13,6 +13,7 @@ import { getArticleVisual, getArticleVisuals, getVisualDimensions } from "@/lib/
 import { medicalReviewerFor } from "@/lib/medical-reviewer";
 import { RecoTrust } from "@/components/RecoTrust";
 import { BarnBookingCta } from "@/components/BarnBookingCta";
+import { RelatedSpecialties } from "@/components/RelatedSpecialties";
 import { isBarnArticle, BARN_NAV_SLUG } from "@/lib/barn-cta-scope";
 
 export function generateStaticParams() {
@@ -379,6 +380,8 @@ export default async function ArticlePage({
             </ul>
           </section>
         )}
+
+        <RelatedSpecialties article={article} />
 
         {/* Relaterade artiklar */}
         {(related.length > 0 || article.slug === BARN_NAV_SLUG) && (
