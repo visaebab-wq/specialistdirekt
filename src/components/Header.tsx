@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { mainNav, site } from "@/lib/site";
 import { specialties } from "@/lib/specialties";
 
@@ -10,6 +10,15 @@ export function Header() {
   const [specialtiesOpen, setSpecialtiesOpen] = useState(false);
 
   const navWithoutSpecialties = mainNav.filter((item) => item.href !== "/specialiteter");
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
 
   return (
     <header className="sticky top-0 z-50 border-b border-ink-200 bg-white/90 backdrop-blur">
@@ -100,7 +109,7 @@ export function Header() {
           className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-ink-200 text-ink-700 md:hidden"
           aria-expanded={open}
           aria-controls="mobil-meny"
-          aria-label="Öppna meny"
+          aria-label={open ? "Stäng meny" : "Öppna meny"}
         >
           <span aria-hidden className="text-xl">
             {open ? "✕" : "☰"}
