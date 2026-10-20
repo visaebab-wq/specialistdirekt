@@ -44,7 +44,7 @@ export default function BookaTidPage() {
                 Bokningen bekräftas tryggt via mejl.
               </p>
             </div>
-            <dl className="grid min-w-[19rem] gap-3 rounded-2xl border border-white/80 bg-white/80 p-5 shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur sm:grid-cols-3 lg:grid-cols-1">
+            <dl className="grid gap-3 rounded-2xl border border-white/80 bg-white/80 p-5 lg:min-w-[19rem] shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur sm:grid-cols-3 lg:grid-cols-1">
               {[
                 ["Besök", "Fysiskt i Göteborg"],
                 ["Besökstid", "40 minuter"],
