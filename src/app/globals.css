@@ -64,6 +64,18 @@ body {
   outline-offset: 2px;
 }
 
+/* Filled primary actions use a dark enough brand tone for white normal-sized
+   labels to meet WCAG AA. Decorative brand surfaces are unaffected. */
+a.text-white:is(.bg-brand-500, .bg-brand-600),
+button.text-white:is(.bg-brand-500, .bg-brand-600) {
+  background-color: var(--color-brand-700);
+}
+
+a.text-white:is(.bg-brand-500, .bg-brand-600):hover,
+button.text-white:is(.bg-brand-500, .bg-brand-600):hover {
+  background-color: var(--color-brand-800);
+}
+
 /* Återanvändbar mjuk sektionsbakgrund. */
 .bg-section {
   background:
@@ -638,6 +650,13 @@ body {
 .article-body a:hover {
   color: var(--color-brand-800);
   text-decoration-color: currentColor;
+}
+
+/* Do not let the generic article-link rule override filled CTA labels. */
+.article-body a.text-white,
+.article-body a.text-white:hover {
+  color: #ffffff;
+  text-decoration: none;
 }
 
 .article-body ul:not([class]) {
