@@ -18,16 +18,8 @@ export function BookingConfirmedEvent({ eventId }: { eventId: string }) {
     url.searchParams.delete("event");
     window.history.replaceState(window.history.state, "", `${url.pathname}${url.search}${url.hash}`);
 
-    // Samma lyckade övergång ska inte räknas igen vid reload eller i en ny
-    // flik. Det slumpade id:t innehåller inga bokningsuppgifter.
-    const storageKey = `sd-booking-confirmed:${eventId}`;
-    try {
-      if (window.localStorage.getItem(storageKey)) return;
-      window.localStorage.setItem(storageKey, String(Date.now()));
-    } catch {
-      // Mätningen får fortfarande fungera när lagring blockeras av webbläsaren.
-    }
-
+    // sendGtagEvent väntar på uttryckligt analyssamtycke och deduplicerar först
+    // då i sessionStorage. Ingen bokningsmarkör sparas permanent före samtycke.
     return sendGtagEvent("booking_confirmed", {
       event_id: eventId,
       transaction_id: eventId,

@@ -1,6 +1,10 @@
 "use client";
 
-import { CONSENT_KEY, CONSENT_REOPEN_EVENT } from "./CookieConsent";
+import {
+  CONSENT_REOPEN_EVENT,
+  CONSENT_RETURN_FOCUS_KEY,
+  withdrawAnalyticsConsent,
+} from "@/lib/analytics-consent";
 
 // Låter besökaren ändra eller återkalla sitt cookie-samtycke i efterhand, utan
 // att behöva rensa webbläsarens lagring. Ett samtycke som inte går att ta
@@ -18,23 +22,22 @@ export function CookieSettingsButton({
   return (
     <button
       type="button"
+      data-cookie-settings-button
       className={className}
-      onClick={() => {
+      onClick={(event) => {
         try {
-          localStorage.removeItem(CONSENT_KEY);
+          sessionStorage.setItem(CONSENT_RETURN_FOCUS_KEY, "1");
         } catch {
           /* ignore */
         }
-        // Ta bort samtycket direkt – valet ska gälla från klicket, inte först
-        // när besökaren svarat i bannern igen.
-        const gtag = (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag;
-        gtag?.("consent", "update", {
-          analytics_storage: "denied",
-          ad_storage: "denied",
-          ad_user_data: "denied",
-          ad_personalization: "denied",
-        });
-        window.dispatchEvent(new Event(CONSENT_REOPEN_EVENT));
+        // Ta bort samtycket och mätcookies direkt – analyslyssnaren stoppar
+        // befintliga taggar innan bannern öppnas igen.
+        withdrawAnalyticsConsent();
+        window.dispatchEvent(
+          new CustomEvent(CONSENT_REOPEN_EVENT, {
+            detail: { returnFocusTo: event.currentTarget },
+          }),
+        );
       }}
     >
       {label}

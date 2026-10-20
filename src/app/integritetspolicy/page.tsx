@@ -99,8 +99,16 @@ export default function PrivacyPage() {
         <section>
           <h2 className="text-xl font-bold text-ink-900">7. Cookies, statistik och annonsmätning</h2>
           <p className="mt-2">
-            Utöver nödvändiga cookies använder vi cookies och liknande teknik för två saker, och
-            bara om du samtycker via vår cookiebanner:
+            För att minnas ditt val använder vi den nödvändiga inställningen{" "}
+            <code>cookie-consent-v2</code>. Valet (ja eller nej) sparas både i webbläsarens lokala
+            lagring och i en förstapartscookie med <code>SameSite=Lax</code>. Cookien sparas i högst
+            tolv månader. Ett ja förlängs inte automatiskt vid nya besök; när cookien löper ut
+            frågar vi på nytt. Den lokala inställningen finns kvar tills du ändrar valet, ett ja
+            löper ut eller du rensar webbläsardata. Båda tas bort när du återkallar valet via
+            Cookie-inställningar.
+          </p>
+          <p className="mt-3">
+            Om, och först när, du uttryckligen accepterar använder vi följande mätning:
           </p>
           <ul className="mt-3 list-disc space-y-2 pl-5">
             <li>
@@ -112,6 +120,13 @@ export default function PrivacyPage() {
               som lett fram till en bokningsförfrågan. Det är enbart en mätning av resultatet av
               våra annonser.
             </li>
+            <li>
+              <strong>Förstapartsräkning av bokningsklick.</strong> När du går vidare via vår länk
+              till ortopedbokningen sparas en storleksbegränsad post på vår server med tidpunkt,
+              intern källsida, knappens beteckning och botklassning. User-Agent används tillfälligt
+              för botklassningen men sparas inte. Själva klickposten innehåller varken IP-adress,
+              User-Agent eller hänvisande webbadress.
+            </li>
           </ul>
           <p className="mt-3">
             Vi använder <strong>inte</strong> personanpassad annonsering, remarketing eller
@@ -119,9 +134,11 @@ export default function PrivacyPage() {
             nekad även när du samtyckt, och vi bygger inga målgrupper av ditt besök.
           </p>
           <p className="mt-3">
-            Innan du valt är samtliga dessa cookies avstängda (Google Consent Mode v2). Du kan neka
-            lika enkelt som du accepterar, och du kan när som helst ändra eller ta tillbaka ditt val
-            via länken <strong>Cookie-inställningar</strong> längst ned på varje sida.
+            Innan du valt, eller om du nekar, laddas inga analystaggar och ingen klickpost skrivs.
+            När du nekar eller återkallar ditt val rensas även de Google-mätcookies som webbplatsen
+            kan komma åt. Du kan neka lika enkelt som du accepterar, och du kan när som helst ändra
+            eller ta tillbaka ditt val via länken <strong>Cookie-inställningar</strong> längst ned
+            på varje sida.
           </p>
         </section>
 
