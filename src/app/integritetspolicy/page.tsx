@@ -1,17 +1,17 @@
-import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/structured-data";
 import { site } from "@/lib/site";
 import { PageVisual } from "@/components/PageVisual";
+import { createPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Integritetspolicy – så hanterar vi dina uppgifter",
   description:
     "Så behandlar Specialistdirekt dina personuppgifter enligt GDPR – vilka uppgifter vi samlar in, varför, hur länge och dina rättigheter.",
-  alternates: { canonical: "/integritetspolicy" },
+  path: "/integritetspolicy",
   robots: { index: true, follow: true },
-};
+});
 
 const crumbs = [
   { name: "Hem", path: "/" },

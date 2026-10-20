@@ -1,17 +1,17 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/structured-data";
 import { site } from "@/lib/site";
 import { PageVisual } from "@/components/PageVisual";
+import { createPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Om Specialistdirekt – vilka vi är och hur vi arbetar",
   description:
     "Specialistdirekt är en boknings- och informationstjänst om privat specialistvård i Sverige.",
-  alternates: { canonical: "/om-oss" },
-};
+  path: "/om-oss",
+});
 
 const crumbs = [
   { name: "Hem", path: "/" },

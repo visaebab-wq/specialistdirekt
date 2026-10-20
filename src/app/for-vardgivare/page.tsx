@@ -1,17 +1,17 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/structured-data";
 import { site } from "@/lib/site";
 import { PageVisual } from "@/components/PageVisual";
+import { createPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "För vårdgivare – ta emot fler patienter",
   description:
     "Är du specialist eller driver en mottagning? Anslut dig till Specialistdirekt och få kontakt med patienter som söker just din specialitet – utan bindningstid.",
-  alternates: { canonical: "/for-vardgivare" },
-};
+  path: "/for-vardgivare",
+});
 
 const crumbs = [
   { name: "Hem", path: "/" },

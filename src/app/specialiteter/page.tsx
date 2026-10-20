@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { specialties } from "@/lib/specialties";
 import { SpecialtyCard } from "@/components/SpecialtyCard";
@@ -7,18 +6,19 @@ import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/structured-data";
 import { site } from "@/lib/site";
 import { PageVisual } from "@/components/PageVisual";
+import { createPageMetadata } from "@/lib/page-metadata";
 
 const visual = {
   src: "/page-visuals/static-specialiteter.webp",
   alt: "Specialistvård i Sverige - realistisk vårdbild med läkare och patient",
 };
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Specialiteter – hitta rätt specialistläkare",
   description:
     "Bläddra bland medicinska specialiteter – från kardiolog och ortoped till hudläkare och psykiater. Läs mer om privat specialistvård i Sverige.",
-  alternates: { canonical: "/specialiteter" },
-};
+  path: "/specialiteter",
+});
 
 const crumbs = [
   { name: "Hem", path: "/" },

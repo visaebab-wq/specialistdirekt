@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { articles } from "@/lib/articles";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -6,13 +5,14 @@ import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/structured-data";
 import { site } from "@/lib/site";
 import { getArticleCardVisual } from "@/lib/medical-visuals";
+import { createPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Artiklar – guider om specialistvård",
   description:
     "Guider och svar om specialistvård i Sverige: kostnader, väntetider, remiss och hur du hittar rätt specialistläkare – från Specialistdirekts redaktion.",
-  alternates: { canonical: "/artiklar" },
-};
+  path: "/artiklar",
+});
 
 const crumbs = [
   { name: "Hem", path: "/" },

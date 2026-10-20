@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { faqs } from "@/lib/faq";
 import { FaqList } from "@/components/FaqList";
@@ -6,13 +5,14 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
 import { PageVisual } from "@/components/PageVisual";
+import { createPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Vanliga frågor om Specialistdirekt",
   description:
     "Svar på vanliga frågor om Specialistdirekt – hur tjänsten fungerar, vad det kostar, hur vi hanterar dina uppgifter och mer.",
-  alternates: { canonical: "/vanliga-fragor" },
-};
+  path: "/vanliga-fragor",
+});
 
 const crumbs = [
   { name: "Hem", path: "/" },

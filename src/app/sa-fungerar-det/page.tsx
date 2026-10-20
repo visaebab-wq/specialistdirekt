@@ -1,17 +1,17 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { HowItWorks, steps } from "@/components/HowItWorks";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema, howToSchema } from "@/lib/structured-data";
 import { PageVisual } from "@/components/PageVisual";
+import { createPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Så fungerar Specialistdirekt – steg för steg",
   description:
     "Så fungerar Specialistdirekt: se lediga tider direkt i kalendern, eller skicka en kostnadsfri förfrågan om ingen tid passar.",
-  alternates: { canonical: "/sa-fungerar-det" },
-};
+  path: "/sa-fungerar-det",
+});
 
 const crumbs = [
   { name: "Hem", path: "/" },

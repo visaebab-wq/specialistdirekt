@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { LeadForm } from "@/components/LeadForm";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
@@ -6,13 +5,14 @@ import { breadcrumbSchema } from "@/lib/structured-data";
 import { site } from "@/lib/site";
 import { PhoneLink } from "@/components/PhoneLink";
 import { PageVisual } from "@/components/PageVisual";
+import { createPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Kontakt – skicka din förfrågan",
   description:
     "Skicka en kostnadsfri förfrågan så hjälper vi dig att hitta rätt specialistläkare. Vi återkommer normalt inom en arbetsdag.",
-  alternates: { canonical: "/kontakt" },
-};
+  path: "/kontakt",
+});
 
 const crumbs = [
   { name: "Hem", path: "/" },
