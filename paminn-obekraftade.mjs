@@ -22,10 +22,11 @@
 // ska bara innehålla created/verified/cancelled. En okänd händelsetyp där skulle
 // vara en risk för allBookings() utan att ge oss något.
 
-import { appendFileSync, chmodSync, readFileSync, existsSync, mkdirSync } from "node:fs";
+import { appendFileSync, chmodSync, readFileSync, existsSync, mkdirSync, writeSync } from "node:fs";
 import { createHmac } from "node:crypto";
 import { join, dirname } from "node:path";
 import nodemailer from "nodemailer";
+import { acquireFileLock, withBookingLock } from "./booking-lock.mjs";
 
 const ROOT = new URL(".", import.meta.url).pathname;
 const DRY = process.env.DRY === "1";
@@ -65,8 +66,43 @@ const SMTP_HOST = process.env.SMTP_HOST || env.SMTP_HOST;
 const SMTP_PORT = process.env.SMTP_PORT || env.SMTP_PORT || "465";
 const SMTP_USER = process.env.SMTP_USER || env.SMTP_USER;
 const SMTP_PASS = process.env.SMTP_PASS || env.SMTP_PASS;
-const BASE =
-  process.env.BOOKING_BASE_URL || env.BOOKING_BASE_URL || "https://specialistdirekt.se";
+function bookingBaseUrl(value) {
+  const configured = String(value).trim();
+  const canonical = "https://specialistdirekt.se";
+  let parsed;
+  try {
+    parsed = new URL(configured);
+  } catch {
+    throw new Error("invalid-booking-base-url");
+  }
+
+  if (
+    configured.replace(/\/$/, "").toLowerCase() !== canonical ||
+    parsed.protocol !== "https:" ||
+    parsed.hostname !== "specialistdirekt.se" ||
+    parsed.port ||
+    parsed.username ||
+    parsed.password ||
+    (parsed.href !== parsed.origin && parsed.href !== `${parsed.origin}/`)
+  ) {
+    throw new Error("invalid-booking-base-url");
+  }
+
+  return parsed.origin;
+}
+
+let BASE;
+try {
+  BASE = bookingBaseUrl(
+    process.env.BOOKING_BASE_URL || env.BOOKING_BASE_URL || "https://specialistdirekt.se",
+  );
+} catch {
+  writeSync(
+    2,
+    "[paminnelse] BOOKING_BASE_URL måste vara den kanoniska HTTPS-adressen utan användaruppgifter, port, sökväg, query eller fragment – inget skickades.\n",
+  );
+  process.exit(1);
+}
 
 // Samma krav som secret() i src/lib/booking-store.ts. En påminnelse får aldrig
 // signeras med en offentlig fallback-nyckel.
@@ -92,12 +128,18 @@ const REMINDERS =
 const reminderPathIsCustom = Boolean(configuredReminderLog || configuredBookingLog);
 
 // --- Läs händelseloggen på samma sätt som allBookings() ---
+function isCanonicalInstant(value) {
+  if (typeof value !== "string" || value === "") return false;
+  const parsed = new Date(value);
+  return Number.isFinite(parsed.getTime()) && parsed.toISOString() === value;
+}
+
 function isUsableCreatedEvent(event) {
   if (!event || typeof event !== "object") return false;
   for (const field of ["id", "email", "createdAt", "slot"]) {
     if (typeof event[field] !== "string" || event[field].trim() === "") return false;
   }
-  return Number.isFinite(Date.parse(event.createdAt)) && Number.isFinite(Date.parse(event.slot));
+  return isCanonicalInstant(event.createdAt) && isCanonicalInstant(event.slot);
 }
 
 function readBookings() {
@@ -113,14 +155,26 @@ function readBookings() {
     } catch {
       continue; // en trasig rad ska inte stoppa påminnelserna
     }
+    if (!ev || typeof ev !== "object" || Array.isArray(ev)) continue;
     const type = ev.type || "created";
     if (type === "created") {
       // En syntaktiskt korrekt men ofullständig/ogiltig JSON-rad ska inte kunna
       // stoppa hela körningen i datumformatteringen. Hoppa över den tyst så att
       // varken personuppgifter eller trasigt innehåll hamnar i driftloggen.
       if (!isUsableCreatedEvent(ev)) continue;
-      recs.set(ev.id, { ...ev, status: "pending" });
-    } else if (recs.has(ev.id)) {
+      recs.set(ev.id, {
+        id: ev.id,
+        email: ev.email,
+        name: typeof ev.name === "string" ? ev.name : "",
+        createdAt: ev.createdAt,
+        slot: ev.slot,
+        status: "pending",
+      });
+    } else if (
+      recs.has(ev.id) &&
+      typeof ev.id === "string" &&
+      isCanonicalInstant(ev.at)
+    ) {
       if (type === "verified") recs.get(ev.id).status = "verified";
       else if (type === "cancelled") recs.get(ev.id).status = "cancelled";
     }
@@ -136,7 +190,8 @@ function alreadyReminded() {
   for (const line of readFileSync(REMINDERS, "utf8").split("\n")) {
     if (!line.trim()) continue;
     try {
-      ids.add(JSON.parse(line).id);
+      const record = JSON.parse(line);
+      if (record && typeof record.id === "string" && record.id.trim()) ids.add(record.id);
     } catch {
       /* ignorera trasig rad */
     }
@@ -155,38 +210,71 @@ const formatSlot = (iso) =>
     hour12: false,
   }).format(new Date(iso));
 
+function signedBookingUrl(pathname, id) {
+  const url = new URL(pathname, `${BASE}/`);
+  url.searchParams.set("id", id);
+  url.searchParams.set("sig", sign(id));
+  return url.toString();
+}
+
 // --- Vilka ska påminnas? ---
 const now = Date.now();
 const reminded = alreadyReminded();
 
-const due = readBookings().filter((r) => {
+function isDue(r, checkedAt, remindedIds) {
+  if (!r) return false;
   if (r.status !== "pending") return false;          // redan bekräftad eller avbokad
-  if (reminded.has(r.id)) return false;              // en påminnelse räcker
+  if (remindedIds.has(r.id)) return false;           // en påminnelse räcker
   if (!r.email) return false;                        // ingen adress att skriva till
-  const ageMin = (now - Date.parse(r.createdAt)) / 60000;
+  const ageMin = (checkedAt - Date.parse(r.createdAt)) / 60000;
   if (ageMin < REMIND_AFTER_MIN) return false;       // för tidigt – de har gott om tid
   if (ageMin > REMIND_BEFORE_MIN) return false;      // luckan är redan släppt
-  if (Date.parse(r.slot) <= now) return false;       // tiden har redan passerat
+  if (Date.parse(r.slot) <= checkedAt) return false; // tiden har redan passerat
   return true;
-});
+}
 
-if (due.length === 0) {
-  console.log(`[paminnelse] inget att skicka (${new Date().toISOString()})`);
+const initialDue = readBookings().filter((r) => isDue(r, now, reminded));
+
+if (initialDue.length === 0) {
+  writeSync(1, `[paminnelse] inget att skicka (${new Date().toISOString()})\n`);
   process.exit(0);
 }
 
 if (DRY) {
-  console.log(
-    `[paminnelse] DRY: ${due.length} påminnelse${due.length === 1 ? "" : "r"} skulle skickas; inga personuppgifter visas`,
+  writeSync(
+    1,
+    `[paminnelse] DRY: ${initialDue.length} påminnelse${initialDue.length === 1 ? "" : "r"} skulle skickas; inga personuppgifter visas\n`,
   );
   process.exit(0);
 }
 
+const smtpPort = Number(SMTP_PORT);
+const missingSmtp = [
+  ["SMTP_HOST", SMTP_HOST],
+  ["SMTP_USER", SMTP_USER],
+  ["SMTP_PASS", SMTP_PASS],
+]
+  .filter(([, value]) => typeof value !== "string" || value.trim() === "")
+  .map(([key]) => key);
+if (
+  missingSmtp.length > 0 ||
+  !Number.isInteger(smtpPort) ||
+  smtpPort < 1 ||
+  smtpPort > 65_535
+) {
+  const reason = missingSmtp.length
+    ? `${missingSmtp.join(", ")} saknas eller är tom`
+    : "SMTP_PORT måste vara ett heltal mellan 1 och 65535";
+  writeSync(2, `[paminnelse] ogiltig SMTP-konfiguration: ${reason} – inget skickades.\n`);
+  process.exit(1);
+}
+
+async function sendDueReminders(due) {
 const transporter = nodemailer.createTransport({
   host: SMTP_HOST,
-  port: Number(SMTP_PORT),
-  secure: Number(SMTP_PORT) === 465,
-  requireTLS: Number(SMTP_PORT) !== 465,
+  port: smtpPort,
+  secure: smtpPort === 465,
+  requireTLS: smtpPort !== 465,
   auth: { user: SMTP_USER, pass: SMTP_PASS },
 });
 
@@ -207,24 +295,48 @@ const mailErrorSummary = (err) => {
   ].join(";");
 };
 
-for (const rec of due) {
+for (const snapshot of due) {
+  // SMTP får aldrig köras medan bokningslåset hålls: ett långsamt nätverk
+  // skulle då kunna stoppa patientens bekräftelse/avbokning. Läs i stället
+  // om status och påminnelseloggen under samma lås precis före utskicket.
+  // Det minimerar stale-snapshot-fönstret utan att göra bokningsflödet beroende
+  // av SMTP.
+  let refreshed;
+  try {
+    refreshed = withBookingLock(BOOKINGS, () => {
+      const checkedAt = Date.now();
+      const rec = readBookings().find((candidate) => candidate.id === snapshot.id);
+      const remindedIds = alreadyReminded();
+      return isDue(rec, checkedAt, remindedIds) ? { rec, checkedAt } : null;
+    });
+  } catch (err) {
+    failed++;
+    const summary =
+      err?.name === "BookingStoreBusyError" ? "code=booking_store_busy" : "code=booking_store_error";
+    failureCounts.set(summary, (failureCounts.get(summary) || 0) + 1);
+    continue;
+  }
+
+  if (!refreshed) continue;
+  const { rec, checkedAt } = refreshed;
   const when = formatSlot(rec.slot);
-  const confirm = `${BASE}/boka-tid/bekrafta?id=${rec.id}&sig=${sign(rec.id)}`;
-  const cancel = `${BASE}/boka-tid/avboka?id=${rec.id}&sig=${sign(rec.id)}`;
+  const confirm = signedBookingUrl("/boka-tid/bekrafta", rec.id);
+  const cancel = signedBookingUrl("/boka-tid/avboka", rec.id);
   const minutesLeft = Math.max(
     1,
-    Math.round(PENDING_TTL_MIN - (now - Date.parse(rec.createdAt)) / 60000),
+    Math.round(PENDING_TTL_MIN - (checkedAt - Date.parse(rec.createdAt)) / 60000),
   );
 
   const text = [
     `Hej ${rec.name || ""},`.trim(),
     "",
-    `Din tid hos ${DOCTOR} är ännu inte bekräftad:`,
+    `När vi senast kontrollerade bokningen var din tid hos ${DOCTOR} ännu inte bekräftad:`,
     "",
     `    ${when}`,
     "",
-    `Tiden är preliminär. Bekräftar du den inte inom cirka ${minutesLeft} minuter`,
+    `Då var tiden preliminär. Bekräftar du den inte inom cirka ${minutesLeft} minuter`,
     "släpps den automatiskt och kan bokas av någon annan.",
+    "Om du redan har bekräftat eller avbokat tiden kan du bortse från detta meddelande.",
     "",
     "Bekräfta här:",
     "",
@@ -240,17 +352,23 @@ for (const rec of due) {
   ].join("\n");
 
   const esc = (s) =>
-    String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    String(s)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
   const html = `<!doctype html><html lang="sv"><head><meta name="viewport" content="width=device-width,initial-scale=1"></head>
 <body style="margin:0;background:#f4f7f8;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#10161a">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding:24px">
     <table role="presentation" width="100%" style="max-width:560px;background:#fff;border-radius:12px;padding:28px">
       <tr><td>
         <p style="margin:0 0 16px">Hej ${esc(rec.name || "")},</p>
-        <p style="margin:0 0 16px">Din tid hos ${esc(DOCTOR)} är ännu inte bekräftad:</p>
+        <p style="margin:0 0 16px">När vi senast kontrollerade bokningen var din tid hos ${esc(DOCTOR)} ännu inte bekräftad:</p>
         <p style="margin:0 0 20px;font-size:17px;font-weight:600">${esc(when)}</p>
-        <p style="margin:0 0 20px">Tiden är preliminär. Bekräftar du den inte inom cirka
+        <p style="margin:0 0 12px">Då var tiden preliminär. Bekräftar du den inte inom cirka
           <strong>${minutesLeft} minuter</strong> släpps den automatiskt och kan bokas av någon annan.</p>
+        <p style="margin:0 0 20px;color:#3a474d">Om du redan har bekräftat eller avbokat tiden kan du bortse från detta meddelande.</p>
         <p style="margin:0 0 24px">
           <a href="${esc(confirm)}" style="display:inline-block;background:#0d9488;color:#fff;text-decoration:none;padding:13px 26px;border-radius:10px;font-weight:600">Bekräfta tiden</a>
         </p>
@@ -262,7 +380,7 @@ for (const rec of due) {
   </td></tr></table>
 </body></html>`;
 
-  const subject = `Din tid ${when} är inte bekräftad än – ${DOCTOR}`;
+  const subject = `Påminnelse om din preliminära tid ${when} – ${DOCTOR}`;
 
   try {
     await transporter.sendMail({
@@ -299,3 +417,34 @@ for (const [summary, count] of failureCounts) {
 // Låt Node tömma stdout/stderr innan processen avslutas; process.exit() kan
 // kapa den aggregerade driftloggen när skriptet körs av systemd eller via pipe.
 process.exitCode = failed > 0 ? 1 : 0;
+}
+
+// Ett separat körlås hålls över SMTP-anropen. Det påverkar aldrig appens
+// bokningslås men hindrar två timer/manualkörningar från att skicka samma
+// påminnelse innan den första hunnit skriva idempotensposten.
+let releaseRunLock;
+try {
+  releaseRunLock = acquireFileLock(`${REMINDERS}.run`, { timeoutMs: 0 });
+} catch (error) {
+  if (error?.name === "BookingStoreBusyError") {
+    writeSync(1, "[paminnelse] en annan påminnelsekörning pågår – inget skickades.\n");
+    process.exit(0);
+  }
+  writeSync(2, "[paminnelse] kunde inte låsa påminnelsekörningen – inget skickades.\n");
+  process.exit(1);
+}
+
+try {
+  const refreshedNow = Date.now();
+  const refreshedReminded = alreadyReminded();
+  const due = readBookings().filter((record) =>
+    isDue(record, refreshedNow, refreshedReminded),
+  );
+  if (due.length === 0) {
+    console.log(`[paminnelse] inget att skicka efter omläsning (${new Date().toISOString()})`);
+  } else {
+    await sendDueReminders(due);
+  }
+} finally {
+  releaseRunLock();
+}

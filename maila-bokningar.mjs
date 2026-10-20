@@ -6,7 +6,7 @@
 //   2) node maila-bokningar.mjs
 //
 // Val (miljövariabler):
-//   TO=nagon@annan.se     – annan mottagare (default: visaeb.ab@gmail.com)
+//   TO=nagon@annan.se     – explicit mottagare (annars BOOKING_TO_EMAIL/LEAD_TO_EMAIL)
 //   MONTH=2026-08         – filtrera på månad (default: alla)
 //   DRY=1                 – visa bara antal, utan personuppgifter eller mottagare
 //   LEAD_LOG_FILE=/tmp/... och BOOKING_CLICK_LOG_FILE=/tmp/... – isolerad körning
@@ -15,16 +15,18 @@
 // Källor: .data/booking-clicks.jsonl, .data/leads.jsonl och journalctl
 // (äldre leads som bara hann logga innan .data/leads.jsonl fanns).
 
-import { execSync } from "node:child_process";
-import { readFileSync } from "node:fs";
+import { execFileSync } from "node:child_process";
+import { readFileSync, writeSync } from "node:fs";
+import { resolve } from "node:path";
 import nodemailer from "nodemailer";
+import {
+  LEGACY_LEAD_JOURNAL_ARGS,
+  parseLegacyJournalLeads,
+} from "./booking-journal.mjs";
 
-const TO = process.env.TO || "visaeb.ab@gmail.com";
+const ROOT = new URL(".", import.meta.url).pathname;
 const MONTH = process.env.MONTH || "";
 const DRY = process.env.DRY === "1";
-const LEAD_LOG_FILE = process.env.LEAD_LOG_FILE || ".data/leads.jsonl";
-const BOOKING_CLICK_LOG_FILE =
-  process.env.BOOKING_CLICK_LOG_FILE || ".data/booking-clicks.jsonl";
 const SKIP_JOURNAL = process.env.SKIP_JOURNAL === "1";
 
 // --- 1. Läs .env.local (enkel KEY=VALUE-parser) ---
@@ -43,6 +45,23 @@ const SMTP_HOST = process.env.SMTP_HOST || env.SMTP_HOST;
 const SMTP_PORT = process.env.SMTP_PORT || env.SMTP_PORT || "587";
 const SMTP_USER = process.env.SMTP_USER || env.SMTP_USER;
 const SMTP_PASS = process.env.SMTP_PASS || env.SMTP_PASS;
+const configuredRecipient =
+  process.env.TO ||
+  process.env.BOOKING_TO_EMAIL ||
+  process.env.LEAD_TO_EMAIL ||
+  env.BOOKING_TO_EMAIL ||
+  env.LEAD_TO_EMAIL ||
+  "";
+const TO = /[\r\n]/.test(configuredRecipient) ? "" : configuredRecipient.trim();
+const configuredPath = (value, fallback) => resolve(ROOT, value || fallback);
+const LEAD_LOG_FILE = configuredPath(
+  process.env.LEAD_LOG_FILE || env.LEAD_LOG_FILE,
+  ".data/leads.jsonl",
+);
+const BOOKING_CLICK_LOG_FILE = configuredPath(
+  process.env.BOOKING_CLICK_LOG_FILE || env.BOOKING_CLICK_LOG_FILE,
+  ".data/booking-clicks.jsonl",
+);
 
 // --- 2. Hjälpare ---
 const sv = (iso) =>
@@ -79,8 +98,11 @@ const readJsonl = (file) => {
 };
 
 const textField = (value) => (typeof value === "string" ? value : "");
-const validTimestamp = (value) =>
-  typeof value === "string" && Number.isFinite(Date.parse(value));
+const validTimestamp = (value) => {
+  if (typeof value !== "string" || value === "") return false;
+  const parsed = new Date(value);
+  return Number.isFinite(parsed.getTime()) && parsed.toISOString() === value;
+};
 const dateList = (value) =>
   Array.isArray(value) ? value.filter((item) => typeof item === "string") : [];
 
@@ -116,8 +138,9 @@ const botClicks = clicks.filter(isBot);
 
 // --- 4. Tidsförfrågningar: .data/leads.jsonl + äldre ur journalen ---
 const fileLeads = readJsonl(LEAD_LOG_FILE)
+  .filter((l) => validTimestamp(l.receivedAt))
   .map((l) => ({
-    receivedAt: validTimestamp(l.receivedAt) ? l.receivedAt : "",
+    receivedAt: l.receivedAt,
     name: textField(l.name),
     email: textField(l.email),
     phone: textField(l.phone),
@@ -135,42 +158,21 @@ try {
   if (SKIP_JOURNAL) throw new Error("journal import disabled");
   // -o short-iso ger tidsstämpel per rad ("2026-08-06T11:34:59+0200 …"),
   // annars går månadsfiltret inte att tillämpa på journal-leads.
-  const raw = execSync(
-    `journalctl -u specialistdirekt --no-pager -o short-iso 2>/dev/null | grep -A9 "\\[lead\\] Ny förfrågan"`,
-    { encoding: "utf8", maxBuffer: 20 * 1024 * 1024, shell: "/bin/bash" },
+  const raw = execFileSync(
+    "journalctl",
+    LEGACY_LEAD_JOURNAL_ARGS,
+    { encoding: "utf8", maxBuffer: 20 * 1024 * 1024 },
   );
-  // Dela upp i block: en ny lead börjar på varje "[lead] Ny förfrågan"-rad,
-  // och tidsstämpeln är första ordet på just den raden.
-  const blocks = [];
-  for (const line of raw.split("\n")) {
-    if (line.includes("[lead] Ny förfrågan")) {
-      blocks.push({ at: line.split(/\s+/)[0], text: line });
-    } else if (blocks.length && line.trim() !== "--") {
-      blocks[blocks.length - 1].text += "\n" + line;
-    }
-  }
-  for (const { at, text: block } of blocks) {
-    const g = (k) => (block.match(new RegExp(`${k}:\\s*'([^']*)'`)) || [])[1] || "";
-    const dates = ((block.match(/preferredDates:\s*\[([^\]]*)\]/) || [])[1] || "")
-      .split(",")
-      .map((s) => s.trim().replace(/'/g, ""))
-      .filter(Boolean);
-    if (!g("name") && !g("email")) continue;
-    journalLeads.push({
-      receivedAt: new Date(at).toISOString(),
-      name: g("name"),
-      email: g("email"),
-      phone: g("phone"),
-      specialty: g("specialty"),
-      city: g("city"),
-      message: g("message"),
-      preferredDates: dates,
-      timePreference: g("timePreference"),
-      källa: "journal (message avkortat till 80 tecken)",
-    });
-  }
-} catch {
+  journalLeads = parseLegacyJournalLeads(raw);
+} catch (error) {
   // Journalen kan ha roterats bort – då får vi bara det som finns i filen.
+  if (!SKIP_JOURNAL) {
+    const code =
+      typeof error?.code === "string" && /^[A-Za-z0-9_-]{1,40}$/.test(error.code)
+        ? error.code
+        : "unavailable";
+    console.error(`[bokningsarkiv] journalimport hoppades över (code=${code}).`);
+  }
 }
 
 // Slå ihop: journal-leads som redan finns i leads.jsonl (samma e-post + datum) hoppas över.
@@ -184,11 +186,20 @@ const leads = [...journalLeads.filter((l) => !seen.has(key(l))), ...fileLeads].f
 // patientuppgifter, signerade länkar eller mottagaradresser till terminal/
 // journald där loggar ofta sparas längre och läses av fler än inkorgen.
 if (DRY) {
-  console.log(
+  writeSync(
+    1,
     `DRY: ${leads.length} tidsförfrågningar och ${clicks.length} bokningsklick; ` +
-      "inget mejl skickades och inga personuppgifter visas.",
+      "inget mejl skickades och inga personuppgifter visas.\n",
   );
   process.exit(0);
+}
+
+if (!TO) {
+  writeSync(
+    2,
+    "Kan inte skicka: ange en behörig mottagare via TO, BOOKING_TO_EMAIL eller LEAD_TO_EMAIL.\n",
+  );
+  process.exit(1);
 }
 
 // --- 5. Bygg mejlet ---

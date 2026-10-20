@@ -5,6 +5,8 @@
 //   node blockera-tid.mjs "2026-08-22 15:20" "Bokad via telefon"
 //   node blockera-tid.mjs --lista            (visar upptagna tider framåt)
 //   node blockera-tid.mjs --avblockera <id>  (öppnar tiden igen)
+// --avblockera accepterar bara poster med skriptets egen skapandemarkör och
+// kan därför aldrig användas för att avboka en patientbokning.
 //
 // Tiden anges i SVENSK tid, precis som den står i kalendern.
 //
@@ -14,13 +16,30 @@
 // bekräftat – bara bekräftade bokningar håller sin lucka för alltid (obekräftade
 // släpps efter två timmar, och då hade tiden dykt upp i kalendern igen).
 
-import { appendFileSync, chmodSync, existsSync, mkdirSync, readFileSync } from "node:fs";
+import { appendFileSync, chmodSync, existsSync, mkdirSync, readFileSync, writeSync } from "node:fs";
 import { randomUUID } from "node:crypto";
-import { dirname, join } from "node:path";
+import { dirname, join, resolve } from "node:path";
 import { withBookingLock } from "./booking-lock.mjs";
 
 const TZ = "Europe/Stockholm";
-const FILE = process.env.BOOKING_LOG_FILE || join(process.cwd(), ".data", "bookings.jsonl");
+const ROOT = new URL(".", import.meta.url).pathname;
+
+// Samma enkla .env.local-parser som de andra driftverktygen. Relativa
+// sökvägar utgår alltid från projektet, inte från anroparens cwd.
+const env = {};
+try {
+  for (const line of readFileSync(join(ROOT, ".env.local"), "utf8").split("\n")) {
+    if (line.trim().startsWith("#")) continue;
+    const match = line.match(/^\s*([A-Z0-9_]+)\s*=\s*(.*?)\s*$/);
+    if (match) env[match[1]] = match[2].replace(/^["']|["']$/g, "");
+  }
+} catch {
+  console.error("Kunde inte läsa .env.local – inget gjordes.");
+  process.exit(1);
+}
+
+const configuredBookingLog = process.env.BOOKING_LOG_FILE || env.BOOKING_LOG_FILE;
+const FILE = resolve(ROOT, configuredBookingLog || ".data/bookings.jsonl");
 
 // Öppettider – måste stämma med src/lib/booking-slots.ts.
 const WEEKDAYS = [6, 0]; // lördag, söndag
@@ -28,6 +47,22 @@ const START_HOUR = 10;
 const END_HOUR = 16;
 const SLOT_MINUTES = 40;
 const PENDING_TTL_MS = 2 * 60 * 60 * 1000;
+const MANUAL_BLOCK_MARKER = "specialistdirekt:blockera-tid:v1";
+const LEGACY_MANUAL_BLOCK_MESSAGE =
+  "Blockerad med blockera-tid.mjs – bokad utanför sajten.";
+
+function isManualBlock(rec) {
+  if (rec?.createdBy === MANUAL_BLOCK_MARKER) return true;
+
+  // Poster skapade av äldre versioner saknar createdBy. Deras fasta
+  // verktygssignatur skiljer dem från patientbokningar, där e-post och telefon
+  // valideras som obligatoriska. Kräv hela signaturen för att faila stängt.
+  return (
+    rec?.email === "" &&
+    rec?.phone === "" &&
+    rec?.message === LEGACY_MANUAL_BLOCK_MESSAGE
+  );
+}
 
 function readEvents() {
   if (!existsSync(FILE)) return [];
@@ -87,6 +122,39 @@ function stockholmToUtc(y, m, d, hh, mm) {
   return new Date(instant);
 }
 
+function stockholmLocalParts(instant) {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: TZ,
+    hour12: false,
+    hourCycle: "h23",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+  }).formatToParts(instant);
+  const value = (type) => Number(parts.find((part) => part.type === type)?.value ?? "-1");
+  return {
+    year: value("year"),
+    month: value("month"),
+    day: value("day"),
+    hour: value("hour") % 24,
+    minute: value("minute"),
+  };
+}
+
+function matchesRequestedLocalTime(instant, year, month, day, hour, minute) {
+  if (!Number.isFinite(instant.getTime())) return false;
+  const actual = stockholmLocalParts(instant);
+  return (
+    actual.year === year &&
+    actual.month === month &&
+    actual.day === day &&
+    actual.hour === hour &&
+    actual.minute === minute
+  );
+}
+
 function label(iso) {
   const d = new Date(iso);
   const date = new Intl.DateTimeFormat("sv-SE", {
@@ -130,7 +198,7 @@ function append(event) {
   const parent = dirname(FILE);
   const parentExisted = existsSync(parent);
   mkdirSync(parent, { recursive: true, mode: 0o700 });
-  if (!parentExisted || !process.env.BOOKING_LOG_FILE) chmodSync(parent, 0o700);
+  if (!parentExisted || !configuredBookingLog) chmodSync(parent, 0o700);
   if (existsSync(FILE)) chmodSync(FILE, 0o600);
   appendFileSync(FILE, JSON.stringify(event) + "\n", { encoding: "utf8", mode: 0o600 });
   chmodSync(FILE, 0o600);
@@ -179,6 +247,7 @@ if (args[0] === "--avblockera") {
   const result = locked(() => {
     const rec = allBookings().find((b) => b.id === id);
     if (!rec) return { status: "missing" };
+    if (!isManualBlock(rec)) return { status: "protected", rec };
     if (rec.status === "cancelled") return { status: "already", rec };
     append({ type: "cancelled", id, at: new Date().toISOString() });
     return { status: "cancelled", rec };
@@ -186,6 +255,13 @@ if (args[0] === "--avblockera") {
   const rec = result.rec;
   if (result.status === "missing") {
     console.error(`Hittar ingen bokning med id ${id}. Kör --lista för att se dem.`);
+    process.exit(1);
+  }
+  if (result.status === "protected") {
+    writeSync(
+      2,
+      "Vägrar avblockera: id:t är inte bevisligen skapat av blockera-tid.mjs. Ingen patientbokning ändrades.\n",
+    );
     process.exit(1);
   }
   if (result.status === "already") {
@@ -211,7 +287,37 @@ if (!m) {
   process.exit(1);
 }
 
-const instant = stockholmToUtc(+m[1], +m[2], +m[3], +m[4], +m[5]);
+const requested = {
+  year: +m[1],
+  month: +m[2],
+  day: +m[3],
+  hour: +m[4],
+  minute: +m[5],
+};
+const instant = stockholmToUtc(
+  requested.year,
+  requested.month,
+  requested.day,
+  requested.hour,
+  requested.minute,
+);
+if (
+  !matchesRequestedLocalTime(
+    instant,
+    requested.year,
+    requested.month,
+    requested.day,
+    requested.hour,
+    requested.minute,
+  )
+) {
+  writeSync(2, `${when} är inte en giltig svensk lokal tid. Inget gjordes.\n`);
+  process.exit(1);
+}
+if (instant.getTime() <= Date.now()) {
+  writeSync(2, `${when} har redan passerat och kan inte blockeras. Inget gjordes.\n`);
+  process.exit(1);
+}
 const problem = isRealSlot(instant);
 if (problem) {
   console.error(`${when} går inte att blockera: ${problem}.`);
@@ -233,7 +339,8 @@ const result = locked(() => {
     name: note,
     email: "",
     phone: "",
-    message: "Blockerad med blockera-tid.mjs – bokad utanför sajten.",
+    message: LEGACY_MANUAL_BLOCK_MESSAGE,
+    createdBy: MANUAL_BLOCK_MARKER,
     status: "pending",
     createdAt: now,
   });

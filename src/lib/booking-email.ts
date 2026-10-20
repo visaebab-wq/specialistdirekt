@@ -32,7 +32,8 @@ function escapeHtml(s: string): string {
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
 }
 
 function recipient(): string {
@@ -40,11 +41,40 @@ function recipient(): string {
 }
 
 function linkBase(): string {
-  return process.env.BOOKING_BASE_URL || site.url;
+  const configured = (process.env.BOOKING_BASE_URL || site.url).trim();
+  const canonical = new URL(site.url);
+  let parsed: URL;
+
+  try {
+    parsed = new URL(configured);
+  } catch {
+    throw new Error("invalid-booking-base-url");
+  }
+
+  if (
+    configured.replace(/\/$/, "").toLowerCase() !== canonical.origin.toLowerCase() ||
+    parsed.protocol !== "https:" ||
+    parsed.origin !== canonical.origin ||
+    parsed.username ||
+    parsed.password ||
+    parsed.port ||
+    (parsed.href !== parsed.origin && parsed.href !== `${parsed.origin}/`)
+  ) {
+    throw new Error("invalid-booking-base-url");
+  }
+
+  return canonical.origin;
+}
+
+function signedBookingUrl(pathname: string, rec: BookingRecord): string {
+  const url = new URL(pathname, `${linkBase()}/`);
+  url.searchParams.set("id", rec.id);
+  url.searchParams.set("sig", signBookingId(rec.id));
+  return url.toString();
 }
 
 export function confirmUrl(rec: BookingRecord): string {
-  return `${linkBase()}/boka-tid/bekrafta?id=${rec.id}&sig=${signBookingId(rec.id)}`;
+  return signedBookingUrl("/boka-tid/bekrafta", rec);
 }
 
 /**
@@ -54,7 +84,7 @@ export function confirmUrl(rec: BookingRecord): string {
  * skulle radera tiden direkt.
  */
 export function cancelUrl(rec: BookingRecord): string {
-  return `${linkBase()}/boka-tid/avboka?id=${rec.id}&sig=${signBookingId(rec.id)}`;
+  return signedBookingUrl("/boka-tid/avboka", rec);
 }
 
 function googleCalendarUrl(rec: BookingRecord): string {
@@ -129,7 +159,10 @@ export async function sendPatientConfirmation(rec: BookingRecord) {
   const childLine = rec.bookingType === "child" && rec.childName
     ? `Barn: ${rec.childName}${rec.childBirthDate ? ` (${rec.childBirthDate})` : ""}`
     : "";
-  const cancelHref = cancel.replace(/&/g, "&amp;");
+  const confirmHref = escapeHtml(url);
+  const cancelHref = escapeHtml(cancel);
+  const calendarHref = escapeHtml(calendar);
+  const mapHref = escapeHtml(map);
   const text = [
     `Hej ${rec.name},`,
     "",
@@ -193,14 +226,14 @@ export async function sendPatientConfirmation(rec: BookingRecord) {
           <tr><td class="mobile-pad" style="padding:0 28px 12px;font-size:15px;line-height:23px;color:#334155">Bekräfta tiden och priset för att slutföra bokningen.</td></tr>
           <tr><td align="center" class="mobile-pad" style="padding:4px 28px 20px">
             <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td bgcolor="#0d9488" style="background-color:#0d9488;padding:13px 28px">
-              <a href="${url}" style="display:inline-block;color:#ffffff;font-size:16px;font-weight:bold;text-decoration:none">Bekräfta min tid</a>
+              <a href="${confirmHref}" style="display:inline-block;color:#ffffff;font-size:16px;font-weight:bold;text-decoration:none">Bekräfta min tid</a>
             </td></tr></table>
           </td></tr>
           <tr><td class="mobile-pad" style="padding:0 28px 20px">
             <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
-              <td width="49%" align="center" class="mobile-action" style="padding:11px 4px;border:1px solid #0d9488"><a href="${calendar}" style="display:block;color:#0f766e;font-size:13px;font-weight:bold;text-decoration:none">Add to calendar</a></td>
+              <td width="49%" align="center" class="mobile-action" style="padding:11px 4px;border:1px solid #0d9488"><a href="${calendarHref}" style="display:block;color:#0f766e;font-size:13px;font-weight:bold;text-decoration:none">Add to calendar</a></td>
               <td width="2%" class="mobile-gap">&nbsp;</td>
-              <td width="49%" align="center" class="mobile-action" style="padding:11px 4px;border:1px solid #0d9488"><a href="${map}" style="display:block;color:#0f766e;font-size:13px;font-weight:bold;text-decoration:none">Open in Maps</a></td>
+              <td width="49%" align="center" class="mobile-action" style="padding:11px 4px;border:1px solid #0d9488"><a href="${mapHref}" style="display:block;color:#0f766e;font-size:13px;font-weight:bold;text-decoration:none">Open in Maps</a></td>
             </tr></table>
           </td></tr>
           <tr><td class="mobile-pad" style="padding:0 28px 20px">
@@ -208,7 +241,7 @@ export async function sendPatientConfirmation(rec: BookingRecord) {
               <tr><td style="padding:14px 16px;font-size:14px;line-height:21px;color:#334155">
                 <span style="font-size:11px;font-weight:bold;letter-spacing:1px;color:#64748b">BESÖKSADRESS</span><br>
                 <strong style="color:#172033">${CLINIC}</strong><br>
-                <a href="${map}" style="color:#0f766e;text-decoration:underline">${CLINIC_ADDRESS}</a>
+                <a href="${mapHref}" style="color:#0f766e;text-decoration:underline">${CLINIC_ADDRESS}</a>
               </td></tr>
             </table>
           </td></tr>
@@ -218,7 +251,7 @@ export async function sendPatientConfirmation(rec: BookingRecord) {
             <a href="${cancelHref}" style="color:#64748b;text-decoration:underline">avboka kostnadsfritt</a>.
           </td></tr>
           <tr><td bgcolor="#f8fafc" class="mobile-pad" style="padding:14px 28px;background-color:#f8fafc;font-size:11px;line-height:18px;color:#94a3b8">
-            ${site.name} · <a href="${site.url}" style="color:#64748b">${site.url}</a><br>Inte en akuttjänst – ring 112 vid nödfall.
+            ${site.name} · <a href="${escapeHtml(site.url)}" style="color:#64748b">${site.url}</a><br>Inte en akuttjänst – ring 112 vid nödfall.
           </td></tr>
         </table>
       </td></tr>

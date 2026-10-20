@@ -18,9 +18,9 @@
 // bokning notifieras redan direkt när den kommer in; det här är arkivet, och ett
 // identiskt mejl var sjätte timme skulle bara göra att man slutar läsa dem.
 
-import { chmodSync, copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, unlinkSync, writeFileSync } from "node:fs";
+import { chmodSync, copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, unlinkSync, writeFileSync, writeSync } from "node:fs";
 import { createHash } from "node:crypto";
-import { join } from "node:path";
+import { dirname, join, resolve } from "node:path";
 import nodemailer from "nodemailer";
 
 const PROJECT = new URL("./", import.meta.url).pathname;
@@ -45,13 +45,52 @@ try {
   console.error("Kunde inte läsa .env.local – kör skriptet från projektmappen.");
   process.exit(1);
 }
-const TO = process.env.TO || env.BOOKING_TO_EMAIL || env.LEAD_TO_EMAIL;
+const TO =
+  process.env.TO ||
+  process.env.BOOKING_TO_EMAIL ||
+  process.env.LEAD_TO_EMAIL ||
+  env.BOOKING_TO_EMAIL ||
+  env.LEAD_TO_EMAIL;
+const SMTP_HOST = process.env.SMTP_HOST || env.SMTP_HOST;
+const SMTP_PORT = process.env.SMTP_PORT || env.SMTP_PORT || "587";
+const SMTP_USER = process.env.SMTP_USER || env.SMTP_USER;
+const SMTP_PASS = process.env.SMTP_PASS || env.SMTP_PASS;
+const configuredPath = (value, fallback) => resolve(PROJECT, value || fallback);
+const sources = [
+  {
+    name: "bookings",
+    path: configuredPath(
+      process.env.BOOKING_LOG_FILE || env.BOOKING_LOG_FILE,
+      ".data/bookings.jsonl",
+    ),
+  },
+  {
+    name: "leads",
+    path: configuredPath(process.env.LEAD_LOG_FILE || env.LEAD_LOG_FILE, ".data/leads.jsonl"),
+  },
+  {
+    name: "booking-clicks",
+    path: configuredPath(
+      process.env.BOOKING_CLICK_LOG_FILE || env.BOOKING_CLICK_LOG_FILE,
+      ".data/booking-clicks.jsonl",
+    ),
+  },
+];
+const sourcePath = (name) => sources.find((source) => source.name === name)?.path;
 
 // --- hjälpare --------------------------------------------------------------
+const isRecord = (value) =>
+  typeof value === "object" && value !== null && !Array.isArray(value);
+const textField = (value) => (typeof value === "string" ? value : "");
+const canonicalInstant = (value) => {
+  if (typeof value !== "string" || value === "") return false;
+  const parsed = new Date(value);
+  return Number.isFinite(parsed.getTime()) && parsed.toISOString() === value;
+};
+
 const readJsonl = (file) => {
-  const p = join(DATA, file);
-  if (!existsSync(p)) return [];
-  return readFileSync(p, "utf8")
+  if (!file || !existsSync(file)) return [];
+  return readFileSync(file, "utf8")
     .split("\n")
     .filter((l) => l.trim())
     .map((l) => {
@@ -61,7 +100,7 @@ const readJsonl = (file) => {
         return null;
       }
     })
-    .filter(Boolean);
+    .filter(isRecord);
 };
 
 const sv = (iso) =>
@@ -72,11 +111,46 @@ const sv = (iso) =>
 /** Bokningarnas nuvarande tillstånd, framräknat ur den append-only loggen. */
 function bookings() {
   const byId = new Map();
-  for (const ev of readJsonl("bookings.jsonl")) {
+  for (const ev of readJsonl(sourcePath("bookings"))) {
     if (ev.type === "created") {
-      const { type, ...rec } = ev;
-      byId.set(rec.id, { ...rec });
+      if (
+        typeof ev.id !== "string" ||
+        ev.id === "" ||
+        !canonicalInstant(ev.slot) ||
+        !canonicalInstant(ev.createdAt) ||
+        typeof ev.name !== "string" ||
+        typeof ev.email !== "string" ||
+        typeof ev.phone !== "string" ||
+        !["pending", "verified", "cancelled"].includes(ev.status)
+      ) {
+        continue;
+      }
+      byId.set(ev.id, {
+        id: ev.id,
+        slot: ev.slot,
+        name: ev.name,
+        email: ev.email,
+        phone: ev.phone,
+        message: textField(ev.message),
+        bookingType:
+          ev.bookingType === "adult" || ev.bookingType === "child"
+            ? ev.bookingType
+            : undefined,
+        childName: textField(ev.childName),
+        childBirthDate: textField(ev.childBirthDate),
+        status: ev.status,
+        createdAt: ev.createdAt,
+        verifiedAt: canonicalInstant(ev.verifiedAt) ? ev.verifiedAt : undefined,
+        cancelledAt: canonicalInstant(ev.cancelledAt) ? ev.cancelledAt : undefined,
+      });
     } else {
+      if (
+        (ev.type !== "verified" && ev.type !== "cancelled") ||
+        typeof ev.id !== "string" ||
+        !canonicalInstant(ev.at)
+      ) {
+        continue;
+      }
       const rec = byId.get(ev.id);
       if (!rec) continue;
       if (ev.type === "verified") {
@@ -107,23 +181,54 @@ function csv(headers, rows) {
   return "﻿" + [headers, ...rows].map((r) => r.map(cell).join(";")).join("\r\n");
 }
 
-// --- 1. Kopiera datafilerna ------------------------------------------------
+// --- 1. Bygg underlaget ----------------------------------------------------
 const stamp = new Date()
   .toISOString()
   .replace(/[-:]/g, "")
   .replace(/\..*/, "")
   .replace("T", "-");
+const bs = bookings();
+const active = bs.filter((b) => b.status !== "cancelled");
+const leads = readJsonl(sourcePath("leads"))
+  .map((lead) => ({
+    receivedAt: canonicalInstant(lead.receivedAt) ? lead.receivedAt : "",
+    name: textField(lead.name),
+    email: textField(lead.email),
+    phone: textField(lead.phone),
+    specialty: textField(lead.specialty),
+    city: textField(lead.city),
+    preferredDates: Array.isArray(lead.preferredDates)
+      ? lead.preferredDates.filter((value) => typeof value === "string")
+      : [],
+    timePreference: textField(lead.timePreference),
+    message: textField(lead.message),
+  }))
+  .filter((lead) => lead.name || lead.email);
+
+// DRY ska vara helt läsande: inga kataloger, kopior, chmod-anrop, gallringar
+// eller statusfiler får skapas bara för att kontrollera underlaget.
+if (DRY) {
+  writeSync(
+    1,
+    `DRY: ${bs.length} bokningar (${active.length} aktiva), ${leads.length} förfrågningar; ` +
+      "inga filer ändrades och inget mejl skickades.\n",
+  );
+  process.exit(0);
+}
+
+// --- 2. Kopiera de konfigurerade datafilerna ------------------------------
 mkdirSync(DEST, { recursive: true, mode: 0o700 });
 chmodSync(DEST, 0o700);
-if (existsSync(DATA)) chmodSync(DATA, 0o700);
+if (sources.some((source) => dirname(source.path) === DATA) && existsSync(DATA)) {
+  chmodSync(DATA, 0o700);
+}
 
 const copied = [];
-for (const file of ["bookings.jsonl", "leads.jsonl", "booking-clicks.jsonl"]) {
-  const src = join(DATA, file);
-  if (!existsSync(src)) continue;
-  chmodSync(src, 0o600);
-  const out = join(DEST, `${file.replace(".jsonl", "")}-${stamp}.jsonl`);
-  copyFileSync(src, out);
+for (const source of sources) {
+  if (!existsSync(source.path)) continue;
+  chmodSync(source.path, 0o600);
+  const out = join(DEST, `${source.name}-${stamp}.jsonl`);
+  copyFileSync(source.path, out);
   chmodSync(out, 0o600);
   copied.push(out);
 }
@@ -140,11 +245,6 @@ for (const prefix of ["bookings-", "leads-", "booking-clicks-"]) {
   for (const snapshot of files) chmodSync(join(DEST, snapshot), 0o600);
   for (const old of files.slice(KEEP)) unlinkSync(join(DEST, old));
 }
-
-// --- 2. Bygg underlaget ----------------------------------------------------
-const bs = bookings();
-const active = bs.filter((b) => b.status !== "cancelled");
-const leads = readJsonl("leads.jsonl");
 
 const bookingCsv = csv(
   [
@@ -249,23 +349,18 @@ const text = [
 console.log(`Kopierade ${copied.length} datafiler till ${DEST}`);
 console.log(`${bs.length} bokningar (${active.length} aktiva), ${leads.length} förfrågningar`);
 
-if (DRY) {
-  console.log("DRY: inget mejl skickades; personuppgifter och mottagare visas inte.");
-  process.exit(0);
-}
-
 if (!changed && !FORCE) {
   console.log("Inget nytt sedan förra utskicket – inget mejl skickat. (FORCE=1 mejlar ändå.)");
   process.exit(0);
 }
 
-if (!TO || !env.SMTP_HOST || !env.SMTP_USER || !env.SMTP_PASS) {
-  console.error("SMTP eller mottagare saknas i .env.local – kunde inte mejla. Filkopiorna finns kvar.");
+if (!TO || !SMTP_HOST || !SMTP_USER || !SMTP_PASS) {
+  console.error("SMTP eller mottagare saknas i miljön/.env.local – kunde inte mejla. Filkopiorna finns kvar.");
   process.exit(1);
 }
 
 const message = {
-  from: `"Specialistdirekt" <${env.SMTP_USER}>`,
+  from: `"Specialistdirekt" <${SMTP_USER}>`,
   to: TO,
   subject,
   text,
@@ -293,13 +388,13 @@ const errorSummary = (err) => {
 // och hälsouppgifter får ett osäkert andraförsök bara ske efter ett uttryckligt,
 // tillfälligt driftbeslut.
 async function send() {
-  const smtpPort = Number(env.SMTP_PORT || 587);
+  const smtpPort = Number(SMTP_PORT);
   const base = {
-    host: env.SMTP_HOST,
+    host: SMTP_HOST,
     port: smtpPort,
     secure: smtpPort === 465,
     requireTLS: smtpPort !== 465,
-    auth: { user: env.SMTP_USER, pass: env.SMTP_PASS },
+    auth: { user: SMTP_USER, pass: SMTP_PASS },
   };
   try {
     await nodemailer.createTransport(base).sendMail(message);
@@ -311,7 +406,7 @@ async function send() {
       (process.env.SMTP_STRICT_TLS || env.SMTP_STRICT_TLS) !== "1";
     if (!allowInsecureTls || !/certificate|self.signed|altname/i.test(msg)) throw err;
     console.warn(
-      `Certifikatet på ${env.SMTP_HOST} går inte att verifiera (${errorSummary(err)}). ` +
+      `Certifikatet på ${SMTP_HOST} går inte att verifiera (${errorSummary(err)}). ` +
         "SMTP_ALLOW_INSECURE_TLS=1 tillåter ett nödförsök utan äkthetskontroll.",
     );
     await nodemailer.createTransport({ ...base, tls: { rejectUnauthorized: false } }).sendMail(message);

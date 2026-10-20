@@ -129,20 +129,20 @@ function reapAbandonedLock(lockDir) {
 }
 
 /**
- * Exklusivt, processgemensamt lås för bokningsloggen.
+ * Tar ett exklusivt, processgemensamt fillås och returnerar en idempotent
+ * release-funktion. Kan hållas över await av anroparen när resursen inte är
+ * den interaktiva bokningsloggen (t.ex. ett separat reminder-run-lås).
  *
  * Låset är en katalog med en unik ägarmarkör som innehåller pid och processens
  * start-id. Ett lås efter SIGKILL kan därför återtas utan att ett långvarigt,
  * levande jobb raderas på grund av ålder. En väntare som når sin tidsgräns
  * returnerar busy och lämnar alltid den levande ägarens lås orört.
  *
- * @template T
  * @param {string} storeFile
- * @param {() => T} fn
  * @param {{ timeoutMs?: number }} [options]
- * @returns {T}
+ * @returns {() => void}
  */
-export function withBookingLock(storeFile, fn, { timeoutMs = 5000 } = {}) {
+export function acquireFileLock(storeFile, { timeoutMs = 5000 } = {}) {
   const lockDir = `${storeFile}.lock`;
   const parent = dirname(lockDir);
   const parentExisted = existsSync(/* turbopackIgnore: true */ parent);
@@ -179,9 +179,10 @@ export function withBookingLock(storeFile, fn, { timeoutMs = 5000 } = {}) {
     break;
   }
 
-  try {
-    return fn();
-  } finally {
+  let released = false;
+  return () => {
+    if (released) return;
+    released = true;
     try {
       unlinkSync(/* turbopackIgnore: true */ markerPath);
     } catch (error) {
@@ -199,5 +200,25 @@ export function withBookingLock(storeFile, fn, { timeoutMs = 5000 } = {}) {
         console.error("[booking] Kunde inte städa låskatalogen", { code });
       }
     }
+  };
+}
+
+/**
+ * Exklusivt, processgemensamt lås för bokningsloggen. Callbacken måste vara
+ * synkron; async-arbete som behöver ett separat körlås använder
+ * acquireFileLock() direkt och släpper det i finally.
+ *
+ * @template T
+ * @param {string} storeFile
+ * @param {() => T} fn
+ * @param {{ timeoutMs?: number }} [options]
+ * @returns {T}
+ */
+export function withBookingLock(storeFile, fn, options) {
+  const release = acquireFileLock(storeFile, options);
+  try {
+    return fn();
+  } finally {
+    release();
   }
 }
