@@ -1,6 +1,7 @@
 import type { City } from "@/lib/cities-types";
 import { BARN_SCOPE } from "@/lib/barn-scope";
 import { BOOKING_PRICE_SEK, BOOKING_SLOT_MINUTES, formatPrice } from "@/lib/booking-slots";
+import { recoSummary } from "@/lib/reco-reviews";
 
 export const city: City = {
   slug: "goteborg",
@@ -59,7 +60,10 @@ export const city: City = {
         { label: "Patienttyp", value: "Självbetalande" },
         { label: "Barn och ungdomar", value: `Tas emot – ${BARN_SCOPE.short}` },
         { label: "Remiss", value: "Behövs inte" },
-        { label: "Publikt omdöme", value: "4,9 av 5 · 63 omdömen på Reco (Dr. Masoud Sorkhabi)" },
+        {
+          label: "Publikt omdöme",
+          value: `${recoSummary.rating} av 5 · ${recoSummary.count} omdömen på ${recoSummary.source} (NOPAINCLINIC)`,
+        },
         { label: "Avbokning", value: "Kostnadsfritt fram till 3 timmar före besöket" },
         { label: "Roll", value: "Specialistdirekt är boknings- och informationstjänst" },
       ],
@@ -143,7 +147,7 @@ export const city: City = {
           heading: "Högst betygsatta ortopeder i Göteborg – så jämför du rätt",
           body: [
             "Den som söker efter de högst betygsatta ortopederna i Göteborg bör väga in mer än bara snittbetyget. Titta också på hur aktuella omdömena är, vilken kompetens och erfarenhet läkaren har, och om mottagningen arbetar med just de besvär du söker hjälp för.",
-            "Dr. Masoud Sorkhabi har fått mycket starka patientomdömen – **4,9 av 5** baserat på 63 publicerade omdömen på Reco. Betyget gäller läkaren som genomför besöket och inte Specialistdirekt. Omdömen kan vara en relevant förtroendesignal, men är ingen garanti för ett visst medicinskt resultat.",
+            `NOPAINCLINIC:s företagsprofil har **${recoSummary.rating} av 5** baserat på ${recoSummary.count} publicerade omdömen på ${recoSummary.source}. Flera omdömen nämner Dr. Masoud Sorkhabi, men snittbetyget gäller företagsprofilen – inte läkaren personligen eller Specialistdirekt. Omdömen kan vara en relevant förtroendesignal, men är ingen garanti för ett visst medicinskt resultat.`,
             "Dr. Masoud Sorkhabi uppfyller de punkter som brukar vara viktigast när man väljer ortoped i Göteborg:",
           ],
           bullets: [
@@ -302,12 +306,12 @@ export const city: City = {
         {
           question: "Hur hittar jag de högst betygsatta ortopederna i Göteborg?",
           answer:
-            "Väg in mer än snittbetyget: hur aktuella omdömena är, läkarens specialistkompetens och erfarenhet, om läkaren arbetar med just dina besvär, och att du får ett tydligt pris innan du bokar. Dr. Masoud Sorkhabi har 4,9 av 5 baserat på 63 omdömen på Reco – ett betyg som gäller läkaren, inte Specialistdirekt, och som inte är någon garanti för resultat.",
+            `Väg in mer än snittbetyget: hur aktuella omdömena är, läkarens specialistkompetens och erfarenhet, om läkaren arbetar med just dina besvär, och att du får ett tydligt pris innan du bokar. NOPAINCLINIC:s företagsprofil har ${recoSummary.rating} av 5 baserat på ${recoSummary.count} omdömen på ${recoSummary.source}. Flera omdömen nämner Dr. Masoud Sorkhabi, men betyget gäller företagsprofilen och är ingen garanti för resultat.`,
         },
         {
-          question: "Vem gäller det publika betyget 4,9 av 5?",
+          question: `Vem gäller det publika betyget ${recoSummary.rating} av 5?`,
           answer:
-            "Betyget 4,9 av 5 gäller Dr. Masoud Sorkhabi och bygger på 63 publika omdömen på Reco – inte på Specialistdirekt.",
+            `Betyget ${recoSummary.rating} av 5 bygger på ${recoSummary.count} publika omdömen på NOPAINCLINIC:s företagsprofil på ${recoSummary.source}. Flera omdömen nämner Dr. Masoud Sorkhabi, men snittbetyget gäller inte läkaren personligen och inte Specialistdirekt.`,
         },
         {
           question: "Är ett högt omdömesbetyg en garanti för behandlingsresultat?",

@@ -10,7 +10,7 @@ import { PageVisual } from "@/components/PageVisual";
 import { RecoReviews } from "@/components/RecoReviews";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
-import { recoProfileUrl } from "@/lib/reco-reviews";
+import { recoProfileUrl, recoSummary } from "@/lib/reco-reviews";
 import { articles } from "@/lib/articles";
 import { medicalReviewerFor } from "@/lib/medical-reviewer";
 
@@ -58,7 +58,10 @@ const facts: { label: string; value: string }[] = [
   { label: "Ort", value: "Göteborg" },
   { label: "Pris", value: "2 000 kr – betalas på plats vid besöket" },
   { label: "Remiss", value: "Behövs inte för självbetalande" },
-  { label: "Publikt omdöme", value: "4,9 av 5 · 63 omdömen på Reco" },
+  {
+    label: "Publikt omdöme",
+    value: `${recoSummary.rating} av 5 · ${recoSummary.count} omdömen på ${recoSummary.source}`,
+  },
 ];
 
 const faqs = [
@@ -199,8 +202,8 @@ export default function MasoudSorkhabiPage() {
 
               <h2 className="article-section-title mt-10 text-2xl font-bold">Omdömen</h2>
               <p className="mt-3">
-                Dr. Masoud Sorkhabi har fått mycket starka patientomdömen –{" "}
-                <strong>4,9 av 5</strong> baserat på 63 publicerade omdömen på{" "}
+                NOPAINCLINIC:s företagsprofil har <strong>{recoSummary.rating} av 5</strong>{" "}
+                baserat på {recoSummary.count} publicerade omdömen på{" "}
                 <a
                   href={recoProfileUrl}
                   target="_blank"
@@ -209,8 +212,9 @@ export default function MasoudSorkhabiPage() {
                 >
                   Reco
                 </a>
-                . Betyget gäller läkaren och inte Specialistdirekt, och är ingen garanti för ett
-                visst medicinskt resultat.
+                . Flera omdömen nämner Dr. Masoud Sorkhabi, men snittbetyget gäller
+                företagsprofilen – inte läkaren personligen eller Specialistdirekt – och är ingen
+                garanti för ett visst medicinskt resultat.
               </p>
 
               <h2 className="article-section-title mt-10 text-2xl font-bold">

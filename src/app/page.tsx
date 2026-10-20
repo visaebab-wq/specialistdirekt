@@ -332,7 +332,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Patientomdömen från Reco (riktiga omdömen om läkaren) */}
+      {/* Omdömen från NOPAINCLINIC:s Reco-profil; attributionen visas i komponenten. */}
       <RecoReviews />
 
       {/* Värde / varför oss (ersätter foton med tematiska kort) */}
@@ -388,7 +388,7 @@ export default function HomePage() {
                     />
                   </span>
                   <span className="flex flex-1 flex-col p-6">
-                    <span className="text-xs font-semibold uppercase tracking-wide text-brand-600">
+                    <span className="text-xs font-semibold uppercase tracking-wide text-brand-700">
                       {a.category}
                     </span>
                     <h3 className="mt-2 font-semibold text-ink-900 group-hover:text-brand-700">
