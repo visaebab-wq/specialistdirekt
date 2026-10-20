@@ -216,7 +216,9 @@ export function getCitySpecialtyVisual(
 
 export function getArticleVisuals(article: Article): MedicalVisual[] {
   const primary = getArticleVisual(article);
-  const count = article.wordCount >= 1600 ? 3 : 1;
+  // Varje artikel får hjälte + minst en inline-bild; långa artiklar (>= 1600 ord)
+  // får två. Alla artiklar är >= 1000 ord, så en ensam hjältebild räcker inte.
+  const count = article.wordCount >= 1600 ? 3 : 2;
 
   // Inline-bilderna gick tidigare förbi fileExists-kontrollen ovan och pekade
   // därför på /page-visuals/article-<slug>-inline-N.webp även för artiklar där
