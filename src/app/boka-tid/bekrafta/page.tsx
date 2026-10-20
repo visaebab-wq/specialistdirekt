@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { BOOKING_PRICE_SEK, formatSlot } from "@/lib/booking-slots";
 import { findBooking, pendingBookingValidity, verifySignature } from "@/lib/booking-store";
+import { singleSearchParam, type SearchParamValue } from "@/lib/search-params";
 
 export const metadata: Metadata = {
   title: "Bekräfta din tid – Specialistdirekt",
@@ -36,9 +37,11 @@ function Shell({ title, children }: { title: string; children: React.ReactNode }
 export default async function BekraftaPage({
   searchParams,
 }: {
-  searchParams: Promise<{ id?: string; sig?: string }>;
+  searchParams: Promise<{ id?: SearchParamValue; sig?: SearchParamValue }>;
 }) {
-  const { id = "", sig = "" } = await searchParams;
+  const params = await searchParams;
+  const id = singleSearchParam(params.id);
+  const sig = singleSearchParam(params.sig);
 
   // Signaturen måste stämma. Utan den skulle vem som helst kunna bekräfta
   // andras bokningar genom att gissa id.

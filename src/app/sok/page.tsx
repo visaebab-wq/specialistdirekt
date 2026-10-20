@@ -3,6 +3,7 @@ import Link from "next/link";
 import { articles } from "@/lib/articles";
 import { specialties } from "@/lib/specialties";
 import { cities, CITY_SPECIALTY_SLUGS } from "@/lib/cities";
+import { singleSearchParam, type SearchParamValue } from "@/lib/search-params";
 
 export const metadata: Metadata = {
   title: "Sök",
@@ -51,9 +52,9 @@ function buildIndex(): Hit[] {
 export default async function SearchPage({
   searchParams,
 }: {
-  searchParams: Promise<{ q?: string }>;
+  searchParams: Promise<{ q?: SearchParamValue }>;
 }) {
-  const { q = "" } = await searchParams;
+  const q = singleSearchParam((await searchParams).q);
   const query = q.trim().toLowerCase();
   const results = query
     ? buildIndex()

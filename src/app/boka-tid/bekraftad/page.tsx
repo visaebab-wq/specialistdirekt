@@ -3,6 +3,7 @@ import { cookies } from "next/headers";
 import Link from "next/link";
 
 import { BookingConfirmedEvent } from "@/components/BookingConfirmedEvent";
+import { singleSearchParam, type SearchParamValue } from "@/lib/search-params";
 
 export const metadata: Metadata = {
   title: "Tiden är bekräftad – Specialistdirekt",
@@ -16,9 +17,9 @@ export const dynamic = "force-dynamic";
 export default async function BookingConfirmedPage({
   searchParams,
 }: {
-  searchParams: Promise<{ event?: string }>;
+  searchParams: Promise<{ event?: SearchParamValue }>;
 }) {
-  const { event = "" } = await searchParams;
+  const event = singleSearchParam((await searchParams).event);
   const marker = (await cookies()).get("sd-booking-confirmed")?.value;
   const [status = "", markerEvent = ""] = marker?.split(":", 2) ?? [];
   const validTransition =
