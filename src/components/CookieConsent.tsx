@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import {
   CONSENT_REOPEN_EVENT,
   CONSENT_RETURN_FOCUS_KEY,
+  CONSENT_SYNC_EVENT,
   persistAnalyticsConsent,
   readAnalyticsConsent,
   readAnalyticsConsentCookie,
@@ -64,8 +65,18 @@ export function CookieConsent() {
       if (target instanceof HTMLElement) returnFocusRef.current = target;
       setShow(true);
     };
+    const syncExternalChoice = () => {
+      // Analytics har redan läst tillbaka både localStorage och servercookien
+      // innan SYNC skickas. Stäng en gammal banner efter ett val i en annan
+      // flik; visa den igen när valet i stället har återkallats helt.
+      setShow(readAnalyticsConsent() === null);
+    };
     window.addEventListener(CONSENT_REOPEN_EVENT, reopen);
-    return () => window.removeEventListener(CONSENT_REOPEN_EVENT, reopen);
+    window.addEventListener(CONSENT_SYNC_EVENT, syncExternalChoice);
+    return () => {
+      window.removeEventListener(CONSENT_REOPEN_EVENT, reopen);
+      window.removeEventListener(CONSENT_SYNC_EVENT, syncExternalChoice);
+    };
   }, []);
 
   useEffect(() => {

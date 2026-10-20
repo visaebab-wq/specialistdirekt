@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { site } from "@/lib/site";
@@ -11,7 +12,12 @@ const links = [
 ] as const;
 
 export function HeaderEn() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
     if (!open) return;
@@ -27,6 +33,7 @@ export function HeaderEn() {
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
         <Link
           href="/en"
+          onClick={() => setOpen(false)}
           className="flex items-center gap-2 text-lg font-bold text-ink-900"
           aria-label={`${site.name} – English home page`}
         >

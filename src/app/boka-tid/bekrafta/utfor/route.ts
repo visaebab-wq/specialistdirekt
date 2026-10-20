@@ -28,7 +28,11 @@ export async function POST(request: NextRequest) {
       detailsUrl.searchParams.set("fel", "tekniskt");
       return NextResponse.redirect(detailsUrl, 303);
     }
-    if (result.reason === "expired" || result.reason === "invalid-slot") {
+    if (
+      result.reason === "cancelled" ||
+      result.reason === "expired" ||
+      result.reason === "invalid-slot"
+    ) {
       const detailsUrl = destination(request, "/boka-tid/bekrafta");
       detailsUrl.searchParams.set("id", id);
       detailsUrl.searchParams.set("sig", sig);

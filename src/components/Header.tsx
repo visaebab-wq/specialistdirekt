@@ -1,20 +1,35 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { mainNav, site } from "@/lib/site";
 import { specialties } from "@/lib/specialties";
 
 export function Header() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [specialtiesOpen, setSpecialtiesOpen] = useState(false);
 
   const navWithoutSpecialties = mainNav.filter((item) => item.href !== "/specialiteter");
 
+  const closeMobileMenu = () => {
+    setOpen(false);
+    setSpecialtiesOpen(false);
+  };
+
+  useEffect(() => {
+    setOpen(false);
+    setSpecialtiesOpen(false);
+  }, [pathname]);
+
   useEffect(() => {
     if (!open) return;
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setOpen(false);
+      if (event.key === "Escape") {
+        setOpen(false);
+        setSpecialtiesOpen(false);
+      }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
@@ -25,6 +40,7 @@ export function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
         <Link
           href="/"
+          onClick={closeMobileMenu}
           className="flex items-center gap-2 text-lg font-bold text-ink-900"
           aria-label={`${site.name} – startsida`}
         >
@@ -105,7 +121,7 @@ export function Header() {
         {/* Mobil meny-knapp */}
         <button
           type="button"
-          onClick={() => setOpen((v) => !v)}
+          onClick={() => (open ? closeMobileMenu() : setOpen(true))}
           className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-ink-200 text-ink-700 lg:hidden"
           aria-expanded={open}
           aria-controls="mobil-meny"
@@ -129,7 +145,7 @@ export function Header() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  onClick={() => setOpen(false)}
+                  onClick={closeMobileMenu}
                   className="block rounded-lg px-2 py-3 text-base font-medium text-ink-700 hover:bg-brand-50"
                 >
                   {item.label}
@@ -152,7 +168,7 @@ export function Header() {
                     <Link
                       key={specialty.slug}
                       href={`/specialiteter/${specialty.slug}`}
-                      onClick={() => setOpen(false)}
+                      onClick={closeMobileMenu}
                       className="rounded-lg px-2 py-2 text-sm font-medium text-ink-700 hover:bg-brand-50 hover:text-brand-700"
                     >
                       {specialty.title}
@@ -160,7 +176,7 @@ export function Header() {
                   ))}
                   <Link
                     href="/specialiteter"
-                    onClick={() => setOpen(false)}
+                    onClick={closeMobileMenu}
                     className="col-span-2 mt-1 rounded-lg bg-brand-50 px-2 py-2 text-sm font-semibold text-brand-700"
                   >
                     Se alla specialister →
@@ -172,7 +188,7 @@ export function Header() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  onClick={() => setOpen(false)}
+                  onClick={closeMobileMenu}
                   className="block rounded-lg px-2 py-3 text-base font-medium text-ink-700 hover:bg-brand-50"
                 >
                   {item.label}
@@ -182,14 +198,14 @@ export function Header() {
             <li className="py-2">
               <Link
                 href="/boka-tid"
-                onClick={() => setOpen(false)}
+                onClick={closeMobileMenu}
                 className="block rounded-full bg-brand-600 px-4 py-3 text-center text-base font-semibold text-white"
               >
                 Boka ortoped
               </Link>
               <Link
                 href="/kontakt"
-                onClick={() => setOpen(false)}
+                onClick={closeMobileMenu}
                 className="mt-2 block px-4 py-2 text-center text-sm font-semibold text-brand-700"
               >
                 Hitta annan specialist
