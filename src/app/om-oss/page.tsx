@@ -26,8 +26,8 @@ const visual = {
 const values = [
   {
     icon: "O",
-    title: "Oberoende",
-    text: "Vi kontaktar flera anslutna mottagningar och föreslår den tidigaste tid vi hittar hos en som passar dina besvär.",
+    title: "Tydliga vägar",
+    text: "För direktbokningsbara tjänster väljer du en tid i kalendern. För övriga tjänster skickar du en förfrågan och får besked om nästa steg.",
   },
   {
     icon: "T",
@@ -131,10 +131,26 @@ export default function AboutPage() {
                 </a>
               </dd>
             </div>
+            <div>
+              <dt className="text-sm font-semibold text-ink-900">Telefon</dt>
+              <dd className="mt-0.5">
+                <a href={`tel:${site.phone}`} className="text-brand-700 hover:underline">
+                  {site.phoneDisplay}
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt className="text-sm font-semibold text-ink-900">
+                Registrerad postadress (inte mottagning)
+              </dt>
+              <dd className="mt-0.5 text-ink-700">
+                {site.address.street}, {site.address.postalCode} {site.address.city}
+              </dd>
+            </div>
           </dl>
           <p className="mt-5 text-ink-600">
-            Kontakt sker tills vidare via e-post eller formuläret på webbplatsen. Vi publicerar för
-            närvarande inget telefonnummer eller någon besöksadress.
+            Adressen ovan är bolagets postadress och inte en vårdmottagning. Besöksadress för en
+            bokad vårdtjänst framgår i informationen för den tjänsten.
           </p>
           <Link
             href="/kontakt"
