@@ -131,9 +131,14 @@ export default function EnglishOrthopedistGothenburgPage() {
             <Link
               href={SV_PATH}
               hrefLang="sv"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-brand-700 hover:underline"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-brand-300 hover:text-white hover:underline"
             >
-              <span aria-hidden>🌐</span>
+              <span
+                aria-hidden
+                className="rounded border border-brand-300/50 px-1.5 py-0.5 text-[0.65rem] font-bold tracking-wide"
+              >
+                SV
+              </span>
               På svenska: Privat ortoped i Göteborg
             </Link>
           </p>

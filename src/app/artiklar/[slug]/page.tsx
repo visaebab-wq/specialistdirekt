@@ -103,7 +103,7 @@ export default async function ArticlePage({
           <p className="internal-hero-kicker mt-6">{article.category}</p>
           <h1 className="internal-hero-title">{article.title}</h1>
           <p className="internal-hero-text">{article.excerpt}</p>
-          <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-ink-500">
+          <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-sky-100/80">
             <span>
               Uppdaterad <time dateTime={article.updated}>{formatDate(article.updated)}</time>
             </span>
@@ -113,9 +113,12 @@ export default async function ArticlePage({
             <span>Av {site.name}s redaktion</span>
           </div>
           {reviewer && (
-            <p className="mt-3 text-sm text-ink-600">
+            <p className="mt-3 text-sm text-sky-100/85">
               Medicinskt granskad av{" "}
-              <Link href={reviewer.url} className="font-semibold text-brand-700 hover:underline">
+              <Link
+                href={reviewer.url}
+                className="font-semibold text-brand-300 hover:text-white hover:underline"
+              >
                 {reviewer.name}
               </Link>
               , {reviewer.title.toLowerCase()}.
