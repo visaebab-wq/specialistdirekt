@@ -210,16 +210,16 @@ export async function submitLead(
   if (message.length > MAX.message)
     errors.message = `Beskrivningen får vara högst ${MAX.message} tecken.`;
   if (!isValidPreferredDate(preferredDate1)) {
-    errors.preferredDate1 = "Ange ett giltigt datum från och med idag.";
+    errors.preferredDate1 = "Ange ett giltigt datum inom de kommande 12 månaderna.";
   }
   if (!isValidPreferredDate(preferredDate2)) {
-    errors.preferredDate2 = "Ange ett giltigt datum från och med idag.";
+    errors.preferredDate2 = "Ange ett giltigt datum inom de kommande 12 månaderna.";
   } else if (preferredDate2 === preferredDate1) {
     errors.preferredDate2 = "Välj ett annat datum än det första.";
   }
   if (preferredDate3) {
     if (!isValidPreferredDate(preferredDate3)) {
-      errors.preferredDate3 = "Ange ett giltigt datum från och med idag.";
+      errors.preferredDate3 = "Ange ett giltigt datum inom de kommande 12 månaderna.";
     } else if (preferredDate3 === preferredDate1 || preferredDate3 === preferredDate2) {
       errors.preferredDate3 = "Välj ett datum som skiljer sig från de andra.";
     }
@@ -422,6 +422,17 @@ export async function submitBooking(
     ...(bookingType === "child" ? { childName, childBirthDate } : {}),
   });
   if (!claim.ok) {
+    if (claim.reason === "invalid-slot") {
+      return {
+        status: "error",
+        message: "Tiden är inte längre bokningsbar. Välj en annan tid.",
+        errors: { slot: "Tiden är inte längre giltig." },
+        attempt,
+        confirmationEmailSent: false,
+        bookingPersisted: false,
+        values,
+      };
+    }
     if (claim.reason === "unavailable") {
       return {
         status: "error",

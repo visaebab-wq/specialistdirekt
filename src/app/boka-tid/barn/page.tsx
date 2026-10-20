@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BARN_SCOPE } from "@/lib/barn-scope";
 import {
@@ -9,14 +8,15 @@ import {
   slotTimeLabel,
 } from "@/lib/booking-slots";
 import { takenSlots } from "@/lib/booking-store";
-import { BookingForm, BookingSteps, type DayGroup } from "../BookingForm";
+import { BookingFlow, BookingForm, BookingSteps, type DayGroup } from "../BookingForm";
+import { createPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Boka ortoped för barn i Göteborg – Specialistdirekt",
   description:
     "Boka ortopedisk bedömning för barn och ungdomar 0–17 år hos Dr Masoud Sorkhabi i Göteborg. 40 minuter, 2 000 kr, utan remiss.",
-  alternates: { canonical: "/boka-tid/barn" },
-};
+  path: "/boka-tid/barn",
+});
 
 export const dynamic = "force-dynamic";
 
@@ -70,7 +70,7 @@ export default function BokaTidBarnPage() {
 
       <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:py-16">
         <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
-          <div className="form-panel overflow-hidden">
+          <BookingFlow className="form-panel overflow-hidden">
             <BookingSteps patientType="child" />
             <div className="border-b border-brand-100 bg-brand-50/60 px-6 py-5 sm:px-8">
               <p className="text-xs font-bold tracking-wider text-brand-700 uppercase">Lediga tider</p>
@@ -80,7 +80,7 @@ export default function BokaTidBarnPage() {
             <div className="p-6 sm:p-8">
               <BookingForm days={days} price={BOOKING_PRICE_SEK} patientType="child" />
             </div>
-          </div>
+          </BookingFlow>
 
           <aside className="grid gap-6 lg:sticky lg:top-24">
             <section className="readable-card p-6">

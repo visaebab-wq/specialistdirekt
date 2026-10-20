@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BookingForm, BookingSteps, type DayGroup } from "@/app/boka-tid/BookingForm";
+import {
+  BookingFlow,
+  BookingForm,
+  BookingSteps,
+  type DayGroup,
+} from "@/app/boka-tid/BookingForm";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { FaqList } from "@/components/FaqList";
 import { JsonLd } from "@/components/JsonLd";
@@ -186,7 +191,7 @@ export default function KnaLaserSigPage() {
               {BOOKING_FREE_CANCEL_HOURS} timmar före besöket.
             </p>
             <RecoTrust />
-            <div className="readable-card mt-6 overflow-hidden p-0">
+            <BookingFlow className="readable-card mt-6 overflow-hidden p-0">
               <BookingSteps />
               <div className="p-6 sm:p-8">
               {/* Säkerhetsraden står HÄR, inne i bokningskortet, och inte bara i
@@ -199,7 +204,7 @@ export default function KnaLaserSigPage() {
               </p>
               <BookingForm days={days} price={BOOKING_PRICE_SEK} />
               </div>
-            </div>
+            </BookingFlow>
           </section>
 
           <article className="article-body readable-card mt-10 p-6 sm:p-8">

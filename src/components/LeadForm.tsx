@@ -6,7 +6,10 @@ import { submitLead } from "@/app/actions";
 import { initialLeadState } from "@/lib/lead";
 import { specialties } from "@/lib/specialties";
 import { TrackEvent } from "@/components/TrackEvent";
-import { todayInStockholm } from "@/lib/lead-dates";
+import {
+  maxPreferredDateInStockholm,
+  todayInStockholm,
+} from "@/lib/lead-dates";
 
 /**
  * Värdet i specialitetsväljaren som betyder "det här är en MR-förfrågan".
@@ -44,7 +47,7 @@ function FieldError({ id, message }: { id: string; message?: string }) {
 export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
   const [state, formAction] = useActionState(submitLead, initialLeadState);
   const formRef = useRef<HTMLFormElement>(null);
-  const today = todayInStockholm();
+  const [dateBounds, setDateBounds] = useState<{ min: string; max: string } | null>(null);
 
   // Speglar VALD specialitet enbart för mätning. Fältet förblir okontrollerat
   // (defaultValue, inte value), så det som skickas till servern är oförändrat
@@ -57,6 +60,24 @@ export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
       ?.querySelector<HTMLElement>('[data-error-focus="true"], [aria-invalid="true"]')
       ?.focus();
   }, [state]);
+
+  useEffect(() => {
+    const refreshDateBounds = () => {
+      const now = new Date();
+      setDateBounds({
+        min: todayInStockholm(now),
+        max: maxPreferredDateInStockholm(now),
+      });
+    };
+
+    refreshDateBounds();
+    window.addEventListener("focus", refreshDateBounds);
+    const timer = window.setInterval(refreshDateBounds, 60_000);
+    return () => {
+      window.removeEventListener("focus", refreshDateBounds);
+      window.clearInterval(timer);
+    };
+  }, []);
 
   if (state.status === "success") {
     return (
@@ -255,7 +276,8 @@ export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
           Möjliga datum <span className="text-red-500">*</span>
         </legend>
         <p className="mt-1 text-sm text-ink-600">
-          Ange minst två dagar som kan passa, så blir det lättare för mottagningen att hitta en tid.
+          Ange minst två dagar inom de kommande 12 månaderna, så blir det lättare för mottagningen
+          att hitta en tid.
         </p>
         <div className="mt-3 grid gap-4 sm:grid-cols-3">
           <div>
@@ -266,7 +288,8 @@ export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
               id="preferredDate1"
               name="preferredDate1"
               type="date"
-              min={today}
+              min={dateBounds?.min}
+              max={dateBounds?.max}
               required
               defaultValue={state.values?.preferredDate1 ?? ""}
               aria-invalid={Boolean(state.errors.preferredDate1)}
@@ -283,7 +306,8 @@ export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
               id="preferredDate2"
               name="preferredDate2"
               type="date"
-              min={today}
+              min={dateBounds?.min}
+              max={dateBounds?.max}
               required
               defaultValue={state.values?.preferredDate2 ?? ""}
               aria-invalid={Boolean(state.errors.preferredDate2)}
@@ -300,7 +324,8 @@ export function LeadForm({ defaultSpecialty }: { defaultSpecialty?: string }) {
               id="preferredDate3"
               name="preferredDate3"
               type="date"
-              min={today}
+              min={dateBounds?.min}
+              max={dateBounds?.max}
               defaultValue={state.values?.preferredDate3 ?? ""}
               aria-invalid={Boolean(state.errors.preferredDate3)}
               aria-describedby={state.errors.preferredDate3 ? "preferred-date-3-error" : undefined}

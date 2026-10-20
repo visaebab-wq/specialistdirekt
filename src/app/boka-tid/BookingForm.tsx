@@ -1,6 +1,14 @@
 "use client";
 
-import { useActionState, useEffect, useRef, useState } from "react";
+import {
+  createContext,
+  type ReactNode,
+  useActionState,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { useRouter } from "next/navigation";
 import { submitBooking, type BookingState } from "@/app/actions";
 import { TrackEvent } from "@/components/TrackEvent";
@@ -14,6 +22,35 @@ const initial: BookingState = {
   confirmationEmailSent: false,
   bookingPersisted: false,
 };
+
+function useBookingActionState() {
+  return useActionState(submitBooking, initial);
+}
+
+type BookingFlowValue = {
+  actionState: ReturnType<typeof useBookingActionState>;
+  slot: string;
+  setSlot: (slot: string) => void;
+};
+
+const BookingFlowContext = createContext<BookingFlowValue | null>(null);
+
+function useBookingFlow() {
+  const value = useContext(BookingFlowContext);
+  if (!value) throw new Error("BookingForm and BookingSteps must be inside BookingFlow");
+  return value;
+}
+
+export function BookingFlow({ children, className }: { children: ReactNode; className: string }) {
+  const actionState = useBookingActionState();
+  const [slot, setSlot] = useState("");
+
+  return (
+    <BookingFlowContext.Provider value={{ actionState, slot, setSlot }}>
+      <div className={className}>{children}</div>
+    </BookingFlowContext.Provider>
+  );
+}
 
 export type DayGroup = { key: string; label: string; slots: { iso: string; time: string }[] };
 
@@ -38,21 +75,53 @@ export function splitFirstWeek(days: DayGroup[]): { firstWeek: DayGroup[]; later
 }
 
 export function BookingSteps({ patientType = "adult" }: { patientType?: "adult" | "child" }) {
+  const { actionState: [state], slot } = useBookingFlow();
   const steps = [
     ["1", "Välj tid"],
     ["2", patientType === "child" ? "Barnets uppgifter" : "Dina uppgifter"],
-    ["3", "Bekräfta via mejl"],
+    ["3", "Bekräfta bokningen"],
   ];
+  const currentStep = state.status === "success" ? 2 : slot ? 1 : 0;
 
   return (
-    <div className="grid grid-cols-3 border-b border-brand-100 bg-white text-center text-xs sm:text-sm" aria-label="Bokningens steg">
-      {steps.map(([number, label], index) => (
-        <div key={number} className={`px-2 py-4 ${index === 0 ? "bg-brand-50 font-bold text-brand-800" : "text-ink-500"}`}>
-          <span className={`mx-auto mb-1 flex h-7 w-7 items-center justify-center rounded-full ${index === 0 ? "bg-brand-700 text-white" : "bg-ink-100 text-ink-500"}`}>{number}</span>
-          {label}
-        </div>
-      ))}
-    </div>
+    <ol
+      className="grid grid-cols-3 border-b border-brand-100 bg-white text-center text-xs sm:text-sm"
+      aria-label="Bokningens steg"
+    >
+      {steps.map(([number, label], index) => {
+        const current = index === currentStep;
+        const completed = index < currentStep;
+
+        return (
+          <li
+            key={number}
+            aria-current={current ? "step" : undefined}
+            className={`px-2 py-4 ${
+              current
+                ? "bg-brand-50 font-bold text-brand-800"
+                : completed
+                  ? "font-semibold text-brand-800"
+                  : "text-ink-500"
+            }`}
+          >
+            <span
+              aria-hidden="true"
+              className={`mx-auto mb-1 flex h-7 w-7 items-center justify-center rounded-full ${
+                current
+                  ? "bg-brand-700 text-white"
+                  : completed
+                    ? "bg-brand-100 text-brand-800"
+                    : "bg-ink-100 text-ink-500"
+              }`}
+            >
+              {number}
+            </span>
+            {label}
+            {completed && <span className="sr-only"> (klart)</span>}
+          </li>
+        );
+      })}
+    </ol>
   );
 }
 
@@ -66,11 +135,11 @@ export function BookingForm({
   patientType?: "adult" | "child";
 }) {
   const router = useRouter();
-  const [state, action, pending] = useActionState(submitBooking, initial);
+  const { actionState: [state, action, pending], slot, setSlot } = useBookingFlow();
   const formRef = useRef<HTMLFormElement>(null);
+  const successRef = useRef<HTMLDivElement>(null);
   const generalErrorRef = useRef<HTMLParagraphElement>(null);
   const refreshedSlotErrorAttempt = useRef(-1);
-  const [slot, setSlot] = useState("");
   const [selectedDay, setSelectedDay] = useState(days[0]?.key ?? "");
   const [showAllDays, setShowAllDays] = useState(false);
   const priceLabel = formatPrice(price);
@@ -110,6 +179,10 @@ export function BookingForm({
   }, [state]);
 
   useEffect(() => {
+    if (state.status === "success") successRef.current?.focus();
+  }, [state.status]);
+
+  useEffect(() => {
     if (
       state.status !== "error" ||
       !state.errors.slot ||
@@ -126,7 +199,12 @@ export function BookingForm({
 
   if (state.status === "success") {
     return (
-      <div className="soft-info-card p-6 sm:p-8">
+      <div
+        ref={successRef}
+        role="status"
+        tabIndex={-1}
+        className="soft-info-card p-6 focus:outline-none sm:p-8"
+      >
         {/* Bokningen är skickad (tiden reserverad, ej bekräftad ännu). */}
         {state.bookingPersisted && <TrackEvent name="booking_submitted" />}
         <h2 className="text-xl font-bold text-ink-900">Tack!</h2>

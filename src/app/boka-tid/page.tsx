@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import {
   BOOKING_PRICE_SEK,
@@ -8,14 +7,15 @@ import {
   slotTimeLabel,
 } from "@/lib/booking-slots";
 import { takenSlots } from "@/lib/booking-store";
-import { BookingForm, BookingSteps, type DayGroup } from "./BookingForm";
+import { BookingFlow, BookingForm, BookingSteps, type DayGroup } from "./BookingForm";
+import { createPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Boka tid hos ortoped i Göteborg – Specialistdirekt",
   description:
     "Direktbokning hos Dr Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi. 40 minuter, 2 000 kr. Välj en ledig tid i kalendern och bekräfta den via mejl.",
-  alternates: { canonical: "/boka-tid" },
-};
+  path: "/boka-tid",
+});
 
 // Lediga tider ändras hela tiden – sidan får aldrig serveras från cache.
 export const dynamic = "force-dynamic";
@@ -64,7 +64,7 @@ export default function BookaTidPage() {
 
       <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:py-16">
         <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
-          <div className="form-panel overflow-hidden">
+          <BookingFlow className="form-panel overflow-hidden">
             <BookingSteps />
             <div className="border-b border-brand-100 bg-brand-50/60 px-6 py-5 sm:px-8">
               <p className="text-xs font-bold tracking-wider text-brand-700 uppercase">Lediga tider</p>
@@ -74,7 +74,7 @@ export default function BookaTidPage() {
             <div className="p-6 sm:p-8">
               <BookingForm days={days} price={BOOKING_PRICE_SEK} />
             </div>
-          </div>
+          </BookingFlow>
 
           <aside className="grid gap-6 lg:sticky lg:top-24">
             <section className="readable-card p-6" aria-labelledby="booking-process">

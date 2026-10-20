@@ -66,6 +66,72 @@ type Event =
   | { type: "verified"; id: string; at: string; conflict?: boolean }
   | { type: "cancelled"; id: string; at: string };
 
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+
+function isNonEmptyString(value: unknown): value is string {
+  return typeof value === "string" && value.length > 0;
+}
+
+function isIsoDate(value: unknown): value is string {
+  if (!isNonEmptyString(value)) return false;
+  const parsed = new Date(value);
+  return Number.isFinite(parsed.getTime()) && parsed.toISOString() === value;
+}
+
+function isOptionalString(value: unknown): value is string | undefined {
+  return value === undefined || typeof value === "string";
+}
+
+function isOptionalDate(value: unknown): value is string | undefined {
+  return value === undefined || isIsoDate(value);
+}
+
+function isOptionalNumber(value: unknown): value is number | undefined {
+  return value === undefined || (typeof value === "number" && Number.isFinite(value));
+}
+
+/**
+ * JSON.parse kontrollerar bara syntaxen. En rad som `null` eller `{}` är
+ * giltig JSON men inte en bokningshändelse och får därför inte nå replay-koden.
+ */
+function isEvent(value: unknown): value is Event {
+  if (!isRecord(value) || !isNonEmptyString(value.id)) return false;
+
+  if (value.type === "verified") {
+    return (
+      isIsoDate(value.at) &&
+      (value.conflict === undefined || typeof value.conflict === "boolean")
+    );
+  }
+
+  if (value.type === "cancelled") return isIsoDate(value.at);
+  if (value.type !== "created") return false;
+
+  return (
+    isIsoDate(value.slot) &&
+    typeof value.name === "string" &&
+    typeof value.email === "string" &&
+    typeof value.phone === "string" &&
+    typeof value.message === "string" &&
+    (value.bookingType === undefined ||
+      value.bookingType === "adult" ||
+      value.bookingType === "child") &&
+    isOptionalString(value.childName) &&
+    isOptionalString(value.childBirthDate) &&
+    isOptionalNumber(value.priceSek) &&
+    isOptionalNumber(value.freeCancelHours) &&
+    (value.status === "pending" ||
+      value.status === "verified" ||
+      value.status === "cancelled") &&
+    isIsoDate(value.createdAt) &&
+    isOptionalDate(value.verifiedAt) &&
+    isOptionalDate(value.cancelledAt) &&
+    (value.conflict === undefined || typeof value.conflict === "boolean")
+  );
+}
+
 function storeFile(): string {
   return process.env.BOOKING_LOG_FILE || join(process.cwd(), ".data", "bookings.jsonl");
 }
@@ -149,7 +215,12 @@ function readEvents(): Event[] {
   for (const line of raw.split("\n")) {
     if (!line.trim()) continue;
     try {
-      out.push(JSON.parse(line) as Event);
+      const parsed: unknown = JSON.parse(line);
+      if (!isEvent(parsed)) {
+        console.error("[booking] Ogiltig rad i bokningsloggen");
+        continue;
+      }
+      out.push(parsed);
     } catch {
       // En trasig rad får aldrig dölja resten av bokningarna.
       console.error("[booking] Kunde inte tolka rad i bokningsloggen");
@@ -262,7 +333,7 @@ function logStoreFailure(operation: string, error: unknown): void {
 
 export type ClaimResult =
   | { ok: true; record: BookingRecord }
-  | { ok: false; reason: "taken" | "unavailable" };
+  | { ok: false; reason: "taken" | "invalid-slot" | "unavailable" };
 
 /**
  * Tar en lucka och skriver ner bokningen. Under lås, så att två samtidiga
@@ -281,6 +352,10 @@ export function claimSlot(input: {
   try {
     return withLock(() => {
       const now = new Date();
+      // Server Action-valideringen sker före fillåset. Kontrollera igen i
+      // samma kritiska sektion som skrivningen, så en tid som hinner passera
+      // femtimmarsgränsen aldrig kan reserveras efter en stale kontroll.
+      if (!isValidSlot(input.slot, now)) return { ok: false, reason: "invalid-slot" };
       if (takenSlots(now).has(input.slot)) return { ok: false, reason: "taken" };
 
       const record: BookingRecord = {

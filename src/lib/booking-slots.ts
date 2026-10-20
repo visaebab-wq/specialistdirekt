@@ -155,32 +155,58 @@ function stockholmWeekday(instant: Date): number {
 }
 
 /**
- * Alla luckor från `from` och `weeks` veckor framåt, som UTC-ISO.
- * Luckor som ligger närmare än BOOKING_MIN_LEAD_MS utelämnas.
+ * Alla luckor under de `weeks` närmaste helger som fortfarande har minst en
+ * bokningsbar tid, som UTC-ISO. Luckor som ligger närmare än
+ * BOOKING_MIN_LEAD_MS utelämnas.
  */
 export function generateSlots(from: Date = new Date(), weeks = BOOKING_WEEKS_AHEAD): string[] {
   const out: string[] = [];
+  const requestedWeekends = Number.isFinite(weeks) ? Math.max(0, Math.floor(weeks)) : 0;
+  if (requestedWeekends === 0) return out;
+
   const earliest = from.getTime() + BOOKING_MIN_LEAD_MS;
   const perDay = Math.floor(
     ((BOOKING_END_HOUR - BOOKING_START_HOUR) * 60) / BOOKING_SLOT_MINUTES,
   );
+  const includedWeekends = new Set<string>();
 
   // Gå dag för dag i svensk tid. 12:00 UTC som ankare gör att vi aldrig hamnar
   // på fel datum vid omställning (då midnatt kan saknas eller finnas två gånger).
   const cursor = new Date(from.getTime());
   cursor.setUTCHours(12, 0, 0, 0);
 
-  for (let i = 0; i <= weeks * 7 + 1; i++) {
+  // Extra sju dagar behövs när den pågående helgen redan saknar
+  // bokningsbara tider. Begränsa sedan resultatet till exakt de närmaste
+  // `weeks` helger som faktiskt har minst en lucka kvar.
+  for (let i = 0; i <= requestedWeekends * 7 + 7; i++) {
     const day = new Date(cursor.getTime() + i * 86_400_000);
-    if (!BOOKING_WEEKDAYS.includes(stockholmWeekday(day))) continue;
+    const weekday = stockholmWeekday(day);
+    if (!BOOKING_WEEKDAYS.includes(weekday)) continue;
 
     const p = stockholmParts(day);
+    const daySlots: string[] = [];
     for (let s = 0; s < perDay; s++) {
       const minutes = BOOKING_START_HOUR * 60 + s * BOOKING_SLOT_MINUTES;
       const slot = stockholmToUtc(p.year, p.month, p.day, Math.floor(minutes / 60), minutes % 60);
       if (slot.getTime() < earliest) continue;
-      out.push(slot.toISOString());
+      daySlots.push(slot.toISOString());
     }
+
+    if (daySlots.length === 0) continue;
+
+    // Lördagens datum identifierar helgen. För en söndag backar vi en
+    // kalenderdag med de svenska datumdelarna, oberoende av UTC-offset/DST.
+    const weekendKey = new Date(
+      Date.UTC(p.year, p.month - 1, p.day - (weekday === 0 ? 1 : 0)),
+    )
+      .toISOString()
+      .slice(0, 10);
+
+    if (!includedWeekends.has(weekendKey)) {
+      if (includedWeekends.size >= requestedWeekends) break;
+      includedWeekends.add(weekendKey);
+    }
+    out.push(...daySlots);
   }
 
   return out.sort();

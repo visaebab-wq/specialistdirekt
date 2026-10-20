@@ -1,4 +1,5 @@
 const LEAD_TIME_ZONE = "Europe/Stockholm";
+export const PREFERRED_DATE_MAX_DAYS = 365;
 
 /** Datumet i Sverige, oberoende av serverns eller webbläsarens lokala tidszon. */
 export function todayInStockholm(now: Date = new Date()): string {
@@ -12,7 +13,14 @@ export function todayInStockholm(now: Date = new Date()): string {
   return `${get("year")}-${get("month")}-${get("day")}`;
 }
 
-/** Ett verkligt kalenderdatum som inte ligger före dagens datum i Sverige. */
+/** Sista valbara kalenderdatum räknat från dagens svenska datum. */
+export function maxPreferredDateInStockholm(now: Date = new Date()): string {
+  const [year, month, day] = todayInStockholm(now).split("-").map(Number);
+  const max = new Date(Date.UTC(year, month - 1, day + PREFERRED_DATE_MAX_DAYS));
+  return max.toISOString().slice(0, 10);
+}
+
+/** Ett verkligt kalenderdatum inom det tillåtna året från dagens datum. */
 export function isValidPreferredDate(value: string, now: Date = new Date()): boolean {
   const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
   if (!match) return false;
@@ -29,5 +37,5 @@ export function isValidPreferredDate(value: string, now: Date = new Date()): boo
     return false;
   }
 
-  return value >= todayInStockholm(now);
+  return value >= todayInStockholm(now) && value <= maxPreferredDateInStockholm(now);
 }
