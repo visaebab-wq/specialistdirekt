@@ -58,21 +58,23 @@ function buildIndex(): Hit[] {
       });
     }
   }
+  const painSpecialtyTitle = "Smärtläkare och smärtmottagning";
+  const painGothenburgTitle = "Privat smärtläkare i Göteborg";
   hits.push(
     {
-      title: "Smärtläkare och smärtmottagning",
+      title: painSpecialtyTitle,
       url: "/specialiteter/smartlakare",
       type: "Specialitet",
       haystack: normalizeSearch(
-        "smartlakare smärtläkare smärtmottagning smärtspecialist långvarig smärta",
+        `${painSpecialtyTitle} smartlakare smärtspecialist långvarig smärta`,
       ),
     },
     {
-      title: "Privat smärtläkare i Göteborg",
+      title: painGothenburgTitle,
       url: "/specialiteter/smartlakare/goteborg",
       type: "Stad",
       haystack: normalizeSearch(
-        "smartlakare smärtläkare smärtmottagning smärtspecialist långvarig smärta goteborg Göteborg",
+        `${painGothenburgTitle} smartlakare smärtmottagning smärtspecialist långvarig smärta goteborg`,
       ),
     },
   );

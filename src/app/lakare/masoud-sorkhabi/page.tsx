@@ -60,7 +60,7 @@ const facts: { label: string; value: string }[] = [
   { label: "Remiss", value: "Behövs inte för självbetalande" },
   {
     label: "Publikt omdöme",
-    value: `${recoSummary.rating} av 5 · ${recoSummary.count} omdömen på ${recoSummary.source}`,
+    value: `${recoSummary.rating} av 5 · ${recoSummary.count} omdömen på ${recoSummary.source} (${recoSummary.profileName})`,
   },
 ];
 
@@ -318,7 +318,6 @@ export default function MasoudSorkhabiPage() {
               "Axel- och armbågssmärta",
               "Höft-, bäcken- och knäsmärta",
             ],
-            sameAs: [recoProfileUrl],
             url: abs(PATH),
           },
           {

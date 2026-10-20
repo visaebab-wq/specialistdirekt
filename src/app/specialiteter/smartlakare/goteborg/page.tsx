@@ -95,7 +95,7 @@ export default function SmartlakareGoteborgPage() {
     { label: "Avbokning", value: "Kostnadsfritt fram till 3 timmar före besöket" },
     {
       label: "Publikt omdöme",
-      value: `${recoSummary.rating} av 5 · ${recoSummary.count} omdömen på ${recoSummary.source}`,
+      value: `${recoSummary.rating} av 5 · ${recoSummary.count} omdömen på ${recoSummary.source} (${recoSummary.profileName})`,
     },
   ];
 
