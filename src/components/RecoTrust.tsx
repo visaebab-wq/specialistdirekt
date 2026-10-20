@@ -1,7 +1,7 @@
 import { recoProfileUrl, recoSummary } from "@/lib/reco-reviews";
 
-// Kompakt förtroenderuta med Dr. Sorkhabis publika Reco-betyg. Länkar till Reco
-// för full transparens. Betyget gäller läkaren, inte Specialistdirekt.
+// Kompakt förtroenderuta med NOPAINCLINICs publika Reco-betyg. Länkar till Reco
+// för full transparens. Betyget gäller företagsprofilen, inte Specialistdirekt.
 export function RecoTrust() {
   return (
     <aside className="relative mt-8 overflow-hidden rounded-3xl border border-brand-200 bg-gradient-to-br from-white via-brand-50 to-amber-50/60 p-6 shadow-[0_18px_45px_rgba(15,118,110,0.12)] sm:p-8">
@@ -15,8 +15,8 @@ export function RecoTrust() {
             Patienternas omdömen
           </p>
           <p className="mt-3 max-w-2xl text-base leading-relaxed text-ink-800 sm:text-lg">
-            Dr. Masoud Sorkhabi har fått mycket starka patientomdömen på Reco. Patienter lyfter
-            återkommande hans <strong>bemötande, kompetens och noggrannhet</strong>.
+            {recoSummary.profileName} har ett högt betyg på Reco. I omdömena nämns bland annat{" "}
+            <strong>bemötande, kompetens och noggrannhet</strong>.
           </p>
         </div>
 
@@ -40,7 +40,7 @@ export function RecoTrust() {
         rel="noopener noreferrer"
         className="relative mt-6 inline-flex w-full items-center justify-center rounded-full bg-brand-700 px-6 py-3.5 font-semibold text-white shadow-[0_10px_24px_rgba(15,118,110,0.2)] transition-all hover:-translate-y-0.5 hover:bg-brand-800 sm:w-auto"
       >
-        Läs patientomdömen på Reco
+        Läs omdömen om {recoSummary.profileName} på Reco
         <span aria-hidden className="ml-2">→</span>
       </a>
     </aside>

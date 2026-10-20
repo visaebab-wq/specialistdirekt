@@ -1,7 +1,8 @@
-// Riktiga patientomdömen för Dr. Masoud Sorkhabi, hämtade från den publika
-// Reco-profilen. Visas på startsidan med länk till Reco (full transparens –
+// Omdömesutdrag från NOPAINCLINICs publika företagsprofil på Reco. Flera
+// omdömen nämner Dr. Masoud Sorkhabi, men profilsiffrorna gäller företaget.
+// Visas på startsidan med länk till Reco (full transparens –
 // alla omdömen, inkl. eventuella negativa, finns på Reco).
-// Omdömena gäller läkaren, INTE Specialistdirekt.
+// Omdömena gäller NOPAINCLINIC, INTE Specialistdirekt.
 //
 // Uppdatera vid behov mot https://www.reco.se/nopainclinic (verifiera exakt
 // ordalydelse mot källan innan publicering).
@@ -15,7 +16,12 @@ export type RecoReview = {
 };
 
 export const recoProfileUrl = "https://www.reco.se/nopainclinic";
-export const recoSummary = { rating: "4,9", count: 63, source: "Reco" };
+export const recoSummary = {
+  rating: "4,9",
+  count: 64,
+  source: "Reco",
+  profileName: "NOPAINCLINIC",
+};
 
 // "…" markerar utelämnad text (ärligt utdrag, inte omskrivning).
 export const recoReviews: RecoReview[] = [

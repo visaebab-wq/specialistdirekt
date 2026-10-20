@@ -90,7 +90,7 @@ export function RecoReviews() {
         </div>
 
         <p className="mx-auto mt-6 max-w-xl text-sm text-ink-500">
-          Omdömena gäller Dr. Masoud Sorkhabi och kommer från{" "}
+          Omdömena är hämtade från {recoSummary.profileName}:s företagsprofil på{" "}
           <a
             href={recoProfileUrl}
             target="_blank"
