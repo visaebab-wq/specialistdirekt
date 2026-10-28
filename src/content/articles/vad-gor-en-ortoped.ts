@@ -105,7 +105,7 @@ export const article: Article = {
       id: "remiss-och-kostnad",
       heading: "Remiss och kostnad",
       body: [
-        "Som självbetalande behöver du ingen remiss för att boka ett privat ortopedbesök. Via Specialistdirekt kan du boka **Dr. Masoud Sorkhabi**, specialist i ortopedi och ryggkirurgi i Göteborg. Ett besök kostar **2 000 kr**. Priset gäller läkarbesöket och betalas på plats vid besöket.",
+        "Du behöver ingen remiss för att boka ett privat ortopedbesök hos oss. Hos oss träffar du **Dr. Masoud Sorkhabi**, specialist i ortopedi och ryggkirurgi, i Göteborg. Ett besök kostar **2 000 kr**. Priset gäller läkarbesöket och betalas på plats vid besöket.",
         "Läs mer och boka på [privat ortoped](/specialiteter/ortoped).",
       ],
     },
@@ -119,7 +119,7 @@ export const article: Article = {
     {
       question: "Vad kostar det att träffa en privat ortoped?",
       answer:
-        "Via Specialistdirekt kostar ett besök hos Dr. Masoud Sorkhabi i Göteborg 2 000 kr, utan remiss. Priset gäller läkarbesöket och betalas på plats.",
+        "Hos oss kostar ett besök utan remiss 2 000 kr. Du träffar Dr. Masoud Sorkhabi i Göteborg. Priset gäller läkarbesöket och betalas på plats.",
     },
     {
       question: "Kan en ortoped skriva remiss till röntgen eller MR?",
