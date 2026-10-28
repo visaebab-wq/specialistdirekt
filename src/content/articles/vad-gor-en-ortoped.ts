@@ -20,11 +20,11 @@ export const article: Article = {
   published: "2026-10-28",
   updated: "2026-10-28",
   readMinutes: 3,
-  wordCount: 480,
+  wordCount: 425,
   relatedSpecialty: "ortoped",
   cta: {
     heading: "Behöver du en ortoped?",
-    body: "Ett besök hos Dr. Masoud Sorkhabi i Göteborg kostar 2 000 kr. Du behöver ingen remiss.",
+    body: "",
     label: "Boka privat ortoped utan remiss",
     href: "/specialiteter/ortoped",
   },
@@ -41,11 +41,11 @@ export const article: Article = {
       id: "vad-behandlar-en-ortoped",
       heading: "Vad behandlar en ortoped?",
       body: [
-        "Vilka besvär en enskild ortoped tar hand om beror på hens inriktning. Många ortopeder har en subspecialitet, till exempel knä, axel, rygg eller hand. Vanliga besvär är:",
+        "Vilka besvär en enskild ortoped tar hand om beror på hens inriktning. Många ortopeder har en subspecialitet, till exempel knä, axel, rygg eller hand.",
       ],
       bullets: [
         "Knäbesvär, till exempel menisk- och korsbandsskador och knäartros",
-        "Axelproblem, till exempel smärta när du lyfter armen och frozen shoulder",
+        "Axelproblem, till exempel hög smärta vid lyft och frozen shoulder",
         "Höftbesvär och höftartros",
         "Ryggbesvär och nackbesvär",
         "Fot- och fotledsbesvär, till exempel hallux valgus",
@@ -89,24 +89,16 @@ export const article: Article = {
     },
     {
       id: "sok-akut-vard",
-      heading: "När ska du söka akut vård?",
+      heading: "Sök akut vård",
       body: [
-        "Sök akut vård vid något av följande. Ring **112** vid livshotande tillstånd. Är du osäker på hur allvarligt det är kan du ringa **1177** för rådgivning.",
+        "**Sök akut vård (1177 eller 112) vid:** kraftig smärta efter olycka, uppenbar felställning, oförmåga att belasta benet, domningar eller svaghet som uppstår plötsligt, eller om du är osäker på hur allvarligt det är.",
       ],
-      bullets: [
-        "kraftig smärta efter olycka",
-        "uppenbar felställning",
-        "oförmåga att belasta benet",
-        "domningar eller svaghet som uppstår plötsligt",
-      ],
-      bulletTone: "warning",
     },
     {
       id: "remiss-och-kostnad",
       heading: "Remiss och kostnad",
       body: [
-        "Du behöver ingen remiss för att boka ett privat ortopedbesök hos oss. Hos oss träffar du **Dr. Masoud Sorkhabi**, specialist i ortopedi och ryggkirurgi, i Göteborg. Ett besök kostar **2 000 kr**. Priset gäller läkarbesöket och betalas på plats vid besöket.",
-        "Läs mer och boka på [privat ortoped](/specialiteter/ortoped).",
+        "Du behöver ingen remiss för att boka ett [privat ortopedbesök](/specialiteter/ortoped) hos oss. Ett besök utan remiss kostar 2 000 kr.",
       ],
     },
   ],
@@ -114,12 +106,12 @@ export const article: Article = {
     {
       question: "Behöver jag remiss till en ortoped?",
       answer:
-        "Inom den offentliga vården ofta ja. Som självbetalande kan du boka en privat ortoped utan remiss.",
+        "Inom den offentliga vården ofta ja. Privat kan du boka utan remiss.",
     },
     {
       question: "Vad kostar det att träffa en privat ortoped?",
       answer:
-        "Hos oss kostar ett besök utan remiss 2 000 kr. Du träffar Dr. Masoud Sorkhabi i Göteborg. Priset gäller läkarbesöket och betalas på plats.",
+        "Hos oss kostar ett besök utan remiss 2 000 kr.",
     },
     {
       question: "Kan en ortoped skriva remiss till röntgen eller MR?",
