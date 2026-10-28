@@ -63,10 +63,12 @@ import { article as ontIHoftenHosBarn } from "@/content/articles/ont-i-hoften-ho
 import { article as skoliosHosBarn } from "@/content/articles/skolios-hos-barn";
 import { article as plattfotHosBarn } from "@/content/articles/plattfot-hos-barn";
 import { article as vaxtvarkHosBarn } from "@/content/articles/vaxtvark-hos-barn";
+import { article as vadGorEnOrtoped } from "@/content/articles/vad-gor-en-ortoped";
 
 // Ordning: pelarguiden först, sedan nyast överst.
 export const articles: Article[] = [
   guide,
+  vadGorEnOrtoped,
   vaxtvarkHosBarn,
   plattfotHosBarn,
   skoliosHosBarn,
