@@ -1,4 +1,7 @@
+import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbSchema } from "@/lib/structured-data";
 import {
   BOOKING_PRICE_SEK,
   formatPrice,
@@ -10,8 +13,10 @@ import { takenSlots } from "@/lib/booking-store";
 import { BookingFlow, BookingForm, BookingSteps, type DayGroup } from "./BookingForm";
 import { createPageMetadata } from "@/lib/page-metadata";
 
+// Sidan äger bokningsintentionen (välja tid), inte "ortoped i Göteborg" – det
+// sökordet hör till /specialiteter/ortoped/goteborg, som beskriver besöket.
 export const metadata = createPageMetadata({
-  title: "Boka tid hos ortoped i Göteborg – Specialistdirekt",
+  title: "Boka ortopedbesök hos Dr Masoud Sorkhabi – Specialistdirekt",
   description:
     "Direktbokning hos Dr Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi. 40 minuter, 2 000 kr. Välj en ledig tid i kalendern och bekräfta den via mejl.",
   path: "/boka-tid",
@@ -29,11 +34,19 @@ export default function BookaTidPage() {
     slots: d.slots.map((iso) => ({ iso, time: slotTimeLabel(iso) })),
   }));
 
+  const crumbs = [
+    { name: "Hem", path: "/" },
+    { name: "Ortoped i Göteborg", path: "/specialiteter/ortoped/goteborg" },
+    { name: "Boka tid", path: "/boka-tid" },
+  ];
+
   return (
     <div className="content-shell">
       <section className="internal-hero">
         <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:py-16">
-          <Breadcrumbs items={[{ name: "Hem", path: "/" }, { name: "Boka tid", path: "/boka-tid" }]} />
+          {/* Kalendern hör till ortopedbesöket i Göteborg – brödsmulan visar
+              den hierarkin och länkar tillbaka till sidan som beskriver besöket. */}
+          <Breadcrumbs items={crumbs} />
           <div className="mt-6 grid items-end gap-8 lg:grid-cols-[1fr_auto]">
             <div>
               <p className="internal-hero-kicker">Direktbokning · Göteborg</p>
@@ -42,6 +55,16 @@ export default function BookaTidPage() {
                 Välj en ledig tid direkt i kalendern. Besöket är hos Dr Masoud Sorkhabi,
                 specialist i ortopedi och ryggkirurgi. Besöket är fysiskt och äger rum i Göteborg.
                 Bokningen bekräftas tryggt via mejl.
+              </p>
+              <p className="mt-3 text-sm text-sky-100/90">
+                Vill du läsa mer om besöket och läkaren först? Se{" "}
+                <Link
+                  href="/specialiteter/ortoped/goteborg"
+                  className="font-semibold text-brand-300 underline hover:text-white"
+                >
+                  privat ortoped i Göteborg
+                </Link>
+                .
               </p>
             </div>
             <dl className="grid gap-3 rounded-2xl border border-white/80 bg-white/80 p-5 lg:min-w-[19rem] shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur sm:grid-cols-3 lg:grid-cols-1">
@@ -114,6 +137,7 @@ export default function BookaTidPage() {
           </aside>
         </div>
       </section>
+      <JsonLd data={[breadcrumbSchema(crumbs)]} />
     </div>
   );
 }

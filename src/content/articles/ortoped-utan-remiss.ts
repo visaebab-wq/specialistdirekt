@@ -110,7 +110,7 @@ export const article: Article = {
       heading: "Så skickar du en tidsförfrågan via Specialistdirekt",
       body: [
         "Vill du slippa ringa runt kan Specialistdirekt ta emot din tidsförfrågan. Du beskriver kort dina besvär och vilka tider som passar, så återkommer vi med besked om möjlig tid och aktuellt pris – du bestämmer sedan själv om du vill gå vidare. Specialistdirekt är en **boknings- och informationstjänst**; den medicinska bedömningen och behandlingen görs av den mottagning som tar emot dig.",
-        "Bor du i Göteborgsområdet kan du läsa mer och skicka en kostnadsfri förfrågan på sidan om [privat ortoped i Göteborg](/specialiteter/ortoped/goteborg), där du som självbetalande patient inte behöver någon remiss för den aktuella tidsförfrågan.",
+        "Bor du i Göteborgsområdet kan du i stället boka tid direkt hos [ortoped i Göteborg](/specialiteter/ortoped/goteborg): ett besök på 40 minuter hos Dr. Masoud Sorkhabi kostar 2 000 kr, och som självbetalande patient behöver du ingen remiss.",
       ],
     },
     {

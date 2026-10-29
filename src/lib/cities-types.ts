@@ -61,6 +61,21 @@ export type CitySpecialtyLocal = {
    * url öppnas i ny flik. note visas som liten text under knappen.
    */
   bookingCta?: { label: string; url: string; note?: string };
+  /**
+   * Underlag för Service-schema för ett besök med egna tider (i praktiken
+   * ortoped i Göteborg). Speglar exakt det som syns på sidan. Ingen adress och
+   * inga öppettider – besöksadressen är inte publicerad på sajten. Läkaren blir
+   * `provider` via providerProfilePath när hans profilsida är publicerad.
+   * Utan detta fält får sidan det generiska informationsschemat.
+   */
+  service?: {
+    /** t.ex. "Privat ortopedbesök i Göteborg". */
+    name: string;
+    description: string;
+    price?: { name: string; amount: number; currency: string };
+    /** Profilsida för läkaren som utför besöket, t.ex. "/lakare/masoud-sorkhabi". */
+    providerProfilePath?: string;
+  };
   /** Lokala vanliga frågor (renderas + ger FAQPage-schema). */
   faqs?: { question: string; answer: string }[];
 };

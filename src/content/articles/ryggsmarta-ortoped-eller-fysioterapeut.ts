@@ -104,8 +104,8 @@ export const article: Article = {
       id: "privat-ortoped-goteborg-rygg",
       heading: "Söker du privat ortoped i Göteborg?",
       body: [
-        "Bor du i Göteborgsområdet kan Specialistdirekt ta emot din tidsförfrågan till **ansluten ortopedisk specialistkompetens i Göteborg**, med inriktning på bland annat rygg-, nack- och nervrelaterade besvär. Som självbetalande patient behöver du ingen remiss för den aktuella tidsförfrågan, och du får besked om möjlig tid och aktuellt pris innan du bestämmer dig.",
-        "Specialistdirekt är en boknings- och informationstjänst. Läs mer och skicka en kostnadsfri förfrågan på sidan om [privat ortoped i Göteborg](/specialiteter/ortoped/goteborg).",
+        "Som självbetalande patient behöver du ofta ingen remiss för ett privat ortopedbesök. I Göteborg kan du boka ett besök på 40 minuter hos Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi, för 2 000 kr och välja tid direkt i kalendern.",
+        "Läs mer och [boka ortoped i Göteborg](/specialiteter/ortoped/goteborg).",
       ],
     },
     {

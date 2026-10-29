@@ -3,6 +3,11 @@ import { BARN_SCOPE } from "@/lib/barn-scope";
 import { BOOKING_PRICE_SEK, BOOKING_SLOT_MINUTES, formatPrice } from "@/lib/booking-slots";
 import { recoSummary } from "@/lib/reco-reviews";
 
+// Pris och besökslängd för ortopedbesöket hämtas från bokningens egna
+// konstanter, så att sidan aldrig kan säga något annat än kalendern.
+const ORTOPED_PRIS = `${formatPrice(BOOKING_PRICE_SEK)} kr`;
+const ORTOPED_MINUTER = `${BOOKING_SLOT_MINUTES} minuter`;
+
 export const city: City = {
   slug: "goteborg",
   name: "Göteborg",
@@ -22,8 +27,7 @@ export const city: City = {
       "Som Sveriges näst största stad har Göteborg ett brett utbud av privata läkarmottagningar där du kan få en bred medicinsk bedömning. En specialist i allmänmedicin kan hjälpa dig när symtomen är oklara eller berör flera områden, och vägleda dig rätt vidare. Specialistdirekt hjälper dig kostnadsfritt att hitta en mottagning i Göteborg.",
     kardiolog:
       "Genom Specialistdirekt kan du skicka en tidsförfrågan till ansluten privat kardiologisk specialistkompetens i Göteborg. Den anslutna mottagningen erbjuder kardiologbesök samt EKG, hjärtultraljud, arbets-EKG, långtids-EKG och 24-timmars blodtrycksmätning. Du kan söka som självbetalande patient, och mottagningen kan även ta emot försäkringspatienter efter godkännande från försäkringsbolaget. Priset beror på vilken konsultation eller undersökning som bokas och lämnas innan du bestämmer dig. Specialistdirekt är en boknings- och informationstjänst – undersökningar, medicinsk bedömning och behandling utförs av den mottagning som tar emot dig.",
-    ortoped:
-      "Söker du en privat ortoped? Här kan du boka tid hos Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi med över 20 års erfarenhet av ortopedi och kirurgi – för bland annat nack- och ryggbesvär, diskbråck, höft- och knäsmärta samt kronisk och oförklarlig smärta. Besöket är ett fysiskt besök i Göteborg och kostar 2 000 kr, som du betalar på plats. Du bokar tid direkt i kalendern och bekräftar den via en länk i mejlet. Avbokning är kostnadsfri fram till 3 timmar före besöket.",
+    ortoped: `Söker du en privat ortoped i Göteborg? Hos oss träffar du Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi med över 20 års erfarenhet av ortopedi och kirurgi. Besöket är ${ORTOPED_MINUTER}, kostar ${ORTOPED_PRIS} och kräver ingen remiss. Du väljer tid direkt i kalendern och betalar på plats vid besöket.`,
     hudlakare:
       "Hudbesvär, från återkommande utslag till födelsemärken du vill få kontrollerade, kan bedömas av en hudläkare på någon av Göteborgs många dermatologiska mottagningar. Här samsas offentlig vård med ett flertal privata aktörer, vilket ger valfrihet. Skicka en kostnadsfri förfrågan så återkommer vi med besked.",
     gynekolog:
@@ -37,7 +41,7 @@ export const city: City = {
     ortoped: {
       metaTitle: "Privat ortoped Göteborg – boka direkt utan remiss",
       metaDescription:
-        "Boka privat ortoped i Göteborg hos Dr. Masoud Sorkhabi – rygg, nacke, knä. Besök i Göteborg 2 000 kr, utan remiss. Boka direkt i kalendern, kostnadsfri avbokning fram till 3 timmar före.",
+        `Privat ortoped i Göteborg utan remiss. Boka ett besök på ${ORTOPED_MINUTER} hos Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi – ${ORTOPED_PRIS}, betalas på plats.`,
       h1: "Privat ortoped i Göteborg",
       hideCityIntro: true,
       altLanguage: {
@@ -107,73 +111,6 @@ export const city: City = {
           ],
         },
         {
-          id: "ortoped-for-barn-goteborg",
-          heading: "Ortoped för barn i Göteborg",
-          body: [
-            `**Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi, tar även emot barn och ungdomar – ${BARN_SCOPE.label} (${BARN_SCOPE.short}) – på mottagningen i Göteborg.** Vi kallar honom inte barnortoped: den dokumenterade specialistkompetensen är ortopedi och ryggkirurgi. Från 18 års ålder bokas besöket som vuxen.`,
-            "Ingen remiss behövs för den privata självbetalarvägen, och ett fysiskt besök kostar 2 000 kr – samma pris som för vuxna. [Se lediga tider och boka ortopedisk bedömning för barn](/boka-tid/barn).",
-            "Vanliga skäl att söka ortopedisk bedömning för ett barn:",
-          ],
-          bullets: [
-            "**Knäsmärta** – långvarig eller återkommande, ofta i samband med idrott",
-            "**Hälta** – ny, oförklarad eller kvarstående",
-            "**Höftbesvär** – smärta i ljumske, lår eller knä",
-            "**Fotbesvär och plattfot** – smärta, stelhet eller påverkad funktion",
-            "**Hälsmärta** – belastningsrelaterade besvär hos växande barn",
-            "**Ryggbesvär och misstänkt skolios**",
-            "**Idrotts- och belastningsbesvär** samt kvarstående problem efter en skada",
-          ],
-        },
-        {
-          id: "barn-begransningar-goteborg",
-          heading: "När passar den privata vägen inte för ett barn?",
-          body: [
-            "Medfödda tillstånd, komplicerade felställningar, neuromuskulära sjukdomar och behov av barnkirurgi eller multidisciplinär vård utreds inom regionens specialiserade barnsjukvård. Ett privat självbetalarbesök ersätter inte den vården.",
-            "Vid akut skada med kraftig smärta, oförmåga att belasta, eller feber tillsammans med en svullen och mycket smärtsam led ska barnet bedömas akut – inte vänta på en planerad tid. Ring **112** vid livshotande tillstånd och **1177** vid osäkerhet.",
-            "Enligt 1177 har barn och ungdomar under 20 år **fri hälso- och sjukvård** i Västra Götalandsregionen. Den privata vägen innebär alltså att ni betalar för att kunna välja tid utan remiss – inte för en vård som annars saknas. En utförlig genomgång av när ett barn behöver bedömas, vad som brukar gå över av sig självt och hur undersökningen går till finns i guiden om [barnortopedi och ortopedisk bedömning för barn](/artiklar/barnortopedi).",
-          ],
-        },
-        {
-          id: "rygg-nacke-knä-nerv-goteborg",
-          heading: "Rygg, nacke, knä och nervrelaterad smärta – lite mer om vanliga besvär",
-          body: [
-            "**Rygg- och nackbesvär.** Många rygg- och nackbesvär är godartade och läker med tid, rörelse och avlastning. När smärtan är långvarig, återkommande eller tydligt påverkar vardagen kan en ortoped bedöma besvären och föreslå hur du kan gå vidare.",
-            "**Knä- och belastningsbesvär.** Knät är särskilt utsatt vid idrott och belastning. Besvär som låser sig, sviktar eller inte förbättras trots träning kan behöva bedömas av en läkare. Osäker på vart du ska vända dig? Se [vilken läkare vid knäsmärta](/artiklar/vilken-lakare-knasmarta), eller läs mer om [ortopedisk bedömning när knät låser sig](/kna-laser-sig).",
-            "**Nervrelaterad eller utstrålande smärta.** Smärta som strålar ut i arm eller ben, ibland med domningar eller stickningar, kan höra ihop med nerver i rygg eller nacke. Det är en vanlig anledning att söka ortopedisk bedömning – läs mer om [privat smärtmottagning i Göteborg](/specialiteter/smartlakare/goteborg).",
-          ],
-        },
-        {
-          id: "hogst-betygsatta-ortoped-goteborg",
-          heading: "Högst betygsatta ortopeder i Göteborg – så jämför du rätt",
-          body: [
-            "Den som söker efter de högst betygsatta ortopederna i Göteborg bör väga in mer än bara snittbetyget. Titta också på hur aktuella omdömena är, vilken kompetens och erfarenhet läkaren har, och om mottagningen arbetar med just de besvär du söker hjälp för.",
-            `NOPAINCLINIC:s företagsprofil har **${recoSummary.rating} av 5** baserat på ${recoSummary.count} publicerade omdömen på ${recoSummary.source}. Flera omdömen nämner Dr. Masoud Sorkhabi, men snittbetyget gäller företagsprofilen – inte läkaren personligen eller Specialistdirekt. Omdömen kan vara en relevant förtroendesignal, men är ingen garanti för ett visst medicinskt resultat.`,
-            "Dr. Masoud Sorkhabi uppfyller de punkter som brukar vara viktigast när man väljer ortoped i Göteborg:",
-          ],
-          bullets: [
-            "**Betyg och hur aktuellt det är** – ett högt snitt säger mer om det bygger på färska omdömen.",
-            "**Specialistkompetens och erfarenhet** – att läkaren är specialist i ortopedi och har erfarenhet av dina typer av besvär.",
-            "**Relevans för dina symtom** – att mottagningen faktiskt arbetar med det du söker hjälp för.",
-            "**Transparent pris** – att du får veta vad besöket kostar innan du bokar.",
-            "**Tydlig ansvarsfördelning** – vem som är vårdgivare och bär det medicinska ansvaret.",
-          ],
-        },
-        {
-          id: "nar-ortoped-ratt-goteborg",
-          heading: "Vilka besvär kan Dr. Masoud Sorkhabi hjälpa dig med?",
-          body: [
-            "Många muskel- och ledbesvär är särskilt värda en ortopedisk bedömning, medan enstaka akuta situationer i stället behöver omedelbar vård. Den här vägledningen ställer ingen diagnos och avgör inte ditt enskilda fall.",
-          ],
-          bullets: [
-            "**Långvariga besvär trots vila, träning eller egenvård** → värt en ortopedisk bedömning.",
-            "**Låsning, instabilitet eller misstänkt ledskada** → boka en läkarbedömning hos en ortoped.",
-            "**Smärta som återkommer eller påverkar sömn, arbete och vardag** → värt att boka en bedömning.",
-            "**Domningar, utstrålande smärta eller kraftnedsättning** → bör bedömas av läkare.",
-            "**Misstänkt fraktur eller akut svår skada** → akutmottagning eller jourvård.",
-            "**Feber tillsammans med en snabbt svullen och mycket smärtsam led** → sök vård skyndsamt.",
-          ],
-        },
-        {
           id: "utan-remiss-ortoped-goteborg",
           heading: "Kan jag söka privat ortoped i Göteborg utan remiss?",
           body: [
@@ -183,12 +120,12 @@ export const city: City = {
         },
         {
           id: "pris-ortoped-goteborg",
-          heading: "Pris",
+          heading: "Pris och besökslängd",
           body: [
             "Priset hos Dr. Masoud Sorkhabi är fast och du ser det innan du bokar:",
           ],
           bullets: [
-            "**Fysiskt besök i Göteborg – 2 000 kr**",
+            `**Fysiskt besök i Göteborg, ${ORTOPED_MINUTER} – ${ORTOPED_PRIS}**`,
             "Betalas **på plats vid besöket** – ingen betalning sker när du bokar",
           ],
         },
@@ -232,8 +169,75 @@ export const city: City = {
           ],
         },
         {
+          id: "ortoped-for-barn-goteborg",
+          heading: "Ortoped för barn i Göteborg",
+          body: [
+            `**Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi, tar även emot barn och ungdomar – ${BARN_SCOPE.label} (${BARN_SCOPE.short}) – på mottagningen i Göteborg.** Vi kallar honom inte barnortoped: den dokumenterade specialistkompetensen är ortopedi och ryggkirurgi. Från 18 års ålder bokas besöket som vuxen.`,
+            "Ingen remiss behövs för den privata självbetalarvägen, och ett fysiskt besök kostar 2 000 kr – samma pris som för vuxna. [Se lediga tider och boka ortopedisk bedömning för barn](/boka-tid/barn).",
+            "Vanliga skäl att söka ortopedisk bedömning för ett barn:",
+          ],
+          bullets: [
+            "**Knäsmärta** – långvarig eller återkommande, ofta i samband med idrott",
+            "**Hälta** – ny, oförklarad eller kvarstående",
+            "**Höftbesvär** – smärta i ljumske, lår eller knä",
+            "**Fotbesvär och plattfot** – smärta, stelhet eller påverkad funktion",
+            "**Hälsmärta** – belastningsrelaterade besvär hos växande barn",
+            "**Ryggbesvär och misstänkt skolios**",
+            "**Idrotts- och belastningsbesvär** samt kvarstående problem efter en skada",
+          ],
+        },
+        {
+          id: "barn-begransningar-goteborg",
+          heading: "När passar den privata vägen inte för ett barn?",
+          body: [
+            "Medfödda tillstånd, komplicerade felställningar, neuromuskulära sjukdomar och behov av barnkirurgi eller multidisciplinär vård utreds inom regionens specialiserade barnsjukvård. Ett privat självbetalarbesök ersätter inte den vården.",
+            "Vid akut skada med kraftig smärta, oförmåga att belasta, eller feber tillsammans med en svullen och mycket smärtsam led ska barnet bedömas akut – inte vänta på en planerad tid. Ring **112** vid livshotande tillstånd och **1177** vid osäkerhet.",
+            "Enligt 1177 har barn och ungdomar under 20 år **fri hälso- och sjukvård** i Västra Götalandsregionen. Den privata vägen innebär alltså att ni betalar för att kunna välja tid utan remiss – inte för en vård som annars saknas. En utförlig genomgång av när ett barn behöver bedömas, vad som brukar gå över av sig självt och hur undersökningen går till finns i guiden om [barnortopedi och ortopedisk bedömning för barn](/artiklar/barnortopedi).",
+          ],
+        },
+        {
+          id: "rygg-nacke-knä-nerv-goteborg",
+          heading: "Rygg, nacke, knä och nervrelaterad smärta – lite mer om vanliga besvär",
+          body: [
+            "**Rygg- och nackbesvär.** Många rygg- och nackbesvär är godartade och läker med tid, rörelse och avlastning. När smärtan är långvarig, återkommande eller tydligt påverkar vardagen kan en ortoped bedöma besvären och föreslå hur du kan gå vidare.",
+            "**Knä- och belastningsbesvär.** Knät är särskilt utsatt vid idrott och belastning. Besvär som låser sig, sviktar eller inte förbättras trots träning kan behöva bedömas av en läkare. Osäker på vart du ska vända dig? Se [vilken läkare vid knäsmärta](/artiklar/vilken-lakare-knasmarta), eller läs mer om [ortopedisk bedömning när knät låser sig](/kna-laser-sig).",
+            "**Nervrelaterad eller utstrålande smärta.** Smärta som strålar ut i arm eller ben, ibland med domningar eller stickningar, kan höra ihop med nerver i rygg eller nacke. Det är en vanlig anledning att söka ortopedisk bedömning – läs mer om [privat smärtmottagning i Göteborg](/specialiteter/smartlakare/goteborg).",
+          ],
+        },
+        {
+          id: "nar-ortoped-ratt-goteborg",
+          heading: "Vilka besvär kan Dr. Masoud Sorkhabi hjälpa dig med?",
+          body: [
+            "Många muskel- och ledbesvär är särskilt värda en ortopedisk bedömning, medan enstaka akuta situationer i stället behöver omedelbar vård. Den här vägledningen ställer ingen diagnos och avgör inte ditt enskilda fall.",
+          ],
+          bullets: [
+            "**Långvariga besvär trots vila, träning eller egenvård** → värt en ortopedisk bedömning.",
+            "**Låsning, instabilitet eller misstänkt ledskada** → boka en läkarbedömning hos en ortoped.",
+            "**Smärta som återkommer eller påverkar sömn, arbete och vardag** → värt att boka en bedömning.",
+            "**Domningar, utstrålande smärta eller kraftnedsättning** → bör bedömas av läkare.",
+            "**Misstänkt fraktur eller akut svår skada** → akutmottagning eller jourvård.",
+            "**Feber tillsammans med en snabbt svullen och mycket smärtsam led** → sök vård skyndsamt.",
+          ],
+        },
+        {
+          id: "hogst-betygsatta-ortoped-goteborg",
+          heading: "Högst betygsatta ortopeder i Göteborg – så jämför du rätt",
+          body: [
+            "Den som söker efter de högst betygsatta ortopederna i Göteborg bör väga in mer än bara snittbetyget. Titta också på hur aktuella omdömena är, vilken kompetens och erfarenhet läkaren har, och om mottagningen arbetar med just de besvär du söker hjälp för.",
+            `NOPAINCLINIC:s företagsprofil har **${recoSummary.rating} av 5** baserat på ${recoSummary.count} publicerade omdömen på ${recoSummary.source}. Flera omdömen nämner Dr. Masoud Sorkhabi, men snittbetyget gäller företagsprofilen – inte läkaren personligen eller Specialistdirekt. Omdömen kan vara en relevant förtroendesignal, men är ingen garanti för ett visst medicinskt resultat.`,
+            "Dr. Masoud Sorkhabi uppfyller de punkter som brukar vara viktigast när man väljer ortoped i Göteborg:",
+          ],
+          bullets: [
+            "**Betyg och hur aktuellt det är** – ett högt snitt säger mer om det bygger på färska omdömen.",
+            "**Specialistkompetens och erfarenhet** – att läkaren är specialist i ortopedi och har erfarenhet av dina typer av besvär.",
+            "**Relevans för dina symtom** – att mottagningen faktiskt arbetar med det du söker hjälp för.",
+            "**Transparent pris** – att du får veta vad besöket kostar innan du bokar.",
+            "**Tydlig ansvarsfördelning** – vem som är vårdgivare och bär det medicinska ansvaret.",
+          ],
+        },
+        {
           id: "kallor-ortoped-goteborg",
-          heading: "Källor och senast uppdaterat",
+          heading: "Källor",
           body: [
             "Den medicinska och vägledande informationen på den här sidan bygger på offentliga primärkällor:",
           ],
@@ -248,21 +252,16 @@ export const city: City = {
         body: "Boka ett besök direkt i kalendern. Du bekräftar tiden via en länk i mejlet och kan avboka kostnadsfritt fram till 3 timmar före besöket.",
         buttonLabel: "Boka tid",
       },
+      // Service-schema: speglar exakt det som syns i snabbfakta. Läkaren
+      // (publicerad profilsida) är provider. Ingen adress – besöksadressen är
+      // inte publicerad på sajten.
+      service: {
+        name: "Privat ortopedbesök i Göteborg",
+        description: `Fysiskt besök på ${ORTOPED_MINUTER} hos Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi, i Göteborg. Ingen remiss behövs för självbetalande. Bokas direkt i kalendern och betalas på plats vid besöket.`,
+        price: { name: `Ortopedbesök, ${ORTOPED_MINUTER}`, amount: BOOKING_PRICE_SEK, currency: "SEK" },
+        providerProfilePath: "/lakare/masoud-sorkhabi",
+      },
       faqs: [
-        {
-          question: "Vem är läkaren jag träffar?",
-          answer:
-            "Du träffar Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi i Göteborg med över 20 års erfarenhet av ortopedi och kirurgi, med inriktning på bland annat nack- och ryggbesvär, diskbråck samt kronisk och oförklarlig smärta. Den medicinska bedömningen och behandlingen utförs av läkaren; Specialistdirekt hanterar bokningen.",
-        },
-        {
-          question: "Tar ortopeden emot barn?",
-          answer: `Ja. Dr. Masoud Sorkhabi är specialist i ortopedi och ryggkirurgi och tar även emot barn och ungdomar, ${BARN_SCOPE.label} (${BARN_SCOPE.short}) – priset är detsamma som för vuxna. Läs mer om [ortoped för barn i Göteborg](/artiklar/barnortopedi). Medfödda tillstånd, komplicerade felställningar och neuromuskulära sjukdomar utreds inom specialiserad barnsjukvård.`,
-        },
-        {
-          question: "Kan jag boka tid direkt hos ortopeden?",
-          answer:
-            "Ja. Du bokar tid direkt i Dr. Masoud Sorkhabis bokningskalender via knappen \"Boka tid\" på sidan. Du bekräftar tiden via en länk i mejlet och kan avboka kostnadsfritt fram till 3 timmar före besöket.",
-        },
         {
           question: "Behöver jag remiss till privat ortoped i Göteborg?",
           answer:
@@ -272,6 +271,24 @@ export const city: City = {
           question: "Vad kostar ett besök hos Dr. Masoud Sorkhabi?",
           answer:
             "Ett besök hos Dr. Masoud Sorkhabi i Göteborg kostar 2 000 kr, som du betalar på plats vid besöket. Priset är fast och du ser det innan du bokar. En generell guide om privata ortopedpriser finns i [privat ortoped: kostnad](/artiklar/privat-ortoped-kostnad).",
+        },
+        {
+          question: "Hur lång tid tar besöket hos ortopeden?",
+          answer: `Besöket är ${ORTOPED_MINUTER}. Det är ett fysiskt besök hos Dr. Masoud Sorkhabi i Göteborg och kostar ${ORTOPED_PRIS}, som du betalar på plats.`,
+        },
+        {
+          question: "Vem är läkaren jag träffar?",
+          answer:
+            "Du träffar Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi i Göteborg med över 20 års erfarenhet av ortopedi och kirurgi, med inriktning på bland annat nack- och ryggbesvär, diskbråck samt kronisk och oförklarlig smärta. Den medicinska bedömningen och behandlingen utförs av läkaren; Specialistdirekt hanterar bokningen.",
+        },
+        {
+          question: "Kan jag boka tid direkt hos ortopeden?",
+          answer:
+            "Ja. Du bokar tid direkt i Dr. Masoud Sorkhabis bokningskalender via knappen \"Boka tid\" på sidan. Du bekräftar tiden via en länk i mejlet och kan avboka kostnadsfritt fram till 3 timmar före besöket.",
+        },
+        {
+          question: "Tar ortopeden emot barn?",
+          answer: `Ja. Dr. Masoud Sorkhabi är specialist i ortopedi och ryggkirurgi och tar även emot barn och ungdomar, ${BARN_SCOPE.label} (${BARN_SCOPE.short}) – priset är detsamma som för vuxna. Läs mer om [ortoped för barn i Göteborg](/artiklar/barnortopedi). Medfödda tillstånd, komplicerade felställningar och neuromuskulära sjukdomar utreds inom specialiserad barnsjukvård.`,
         },
         {
           question: "Hur snabbt kan jag få en tid?",

@@ -49,7 +49,7 @@ export const article: Article = {
       body: [
         "För de allra flesta är **vårdcentralen** en bra första kontakt vid ryggont. Allmänläkaren gör en första bedömning, undersöker ryggen, utesluter allvarliga orsaker och kan skriva remiss vidare om det behövs. Det är ofta den smidigaste vägen om du är osäker på vad besvären beror på.",
         "En **fysioterapeut** (sjukgymnast) är ofta rätt om smärtan kommit gradvis eller sitter i musklerna, till exempel efter tungt lyft, dålig arbetsställning eller stillasittande. Du kan i många regioner boka fysioterapeut direkt utan remiss, och en stor del av all ryggsmärta blir bättre med rätt övningar, rörelse och belastningsråd. En **naprapat** eller kiropraktor arbetar också med rygg och muskler, men deras behandlingar ingår vanligen inte i den offentliga vården.",
-        "En **ortoped** är specialistläkare på rörelseapparaten och blir aktuell vid uttalade besvär, misstänkt diskbråck, utstrålande smärta eller besvär som inte ger med sig trots behandling. Ortopeden bedömer behov av röntgen, magnetkamera (MR) eller eventuellt ingrepp. Läs mer om vad specialiteten omfattar på vår sida om [ortoped](/specialiteter/ortoped).",
+        "En **ortoped** är specialistläkare på rörelseapparaten och blir aktuell vid uttalade besvär, misstänkt diskbråck, utstrålande smärta eller besvär som inte ger med sig trots behandling. Ortopeden bedömer behov av röntgen, magnetkamera (MR) eller eventuellt ingrepp. Läs mer om vad specialiteten omfattar på vår sida om [ortoped](/specialiteter/ortoped). Bor du i Göteborgsområdet kan du boka tid hos en [ortoped i Göteborg utan remiss](/specialiteter/ortoped/goteborg).",
       ],
       bullets: [
         "Vårdcentral: första bedömning och eventuell remiss vidare",

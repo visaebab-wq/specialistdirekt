@@ -11,6 +11,7 @@ import { RecoReviews } from "@/components/RecoReviews";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
 import { recoProfileUrl, recoSummary } from "@/lib/reco-reviews";
+import { BOOKING_SLOT_MINUTES } from "@/lib/booking-slots";
 
 const PATH = "/specialiteter/smartlakare/goteborg";
 const BOOKING = "/boka/ortoped-goteborg?src=/specialiteter/smartlakare/goteborg&cta=smartlakare-gbg";
@@ -90,6 +91,7 @@ export default function SmartlakareGoteborgPage() {
       value: "Kronisk och oförklarlig smärta, nack- och ryggbesvär, diskbråck, huvudvärk och migrän",
     },
     { label: "Besök", value: "Fysiskt besök i Göteborg" },
+    { label: "Besökslängd", value: `${BOOKING_SLOT_MINUTES} minuter` },
     { label: "Pris", value: "2 000 kr – betalas på plats vid besöket" },
     { label: "Remiss", value: "Behövs inte för självbetalande" },
     { label: "Avbokning", value: "Kostnadsfritt fram till 3 timmar före besöket" },
@@ -205,6 +207,18 @@ export default function SmartlakareGoteborgPage() {
                 </Link>
                 .
               </p>
+              {/* Samma besök och samma kalender som ortopedsidan – den sidan är
+                  huvudsidan om besöket, så länka dit i stället för att upprepa den. */}
+              <p className="mt-4">
+                Det är samma besök som beskrivs på sidan om{" "}
+                <Link
+                  href="/specialiteter/ortoped/goteborg"
+                  className="font-semibold text-brand-700 hover:underline"
+                >
+                  privat ortoped i Göteborg
+                </Link>
+                , där du också kan läsa om vad en ortopedisk bedömning omfattar.
+              </p>
 
               <h2 className="article-section-title mt-10 text-2xl font-bold">Omdömen</h2>
               <p className="mt-3">
@@ -293,13 +307,14 @@ export default function SmartlakareGoteborgPage() {
           {
             "@context": "https://schema.org",
             "@type": "Service",
-            name: "Bokning hos privat smärtläkare i Göteborg",
-            serviceType: "Boknings- och informationstjänst",
-            provider: { "@id": `${site.url}/#organization` },
+            "@id": `${abs(PATH)}#service`,
+            // Läkaren är specialist i ortopedi och ryggkirurgi – inte smärtläkare.
+            // Läkaren (publicerad profilsida) utför besöket.
+            name: "Ortopedisk bedömning vid långvarig smärta i Göteborg",
+            provider: { "@id": `${abs("/lakare/masoud-sorkhabi")}#person` },
             areaServed: { "@type": "City", name: "Göteborg" },
             url: abs(PATH),
-            description:
-              "Bokning hos Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi i Göteborg. Specialistdirekt är en boknings- och informationstjänst.",
+            description: `Fysiskt besök på ${BOOKING_SLOT_MINUTES} minuter hos Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi, i Göteborg.`,
           },
           faqSchema(faqs),
         ]}

@@ -170,7 +170,7 @@ export const article: Article = {
     {
       question: "Vad kostar en privat ortoped i Göteborg?",
       answer:
-        "Prisbilden i Göteborg följer i stort de ungefärliga nationella intervallen: ett förstabesök ligger ofta runt 1 500–3 500 kr, och bildundersökningar tillkommer. Skickar du din förfrågan via Specialistdirekt får du alltid aktuellt pris innan en tid bokas. Se [privat ortoped i Göteborg](/specialiteter/ortoped/goteborg).",
+        "Hos Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi, kostar ett besök på 40 minuter 2 000 kr. Ingen remiss behövs och du bokar tiden direkt. I övrigt följer prisbilden i Göteborg i stort de ungefärliga nationella intervallen: ett förstabesök ligger ofta runt 1 500–3 500 kr, och bildundersökningar tillkommer. Se [privat ortoped i Göteborg](/specialiteter/ortoped/goteborg).",
     },
   ],
 };

@@ -453,8 +453,14 @@ export default function HomePage() {
         <div className="mx-auto max-w-5xl px-4 py-16 text-center sm:px-6">
           <h2 className="text-3xl font-bold text-white">Vad vill du boka?</h2>
           <p className="mx-auto mt-3 max-w-xl text-sky-100/90">
-            Direktbokning finns hos vår ortoped i Göteborg. För alla andra specialiteter skickar du
-            en kostnadsfri tidsförfrågan.
+            Direktbokning finns hos vår{" "}
+            <Link
+              href="/specialiteter/ortoped/goteborg"
+              className="font-semibold text-brand-300 underline hover:text-white"
+            >
+              ortoped i Göteborg
+            </Link>
+            . För alla andra specialiteter skickar du en kostnadsfri tidsförfrågan.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link

@@ -100,8 +100,9 @@ const faqs = [
 const quickFacts = [
   { label: "Doctor", value: "Dr. Masoud Sorkhabi, specialist in orthopedics and spine surgery" },
   { label: "Visit", value: "In person in Gothenburg" },
+  { label: "Visit length", value: "40 minutes" },
   { label: "Price", value: "2,000 SEK – paid at the clinic on the day" },
-  { label: "Specialty", value: "Orthopedics" },
+  { label: "Specialty", value: "Orthopedics and spine surgery" },
   { label: "Experience", value: "More than 20 years of clinical experience" },
   { label: "Focus", value: "Back, neck, knee and nerve-related problems" },
   { label: "Patient type", value: "Self-paying" },
@@ -306,6 +307,28 @@ export default function EnglishOrthopedistGothenburgPage() {
             inLanguage: "en",
             isPartOf: { "@id": `${site.url}/#website` },
             publisher: { "@id": `${site.url}/#organization` },
+            about: { "@id": `${site.url}${PATH}#service` },
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "@id": `${site.url}${PATH}#service`,
+            name: "Private orthopedic visit in Gothenburg",
+            serviceType: "Private orthopedic visit in Gothenburg",
+            // Same as the Swedish page: the doctor with a published profile
+            // performs the visit. Price = the visible price on this page.
+            provider: { "@id": `${site.url}/lakare/masoud-sorkhabi#person` },
+            areaServed: { "@type": "City", name: "Gothenburg" },
+            url: `${site.url}${PATH}`,
+            description:
+              "In-person 40-minute visit with Dr. Masoud Sorkhabi, specialist in orthopedics and spine surgery, in Gothenburg. No referral needed for self-paying patients. Booked directly in the calendar and paid on site.",
+            offers: {
+              "@type": "Offer",
+              name: "Orthopedic visit, 40 minutes",
+              price: 2000,
+              priceCurrency: "SEK",
+              url: `${site.url}${PATH}`,
+            },
           },
           faqSchema(faqs),
         ]}

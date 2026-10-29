@@ -18,6 +18,7 @@ import {
   faqSchema,
   webPageSchema,
   citySpecialtyServiceSchema,
+  bookableServiceSchema,
 } from "@/lib/structured-data";
 import { PageVisual } from "@/components/PageVisual";
 import { getCitySpecialtyVisual, getVisualDimensions } from "@/lib/medical-visuals";
@@ -462,8 +463,20 @@ export default async function CitySpecialtyPage({
                   name: local.metaTitle ?? `${specialty.title} i ${city.name}`,
                   description: local.metaDescription ?? pairIntro,
                   primaryImage: visual.src,
+                  // Kopplar sidan till tjänsten med namngiven läkare (ortoped
+                  // Göteborg). Övriga sidor lämnas som de är.
+                  aboutId: local.service ? `${site.url}${path}#service` : undefined,
                 }),
-                citySpecialtyServiceSchema(specialty, city, path),
+                local.service
+                  ? bookableServiceSchema({
+                      path,
+                      name: local.service.name,
+                      description: local.service.description,
+                      areaServed: city.name,
+                      price: local.service.price,
+                      providerProfilePath: local.service.providerProfilePath,
+                    })
+                  : citySpecialtyServiceSchema(specialty, city, path),
               ]
             : []),
           ...(local?.faqs && local.faqs.length > 0 ? [faqSchema(local.faqs)] : []),

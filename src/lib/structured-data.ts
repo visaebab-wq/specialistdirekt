@@ -237,6 +237,8 @@ export function webPageSchema(opts: {
   description: string;
   primaryImage?: string;
   breadcrumbId?: string;
+  /** @id för det sidan handlar om, t.ex. sidans Service (`…#service`). */
+  aboutId?: string;
 }) {
   const url = abs(opts.path);
   return clean({
@@ -250,6 +252,48 @@ export function webPageSchema(opts: {
     isPartOf: { "@id": `${site.url}/#website` },
     publisher: { "@id": `${site.url}/#organization` },
     primaryImageOfPage: opts.primaryImage ? abs(opts.primaryImage) : undefined,
+    about: opts.aboutId ? { "@id": opts.aboutId } : undefined,
+  });
+}
+
+/**
+ * Service-schema för ett besök med egna tider och fast pris (ortoped i
+ * Göteborg). Läkaren är `provider` via sin publicerade profilsida. Priset måste
+ * vara samma siffra som syns på sidan – schema som inte motsvarar synligt
+ * innehåll är fel enligt Googles egna riktlinjer. Ingen adress, inga
+ * öppettider, ingen AggregateRating/Review.
+ */
+export function bookableServiceSchema(opts: {
+  path: string;
+  name: string;
+  description: string;
+  areaServed: string;
+  price?: { name: string; amount: number; currency: string };
+  providerProfilePath?: string;
+}) {
+  const url = abs(opts.path);
+  return clean({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${url}#service`,
+    name: opts.name,
+    description: opts.description,
+    serviceType: opts.name,
+    url,
+    areaServed: { "@type": "City", name: opts.areaServed },
+    provider: opts.providerProfilePath
+      ? { "@id": `${abs(opts.providerProfilePath)}#person` }
+      : { "@id": `${site.url}/#organization` },
+    audience: { "@type": "Patient" },
+    offers: opts.price
+      ? {
+          "@type": "Offer",
+          name: opts.price.name,
+          price: opts.price.amount,
+          priceCurrency: opts.price.currency,
+          url,
+        }
+      : undefined,
   });
 }
 
