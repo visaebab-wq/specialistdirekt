@@ -164,7 +164,7 @@ export const article: Article = {
       id: "orter",
       heading: "Privat kardiolog i Stockholm, Göteborg eller Malmö",
       body: [
-        "Många söker privat kardiolog i Stockholm, Göteborg eller Malmö efter återkommande bröstbesvär, hjärtklappning eller oro efter tidigare undersökning. Rätt mottagning beror inte bara på stad utan också på vilka symtom du har, om besvären är akuta eller icke-akuta, om du redan har EKG eller provsvar, om ultraljud/arbetsprov/långtids-EKG kan behövas och om du har sjukvårdsförsäkring.",
+        "Många söker privat kardiolog i Stockholm, Göteborg eller Malmö efter återkommande bröstbesvär, hjärtklappning eller oro efter tidigare undersökning. Rätt mottagning beror inte bara på stad utan också på vilka symtom du har, om besvären är akuta eller icke-akuta, om du redan har EKG eller provsvar, om ultraljud/arbetsprov/långtids-EKG kan behövas och om du har sjukvårdsförsäkring. Vi har också lokala sidor för enskilda orter, till exempel [kardiolog i Lund](/specialiteter/kardiolog/lund).",
       ],
     },
     {

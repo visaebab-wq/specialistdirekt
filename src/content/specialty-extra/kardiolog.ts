@@ -1,6 +1,15 @@
 import type { SpecialtyExtra } from "@/lib/specialty-extra-types";
 
 export const extra: SpecialtyExtra = {
+  // Framhävd ruta högst upp på navet. Innehåller ENBART uppgifter som redan är
+  // bekräftade och publicerade på /specialiteter/kardiolog/lund: pris, ort och
+  // utbud. Ingen läkare, ingen adress, inga remissregler – de är inte bekräftade.
+  featureBox: {
+    heading: "Privat kardiolog i Lund",
+    body: "I centrala Lund, vid Clemenstorget, finns privat kardiologbesök för 2 500 kr. I utbudet finns ultraljud av hjärtat, långtids-EKG, 24-timmars blodtrycksmätning och arbets-EKG.",
+    ctaLabel: "Privat kardiolog i Lund",
+    ctaHref: "/specialiteter/kardiolog/lund",
+  },
   sections: [
     {
       id: "vad-kardiologen-undersoker",

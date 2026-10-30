@@ -33,18 +33,59 @@ export type CitySpecialtyLocal = {
   /** Dölj det generiska "Specialistvård i {stad}"-blocket (låg information gain på prioriterade sidor). */
   hideCityIntro?: boolean;
   /**
+   * Rubrik för snabbfakta-rutan. Standard är "{Specialitet} i {Stad} – snabbfakta".
+   */
+  quickFactsHeading?: string;
+  /**
+   * Panel HÖGST UPP i hero, före sidans bild. På en kommersiell landningssida
+   * måste pris, plats, utbud och bokningsväg gå att läsa av direkt – snabbfakta
+   * ligger först i artikelspalten och hamnar därmed under bilden.
+   *
+   * Publicera ENDAST bekräftade uppgifter. Ett pris här är ett löfte.
+   */
+  hero?: {
+    /** Prisuppgift som ska synas direkt (t.ex. "Kardiologbesök" / "2 500 kr"). */
+    price?: { label: string; value: string; note?: string };
+    /** Kort utbudslista – vad som faktiskt går att göra på orten. */
+    highlights?: string[];
+    /** Primär CTA. href är ett ankare på sidan (t.ex. #tidsforfragan) eller en intern sökväg. */
+    cta?: { label: string; href: string; note?: string };
+  };
+  /**
    * Skannbar "svarsruta" högst upp på sidan (label → värde). Ger både besökare
    * och AI-svarssystem de viktigaste fakta på några sekunder. Publicera bara
    * verifierade uppgifter – utelämna okända fält (visa aldrig tomma etiketter).
    */
   quickFacts?: { label: string; value: string }[];
   /**
+   * CTA direkt under snabbfakta. Den som redan fått pris, plats och utbud
+   * bekräftat i rutan ska kunna gå vidare där – inte leta vidare nedåt. Mellan
+   * hero-CTA:n och den här ligger sidans bild, så de krockar inte.
+   */
+  quickFactsCta?: { label: string; href: string; note?: string };
+  /**
    * Röda flaggor / akutsymtom. Renderas tydligt men icke-alarmistiskt och alltid
    * FÖRE den första innehålls-CTA:n (patientsäkerhet på YMYL-sidor).
    */
   redFlag?: { heading: string; body: string; bullets: string[]; footnote?: string };
-  /** Fördjupande sektioner (renderas som <h2> + stycken/punktlista). */
-  sections: { id: string; heading: string; body: string[]; bullets?: string[] }[];
+  /**
+   * Fördjupande sektioner (renderas som <h2> + stycken/punktlista).
+   *
+   * subsections blir <h3> under sektionens <h2> – använd för utbud där varje
+   * undersökning behöver en egen, adresserbar rubrik.
+   * table renderas som en riktig <table> (t.ex. utbud eller prisrader). Skriv
+   * aldrig in ett pris som inte är bekräftat; använd en neutral rad i stället.
+   * cta lägger en knapp sist i sektionen (t.ex. efter pris).
+   */
+  sections: {
+    id: string;
+    heading: string;
+    body: string[];
+    bullets?: string[];
+    subsections?: { id: string; heading: string; body: string[]; bullets?: string[] }[];
+    table?: { caption?: string; columns: string[]; rows: string[][]; note?: string };
+    cta?: { label: string; href: string; note?: string };
+  }[];
   /**
    * Primär CTA-ruta i innehållsflödet. Länkar till formuläret via ankaret
    * #tidsforfragan. Använd för prioriterade konverteringssidor.
@@ -62,10 +103,10 @@ export type CitySpecialtyLocal = {
    */
   bookingCta?: { label: string; url: string; note?: string };
   /**
-   * Underlag för Service-schema för ett besök med egna tider (i praktiken
-   * ortoped i Göteborg). Speglar exakt det som syns på sidan. Ingen adress och
-   * inga öppettider – besöksadressen är inte publicerad på sajten. Läkaren blir
-   * `provider` via providerProfilePath när hans profilsida är publicerad.
+   * Underlag för Service-schema. Sätts bara när utbudet på orten är bekräftat
+   * och speglar exakt det som syns på sidan. Ingen adress och inga öppettider.
+   * Läkaren blir `provider` via providerProfilePath (vår egen läkare); annars
+   * står Specialistdirekt som `broker` för den icke namngivna mottagningen.
    * Utan detta fält får sidan det generiska informationsschemat.
    */
   service?: {
@@ -73,6 +114,8 @@ export type CitySpecialtyLocal = {
     name: string;
     description: string;
     price?: { name: string; amount: number; currency: string };
+    /** Undersökningar som finns på orten (namn utan pris). */
+    examinations?: string[];
     /** Profilsida för läkaren som utför besöket, t.ex. "/lakare/masoud-sorkhabi". */
     providerProfilePath?: string;
   };
@@ -103,4 +146,14 @@ export type City = {
    * Sätts bara för prioriterade sidor med hög lokal sökefterfrågan.
    */
   specialtyLocal?: Record<string, CitySpecialtyLocal>;
+  /**
+   * Vilka specialiteter som publiceras för DEN HÄR staden (delmängd av
+   * CITY_SPECIALTY_SLUGS). Utelämnat = alla, vilket gäller städerna som fanns
+   * innan fältet infördes.
+   *
+   * Finns för att en ny stad inte ska dra med sig sju tunna mallsidor bara för
+   * att en av kombinationerna är värd att publicera. Listan styr generering,
+   * sitemap OCH internlänkning – annars länkar sajten till sidor som 404:ar.
+   */
+  specialties?: readonly string[];
 };

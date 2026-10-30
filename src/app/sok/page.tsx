@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { articles } from "@/lib/articles";
 import { specialties } from "@/lib/specialties";
-import { cities, CITY_SPECIALTY_SLUGS } from "@/lib/cities";
+import { cities, publishesPair, CITY_SPECIALTY_SLUGS } from "@/lib/cities";
 import { singleSearchParam, type SearchParamValue } from "@/lib/search-params";
 
 export const metadata: Metadata = {
@@ -48,6 +48,8 @@ function buildIndex(): Hit[] {
     const sp = specialties.find((s) => s.slug === slug);
     if (!sp) continue;
     for (const c of cities) {
+      // Bara kombinationer som genereras – annars ger sökningen en 404-länk.
+      if (!publishesPair(c, slug)) continue;
       hits.push({
         title: `${sp.title} i ${c.name}`,
         url: `/specialiteter/${slug}/${c.slug}`,

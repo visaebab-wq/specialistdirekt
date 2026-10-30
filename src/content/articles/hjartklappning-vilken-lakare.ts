@@ -117,7 +117,7 @@ export const article: Article = {
       heading: "Privat alternativ och ungefärliga priser",
       body: [
         "Vill du slippa vänta kan du välja en **privat kardiolog**. Då betalar du själv eller via en sjukvårdsförsäkring, och du kan oftast boka utan remiss. Väntetiden är i regel kortare – från några dagar till ett par veckor – jämfört med den offentliga vården.",
-        "Priserna nedan är **ungefärliga** och **varierar** kraftigt mellan kliniker och orter. Ofta tillkommer undersökningar som långtidsregistrering eller ultraljud utöver själva läkarbesöket, så det är summan av delarna som avgör din slutkostnad. Be alltid kliniken om ett samlat pris innan du bokar. En djupare genomgång av kostnaderna finns i vår artikel om [privat kardiolog kostnad](/artiklar/privat-kardiolog-kostnad).",
+        "Priserna nedan är **ungefärliga** och **varierar** kraftigt mellan kliniker och orter. Ofta tillkommer undersökningar som långtidsregistrering eller ultraljud utöver själva läkarbesöket, så det är summan av delarna som avgör din slutkostnad. Be alltid kliniken om ett samlat pris innan du bokar. En djupare genomgång av kostnaderna finns i vår artikel om [privat kardiolog kostnad](/artiklar/privat-kardiolog-kostnad), och för enskilda orter finns lokala sidor som [kardiolog i Lund](/specialiteter/kardiolog/lund).",
       ],
       bullets: [
         "Nybesök hos en privat kardiolog: ungefär 2 000–4 000 kr",

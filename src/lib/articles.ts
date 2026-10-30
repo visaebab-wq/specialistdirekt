@@ -14,6 +14,9 @@ import { article as privatVsOffentlig } from "@/content/articles/privat-vard-vs-
 import { article as ortoped } from "@/content/articles/privat-ortoped-kostnad";
 import { article as gynekolog } from "@/content/articles/privat-gynekolog-boka";
 import { article as neurolog } from "@/content/articles/privat-neurolog-utredning";
+import { article as neurologUtanRemiss } from "@/content/articles/neurolog-utan-remiss";
+import { article as migranNeurolog } from "@/content/articles/migran-neurolog";
+import { article as tremorNeurolog } from "@/content/articles/tremor-skakningar-neurolog";
 import { article as graStarr } from "@/content/articles/gra-starr-operation-vantetid";
 import { article as ontIMagen } from "@/content/articles/ont-i-magen-vilken-lakare";
 import { article as ontIRyggen } from "@/content/articles/ont-i-ryggen-vilken-lakare";
@@ -96,6 +99,9 @@ export const articles: Article[] = [
   ortoped,
   gynekolog,
   neurolog,
+  neurologUtanRemiss,
+  migranNeurolog,
+  tremorNeurolog,
   graStarr,
   ontIMagen,
   ontIRyggen,

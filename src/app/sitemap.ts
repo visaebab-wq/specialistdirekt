@@ -3,7 +3,7 @@ import { site } from "@/lib/site";
 import { mainNav } from "@/lib/site";
 import { specialties } from "@/lib/specialties";
 import { articles } from "@/lib/articles";
-import { cities, CITY_SPECIALTY_SLUGS } from "@/lib/cities";
+import { citiesForSpecialty, CITY_SPECIALTY_SLUGS } from "@/lib/cities";
 
 // lastModified sätts ENDAST där vi har ett ärligt datum (artiklarnas `updated`).
 // Tidigare stämplades övriga URL:er med build-tidpunkten, vilket nollställdes vid
@@ -68,9 +68,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(a.updated),
   }));
 
-  // Lokala stadssidor (specialitet × stad).
+  // Lokala stadssidor (specialitet × stad). Alla städer publicerar inte alla
+  // specialiteter, och en sitemap som listar en sida som inte genereras pekar
+  // Google rakt in i en 404 – därför samma källa som genereringen använder.
   const cityPaths = CITY_SPECIALTY_SLUGS.flatMap((slug) =>
-    cities.map((c) => ({
+    citiesForSpecialty(slug).map((c) => ({
       path: `/specialiteter/${slug}/${c.slug}`,
       priority: 0.5,
       changeFrequency: "monthly" as const,

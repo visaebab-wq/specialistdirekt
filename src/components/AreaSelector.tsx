@@ -3,9 +3,14 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { specialties } from "@/lib/specialties";
-import { cities, CITY_SPECIALTY_SLUGS } from "@/lib/cities";
+import { cities, publishesPair } from "@/lib/cities";
 
-const citySpecialties = new Set<string>(CITY_SPECIALTY_SLUGS);
+// Bara kombinationer som faktiskt genereras – annars hamnar besökaren på en 404
+// (t.ex. Lund, som bara publicerar kardiologi).
+function hasCityPage(specialty: string, city: string): boolean {
+  const c = cities.find((x) => x.slug === city);
+  return Boolean(c && publishesPair(c, specialty));
+}
 
 const selectClass =
   "w-full rounded-xl border border-ink-500 bg-white/95 px-4 py-3 text-ink-900 shadow-sm transition focus:border-brand-700 focus:ring-2 focus:ring-brand-200 focus:outline-none";
@@ -16,7 +21,7 @@ export function AreaSelector() {
   const [city, setCity] = useState("");
 
   function go() {
-    if (specialty && city && citySpecialties.has(specialty)) {
+    if (specialty && city && hasCityPage(specialty, city)) {
       router.push(`/specialiteter/${specialty}/${city}`);
     } else if (specialty) {
       router.push(`/specialiteter/${specialty}`);
@@ -74,7 +79,7 @@ export function AreaSelector() {
           >
             Visa tillgängliga mottagningar
           </button>
-          {specialty && city && !citySpecialties.has(specialty) && (
+          {specialty && city && !hasCityPage(specialty, city) && (
             <p className="mt-2 text-sm text-ink-500">
               Stadsval finns ännu inte för denna specialitet – vi visar specialitetssidan.
             </p>

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getSpecialty, specialties } from "@/lib/specialties";
 import { articlesForSpecialty, groupArticlesByCluster } from "@/lib/articles";
-import { cities, hasCityPages } from "@/lib/cities";
+import { citiesForSpecialty, hasCityPages } from "@/lib/cities";
 import { getSpecialtyExtra } from "@/lib/specialty-extra";
 import { site } from "@/lib/site";
 import { BookingCtaBanner } from "@/components/BookingCtaBanner";
@@ -84,7 +84,10 @@ export default async function SpecialtyPage({
   const { clusters: articleClusters, rest: otherArticles } = groupArticlesByCluster(
     articlesForSpecialty(specialty.slug),
   );
-  const showCities = hasCityPages(specialty.slug);
+  // Bara städer som faktiskt publicerar specialiteten – annars länkar navet
+  // till sidor som inte genereras.
+  const cityLinks = citiesForSpecialty(specialty.slug);
+  const showCities = hasCityPages(specialty.slug) && cityLinks.length > 0;
   const extra = getSpecialtyExtra(specialty.slug);
   const visual = getSpecialtyVisual(specialty);
 
@@ -208,7 +211,7 @@ export default async function SpecialtyPage({
                   Hitta en {specialty.title.toLowerCase()} i din stad
                 </h2>
                 <div className="mt-4 flex flex-wrap gap-3">
-                  {cities.map((c) => (
+                  {cityLinks.map((c) => (
                     <Link
                       key={c.slug}
                       href={`/specialiteter/${specialty.slug}/${c.slug}`}

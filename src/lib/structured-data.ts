@@ -257,18 +257,26 @@ export function webPageSchema(opts: {
 }
 
 /**
- * Service-schema för ett besök med egna tider och fast pris (ortoped i
- * Göteborg). Läkaren är `provider` via sin publicerade profilsida. Priset måste
- * vara samma siffra som syns på sidan – schema som inte motsvarar synligt
- * innehåll är fel enligt Googles egna riktlinjer. Ingen adress, inga
+ * Service-schema för en lokal tjänstesida med bekräftat utbud (ortoped i
+ * Göteborg, kardiolog i Lund).
+ *
+ *  - Med `providerProfilePath` (vår egen läkare, publicerad profilsida) är
+ *    läkaren `provider`.
+ *  - Utan den är mottagningen inte namngiven, och Specialistdirekt står som
+ *    `broker` – aldrig som provider för någon annans mottagning.
+ *
+ * Priset måste vara samma siffra som syns på sidan – schema som inte motsvarar
+ * synligt innehåll är fel enligt Googles egna riktlinjer. Ingen adress, inga
  * öppettider, ingen AggregateRating/Review.
  */
-export function bookableServiceSchema(opts: {
+export function localServiceSchema(opts: {
   path: string;
   name: string;
   description: string;
   areaServed: string;
   price?: { name: string; amount: number; currency: string };
+  /** Undersökningar som finns på orten – namn utan pris. */
+  examinations?: string[];
   providerProfilePath?: string;
 }) {
   const url = abs(opts.path);
@@ -283,7 +291,8 @@ export function bookableServiceSchema(opts: {
     areaServed: { "@type": "City", name: opts.areaServed },
     provider: opts.providerProfilePath
       ? { "@id": `${abs(opts.providerProfilePath)}#person` }
-      : { "@id": `${site.url}/#organization` },
+      : undefined,
+    broker: opts.providerProfilePath ? undefined : { "@id": `${site.url}/#organization` },
     audience: { "@type": "Patient" },
     offers: opts.price
       ? {
@@ -294,6 +303,19 @@ export function bookableServiceSchema(opts: {
           url,
         }
       : undefined,
+    hasOfferCatalog:
+      opts.examinations && opts.examinations.length > 0
+        ? {
+            "@type": "OfferCatalog",
+            name: `Undersökningar i ${opts.areaServed}`,
+            // Utan pris: vilka undersökningar som finns är bekräftat, vad de
+            // kostar är det inte. Ett Offer utan `price` påstår ingen summa.
+            itemListElement: opts.examinations.map((name) => ({
+              "@type": "Offer",
+              itemOffered: { "@type": "MedicalTest", name },
+            })),
+          }
+        : undefined,
   });
 }
 

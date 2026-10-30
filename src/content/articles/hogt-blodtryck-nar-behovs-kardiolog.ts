@@ -83,7 +83,7 @@ export const article: Article = {
       heading: "Privat kardiolog och väg in",
       body: [
         "Vill du ha en snabbare specialistbedömning kan en **privat kardiolog** vara ett alternativ. Som självbetalande kan du ofta vända dig till en privat mottagning mer direkt, medan regionfinansierad vård vanligtvis går via en remiss från vårdcentralen och en sjukvårdsförsäkring hanteras via försäkringsbolaget. Vad som gäller varierar mellan mottagningar.",
-        "Läs mer om specialisten och de vanligaste hjärtundersökningarna på vår sida om [privat kardiolog](/specialiteter/kardiolog), och om vad en bedömning kan kosta i guiden [privat kardiolog: kostnad](/artiklar/privat-kardiolog-kostnad).",
+        "Läs mer om specialisten och de vanligaste hjärtundersökningarna på vår sida om [privat kardiolog](/specialiteter/kardiolog), och om vad en bedömning kan kosta i guiden [privat kardiolog: kostnad](/artiklar/privat-kardiolog-kostnad). På enskilda orter finns lokala sidor, till exempel [kardiolog i Lund](/specialiteter/kardiolog/lund).",
       ],
     },
     {

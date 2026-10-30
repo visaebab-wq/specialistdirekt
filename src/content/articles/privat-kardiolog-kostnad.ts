@@ -203,7 +203,7 @@ export const article: Article = {
       id: "orter",
       heading: "Privat kardiolog i Stockholm, Göteborg eller Malmö",
       body: [
-        "Många söker privat kardiolog i större städer som Stockholm, Göteborg och Malmö. Vi har även lokala sidor för andra orter, till exempel [kardiolog i Örebro](/specialiteter/kardiolog/orebro) och [kardiolog i Linköping](/specialiteter/kardiolog/linkoping). För att hitta rätt mottagning kan du gärna ange:",
+        "Många söker privat kardiolog i större städer som Stockholm, Göteborg och Malmö. Vi har även lokala sidor för andra orter, till exempel [kardiolog i Lund](/specialiteter/kardiolog/lund), [kardiolog i Örebro](/specialiteter/kardiolog/orebro) och [kardiolog i Linköping](/specialiteter/kardiolog/linkoping). För att hitta rätt mottagning kan du gärna ange:",
       ],
       bullets: [
         "vilken stad du föredrar",
