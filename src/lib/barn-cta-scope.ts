@@ -22,6 +22,7 @@ export const BARN_SYMPTOM_SLUGS = [
   "ont-i-hoften-hos-barn",
   "plattfot-hos-barn",
   "ryggont-hos-barn",
+  "vaxtvark-hos-barn",
   "ont-i-halen-hos-barn",
   "skolios-hos-barn",
 ] as const;
