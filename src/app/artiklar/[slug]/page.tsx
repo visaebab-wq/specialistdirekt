@@ -14,6 +14,7 @@ import { getArticleVisual, getArticleVisuals, getVisualDimensions } from "@/lib/
 import { medicalReviewerFor } from "@/lib/medical-reviewer";
 import { RecoTrust } from "@/components/RecoTrust";
 import { BarnBookingCta } from "@/components/BarnBookingCta";
+import { BookingCtaBanner } from "@/components/BookingCtaBanner";
 import { RelatedSpecialties } from "@/components/RelatedSpecialties";
 import { isBarnArticle, BARN_NAV_SLUG } from "@/lib/barn-cta-scope";
 
@@ -173,8 +174,26 @@ export default async function ArticlePage({
           <div key={sub.id} id={sub.id} className="mt-8 scroll-mt-24">
             <h3 className="text-xl font-bold text-ink-900">{sub.heading}</h3>
             <Prose paragraphs={sub.body} />
+            {sub.bullets && sub.bullets.length > 0 && (
+              <ul className="mt-3 space-y-2">
+                {sub.bullets.map((b, i) => (
+                  <li key={i} className="flex gap-3 text-ink-700">
+                    <span
+                      aria-hidden
+                      className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-100 text-xs text-brand-700"
+                    >
+                      ✓
+                    </span>
+                    <span>{renderInline(b)}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         ))}
+        {section.bookingCard && (
+          <BookingCtaBanner href={section.bookingCard.href} label={section.bookingCard.label} />
+        )}
         {section.bodyAfter && section.bodyAfter.length > 0 && <Prose paragraphs={section.bodyAfter} />}
         {inlineVisual && (
           <figure className="article-inline-visual mt-8">
@@ -295,9 +314,12 @@ export default async function ArticlePage({
 
         {/* Sektioner som ska synas direkt (t.ex. pris och bokning), före
             innehållsförteckningen. */}
-        {leadSections.length > 0 && (
+        {(leadSections.length > 0 || article.leadIntro) && (
           <div className="article-body readable-card mb-10 p-6 sm:p-8">
-            {leadSections.map((section) => renderSection(section, -1, true))}
+            {article.leadIntro && <Prose paragraphs={article.intro} />}
+            {leadSections.map((section, i) =>
+              renderSection(section, -1, i === 0 && !article.leadIntro),
+            )}
           </div>
         )}
 
@@ -321,7 +343,7 @@ export default async function ArticlePage({
         )}
 
         <article className="article-body readable-card p-6 sm:p-8">
-          <Prose paragraphs={article.intro} />
+          {!article.leadIntro && <Prose paragraphs={article.intro} />}
 
           {bodySections.map((section, sectionIndex) => renderSection(section, sectionIndex))}
 

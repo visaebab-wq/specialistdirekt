@@ -1,11 +1,25 @@
 import type { Article } from "@/lib/articles-types";
+import {
+  BOOKING_PRICE_SEK,
+  BOOKING_SLOT_MINUTES,
+  BOOKING_WEEKDAYS,
+  formatPrice,
+} from "@/lib/booking-slots";
+
+// Text skriven av ägaren 2026-10-31. Den här artikeln äger frågan "vilken läkare
+// vid ryggont?"; ryggsmarta-ortoped-eller-fysioterapeut ska inte upprepa den.
+// Pris och besökslängd kommer från bokningens egna konstanter, och
+// lördagsfrågan visas bara så länge kalendern tar emot på lördagar (6).
+const PRIS = `${formatPrice(BOOKING_PRICE_SEK)} kr`;
+const MIN = `${BOOKING_SLOT_MINUTES} minuter`;
+const LORDAG = BOOKING_WEEKDAYS.includes(6);
 
 export const article: Article = {
   slug: "ont-i-ryggen-vilken-lakare",
   title: "Ont i ryggen – vilken läkare ska jag söka?",
-  metaTitle: "Ont i ryggen – vilken läkare? Vårdcentral, ortoped & mer",
+  metaTitle: "Ont i ryggen – vilken läkare ska jag söka?",
   metaDescription:
-    "Ont i ryggen och osäker på vilken läkare du ska söka? Så väljer du mellan vårdcentral, ortoped, fysioterapeut och neurolog – plus varningstecken och priser.",
+    "Vårdcentral, fysioterapeut eller ortoped vid ryggont? Läs hur du väljer vård och när det är bråttom. Boka ortoped i Göteborg utan remiss.",
   category: "Ortopedi",
   primaryKeyword: "ont i ryggen vilken läkare",
   keywords: [
@@ -19,158 +33,260 @@ export const article: Article = {
     "långvarig ryggsmärta",
   ],
   excerpt:
-    "Ont i ryggen men osäker på vart du ska vända dig? Så väljer du mellan vårdcentral, ortoped, fysioterapeut och neurolog – med varningstecken och vägen till specialist.",
+    "Vårdcentral, fysioterapeut eller ortoped vid ryggont? Läs hur du väljer vård och när det är bråttom. Boka ortoped i Göteborg utan remiss.",
   published: "2026-06-08",
-  updated: "2026-06-08",
-  readMinutes: 7,
-  wordCount: 1481,
+  updated: "2026-10-31",
+  readMinutes: 9,
+  wordCount: 1500,
   relatedSpecialty: "ortoped",
-  summary: [
-    "Vid ryggont är **vårdcentralen** oftast rätt första kontakt; vid muskulära besvär som kommit gradvis är en **fysioterapeut** ofta rätt.",
-    "Vid uttalade besvär, misstänkt diskbråck eller utstrålande smärta blir en ortoped aktuell, och vid tydliga nervsymtom ibland en neurolog.",
-    "Varningssignal: sök vård akut vid plötsliga problem att kissa eller hålla tätt, domningar i ridbyxområdet, eller ryggsmärta med feber.",
-    "[Specialistdirekt](/kontakt) hjälper dig hitta rätt specialist och skicka en bokningsförfrågan.",
-  ],
-  suitableFor: [
-    "har haft ryggont i flera veckor utan förbättring",
-    "vill veta om fysioterapeut, ortoped eller neurolog är rätt",
-    "vill slippa lång väntetid till en specialist",
-    "har utstrålande smärta eller domningar i ben eller arm",
-  ],
+  // Ny text 2026-10-31. Byline och reviewedBy visas först när läkaren har
+  // granskat just den här versionen – en tidigare granskning gäller inte den.
+  medicallyReviewed: false,
+  // Sidans topp: ingress → när du ska söka vård direkt → vårdkontakter →
+  // bokningskort. Innehållsförteckningen kommer efter (ägarens ordning).
+  leadIntro: true,
   intro: [
-    "Ryggont är ett av de allra vanligaste skälen till att söka vård, och de flesta drabbas någon gång i livet. Ändå är det långtifrån självklart vart man ska vända sig. Ska du boka tid på vårdcentralen, gå till en **fysioterapeut**, söka en **ortoped** eller behöver du kanske en **neurolog**? Svaret beror på var det gör ont, hur länge besvären hållit i sig och om det finns några varningstecken. Den här guiden går igenom **ont i ryggen – vilken läkare** som passar bäst i olika lägen.",
-    "Ryggen är en komplex konstruktion av kotor, diskar, leder, muskler och nerver, och smärtan kan komma från flera av dessa. Eftersom orsakerna är så olika spelar det roll var du börjar – rätt första steg sparar både tid och onödiga undersökningar.",
-    "Den här artikeln ger ingen diagnos och ersätter inte en läkarbedömning. Den hjälper dig att förstå vem som gör vad, när det är värt att söka specialist och hur du tar dig dit – med eller utan remiss.",
+    "**Vid ryggont är vårdcentral eller fysioterapeut ofta första steget. En ortopedisk bedömning kan bli aktuell när besvären behöver utredas vidare, exempelvis efter behandling som inte hjälpt tillräckligt eller inför ställningstagande till operation. Vissa symtom kräver vård direkt.**",
+    "Det avgörande är hur besvären påverkar dig, hur de har utvecklats och vad som redan har undersökts. Här får du hjälp att välja nästa steg och förbereda ett besök.",
   ],
   sections: [
     {
-      id: "vart-borjar-jag",
-      heading: "Vart börjar jag – vårdcentral, ortoped, fysioterapeut eller naprapat?",
-      body: [
-        "För de allra flesta är **vårdcentralen** en bra första kontakt vid ryggont. Allmänläkaren gör en första bedömning, undersöker ryggen, utesluter allvarliga orsaker och kan skriva remiss vidare om det behövs. Det är ofta den smidigaste vägen om du är osäker på vad besvären beror på.",
-        "En **fysioterapeut** (sjukgymnast) är ofta rätt om smärtan kommit gradvis eller sitter i musklerna, till exempel efter tungt lyft, dålig arbetsställning eller stillasittande. Du kan i många regioner boka fysioterapeut direkt utan remiss, och en stor del av all ryggsmärta blir bättre med rätt övningar, rörelse och belastningsråd. En **naprapat** eller kiropraktor arbetar också med rygg och muskler, men deras behandlingar ingår vanligen inte i den offentliga vården.",
-        "En **ortoped** är specialistläkare på rörelseapparaten och blir aktuell vid uttalade besvär, misstänkt diskbråck, utstrålande smärta eller besvär som inte ger med sig trots behandling. Ortopeden bedömer behov av röntgen, magnetkamera (MR) eller eventuellt ingrepp. Läs mer om vad specialiteten omfattar på vår sida om [ortoped](/specialiteter/ortoped). Bor du i Göteborgsområdet kan du boka tid hos en [ortoped i Göteborg utan remiss](/specialiteter/ortoped/goteborg).",
-      ],
-      bullets: [
-        "Vårdcentral: första bedömning och eventuell remiss vidare",
-        "Fysioterapeut: rörelse, övningar och belastningsråd",
-        "Naprapat/kiropraktor: muskel- och ledbehandling (oftast privat)",
-        "Ortoped: utredning av uttalade besvär, bilddiagnostik och ingrepp",
-      ],
-    },
-    {
-      id: "nar-neurolog",
-      heading: "När kan en neurolog vara aktuell?",
-      body: [
-        "De flesta ryggbesvär handlar om muskler, leder och diskar och kräver ingen **neurolog**. Men när ryggsmärtan följs av tydliga nervsymtom kan en neurologisk bedömning bli aktuell. Det gäller särskilt om du har **utstrålande smärta** ner i ben eller arm tillsammans med domningar, stickningar eller kraftnedsättning som inte förklaras av en enkel muskelspänning.",
-        "En neurolog är specialist på nervsystemet och bedömer hur nerverna fungerar, ibland med kompletterande undersökningar. Vägen dit går oftast via vårdcentral eller ortoped, som först gör en bedömning och remitterar vidare vid behov. Du kan läsa mer om vad specialiteten omfattar på vår sida om [neurolog](/specialiteter/neurolog).",
-      ],
-    },
-    {
-      id: "vanliga-orsaker",
-      heading: "Vanliga orsaker till ryggont",
-      body: [
-        "Ryggont har många ansikten. Var det gör ont, om smärtan strålar ut och vad som utlöser besvären ger ledtrådar om orsaken. Här är några av de vanligaste förklaringarna, beskrivna på vardagligt språk – inte som en diagnos.",
-        "**Muskulär ryggsmärta** är den klart vanligaste formen och beror ofta på överbelastning, ett snett lyft, stillasittande eller spänningar. Den känns gärna som en värk eller stelhet i ländryggen och brukar lindras av rörelse och tid. **Diskbråck** uppstår när en disk mellan kotorna buktar ut och kan trycka på en nerv, vilket kan ge utstrålande smärta. **Ischias** är ett vardagsord för smärta som strålar från ländryggen ner i skinka och ben längs ischiasnerven, ibland med domningar.",
-        "**Långvarig ländryggssmärta** är besvär som hållit i sig i flera månader. Orsaken är ofta sammansatt och behandlingen handlar mer om att gradvis öka rörelse och funktion än om att hitta en enda förklaring. Här spelar fysioterapi och en plan för vardagen ofta en central roll.",
-      ],
-      bullets: [
-        "Muskulär ryggsmärta – värk och stelhet, ofta efter belastning",
-        "Diskbråck – disk som trycker på nerv, kan ge utstrålning",
-        "Ischias – utstrålande smärta i skinka och ben",
-        "Långvarig ländryggssmärta – besvär över flera månader",
-      ],
-    },
-    {
       id: "varningstecken",
-      heading: "Varningstecken som bör utredas snabbt",
+      heading: "När ska du söka vård direkt?",
+      beforeToc: true,
       body: [
-        "De flesta ryggbesvär är inte farliga och läker med tid och rätt rörelse. Men vissa tecken bör tas på allvar och föranleda en snar läkarbedömning snarare än egenvård. Om något av nedanstående stämmer in är det klokt att **söka vård** och låta en läkare avgöra hur ryggen ska utredas.",
-        "Vid plötsliga svårigheter att kissa eller bajsa, eller domningar i ridbyxområdet (kring underliv och insida lår) tillsammans med ryggsmärta, ska du **söka vård akut** – ring 1177 för rådgivning eller uppsök akutmottagning. Vänta inte ut symtom som snabbt försämras. Den här listan är inte heltäckande och ersätter inte en läkares bedömning.",
+        "Sök vård direkt på vårdcentral eller jouröppen mottagning om du har ryggont tillsammans med något av följande:",
       ],
+      bulletTone: "warning",
       bullets: [
-        "Utstrålande smärta med domningar eller svaghet i ben eller fot",
-        "Plötsliga problem att kissa eller hålla tätt – sök vård akut",
-        "Domningar kring underliv och insida lår (ridbyxområdet)",
-        "Ryggsmärta tillsammans med feber eller oförklarlig viktnedgång",
-        "Kraftig smärta efter fall eller olycka, eller smärta som snabbt försämras",
+        "Du känner inte när du behöver kissa eller har nytillkommet urinläckage.",
+        "Du har nedsatt känsel kring könsorganen eller ändtarmen.",
+        "Du har domningar, stickningar eller svaghet i båda benen.",
+        "Smärtan började efter ett fall eller en annan olycka.",
+        "Du har samtidig smärta i bröstkorgen eller magen.",
+        "Du har feber eller känner dig tydligt sjuk.",
+      ],
+      bodyAfter: [
+        "Om mottagningarna är stängda eller inte kan ta emot dig, sök akutmottagning. Ring 1177 om du behöver hjälp att välja vårdnivå. Vid ett livshotande tillstånd, ring 112.",
+        "**Vänta inte på en bokad privat tid vid sådana symtom.**",
       ],
     },
     {
-      id: "vagen-till-specialist",
-      heading: "Vägen till specialist – remiss eller egenremiss",
-      body: [
-        "I den **offentliga** vården går vägen till ortoped eller neurolog oftast via en remiss. Vårdcentralens läkare gör en första bedömning och skriver remiss om besvären motiverar specialistutredning. Du betalar då vanlig patientavgift och omfattas av högkostnadsskyddet, men väntetiden varierar beroende på trycket i din region.",
-        "I många regioner kan du även skriva en **egenremiss** – det vill säga själv beskriva dina besvär och be om en specialistbedömning utan att först gå via läkare. Hur det fungerar och vilka regler som gäller skiljer sig mellan regioner. Vi har en separat genomgång om att [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
-        "Är du osäker på hur du skiljer på olika typer av besvär kan vår guide om [vilken läkare du söker vid knäsmärta](/artiklar/vilken-lakare-knasmarta) ge en jämförelse på liknande sätt som denna.",
+      id: "vart-borjar-jag",
+      heading: "Vilken vårdkontakt passar vid ryggont?",
+      beforeToc: true,
+      body: [],
+      table: {
+        columns: ["Vårdkontakt", "Vad kontakten kan hjälpa dig med"],
+        rows: [
+          ["Vårdcentral", "En första läkarbedömning och ställningstagande till fortsatt utredning."],
+          ["Fysioterapeut", "Bedömning av rörelse och funktion samt individuellt anpassad rehabilitering."],
+          ["Ortoped", "Specialistbedömning när det finns en ortopedisk frågeställning som behöver utredas vidare."],
+        ],
+      },
+      bodyAfter: [
+        "Kontakta vårdcentral om ryggvärken inte går över inom två till tre veckor. Sök tidigare om du försämras eller får varningssymtom.",
       ],
     },
     {
       id: "privat-alternativ",
-      heading: "Privat alternativ och ungefärliga priser",
+      heading: "Planerat ortopedbesök i Göteborg",
+      beforeToc: true,
       body: [
-        "Vill du slippa vänta kan du välja en **privat ortoped** eller annan specialist. Då betalar du själv eller via en sjukvårdsförsäkring, och du kan oftast boka utan remiss. Väntetiden är i regel kortare – från några dagar till ett par veckor – jämfört med den offentliga vården.",
-        "Priserna nedan är **ungefärliga** och **varierar** kraftigt mellan kliniker och orter. Ofta tillkommer bilddiagnostik utöver själva läkarbesöket, så det är summan av delarna som avgör din slutkostnad. Be alltid kliniken om ett samlat pris innan du bokar.",
+        "Vill du boka en ortopedisk bedömning av dina ryggbesvär? Hos oss träffar du **Dr. Masoud Sorkhabi i Göteborg**.",
       ],
       bullets: [
-        "Nybesök hos en privat ortoped: ungefär 1 500–3 500 kr",
-        "Nybesök hos en privat neurolog: ungefär 2 000–4 000 kr",
-        "Magnetkamera (MR) av ryggen: ungefär 3 000–6 000 kr",
-        "Besök hos fysioterapeut eller naprapat: ungefär 500–1 200 kr per gång",
+        `**Pris:** ${PRIS}.`,
+        `**Avsatt besökstid:** ${MIN}.`,
+        "**Remiss:** behövs inte.",
+        "**Bokning:** välj en ledig tid direkt i kalendern.",
+      ],
+      bookingCard: { label: "Se lediga tider och boka ortopedbesök", href: "/boka-tid" },
+      bodyAfter: [
+        "Läs mer om läkaren och besöket på sidan om [ortoped i Göteborg](/specialiteter/ortoped/goteborg). Bokningen gäller ett planerat besök, inte akutvård.",
       ],
     },
     {
-      id: "specialistdirekt",
-      heading: "Så hjälper Specialistdirekt dig vidare",
+      id: "nar-ortopedisk-bedomning",
+      heading: "När är en ortopedisk bedömning relevant?",
       body: [
-        "Specialistdirekt är en **kostnadsfri** boknings- och informationstjänst. Du beskriver kort dina ryggbesvär och skickar en förfrågan. Vi återkommer med besked om hur du kan gå vidare. Vi ställer inga diagnoser och ger ingen medicinsk rådgivning; via Specialistdirekt kan du skicka en förfrågan om en privat mottagning och få besked om tid och pris.",
-        "Vill du veta exakt hur tjänsten fungerar steg för steg kan du läsa [så fungerar det](/sa-fungerar-det). Är du redo att komma vidare, fyll i en förfrågan via [kontaktsidan](/kontakt) så återkommer vi med förslag på lämplig specialist.",
-        "Kom ihåg att priserna i den här guiden är ungefärliga och kan ha ändrats. Det säkraste är alltid att be den aktuella kliniken om ett bekräftat pris innan du bokar. Och vid varningstecken som beskrivs ovan – sök vård i stället för att vänta.",
+        "En ortopedisk bedömning är mest användbar när det finns en tydlig fråga att ta ställning till. Det kan handla om att klargöra om fortsatt ortopedisk utredning är motiverad eller om ett kirurgiskt behandlingsalternativ behöver övervägas.",
+        "Inför bokningen kan du formulera vad du behöver hjälp med:",
+      ],
+      bullets: [
+        "Besvären fortsätter trots att jag har följt en behandlingsplan. Vad är nästa steg?",
+        "Jag har redan undersökts, men behöver förstå hur resultatet påverkar fortsatt behandling.",
+        "Min läkare eller fysioterapeut har rekommenderat en specialistbedömning.",
+        "Jag vill få bedömt om mina besvär hör till ortopedins område.",
+      ],
+      bodyAfter: [
+        "Att du bokar en ortoped innebär inte att operation behövs. Besöket innebär inte heller en garanti för MR, en viss behandling eller en säker förklaring till all smärta.",
+        "Om du är osäker på om mottagningen passar din frågeställning kan du [kontakta oss före bokning](/kontakt).",
+      ],
+    },
+    {
+      id: "efter-fysioterapeut",
+      heading: "Jag har redan gått hos fysioterapeut – vad ska jag ta med?",
+      body: [
+        "Beskriv vad rehabiliteringen har bestått av och hur du har reagerat på den. ”Jag har provat träning” ger mindre information än en kort sammanfattning av övningar, tidsperiod och resultat.",
+        "Anteckna gärna:",
+      ],
+      table: {
+        columns: ["Fråga", "Exempel på information att ta med"],
+        rows: [
+          ["Vad har du gjort?", "Övningar, behandlingar och förändringar i aktivitet."],
+          ["Under hur lång tid?", "När du började och hur regelbundet du följt planen."],
+          ["Vad har blivit bättre?", "Exempelvis gångsträcka, sömn eller möjlighet att arbeta."],
+          ["Vad är fortfarande svårt?", "Konkreta rörelser eller aktiviteter som begränsas."],
+          ["Vad har förändrats?", "Nya symtom eller en tydlig försämring."],
+        ],
+      },
+      bodyAfter: ["Syftet är att nästa bedömning ska bygga vidare på det som redan är gjort."],
+    },
+    {
+      id: "mr-fore-besok",
+      heading: "Behöver jag göra MR innan jag träffar läkaren?",
+      body: [
+        "**Nej, du behöver inte ordna en MR på egen hand för att boka besöket.** Behovet av bilddiagnostik avgörs utifrån symtom och undersökning. Vid kortvariga ryggbesvär behövs bilddiagnostik ofta inte.",
+        "Om du redan har gjort MR eller röntgen, ta med utlåtandet och kontrollera hur bilderna kan göras tillgängliga. Utlåtandet och själva bilderna är två olika underlag.",
+        "Fråga läkaren:",
+      ],
+      bullets: [
+        "Vilken fråga skulle en ny undersökning besvara?",
+        "Skulle resultatet kunna ändra behandlingsplanen?",
+        "Räcker de undersökningar som redan finns?",
+        "Var sker undersökningen och vilka kostnader gäller?",
+      ],
+      bodyAfter: [
+        "Räkna inte med att bilddiagnostik ingår i priset för läkarbesöket. Be om ett kostnadsbesked om ytterligare undersökningar föreslås.",
+      ],
+    },
+    {
+      id: "utstralande-smarta",
+      heading: "Om smärtan strålar ner i benet",
+      body: [
+        "Utstrålande smärta, domningar eller stickningar kan förekomma vid diskbråck. Symtomen behöver bedömas tillsammans med undersökningsfynd; utstrålning räcker inte för att själv ställa diagnosen.",
+        "Vid misstänkt diskbråck kan läkaren bland annat undersöka styrka, känsel och reflexer. Många blir bättre utan operation, och behandlingen kan omfatta rörelse, fysioterapi och smärtlindring.",
+        "Kontakta vårdcentral om du har mycket ont trots smärtstillande behandling eller om besvären inte förbättras. Nytillkomna problem med blåsa eller tarm, eller nedsatt känsel i underlivet, kräver omedelbar vårdkontakt.",
+      ],
+    },
+    {
+      id: "forbered-besok-rygg",
+      heading: "Så förbereder du ett besök för ryggbesvär",
+      body: [
+        "En kort sammanfattning gör det lättare att använda besökstiden till det som är viktigast för dig.",
+      ],
+      subsections: [
+        {
+          id: "hur-det-borjade",
+          heading: "Beskriv hur det började",
+          body: [
+            "När kom besvären? Började de plötsligt eller gradvis? Har du haft liknande problem tidigare?",
+          ],
+        },
+        {
+          id: "vad-du-inte-kan-gora",
+          heading: "Beskriv vad du inte kan göra som vanligt",
+          body: [
+            "Skriv exempelvis hur länge du kan sitta, gå eller stå. Berätta om sömnen eller arbetet påverkas.",
+          ],
+        },
+        {
+          id: "tidigare-underlag",
+          heading: "Samla tidigare underlag",
+          body: [
+            "Ta med relevanta journalutdrag, undersökningssvar och en aktuell läkemedelslista. Anteckna tidigare behandlingar och eventuella operationer.",
+          ],
+        },
+        {
+          id: "viktigaste-fragor",
+          heading: "Välj dina viktigaste frågor",
+          body: ["Det kan vara:"],
+          bullets: [
+            "Vad behöver undersökas vidare?",
+            "Vilken behandling är rimlig att börja med eller fortsätta med?",
+            "Hur ska förbättring följas upp?",
+            "Vem kontaktar jag om besvären förändras?",
+          ],
+        },
+      ],
+      bodyAfter: ["Du behöver inte själv veta vilken diagnos du har för att söka hjälp."],
+    },
+    {
+      id: "vagen-till-specialist",
+      heading: "Vad kostar besöket och behövs remiss?",
+      body: [
+        `Ett ortopedbesök hos Dr. Masoud Sorkhabi i Göteborg kostar **${PRIS}**, med **${MIN} avsatt tid**. Du bokar utan remiss.`,
+        "Om fortsatt utredning, behandling eller återbesök blir aktuellt behöver du få separat information om innehåll och kostnad.",
+        "Läs mer om [kostnaden för privat ortoped](/artiklar/privat-ortoped-kostnad) eller [hur du bokar ortoped utan remiss](/artiklar/ortoped-utan-remiss).",
+        "[Se aktuella tider i kalendern](/boka-tid)",
+      ],
+    },
+    {
+      id: "fragor-innan-besoket-avslutas",
+      heading: "Frågor att få besvarade innan besöket avslutas",
+      body: [
+        "Försök lämna besöket med en tydlig bild av nästa steg, även om utredningen inte är färdig.",
+      ],
+      ordered: true,
+      bullets: [
+        "Vad visar bedömningen hittills?",
+        "Vad är fortfarande osäkert?",
+        "Behövs fler undersökningar?",
+        "Vilken plan gäller nu?",
+        "När och av vem ska planen följas upp?",
+        "Vilka förändringar innebär att jag ska söka vård tidigare?",
+      ],
+      bodyAfter: [
+        "Be om en förklaring om något är oklart. Det är särskilt värdefullt att veta vem som ansvarar för fortsatt kontakt om flera mottagningar är inblandade.",
       ],
     },
   ],
-  sources: [
-    {
-      label: "Ont i ryggen",
-      url: "https://www.1177.se/sjukdomar--besvar/skelett-leder-och-muskler/rygg-och-nacke/ont-i-ryggen/",
-      publisher: "1177 Vårdguiden",
-    },
-    {
-      label: "Diskbråck",
-      url: "https://www.1177.se/sjukdomar--besvar/skelett-leder-och-muskler/rygg-och-nacke/diskbrack/",
-      publisher: "1177 Vårdguiden",
-    },
+  outro: [
+    "Informationen är ett stöd när du väljer vårdkontakt och förbereder ett besök. Den ersätter inte en individuell medicinsk bedömning.",
+    "**Medicinskt faktaunderlag:** 1177 – Ont i ryggen och Diskbråck. Pris, besökstid och bokningsinformation avser besöket hos oss i Göteborg.",
   ],
+  // Avslutande bokningsruta ("Boka en planerad bedömning av dina ryggbesvär").
+  cta: {
+    heading: "Boka en planerad bedömning av dina ryggbesvär",
+    body: `Om du vill boka ett planerat ortopedbesök i Göteborg kan du välja tid direkt i kalendern. Dr. Masoud Sorkhabi · ${MIN} · ${PRIS} · utan remiss`,
+    label: "Se lediga tider och boka",
+    href: "/boka-tid",
+  },
+  faqHeading: "Vanliga frågor om ryggont och val av läkare",
   faqs: [
     {
-      question: "Ont i ryggen – vilken läkare ska jag söka?",
+      question: "Måste jag träffa ortoped för att jag har ont i ryggen?",
       answer:
-        "Börja oftast på **vårdcentralen** för en första bedömning. Vid muskulära besvär som kommit gradvis kan en **fysioterapeut** vara rätt. Vid uttalade besvär, misstänkt diskbråck eller utstrålande smärta blir en **ortoped** aktuell, och vid tydliga nervsymtom ibland en neurolog – ofta via remiss eller egenremiss.",
+        "Nej. Vårdcentral och fysioterapeut är ofta lämpliga första kontakter. Specialistbedömning blir aktuell utifrån besvären och vad tidigare bedömning visar.",
     },
     {
-      question: "När bör jag söka vård akut för ryggont?",
+      question: "Kan jag boka ortoped direkt utan remiss?",
       answer:
-        "Sök vård akut om du plötsligt får svårt att kissa eller hålla tätt, får domningar kring underliv och insida lår, eller får tilltagande svaghet i benen tillsammans med ryggsmärta. Ring 1177 för rådgivning eller uppsök akutmottagning. Vänta inte ut symtom som snabbt försämras.",
+        "Ja, till det privata besöket hos oss i Göteborg behöver du ingen remiss. Du väljer tid i bokningskalendern.",
     },
     {
-      question: "Vad är skillnaden mellan ortoped och neurolog vid ryggont?",
+      question: "Kan en ortoped bedöma ryggen även om jag inte vill opereras?",
       answer:
-        "En **ortoped** är specialist på rörelseapparaten och bedömer kotor, leder, diskar och eventuella ingrepp. En **neurolog** är specialist på nervsystemet och blir aktuell främst vid tydliga nervsymtom som domningar, stickningar eller kraftnedsättning. Vägen till båda går oftast via vårdcentral eller remiss.",
+        "Ja. En ortopedisk bedömning innebär inte att du tackar ja till operation. Berätta vad du vill få hjälp med och vilka frågor du har.",
     },
     {
-      question: "Kan jag gå direkt till en ortoped utan remiss?",
+      question: "Behöver jag ett MR-svar för att boka?",
       answer:
-        "Hos de flesta **privata** ortopedmottagningar behövs ingen remiss – du kan boka direkt. I offentlig vård krävs ofta remiss från vårdcentral, men många regioner tillåter egenremiss. Läs mer i vår guide om att [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
+        "Nej. Har du redan ett svar är det bra att ta med det. Behovet av nya undersökningar bedöms individuellt.",
     },
+    ...(LORDAG
+      ? [
+          {
+            question: "Finns det tider på lördagar?",
+            answer: "Vi erbjuder även ortopedbesök på lördagar. Aktuella lediga tider visas i kalendern.",
+          },
+        ]
+      : []),
     {
-      question: "Vad kostar ett privat besök för ryggbesvär?",
+      question: "Gäller den här guiden även barn?",
       answer:
-        "Ett nybesök hos en privat ortoped kostar **ungefärligt** 1 500–3 500 kr och hos en neurolog ungefär 2 000–4 000 kr. Magnetkamera (MR) tillkommer ofta separat. Siffrorna är ungefärliga och **varierar** mellan kliniker, så be alltid om ett samlat pris i förväg.",
-    },
-    {
-      question: "Vad kostar det att använda Specialistdirekt?",
-      answer:
-        "Att använda Specialistdirekt är **kostnadsfritt**. Du skickar en förfrågan och får besked om hur du kan gå vidare. Du betalar bara klinikens eventuella avgift för själva besöket. Skicka en förfrågan via [kontaktsidan](/kontakt) så hör vi av oss.",
+        "Guiden riktar sig främst till vuxna. För barn, läs om [ryggont hos barn](/artiklar/ryggont-hos-barn) och [ortopedisk bedömning för barn i Göteborg](/artiklar/barnortopedi).",
     },
   ],
 };

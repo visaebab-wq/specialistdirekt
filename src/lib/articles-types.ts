@@ -30,7 +30,12 @@ export type ArticleSection = {
    */
   table?: { columns: string[]; rows: string[][] };
   /** Underrubriker (<h3>) med egna ankare, efter tabell och lista. */
-  subsections?: { id: string; heading: string; body: string[] }[];
+  subsections?: { id: string; heading: string; body: string[]; bullets?: string[] }[];
+  /**
+   * Direktbokningens kort (BookingCtaBanner) efter listan, före bodyAfter.
+   * Minuter och avbokningsvillkor kommer från bokningens konstanter.
+   */
+  bookingCard?: { label: string; href: string };
   /** Stycken efter tabell, lista och underrubriker (t.ex. en bokningslänk under en tabell). */
   bodyAfter?: string[];
   /**
@@ -122,6 +127,12 @@ export type Article = {
   };
   /** Inledande stycken (före första h2). */
   intro: string[];
+  /**
+   * Visa ingressen före innehållsförteckningen, tillsammans med sektioner som
+   * har beforeToc – så att sidans topp följer ordningen ingress → (t.ex.)
+   * varningar → bokning, och innehållsförteckningen kommer efter.
+   */
+  leadIntro?: boolean;
   sections: ArticleSection[];
   /** Avslutande stycken sist i artikeln (t.ex. vidarelänk och källunderlag). */
   outro?: string[];

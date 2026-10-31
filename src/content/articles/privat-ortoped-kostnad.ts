@@ -35,6 +35,7 @@ export const article: Article = {
   // Ny text 2026-10-31. Byline och reviewedBy visas först när läkaren har
   // granskat just den här versionen – en tidigare granskning gäller inte den.
   medicallyReviewed: false,
+  leadIntro: true,
   intro: [
     `**Hos oss i Göteborg kostar ett ortopedbesök hos Dr. Masoud Sorkhabi ${PRIS} och den avsatta besökstiden är ${MIN}. Du behöver ingen remiss och bokar direkt i kalendern.**`,
     "När du jämför privata ortopedbesök behöver du skilja mellan priset för själva läkarbesöket och kostnader för eventuell fortsatt utredning eller behandling. Ett besökspris säger inte automatiskt vad röntgen, MR, återbesök eller andra åtgärder kostar.",
