@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { articles, getArticle, relatedArticles } from "@/lib/articles";
+import type { ArticleSection } from "@/lib/articles-types";
 import { getSpecialty } from "@/lib/specialties";
 import { site } from "@/lib/site";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -90,10 +91,104 @@ export default async function ArticlePage({
   const inlineVisuals = getArticleVisuals(article).slice(1);
   const inlineVisualSlots = new Map(
     inlineVisuals.map((image, i) => [
-      Math.min(article.sections.length - 1, (i + 1) * 2),
+      Math.min(article.sections.filter((s) => !s.beforeToc).length - 1, (i + 1) * 2),
       image,
     ]),
   );
+
+
+  const leadSections = article.sections.filter((s) => s.beforeToc);
+  const bodySections = article.sections.filter((s) => !s.beforeToc);
+
+  function renderSection(section: ArticleSection, sectionIndex: number, lead = false) {
+    const inlineVisual = inlineVisualSlots.get(sectionIndex);
+    const ListTag = section.ordered ? "ol" : "ul";
+
+    return (
+      <section key={section.id} className={lead ? "scroll-mt-24" : "mt-10 scroll-mt-24"} id={section.id}>
+        <h2 className="article-section-title text-2xl font-bold">{section.heading}</h2>
+        <Prose paragraphs={section.body} />
+        {/* Riktig tabell: första cellen är radens rubrik, så en skärmläsare kan
+            navigera den som tabell. */}
+        {section.table && (
+          <div className="mt-6 overflow-x-auto">
+            <table className="w-full min-w-[18rem] border-collapse text-left text-sm">
+              <thead>
+                <tr>
+                  {section.table.columns.map((c) => (
+                    <th
+                      key={c}
+                      scope="col"
+                      className="border-b border-brand-200 px-3 py-2 text-xs font-bold tracking-wide text-brand-800 uppercase"
+                    >
+                      {c}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {section.table.rows.map((row, ri) => (
+                  <tr key={ri} className="odd:bg-brand-50/40">
+                    {row.map((cell, ci) =>
+                      ci === 0 ? (
+                        <th
+                          key={ci}
+                          scope="row"
+                          className="border-b border-brand-100 px-3 py-2 text-left align-top font-semibold text-ink-900"
+                        >
+                          {renderInline(cell)}
+                        </th>
+                      ) : (
+                        <td key={ci} className="border-b border-brand-100 px-3 py-2 align-top text-ink-800">
+                          {renderInline(cell)}
+                        </td>
+                      ),
+                    )}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+        {section.bullets && section.bullets.length > 0 && (
+          <ListTag className="mt-4 space-y-2">
+            {section.bullets.map((b, i) => (
+              <li key={i} className="flex gap-3 text-ink-700">
+                <span
+                  aria-hidden
+                  className={
+                    section.bulletTone === "warning"
+                      ? "mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-800"
+                      : "mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-100 text-xs text-brand-700"
+                  }
+                >
+                  {section.bulletTone === "warning" ? "!" : section.ordered ? i + 1 : "✓"}
+                </span>
+                <span>{renderInline(b)}</span>
+              </li>
+            ))}
+          </ListTag>
+        )}
+        {section.subsections?.map((sub) => (
+          <div key={sub.id} id={sub.id} className="mt-8 scroll-mt-24">
+            <h3 className="text-xl font-bold text-ink-900">{sub.heading}</h3>
+            <Prose paragraphs={sub.body} />
+          </div>
+        ))}
+        {section.bodyAfter && section.bodyAfter.length > 0 && <Prose paragraphs={section.bodyAfter} />}
+        {inlineVisual && (
+          <figure className="article-inline-visual mt-8">
+            <img
+              src={inlineVisual.src}
+              alt={inlineVisual.alt}
+              className="medical-hero-image h-full w-full object-cover"
+              loading="lazy"
+            />
+          </figure>
+        )}
+      </section>
+    );
+  }
 
   return (
     <>
@@ -156,16 +251,6 @@ export default async function ArticlePage({
           </aside>
         )}
 
-        {article.slug === BARN_NAV_SLUG && article.cta && (
-          <BarnBookingCta
-            heading={article.cta.heading}
-            body={article.cta.body}
-            label={article.cta.label}
-            href={article.cta.href}
-            variant="compact"
-          />
-        )}
-
         {/* Pristabell – tydlig prisöversikt (bra för SEO och AI). */}
         {article.priceTable && article.priceTable.length > 0 && (
           <div className="readable-card mb-8 overflow-hidden">
@@ -208,15 +293,23 @@ export default async function ArticlePage({
           </section>
         )}
 
+        {/* Sektioner som ska synas direkt (t.ex. pris och bokning), före
+            innehållsförteckningen. */}
+        {leadSections.length > 0 && (
+          <div className="article-body readable-card mb-10 p-6 sm:p-8">
+            {leadSections.map((section) => renderSection(section, -1, true))}
+          </div>
+        )}
+
         {/* Innehållsförteckning – hjälper läsare och kan ge sitelinks i sök. */}
-        {article.sections.length > 2 && (
+        {bodySections.length > 2 && (
           <nav
             aria-label="Innehåll"
             className="soft-info-card mb-10 p-5"
           >
             <p className="text-sm font-semibold text-ink-800">Innehåll</p>
             <ol className="mt-3 space-y-1.5 text-sm">
-              {article.sections.map((s) => (
+              {bodySections.map((s) => (
                 <li key={s.id}>
                   <a href={`#${s.id}`} className="text-brand-700 hover:underline">
                     {s.heading}
@@ -230,45 +323,13 @@ export default async function ArticlePage({
         <article className="article-body readable-card p-6 sm:p-8">
           <Prose paragraphs={article.intro} />
 
-          {article.sections.map((section, sectionIndex) => {
-            const inlineVisual = inlineVisualSlots.get(sectionIndex);
+          {bodySections.map((section, sectionIndex) => renderSection(section, sectionIndex))}
 
-            return (
-              <section key={section.id} className="mt-10 scroll-mt-24" id={section.id}>
-                <h2 className="article-section-title text-2xl font-bold">{section.heading}</h2>
-                <Prose paragraphs={section.body} />
-                {section.bullets && section.bullets.length > 0 && (
-                  <ul className="mt-4 space-y-2">
-                    {section.bullets.map((b, i) => (
-                      <li key={i} className="flex gap-3 text-ink-700">
-                        <span
-                          aria-hidden
-                          className={
-                            section.bulletTone === "warning"
-                              ? "mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-800"
-                              : "mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-100 text-xs text-brand-700"
-                          }
-                        >
-                          {section.bulletTone === "warning" ? "!" : "✓"}
-                        </span>
-                        <span>{renderInline(b)}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-                {inlineVisual && (
-                  <figure className="article-inline-visual mt-8">
-                    <img
-                      src={inlineVisual.src}
-                      alt={inlineVisual.alt}
-                      className="medical-hero-image h-full w-full object-cover"
-                      loading="lazy"
-                    />
-                  </figure>
-                )}
-              </section>
-            );
-          })}
+          {article.outro && article.outro.length > 0 && (
+            <div className="mt-10">
+              <Prose paragraphs={article.outro} />
+            </div>
+          )}
 
           {/* Ansvarsfriskrivning – YMYL/E-E-A-T och förtroende. */}
           <div className="warning-card mt-10 p-5 text-sm">
@@ -283,7 +344,7 @@ export default async function ArticlePage({
           {/* Internlänkning: artikel → specialitet → formulär. Placeras efter artikelns
               innehåll och medicinska säkerhetsinformation (röda flaggor + 112/1177),
               så att en kommersiell CTA aldrig visas före akutvägledningen. */}
-          {specialty && !isBarnArticle(article.slug) && (
+          {specialty && !isBarnArticle(article.slug) && !article.cta && (
             <div className="soft-info-card mt-8 flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:justify-between">
               <p className="text-ink-700">
                 Söker du en {specialty.title.toLowerCase()}? Skicka en kostnadsfri förfrågan – läs
@@ -306,7 +367,7 @@ export default async function ArticlePage({
           )}
         </article>
 
-        {isBarnArticle(article.slug) && article.slug !== BARN_NAV_SLUG && article.cta && (
+        {isBarnArticle(article.slug) && article.cta && (
           <BarnBookingCta
             heading={article.cta.heading}
             body={article.cta.body}
@@ -346,7 +407,7 @@ export default async function ArticlePage({
         {/* FAQ */}
         {article.faqs.length > 0 && (
           <section className="mt-12">
-            <h2 className="text-2xl font-bold text-ink-900">Vanliga frågor</h2>
+            <h2 className="text-2xl font-bold text-ink-900">{article.faqHeading ?? "Vanliga frågor"}</h2>
             <div className="mt-6">
               <FaqList items={article.faqs} />
             </div>

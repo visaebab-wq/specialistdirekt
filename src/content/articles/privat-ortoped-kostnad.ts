@@ -1,11 +1,19 @@
 import type { Article } from "@/lib/articles-types";
+import { BOOKING_PRICE_SEK, BOOKING_SLOT_MINUTES, formatPrice } from "@/lib/booking-slots";
+import { DR_SORKHABI_REVIEWER } from "@/lib/medical-reviewer";
+
+// Text skriven av ägaren 2026-10-31. Pris och besökslängd för vårt besök kommer
+// från bokningens egna konstanter, så artikeln aldrig kan säga något annat än
+// kalendern. Läkarens titel kommer från den verifierade profilen.
+const PRIS = `${formatPrice(BOOKING_PRICE_SEK)} kr`;
+const MIN = `${BOOKING_SLOT_MINUTES} minuter`;
+const LAKARE = `[${DR_SORKHABI_REVIEWER.name}, ${DR_SORKHABI_REVIEWER.title.toLowerCase()}](/lakare/masoud-sorkhabi)`;
 
 export const article: Article = {
   slug: "privat-ortoped-kostnad",
-  title: "Privat ortoped: kostnad, väntetid och hur du bokar besök",
-  metaTitle: "Privat ortoped kostnad – pris, väntetid & boka besök",
-  metaDescription:
-    "Vad kostar en privat ortoped? Ungefärliga priser för besök, röntgen, MR och operation vid knä-, höft- och axelbesvär, plus väntetider och hur du bokar.",
+  title: "Vad kostar en privat ortoped – och vad ingår i besöket?",
+  metaTitle: "Privat ortoped – kostnad, vad som ingår och bokning",
+  metaDescription: `Vad kostar en privat ortoped? Läs om besökspris och möjliga tillägg. Hos oss i Göteborg: ${PRIS} för ${MIN}, utan remiss.`,
   category: "Ortopedi",
   primaryKeyword: "privat ortoped kostnad",
   keywords: [
@@ -18,68 +26,97 @@ export const article: Article = {
     "privat knäoperation pris",
     "ortoped axel höft",
   ],
-  excerpt:
-    "Vad kostar ett privat ortopedbesök? Ungefärliga priser för besök, röntgen, MR och eventuell operation, väntetider samt hur du bokar med eller utan remiss.",
+  excerpt: `Vad kostar en privat ortoped? Läs om besökspris och möjliga tillägg. Hos oss i Göteborg: ${PRIS} för ${MIN}, utan remiss.`,
   published: "2026-05-30",
-  updated: "2026-08-05",
-  readMinutes: 7,
-  wordCount: 1450,
+  updated: "2026-10-31",
+  readMinutes: 8,
+  wordCount: 1500,
   relatedSpecialty: "ortoped",
-  summary: [
-    "Ett förstabesök hos en privat ortoped landar ofta runt **1 500–3 500 kr**; röntgen, MR eller operation tillkommer.",
-    "Sjukvårdsförsäkring kan ibland täcka kostnaden.",
-    "Aktuellt vid knä-, höft- och axelbesvär, idrottsskador eller artros när du vill slippa lång väntetid.",
-    "[Specialistdirekt](/kontakt) hjälper dig skicka en bokningsförfrågan till en relevant privat mottagning.",
-  ],
-  priceTable: [
-    { label: "Förstabesök hos ortoped", price: "cirka 1 500–3 500 kr (ungefärligt)" },
-    { label: "Röntgen", price: "cirka 1 000–2 500 kr (ungefärligt)" },
-    { label: "MR-undersökning", price: "cirka 4 000–8 000 kr (ungefärligt, varierar med kroppsdel)" },
-    { label: "Operation", price: "från tiotusentals kr och uppåt (mycket varierande)" },
-  ],
-  suitableFor: [
-    "har knä-, höft- eller axelbesvär som inte ger med sig",
-    "har remiss men lång väntetid",
-    "har privat sjukvårdsförsäkring",
-    "vill få en snabbare bedömning eller MR",
-  ],
+  // Ny text 2026-10-31. Byline och reviewedBy visas först när läkaren har
+  // granskat just den här versionen – en tidigare granskning gäller inte den.
+  medicallyReviewed: false,
   intro: [
-    "En **ortoped** är en specialistläkare på rörelseapparaten – det vill säga skelett, leder, muskler, senor och ligament. När du har ont i knät efter en löprunda, värk i höften som inte ger med sig eller en axel som inte vill röra sig som den ska, är det ofta en [ortoped](/specialiteter/ortoped) du behöver träffa. Och då dyker frågan om **privat ortoped kostnad** snabbt upp.",
-    "Den här guiden går igenom vad en ortoped faktiskt gör, vilka besvär som är vanligast, skillnaden mellan den offentliga och den privata vägen, samt ungefärliga priser för besök, bildundersökningar och eventuell operation. Vi tittar också på väntetider och hur du bokar med eller utan remiss.",
-    "Alla siffror nedan är **ungefärliga och varierar** kraftigt mellan kliniker, regioner och över tid. Se dem som en fingervisning, inte som en prislista. Vill du ha ett exakt pris ber du alltid kliniken om en offert innan besöket.",
+    `**Hos oss i Göteborg kostar ett ortopedbesök hos Dr. Masoud Sorkhabi ${PRIS} och den avsatta besökstiden är ${MIN}. Du behöver ingen remiss och bokar direkt i kalendern.**`,
+    "När du jämför privata ortopedbesök behöver du skilja mellan priset för själva läkarbesöket och kostnader för eventuell fortsatt utredning eller behandling. Ett besökspris säger inte automatiskt vad röntgen, MR, återbesök eller andra åtgärder kostar.",
+    "Här får du hjälp att förstå prisskillnaderna och vilka frågor som är bra att få besvarade före bokning.",
   ],
   sections: [
     {
-      id: "vad-gor-en-ortoped",
-      heading: "Vad gör en ortoped?",
-      body: [
-        "En ortoped utreder, diagnostiserar och behandlar besvär i rörelseapparaten. Det handlar både om akuta skador, som frakturer och avslitna ligament, och om långsamma förändringar som ledförslitning. Många besvär går att behandla utan operation – med rådgivning, sprutor, hjälpmedel och rehabilitering i samarbete med fysioterapeut.",
-        "Ett ortopedbesök börjar oftast med ett samtal om dina symtom och en klinisk undersökning där läkaren känner, böjer och testar leden. Vid behov kompletteras detta med bildundersökningar som röntgen eller magnetkamera (MR). Först därefter kan ortopeden lägga upp en plan – som kan vara allt från egenvård till en operation.",
-        "Det är värt att veta att en ortoped inte bara opererar. En stor del av arbetet är att avgöra **när** en operation behövs och när den inte gör det. Att få ett tydligt besked kan i sig vara en stor lättnad.",
+      id: "privat-ortoped-goteborg-kostnad",
+      heading: "Ortopedbesök i Göteborg: pris och bokning",
+      beforeToc: true,
+      body: [],
+      table: {
+        columns: ["Uppgift", "Besöket hos oss"],
+        rows: [
+          ["Läkare", LAKARE],
+          ["Plats", "Göteborg"],
+          ["Pris för ortopedbesöket", PRIS],
+          ["Avsatt besökstid", MIN],
+          ["Remiss", "Behövs inte"],
+          ["Bokning", "Direkt i kalendern"],
+        ],
+      },
+      bodyAfter: [
+        "[Se lediga tider och boka ortopedbesök](/boka-tid)",
+        "Vill du först läsa mer om mottagningen och läkaren? Besök sidan om [ortoped i Göteborg](/specialiteter/ortoped/goteborg).",
       ],
     },
     {
-      id: "vanliga-besvar",
-      heading: "Vanliga besvär ortopeden hjälper till med",
+      id: "vad-betalar-man-for",
+      heading: "Vad betalar man för vid ett ortopedbesök?",
       body: [
-        "Vissa kroppsdelar dominerar bland orsakerna till att man söker ortoped. Knä, höft och axel står för en stor del av besöken, tillsammans med idrottsskador och slitageförändringar som artros.",
-        "Är du osäker på om dina besvär hör hemma hos en ortoped kan du läsa vår guide om [vilken läkare du ska söka vid knäsmärta](/artiklar/vilken-lakare-knasmarta), som hjälper dig att tolka symtomen.",
+        "Ett ortopedbesök är en medicinsk bedömning av dina besvär. Det är inte ett färdigt behandlingspaket som automatiskt omfattar alla undersökningar eller åtgärder som kan bli aktuella.",
+        "Inför besöket är det bra att formulera vad du vill få hjälp med. Det kan till exempel vara att förstå nästa steg när besvären har fortsatt, när tidigare behandling inte gett tillräcklig förbättring eller när du är osäker på vilken utredning som behövs.",
+        "Frågor att ta med till läkaren:",
       ],
       bullets: [
-        "**Knäbesvär** – smärta efter belastning, instabilitet, låsningar eller svullnad, ofta kopplat till menisk- eller ligamentskador.",
-        "**Höftbesvär** – värk i ljumske eller säte, stelhet och minskad rörlighet, vanligt vid artros.",
-        "**Axelbesvär** – smärta vid lyft, nattlig värk eller nedsatt rörlighet, till exempel vid impingement eller senskador.",
-        "**Idrottsskador** – stukningar, sträckningar, överbelastning och akuta ledskador.",
-        "**Artros** – ledförslitning som ger smärta och stelhet, oftast i knä och höft.",
+        "Vad talar undersökningen för?",
+        "Behövs ytterligare utredning?",
+        "Vilka behandlingsalternativ är relevanta?",
+        "Vad kan jag göra fram till eventuell uppföljning?",
+        "När och hur ska resultatet följas upp?",
+      ],
+      bodyAfter: [
+        "Det går inte att i förväg lova en viss diagnos, undersökning eller behandling. Vilka åtgärder som är motiverade avgörs vid den medicinska bedömningen.",
       ],
     },
     {
-      id: "offentlig-vs-privat",
-      heading: "Offentlig eller privat väg – vad är skillnaden?",
+      id: "kostnader-som-kan-tillkomma",
+      heading: "Vilka kostnader kan tillkomma?",
       body: [
-        "Den offentliga vägen börjar vanligtvis på din vårdcentral. Vid behov skriver läkaren en remiss till en ortopedklinik inom regionen. Du betalar då vanlig patientavgift och skyddas av högkostnadsskyddet, men väntetiden kan bli lång – särskilt för icke-akuta besvär och planerade operationer.",
-        "Den privata vägen innebär att du själv bokar tid hos en privat ortoped, ofta snabbare och ibland helt utan remiss. Du betalar mer per besök, men slipper i regel köa lika länge. Har du en privat sjukvårdsförsäkring kan den ibland täcka både besök och eventuell operation – kontrollera villkoren med ditt försäkringsbolag.",
-        "Vill du förstå för- och nackdelar mer i detalj kan du läsa vår jämförelse mellan [privat och offentlig vård](/artiklar/privat-vard-vs-offentlig). Det finns inget generellt rätt svar – det beror på hur bråttom du har, vad besvären beror på och din ekonomi.",
+        "**Utgå inte från att bilddiagnostik, behandling eller återbesök ingår i priset för första besöket.** Be om ett tydligt kostnadsbesked innan du tackar ja till nästa steg.",
+      ],
+      table: {
+        columns: ["Möjlig kostnad", "Fråga innan du går vidare"],
+        rows: [
+          ["Röntgen eller MR", "Behövs undersökningen, var utförs den och vad kostar den?"],
+          ["Återbesök", "Behövs ett nytt besök och vilket pris gäller?"],
+          ["Injektion eller annan behandling", "Ingår åtgärden i besökspriset eller debiteras den separat?"],
+          ["Rehabilitering", "Vem ansvarar för den och vilka avgifter gäller där?"],
+          ["Intyg eller utlåtande", "Kan det utfärdas inom besöket eller krävs en separat tjänst?"],
+        ],
+      },
+      bodyAfter: [
+        "Tabellen beskriver kostnader som kan förekomma i en vårdprocess. Den innebär inte att alla åtgärder erbjuds eller behövs hos oss.",
+        "Om fortsatt vård sker på en annan mottagning behöver du få besked om den mottagningens priser och villkor.",
+      ],
+    },
+    {
+      id: "varfor-olika-pris",
+      heading: "Varför kostar privata ortopedbesök olika mycket?",
+      body: [
+        "Besök med samma namn kan ha olika innehåll. Vid en jämförelse är det därför relevant att kontrollera besökets längd, läkarens kompetens, om det är ett första besök eller ett återbesök och hur fortsatt kontakt hanteras.",
+        "Ett lägre pris kan gälla ett kortare återbesök. Ett högre pris behöver inte innebära att fler undersökningar ingår.",
+        "Jämför därför konkreta uppgifter:",
+      ],
+      ordered: true,
+      bullets: [
+        "Vilken läkare träffar jag?",
+        "Hur lång tid är avsatt?",
+        "Vad omfattar bokningen?",
+        "Vilka möjliga tillägg debiteras separat?",
+        "Hur får jag besked om nästa steg?",
       ],
     },
     {
@@ -98,79 +135,90 @@ export const article: Article = {
       ],
     },
     {
-      id: "privat-ortoped-goteborg-kostnad",
-      heading: "Aktuellt pris i Göteborg via Specialistdirekt",
+      id: "offentlig-vs-privat",
+      heading: "Privat ortoped eller regionfinansierad vård?",
       body: [
-        "Via Specialistdirekt kan du boka **Dr. Masoud Sorkhabi**, specialist i ortopedi och ryggkirurgi i Göteborg, till fasta priser. Ingen remiss krävs för självbetalande. Läs mer och boka på [privat ortoped i Göteborg](/specialiteter/ortoped/goteborg).",
-      ],
-      bullets: [
-        "**Fysiskt besök i Göteborg – 2 000 kr**",
-        "Betalas **på plats vid besöket**",
+        "En privatägd mottagning kan ha avtal med regionen. Då gäller regionens patientavgifter för den vård som omfattas av avtalet.",
+        "Helt privat, självbetald vård fungerar annorlunda: du betalar mottagningens pris. Högkostnadsskydd och frikort för regionfinansierad öppenvård gäller inte automatiskt för ett sådant besök.",
+        `**Det annonserade besöket hos oss är ett privat besök för ${PRIS}.** Utgå från det priset när du bokar, inte från regionens patientavgift.`,
       ],
     },
     {
-      id: "vantetider",
-      heading: "Väntetider hos ortoped",
+      id: "sjukvardsforsakring",
+      heading: "Kan sjukvårdsförsäkringen betala?",
       body: [
-        "I den offentliga vården kan väntan på ett besök hos en ortoped variera från några veckor till flera månader, och för planerade operationer kan den bli ännu längre. Akuta skador prioriteras däremot snabbt.",
-        "Privat är en av de stora fördelarna just kortare väntetid. Många privata kliniker kan erbjuda en tid inom dagar eller någon eller ett par veckor. Behöver du en MR går det ofta snabbare privat, vilket kan korta hela utredningen.",
-        "Hur lång väntan blir beror på efterfrågan i ditt område och hur akuta besvären är. Bor du i en större stad finns oftast fler kliniker att välja mellan, vilket pressar väntetiderna nedåt.",
+        "Det beror på din försäkring, vilket besvär du söker för och försäkringsbolagets villkor.",
+        "Kontakta bolaget innan du bokar själv. Fråga om besöket behöver godkännas i förväg och om bolaget kan använda den aktuella mottagningen. En egen bokning innebär inte att ersättning är beviljad.",
+        "Om bolaget ska ordna vården bör du följa dess bokningsväg.",
       ],
     },
     {
       id: "boka-med-eller-utan-remiss",
-      heading: "Boka med eller utan remiss",
+      heading: "Behöver jag remiss till en privat ortoped?",
       body: [
-        "Många privata ortopedmottagningar tar emot patienter **utan remiss** – du bokar helt enkelt en tid själv. Det är smidigt om du vill komma igång snabbt och slippa ett extra steg via vårdcentralen.",
-        "Samtidigt är en remiss inte alltid bortkastad. Den kan innehålla viktig information om dina besvär, och i vissa fall krävs den för att en sjukvårdsförsäkring eller regionen ska täcka kostnaden. Kontrollera därför vad som gäller i ditt fall innan du bokar.",
-        "Vill du läsa mer om hur det fungerar har vi en separat guide om att [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
+        "**Till ortopedbesöket hos oss behöver du ingen remiss.** Du kan välja en ledig tid direkt i kalendern.",
+        "Har du redan en remiss, ett tidigare utlåtande eller en genomförd undersökning är informationen ändå relevant. Ta med underlaget så att läkaren kan få en tydligare bild av vad som redan har gjorts.",
+        "Läs mer om [att boka ortoped utan remiss](/artiklar/ortoped-utan-remiss).",
       ],
     },
     {
-      id: "sa-hjalper-specialistdirekt",
-      heading: "Så hjälper Specialistdirekt dig vidare",
-      body: [
-        "Att hitta rätt ortoped, jämföra kliniker och få besked om pris och väntetid kan ta tid om du gör allt själv. Specialistdirekt är byggt för att korta den vägen: du beskriver dina besvär och skickar en förfrågan, så återkommer vi med besked.",
-        "Du fyller i ett kort formulär om vad du behöver hjälp med. Sedan återkommer vi med besked om hur du kan gå vidare. Söker du lokalt har vi bland annat sidor om [privat ortoped i Göteborg](/specialiteter/ortoped/goteborg) och [ortoped i Örebro](/specialiteter/ortoped/orebro). Läs mer om [hur det fungerar](/sa-fungerar-det) eller hör av dig via vår [kontaktsida](/kontakt) om du har frågor.",
-        "Tanken är enkel: du ska kunna lägga din energi på att bli bättre, inte på att leta efter rätt klinik.",
+      id: "forbered-besoket",
+      heading: "Så förbereder du dig inför besöket",
+      body: ["Skriv gärna en kort sammanfattning av besvären:"],
+      bullets: [
+        "Var har du ont och när började det?",
+        "Hur påverkas sömn, arbete, gång eller träning?",
+        "Har du provat behandling eller rehabilitering?",
+        "Har du tidigare opererats eller undersökts för samma problem?",
+        "Vilka frågor är viktigast för dig att få svar på?",
+      ],
+      bodyAfter: [
+        "Ta med en aktuell läkemedelslista och relevanta journalutdrag eller undersökningssvar om du har dem. Har du röntgen- eller MR-bilder från en annan vårdgivare, kontrollera före besöket hur läkaren kan få tillgång till dem. Ett skriftligt svar och själva bilderna är olika underlag.",
+        "Du behöver inte beställa en ny MR på egen hand för att kunna boka ett ortopedbesök.",
       ],
     },
   ],
+  outro: [
+    "Söker du för ditt barn? Läs om [ortopedisk bedömning för barn](/artiklar/barnortopedi).",
+    "Informationen hjälper dig att förstå kostnader och förbereda ett besök. Den ersätter inte en individuell medicinsk bedömning.",
+    "**Källunderlag:** 1177 – Patientavgifter och högkostnadsskydd. Uppgifter om vårt besök hämtas från mottagningens aktuella bokningsinformation.",
+  ],
+  // Avslutande bokningsruta ("Boka ortoped i Göteborg").
+  cta: {
+    heading: "Boka ortoped i Göteborg",
+    body: `Vill du boka ett planerat ortopedbesök? Hos oss träffar du Dr. Masoud Sorkhabi i Göteborg. Besöket kostar ${PRIS}, tar ${MIN} och kräver ingen remiss.`,
+    label: "Se lediga tider och boka",
+    href: "/boka-tid",
+  },
+  faqHeading: "Vanliga frågor om kostnaden för privat ortoped",
   faqs: [
     {
-      question: "Vad kostar ett privat ortopedbesök?",
-      answer:
-        "Ett förstabesök hos en privat ortoped kostar ungefär 1 500–3 500 kronor. Tillkommer röntgen eller MR ökar kostnaden. Siffrorna är ungefärliga och varierar mellan kliniker och regioner, så be alltid om en offert i förväg.",
+      question: "Vad kostar besöket hos er?",
+      answer: `Ett ortopedbesök hos Dr. Masoud Sorkhabi i Göteborg kostar ${PRIS}. Den avsatta besökstiden är ${MIN}.`,
     },
     {
-      question: "Behöver jag remiss för att träffa en privat ortoped?",
+      question: "Ingår MR eller röntgen i priset?",
       answer:
-        "Många privata ortopedmottagningar tar emot utan remiss, så du kan boka tid själv. I vissa fall krävs ändå remiss för att en sjukvårdsförsäkring eller regionen ska täcka kostnaden, så kontrollera vad som gäller i ditt fall.",
+        "Räkna inte med att bilddiagnostik ingår i besökspriset. Om en undersökning blir aktuell behöver du få besked om kostnad och utförande innan den bokas.",
     },
     {
-      question: "Hur lång är väntetiden hos en privat ortoped?",
-      answer:
-        "Privat kan du ofta få en tid inom dagar eller någon eller ett par veckor, medan väntan i offentlig vård kan vara flera månader för icke-akuta besvär. Akuta skador prioriteras alltid snabbt oavsett väg.",
+      question: "Kan jag boka utan remiss?",
+      answer: "Ja. Du behöver ingen remiss för att boka ortopedbesöket hos oss.",
     },
     {
-      question: "Vad kostar en MR-undersökning privat?",
+      question: "Gäller mitt frikort?",
       answer:
-        "En MR-undersökning kostar privat ungefär 4 000–8 000 kronor beroende på vilken kroppsdel som ska undersökas och vilken klinik du väljer. Det är en ungefärlig siffra som varierar, så be kliniken om pris innan undersökningen.",
+        "Besöket annonseras som privat självbetald vård. Räkna därför inte med att regionens frikort täcker avgiften.",
     },
     {
-      question: "Vilka besvär hjälper en ortoped till med?",
+      question: "Kan jag använda min sjukvårdsförsäkring?",
       answer:
-        "En ortoped behandlar besvär i rörelseapparaten, till exempel knä-, höft- och axelbesvär, idrottsskador och artros. Allt behöver inte opereras – många besvär hanteras med rådgivning, hjälpmedel och rehabilitering tillsammans med fysioterapeut.",
+        "Kontakta försäkringsbolaget före bokning. Bolaget behöver bedöma om besöket omfattas och vilken bokningsväg du ska använda.",
     },
     {
-      question: "Täcker en sjukvårdsförsäkring kostnaden för ortoped?",
+      question: "Hur snabbt kan jag få en tid?",
       answer:
-        "En privat sjukvårdsförsäkring kan ibland täcka både besök och eventuell operation, men villkoren skiljer sig mellan bolag. Vissa kräver remiss eller förhandsbesked. Kontrollera alltid villkoren med ditt försäkringsbolag innan du bokar.",
-    },
-    {
-      question: "Vad kostar en privat ortoped i Göteborg?",
-      answer:
-        "Hos Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi, kostar ett besök på 40 minuter 2 000 kr. Ingen remiss behövs och du bokar tiden direkt. I övrigt följer prisbilden i Göteborg i stort de ungefärliga nationella intervallen: ett förstabesök ligger ofta runt 1 500–3 500 kr, och bildundersökningar tillkommer. Se [privat ortoped i Göteborg](/specialiteter/ortoped/goteborg).",
+        "Aktuella bokningsbara tider visas i kalendern. Tillgängligheten varierar, så kontrollera kalendern för nästa lediga tid.",
     },
   ],
 };

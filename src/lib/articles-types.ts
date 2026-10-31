@@ -22,6 +22,22 @@ export type ArticleSection = {
    * grön bock intill "kan inte stödja på benet" läser fel.
    */
   bulletTone?: "warning";
+  /** Numrerad lista (<ol>) i stället för punktlista – för steg och checklistor i ordning. */
+  ordered?: boolean;
+  /**
+   * Riktig tabell efter styckena (första kolumnen blir radrubrik). Samma inline-
+   * markup som i body. Ett pris i en tabell är ett löfte – bara bekräftade uppgifter.
+   */
+  table?: { columns: string[]; rows: string[][] };
+  /** Underrubriker (<h3>) med egna ankare, efter tabell och lista. */
+  subsections?: { id: string; heading: string; body: string[] }[];
+  /** Stycken efter tabell, lista och underrubriker (t.ex. en bokningslänk under en tabell). */
+  bodyAfter?: string[];
+  /**
+   * Visa sektionen före innehållsförteckningen (t.ex. pris och bokning som ska
+   * synas direkt). Den tas då inte med i innehållsförteckningen.
+   */
+  beforeToc?: boolean;
 };
 
 export type ArticleFaq = { question: string; answer: string };
@@ -107,5 +123,9 @@ export type Article = {
   /** Inledande stycken (före första h2). */
   intro: string[];
   sections: ArticleSection[];
+  /** Avslutande stycken sist i artikeln (t.ex. vidarelänk och källunderlag). */
+  outro?: string[];
+  /** Rubrik för FAQ-blocket. Standard: "Vanliga frågor". */
+  faqHeading?: string;
   faqs: ArticleFaq[];
 };
