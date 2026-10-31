@@ -1,6 +1,8 @@
+import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BARN_SCOPE } from "@/lib/barn-scope";
 import {
+  BOOKING_FREE_CANCEL_HOURS,
   BOOKING_PRICE_SEK,
   BOOKING_SLOT_MINUTES,
   formatPrice,
@@ -13,7 +15,7 @@ import { BookingFlow, BookingForm, BookingSteps, type DayGroup } from "../Bookin
 import { createPageMetadata } from "@/lib/page-metadata";
 
 export const metadata = createPageMetadata({
-  title: "Boka ortoped för barn i Göteborg – Specialistdirekt",
+  title: "Boka ortoped för barn i Göteborg | Specialistdirekt",
   description:
     "Boka ortopedisk bedömning för barn och ungdomar 0–17 år hos Dr Masoud Sorkhabi i Göteborg. 40 minuter, 2 000 kr, utan remiss.",
   path: "/boka-tid/barn",
@@ -44,7 +46,7 @@ export default function BokaTidBarnPage() {
           <div className="mt-6 grid items-end gap-8 lg:grid-cols-[1fr_auto]">
             <div>
               <p className="internal-hero-kicker">Ortopedisk bedömning för barn · Göteborg</p>
-              <h1 className="internal-hero-title">Boka tid hos ortoped för barn i Göteborg</h1>
+              <h1 className="internal-hero-title">Boka ortopedbesök för barn i Göteborg</h1>
               <p className="internal-hero-text">
                 Välj en ledig tid för ditt barn direkt i kalendern. Besöket sker hos Dr Masoud
                 Sorkhabi, specialist i ortopedi och ryggkirurgi som även tar emot barn och
@@ -58,6 +60,7 @@ export default function BokaTidBarnPage() {
                 ["Besökstid", `${BOOKING_SLOT_MINUTES} minuter`],
                 ["Fast pris", `${formatPrice(BOOKING_PRICE_SEK)} kr`],
                 ["Remiss", "Behövs inte"],
+                ["Avbokning", `Kostnadsfri fram till ${BOOKING_FREE_CANCEL_HOURS} timmar före`],
               ].map(([label, value]) => (
                 <div key={label} className="flex items-center justify-between gap-6 border-brand-100 not-last:border-b not-last:pb-3 sm:block sm:not-last:border-0 sm:not-last:pb-0 lg:flex lg:not-last:border-b lg:not-last:pb-3">
                   <dt className="text-xs font-bold tracking-wider text-brand-700 uppercase">{label}</dt>
@@ -92,6 +95,14 @@ export default function BokaTidBarnPage() {
                 <li>Beskriv kort barnets besvär i formuläret.</li>
                 <li>Betalning sker på plats vid besöket.</li>
               </ul>
+              {/* Sidan är till för att välja tid; frågor om när en bedömning behövs
+                  besvaras i artikeln (ägarbeslut 2026-10-31). */}
+              <Link
+                href="/artiklar/barnortopedi"
+                className="mt-4 inline-block text-sm font-semibold text-brand-700 hover:underline"
+              >
+                Läs om ortopedisk bedömning för barn
+              </Link>
             </section>
             <section className="soft-info-card p-6">
               <p className="text-xs font-bold tracking-wider text-brand-700 uppercase">Rätt vårdnivå</p>
