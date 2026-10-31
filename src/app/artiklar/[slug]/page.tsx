@@ -135,7 +135,7 @@ export default async function ArticlePage({
                         <th
                           key={ci}
                           scope="row"
-                          className="border-b border-brand-100 px-3 py-2 text-left align-top font-semibold text-ink-900"
+                          className="border-b border-brand-100 px-3 py-2 text-left align-top font-semibold text-ink-900 hyphens-auto"
                         >
                           {renderInline(cell)}
                         </th>
