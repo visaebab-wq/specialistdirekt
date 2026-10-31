@@ -2,6 +2,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BARN_SCOPE } from "@/lib/barn-scope";
 import {
   BOOKING_PRICE_SEK,
+  BOOKING_SLOT_MINUTES,
   formatPrice,
   generateSlots,
   groupSlotsByDay,
@@ -43,7 +44,7 @@ export default function BokaTidBarnPage() {
           <div className="mt-6 grid items-end gap-8 lg:grid-cols-[1fr_auto]">
             <div>
               <p className="internal-hero-kicker">Ortopedisk bedömning för barn · Göteborg</p>
-              <h1 className="internal-hero-title">Boka tid hos ortoped för barn</h1>
+              <h1 className="internal-hero-title">Boka tid hos ortoped för barn i Göteborg</h1>
               <p className="internal-hero-text">
                 Välj en ledig tid för ditt barn direkt i kalendern. Besöket sker hos Dr Masoud
                 Sorkhabi, specialist i ortopedi och ryggkirurgi som även tar emot barn och
@@ -54,7 +55,7 @@ export default function BokaTidBarnPage() {
               {[
                 ["Ålder", BARN_SCOPE.short],
                 ["Besök", "Fysiskt i Göteborg"],
-                ["Besökstid", "40 minuter"],
+                ["Besökstid", `${BOOKING_SLOT_MINUTES} minuter`],
                 ["Fast pris", `${formatPrice(BOOKING_PRICE_SEK)} kr`],
                 ["Remiss", "Behövs inte"],
               ].map(([label, value]) => (

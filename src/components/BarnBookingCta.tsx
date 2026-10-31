@@ -1,6 +1,11 @@
 import Link from "next/link";
 import { BARN_SCOPE } from "@/lib/barn-scope";
-import { BOOKING_PRICE_SEK, BOOKING_SLOT_MINUTES, formatPrice } from "@/lib/booking-slots";
+import {
+  BOOKING_PRICE_SEK,
+  BOOKING_SLOT_MINUTES,
+  BOOKING_WEEKDAYS,
+  formatPrice,
+} from "@/lib/booking-slots";
 
 /**
  * Bokningsmodul för barnartiklarna.
@@ -38,6 +43,8 @@ export function BarnBookingCta({
     `${BOOKING_SLOT_MINUTES} minuter`,
     `${formatPrice(BOOKING_PRICE_SEK)} kr`,
     "Ingen remiss",
+    // Bara så länge kalendern faktiskt tar emot på lördagar (6).
+    ...(BOOKING_WEEKDAYS.includes(6) ? ["Även lördagar"] : []),
   ];
 
   const compact = variant === "compact";
