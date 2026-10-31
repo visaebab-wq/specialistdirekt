@@ -1,34 +1,19 @@
 import type { Article } from "@/lib/articles-types";
+import { BOOKING_PRICE_SEK, BOOKING_SLOT_MINUTES, formatPrice } from "@/lib/booking-slots";
 
-// Spoke i barnortopedi-klustret. Äger intentionen "barn haltar" – symtomet, inte
-// en enskild diagnos.
-//
-// KÄLLDISCIPLIN:
-// - Akutrådet är verbatim från 1177 (Höftbesvär hos barn): "Kontakta genast en
-//   vårdcentral eller en jouröppen mottagning om barnet har ett eller flera
-//   symtom på höftbesvär och samtidigt har feber eller inte kan stå på benet."
-// - Coxitis simplex (2–12 år, vanligast 5–6), "Det kan göra ont i höften, låret
-//   och ibland vid knät" och "går för det mesta över utan någon risk för
-//   komplikationer" är också 1177 verbatim.
-// - Handläggningsdetaljerna (lokalstatus fot till höft, röntgen/ultraljud vid
-//   avvikande status, växtvärk utan dagsymtom, barn under 1 år till
-//   barnakutmottagning, specialistbedömning vid utebliven förbättring efter en
-//   vecka) kommer från det regionala kliniska kunskapsstödet VISS, som sedan
-//   2026-08-15 finns i ALLOWED_EXTERNAL_DOMAINS och länkas kontextuellt en gång
-//   per avsnitt där den är källan.
-//
-// AVGRÄNSNINGAR:
-// - /artiklar/ont-i-knat-barn äger knäsmärta hos barn, /artiklar/ont-i-halen-hos-barn
-//   äger hälsmärta. Den här sidan äger hältan som symtom och länkar vidare.
-// - INGEN kommersiell barn-CTA: åldersgolv och pediatrisk scope är overifierade,
-//   och en stor del av läsarna har barn i förskoleåldern. Vårdrouting hålls
-//   neutral (vårdcentral/jour/barnakut/1177/112).
+// Text skriven av ägaren 2026-10-31. Sidan täcker hälta hos barn; den lokala
+// sökningen "barnortoped göteborg" ägs av /artiklar/barnortopedi. Förklarande
+// länkar går dit, bokningslänkar direkt till /boka-tid/barn. Pris och
+// besökslängd kommer från bokningens egna konstanter.
+const PRIS = `${formatPrice(BOOKING_PRICE_SEK)} kr`;
+const MIN = `${BOOKING_SLOT_MINUTES} minuter`;
+
 export const article: Article = {
   slug: "barn-haltar",
-  title: "Barn haltar – vanliga orsaker och när barnet bör undersökas",
-  metaTitle: "Barn haltar – orsaker och när söka vård | Specialistdirekt",
+  title: "Barn haltar – när ska man söka vård?",
+  metaTitle: "Barn haltar – när ska man söka vård?",
   metaDescription:
-    "Barn som börjar halta kan ha ont i foten, knät eller höften – ibland utan att kunna säga var. Se vanliga orsaker och när barnet bör undersökas.",
+    "Haltar ditt barn med eller utan smärta? Läs när ni ska söka vård direkt, vad läkaren undersöker och när en planerad bedömning kan passa.",
   category: "Ortopedi",
   primaryKeyword: "barn haltar",
   keywords: [
@@ -41,269 +26,233 @@ export const article: Article = {
     "barn haltar plötsligt",
   ],
   excerpt:
-    "Hälta är ett symtom, inte en diagnos. Så tolkar du varför barnet börjat gå annorlunda – och när besvären bör bedömas i stället för att avvaktas hemma.",
+    "Haltar ditt barn med eller utan smärta? Läs när ni ska söka vård direkt, vad läkaren undersöker och när en planerad bedömning kan passa.",
   published: "2026-08-15",
-  updated: "2026-08-15",
-  readMinutes: 10,
-  wordCount: 2000,
+  updated: "2026-10-31",
+  readMinutes: 9,
+  wordCount: 1500,
   relatedSpecialty: "ortoped",
-  // Barnspecifik bokningsmodul. Copy levererad av ChatGPT (logistisk text, inga
-  // medicinska påståenden). Faktaraden 0-17 ar / 40 minuter / 2 000 kr /
-  // ingen remiss renderas av komponenten fran barn-scope.ts och booking-slots.ts,
-  // sa den kan inte glida isar fran bokningssidan.
+  // Ny text 2026-10-31. Byline och reviewedBy visas först när läkaren har
+  // granskat just den här versionen – en tidigare granskning gäller inte den.
+  medicallyReviewed: false,
+  // Bokningsrutan efter artikeln ("Nästa steg för ditt barn"): primär länk till
+  // bokningen, sekundär till navet. Faktaraden byggs av komponenten.
   cta: {
-    heading: "Ortopedisk bedömning för barn i Göteborg",
-    body: "Besöket sker på plats hos Dr. Masoud Sorkhabi.",
-    label: "Se lediga tider för barn",
+    heading: "Nästa steg för ditt barn",
+    body: "Vid nytillkommen eller oförklarlig hälta: kontakta vården för bedömning och rätt prioritering. För besvär som lämpar sig för ett planerat ortopedbesök i Göteborg kan du läsa om mottagningen eller se bokningsbara tider.",
+    label: "Se lediga tider för barn och ungdomar",
     href: "/boka-tid/barn",
     secondary: {
-      label: "Läs om ortopedisk bedömning för barn",
+      label: "Läs om ortoped för barn i Göteborg",
       href: "/artiklar/barnortopedi",
     },
   },
-  summary: [
-    "Hälta hos barn kan bero på besvär från **fot, ben, knä eller höft** – och ibland från andra delar av kroppen.",
-    "Barn, särskilt yngre barn, kan ha svårt att ange exakt var det gör ont.",
-    "**Ett barn som säger att det gör ont i knät kan i vissa fall ha problemet i höften.**",
-    "En vanlig orsak hos yngre barn är coxitis simplex, ibland kallat höftsnuva, som ofta kommer efter en virusinfektion.",
-    "Skador, överbelastning och besvär från fot eller häl är andra vanliga förklaringar.",
-    "**Kontakta vården genast vid hälta tillsammans med feber eller oförmåga att stå på benet.**",
-    "Om hältan inte går över, återkommer eller saknar tydlig förklaring bör barnet undersökas.",
-    "Röntgen eller ultraljud behövs inte vid all hälta – behovet avgörs efter undersökningen.",
-  ],
+  // Varningen om när barnet behöver vård direkt ligger högst upp, före
+  // innehållsförteckningen (ägarens ordning).
+  leadIntro: true,
   intro: [
-    "**När ett barn börjar halta är det inte alltid lätt att förstå varför.** Barnet kanske pekar på knät trots att besväret egentligen kommer från höften, eller säger att det inte gör ont alls. Hos mindre barn kan hältan vara det tydligaste tecknet på att något inte är som vanligt.",
-    "Hälta är **ett symtom – inte en diagnos**. Det kan bero på allt från en mindre skada eller överbelastning till en tillfällig irritation i höftleden. Mer ovanliga orsaker finns också, vilket är anledningen till att en oförklarad eller kvarstående hälta inte bör diagnostiseras hemma.",
-    "**Kort svar:** om barnet börjar halta efter en mindre skada och snabbt blir bättre kan det ofta följas en kort tid. Men om orsaken är oklar, hältan kvarstår eller återkommer, barnet har feber, inte kan stödja på benet eller verkar tydligt påverkat bör barnet bedömas av vården. Smärta som barnet upplever i knät kan dessutom ibland komma från höften.",
+    "**Oförklarlig hälta hos barn behöver bedömas av läkare. Sök vård genast om barnet samtidigt har feber eller inte kan stå på benet. Att barnet inte säger att det gör ont utesluter inte att något behöver undersökas.**",
+    "Barnet kanske har börjat gå försiktigt, avlastar ena benet eller vill bli buret oftare. För dig som förälder är den första frågan hur snabbt ni behöver söka hjälp. Därefter handlar det om att förstå orsaken och få en plan.",
   ],
   sections: [
     {
-      id: "vad-betyder-det-att-halta",
-      heading: "Vad betyder det när ett barn haltar?",
-      body: [
-        "Att halta innebär att barnet belastar benen olika när det går. Ofta beror det på smärta, men hälta kan också uppstå vid till exempel nedsatt rörlighet, svaghet eller andra förändringar i rörelsemönstret.",
-        "Det viktiga är därför inte bara **hur hältan ser ut**, utan varför barnet har börjat gå annorlunda. Undersökningen begränsas inte heller automatiskt till den kroppsdel barnet pekar på – vid oklar hälta behöver hela benet från foten upp mot höften kunna bedömas.",
-        "Vid en medicinsk bedömning tittar man bland annat på:",
-      ],
-      bullets: [
-        "när hältan började",
-        "om den kom plötsligt eller smygande",
-        "om barnet nyligen har ramlat eller skadat sig",
-        "om barnet nyligen varit förkylt eller haft annan infektion",
-        "om smärtan kommer vid belastning eller även i vila",
-        "om det finns morgonstelhet",
-        "om leden är svullen, röd eller varm",
-        "hur barnet rör sig spontant.",
-      ],
-    },
-    {
-      id: "haltar-utan-att-ha-ont",
-      heading: "Barnet haltar men säger att det inte gör ont – kan det ändå vara något?",
-      body: [
-        "Ja. Ett yngre barn kan ha svårt att beskriva smärta eller avgöra exakt var den sitter. Ibland märker föräldern först att barnet går annorlunda, undviker att springa eller inte vill belasta ena benet.",
-        "Avsaknad av tydligt beskriven smärta betyder därför inte automatiskt att hältan kan ignoreras. En nytillkommen och oförklarad hälta som inte snabbt går tillbaka är ett rimligt skäl till medicinsk bedömning.",
-        "Titta i stället på helheten:",
-      ],
-      bullets: [
-        "Har barnet börjat halta utan någon tydlig anledning?",
-        "Är rörelsemönstret annorlunda även när barnet inte tänker på det?",
-        "Undviker barnet att springa, hoppa eller gå i trappor?",
-        "Har hältan funnits kvar eller blivit tydligare?",
-        "Finns feber, svullnad, stelhet eller nedsatt allmäntillstånd?",
-      ],
-    },
-    {
-      id: "halta-efter-forkylning",
-      heading: "Barn haltar efter förkylning – kan det vara höftsnuva?",
-      body: [
-        "Ja. En av de vanligaste orsakerna till hälta hos yngre barn är **coxitis simplex**, som ibland kallas höftsnuva eller övergående inflammation i höftleden. Enligt 1177 förekommer den i åldrarna två till tolv år men är vanligast i fem–sexårsåldern, och ofta har barnet haft en förkylning innan höftbesvären börjar.",
-        "Det luriga är att barnet inte alltid säger att det gör ont just i höften. 1177 beskriver att det kan göra ont i höften, låret och ibland vid knät.",
-        "Coxitis simplex går för det mesta över utan någon risk för komplikationer i framtiden, men andra tillstånd kan ge ett liknande rörelsemönster. Därför ska man inte automatiskt anta att all hälta efter en förkylning är höftsnuva. Har barnet samtidigt feber, verkar sjukt eller inte kan stödja på benet behöver andra orsaker uteslutas skyndsamt. Mer om [ont i höften hos barn](/artiklar/ont-i-hoften-hos-barn) och vad barnets ålder betyder för vilka orsaker som är relevanta.",
-      ],
-    },
-    {
-      id: "knasmarta-fran-hoften",
-      heading: "Kan problemet sitta i höften trots att barnet säger att knät gör ont?",
-      body: [
-        "Ja – och det är en viktig detalj vid hälta hos barn. Besvär från höftleden kan ge smärta i **höften, låret eller knät**.",
-        "Det betyder att **knäsmärta plus hälta inte alltid är samma sak som ett problem i själva knät**. Om ett barn haltar och pekar på knät men undersökningen av knät inte ger en tydlig förklaring är det därför viktigt att även tänka på höften.",
-        "Har barnet framför allt lokala knäbesvär finns vår separata guide om [ont i knät hos barn](/artiklar/ont-i-knat-barn).",
-      ],
-    },
-    {
-      id: "vanliga-orsaker",
-      heading: "Vanliga orsaker till att barn haltar",
-      body: [
-        "Det finns ingen enskild diagnos som förklarar all hälta. Orsaken varierar bland annat med barnets ålder, hur snabbt besvären började och om det finns smärta, feber eller en föregående skada.",
-        "**Skada eller överbelastning.** En stukning, ett slag, ett fall eller annan mindre skada är en vanlig och ofta ganska uppenbar förklaring. Men alla frakturer hos små barn ger inte kraftig svullnad eller ett dramatiskt skadeögonblick – ett barn kan ibland främst visa att något gör ont genom att undvika att belasta benet. Hos idrottande barn kan också upprepad belastning ge besvär utan ett enskilt trauma.",
-        "**Coxitis simplex – höftsnuva.** En vanlig orsak till akut hälta hos yngre barn, ofta efter en virusinfektion, med ensidiga besvär från höften, låret eller knät. Tillståndet läker oftast spontant. Om barnet inte förbättras som förväntat behöver diagnosen omprövas och andra orsaker övervägas.",
-        "**Besvär från fot och häl.** Hos aktiva barn och ungdomar kan smärta från foten eller hälen förändra sättet barnet går på. Ett exempel är belastningsrelaterad hälsmärta under tillväxten – läs mer i guiden om [ont i hälen hos barn och Severs sjukdom](/artiklar/ont-i-halen-hos-barn).",
-        "**Besvär från knät.** Knäsmärta är vanligt hos växande och idrottande barn, och belastningsrelaterade tillstånd kan göra att barnet omedvetet avlastar benet. Men eftersom smärta från höften också kan kännas vid knät bör kombinationen knäsmärta och tydlig hälta bedömas utifrån hela benet.",
-        "**Höfttillstånd som behöver upptäckas.** 1177 tar även upp Perthes sjukdom och höftledsfysiolys. De är betydligt mindre vanliga än vardagliga skador och övergående besvär, men ett skäl till att långvarig eller oförklarad hälta ska tas på allvar är att vissa höfttillstånd kan börja relativt smygande. Det betyder inte att ett haltande barn sannolikt har någon av dem – poängen är att diagnosen bör ställas genom undersökning när symtombilden inte är självklar.",
-        "**Inflammation eller infektion.** Inflammation i en led kan också orsaka hälta. Infektion i led eller skelett är ovanligare men viktig att upptäcka. Kombinationen hälta, feber, tydlig smärta och påverkat allmäntillstånd kräver därför snabbare bedömning än en lätt hälta hos ett i övrigt piggt barn.",
-      ],
-    },
-    {
-      id: "ar-vaxtvark-en-orsak",
-      heading: "Är växtvärk en vanlig orsak till hälta?",
-      body: [
-        "**Typisk växtvärk ska normalt inte ge hälta på dagen.**",
-        "Det regionala kliniska kunskapsstödet [VISS](https://viss.nu/kunskapsstod/vardprogram/halta-hos-barn) beskriver växtvärk som oftast bilateral diffus värk nattetid i lår, knän eller underben, utan symtom dagtid. Ensidiga besvär förekommer, men ska då växla sida.",
-        "Det innebär att man bör vara försiktig med att förklara en tydlig och återkommande daghälta med enbart växtvärk. Om ett barn haltar under dagen är det bättre att försöka förstå varför än att automatiskt hänföra besvären till att barnet växer. Mer om [växtvärk hos barn](/artiklar/vaxtvark-hos-barn) och vad som talar emot den bilden.",
-      ],
-    },
-    {
-      id: "avvakta-hemma",
-      heading: "När kan man avvakta en kort tid hemma?",
-      body: [
-        "Det beror på situationen. Om barnet exempelvis har fått en tydlig men lindrig smäll eller överbelastat sig, är piggt i övrigt, kan belasta benet och snabbt blir bättre, kan det vara rimligt att följa utvecklingen en kort tid.",
-        "Det viktiga är **förbättringen**. Om du inte kan förstå varför barnet haltar är det bättre att låta symtomet bedömas än att försöka ställa en specifik diagnos hemma.",
-        "En hälta som blir mindre från dag till dag efter en tydlig mindre skada är en annan situation än en hälta som:",
-      ],
-      bullets: [
-        "saknar tydlig förklaring",
-        "fortsätter utan förbättring",
-        "återkommer gång på gång",
-        "blir tydligare",
-        "påverkar barnets vanliga aktiviteter.",
-      ],
-    },
-    {
       id: "soka-vard-snabbt",
-      heading: "När ska ett haltande barn söka vård snabbt?",
+      heading: "När behöver barnet vård direkt?",
+      beforeToc: true,
       body: [
-        "1177 är tydlig här: **kontakta genast en vårdcentral eller en jouröppen mottagning om barnet har symtom på höftbesvär och samtidigt har feber eller inte kan stå på benet.** Är mottagningen stängd får ni söka akut vård.",
-        "För barn under ett års ålder anger [VISS](https://viss.nu/kunskapsstod/vardprogram/halta-hos-barn) att hälta ska handläggas via barnakutmottagning.",
-        "Ring 1177 om du är osäker på hur snabbt barnet behöver vård, och 112 vid ett allvarligt eller livshotande tillstånd. Sök också skyndsamt bedömning om:",
-      ],
-      bulletTone: "warning",
-      bullets: [
-        "barnet har uttalad hälta efter ett trauma",
-        "barnet verkar tydligt sjukt eller påverkat",
-        "barnet har hög feber tillsammans med hälta",
-        "barnet inte vill eller kan belasta benet.",
+        "Kontakta genast vårdcentral eller jouröppen mottagning om barnet haltar och har feber eller inte kan stå på benet. Är det stängt, sök akutmottagning.",
+        "Ett barn som verkar tydligt sjukt eller har kraftig smärta behöver också snabb bedömning. Efter en skada kan även ett till synes mindre fall vara relevant.",
+        "**Vänta inte på en planerad privat tid vid akuta symtom.** Ring 1177 om du är osäker på vart ni ska vända er. Vid en allvarlig olycka eller ett livshotande tillstånd, ring 112.",
       ],
     },
     {
       id: "undersokas-icke-akut",
-      heading: "När bör barnet undersökas även om det inte är akut?",
+      heading: "Barnet haltar utan feber – behöver vi ändå söka?",
       body: [
-        "Akuta varningssignaler är bara en del av bilden. Syftet med en bedömning är inte att automatiskt hitta en allvarlig sjukdom – tvärtom är många orsaker till hälta hos barn övergående eller behandlingsbara. Värdet ligger i att **lokalisera problemet, bedöma om ytterligare utredning behövs och undvika att behandla fel kroppsdel**.",
-        "En medicinsk bedömning är rimlig när:",
+        "Ja, om hältan saknar tydlig förklaring behöver barnet undersökas. Frånvaro av feber räcker inte för att avgöra att det är ofarligt.",
+        "Kontakta vårdcentral för hjälp med bedömningen, särskilt om hältan fortsätter eller kommer tillbaka. Berätta när den började, om barnet har skadat sig och hur barnet belastar benet.",
+        "Du behöver inte själv avgöra om problemet sitter i foten, knät eller höften innan du kontaktar vården.",
       ],
-      bullets: [
-        "hältan är **oförklarad**",
-        "den inte går tillbaka",
-        "den kommer tillbaka vid upprepade tillfällen",
-        "barnet får ont vid samma aktivitet om och om igen",
-        "gång, lek eller idrott påverkas",
-        "barnet har morgonstelhet",
-        "besvären förändras eller successivt blir tydligare",
-        "du som förälder inte kan avgöra varifrån besvären kommer.",
+    },
+    {
+      id: "haltar-utan-att-ha-ont",
+      heading: "Barnet haltar men säger att det inte gör ont",
+      body: [
+        "Yngre barn kan ha svårt att beskriva både smärtan och var den sitter. Förändringen kan i stället märkas genom att barnet undviker att springa, går annorlunda eller inte vill belasta benet.",
+        "Beskriv det du faktiskt ser när du kontaktar vården. ”Hon går på tå på ena sidan sedan i går” eller ”han vill bli buren efter några steg” är mer användbart än att försöka sätta en diagnos.",
+        "Be inte barnet gå eller hoppa upprepade gånger för att testa om det fortfarande gör ont.",
+      ],
+    },
+    {
+      id: "vanliga-orsaker",
+      heading: "Vad kan hältan bero på?",
+      body: [
+        "Hälta kan ha flera orsaker. Det går inte att avgöra vilken som gäller enbart genom att titta på gången.",
+      ],
+      subsections: [
+        {
+          id: "skada",
+          heading: "En skada",
+          body: [
+            "Ett fall, en vridning eller annan skada kan ligga bakom. Berätta även om händelser som först verkade obetydliga. Det är läkaren som bedömer om skadan kan förklara besvären och om vidare undersökning behövs.",
+          ],
+        },
+        {
+          id: "halta-efter-forkylning",
+          heading: "Höftsnuva efter en infektion",
+          body: [
+            "En tillfällig inflammation i höftleden, coxitis simplex eller höftsnuva, kan förekomma efter en virusinfektion.",
+            "Men en nylig förkylning räcker inte för att fastställa den diagnosen. Feber, allmäntillstånd och barnets förmåga att belasta behöver vägas in så att andra orsaker inte missas.",
+          ],
+        },
+        {
+          id: "andra-besvar",
+          heading: "Andra besvär från leder eller skelett",
+          body: [
+            "Även andra tillstånd kan påverka hur barnet går. Därför behöver en oförklarlig hälta bedömas, snarare än behandlas utifrån en gissning hemma.",
+          ],
+        },
+      ],
+      bodyAfter: [
+        "Det viktiga är att få rätt undersökning, inte att själv välja mellan olika diagnoser före besöket.",
+      ],
+    },
+    {
+      id: "knasmarta-fran-hoften",
+      heading: "Kan smärtan komma från höften om barnet pekar på knät?",
+      body: [
+        "**Ja. Smärta från höften kan upplevas kring knät.** Läkaren kan därför behöva undersöka mer än den plats barnet pekar på.",
+        "Berätta både var barnet säger att det gör ont och vilka rörelser som har förändrats. Läs mer i guiderna om [ont i höften hos barn](/artiklar/ont-i-hoften-hos-barn) och [ont i knät hos barn](/artiklar/ont-i-knat-barn).",
+      ],
+    },
+    {
+      id: "ar-vaxtvark-en-orsak",
+      heading: "Är det växtvärk?",
+      body: [
+        "Hälta ska inte automatiskt förklaras med växtvärk.",
+        "Typisk växtvärk kommer på kvällen eller natten och barnet är utan besvär under dagen. Kontakta vårdcentral om barnet börjar halta, har ont på dagen eller återkommande har ont på samma ställe.",
+        "Läs mer om [växtvärk hos barn](/artiklar/vaxtvark-hos-barn).",
       ],
     },
     {
       id: "vad-undersoker-lakaren",
-      heading: "Vad undersöker läkaren när ett barn haltar?",
+      heading: "Vad undersöker läkaren?",
       body: [
-        "En viktig del av undersökningen sker redan innan barnet ligger på undersökningsbritsen. Hur barnet går, står, belastar respektive ben, sätter ner foten och rör sig spontant kan ge viktig information.",
-        "Vid oklar hälta anger [VISS](https://viss.nu/kunskapsstod/vardprogram/halta-hos-barn) att lokalstatus bör tas **från fot till höft, i den ordningen** – med bedömning av bland annat palpationsömhet, rörelseinskränkning, sträckdefekt, artrittecken och muskelatrofi. Vid behov kan även rygg och neurologi behöva undersökas.",
-        "Det är särskilt viktigt hos barn, eftersom platsen där barnet säger att det gör ont inte alltid är platsen där problemet sitter.",
+        "Bedömningen utgår från hur besvären började och hur barnet mår och rör sig. Läkaren kan undersöka gången, ledernas rörlighet och om det finns ömhet eller svullnad.",
+        "Beroende på fynden kan prover eller bilddiagnostik bli aktuella. Röntgen, ultraljud och MR besvarar olika frågor; valet görs utifrån vad läkaren behöver undersöka vidare.",
+        "Ett tidigare normalt röntgensvar utesluter inte alla orsaker. Om hältan fortsätter eller barnet försämras behöver ni följa upp besvären enligt vårdens råd.",
       ],
     },
     {
-      id: "behovs-rontgen-ultraljud-mr",
-      heading: "Behövs röntgen, ultraljud eller MR?",
+      id: "forbered-beskrivning",
+      heading: "Förbered en kort beskrivning inför vårdkontakten",
       body: [
-        "Inte alltid. Bildundersökningar används när symtomen och den kliniska undersökningen ger anledning till det. [VISS](https://viss.nu/kunskapsstod/vardprogram/halta-hos-barn) anger att röntgen eller ultraljud bör göras vid:",
+        "Du behöver inte skriva en lång sjukdomshistoria. Följande uppgifter hjälper er att få fram det viktigaste:",
       ],
-      bullets: [
-        "avvikande status",
-        "påtaglig palpationsömhet",
-        "rörelseinskränkning.",
+      table: {
+        columns: ["Uppgift", "Vad du kan anteckna"],
+        rows: [
+          ["När det började", "Datum och om förändringen kom plötsligt eller gradvis."],
+          ["Hur barnet går", "Vilket ben barnet avlastar och om barnet kan stå på det."],
+          ["Smärta", "Var barnet pekar och när besvären märks."],
+          ["Andra symtom", "Exempelvis uppmätt feber, svullnad eller förändrat allmäntillstånd."],
+          ["Tidigare händelser", "Fall, idrott, annan skada eller nylig infektion."],
+          ["Tidigare vård", "Vad som undersökts och vilka råd ni fått."],
+        ],
+      },
+      bodyAfter: [
+        "Anteckningarna ska inte fördröja vårdkontakten om barnet behöver hjälp direkt.",
       ],
     },
     {
       id: "ortopedisk-bedomning",
-      heading: "När kan en ortopedisk bedömning vara aktuell?",
-      // 2026-09-13 (ägarbeslut): kontextuell länk till /boka-tid/barn direkt efter guidelänken.
-      // Medvetet här och INTE i sök-vård-snabbt-sektionen: bokning gäller icke-akuta besvär.
+      heading: "När kan en planerad ortopedisk bedömning passa?",
       body: [
-        "Många barn med nytillkommen hälta bedöms först inom primärvården. Vilken vårdnivå som är rätt beror på barnets ålder, symtombild och vad som framkommer vid undersökningen.",
-        "[VISS](https://viss.nu/kunskapsstod/vardprogram/halta-hos-barn) anger exempelvis specialistbedömning när misstänkt coxitis simplex inte förbättrats efter ungefär en vecka, samt när röntgenbilden inger misstanke om stressfraktur eller morbus Perthes.",
-        "Mer om när barn kan behöva en ortopedisk bedömning finns i guiden om [ortopedisk bedömning för barn](/artiklar/barnortopedi). Om barnet behöver en ortopedisk bedömning i Göteborg kan du [se lediga tider här](/boka-tid/barn). En ortopedisk bedömning kan bli aktuell exempelvis när:",
+        "En planerad bedömning kan vara relevant för kvarstående eller återkommande besvär som inte kräver akut vård. Det kan exempelvis finnas en fråga om fortsatt ortopedisk utredning efter en tidigare vårdkontakt.",
+        "Om barnet nyligen har börjat halta och orsaken är oklar, kontakta vården för att få rätt prioritering. Välj inte en senare kalenderbokning som ersättning för den bedömningen.",
+        "Inför ett planerat besök kan ni formulera vad ni behöver hjälp med:",
       ],
       bullets: [
-        "hältan är kvarstående eller återkommande och orsaken är oklar",
-        "det finns misstanke om ett strukturellt problem i höft, knä, fot eller skelett",
-        "barnet inte förbättras som förväntat",
-        "tidigare röntgen eller annan bilddiagnostik behöver bedömas i sitt kliniska sammanhang",
-        "besvären tydligt begränsar barnets aktivitet.",
+        "Vad behöver undersökas vidare?",
+        "Hur ska vi följa upp att barnet fortfarande går annorlunda?",
+        "Hur ska tidigare undersökningssvar användas?",
+        "Vem ansvarar för nästa steg?",
+      ],
+      bodyAfter: [
+        "Läs mer om [ortopedisk bedömning för barn i Göteborg](/artiklar/barnortopedi).",
       ],
     },
     {
-      id: "det-viktigaste-for-foraldrar",
-      heading: "Det viktigaste för föräldrar att ta med sig",
-      body: [
-        "Ett barn kan halta av många olika orsaker. Det går därför sällan att avgöra diagnosen bara genom att titta på vilken del av benet barnet pekar på. Tre saker är särskilt användbara att komma ihåg:",
-        "**1. Hälta är ett symtom, inte en diagnos.** **2. Knäsmärta kan ibland komma från höften.** **3. Det är utvecklingen över tid och barnets allmäntillstånd som avgör hur bråttom det är.**",
-        "Ett piggt barn som snabbt förbättras efter en tydlig mindre skada är en helt annan situation än ett barn med oförklarad eller tilltagande hälta, feber eller svårigheter att belasta benet. Vid osäkerhet bör barnet bedömas i stället för att man försöker sätta en diagnos själv.",
+      id: "planerat-besok-barn-goteborg",
+      heading: "Planerat besök för barn i Göteborg",
+      body: ["Hos oss träffar ni Dr. Masoud Sorkhabi för en planerad ortopedisk bedömning."],
+      table: {
+        columns: ["Besöksinformation", "Uppgift"],
+        rows: [
+          ["Plats", "Göteborg"],
+          ["Pris", PRIS],
+          ["Avsatt besökstid", MIN],
+          ["Remiss", "Behövs inte"],
+          ["Bokning", "Direkt i kalendern"],
+        ],
+      },
+      bodyAfter: [
+        "Kontrollera bokningssidans information om vilka åldrar och besvär mottagningen tar emot. Besökspriset innebär inte att eventuell bilddiagnostik eller fortsatt behandling automatiskt ingår.",
+        "[Se tider för planerad ortopedisk bedömning av barn](/boka-tid/barn)",
+        "Är du osäker på om mottagningen passar barnets frågeställning kan du [kontakta oss före bokning](/kontakt). För bedömning av hur bråttom symtomen är, kontakta 1177.",
       ],
     },
     {
-      id: "kallor-barn-haltar",
-      heading: "Källor",
-      body: [
-        "Innehållet är allmän information och ersätter inte en individuell medicinsk bedömning. Vid akuta eller livshotande tillstånd – ring 112. För sjukvårdsrådgivning – ring 1177.",
-        "Medicinska uppgifter bygger framför allt på:",
-      ],
+      id: "efter-undersokningen",
+      heading: "Efter undersökningen: be om en tydlig uppföljningsplan",
+      body: ["Innan ni lämnar besöket är det bra att få svar på:"],
+      ordered: true,
       bullets: [
-        "[1177 – Höftbesvär hos barn](https://www.1177.se/sjukdomar--besvar/skelett-leder-och-muskler/hofter/hoftbesvar-hos-barn/)",
-        "[1177 för vårdpersonal – Hälta hos barn](https://vardpersonal.1177.se/kunskapsstod/kliniska-kunskapsstod/halta-hos-barn/)",
-        "[VISS – Hälta hos barn](https://viss.nu/kunskapsstod/vardprogram/halta-hos-barn), regionalt kliniskt kunskapsstöd i Region Stockholm (vårdprogram riktat till vårdpersonal).",
+        "Vad visar undersökningen hittills?",
+        "Finns det något som behöver utredas vidare?",
+        "Vilka råd gäller för gång, lek och idrott?",
+        "När ska barnet följas upp om hältan fortsätter?",
+        "Vilka förändringar innebär att ni ska söka vård tidigare?",
+      ],
+      bodyAfter: [
+        "Om ni redan har fått en plan men barnet får nya symtom, kontakta vården igen. Berätta vad som har förändrats sedan undersökningen.",
       ],
     },
   ],
+  outro: [
+    "Informationen är ett stöd inför vårdkontakt och ersätter inte en individuell medicinsk bedömning.",
+    "**Medicinskt faktaunderlag:** 1177 – Höftbesvär hos barn och Växtvärk; 1177 för vårdpersonal – Hälta hos barn; Rikshandboken i barnhälsovård – Hälta.",
+  ],
+  faqHeading: "Vanliga frågor om barn som haltar",
   faqs: [
     {
-      question: "Varför börjar barn halta?",
+      question: "Kan barnet behöva undersökas även om det inte har ont?",
       answer:
-        "Barn kan börja halta av många orsaker, exempelvis efter en skada, överbelastning, besvär från fot eller häl eller problem från höft eller knä. Hos yngre barn är coxitis simplex, ibland kallat höftsnuva, en vanlig orsak till akut hälta. Hälta är ett symtom och orsaken behöver bedömas utifrån hela bilden.",
+        "Ja. Barn kan ha svårt att beskriva besvären. Oförklarlig hälta behöver bedömas även utan tydligt beskriven smärta.",
     },
     {
-      question: "Mitt barn haltar men har inte ont – behöver det undersökas?",
+      question: "Barnet har varit förkylt. Är det höftsnuva?",
       answer:
-        "Om hältan är nytillkommen och saknar tydlig förklaring bör man vara uppmärksam även om barnet inte beskriver smärta. Yngre barn kan ha svårt att ange var eller om det gör ont. Kvarstående eller återkommande oförklarad hälta bör bedömas.",
+        "Det är en möjlig förklaring, men det går inte att avgöra hemma utifrån förkylningen. Barnets symtom och undersökningen behöver vägas samman.",
     },
     {
-      question: "Kan ett barn halta efter en förkylning?",
+      question: "Kan vi vänta till en bokad tid nästa vecka?",
       answer:
-        "Ja. Coxitis simplex är en vanlig orsak till hälta hos yngre barn och kommer ofta efter en förkylning. Barnet kan få ont i höften, låret och ibland vid knät. Hälta efter förkylning ska dock inte automatiskt antas vara coxitis simplex, framför allt inte om barnet har feber eller är påverkat.",
+        "Inte om barnet har symtom som behöver snabbare vård. Vid feber eller oförmåga att stå på benet ska ni söka genast. Ring 1177 vid osäkerhet.",
     },
     {
-      question: "Kan höftproblem kännas som knäsmärta hos barn?",
+      question: "Behöver barnet MR före ett ortopedbesök?",
       answer:
-        "Ja. Enligt 1177 kan besvär från höften göra ont i höften, låret och ibland vid knät. Därför kan höften behöva undersökas hos ett barn som både haltar och har knäsmärta.",
+        "Nej, beställ inte MR enbart för att förbereda besöket. Läkaren bedömer vilken undersökning som i så fall behövs. Ta med befintliga svar och information om tidigare utredning.",
     },
     {
-      question: "När är hälta hos barn akut?",
+      question: "Behöver vi remiss för ett planerat besök hos er?",
       answer:
-        "1177 anger att du genast ska kontakta vårdcentral eller jouröppen mottagning om barnet har symtom på höftbesvär och samtidigt har feber eller inte kan stå på benet. Sök också snabbt vård vid uttalad hälta efter ett trauma eller om barnet verkar tydligt sjukt.",
+        "Nej. Till det privata ortopedbesöket hos oss i Göteborg behövs ingen remiss. Det förändrar inte råden om att söka snabbare vård vid akuta symtom.",
     },
     {
-      question: "Behöver ett haltande barn alltid röntgas?",
-      answer:
-        "Nej. Röntgen eller ultraljud används när undersökningen eller symtomen motiverar det – VISS anger avvikande status, påtaglig palpationsömhet eller rörelseinskränkning.",
-    },
-    {
-      question: "Är växtvärk en vanlig förklaring till att barn haltar?",
-      answer:
-        "Typisk växtvärk ger normalt inte hälta på dagen. VISS beskriver den som oftast bilateral diffus värk nattetid i lår, knän eller underben, utan symtom dagtid.",
-    },
-    {
-      question: "När behövs en ortoped för ett barn som haltar?",
-      answer:
-        "Ortopedisk bedömning kan bli aktuell vid kvarstående eller återkommande hälta, när orsaken är oklar, vid misstanke om strukturella besvär eller när barnet inte förbättras som förväntat. Akuta symtom ska däremot bedömas via rätt akut vårdnivå och inte vänta på en planerad specialisttid.",
+      question: "Vad kostar besöket?",
+      answer: `Det planerade ortopedbesöket kostar ${PRIS} och den avsatta tiden är ${MIN}. Be om separat kostnadsinformation om ytterligare undersökningar eller besök föreslås.`,
     },
   ],
 };
