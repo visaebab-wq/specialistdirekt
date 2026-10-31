@@ -120,7 +120,7 @@ export default async function ArticlePage({
                     <th
                       key={c}
                       scope="col"
-                      className="border-b border-brand-200 px-3 py-2 text-xs font-bold tracking-wide text-brand-800 uppercase"
+                      className="border-b border-brand-200 px-3 py-2 text-xs font-bold tracking-wide break-normal text-brand-800 uppercase"
                     >
                       {c}
                     </th>
@@ -135,7 +135,7 @@ export default async function ArticlePage({
                         <th
                           key={ci}
                           scope="row"
-                          className="border-b border-brand-100 px-3 py-2 text-left align-top font-semibold text-ink-900 hyphens-auto"
+                          className="min-w-[8rem] border-b border-brand-100 px-3 py-2 text-left align-top font-semibold break-normal text-ink-900"
                         >
                           {renderInline(cell)}
                         </th>
