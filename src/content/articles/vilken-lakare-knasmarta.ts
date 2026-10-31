@@ -1,11 +1,26 @@
 import type { Article } from "@/lib/articles-types";
+import {
+  BOOKING_PRICE_SEK,
+  BOOKING_SLOT_MINUTES,
+  BOOKING_WEEKDAYS,
+  formatPrice,
+} from "@/lib/booking-slots";
+
+// Text skriven av ägaren 2026-10-31. Den här artikeln äger frågan "vilken läkare
+// vid knäsmärta?"; /kna-laser-sig (låst knä) och mr-kna-vad-visar (bilddiagnostik)
+// behåller sina ämnen. Pris och besökslängd kommer från bokningens egna
+// konstanter, och lördagsfrågan visas bara så länge kalendern tar emot på
+// lördagar (6).
+const PRIS = `${formatPrice(BOOKING_PRICE_SEK)} kr`;
+const MIN = `${BOOKING_SLOT_MINUTES} minuter`;
+const LORDAG = BOOKING_WEEKDAYS.includes(6);
 
 export const article: Article = {
   slug: "vilken-lakare-knasmarta",
-  title: "Vilken läkare ska jag söka för knäsmärta?",
-  metaTitle: "Vilken läkare för knäsmärta? Så väljer du rätt",
+  title: "Ont i knät – vilken läkare ska jag söka?",
+  metaTitle: "Ont i knät – vilken läkare ska jag söka?",
   metaDescription:
-    "Ont i knät men osäker på vart du ska? Så väljer du snabbt mellan vårdcentral, fysioterapeut och ortoped – varningstecken och hur du bokar privat ortoped utan remiss.",
+    "Vårdcentral, fysioterapeut eller ortoped vid knäsmärta? Läs när du ska söka vård och hur du bokar en ortopedisk bedömning i Göteborg.",
   category: "Ortopedi",
   primaryKeyword: "vilken läkare för knäsmärta",
   keywords: [
@@ -19,171 +34,261 @@ export const article: Article = {
     "ont i knät vid böj",
   ],
   excerpt:
-    "Vilken läkare passar bäst vid knäsmärta? Så väljer du mellan vårdcentral, ortoped och fysioterapeut, vanliga orsaker, varningstecken och vägen till specialist.",
+    "Vårdcentral, fysioterapeut eller ortoped vid knäsmärta? Läs när du ska söka vård och hur du bokar en ortopedisk bedömning i Göteborg.",
   published: "2026-04-18",
-  updated: "2026-08-08",
-  readMinutes: 7,
-  wordCount: 1520,
+  updated: "2026-10-31",
+  readMinutes: 10,
+  wordCount: 1700,
   relatedSpecialty: "ortoped",
-  summary: [
-    "Vid knäsmärta är **vårdcentralen** oftast rätt första kontakt – allmänläkaren bedömer och remitterar vidare vid behov.",
-    "Kommer smärtan gradvis utan skada är en **fysioterapeut** ofta rätt; vid tydlig skada, låsningar eller besvär som inte ger med sig blir en ortoped aktuell.",
-    "Varningssignal: söker du vård akut om knät svullnar kraftigt och snabbt, viker sig, låser sig eller om du får feber med ett rött, varmt knä.",
-    "[Specialistdirekt](/kontakt) hjälper dig hitta rätt specialist och skicka en bokningsförfrågan.",
-  ],
-  suitableFor: [
-    "har haft knäbesvär i flera veckor utan förbättring",
-    "vill veta om vårdcentral, fysioterapeut eller ortoped är rätt",
-    "vill slippa lång väntetid till en ortoped",
-    "har haft en skada och vill veta om röntgen eller MR behövs",
-  ],
+  // Ny text 2026-10-31. Byline och reviewedBy visas först när läkaren har
+  // granskat just den här versionen – en tidigare granskning gäller inte den.
+  medicallyReviewed: false,
+  // Sidans topp: ingress → när du ska söka vård snabbt → vårdkontakter →
+  // bokningskort. Innehållsförteckningen kommer efter (ägarens ordning).
+  leadIntro: true,
   intro: [
-    "Knäsmärta är ett av de vanligaste skälen till att söka vård, men det är inte alltid självklart vart man ska vända sig. Ska du boka tid på vårdcentralen, gå direkt till en **ortoped** eller börja hos en fysioterapeut? Svaret beror på hur ont du har, hur länge besvären hållit i sig och om det finns några varningstecken. Den här guiden går igenom **vilken läkare för knäsmärta** som passar i olika lägen.",
-    "Knät är en av kroppens mest belastade leder, och smärtan kan komma från brosk, menisk, ledband, senor eller muskler. Eftersom orsakerna är så olika spelar det roll var du börjar – rätt första steg sparar både tid och onödiga undersökningar.",
-    "Den här artikeln ger ingen diagnos och ersätter inte en läkarbedömning. Den hjälper dig att förstå vem som gör vad, när det är värt att söka specialist och hur du tar dig dit – med eller utan remiss.",
+    "**Vid knäsmärta som inte går över är vårdcentral eller fysioterapeut ofta en lämplig första kontakt. En ortoped kan bli aktuell när besvären behöver utredas vidare, rehabilitering inte har hjälpt tillräckligt eller en operation behöver övervägas. Ett låst knä eller en plötsligt svullen och smärtsam led kan behöva snabbare bedömning.**",
+    "Vilken vård du behöver beror bland annat på om smärtan började efter en skada, hur knät fungerar och vad du redan har provat. Du behöver inte själv veta om det handlar om menisk, artros eller något annat innan du söker hjälp.",
   ],
   sections: [
     {
-      id: "vart-borjar-jag",
-      heading: "Vart börjar jag – vårdcentral, ortoped eller fysioterapeut?",
-      body: [
-        "För de flesta är **vårdcentralen** en bra första kontakt vid knäsmärta. Allmänläkaren gör en första bedömning, undersöker knät, utesluter allvarliga orsaker och kan skriva remiss vidare om det behövs. Det är ofta den smidigaste vägen om du är osäker på vad besvären beror på.",
-        "En **fysioterapeut** (sjukgymnast) är ofta rätt om smärtan kommit gradvis utan ett tydligt trauma – till exempel vid överbelastning, löparknä eller stelhet. Du kan i många regioner boka fysioterapeut direkt utan remiss, och en stor del av all knäsmärta blir bättre med rätt övningar och belastningsråd.",
-        "En **ortoped** är specialistläkare på rörelseapparaten och blir aktuell vid tydlig skada, låsningar, instabilitet, kraftig svullnad eller besvär som inte ger med sig trots behandling. Ortopeden bedömer behov av röntgen, magnetkamera (MR) eller ingrepp. Läs mer om vad specialiteten omfattar på vår sida om [ortoped](/specialiteter/ortoped). Är det just låsningar som återkommer kan du läsa om [ortopedisk bedömning när knät låser sig](/kna-laser-sig).",
-      ],
-      bullets: [
-        "Vårdcentral: första bedömning och eventuell remiss vidare",
-        "Fysioterapeut: rehabilitering, övningar och belastningsråd",
-        "Ortoped: utredning av skador, bilddiagnostik och ingrepp",
-      ],
-    },
-    {
-      id: "vanliga-orsaker",
-      heading: "Vanliga orsaker till knäsmärta",
-      body: [
-        "Knäsmärta har många ansikten. Var det gör ont, om det svullnar och vad som utlöser besvären ger ledtrådar om orsaken. Här är några av de vanligaste förklaringarna, beskrivna på vardagligt språk – inte som en diagnos.",
-        "**Artros** är ett gradvis slitage av ledbrosket, vanligare med stigande ålder. Det ger ofta värk, stelhet på morgonen och smärta som ökar vid belastning. En **meniskskada** kan ge smärta vid vridning, en känsla av att knät \"hakar upp sig\" och ibland låsningar. Skador på **korsband** uppstår ofta vid en hastig vridning eller ett tvärstopp, gärna under idrott, och kan ge svullnad och en känsla av instabilitet.",
-        "**Löparknä** och liknande överbelastningsbesvär kommer smygande vid upprepad belastning, till exempel löpning eller cykling, och sitter ofta runt eller framför knäskålen. Den typen av besvär svarar ofta bra på vila, anpassad träning och hjälp från en fysioterapeut.",
-      ],
-      bullets: [
-        "Artros – slitage i brosket, värk och stelhet",
-        "Meniskskada – smärta vid vridning, ibland låsningar",
-        "Korsbandsskada – ofta efter vridvåld, ger instabilitet",
-        "Löparknä och överbelastning – smygande smärta vid aktivitet",
-      ],
-    },
-    {
       id: "varningstecken",
-      heading: "Varningstecken som bör utredas",
-      body: [
-        "De flesta knäbesvär är inte farliga och läker med tid och rätt belastning. Men vissa tecken bör tas på allvar och föranleda en läkarbedömning snarare än egenvård. Om något av nedanstående stämmer in är det klokt att söka vård och låta en läkare avgöra hur knät ska utredas.",
-        "Söker du vård för dessa symtom kan vårdcentralen eller en ortoped behöva ta ställning till röntgen eller andra undersökningar. Vänta inte ut kraftiga eller snabbt försämrade besvär.",
+      heading: "När ska du söka vård snabbt?",
+      beforeToc: true,
+      body: [],
+      subsections: [
+        {
+          id: "svullnad-och-feber",
+          heading: "Sök vård genast vid svullnad tillsammans med feber",
+          body: [
+            "Kontakta genast vårdcentral eller jouröppen mottagning om knät plötsligt svullnar och du samtidigt har feber eller känner dig sjuk. Detsamma gäller kraftig smärta med svullnad och rodnad i knäleden.",
+            "Om mottagningen är stängd, sök akutmottagning.",
+          ],
+        },
+        {
+          id: "efter-en-skada",
+          heading: "Efter en skada: låsning eller svårighet att belasta behöver bedömas",
+          body: ["Sök vård inom något dygn om du har skadat knät och:"],
+          bullets: [
+            "knät har fastnat i ett läge,",
+            "du inte kan stödja på benet,",
+            "du har svårt att sträcka ut knät,",
+            "knät har svullnat kraftigt inom ett par timmar.",
+          ],
+        },
       ],
-      bullets: [
-        "Knät svullnar kraftigt och snabbt, särskilt efter en skada",
-        "Du kan inte stödja på benet eller knät viker sig",
-        "Knät låser sig eller går inte att räta ut",
-        "Feber tillsammans med ett rött, varmt och svullet knä",
-        "Smärta som inte förbättras alls trots flera veckors egenvård",
-      ],
-    },
-    {
-      id: "vagen-till-ortoped",
-      heading: "Vägen till ortoped – remiss eller egenremiss",
-      body: [
-        "I den **offentliga** vården går vägen till ortoped oftast via en remiss. Vårdcentralens läkare gör en första bedömning och skriver remiss om besvären motiverar specialistutredning. Du betalar då vanlig patientavgift och omfattas av högkostnadsskyddet, men väntetiden varierar beroende på trycket i din region.",
-        "I många regioner kan du även skriva en **egenremiss** – det vill säga själv beskriva dina besvär och be om en specialistbedömning utan att först gå via läkare. Hur det fungerar och vilka regler som gäller skiljer sig mellan regioner. Vi har en separat genomgång om att [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
-        "Hur länge du får vänta beror på region och hur brådskande besvären bedöms. Vad **vårdgarantin** innebär och vilka tidsgränser som finns kan du läsa om i [vår guide om väntetider](/artiklar/vantetid-specialist-vardgaranti).",
-      ],
-    },
-    {
-      id: "privat-alternativ",
-      heading: "Privat alternativ och ungefärliga priser",
-      body: [
-        "Vill du slippa vänta kan du välja en **privat ortoped**. Då betalar du själv eller via en sjukvårdsförsäkring, och du kan oftast boka utan remiss. Väntetiden är i regel kortare – från några dagar till ett par veckor – jämfört med den offentliga vården.",
-        "Priserna nedan är **ungefärliga** och **varierar** kraftigt mellan kliniker och orter. Ofta tillkommer bilddiagnostik utöver själva läkarbesöket, så det är summan av delarna som avgör din slutkostnad. Be alltid kliniken om ett samlat pris innan du bokar.",
-      ],
-      bullets: [
-        "Nybesök hos en privat ortoped: ungefär 1 500–3 500 kr",
-        "Röntgen av knät: ungefär 1 000–2 500 kr",
-        "Magnetkamera (MR) av knät: ungefär 3 000–6 000 kr",
-        "Besök hos fysioterapeut: ungefär 500–1 200 kr per gång",
+      bodyAfter: [
+        "Ring 1177 om du behöver hjälp att bedöma hur bråttom det är eller vart du ska vända dig. Vid en allvarlig olycka eller ett livshotande tillstånd, ring 112.",
+        "**Vänta inte på en planerad privat tid om symtomen behöver snabbare vård.**",
       ],
     },
     {
-      id: "vid-besoket",
-      heading: "Vad händer vid ett ortopedbesök?",
-      body: [
-        "Ett besök hos en ortoped börjar med ett samtal om dina besvär: när smärtan började, vad som utlöser den, om du haft en skada och hur det påverkar din vardag. Därefter följer en klinisk undersökning där läkaren känner på knät, testar rörlighet, stabilitet och vilka rörelser som gör ont.",
-        "Utifrån undersökningen avgör ortopeden om bilddiagnostik behövs. **Röntgen** visar framför allt skelettet och kan tala för till exempel artros, medan **magnetkamera (MR)** visar mjukdelar som menisk, brosk och ledband tydligare. Alla knäbesvär kräver inte bilddiagnostik – ofta räcker undersökningen för att lägga en plan.",
-        "Behandlingen anpassas efter orsaken och kan vara allt från anpassad träning och fysioterapi till avlastning, sprutor eller, i utvalda fall, operation. Många knäbesvär blir bättre utan kirurgi. Är du osäker på vilken specialist du behöver kan du bläddra bland fler [specialiteter](/specialiteter).",
+      id: "vart-borjar-jag",
+      heading: "Vårdcentral, fysioterapeut eller ortoped?",
+      beforeToc: true,
+      body: [],
+      table: {
+        columns: ["Vårdkontakt", "När den kan vara relevant"],
+        rows: [
+          ["Vårdcentral", "Vid kvarstående eller återkommande knäsmärta, oklar svullnad eller behov av läkarbedömning."],
+          ["Fysioterapeut", "För bedömning av funktion och individuellt anpassad rehabilitering, exempelvis vid misstänkt knäledsartros."],
+          ["Ortoped", "När en skada eller kvarstående besvär behöver specialistbedömning, eller när kirurgisk behandling övervägs."],
+        ],
+      },
+      bodyAfter: [
+        "Kontakterna kan komplettera varandra. En ortopedisk bedömning innebär inte att rehabiliteringen ska avbrytas eller att operation är nästa steg.",
       ],
     },
     {
       id: "privat-ortoped-goteborg",
-      heading: "Söker du privat ortoped för knäsmärta i Göteborg?",
-      body: [
-        "Bor du i Göteborgsområdet kan du boka **Dr. Masoud Sorkhabi**, specialist i ortopedi och ryggkirurgi med över 20 års erfarenhet av ortopedi och kirurgi, inklusive knäbesvär. **Fysiskt besök i Göteborg 2 000 kr**, som betalas på plats vid besöket – utan remiss för självbetalande.",
-        "Läs mer och boka på [privat ortoped i Göteborg](/specialiteter/ortoped/goteborg). Specialistdirekt är en boknings- och informationstjänst; den medicinska bedömningen görs av läkaren.",
+      heading: "Planerat ortopedbesök i Göteborg",
+      beforeToc: true,
+      body: ["Hos oss träffar du **Dr. Masoud Sorkhabi** för en planerad ortopedisk bedömning."],
+      table: {
+        columns: ["Besöksinformation", "Uppgift"],
+        rows: [
+          ["Plats", "Göteborg"],
+          ["Pris", PRIS],
+          ["Avsatt besökstid", MIN],
+          ["Remiss", "Behövs inte"],
+          ["Bokning", "Direkt i kalendern"],
+        ],
+      },
+      bookingCard: { label: "Se lediga tider och boka ortopedbesök", href: "/boka-tid" },
+      bodyAfter: [
+        "Vill du läsa mer innan du väljer tid? Besök sidan om [ortoped i Göteborg](/specialiteter/ortoped/goteborg).",
       ],
     },
     {
-      id: "specialistdirekt",
-      heading: "Så hjälper Specialistdirekt dig vidare",
+      id: "vid-besoket",
+      heading: "När kan en ortoped hjälpa vid knäsmärta?",
       body: [
-        "Specialistdirekt är en **kostnadsfri** boknings- och informationstjänst. Du beskriver kort dina knäbesvär och skickar en förfrågan. Vi återkommer med besked om hur du kan gå vidare. Vi ställer inga diagnoser och ger ingen medicinsk rådgivning; via Specialistdirekt kan du skicka en förfrågan om en privat mottagning och få besked om tid och pris.",
-        "Vill du veta exakt hur tjänsten fungerar steg för steg kan du läsa [så fungerar det](/sa-fungerar-det). Är du redo att komma vidare, fyll i en förfrågan via [kontaktsidan](/kontakt) så återkommer vi med förslag på lämplig ortoped.",
-        "Kom ihåg att priserna i den här guiden är ungefärliga och kan ha ändrats. Det säkraste är alltid att be den aktuella kliniken om ett bekräftat pris innan du bokar.",
+        "En specialistbedömning kan vara relevant när det finns en fråga som behöver klarläggas för att komma vidare. Det kan exempelvis handla om otillräcklig förbättring efter rehabilitering eller behov av att bedöma om en operation är motiverad.",
+        "Inför besöket kan du formulera vad du vill ha hjälp med:",
+      ],
+      bullets: [
+        "Jag har följt en rehabiliteringsplan men har fortfarande tydliga begränsningar.",
+        "Jag har undersökts tidigare men behöver förstå nästa steg.",
+        "Min läkare eller fysioterapeut har rekommenderat ortopedisk bedömning.",
+        "Jag vill diskutera vilka behandlingsalternativ som är relevanta i mitt fall.",
+      ],
+      bodyAfter: [
+        "Ett planerat besök är till för bedömning och fortsatt planering. Det innebär inte att en viss undersökning, injektion eller operation kommer att erbjudas.",
+      ],
+    },
+    {
+      id: "vridning-idrottsskada",
+      heading: "Knät gör ont efter en vridning eller idrottsskada",
+      body: [
+        "Berätta hur skadan gick till och vad som hände direkt efteråt. Kunde du fortsätta gå? Svullnade knät snabbt? Har du sedan dess haft svårt att sträcka ut det?",
+        "En meniskskada kan ge smärta vid vridning, svullnad eller låsning. Symtomen räcker däremot inte för att själv fastställa vilken struktur som är skadad.",
+        "Om besvären efter en misstänkt meniskskada inte minskar under de närmaste dagarna bör du kontakta vårdcentral. Behandlingen kan omfatta fysioterapi; vissa skador behöver opereras.",
+        "Beskriv skillnaden mellan att knät känns stelt, tillfälligt hakar upp sig och faktiskt fastnar så att rörelsen inte går att genomföra. Ett kvarstående låst knä ska bedömas skyndsamt.",
+      ],
+    },
+    {
+      id: "vanliga-orsaker",
+      heading: "Knäsmärtan har kommit gradvis – kan det vara artros?",
+      body: [
+        "Knäledsartros är en möjlig förklaring till gradvis utvecklad smärta och stelhet, men andra orsaker finns. Diagnosen ställs vanligtvis genom samtal om symtomen och en undersökning. Röntgen behövs inte alltid.",
+        "Vid artros är kunskap om tillståndet och individuellt anpassad träning grundläggande behandling. De flesta behöver inte opereras.",
+        "Om behandlingen inte ger tillräcklig hjälp behöver planen följas upp. För vissa blir en ortopedisk bedömning aktuell för att diskutera om operation kan vara relevant.",
+      ],
+    },
+    {
+      id: "redan-tranat",
+      heading: "Jag har redan tränat – varför har jag fortfarande ont?",
+      body: [
+        "Utebliven förbättring är ett skäl att följa upp behandlingen. Det visar inte i sig att träning är fel eller att operation behövs.",
+        "Ta med en konkret sammanfattning till nästa besök:",
+      ],
+      table: {
+        columns: ["Fråga", "Information som hjälper"],
+        rows: [
+          ["Vilken rehabilitering har du gjort?", "Övningar, belastning och eventuella anpassningar."],
+          ["Hur länge och hur regelbundet?", "När du började och hur ofta du har kunnat följa planen."],
+          ["Vad har förbättrats?", "Exempelvis gångsträcka, trappgång eller sömn."],
+          ["Vad begränsar dig fortfarande?", "De aktiviteter som fortfarande inte fungerar."],
+          ["Har något förändrats?", "Nytillkommen svullnad, låsning eller annan försämring."],
+        ],
+      },
+      bodyAfter: [
+        "Be om en tydlig förklaring av vad som ska ändras och när effekten ska utvärderas. Om du har fått en rekommendation om specialistbedömning, ta gärna med den.",
+      ],
+    },
+    {
+      id: "mr-fore-besok",
+      heading: "Behöver jag MR av knät före besöket?",
+      body: [
+        "**Du behöver inte boka MR på egen hand för att kunna träffa ortopeden.** Valet av undersökning beror på vilken fråga läkaren behöver besvara.",
+        "Vid misstänkt artros är MR inte ett rutinmässigt första steg. Om diagnosen är oklar eller utredningen behöver kompletteras väljer vården undersökning utifrån situationen.",
+        "Har du redan gjort röntgen eller MR, ta med svaret och kontrollera hur bilderna kan göras tillgängliga. Be läkaren förklara:",
+      ],
+      bullets: [
+        "Hur hänger fynden ihop med mina besvär?",
+        "Behöver något undersökas ytterligare?",
+        "Skulle en ny undersökning ändra behandlingsplanen?",
+        "Vilken kostnad gäller om undersökningen sker privat?",
+      ],
+      bodyAfter: [
+        "Besökspriset innebär inte att bilddiagnostik automatiskt ingår.",
+        "Läs mer om [vad MR av knät kan visa](/artiklar/mr-kna-vad-visar).",
+      ],
+    },
+    {
+      id: "forbered-besoket",
+      heading: "Vad är bra att förbereda inför ortopedbesöket?",
+      body: [
+        "Skriv gärna ner tre saker: hur besvären började, vad du har provat och vad du vill kunna göra igen.",
+        "Ett konkret mål kan vara att kunna gå till arbetet, använda trappor eller återgå till en viss aktivitet. Det gör det lättare att diskutera vad behandlingen ska inriktas på.",
+        "Ta med:",
+      ],
+      bullets: [
+        "relevanta journalutdrag och undersökningssvar,",
+        "en aktuell läkemedelslista,",
+        "information om tidigare knäoperationer eller skador,",
+        "din rehabiliteringsplan om du har en,",
+        "de frågor du helst vill få besvarade.",
+      ],
+      bodyAfter: ["Välj gärna kläder som gör det enkelt att undersöka knät."],
+    },
+    {
+      id: "vagen-till-ortoped",
+      heading: "Vad kostar besöket och behöver jag remiss?",
+      body: [
+        `Ett planerat ortopedbesök hos Dr. Masoud Sorkhabi i Göteborg kostar **${PRIS}**. Den avsatta tiden är **${MIN}**, och du behöver **ingen remiss**.`,
+        "Om ytterligare utredning, behandling eller återbesök föreslås, be om separat information om kostnaderna innan du går vidare.",
+        "Läs mer om [kostnaden för privat ortoped](/artiklar/privat-ortoped-kostnad) och [att boka ortoped utan remiss](/artiklar/ortoped-utan-remiss).",
+      ],
+    },
+    {
+      id: "efter-bedomningen",
+      heading: "Vad ska vara tydligt efter bedömningen?",
+      body: ["Be om en plan som besvarar följande:"],
+      ordered: true,
+      bullets: [
+        "Vad talar undersökningen för?",
+        "Finns det något som fortfarande behöver klarläggas?",
+        "Vilken behandling eller rehabilitering rekommenderas?",
+        "När ska resultatet utvärderas?",
+        "Vem ansvarar för uppföljningen?",
+        "När ska jag söka vård tidigare?",
+      ],
+      bodyAfter: [
+        "En tydlig uppföljning är särskilt viktig om du har haft besvär länge eller får hjälp från flera vårdgivare.",
       ],
     },
   ],
-  sources: [
-    {
-      label: "Knäledsartros",
-      url: "https://www.1177.se/sjukdomar--besvar/skelett-leder-och-muskler/leder/knaledsartros/",
-      publisher: "1177 Vårdguiden",
-    },
-    {
-      label: "Meniskskada",
-      url: "https://www.1177.se/olyckor--skador/skador-pa-armar-och-ben/meniskskada/",
-      publisher: "1177 Vårdguiden",
-    },
+  outro: [
+    "Informationen hjälper dig att välja vårdkontakt och förbereda ett besök. Den ersätter inte en individuell medicinsk bedömning.",
+    "**Medicinskt faktaunderlag:** 1177 – Meniskskada, Knäledsartros och Ledvärk; 1177 för vårdpersonal – Knäledsartros; Region Skåne – Degenerativ meniskskada i knäled.",
   ],
+  // Avslutande bokningsruta ("Boka en planerad bedömning av dina knäbesvär").
+  cta: {
+    heading: "Boka en planerad bedömning av dina knäbesvär",
+    body: `Vill du boka ett ortopedbesök i Göteborg? Hos oss träffar du Dr. Masoud Sorkhabi. Du väljer tid direkt i kalendern och behöver ingen remiss. ${MIN} · ${PRIS} · Göteborg`,
+    label: "Se lediga tider och boka ortopedbesök",
+    href: "/boka-tid",
+  },
+  faqHeading: "Vanliga frågor om knäsmärta",
   faqs: [
     {
-      question: "Vilken läkare ska jag söka för knäsmärta?",
+      question: "Vilken läkare ska jag söka om jag har ont i knät?",
       answer:
-        "Börja oftast på **vårdcentralen** för en första bedömning. Vid besvär som kommit gradvis utan skada kan en **fysioterapeut** vara rätt. Vid tydlig skada, låsningar eller besvär som inte ger med sig blir en **ortoped** aktuell, ofta via remiss eller egenremiss.",
+        "Vårdcentral är en lämplig första läkarkontakt vid kvarstående eller återkommande besvär. Fysioterapeut kan hjälpa med bedömning och rehabilitering. Ortoped blir aktuell när specialistbedömning behövs.",
     },
     {
-      question: "Kan jag gå direkt till en ortoped utan remiss?",
+      question: "Kan jag boka ortoped direkt?",
       answer:
-        "Hos de flesta **privata** ortopedmottagningar behövs ingen remiss – du kan boka direkt. I offentlig vård krävs ofta remiss från vårdcentral, men många regioner tillåter egenremiss. Läs mer i vår guide om att [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
+        "Ja. Till det privata ortopedbesöket hos oss i Göteborg kan du boka utan remiss. Vid akuta symtom ska du söka vård utifrån hur bråttom besvären är.",
     },
     {
-      question: "När är knäsmärta ett varningstecken?",
+      question: "Betyder meniskskada att jag måste opereras?",
       answer:
-        "Sök vård om knät svullnar kraftigt och snabbt, om du inte kan stödja på benet, om knät låser sig eller inte går att räta ut, eller om du får feber tillsammans med ett rött och varmt knä. Vänta inte ut kraftiga eller snabbt försämrade besvär.",
+        "Nej. Behandlingen beror på skadan och symtomen. Fysioterapi är vanligt, medan vissa skador behöver opereras. Ett låst knä behöver snabb bedömning.",
     },
     {
-      question: "Vad kostar ett privat ortopedbesök för knät?",
+      question: "Kan jag träffa ortoped även om jag inte vill opereras?",
       answer:
-        "Ett nybesök hos en privat ortoped kostar **ungefärligt** 1 500–3 500 kr. Röntgen och magnetkamera (MR) tillkommer ofta separat. Alla siffror är ungefärliga och **varierar** mellan kliniker och orter, så be alltid om ett samlat pris i förväg.",
+        "Ja. Ett besök är en bedömning, inte ett samtycke till operation. Berätta vilka frågor och önskemål du har.",
     },
     {
-      question: "Behöver jag alltid röntgen eller MR vid knäsmärta?",
+      question: "Måste jag ha gjort MR först?",
       answer:
-        "Nej. Ortopeden avgör utifrån undersökningen om bilddiagnostik behövs. Röntgen visar framför allt skelettet, medan MR visar mjukdelar som menisk och ledband tydligare. Många knäbesvär kan bedömas och behandlas utan bilddiagnostik.",
+        "Nej. Ta med tidigare undersökningssvar om de finns. Läkaren bedömer om mer bilddiagnostik behövs och vilken metod som är relevant.",
     },
+    ...(LORDAG
+      ? [
+          {
+            question: "Finns det tider på lördagar?",
+            answer: "Vi erbjuder även ortopedbesök på lördagar. Se kalendern för aktuella bokningsbara tider.",
+          },
+        ]
+      : []),
     {
-      question: "Vad kostar det att använda Specialistdirekt?",
+      question: "Gäller artikeln barn också?",
       answer:
-        "Att använda Specialistdirekt är **kostnadsfritt**. Du skickar en förfrågan och får besked om hur du kan gå vidare. Du betalar bara klinikens eventuella avgift för själva besöket. Skicka en förfrågan via [kontaktsidan](/kontakt) så hör vi av oss.",
-    },
-    {
-      question: "Kan jag boka en privat ortoped för knäbesvär i Göteborg?",
-      answer:
-        "Ja. Du kan boka Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi i Göteborg, vars inriktning omfattar knäbesvär. Besöket kostar 2 000 kr och betalas på plats, utan remiss för självbetalande. Läs mer på [privat ortoped i Göteborg](/specialiteter/ortoped/goteborg).",
+        "Den här guiden riktar sig till vuxna. Läs i stället om [ont i knät hos barn](/artiklar/ont-i-knat-barn) och [ortopedisk bedömning för barn](/artiklar/barnortopedi).",
     },
   ],
 };
