@@ -115,13 +115,17 @@ export function howToSchema(steps: { title: string; text: string }[]) {
   };
 }
 
-/** Service-schema för boknings- och informationstjänsten. */
+/**
+ * Service-schema för den kostnadsfria tidsförfrågan (startsidan). Priset 0
+ * gäller förfrågan till övriga specialiteter – INTE ortopedbesöket, som bokas
+ * direkt och har eget Service/Offer (2 000 kr) på sidan om ortoped i Göteborg.
+ */
 export function serviceSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Bokning och information om specialistläkare",
-    serviceType: "Boknings- och informationstjänst",
+    name: "Kostnadsfri tidsförfrågan till privat specialistläkare",
+    serviceType: "Tidsförfrågan",
     provider: { "@id": `${site.url}/#organization` },
     areaServed: { "@type": "Country", name: "Sverige" },
     description: site.description,
@@ -129,7 +133,7 @@ export function serviceSchema() {
       "@type": "Offer",
       price: "0",
       priceCurrency: "SEK",
-      description: "Det kostar inget att skicka en förfrågan.",
+      description: "Det kostar inget att skicka en tidsförfrågan.",
     },
   };
 }

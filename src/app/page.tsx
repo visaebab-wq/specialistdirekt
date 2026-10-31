@@ -10,6 +10,7 @@ import { AnatomyHeroVisual } from "@/components/AnatomyHeroVisual";
 import { FaqList } from "@/components/FaqList";
 import { JsonLd } from "@/components/JsonLd";
 import { faqSchema, serviceSchema } from "@/lib/structured-data";
+import { BOOKING_PRICE_SEK, BOOKING_SLOT_MINUTES, formatPrice } from "@/lib/booking-slots";
 import { getArticleCardVisual } from "@/lib/medical-visuals";
 
 export const metadata: Metadata = {
@@ -150,7 +151,7 @@ export default function HomePage() {
                 href="/boka-tid"
                 className="rounded-full bg-brand-500 px-6 py-3 text-base font-semibold text-white shadow-sm transition-colors hover:bg-brand-600"
               >
-                Boka ortoped
+                Boka ortopedbesök
               </Link>
               <Link
                 href="#valj-specialist"
@@ -160,12 +161,17 @@ export default function HomePage() {
               </Link>
             </div>
             <div className="mt-6 grid max-w-xl gap-2 text-sm text-sky-100/90 sm:grid-cols-2">
-              <p className="rounded-xl border border-white/15 bg-white/5 px-4 py-3">
-                {/* Direktbokning finns bara hos ortopeden – står det inte här
-                    tror besökaren att alla specialiteter går att boka direkt. */}
-                <strong className="block text-white">Direktbokning: ortoped</strong>
-                Göteborg · 40 min · 2 000 kr
-              </p>
+              {/* Direktbokning finns bara hos ortopeden – står det inte här
+                  tror besökaren att alla specialiteter går att boka direkt.
+                  Minuter och pris kommer från bokningens egna konstanter. */}
+              <Link
+                href="/boka-tid"
+                className="rounded-xl border border-white/15 bg-white/5 px-4 py-3 transition-colors hover:bg-white/10"
+              >
+                <strong className="block text-white">Boka ortopedbesök</strong>
+                Hos oss träffar du Dr. Masoud Sorkhabi i Göteborg · {BOOKING_SLOT_MINUTES} min ·{" "}
+                {formatPrice(BOOKING_PRICE_SEK)} kr · ingen remiss · välj tid direkt i kalendern
+              </Link>
               <p className="rounded-xl border border-white/15 bg-white/5 px-4 py-3">
                 <strong className="block text-white">Övriga specialister</strong>
                 Skicka en kostnadsfri tidsförfrågan så hjälper vi dig vidare
@@ -467,7 +473,7 @@ export default function HomePage() {
               href="/boka-tid"
               className="inline-block rounded-full bg-brand-500 px-8 py-3.5 text-base font-semibold text-white transition-colors hover:bg-brand-600"
             >
-              Boka ortoped
+              Boka ortopedbesök
             </Link>
             <Link
               href="/kontakt"

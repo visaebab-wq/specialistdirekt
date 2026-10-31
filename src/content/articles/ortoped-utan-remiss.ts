@@ -1,11 +1,24 @@
 import type { Article } from "@/lib/articles-types";
+import {
+  BOOKING_PRICE_SEK,
+  BOOKING_SLOT_MINUTES,
+  BOOKING_WEEKDAYS,
+  formatPrice,
+} from "@/lib/booking-slots";
+
+// Ortopedbesöket i Göteborg: minuter, pris och lördag kommer från bokningens
+// egna konstanter, så artikeln aldrig kan säga något annat än kalendern.
+const BESOK = `ett besök på ${BOOKING_SLOT_MINUTES} minuter kostar ${formatPrice(BOOKING_PRICE_SEK)} kr`;
+const LORDAG = BOOKING_WEEKDAYS.includes(6)
+  ? " Ortopedbesök även på lördagar. Se lediga tider i [kalendern](/boka-tid)."
+  : "";
 
 export const article: Article = {
   slug: "ortoped-utan-remiss",
   title: "Ortoped utan remiss – så fungerar privat vård",
   metaTitle: "Ortoped utan remiss – så bokar du privat själv",
   metaDescription:
-    "Kan man gå till ortoped utan remiss? Så fungerar självbetalande privatvård, egenremiss och försäkring, när remiss ändå kan behövas och hur du skickar en tidsförfrågan.",
+    "Kan man gå till ortoped utan remiss? Så fungerar självbetalande privatvård, egenremiss och försäkring, när remiss ändå kan behövas och hur du bokar en tid.",
   category: "Ortopedi",
   primaryKeyword: "ortoped utan remiss",
   keywords: [
@@ -19,15 +32,15 @@ export const article: Article = {
   excerpt:
     "Kan man gå till ortoped utan remiss? Så fungerar den självbetalande privatvägen, egenremiss och försäkring, när en remiss ändå kan behövas och hur du bokar.",
   published: "2026-08-05",
-  updated: "2026-08-05",
+  updated: "2026-10-31",
   readMinutes: 6,
   wordCount: 1240,
   relatedSpecialty: "ortoped",
   summary: [
-    "**Ja – som självbetalande patient kan du oftast boka en privat ortoped utan remiss** och själv skicka en tidsförfrågan.",
+    "**Ja – som självbetalande patient kan du oftast boka en privat ortoped utan remiss.** I Göteborg kan du boka tid direkt i kalendern hos oss.",
     "Inom **regionfinansierad** vård krävs oftast remiss från vårdcentralen, och med en **sjukvårdsförsäkring** går du normalt via försäkringsbolaget som kan kräva godkännande.",
     "Vid lindriga, gradvisa besvär är vårdcentral eller **fysioterapeut** ofta ett bra första steg; vid tydlig skada eller besvär som inte ger med sig blir en ortoped aktuell.",
-    "[Specialistdirekt](/kontakt) är en boknings- och informationstjänst – den medicinska bedömningen görs av mottagningen.",
+    "Hos oss i Göteborg träffar du Dr. Masoud Sorkhabi och bokar tiden direkt. På andra orter kan du skicka en kostnadsfri tidsförfrågan – det är ingen bokad tid förrän du själv bestämt dig.",
   ],
   suitableFor: [
     "vill boka en privat ortoped själv utan att gå via vårdcentralen",
@@ -37,7 +50,7 @@ export const article: Article = {
   ],
   intro: [
     "Kan man gå till en **ortoped utan remiss**? Kort svar: som **självbetalande** patient kan du hos många privata ortopedmottagningar boka en tid själv, utan att först gå via en läkare på vårdcentralen. Det gör att du kan komma igång snabbare vid till exempel knä-, rygg- eller nackbesvär.",
-    "Men bilden är inte helt enkel – vad som gäller beror på hur besöket ska **finansieras**. Den här guiden förklarar skillnaden mellan remiss, egenremiss och att betala själv, när en remiss eller ett försäkringsgodkännande ändå kan behövas, och hur du skickar en tidsförfrågan.",
+    "Men bilden är inte helt enkel – vad som gäller beror på hur besöket ska **finansieras**. Den här guiden förklarar skillnaden mellan remiss, egenremiss och att betala själv, när en remiss eller ett försäkringsgodkännande ändå kan behövas, och hur du bokar en tid.",
     "Artikeln ger allmän information och ingen medicinsk rådgivning. Vid akuta eller allvarliga symtom ska du alltid söka vård direkt eller ringa **112**.",
   ],
   sections: [
@@ -107,10 +120,10 @@ export const article: Article = {
     },
     {
       id: "sa-skickar-du-tidsforfragan",
-      heading: "Så skickar du en tidsförfrågan via Specialistdirekt",
+      heading: "Så bokar du – direkt i Göteborg eller via tidsförfrågan",
       body: [
-        "Vill du slippa ringa runt kan Specialistdirekt ta emot din tidsförfrågan. Du beskriver kort dina besvär och vilka tider som passar, så återkommer vi med besked om möjlig tid och aktuellt pris – du bestämmer sedan själv om du vill gå vidare. Specialistdirekt är en **boknings- och informationstjänst**; den medicinska bedömningen och behandlingen görs av den mottagning som tar emot dig.",
-        "Bor du i Göteborgsområdet kan du i stället boka tid direkt hos [ortoped i Göteborg](/specialiteter/ortoped/goteborg): ett besök på 40 minuter hos Dr. Masoud Sorkhabi kostar 2 000 kr, och som självbetalande patient behöver du ingen remiss.",
+        `I Göteborg bokar du tid direkt hos [ortoped i Göteborg](/specialiteter/ortoped/goteborg). Hos oss träffar du Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi: ${BESOK}, och som självbetalande patient behöver du ingen remiss.${LORDAG}`,
+        "På andra orter kan Specialistdirekt ta emot en kostnadsfri tidsförfrågan, så att du slipper ringa runt. Du beskriver kort dina besvär och vilka tider som passar, så återkommer vi med besked om möjlig tid och aktuellt pris. En tidsförfrågan är ingen bokad tid – du bestämmer själv om du vill gå vidare, och den medicinska bedömningen och behandlingen görs av den mottagning som tar emot dig.",
       ],
     },
     {
@@ -154,7 +167,7 @@ export const article: Article = {
     {
       question: "Hur bokar jag en privat ortoped själv?",
       answer:
-        "Du kan kontakta en privat mottagning direkt, eller skicka en kostnadsfri tidsförfrågan via Specialistdirekt. Du beskriver kort dina besvär, så återkommer vi med besked om möjlig tid och pris. Specialistdirekt är en boknings- och informationstjänst.",
+        `I Göteborg bokar du tid direkt i kalendern hos Dr. Masoud Sorkhabi – ${BESOK}, och ingen remiss behövs. På andra orter kan du kontakta en privat mottagning direkt eller skicka en kostnadsfri tidsförfrågan via Specialistdirekt; då återkommer vi med besked om möjlig tid och pris innan något är bokat.`,
     },
   ],
 };

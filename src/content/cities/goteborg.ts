@@ -1,12 +1,22 @@
 import type { City } from "@/lib/cities-types";
 import { BARN_SCOPE } from "@/lib/barn-scope";
-import { BOOKING_PRICE_SEK, BOOKING_SLOT_MINUTES, formatPrice } from "@/lib/booking-slots";
+import {
+  BOOKING_FREE_CANCEL_HOURS,
+  BOOKING_PRICE_SEK,
+  BOOKING_SLOT_MINUTES,
+  BOOKING_WEEKDAYS,
+  formatPrice,
+} from "@/lib/booking-slots";
 import { recoSummary } from "@/lib/reco-reviews";
 
 // Pris och besökslängd för ortopedbesöket hämtas från bokningens egna
 // konstanter, så att sidan aldrig kan säga något annat än kalendern.
 const ORTOPED_PRIS = `${formatPrice(BOOKING_PRICE_SEK)} kr`;
 const ORTOPED_MINUTER = `${BOOKING_SLOT_MINUTES} minuter`;
+// Lördag nämns bara så länge kalendern faktiskt tar emot på lördagar (6).
+const ORTOPED_LORDAG = BOOKING_WEEKDAYS.includes(6)
+  ? "Ortopedbesök även på lördagar. Se lediga tider i kalendern. "
+  : "";
 
 export const city: City = {
   slug: "goteborg",
@@ -51,7 +61,7 @@ export const city: City = {
       bookingCta: {
         label: "Boka tid hos Dr. Masoud Sorkhabi",
         url: "/boka/ortoped-goteborg",
-        note: "Du väljer en tid och bekräftar den via en länk i mejlet. Kostnadsfri avbokning fram till 3 timmar före besöket.",
+        note: `${ORTOPED_LORDAG}Du bekräftar tiden via en länk i mejlet. Kostnadsfri avbokning fram till ${BOOKING_FREE_CANCEL_HOURS} timmar före besöket.`,
       },
       quickFacts: [
         { label: "Läkare", value: "Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi" },

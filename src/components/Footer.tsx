@@ -57,8 +57,13 @@ export function Footer() {
             Specialistdirekt
           </Link>
           <p className="mt-4 text-sm leading-relaxed text-ink-300">
-            Kostnadsfri förfrågan till rätt specialistläkare i Sverige – snabbt, tryggt och
-            personligt.
+            {/* Sajtövergripande: bara ortopedin har egna tider, övriga specialiteter
+                går via tidsförfrågan – texten får inte påstå direktbokning för alla. */}
+            <Link href="/boka-tid" className="font-medium text-brand-300 hover:text-white">
+              Boka ortopedbesök
+            </Link>{" "}
+            direkt i kalendern i Göteborg. För andra specialiteter skickar du en kostnadsfri
+            tidsförfrågan till rätt specialistläkare i Sverige.
           </p>
         </div>
 

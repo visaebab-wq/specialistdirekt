@@ -4,6 +4,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/structured-data";
 import {
   BOOKING_PRICE_SEK,
+  BOOKING_SLOT_MINUTES,
   formatPrice,
   generateSlots,
   groupSlotsByDay,
@@ -70,7 +71,7 @@ export default function BookaTidPage() {
             <dl className="grid gap-3 rounded-2xl border border-white/80 bg-white/80 p-5 lg:min-w-[19rem] shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur sm:grid-cols-3 lg:grid-cols-1">
               {[
                 ["Besök", "Fysiskt i Göteborg"],
-                ["Besökstid", "40 minuter"],
+                ["Besökstid", `${BOOKING_SLOT_MINUTES} minuter`],
                 ["Fast pris", `${formatPrice(BOOKING_PRICE_SEK)} kr`],
                 ["Betalning", "På plats vid besöket"],
                 ["Remiss", "Behövs inte"],
