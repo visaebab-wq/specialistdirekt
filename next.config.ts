@@ -9,6 +9,13 @@ const securityHeaders = [
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
   { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), browsing-topics=()" },
   { key: "Strict-Transport-Security", value: "max-age=31536000; includeSubDomains" },
+  // Minimal CSP som inte rör skript eller stilar (det kräver separat tuning mot
+  // inline-script, analytics och JSON-LD): ingen inbäddning hos andra, ingen
+  // <base>-kapning, formulär bara till sajten själv och inga plugin-objekt.
+  {
+    key: "Content-Security-Policy",
+    value: "frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'",
+  },
 ];
 
 // Skärpta headers för de vyer som bär en bokningsnyckel i URL:en
@@ -32,6 +39,11 @@ const sensitiveHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // Ingen "X-Powered-By: Next.js" – avslöjar bara ramverket.
+  poweredByHeader: false,
+  // next/image används inte. Utan optimeraren finns ingen /_next/image-endpoint
+  // som tar emot godtyckliga bild-URL:er.
+  images: { unoptimized: true },
   // nodemailer ska köras som vanligt Node-paket på servern (inte bundlas).
   serverExternalPackages: ["nodemailer"],
   // Runtimefilerna innehåller kontaktuppgifter och medicinsk fritext. Nexts

@@ -333,7 +333,44 @@ function logStoreFailure(operation: string, error: unknown): void {
 
 export type ClaimResult =
   | { ok: true; record: BookingRecord }
-  | { ok: false; reason: "taken" | "invalid-slot" | "unavailable" };
+  | { ok: false; reason: "taken" | "invalid-slot" | "unavailable" | "contact-limit" | "volume-limit" };
+
+// Tak mot att någon reserverar hela kalendern eller använder formuläret för
+// massutskick av bekräftelsemejl (säkerhetsgranskning 2026-11-01). Kontrolleras
+// under samma fillås som skrivningen.
+//  - per kontakt: högst så här många kommande, aktiva bokningar per e-post och
+//    per telefonnummer (två räcker för en förälder med två barn);
+//  - totalt: högst så här många nya bokningar inom ett rullande fönster.
+const MAX_ACTIVE_PER_CONTACT = 2;
+const MAX_NEW_PER_WINDOW = 24;
+const NEW_BOOKING_WINDOW_MS = 2 * 60 * 60 * 1000;
+
+const contactEmail = (v: string) => v.trim().toLowerCase();
+const contactPhone = (v: string) => v.replace(/\D/g, "").replace(/^(?:00)?46/, "0");
+
+function bookingLimitReason(
+  input: { email: string; phone: string },
+  now: Date,
+): "contact-limit" | "volume-limit" | null {
+  const t = now.getTime();
+  const email = contactEmail(input.email);
+  const phone = contactPhone(input.phone);
+  let sameContact = 0;
+  let recent = 0;
+  for (const rec of allBookings()) {
+    // Manuella blockeringar (blockera-tid.mjs, telefonbokningar) har ingen
+    // e-post och räknas aldrig mot taken.
+    if (!rec.email) continue;
+    if (t - Date.parse(rec.createdAt) < NEW_BOOKING_WINDOW_MS) recent++;
+    if (!holdsSlot(rec, t) || Date.parse(rec.slot) <= t) continue;
+    if (contactEmail(rec.email) === email || (phone.length >= 6 && contactPhone(rec.phone) === phone)) {
+      sameContact++;
+    }
+  }
+  if (sameContact >= MAX_ACTIVE_PER_CONTACT) return "contact-limit";
+  if (recent >= MAX_NEW_PER_WINDOW) return "volume-limit";
+  return null;
+}
 
 /**
  * Tar en lucka och skriver ner bokningen. Under lås, så att två samtidiga
@@ -357,6 +394,8 @@ export function claimSlot(input: {
       // femtimmarsgränsen aldrig kan reserveras efter en stale kontroll.
       if (!isValidSlot(input.slot, now)) return { ok: false, reason: "invalid-slot" };
       if (takenSlots(now).has(input.slot)) return { ok: false, reason: "taken" };
+      const limit = bookingLimitReason(input, now);
+      if (limit) return { ok: false, reason: limit };
 
       const record: BookingRecord = {
         id: randomUUID(),

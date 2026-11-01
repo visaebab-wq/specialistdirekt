@@ -6,7 +6,8 @@ export function JsonLd({ data }: { data: Record<string, unknown> | Record<string
     <script
       type="application/ld+json"
       // Innehållet är vår egen, statiska data – ingen användarinmatning.
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+      // "<" escapas ändå, så att text med "</script>" aldrig kan avsluta taggen.
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }}
     />
   );
 }

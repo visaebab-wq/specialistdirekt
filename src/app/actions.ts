@@ -111,9 +111,15 @@ function isIpRateLimited(ip: string, now = Date.now()): boolean {
 
   if (!previous) {
     if (rlHits.size >= RL_MAX_IPS) pruneExpiredRateLimitBuckets(now);
-    // Alla platser används av aktiva IP:n. Neka en ny nyckel i stället för att
-    // kasta bort en aktiv bucket och därmed ge dess IP nya kostnadsfria försök.
-    if (rlHits.size >= RL_MAX_IPS) return true;
+    // Full karta: släpp den äldsta bucketen (minst nyligen godkänd träff) i
+    // stället för att neka alla nya besökare. Annars kunde den som fyller
+    // kartan med 5 000 adresser stänga formulären för alla andra
+    // (säkerhetsgranskning 2026-11-01). Med /64-nycklar nedan kräver det
+    // tusentals verkliga nät, inte bara ett IPv6-prefix.
+    if (rlHits.size >= RL_MAX_IPS) {
+      const oldest = rlHits.keys().next().value;
+      if (oldest !== undefined) rlHits.delete(oldest);
+    }
   } else {
     // Mapens insättningsordning fungerar som LRU efter senaste godkända träff.
     rlHits.delete(ip);
@@ -138,7 +144,22 @@ async function isRateLimited(): Promise<boolean> {
     "unknown";
   const normalized = candidate.trim();
   const ip = /^[0-9a-f:.]{2,64}$/i.test(normalized) ? normalized : "unknown";
-  return isIpRateLimited(ip);
+  return isIpRateLimited(rateLimitKey(ip));
+}
+
+/**
+ * Bucket-nyckel: IPv4 som den är, IPv6 per /64. Ett enda abonnemang får ofta
+ * ett helt /64-prefix, så en nyckel per fullständig IPv6-adress gav i praktiken
+ * obegränsat antal försök (säkerhetsgranskning 2026-11-01).
+ */
+function rateLimitKey(ip: string): string {
+  if (!ip.includes(":")) return ip;
+  const [head, tail] = ip.toLowerCase().split("::");
+  const left = head ? head.split(":") : [];
+  const right = tail !== undefined && tail !== "" ? tail.split(":") : [];
+  const groups =
+    tail === undefined ? left : [...left, ...Array(Math.max(0, 8 - left.length - right.length)).fill("0"), ...right];
+  return `${groups.slice(0, 4).map((g) => g.replace(/^0+(?=.)/, "") || "0").join(":")}::/64`;
 }
 
 export async function submitLead(
@@ -427,6 +448,30 @@ export async function submitBooking(
         status: "error",
         message: "Tiden är inte längre bokningsbar. Välj en annan tid.",
         errors: { slot: "Tiden är inte längre giltig." },
+        attempt,
+        confirmationEmailSent: false,
+        bookingPersisted: false,
+        values,
+      };
+    }
+    if (claim.reason === "contact-limit") {
+      return {
+        status: "error",
+        message:
+          "Det finns redan kommande bokningar med samma e-postadress eller telefonnummer. Kontakta oss om du behöver boka fler tider.",
+        errors: {},
+        attempt,
+        confirmationEmailSent: false,
+        bookingPersisted: false,
+        values,
+      };
+    }
+    if (claim.reason === "volume-limit") {
+      return {
+        status: "error",
+        message:
+          "Bokningen tar emot ovanligt många förfrågningar just nu. Ingen tid har reserverats – försök igen om en stund eller kontakta oss.",
+        errors: {},
         attempt,
         confirmationEmailSent: false,
         bookingPersisted: false,

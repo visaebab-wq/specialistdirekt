@@ -27,7 +27,7 @@ export function renderInline(text: string): ReactNode[] {
     }
     if (match[1] && match[2]) {
       const href = match[2];
-      if (href.startsWith("/")) {
+      if (/^\/(?![/\\])/.test(href)) {
         // Intern länk – bra för internlänkning/SEO.
         nodes.push(
           <Link key={key++} href={href} className="font-medium text-brand-700 hover:underline">

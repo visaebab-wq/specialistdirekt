@@ -2,9 +2,14 @@ import { NextResponse, type NextRequest } from "next/server";
 import { randomBytes } from "node:crypto";
 import { sendOwnerVerified } from "@/lib/booking-email";
 import { verifyBooking, verifySignature } from "@/lib/booking-store";
+import { site } from "@/lib/site";
 
-function destination(request: NextRequest, path: string): URL {
-  return new URL(path, request.nextUrl.origin);
+// Alltid sajtens publika origin. request.nextUrl.origin är den interna
+// adressen som `next start` lyssnar på bakom nginx (localhost:3000), så en
+// redirect dit skickade patienten – och på felvägarna id och sig – till
+// localhost i stället för till bekräftelsesidan (rättat 2026-11-01).
+function destination(_request: NextRequest, path: string): URL {
+  return new URL(path, site.url);
 }
 
 // En bokning får aldrig bekräftas av GET. Mejlklienter och säkerhetsskannrar
