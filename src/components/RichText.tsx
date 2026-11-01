@@ -26,7 +26,9 @@ export function renderInline(text: string): ReactNode[] {
       nodes.push(<Fragment key={key++}>{text.slice(lastIndex, match.index)}</Fragment>);
     }
     if (match[1] && match[2]) {
-      const href = match[2];
+      // Webbläsare tar bort tab/CR/LF ur URL:er – gör samma sak före kontrollen,
+      // så att "/<tab>/värd" inte kan passera som intern länk.
+      const href = match[2].replace(/[\t\n\r]/g, "");
       if (/^\/(?![/\\])/.test(href)) {
         // Intern länk – bra för internlänkning/SEO.
         nodes.push(

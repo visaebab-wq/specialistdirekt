@@ -333,43 +333,35 @@ function logStoreFailure(operation: string, error: unknown): void {
 
 export type ClaimResult =
   | { ok: true; record: BookingRecord }
-  | { ok: false; reason: "taken" | "invalid-slot" | "unavailable" | "contact-limit" | "volume-limit" };
+  | { ok: false; reason: "taken" | "invalid-slot" | "unavailable" | "contact-limit" };
 
-// Tak mot att någon reserverar hela kalendern eller använder formuläret för
-// massutskick av bekräftelsemejl (säkerhetsgranskning 2026-11-01). Kontrolleras
-// under samma fillås som skrivningen.
-//  - per kontakt: högst så här många kommande, aktiva bokningar per e-post och
-//    per telefonnummer (två räcker för en förälder med två barn);
-//  - totalt: högst så här många nya bokningar inom ett rullande fönster.
-const MAX_ACTIVE_PER_CONTACT = 2;
-const MAX_NEW_PER_WINDOW = 24;
-const NEW_BOOKING_WINDOW_MS = 2 * 60 * 60 * 1000;
+// Tak per kontakt (säkerhetsgranskning 2026-11-01), kontrollerat under samma
+// fillås som skrivningen: högst så här många kommande, aktiva bokningar per
+// e-postadress – en förälder med egen tid och två barn ryms. Bara e-posten
+// räknas: telefonnumret verifieras aldrig, så en spärr på det kunde användas för
+// att låsa ute någon annan. Taket mot att reservera hela kalendern ligger per
+// klientnät i actions.ts; ett globalt tak här skulle låta en enda besökare
+// stänga bokningen för alla, så hög volym loggas bara.
+const MAX_ACTIVE_PER_EMAIL = 3;
+const HIGH_VOLUME_WINDOW_MS = 2 * 60 * 60 * 1000;
+const HIGH_VOLUME_WARN = 24;
 
 const contactEmail = (v: string) => v.trim().toLowerCase();
-const contactPhone = (v: string) => v.replace(/\D/g, "").replace(/^(?:00)?46/, "0");
 
-function bookingLimitReason(
-  input: { email: string; phone: string },
-  now: Date,
-): "contact-limit" | "volume-limit" | null {
+function bookingLimitReason(input: { email: string }, now: Date): "contact-limit" | null {
   const t = now.getTime();
   const email = contactEmail(input.email);
-  const phone = contactPhone(input.phone);
-  let sameContact = 0;
+  let sameEmail = 0;
   let recent = 0;
   for (const rec of allBookings()) {
     // Manuella blockeringar (blockera-tid.mjs, telefonbokningar) har ingen
-    // e-post och räknas aldrig mot taken.
-    if (!rec.email) continue;
-    if (t - Date.parse(rec.createdAt) < NEW_BOOKING_WINDOW_MS) recent++;
-    if (!holdsSlot(rec, t) || Date.parse(rec.slot) <= t) continue;
-    if (contactEmail(rec.email) === email || (phone.length >= 6 && contactPhone(rec.phone) === phone)) {
-      sameContact++;
-    }
+    // e-post och räknas aldrig.
+    if (!rec.email || rec.status === "cancelled") continue;
+    if (t - Date.parse(rec.createdAt) < HIGH_VOLUME_WINDOW_MS) recent++;
+    if (holdsSlot(rec, t) && Date.parse(rec.slot) > t && contactEmail(rec.email) === email) sameEmail++;
   }
-  if (sameContact >= MAX_ACTIVE_PER_CONTACT) return "contact-limit";
-  if (recent >= MAX_NEW_PER_WINDOW) return "volume-limit";
-  return null;
+  if (recent >= HIGH_VOLUME_WARN) console.warn("[booking] Ovanligt många nya bokningar", { recent });
+  return sameEmail >= MAX_ACTIVE_PER_EMAIL ? "contact-limit" : null;
 }
 
 /**

@@ -78,59 +78,83 @@ function isPhone(value: string) {
   return /^[+0-9 ()-]+$/.test(value) && value.replace(/\D/g, "").length >= 6;
 }
 
-// Enkel rate-limit i minnet (per IP) mot spam/abuse. Nollställs vid omstart,
-// vilket är ok för ett grundläggande skydd. Cloudflare/nginx kan komplettera.
-const RL_WINDOW_MS = 10 * 60 * 1000;
-const RL_MAX = 6;
-const RL_MAX_IPS = 5000;
-const rlHits = new Map<string, number[]>();
+// Rate-limits i minnet mot spam och missbruk. Nollställs vid omstart, vilket
+// är ok som grundskydd; nginx/Cloudflare kan komplettera.
+//
+// Nycklar (säkerhetsgranskning 2026-11-01): IPv4 per adress, IPv6 per /64 –
+// ett abonnemang får ofta ett helt /64 – och dessutom en bredare IPv6-nyckel
+// per /48 med högre tak, så att ett tunnel- eller hostingnät inte ger tusentals
+// gratis nycklar.
+type Limiter = { windowMs: number; max: number; hits: Map<string, number[]> };
+const RL_MAX_KEYS = 5000;
+const limiter = (windowMs: number, max: number): Limiter => ({ windowMs, max, hits: new Map() });
 
-/**
- * Kartan hålls i ordning efter senast GODKÄNDA träff. Blockerade anrop flyttar
- * aldrig en post och lägger aldrig till en tidsstämpel. Därför kan vi rensa
- * utgångna poster från början utan att skanna en växande karta på varje anrop.
- */
-function pruneExpiredRateLimitBuckets(now: number): void {
-  for (const [key, hits] of rlHits) {
-    const latest = hits[hits.length - 1];
-    if (latest !== undefined && now - latest < RL_WINDOW_MS) break;
-    rlHits.delete(key);
-  }
+// Försök (alla formulärposter): 6 per nyckel och 60 per /48 på tio minuter.
+const attemptsNet = limiter(10 * 60 * 1000, 6);
+const attemptsWide = limiter(10 * 60 * 1000, 60);
+// Genomförda bokningar: 3 per nyckel och 30 per /48 per dygn. Det är det som
+// gör det dyrt att reservera hela kalendern. Ett globalt tak skulle i stället
+// låta en enda besökare stänga bokningen för alla.
+const bookingsNet = limiter(24 * 60 * 60 * 1000, 3);
+const bookingsWide = limiter(24 * 60 * 60 * 1000, 30);
+
+function recentHits(l: Limiter, key: string, now: number): number[] {
+  return (l.hits.get(key) || []).filter((t) => now - t < l.windowMs);
 }
 
-function isIpRateLimited(ip: string, now = Date.now()): boolean {
-  const previous = rlHits.get(ip);
-  const recent = (previous || []).filter((t) => now - t < RL_WINDOW_MS);
+function isOverLimit(l: Limiter, key: string, now: number): boolean {
+  const recent = recentHits(l, key, now);
+  if (recent.length < l.max) return false;
+  // Flytta en spärrad nyckel till slutet av kartan. Annars är den äldst och
+  // skulle kastas först när kartan fylls – och då få nya gratis försök.
+  l.hits.delete(key);
+  l.hits.set(key, recent);
+  return true;
+}
 
-  // Exakt samma gräns som tidigare: sex godkända anrop per rullande
-  // tiominutersfönster. Blockerade anrop får inte göra bucketen större.
-  if (recent.length >= RL_MAX) {
-    if (previous && recent.length !== previous.length) rlHits.set(ip, recent);
-    return true;
-  }
-
-  if (!previous) {
-    if (rlHits.size >= RL_MAX_IPS) pruneExpiredRateLimitBuckets(now);
-    // Full karta: släpp den äldsta bucketen (minst nyligen godkänd träff) i
-    // stället för att neka alla nya besökare. Annars kunde den som fyller
-    // kartan med 5 000 adresser stänga formulären för alla andra
-    // (säkerhetsgranskning 2026-11-01). Med /64-nycklar nedan kräver det
-    // tusentals verkliga nät, inte bara ett IPv6-prefix.
-    if (rlHits.size >= RL_MAX_IPS) {
-      const oldest = rlHits.keys().next().value;
-      if (oldest !== undefined) rlHits.delete(oldest);
+function addHit(l: Limiter, key: string, now: number): void {
+  const recent = recentHits(l, key, now);
+  l.hits.delete(key);
+  if (l.hits.size >= RL_MAX_KEYS) {
+    // Släpp utgångna nycklar först, annars den minst nyligen använda. Att neka
+    // alla nya nycklar när kartan är full lät vem som helst stänga formulären.
+    for (const [k, hits] of l.hits) {
+      if (!hits.some((t) => now - t < l.windowMs)) l.hits.delete(k);
+      if (l.hits.size < RL_MAX_KEYS) break;
     }
-  } else {
-    // Mapens insättningsordning fungerar som LRU efter senaste godkända träff.
-    rlHits.delete(ip);
+    if (l.hits.size >= RL_MAX_KEYS) {
+      const oldest = l.hits.keys().next().value;
+      if (oldest !== undefined) l.hits.delete(oldest);
+    }
   }
-
   recent.push(now);
-  rlHits.set(ip, recent);
+  l.hits.set(key, recent);
+}
+
+type ClientKeys = { net: string; wide: string | null };
+
+/** Ett formulärförsök: spärrat om nyckeln (eller dess /48) har nått taket. */
+function attemptLimited(keys: ClientKeys, now = Date.now()): boolean {
+  if (isOverLimit(attemptsNet, keys.net, now)) return true;
+  if (keys.wide && isOverLimit(attemptsWide, keys.wide, now)) return true;
+  addHit(attemptsNet, keys.net, now);
+  if (keys.wide) addHit(attemptsWide, keys.wide, now);
   return false;
 }
 
-async function isRateLimited(): Promise<boolean> {
+function bookingQuotaExceeded(keys: ClientKeys, now = Date.now()): boolean {
+  return (
+    recentHits(bookingsNet, keys.net, now).length >= bookingsNet.max ||
+    (keys.wide !== null && recentHits(bookingsWide, keys.wide, now).length >= bookingsWide.max)
+  );
+}
+
+function recordBooking(keys: ClientKeys, now = Date.now()): void {
+  addHit(bookingsNet, keys.net, now);
+  if (keys.wide) addHit(bookingsWide, keys.wide, now);
+}
+
+async function clientKeys(): Promise<ClientKeys> {
   const h = await headers();
   // Produktionsproxyn skriver alltid över X-Real-IP med den verifierade
   // klientadressen. CF-Connecting-IP och X-Forwarded-For kan däremot skickas
@@ -144,22 +168,25 @@ async function isRateLimited(): Promise<boolean> {
     "unknown";
   const normalized = candidate.trim();
   const ip = /^[0-9a-f:.]{2,64}$/i.test(normalized) ? normalized : "unknown";
-  return isIpRateLimited(rateLimitKey(ip));
+  return rateLimitKeys(ip);
 }
 
-/**
- * Bucket-nyckel: IPv4 som den är, IPv6 per /64. Ett enda abonnemang får ofta
- * ett helt /64-prefix, så en nyckel per fullständig IPv6-adress gav i praktiken
- * obegränsat antal försök (säkerhetsgranskning 2026-11-01).
- */
-function rateLimitKey(ip: string): string {
-  if (!ip.includes(":")) return ip;
+async function isRateLimited(): Promise<boolean> {
+  return attemptLimited(await clientKeys());
+}
+
+/** IPv4 som den är; IPv6 per /64 plus en bredare /48-nyckel. */
+function rateLimitKeys(ip: string): ClientKeys {
+  const mapped = ip.match(/^(?:::ffff:|64:ff9b::)(\d{1,3}(?:\.\d{1,3}){3})$/i);
+  if (mapped) return { net: mapped[1], wide: null };
+  if (!ip.includes(":")) return { net: ip, wide: null };
   const [head, tail] = ip.toLowerCase().split("::");
   const left = head ? head.split(":") : [];
   const right = tail !== undefined && tail !== "" ? tail.split(":") : [];
   const groups =
     tail === undefined ? left : [...left, ...Array(Math.max(0, 8 - left.length - right.length)).fill("0"), ...right];
-  return `${groups.slice(0, 4).map((g) => g.replace(/^0+(?=.)/, "") || "0").join(":")}::/64`;
+  const g = groups.map((x) => x.replace(/^0+(?=.)/, "") || "0");
+  return { net: `${g.slice(0, 4).join(":")}::/64`, wide: `${g.slice(0, 3).join(":")}::/48` };
 }
 
 export async function submitLead(
@@ -433,6 +460,20 @@ export async function submitBooking(
     };
   }
 
+  const keys = await clientKeys();
+  if (bookingQuotaExceeded(keys)) {
+    return {
+      status: "error",
+      message:
+        "Vi kan inte ta emot fler bokningar härifrån just nu. Kontakta oss så hjälper vi dig att boka.",
+      errors: {},
+      attempt,
+      confirmationEmailSent: false,
+      bookingPersisted: false,
+      values,
+    };
+  }
+
   const claim = claimSlot({
     slot,
     name,
@@ -458,19 +499,7 @@ export async function submitBooking(
       return {
         status: "error",
         message:
-          "Det finns redan kommande bokningar med samma e-postadress eller telefonnummer. Kontakta oss om du behöver boka fler tider.",
-        errors: {},
-        attempt,
-        confirmationEmailSent: false,
-        bookingPersisted: false,
-        values,
-      };
-    }
-    if (claim.reason === "volume-limit") {
-      return {
-        status: "error",
-        message:
-          "Bokningen tar emot ovanligt många förfrågningar just nu. Ingen tid har reserverats – försök igen om en stund eller kontakta oss.",
+          "Vi kan inte ta emot fler bokningar med de här uppgifterna just nu. Kontakta oss så hjälper vi dig att boka.",
         errors: {},
         attempt,
         confirmationEmailSent: false,
@@ -501,6 +530,7 @@ export async function submitBooking(
     };
   }
 
+  recordBooking(keys);
   const rec = claim.record;
   const sendSafely = async (
     operation: () => Promise<{ sent: boolean; error?: string }>,
