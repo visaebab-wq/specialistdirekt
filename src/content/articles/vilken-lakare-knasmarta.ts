@@ -40,9 +40,7 @@ export const article: Article = {
   readMinutes: 10,
   wordCount: 1700,
   relatedSpecialty: "ortoped",
-  // Ny text 2026-10-31. Byline och reviewedBy visas först när läkaren har
-  // granskat just den här versionen – en tidigare granskning gäller inte den.
-  medicallyReviewed: false,
+  // Texten 2026-10-31 är granskad och godkänd av läkaren (ägaren 2026-11-01).
   // Sidans topp: ingress → när du ska söka vård snabbt → vårdkontakter →
   // bokningskort. Innehållsförteckningen kommer efter (ägarens ordning).
   leadIntro: true,

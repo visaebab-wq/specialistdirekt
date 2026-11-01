@@ -32,9 +32,7 @@ export const article: Article = {
   readMinutes: 8,
   wordCount: 1500,
   relatedSpecialty: "ortoped",
-  // Ny text 2026-10-31. Byline och reviewedBy visas först när läkaren har
-  // granskat just den här versionen – en tidigare granskning gäller inte den.
-  medicallyReviewed: false,
+  // Texten 2026-10-31 är granskad och godkänd av läkaren (ägaren 2026-11-01).
   leadIntro: true,
   intro: [
     `**Hos oss i Göteborg kostar ett ortopedbesök hos Dr. Masoud Sorkhabi ${PRIS} och den avsatta besökstiden är ${MIN}. Du behöver ingen remiss och bokar direkt i kalendern.**`,

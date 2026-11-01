@@ -42,9 +42,7 @@ export const article: Article = {
   readMinutes: 9,
   wordCount: 1750,
   relatedSpecialty: "ortoped",
-  // Ny text 2026-10-31. Byline och reviewedBy visas först när läkaren har
-  // granskat just den här versionen – en tidigare granskning gäller inte den.
-  medicallyReviewed: false,
+  // Texten 2026-10-31 är granskad och godkänd av läkaren (ägaren 2026-11-01).
   // Bokningsrutan efter artikeln ("Boka en planerad bedömning i Göteborg").
   // Faktaraden (ålder, minuter, pris, remiss, lördag) byggs av komponenten.
   cta: {
