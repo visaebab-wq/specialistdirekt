@@ -7,8 +7,8 @@
 //    spela upp loggen. Går e-postutskicket fel finns bokningen ändå kvar.
 // 2. INGEN DUBBELBOKNING. Att ta en lucka sker under ett exklusivt fillås, så
 //    att två samtidiga bokningar av samma tid inte kan lyckas båda två.
-// 3. En obekräftad bokning håller sin lucka i BOOKING_PENDING_TTL_MS och släpps
-//    sedan. Annars skulle en person som ångrar sig blockera tiden för alltid.
+// 3. Äldre obekräftade bokningar håller sin lucka i BOOKING_PENDING_TTL_MS och
+//    släpps sedan. Nya bokningar bekräftas direkt i formuläret.
 
 import {
   appendFileSync,
@@ -365,8 +365,8 @@ function bookingLimitReason(input: { email: string }, now: Date): "contact-limit
 }
 
 /**
- * Tar en lucka och skriver ner bokningen. Under lås, så att två samtidiga
- * bokningar av samma tid inte båda kan lyckas.
+ * Tar en lucka, bekräftar den och skriver ner bokningen. Allt sker under samma
+ * lås, så att två samtidiga bokningar av samma tid inte båda kan lyckas.
  */
 export function claimSlot(input: {
   slot: string;
@@ -401,8 +401,9 @@ export function claimSlot(input: {
         ...(input.childBirthDate ? { childBirthDate: input.childBirthDate } : {}),
         priceSek: BOOKING_PRICE_SEK,
         freeCancelHours: BOOKING_FREE_CANCEL_HOURS,
-        status: "pending",
+        status: "verified",
         createdAt: now.toISOString(),
+        verifiedAt: now.toISOString(),
       };
       append({ type: "created", ...record });
       return { ok: true, record };

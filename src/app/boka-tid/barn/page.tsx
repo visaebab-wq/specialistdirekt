@@ -50,7 +50,7 @@ export default function BokaTidBarnPage() {
               <p className="internal-hero-text">
                 Välj en ledig tid för ditt barn direkt i kalendern. Besöket sker hos Dr Masoud
                 Sorkhabi, specialist i ortopedi och ryggkirurgi som även tar emot barn och
-                ungdomar, {BARN_SCOPE.label}. Bokningen bekräftas tryggt via mejl.
+                ungdomar, {BARN_SCOPE.label}. Bekräftelse och avbokningslänk skickas via mejl.
               </p>
             </div>
             <dl className="grid gap-3 rounded-2xl border border-white/80 bg-white/80 p-5 lg:min-w-[19rem] shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur sm:grid-cols-3 lg:grid-cols-1">

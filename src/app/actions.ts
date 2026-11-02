@@ -367,7 +367,7 @@ export async function submitBooking(
   const attempt = nextAttempt(previous);
   const { isValidSlot } = await import("@/lib/booking-slots");
   const { bookingSigningConfigured, claimSlot } = await import("@/lib/booking-store");
-  const { sendPatientConfirmation, sendOwnerPending } = await import("@/lib/booking-email");
+  const { sendPatientConfirmation, sendOwnerVerified } = await import("@/lib/booking-email");
 
   if (formString(formData, "company")) {
     return {
@@ -545,7 +545,7 @@ export async function submitBooking(
   };
   const [toPatient, toOwner] = await Promise.all([
     sendSafely(() => sendPatientConfirmation(rec)),
-    sendSafely(() => sendOwnerPending(rec)),
+    sendSafely(() => sendOwnerVerified(rec, false)),
   ]);
 
   if (!toOwner.sent) {
@@ -562,7 +562,7 @@ export async function submitBooking(
     return {
       status: "success",
       message:
-        "Din tid är preliminärt reserverad, men bekräftelsemejlet kunde inte skickas. Kontakta oss så snart som möjligt för att bekräfta bokningen.",
+        "Din tid är bokad, men bekräftelsemejlet kunde inte skickas. Kontakta oss så hjälper vi dig med bokningsuppgifterna.",
       errors: {},
       attempt,
       confirmationEmailSent: false,
@@ -572,8 +572,7 @@ export async function submitBooking(
 
   return {
     status: "success",
-    message:
-      "Tack! Vi har skickat ett mejl till dig. Klicka på länken i mejlet för att bekräfta tiden och priset.",
+    message: "Din tid är bokad. Vi har skickat en bekräftelse med avbokningslänk till din e-post.",
     errors: {},
     attempt,
     confirmationEmailSent: true,

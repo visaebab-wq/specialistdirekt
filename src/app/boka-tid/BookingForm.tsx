@@ -79,7 +79,7 @@ export function BookingSteps({ patientType = "adult" }: { patientType?: "adult" 
   const steps = [
     ["1", "Välj tid"],
     ["2", patientType === "child" ? "Barnets uppgifter" : "Dina uppgifter"],
-    ["3", "Bekräfta bokningen"],
+    ["3", "Boka tiden"],
   ];
   const currentStep = state.status === "success" ? 2 : slot ? 1 : 0;
 
@@ -205,13 +205,13 @@ export function BookingForm({
         tabIndex={-1}
         className="soft-info-card p-6 focus:outline-none sm:p-8"
       >
-        {/* Bokningen är skickad (tiden reserverad, ej bekräftad ännu). */}
+        {/* Bokningen är sparad och tiden är bokad. */}
         {state.bookingPersisted && <TrackEvent name="booking_submitted" />}
         <h2 className="text-xl font-bold text-ink-900">Tack!</h2>
         <p className="mt-3 text-ink-700">{state.message}</p>
         {state.confirmationEmailSent && (
           <p className="mt-4 text-sm text-ink-500">
-            Hittar du inte mejlet? Titta i skräpposten. Tiden är preliminär tills du bekräftat den.
+            Hittar du inte mejlet? Titta i skräpposten. Där finns även din avbokningslänk.
           </p>
         )}
       </div>
@@ -429,7 +429,7 @@ export function BookingForm({
             className={field}
             autoComplete="email"
           />
-          <p id="bk-email-help" className="mt-1 text-xs text-ink-500">Bekräftelselänken skickas hit.</p>
+          <p id="bk-email-help" className="mt-1 text-xs text-ink-500">Bokningsbekräftelsen och avbokningslänken skickas hit.</p>
           {state.errors.email && <p id="bk-email-error" role="alert" className="mt-1 text-sm text-red-700">{state.errors.email}</p>}
         </div>
         <div>
@@ -488,8 +488,7 @@ export function BookingForm({
           {pending ? "Skickar…" : "Boka tiden"}
         </button>
         <p className="mt-3 text-sm text-ink-500">
-          Tiden är preliminär tills du bekräftat den via mejl. Inte en akuttjänst – ring 112 vid
-          nödfall.
+          När du trycker på knappen bokas tiden direkt. Inte en akuttjänst – ring 112 vid nödfall.
         </p>
       </div>
     </form>

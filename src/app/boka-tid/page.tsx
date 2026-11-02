@@ -19,7 +19,7 @@ import { createPageMetadata } from "@/lib/page-metadata";
 export const metadata = createPageMetadata({
   title: "Boka ortopedbesök hos Dr Masoud Sorkhabi – Specialistdirekt",
   description:
-    "Direktbokning hos Dr Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi. 40 minuter, 2 000 kr. Välj en ledig tid i kalendern och bekräfta den via mejl.",
+    "Direktbokning hos Dr Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi. 40 minuter, 2 000 kr. Välj en ledig tid och få bekräftelsen via mejl.",
   path: "/boka-tid",
 });
 
@@ -55,7 +55,7 @@ export default function BookaTidPage() {
               <p className="internal-hero-text">
                 Välj en ledig tid direkt i kalendern. Besöket är hos Dr Masoud Sorkhabi,
                 specialist i ortopedi och ryggkirurgi. Besöket är fysiskt och äger rum i Göteborg.
-                Bokningen bekräftas tryggt via mejl.
+                Bekräftelse och avbokningslänk skickas via mejl.
               </p>
               <p className="mt-3 text-sm text-sky-100/90">
                 Vill du läsa mer om besöket och läkaren först? Se{" "}
@@ -107,7 +107,7 @@ export default function BookaTidPage() {
                 {[
                   ["1", "Välj en ledig tid", "Alla valbara tider är aktuella."],
                   ["2", "Fyll i dina uppgifter", "Vi skickar bekräftelsen via mejl."],
-                  ["3", "Bekräfta bokningen", "Tiden reserveras när du skickar formuläret."],
+                  ["3", "Boka tiden", "Tiden bokas direkt när du skickar formuläret."],
                 ].map(([number, title, text]) => (
                   <li key={number} className="flex gap-3">
                     <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-100 text-sm font-bold text-brand-800">{number}</span>
@@ -122,7 +122,7 @@ export default function BookaTidPage() {
               <ul className="mt-4 grid gap-3 text-sm text-ink-700">
                 {[
                   "Ingen remiss behövs",
-                  "Tydligt pris före bekräftelse",
+                  "Tydligt pris före bokning",
                   "Kostnadsfri avbokning enligt villkoren",
                 ].map((item) => (
                   <li key={item} className="flex gap-2.5"><span aria-hidden className="font-bold text-brand-600">✓</span>{item}</li>
