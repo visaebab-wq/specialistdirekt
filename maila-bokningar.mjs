@@ -12,13 +12,17 @@
 //   LEAD_LOG_FILE=/tmp/... och BOOKING_CLICK_LOG_FILE=/tmp/... – isolerad körning
 //   SKIP_JOURNAL=1        – hoppa över import av historiska journald-leads
 //
+// MEJLGRIND (ägarregel 2026-11-02): sammanställningen skickas INTE direkt. Den
+// sparas som hållet mejl (typ booking_summary) i .data/held-mails.jsonl, ägaren
+// får en kort notis och skickar den med scripts/held-mails.mjs --send ID.
+//
 // Källor: .data/booking-clicks.jsonl, .data/leads.jsonl och journalctl
 // (äldre leads som bara hann logga innan .data/leads.jsonl fanns).
 
 import { execFileSync } from "node:child_process";
 import { readFileSync, writeSync } from "node:fs";
 import { resolve } from "node:path";
-import nodemailer from "nodemailer";
+import { heldStoreFile, sendGated, smtpFromEnv } from "./mail-gate.mjs";
 import {
   LEGACY_LEAD_JOURNAL_ARGS,
   parseLegacyJournalLeads,
@@ -359,28 +363,6 @@ if (!SMTP_HOST || !SMTP_USER || !SMTP_PASS) {
   process.exit(1);
 }
 
-const smtpPort = Number(SMTP_PORT);
-const baseTransport = {
-  host: SMTP_HOST,
-  port: smtpPort,
-  secure: smtpPort === 465,
-  requireTLS: smtpPort !== 465,
-  auth: { user: SMTP_USER, pass: SMTP_PASS },
-};
-
-const errorSummary = (err) => {
-  const safe = (value) =>
-    typeof value === "string" && /^[A-Za-z0-9_-]{1,40}$/.test(value) ? value : undefined;
-  const code = safe(err?.code) || "unknown";
-  const command = safe(err?.command);
-  const responseCode = Number.isInteger(err?.responseCode) ? err.responseCode : undefined;
-  return [
-    `code=${code}`,
-    ...(command ? [`command=${command}`] : []),
-    ...(responseCode !== undefined ? [`responseCode=${responseCode}`] : []),
-  ].join(";");
-};
-
 const message = {
   from: `"Specialistdirekt" <${SMTP_USER}>`,
   to: TO,
@@ -389,34 +371,25 @@ const message = {
   html,
 };
 
-async function send() {
-  try {
-    await nodemailer.createTransport(baseTransport).sendMail(message);
-    return;
-  } catch (err) {
-    const allowInsecureTls =
-      (process.env.SMTP_ALLOW_INSECURE_TLS || env.SMTP_ALLOW_INSECURE_TLS) === "1" &&
-      (process.env.SMTP_STRICT_TLS || env.SMTP_STRICT_TLS) !== "1";
-    const certificateError = /certificate|self.signed|altname/i.test(
-      `${err?.reason ?? ""} ${err?.message ?? ""}`,
-    );
-    if (!allowInsecureTls || !certificateError) throw err;
-    console.warn(
-      `SMTP-certifikatet på ${SMTP_HOST} gick inte att verifiera (${errorSummary(err)}). ` +
-        "Ett uttryckligen tillåtet nödförsök görs utan certifikatkontroll.",
-    );
-  }
-
-  await nodemailer
-    .createTransport({ ...baseTransport, tls: { rejectUnauthorized: false } })
-    .sendMail(message);
-}
-
-try {
-  await send();
+const envValue = (key) => process.env[key] || env[key];
+const result = await sendGated(message, {
+  kind: "booking_summary",
+  smtp: smtpFromEnv(envValue),
+  storeFile: heldStoreFile({ root: ROOT, env: envValue }),
+  tag: "maila-bokningar",
+  source: "maila-bokningar",
+  // En sammanställning är en ögonblicksbild; efter två dygn är den inaktuell.
+  notAfter: Date.now() + 2 * 24 * 60 * 60 * 1000,
+});
+if (result.held) {
+  console.log(
+    `Mejlet hålls för godkännande (id ${result.id}); inget skickades. ` +
+      `Skicka: node scripts/held-mails.mjs --send ${result.id} --approved-by <namn>`,
+  );
+} else if (result.sent) {
   console.log(`Klart: skickade ${leads.length} förfrågningar + ${clicks.length} klick till ${TO}.`);
-} catch (err) {
-  // Nodemailer-fel kan innehålla mottagare eller SMTP-svar med meddelandedata.
-  console.error("Kunde inte skicka mejlet:", errorSummary(err));
+} else {
+  // Grindens fel är redan sammanfattade utan mottagare eller meddelandedata.
+  console.error("Kunde inte skicka mejlet:", result.error || "okänt fel");
   process.exit(1);
 }

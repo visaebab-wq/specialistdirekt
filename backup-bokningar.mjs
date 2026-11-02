@@ -14,6 +14,11 @@
 //   2. Uppgifterna mejlas som CSV-bilagor. Mejlet är också den enda kopian som
 //      hamnar UTANFÖR servern – dör disken finns bokningarna kvar i inkorgen.
 //
+// MEJLGRIND (ägarregel 2026-11-02): arkivmejlet är typen booking_backup och går
+// bara ut automatiskt när ALLA mottagare är ägarens egna adresser (se
+// mail-gate.mjs). Pekar TO/BOOKING_TO_EMAIL någon annanstans hålls det för
+// godkännande i .data/held-mails.jsonl.
+//
 // Mejlet skickas bara när något faktiskt ändrats sedan förra utskicket. Varje
 // bokning notifieras redan direkt när den kommer in; det här är arkivet, och ett
 // identiskt mejl var sjätte timme skulle bara göra att man slutar läsa dem.
@@ -21,7 +26,7 @@
 import { chmodSync, copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, unlinkSync, writeFileSync, writeSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { dirname, join, resolve } from "node:path";
-import nodemailer from "nodemailer";
+import { heldStoreFile, sendGated, smtpFromEnv } from "./mail-gate.mjs";
 
 const PROJECT = new URL("./", import.meta.url).pathname;
 const DATA = join(PROJECT, ".data");
@@ -371,56 +376,32 @@ const message = {
   ],
 };
 
-const errorSummary = (err) => {
-  const safe = (value) =>
-    typeof value === "string" && /^[A-Za-z0-9_-]{1,40}$/.test(value) ? value : undefined;
-  const code = safe(err?.code) || "unknown";
-  const command = safe(err?.command);
-  const responseCode = Number.isInteger(err?.responseCode) ? err.responseCode : undefined;
-  return [
-    `code=${code}`,
-    ...(command ? [`command=${command}`] : []),
-    ...(responseCode !== undefined ? [`responseCode=${responseCode}`] : []),
-  ].join(";");
-};
-
-// Full certifikatkontroll är standard. Eftersom bilagorna innehåller patient-
-// och hälsouppgifter får ett osäkert andraförsök bara ske efter ett uttryckligt,
-// tillfälligt driftbeslut.
-async function send() {
-  const smtpPort = Number(SMTP_PORT);
-  const base = {
-    host: SMTP_HOST,
-    port: smtpPort,
-    secure: smtpPort === 465,
-    requireTLS: smtpPort !== 465,
-    auth: { user: SMTP_USER, pass: SMTP_PASS },
-  };
-  try {
-    await nodemailer.createTransport(base).sendMail(message);
-    return "verifierat certifikat";
-  } catch (err) {
-    const msg = `${err?.reason ?? ""} ${err?.message ?? ""}`;
-    const allowInsecureTls =
-      (process.env.SMTP_ALLOW_INSECURE_TLS || env.SMTP_ALLOW_INSECURE_TLS) === "1" &&
-      (process.env.SMTP_STRICT_TLS || env.SMTP_STRICT_TLS) !== "1";
-    if (!allowInsecureTls || !/certificate|self.signed|altname/i.test(msg)) throw err;
-    console.warn(
-      `Certifikatet på ${SMTP_HOST} går inte att verifiera (${errorSummary(err)}). ` +
-        "SMTP_ALLOW_INSECURE_TLS=1 tillåter ett nödförsök utan äkthetskontroll.",
-    );
-    await nodemailer.createTransport({ ...base, tls: { rejectUnauthorized: false } }).sendMail(message);
-    return "utan certifikatkontroll";
-  }
-}
-
-try {
-  const how = await send();
+const envValue = (key) => process.env[key] || env[key];
+// Full certifikatkontroll är standard (i grinden). Eftersom bilagorna innehåller
+// patient- och hälsouppgifter får ett osäkert andraförsök bara ske efter ett
+// uttryckligt, tillfälligt driftbeslut (SMTP_ALLOW_INSECURE_TLS=1).
+const result = await sendGated(message, {
+  kind: "booking_backup",
+  smtp: smtpFromEnv(envValue),
+  storeFile: heldStoreFile({ root: PROJECT, env: envValue }),
+  tag: "backup",
+  source: "backup-bokningar",
+});
+if (result.sent || result.held) {
+  // Även ett hållet arkivmejl räknas som utskick, annars skulle samma mejl
+  // hållas på nytt var sjätte timme.
   writeFileSync(STATE, fingerprint, { mode: 0o600 });
   chmodSync(STATE, 0o600);
-  console.log(`Mejlade uppgifterna till ${TO} (${how}).`);
-} catch (err) {
-  console.error("Kunde inte mejla:", errorSummary(err));
+}
+if (result.held) {
+  console.log(
+    `Arkivmejlet hålls för godkännande (id ${result.id}); mottagaren är inte ägarens egen adress. ` +
+      `Skicka: node scripts/held-mails.mjs --send ${result.id} --approved-by <namn>`,
+  );
+} else if (result.sent) {
+  console.log(`Mejlade uppgifterna till ${TO} (${result.insecureTls ? "utan certifikatkontroll" : "verifierat certifikat"}).`);
+} else {
+  console.error("Kunde inte mejla:", result.error || "okänt fel");
   console.error("Filkopiorna i /root/backups/bokningsdata/ finns kvar.");
   process.exit(1);
 }
