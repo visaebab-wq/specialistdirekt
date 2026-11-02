@@ -9,8 +9,10 @@
 // aldrig hinner bekräfta. Loggen på disk är den yttersta garantin, men ett mejl
 // direkt gör att det syns utan att någon läser filer.
 
+import { join } from "node:path";
+import { bookingCheck } from "../../mail-gate.mjs";
 import { site } from "./site";
-import { sendMail } from "./smtp";
+import { sendMail, type MailGateOptions } from "./smtp";
 import {
   BOOKING_SLOT_MINUTES,
   formatSlot,
@@ -139,12 +141,22 @@ type Mail = {
 };
 
 /**
- * Skickar via den gemensamma SMTP-kanalen. Kastar aldrig – anroparen ska kunna
+ * Skickar via mejlgrinden (mail-gate.mjs). Kastar aldrig – anroparen ska kunna
  * spara bokningen även när mejlet fallerar, och får tillbaka utfallet för
- * loggning.
+ * loggning. Varje utskick deklarerar sin typ; ett mejl som hålls för
+ * godkännande kontrolleras mot bokningens aktuella läge innan det skickas.
  */
-async function send(mail: Mail): Promise<{ sent: boolean; error?: string }> {
-  return sendMail(mail, "booking");
+async function send(
+  mail: Mail,
+  kind: string,
+  rec: BookingRecord,
+): Promise<{ sent: boolean; held?: boolean; error?: string }> {
+  // Samma sökväg som storeFile() i booking-store.ts.
+  const bookingFile =
+    process.env.BOOKING_LOG_FILE ||
+    join(/* turbopackIgnore: true */ process.cwd(), ".data", "bookings.jsonl");
+  const gate: MailGateOptions = { kind, checks: [bookingCheck(rec, bookingFile)] };
+  return sendMail(mail, "booking", gate);
 }
 
 /** 1. Bekräftelsemejl till patienten. */
@@ -270,7 +282,7 @@ export async function sendPatientConfirmation(rec: BookingRecord) {
         contentType: "text/calendar; charset=utf-8; method=PUBLISH",
       },
     ],
-  });
+  }, "booking_patient_confirmation", rec);
 }
 
 function ownerRows(rec: BookingRecord): [string, string][] {
@@ -409,7 +421,7 @@ export async function sendOwnerPending(rec: BookingRecord) {
     subject: `Ny bokning (ej bekräftad): ${formatSlot(rec.slot)} – ${rec.name}`,
     html: ownerHtml(heading, rec, note),
     text: ownerText(heading, rec, note),
-  });
+  }, "booking_owner_notice", rec);
 }
 
 /** 3. Notis när patienten bekräftat tiden och priset. */
@@ -424,7 +436,7 @@ export async function sendOwnerVerified(rec: BookingRecord, conflict: boolean) {
     subject: `${conflict ? "KROCK – " : ""}Bekräftad bokning: ${formatSlot(rec.slot)} – ${rec.name}`,
     html: ownerHtml(heading, rec, note),
     text: ownerText(heading, rec, note),
-  });
+  }, "booking_owner_notice", rec);
 }
 
 /** 4. Notis när patienten avbokat själv via länken i mejlet. */
@@ -435,5 +447,5 @@ export async function sendOwnerCancelled(rec: BookingRecord, free: boolean) {
     subject: `Avbokad tid: ${formatSlot(rec.slot)} – ${rec.name}`,
     html: cancelledHtml(rec, free),
     text: cancelledText(rec, free),
-  });
+  }, "booking_owner_notice", rec);
 }
