@@ -1,17 +1,18 @@
 // Levererar inkomna lead-förfrågningar till din inkorg. Körs ENDAST på servern.
 //
-// Två leveranssätt (miljövariabler, se .env.example) – det första som är
-// konfigurerat används:
-//   1. Gmail/SMTP:  SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS
-//   2. Resend:      RESEND_API_KEY
-// Mottagare: LEAD_TO_EMAIL (annars site.email).
+// Leverans: SMTP (SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS) via mejlgrinden
+// i mail-gate.mjs. Mottagare: LEAD_TO_EMAIL (annars site.email). Notisen är av
+// typen lead_owner_notice och går bara ut automatiskt när ALLA mottagare är
+// ägarens egna adresser – pekar LEAD_TO_EMAIL någon annanstans hålls den för
+// godkännande. (Resend-vägen togs bort 2026-11-02: den gick förbi grinden och
+// var inte konfigurerad i produktion.)
 //
-// Utan konfiguration loggas förfrågan på servern så att inget tappas.
+// Hela förfrågan sparas alltid på disk först, så att inget tappas.
 
 import { appendFileSync, chmodSync, existsSync, mkdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { site } from "./site";
-import { sendMail, smtpConfigured } from "./smtp";
+import { sendMail } from "./smtp";
 import { specialties } from "./specialties";
 
 /**
@@ -69,7 +70,7 @@ export type DeliveryResult = {
   delivered: boolean;
   /** Hela förfrågan är durabelt sparad även om e-postkanalen fallerar. */
   persisted: boolean;
-  channel: "smtp" | "email" | "log";
+  channel: "smtp" | "log";
   error?: string;
 };
 
@@ -126,34 +127,15 @@ export async function deliverLead(lead: LeadData): Promise<DeliveryResult> {
   // hälsorelaterade uppgifter och hör enbart hemma i den skyddade lead-filen.
   console.info("[lead] Förfrågan mottagen", { persisted });
 
-  // 1) SMTP (t.ex. Gmail) – skickar till din inkorg.
-  if (smtpConfigured()) {
-    const result = await sendMail({ to, replyTo: lead.email, subject, text, html }, "lead");
-    if (result.sent) return { delivered: true, persisted, channel: "smtp" };
+  // Via mejlgrinden. Utan SMTP loggar grinden "SMTP saknas" och inget skickas.
+  const result = await sendMail(
+    { to, replyTo: lead.email, subject, text, html },
+    "lead",
+    { kind: "lead_owner_notice" },
+  );
+  if (result.sent) return { delivered: true, persisted, channel: "smtp" };
+  if (result.error !== "smtp-not-configured") {
     return { delivered: false, persisted, channel: "smtp", error: result.error };
-  }
-
-  // 2) Resend (HTTP API) – alternativ.
-  const apiKey = process.env.RESEND_API_KEY;
-  if (apiKey) {
-    const from = process.env.LEAD_FROM_EMAIL || "Specialistdirekt <onboarding@resend.dev>";
-    try {
-      const res = await fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
-        body: JSON.stringify({ from, to: [to], reply_to: lead.email, subject, html, text }),
-      });
-      if (!res.ok) {
-        // API-svaret kan återge mottagaradress eller andra delar av anropet.
-        // Statuskoden räcker för driftfelsökning utan att patientdata hamnar i journalen.
-        console.error("[lead] Resend-fel", { status: res.status });
-        return { delivered: false, persisted, channel: "email", error: `Resend ${res.status}` };
-      }
-      return { delivered: true, persisted, channel: "email" };
-    } catch {
-      console.error("[lead] Resend-fel vid nätverksanrop");
-      return { delivered: false, persisted, channel: "email", error: "Resend network error" };
-    }
   }
 
   return {

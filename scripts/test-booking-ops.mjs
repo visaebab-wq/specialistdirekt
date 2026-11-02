@@ -32,6 +32,8 @@ const clearedKeys = [
   "FORCE",
   "LEAD_LOG_FILE",
   "LEAD_TO_EMAIL",
+  "MAIL_GATE_SINK",
+  "MAIL_HELD_FILE",
   "MONTH",
   "REMINDER_LOG_FILE",
   "REMIND_AFTER_MIN",
@@ -125,7 +127,9 @@ try {
   // backup-bokningar: .env.local-styrda filer ska läsas, men DRY får inte
   // ens ändra deras filrättigheter.
   {
-    const root = sandbox("backup", ["backup-bokningar.mjs"], { linkDependencies: false });
+    const root = sandbox("backup", ["backup-bokningar.mjs", "mail-gate.mjs", "booking-lock.mjs"], {
+      linkDependencies: false,
+    });
     const backupScript = join(root, "backup-bokningar.mjs");
     const backupDest = join(root, "backups");
     const originalBackupScript = readFileSync(backupScript, "utf8");
@@ -151,7 +155,7 @@ export default {
       async sendMail(message) {
         writeFileSync(process.env.SMTP_TEST_LOG, JSON.stringify({
           to: message.to,
-          attachments: message.attachments.map((item) => ({ filename: item.filename, content: String(item.content) })),
+          attachments: (message.attachments || []).map((item) => ({ filename: item.filename, content: String(item.content) })),
         }));
         return { accepted: [message.to] };
       },
@@ -205,7 +209,7 @@ export default {
         "BOOKING_LOG_FILE=fixtures/custom-bookings.jsonl",
         "LEAD_LOG_FILE=fixtures/custom-leads.jsonl",
         "BOOKING_CLICK_LOG_FILE=fixtures/custom-clicks.jsonl",
-        "BOOKING_TO_EMAIL=qa@example.test",
+        "BOOKING_TO_EMAIL=visaeb.ab@gmail.com",
         "SMTP_HOST=smtp.example.test",
         "SMTP_PORT=465",
         "SMTP_USER=sender@example.test",
@@ -234,19 +238,42 @@ export default {
     assert.equal(fullRun.status, 0, fullRun.stderr);
     assert.equal(existsSync(backupDest), true);
     const sent = JSON.parse(readFileSync(sendLog, "utf8"));
-    assert.equal(sent.to, "qa@example.test");
+    // Mejlgrinden: arkivmejlet går bara ut automatiskt till ägarens egen adress.
+    assert.deepEqual(sent.to, ["visaeb.ab@gmail.com"]);
     const bookingAttachment = sent.attachments.find((item) =>
       item.filename.startsWith("bokningar-"),
     );
     assert.ok(bookingAttachment);
     assert.match(bookingAttachment.content, /Synthetic Patient/);
     assert.doesNotMatch(bookingAttachment.content, /\[object Object\]/);
+
+    // Till en annan mottagare hålls arkivmejlet; bara ägarnotisen går ut.
+    rmSync(sendLog, { force: true });
+    const heldRun = run(backupScript, [], {
+      env: { FORCE: "1", SMTP_TEST_LOG: sendLog, TO: "qa@example.test" },
+    });
+    assert.equal(heldRun.status, 0, heldRun.stderr);
+    assert.match(heldRun.stdout, /hålls för godkännande/);
+    assert.deepEqual(JSON.parse(readFileSync(sendLog, "utf8")).to, ["visaeb.ab@gmail.com"]);
+    const heldRows = readFileSync(join(fixtures, "held-mails.jsonl"), "utf8")
+      .trim()
+      .split("\n")
+      .map((line) => JSON.parse(line))
+      .filter((event) => event.type === "held");
+    assert.equal(heldRows.length, 1);
+    assert.deepEqual(heldRows[0].message.to, ["qa@example.test"]);
+    assert.equal(heldRows[0].kind, "booking_backup");
   }
 
   // maila-bokningar: senare giltiga journalblock ska överleva en trasig
   // tidsstämpel och mottagaren får aldrig falla tillbaka till en hårdkodad adress.
   {
-    const root = sandbox("mail", ["maila-bokningar.mjs", "booking-journal.mjs"]);
+    const root = sandbox("mail", [
+      "maila-bokningar.mjs",
+      "booking-journal.mjs",
+      "mail-gate.mjs",
+      "booking-lock.mjs",
+    ]);
     const fixtures = join(root, "fixtures");
     mkdirSync(fixtures);
     writeJsonl(join(fixtures, "leads.jsonl"), [
@@ -426,7 +453,7 @@ NOT_A_DATE host app: email: 'broken@example.test'
   {
     const root = sandbox(
       "reminder",
-      ["paminn-obekraftade.mjs", "booking-lock.mjs"],
+      ["paminn-obekraftade.mjs", "booking-lock.mjs", "mail-gate.mjs"],
       { linkDependencies: false },
     );
     const bookings = join(root, "bookings.jsonl");
@@ -520,7 +547,18 @@ export default {
       env: { SMTP_TEST_LOG: sendLog },
     });
     assert.equal(poisonRun.status, 0, poisonRun.stderr);
-    assert.equal(readFileSync(sendLog, "utf8").trim(), "patient@example.test");
+    // Mejlgrinden: påminnelsen hålls; bara ägarnotisen går ut, aldrig till patienten.
+    assert.equal(readFileSync(sendLog, "utf8").trim(), "visaeb.ab@gmail.com");
+    const heldStore = join(root, "held-mails.jsonl");
+    const heldReminders = readFileSync(heldStore, "utf8")
+      .trim()
+      .split("\n")
+      .map((line) => JSON.parse(line))
+      .filter((event) => event.type === "held");
+    assert.equal(heldReminders.length, 1);
+    assert.equal(heldReminders[0].kind, "booking_reminder");
+    assert.deepEqual(heldReminders[0].message.to, ["patient@example.test"]);
+    rmSync(heldStore, { force: true });
     rmSync(reminders, { force: true });
     rmSync(sendLog, { force: true });
 
@@ -593,7 +631,9 @@ withBookingLock(file, () => {
     assert.match(secondResult.stdout, /en annan påminnelsekörning pågår/);
     assert.equal(readFileSync(sendLog, "utf8").trim().split("\n").length, 1);
     const reminderRecords = readFileSync(reminders, "utf8").trim().split("\n").map(JSON.parse);
-    assert.deepEqual(reminderRecords, [{ id: "concurrent-reminder" }]);
+    assert.equal(reminderRecords.length, 1);
+    assert.equal(reminderRecords[0].id, "concurrent-reminder");
+    assert.match(reminderRecords[0].held, /^hm-/);
     assert.equal(existsSync(`${reminders}.run.lock`), false);
   }
 

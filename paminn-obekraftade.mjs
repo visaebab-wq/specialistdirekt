@@ -7,6 +7,13 @@
 // aldrig bokningsloggen – det läser den och skickar mejl.
 //
 // Körs av systemd-timern paminn-obekraftade.timer var tionde minut.
+//
+// MEJLGRIND (ägarregel 2026-11-02): påminnelser skickas INTE automatiskt. Varje
+// påminnelse sparas som hållet mejl (typ booking_reminder) i
+// .data/held-mails.jsonl och ägaren får en kort notis. Godkänns den med
+// scripts/held-mails.mjs kontrolleras bokningen på nytt (fortfarande obekräftad,
+// samma tid, länken giltig) och påminnelsen skickas exakt en gång. Den kan bara
+// godkännas inom 20 minuter, eftersom texten anger hur många minuter som återstår.
 // Manuellt, från projektmappen:
 //   node paminn-obekraftade.mjs          # skickar
 //   DRY=1 node paminn-obekraftade.mjs    # visar antal utan personuppgifter
@@ -25,8 +32,8 @@
 import { appendFileSync, chmodSync, readFileSync, existsSync, mkdirSync, writeSync } from "node:fs";
 import { createHmac } from "node:crypto";
 import { join, dirname } from "node:path";
-import nodemailer from "nodemailer";
 import { acquireFileLock, withBookingLock } from "./booking-lock.mjs";
+import { bookingCheck, heldStoreFile, sendGated, smtpFromEnv } from "./mail-gate.mjs";
 
 const ROOT = new URL(".", import.meta.url).pathname;
 const DRY = process.env.DRY === "1";
@@ -269,16 +276,19 @@ if (
   process.exit(1);
 }
 
-async function sendDueReminders(due) {
-const transporter = nodemailer.createTransport({
-  host: SMTP_HOST,
-  port: smtpPort,
-  secure: smtpPort === 465,
-  requireTLS: smtpPort !== 465,
-  auth: { user: SMTP_USER, pass: SMTP_PASS },
+const envValue = (key) => process.env[key] || env[key];
+const SMTP = smtpFromEnv((key) => (key === "SMTP_PORT" ? String(smtpPort) : envValue(key)));
+const HELD_FILE = heldStoreFile({
+  root: ROOT,
+  env: (key) => (key === "BOOKING_LOG_FILE" ? configuredBookingLog : envValue(key)),
 });
+// Hur länge en hållen påminnelse får godkännas. Texten säger "cirka N minuter"
+// räknat från kontrollen; efter 20 minuter är den uppgiften inte längre sann.
+const HELD_APPROVAL_WINDOW_MS = 20 * 60_000;
 
+async function sendDueReminders(due) {
 let sent = 0;
+let held = 0;
 let failed = 0;
 const failureCounts = new Map();
 
@@ -383,15 +393,29 @@ for (const snapshot of due) {
   const subject = `Påminnelse om din preliminära tid ${when} – ${DOCTOR}`;
 
   try {
-    await transporter.sendMail({
-      from: SMTP_USER,
-      to: rec.email,
-      subject,
-      text,
-      html,
-    });
-    // Loggas FÖRST efter att mejlet gått iväg – annars kunde en misslyckad
-    // sändning markeras som påmind och personen aldrig få någon påminnelse.
+    const result = await sendGated(
+      { from: SMTP_USER, to: rec.email, subject, text, html },
+      {
+        kind: "booking_reminder",
+        smtp: SMTP,
+        storeFile: HELD_FILE,
+        tag: "paminnelse",
+        source: "paminn-obekraftade",
+        notAfter: Math.min(
+          checkedAt + HELD_APPROVAL_WINDOW_MS,
+          Date.parse(rec.createdAt) + REMIND_BEFORE_MIN * 60_000,
+        ),
+        checks: [bookingCheck(rec, BOOKINGS, { ttlMs: PENDING_TTL_MIN * 60_000 })],
+      },
+    );
+    if (!result.sent && !result.held) {
+      const error = new Error("mail-not-sent");
+      error.code = String(result.error || "unknown").replace(/[^A-Za-z0-9_-]/g, "_").slice(0, 40);
+      throw error;
+    }
+    // Loggas FÖRST efter att mejlet gått iväg eller sparats för godkännande –
+    // annars kunde ett misslyckat försök markeras som påmint. En hållen
+    // påminnelse markeras också, så att nästa körning inte håller en till.
     const reminderParent = dirname(REMINDERS);
     const reminderParentExisted = existsSync(reminderParent);
     mkdirSync(reminderParent, { recursive: true, mode: 0o700 });
@@ -399,9 +423,14 @@ for (const snapshot of due) {
     if (existsSync(REMINDERS)) chmodSync(REMINDERS, 0o600);
     // Id:t är allt som behövs för idempotens. Tid och besökstid skulle bara
     // skapa ytterligare hälsorelaterad metadata med egen lagringstid.
-    appendFileSync(REMINDERS, JSON.stringify({ id: rec.id }) + "\n", { mode: 0o600 });
+    appendFileSync(
+      REMINDERS,
+      JSON.stringify(result.held ? { id: rec.id, held: result.id } : { id: rec.id }) + "\n",
+      { mode: 0o600 },
+    );
     chmodSync(REMINDERS, 0o600);
-    sent++;
+    if (result.held) held++;
+    else sent++;
   } catch (err) {
     failed++;
     const summary = mailErrorSummary(err);
@@ -409,7 +438,7 @@ for (const snapshot of due) {
   }
 }
 
-console.log(`[paminnelse] klart: ${sent} skickade, ${failed} misslyckade`);
+console.log(`[paminnelse] klart: ${sent} skickade, ${held} hålls för godkännande, ${failed} misslyckade`);
 for (const [summary, count] of failureCounts) {
   console.error(`[paminnelse] fel ${summary}; antal=${count}`);
 }
