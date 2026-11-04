@@ -9,7 +9,7 @@ import { createPageMetadata } from "@/lib/page-metadata";
 export const metadata = createPageMetadata({
   title: "Om Specialistdirekt – vilka vi är och hur vi arbetar",
   description:
-    "Specialistdirekt är en boknings- och informationstjänst om privat specialistvård i Sverige.",
+    "Specialistdirekt – privat specialistvård i Sverige. Boka ortopedbesök hos Dr. Masoud Sorkhabi i Göteborg eller skicka en kostnadsfri bokningsförfrågan till andra specialister.",
   path: "/om-oss",
 });
 
@@ -67,13 +67,13 @@ export default function AboutPage() {
           </p>
           <p>
             Specialistdirekt samlar information om privat specialistvård och erbjuder bokning eller
-            tidsförfrågan för de tjänster som presenteras på webbplatsen. Specialistdirekt ger inte
+            tidsförfrågan för de tjänster som presenteras på webbplatsen. Webbplatsen ger inte
             medicinsk rådgivning och ställer inga diagnoser. Medicinsk bedömning och behandling
             utförs alltid av den läkare eller mottagning som tar emot patienten.
           </p>
           <p>
-            Webbplatsen ersätter inte kontakt med vården. Specialistdirekt är inte vårdgivare;
-            det medicinska ansvaret ligger hos den läkare eller mottagning som utför vården.
+            Webbplatsen ersätter inte kontakt med vården vid akuta besvär. Det medicinska ansvaret
+            ligger hos den läkare som utför besöket.
           </p>
           <p>
             Du behöver aldrig ta vårt ord för att en läkare är legitimerad. Socialstyrelsen för ett

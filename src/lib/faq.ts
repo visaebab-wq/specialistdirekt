@@ -8,7 +8,7 @@ export const faqs: Faq[] = [
   {
     question: "Vad är Specialistdirekt?",
     answer:
-      "Specialistdirekt är en boknings- och informationstjänst om privat specialistvård. För vissa tjänster väljer du en tid direkt och bekräftar den via e-post; för andra skickar du en kostnadsfri tidsförfrågan och får besked om nästa steg. Specialistdirekt är inte vårdgivare – det medicinska ansvaret ligger hos läkaren eller mottagningen som utför vården.",
+      "Via Specialistdirekt hittar och bokar du privata specialistläkarbesök i Sverige. Ortopedbesök hos Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi i Göteborg, bokar du direkt i kalendern och bekräftar via e-post. För andra specialiteter skickar du en kostnadsfri bokningsförfrågan och får besked om möjlig tid och pris. Det medicinska ansvaret ligger hos läkaren som utför besöket.",
   },
   // Betalningsfrågorna är medvetet uppdelade per bokningsväg. Ett universellt
   // svar går inte att ge: vid direktbokning i Göteborg betalas 2 000 kr på
@@ -25,7 +25,7 @@ export const faqs: Faq[] = [
   {
     question: "Vem betalar jag till – Specialistdirekt eller vårdgivaren?",
     answer:
-      "Vid direktbokning hos Dr. Masoud Sorkhabi i Göteborg betalar du 2 000 kr direkt till vårdgivaren på plats vid besöket. Ingen betalning görs till Specialistdirekt i samband med bokningen.\n\nFör andra specialistbesök som bokas via Specialistdirekt kan betalningsupplägget vara annorlunda beroende på tjänsten.\n\nSpecialistdirekt är en boknings- och informationstjänst. Det medicinska ansvaret för undersökning, bedömning och behandling ligger hos den vårdgivare som utför vården.",
+      "Vid direktbokning hos Dr. Masoud Sorkhabi i Göteborg betalar du 2 000 kr direkt till vårdgivaren på plats vid besöket. Ingen betalning görs till Specialistdirekt i samband med bokningen.\n\nFör andra specialistbesök som bokas via Specialistdirekt kan betalningsupplägget vara annorlunda beroende på tjänsten.\n\nDet medicinska ansvaret för undersökning, bedömning och behandling ligger hos den vårdgivare som utför vården.",
   },
   {
     question: "Hur snabbt får jag svar?",
@@ -35,7 +35,7 @@ export const faqs: Faq[] = [
   {
     question: "Ger ni medicinska råd eller diagnoser?",
     answer:
-      "Nej. Specialistdirekt ger inte medicinsk rådgivning och ställer inga diagnoser. Vi tar emot förfrågningar om legitimerade specialister som gör den medicinska bedömningen.",
+      "Inte via webbplatsen eller formuläret. Medicinsk bedömning, diagnos och råd ges av läkaren vid besöket – vid direktbokning av Dr. Masoud Sorkhabi.",
   },
   {
     question: "Hur hanteras mina personuppgifter?",
@@ -45,12 +45,12 @@ export const faqs: Faq[] = [
   {
     question: "Måste jag ha en remiss?",
     answer:
-      "Inte nödvändigtvis. Många specialister tar emot egenanmälan. Om en remiss krävs för ditt ärende guidar vi dig kring hur du går vidare.",
+      "Inte nödvändigtvis. Många specialister tar emot egenanmälan. Om en remiss krävs för ditt ärende får du besked om hur du går vidare.",
   },
   {
-    question: "Vilka specialiteter kan jag få hjälp med?",
+    question: "Vilka specialiteter kan jag boka?",
     answer:
-      "Vi tar emot förfrågningar inom en rad områden – bland annat kardiologi, ortopedi, dermatologi, gynekologi, neurologi och psykiatri. Ser du inte den specialitet du söker kan du kontakta oss för besked om vi kan ta emot förfrågan.",
+      "Ortopedi i Göteborg bokar du direkt i kalendern. Inom bland annat kardiologi, dermatologi, gynekologi, neurologi och psykiatri skickar du en kostnadsfri bokningsförfrågan. Ser du inte den specialitet du söker kan du kontakta oss och fråga.",
   },
   {
     question: "Är det här en akuttjänst?",

@@ -46,7 +46,7 @@ export const article: Article = {
   intro: [
     "Hormonella besvär kan vara svåra att förstå själv. Trötthet, viktförändring, frusenhet, svettningar, hjärtklappning, lågt testosteron, menstruationsrubbningar, diabetes, sköldkörtelproblem eller avvikande blodprover kan ha många olika orsaker.",
     "Många börjar hos vårdcentralen. Men om besvären är långvariga, provsvar är svårtolkade eller om du behöver specialistbedömning kan en endokrinolog bli aktuell.",
-    "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
+    "Via Specialistdirekt kan du skicka en kostnadsfri bokningsförfrågan för ett privat specialistbesök. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
   ],
   sections: [
     {
@@ -258,14 +258,14 @@ export const article: Article = {
     },
     {
       id: "sa-hjalper-vi",
-      heading: "Så hjälper Specialistdirekt dig",
+      heading: "Så bokar du via Specialistdirekt",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Så fungerar det:",
+        "Så fungerar det:",
       ],
       bullets: [
         "Du beskriver dina besvär i en kort bokningsförfrågan.",
         "Du anger stad eller område.",
-        "Vi hjälper dig vidare till en relevant privat mottagning.",
+        "Du får besked om möjlig tid och pris.",
         "Mottagningen bedömer vårdbehovet.",
       ],
     },
@@ -281,7 +281,7 @@ export const article: Article = {
       heading: "Sammanfattning",
       body: [
         "Det kan vara aktuellt med en privat endokrinolog vid hormonella besvär, sköldkörtelproblem, diabetes, testosteronfrågor, avvikande hormonprover eller misstänkta hypofys- eller binjureproblem. En privat endokrinologisk bedömning kostar ofta **från cirka 3 000 kr** och uppåt. Om provtagning, bilddiagnostik eller uppföljning behövs kan totalpriset bli högre. I vissa fall kan sjukvårdsförsäkring täcka kostnaden.",
-        "Du beskriver dina besvär, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Vi hjälper dig vidare till en privat mottagning som kan vara relevant för ditt behov.",
+        "Du beskriver dina besvär, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Du får besked om möjlig tid och pris för ditt behov.",
       ],
     },
   ],
@@ -314,7 +314,7 @@ export const article: Article = {
     {
       question: "Kan Specialistdirekt säga om jag behöver endokrinolog?",
       answer:
-        "Nej, vi ställer ingen diagnos. Vi hjälper med vägledning och bokningsförfrågan till relevant privat mottagning.",
+        "Nej, vi ställer ingen diagnos. Du kan skicka en kostnadsfri bokningsförfrågan och få besked om möjlig tid och pris.",
     },
     {
       question: "När ska jag söka akut?",

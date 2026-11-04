@@ -31,7 +31,7 @@ export const article: Article = {
     "Sömnapné kan misstänkas vid snarkning, andningsuppehåll på natten, dagtrötthet, morgonhuvudvärk eller högt blodtryck.",
     "Vissa aktörer erbjuder utredning utan remiss, andra kräver remiss, vårdplanering eller försäkringsgodkännande.",
     "Sjukvårdsförsäkring kan ibland täcka utredningen, men CPAP/hjälpmedel kan ha särskilda villkor.",
-    "[Specialistdirekt](/kontakt) gör ingen medicinsk bedömning. Vi hjälper dig hitta rätt väg och skicka en bokningsförfrågan till relevant privat mottagning.",
+    "Via [Specialistdirekt](/kontakt) kan du skicka en kostnadsfri bokningsförfrågan. Den medicinska bedömningen görs av läkaren vid besöket.",
   ],
   priceTable: [
     { label: "Nattlig andningsregistrering i hemmet", price: "från cirka 5 500 kr" },
@@ -50,7 +50,7 @@ export const article: Article = {
   ],
   intro: [
     "Sömnapné innebär att andningen upprepat stannar eller minskar under sömnen, vanligast som obstruktiv sömnapné där luftvägen blockeras. En sömnapnéutredning görs oftast med en nattlig andningsregistrering där andning, syresättning och andningsuppehåll mäts under sömn, för att se om besvären beror på sömnapné och hur uttalad den i så fall är. Många söker privat sömnapnéutredning för att slippa lång väntetid, få snabbare besked eller för att de har en privat sjukvårdsförsäkring som kan användas.",
-    "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård och diagnostik. Vi ställer ingen diagnos och utför ingen undersökning. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort.",
+    "Via Specialistdirekt kan du skicka en kostnadsfri bokningsförfrågan för privat specialistvård och diagnostik. Vi ställer ingen diagnos och utför ingen undersökning. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort.",
   ],
   sections: [
     {
@@ -241,14 +241,14 @@ export const article: Article = {
     },
     {
       id: "sa-hjalper-vi",
-      heading: "Så hjälper Specialistdirekt dig",
+      heading: "Så bokar du via Specialistdirekt",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Så fungerar det:",
+        "Så fungerar det:",
       ],
       bullets: [
         "Du beskriver dina symtom i en kort bokningsförfrågan.",
         "Du anger önskat område och om en hemutredning är okej.",
-        "Vi hjälper dig vidare till en relevant privat mottagning.",
+        "Du får besked om möjlig tid och pris.",
         "Mottagningen avgör om de kan ta emot dig och vad som är rätt utredning.",
       ],
     },
@@ -265,7 +265,7 @@ export const article: Article = {
       heading: "Sammanfattning",
       body: [
         "Det kan vara aktuellt med en privat sömnapnéutredning vid kraftig snarkning, andningsuppehåll, dagtrötthet, morgonhuvudvärk, koncentrationssvårigheter eller högt blodtryck där sömnapné misstänks. Priset ligger ofta på minst **5 500 kr**, och tillägg som specialistbedömning, uppföljning, CPAP och apnébettskena kan göra det högre.",
-        "Sjukvårdsförsäkring kan i vissa fall täcka delar av utredningen. Specialistdirekt ställer ingen diagnos, men hjälper dig vidare med en [bokningsförfrågan](/kontakt) till en relevant privat mottagning för ditt behov och din ort.",
+        "Sjukvårdsförsäkring kan i vissa fall täcka delar av utredningen. Diagnos ställs av läkaren vid besöket. Du kan skicka en [bokningsförfrågan](/kontakt) utifrån ditt behov och din ort.",
       ],
     },
   ],
@@ -308,7 +308,7 @@ export const article: Article = {
     {
       question: "Kan Specialistdirekt ställa diagnos eller säga om jag har sömnapné?",
       answer:
-        "Nej. Specialistdirekt ställer ingen diagnos och gör ingen medicinsk bedömning. Vi hjälper dig med vägledning och en bokningsförfrågan till en relevant privat mottagning, som avgör vad som är rätt utredning.",
+        "Nej. Diagnos och medicinsk bedömning görs av läkaren vid besöket, inte via webbplatsen. Du kan skicka en kostnadsfri bokningsförfrågan; läkaren avgör vid besöket vad som är rätt utredning.",
     },
   ],
 };

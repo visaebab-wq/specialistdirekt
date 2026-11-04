@@ -30,7 +30,7 @@ export const article: Article = {
     "**Sök vård snabbt** vid blod tillsammans med buksmärta, viktnedgång, långvarig diarré, förändrade avföringsvanor, trötthet eller feber.",
     "**Sök akut vård** vid stor blödning, svimning, kraftig buksmärta, svart tjärliknande avföring med påverkan eller snabbt försämrat tillstånd.",
     "Gastroenterolog kan vara relevant vid behov av specialistbedömning; koloskopi om tjocktarmen behöver undersökas närmare.",
-    "[Specialistdirekt](/kontakt) gör ingen medicinsk bedömning och är inte en akut tjänst. Vi hjälper dig vidare till relevant privat mottagning när ärendet inte är akut.",
+    "[Specialistdirekt](/kontakt) är inte en akut tjänst. När besvären inte är akuta kan du skicka en kostnadsfri bokningsförfrågan; den medicinska bedömningen görs av läkaren vid besöket.",
   ],
   priceTable: [
     { label: "Privat gastroenterologbesök", price: "ofta från cirka 3 000 kr och uppåt" },
@@ -49,7 +49,7 @@ export const article: Article = {
   ],
   intro: [
     "Blod i avföringen kan ha flera orsaker. Ibland är orsaken mindre allvarlig, till exempel hemorrojder eller en spricka vid ändtarmsöppningen. Men eftersom blod också kan komma från tarmen, magen eller en bakomliggande sjukdom är det viktigt att inte avfärda symtomet utan bedömning. Den här guiden hjälper dig förstå när du ska söka **akut vård**, när du bör söka vård och när en specialist eller [privat koloskopi](/privat-koloskopi) kan bli aktuell.",
-    "Specialistdirekt är en vägledningstjänst och **inte en akut tjänst**. Vi ställer ingen diagnos och gör ingen medicinsk bedömning. Vid icke-akuta besvär hjälper vi dig vidare med en [bokningsförfrågan](/kontakt) till relevant privat mottagning.",
+    "Specialistdirekt är **inte en akut tjänst**, och webbplatsen ställer ingen diagnos. Vid icke-akuta besvär kan du skicka en [bokningsförfrågan](/kontakt) för ett privat besök.",
   ],
   sections: [
     {
@@ -174,9 +174,9 @@ export const article: Article = {
     },
     {
       id: "sa-hjalper-vi",
-      heading: "Så hjälper Specialistdirekt dig",
+      heading: "Så bokar du via Specialistdirekt",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård och diagnostik. Vi gör ingen medicinsk bedömning. Vi kan hjälpa dig vidare när ärendet **inte är akut**: du beskriver dina symtom, anger önskat område, och vi hjälper dig vidare till en relevant privat mottagning. Det är alltid mottagningen som avgör om de kan ta emot dig och om gastroenterolog, koloskopi eller annan utredning är rätt väg.",
+        "Den medicinska bedömningen görs av läkaren vid besöket. När besvären **inte är akuta** kan du skicka en bokningsförfrågan: du beskriver dina symtom, anger önskat område, och får besked om möjlig tid och pris. Det är alltid mottagningen som avgör om de kan ta emot dig och om gastroenterolog, koloskopi eller annan utredning är rätt väg.",
       ],
     },
     {
@@ -191,7 +191,7 @@ export const article: Article = {
       heading: "Sammanfattning",
       body: [
         "Blod i avföringen kan bero på flera orsaker, från hemorrojder och sprickor till inflammation, polyper eller mer allvarliga tillstånd. Eftersom orsaken inte går att avgöra säkert själv bör blod i avföringen bedömas av vården, särskilt om det är nytt, återkommer eller kommer med andra symtom. Vid stor blödning, svimning eller svart tjärliknande avföring med påverkan ska du söka **akut vård eller ringa 112**.",
-        "Gastroenterolog kan vara relevant vid återkommande besvär eller behov av specialistbedömning, och koloskopi om tjocktarmen behöver undersökas. Specialistdirekt hjälper dig vidare när ärendet inte är akut – skicka en [bokningsförfrågan](/kontakt).",
+        "Gastroenterolog kan vara relevant vid återkommande besvär eller behov av specialistbedömning, och koloskopi om tjocktarmen behöver undersökas. När besvären inte är akuta kan du skicka en [bokningsförfrågan](/kontakt).",
       ],
     },
   ],
@@ -246,7 +246,7 @@ export const article: Article = {
     {
       question: "Kan Specialistdirekt säga varför jag har blod i avföringen?",
       answer:
-        "Nej. Specialistdirekt ställer ingen diagnos och gör ingen medicinsk bedömning. Vi hjälper dig med vägledning och bokningsförfrågan till relevant privat mottagning när ärendet inte är akut.",
+        "Nej. Diagnos och medicinsk bedömning görs av läkaren vid besöket, inte via webbplatsen. När besvären inte är akuta kan du skicka en kostnadsfri bokningsförfrågan.",
     },
   ],
 };

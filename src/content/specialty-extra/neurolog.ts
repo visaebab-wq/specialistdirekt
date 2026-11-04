@@ -54,7 +54,7 @@ export const extra: SpecialtyExtra = {
     {
       question: "Behöver jag remiss för att träffa en neurolog?",
       answer:
-        "Det beror på var du söker vård. I den offentliga vården krävs ofta en remiss från vårdcentralen, även om reglerna varierar mellan regioner. Hos privata mottagningar kan du i många fall boka tid själv utan remiss. Specialistdirekt hjälper dig kostnadsfritt att hitta rätt mottagning och reder ut vad som gäller för just dig.",
+        "Det beror på var du söker vård. I den offentliga vården krävs ofta en remiss från vårdcentralen, även om reglerna varierar mellan regioner. Hos privata mottagningar kan du i många fall boka tid själv utan remiss. Skicka en kostnadsfri förfrågan, så får du besked om vad som gäller för just dig.",
     },
     {
       question: "Vad kostar ett privat neurologbesök ungefär?",
@@ -79,7 +79,7 @@ export const extra: SpecialtyExtra = {
     {
       question: "Kan Specialistdirekt hjälpa mig att hitta en neurolog?",
       answer:
-        "Ja. Specialistdirekt är en kostnadsfri boknings- och informationstjänst. Du skickar en förfrågan och får besked om hur du kan gå vidare. Du beskriver dina besvär, så hjälper vi dig att hitta en lämplig neurolog eller mottagning. Vi ställer inga diagnoser och ger ingen medicinsk rådgivning – vi hjälper dig att hitta rätt vård. [Kontakta oss](/kontakt) för att komma igång.",
+        "Ja. Du beskriver dina besvär i en kostnadsfri bokningsförfrågan och får besked om möjlig tid och pris hos en privat neurolog. Diagnos och medicinsk bedömning görs av läkaren vid besöket. [Kontakta oss](/kontakt) för att komma igång.",
     },
   ],
 };

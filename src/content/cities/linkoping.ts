@@ -7,7 +7,7 @@ export const city: City = {
   county: "Östergötlands län",
   hospitals: ["Universitetssjukhuset i Linköping (US)"],
   intro:
-    "Linköping är ett av Östergötlands viktigaste vårdnav och hem för Universitetssjukhuset i Linköping (US), där specialistvård bedrivs inom en lång rad områden. Som universitetssjukhus kombinerar US patientvård med forskning och utbildning, vilket bidrar till bred kompetens på orten. Vid sidan av den offentliga vården finns även privata specialistmottagningar i staden, vilket ger dig flera vägar in i vården. Specialistdirekt hjälper dig kostnadsfritt att hitta rätt specialistläkare i Linköping utifrån just dina behov.",
+    "Linköping är ett av Östergötlands viktigaste vårdnav och hem för Universitetssjukhuset i Linköping (US), där specialistvård bedrivs inom en lång rad områden. Som universitetssjukhus kombinerar US patientvård med forskning och utbildning, vilket bidrar till bred kompetens på orten. Vid sidan av den offentliga vården finns även privata specialistmottagningar i staden, vilket ger dig flera vägar in i vården. Hitta privat specialistläkare i Linköping och skicka en kostnadsfri förfrågan utifrån dina behov.",
   specialtyIntros: {
     gastroenterolog:
       "Vid mag- och tarmbesvär finns i Linköping vård kopplad till Universitetssjukhuset i Linköping (US) och hos privata mottagningar i Östergötland. Specialistdirekt vägleder dig kostnadsfritt till en gastroenterolog.",
@@ -18,11 +18,11 @@ export const city: City = {
     ortoped:
       "Har du besvär i leder, skelett eller efter en idrottsskada kan en ortoped i Linköping hjälpa dig vidare. Här finns ortopedisk vård kopplad till Universitetssjukhuset i Linköping (US) liksom privata aktörer i Östergötland. Genom Specialistdirekt kommer du snabbt i kontakt med en ortoped som passar just dina besvär.",
     hudlakare:
-      "Vill du träffa en hudläkare i Linköping för exempelvis eksem, hudutslag eller en bedömning av födelsemärken finns både offentliga och privata hudmottagningar att vända sig till. Att det finns flera alternativ gör det ofta enklare att hitta en tid som fungerar för dig. Vi guidar dig kostnadsfritt till rätt dermatolog på orten.",
+      "Vill du träffa en hudläkare i Linköping för exempelvis eksem, hudutslag eller en bedömning av födelsemärken finns både offentliga och privata hudmottagningar att vända sig till. Att det finns flera alternativ gör det ofta enklare att hitta en tid som fungerar för dig. Du kan kostnadsfritt skicka en förfrågan om ett besök hos dermatolog på orten.",
     gynekolog:
-      "Behöver du en gynekolog i Linköping möter du mottagningar inriktade på kvinnohälsa, från allmän gynekologi till mer specialiserad vård kopplad till Universitetssjukhuset i Linköping (US). Det kan ibland vara svårt att veta vart man ska vända sig först. Specialistdirekt hjälper dig att hitta en gynekolog utifrån dina önskemål och behov.",
+      "Behöver du en gynekolog i Linköping möter du mottagningar inriktade på kvinnohälsa, från allmän gynekologi till mer specialiserad vård kopplad till Universitetssjukhuset i Linköping (US). Det kan ibland vara svårt att veta vart man ska vända sig först. Skicka en kostnadsfri förfrågan om ett gynekologbesök utifrån dina önskemål och behov.",
     psykiater:
-      "Inom psykisk hälsa, inklusive utredning av ADHD, finns i Linköping psykiatrisk kompetens både i den regiondrivna vården och hos privatpraktiserande psykiatrer. Att hitta rätt väg in kan kännas svårt när man mår dåligt. Vi hjälper dig att komma i kontakt med en psykiater i Linköping och att ta nästa steg.",
+      "Inom psykisk hälsa, inklusive utredning av ADHD, finns i Linköping psykiatrisk kompetens både i den regiondrivna vården och hos privatpraktiserande psykiatrer. Att hitta rätt väg in kan kännas svårt när man mår dåligt. Du kan skicka en kostnadsfri förfrågan om ett besök hos psykiater i Linköping.",
     neurolog:
       "För besvär från nervsystemet, som migrän eller yrsel, finns neurologisk specialistkompetens vid Universitetssjukhuset i Linköping (US) och hos privata neurologmottagningar i regionen. Neurologi är ett område där en tidig och rätt utredning kan göra stor skillnad. Genom Specialistdirekt kommer du kostnadsfritt i kontakt med en neurolog i Linköping.",
   },
@@ -36,7 +36,7 @@ export const city: City = {
           id: "privat-neurolog-linkoping",
           heading: "Neurolog i Linköping – privat väg in vid nervbesvär",
           body: [
-            "Östergötland har sitt neurologiska nav vid Universitetssjukhuset i Linköping (US), men vill du komma i gång snabbare kan en privat mottagning vara ett alternativ. Specialistdirekt är fristående och saknar koppling till US och Region Östergötland – vi hjälper dig kostnadsfritt att hitta en privat **neurolog** som passar dina besvär. En neurolog utreder symtom och sjukdomar som utgår från hjärna, ryggmärg och de perifera nerverna.",
+            "Östergötland har sitt neurologiska nav vid Universitetssjukhuset i Linköping (US), men vill du komma i gång snabbare kan en privat mottagning vara ett alternativ. Specialistdirekt är fristående och saknar koppling till US och Region Östergötland – via oss kan du kostnadsfritt skicka en förfrågan för ett besök hos en privat **neurolog**. En neurolog utreder symtom och sjukdomar som utgår från hjärna, ryggmärg och de perifera nerverna.",
             "Grunden i en neurologisk bedömning är samtalet om dina symtom och ett **neurologiskt status**, där läkaren undersöker reflexer, känsel, styrka, koordination och balans. Utifrån det avgör neurologen om något behöver kompletteras, till exempel MR av hjärnan, EEG eller nervmätning (ENeG/EMG). Vill du läsa mer om specialiteten finns vår [översikt om neurolog](/specialiteter/neurolog).",
           ],
           bullets: [
@@ -59,7 +59,7 @@ export const city: City = {
           heading: "När neurologiska symtom inte kan vänta",
           body: [
             "Vissa symtom är akuta och ska aldrig vänta på en planerad tid. Ring **112** direkt vid plötslig svaghet eller domning i ansikte, arm eller ben, hängande mungipa, sluddrigt tal, akut synbortfall eller en plötslig och mycket kraftig huvudvärk – det kan vara tecken på stroke, där varje minut räknas.",
-            "En privat neurologtid är till för besvär som inte är akut livshotande. Specialistdirekt gör ingen medicinsk bedömning eller triage – vid akuta symtom söker du alltid akut vård, och för sjukvårdsrådgivning dygnet runt når du **1177**.",
+            "En privat neurologtid är till för besvär som inte är akut livshotande. Webbplatsen kan inte bedöma hur brådskande besvären är – vid akuta symtom söker du alltid akut vård, och för sjukvårdsrådgivning dygnet runt når du **1177**.",
           ],
         },
       ],
@@ -67,7 +67,7 @@ export const city: City = {
         {
           question: "Behöver jag remiss för att träffa en privat neurolog i Linköping?",
           answer:
-            "Inom regionvården i Östergötland krävs oftast en remiss från vårdcentralen, medan många privata mottagningar tar emot egen vårdbegäran. Vad som gäller beror på mottagning och finansiering – vi hjälper dig kostnadsfritt att hitta rätt väg in. Se även [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
+            "Inom regionvården i Östergötland krävs oftast en remiss från vårdcentralen, medan många privata mottagningar tar emot egen vårdbegäran. Vad som gäller beror på mottagning och finansiering – du får besked om vad som gäller när du skickar en förfrågan. Se även [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
         },
         {
           question: "Vilka undersökningar kan bli aktuella hos en neurolog?",

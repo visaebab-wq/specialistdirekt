@@ -15,7 +15,7 @@ export const city: City = {
     gastroenterolog:
       "Söker du en gastroenterolog i Malmö finns mag- och tarmvård både i regionens vård och hos privata mottagningar i Skåne. Specialistdirekt hjälper dig kostnadsfritt att hitta en magspecialist som passar dina besvär.",
     allmanmedicin:
-      "I Malmö kan du vända dig till privata läkarmottagningar för en bred medicinsk bedömning när besvären är svårplacerade. En specialist i allmänmedicin ser helheten och hjälper dig vidare till rätt specialist vid behov. Specialistdirekt tar emot förfrågningar kostnadsfritt.",
+      "I Malmö kan du vända dig till privata läkarmottagningar för en bred medicinsk bedömning när besvären är svårplacerade. En specialist i allmänmedicin ser helheten och hjälper dig vidare till rätt specialist vid behov. Det är kostnadsfritt att skicka en förfrågan via Specialistdirekt.",
     kardiolog:
       "Söker du en kardiolog i Malmö finns både hjärtsjukvård vid Skånes universitetssjukhus och flera privata hjärtmottagningar i staden. Du kan läsa om och skicka en förfrågan till en specialist för utredning av till exempel hjärtklappning, högt blodtryck eller bröstsmärta, så att du slipper leta på egen hand. Tjänsten är kostnadsfri och anpassad efter var i Malmöområdet du befinner dig.",
     ortoped:
@@ -23,9 +23,9 @@ export const city: City = {
     hudlakare:
       "En hudläkare i Malmö kan hjälpa dig med exempelvis födelsemärken, eksem, akne eller andra hudförändringar. Tillgången på dermatologer är ofta bättre hos privata mottagningar, och i Öresundsregionen finns flera att välja mellan. Berätta vad du söker hjälp för i en tidsförfrågan via Specialistdirekt.",
     gynekolog:
-      "Vill du boka tid hos en gynekolog i Malmö finns det flera vägar att gå, både via Skånes universitetssjukhus och genom privata mottagningar i staden. Det kan röra sig om allt från återkommande besvär och hormonfrågor till rådgivning och kontroller. Vi hjälper dig kostnadsfritt att hitta en gynekolog som tar emot patienter i Malmöområdet.",
+      "Vill du boka tid hos en gynekolog i Malmö finns det flera vägar att gå, både via Skånes universitetssjukhus och genom privata mottagningar i staden. Det kan röra sig om allt från återkommande besvär och hormonfrågor till rådgivning och kontroller. Du kan kostnadsfritt skicka en förfrågan om ett gynekologbesök i Malmöområdet.",
     psykiater:
-      "Att hitta en psykiater i Malmö kan kännas svårt, särskilt när behovet känns akut eller väntetiderna är långa. I regionen erbjuds psykiatrisk vård både offentligt och via privata specialister, vilket ger fler möjligheter att komma vidare. Vi tar emot förfrågningar om en psykiater utifrån dina behov, utan att det kostar dig något.",
+      "Att hitta en psykiater i Malmö kan kännas svårt, särskilt när behovet känns akut eller väntetiderna är långa. I regionen erbjuds psykiatrisk vård både offentligt och via privata specialister, vilket ger fler möjligheter att komma vidare. Du kan kostnadsfritt skicka en förfrågan om ett besök hos psykiater utifrån dina behov.",
     neurolog:
       "En neurolog i Malmö utreder och behandlar besvär som rör nervsystemet, till exempel återkommande huvudvärk, yrsel eller domningar. Neurologisk kompetens finns vid Skånes universitetssjukhus och hos privata specialistmottagningar i Öresundsregionen. Du kan läsa om neurologi och skicka en förfrågan så att du snabbare kan få en bedömning, helt kostnadsfritt.",
   },
@@ -39,7 +39,7 @@ export const city: City = {
           id: "privat-gastroenterolog-malmo",
           heading: "Privat gastroenterolog i Malmö – vägen in",
           body: [
-            "Malmö är Sveriges tredje största stad och har ett av landets tätaste vårdutbud. Den regionfinansierade mag- och tarmvården är knuten till **Skånes universitetssjukhus**, med verksamhet i både Malmö och Lund. Vid sidan av den finns privata mag- och tarmmottagningar i Malmö och i Öresundsregionen i övrigt. Specialistdirekt är fristående och har ingen koppling till Skånes universitetssjukhus eller Region Skåne – vi hjälper dig kostnadsfritt att hitta en relevant privat mottagning.",
+            "Malmö är Sveriges tredje största stad och har ett av landets tätaste vårdutbud. Den regionfinansierade mag- och tarmvården är knuten till **Skånes universitetssjukhus**, med verksamhet i både Malmö och Lund. Vid sidan av den finns privata mag- och tarmmottagningar i Malmö och i Öresundsregionen i övrigt. Specialistdirekt är fristående och har ingen koppling till Skånes universitetssjukhus eller Region Skåne – via oss kan du kostnadsfritt skicka en förfrågan för ett privat besök.",
             "En **gastroenterolog** (magspecialist, mag- och tarmläkare) utreder hela matsmältningskanalen samt lever, gallvägar och bukspottkörtel. Vägen in beror på finansieringen: som självbetalande kan du hos många privata mottagningar boka utan remiss, medan regionfinansierad vård oftast kräver remiss från vårdcentralen. Läs mer på [privat gastroenterolog](/privat-gastroenterolog).",
           ],
         },
@@ -79,7 +79,7 @@ export const city: City = {
           heading: "När du ska söka vård direkt",
           body: [
             "Vissa symtom ska inte vänta på en planerad tid. Sök akut vård eller ring **112** vid kraftig eller ihållande buksmärta, blodiga kräkningar, svart eller tjärliknande avföring, större mängder blod i avföringen, eller hög feber tillsammans med buksmärta.",
-            "En planerad specialistbedömning är till för besvär som inte är akuta. Specialistdirekt ger inte medicinsk rådgivning och bedömer inte hur brådskande dina besvär är. Är du osäker når du 1177 dygnet runt.",
+            "En planerad specialistbedömning är till för besvär som inte är akuta. Webbplatsen ger inte medicinsk rådgivning och kan inte bedöma hur brådskande dina besvär är. Är du osäker når du 1177 dygnet runt.",
           ],
         },
       ],
@@ -92,12 +92,12 @@ export const city: City = {
         {
           question: "Hur bokar jag tid hos en privat gastroenterolog i Malmö?",
           answer:
-            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi kontaktar flera anslutna mottagningar och återkommer med den tidigaste tid vi hittar. Det medicinska ansvaret för vården ligger hos mottagningen.",
+            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi återkommer med besked om den tidigaste tid som finns. Det medicinska ansvaret för vården ligger hos mottagningen.",
         },
         {
           question: "Kan jag träffa en gastroenterolog i Malmö utan remiss?",
           answer:
-            "Som självbetalande kan du hos många privata mottagningar boka utan remiss, via egen vårdbegäran. Med sjukvårdsförsäkring går du vanligtvis via försäkringsbolaget, och inom regionfinansierad vård krävs oftast remiss. Reglerna varierar mellan mottagningar – vi hjälper dig kostnadsfritt att reda ut vad som gäller. Se [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
+            "Som självbetalande kan du hos många privata mottagningar boka utan remiss, via egen vårdbegäran. Med sjukvårdsförsäkring går du vanligtvis via försäkringsbolaget, och inom regionfinansierad vård krävs oftast remiss. Reglerna varierar mellan mottagningar – du får besked om vad som gäller när du skickar en förfrågan. Se [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
         },
         {
           question: "Ingår gastroskopi eller koloskopi i priset?",

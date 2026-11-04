@@ -56,7 +56,7 @@ const faqs: Faq[] = [
   {
     question: "Hur lång är väntetiden för en privat koloskopi?",
     answer:
-      "Privata tider kan ofta erbjudas snabbare än inom regionfinansierad vård, men exakt väntetid varierar mellan mottagningar och beror på efterfrågan. Vi kan inte garantera en viss tid, men hjälper dig att hitta en mottagning som kan ta emot dig.",
+      "Privata tider kan ofta erbjudas snabbare än inom regionfinansierad vård, men exakt väntetid varierar mellan mottagningar och beror på efterfrågan. Vi kan inte garantera en viss tid, men du får besked om den tidigaste tid som finns.",
   },
   {
     question: "Gör en koloskopi ont?",
@@ -169,7 +169,7 @@ export default function PrivatKoloskopiPage() {
             </h2>
             <Prose
               paragraphs={[
-                "Väntetiden är ofta ett avgörande skäl att välja privat. Privata tider kan i många fall erbjudas snabbare än inom regionfinansierad vård, vilket kan vara värdefullt när du vill ha ett besked utan lång väntan. Hur mycket snabbare det går varierar dock mellan mottagningar och beror på efterfrågan – vi lovar ingen specifik tid, men hjälper dig att hitta en mottagning.",
+                "Väntetiden är ofta ett avgörande skäl att välja privat. Privata tider kan i många fall erbjudas snabbare än inom regionfinansierad vård, vilket kan vara värdefullt när du vill ha ett besked utan lång väntan. Hur mycket snabbare det går varierar dock mellan mottagningar och beror på efterfrågan – vi lovar ingen specifik tid, men du får besked om den tidigaste tid som finns.",
               ]}
             />
 
@@ -228,7 +228,7 @@ export default function PrivatKoloskopiPage() {
             </h2>
             <Prose
               paragraphs={[
-                "Specialistdirekt är en kostnadsfri boknings- och informationstjänst. Du beskriver ditt behov, så hjälper vi dig att hitta en privat mottagning för koloskopi. Tillgång och pris beror på mottagningen, och vi ger ingen medicinsk rådgivning. Vill du läsa mer om specialisten bakom undersökningen? Se [privat gastroenterolog](/privat-gastroenterolog). Ska övre magtarmkanalen undersökas kan i stället en [gastroskopi](/privat-gastroskopi) vara aktuell.",
+                "Det kostar inget att skicka en bokningsförfrågan för koloskopi via Specialistdirekt. Du beskriver ditt behov och får besked om möjlig tid och pris. Den medicinska bedömningen görs av läkaren vid undersökningen. Vill du läsa mer om specialisten bakom undersökningen? Se [privat gastroenterolog](/privat-gastroenterolog). Ska övre magtarmkanalen undersökas kan i stället en [gastroskopi](/privat-gastroskopi) vara aktuell.",
               ]}
             />
             <div id="tidsforfragan" className="mt-6 scroll-mt-28">

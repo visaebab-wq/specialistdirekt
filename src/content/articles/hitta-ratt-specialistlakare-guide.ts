@@ -28,8 +28,8 @@ export const article: Article = {
     "Du når en specialist på flera sätt: via **remiss** från vårdcentralen, genom egenremiss eller direkt hos många privata mottagningar.",
     "**Offentlig vård** ger patientavgift med högkostnadsskydd, medan helt privat vård ofta innebär kortare väntetid men fullt pris.",
     "Välj mottagning utifrån läge, väntetid, remisskrav och erfarenhet inom just ditt besvär.",
-    "Är du osäker på rätt specialitet räcker det att beskriva dina besvär – vården eller vi hjälper dig hitta rätt nivå.",
-    "[Specialistdirekt](/kontakt) hjälper dig hitta rätt specialist och skicka en bokningsförfrågan.",
+    "Är du osäker på rätt specialitet räcker det att beskriva dina besvär – i en kostnadsfri förfrågan eller hos vårdcentralen.",
+    "Via [Specialistdirekt](/kontakt) kan du skicka en kostnadsfri bokningsförfrågan till en privat specialist.",
   ],
   suitableFor: [
     "Dig som behöver mer hjälp än vårdcentralen kan erbjuda men är osäker på nästa steg.",
@@ -41,7 +41,7 @@ export const article: Article = {
   intro: [
     "Att **hitta rätt specialistläkare** kan kännas svårt när man väl behöver mer än vad husläkaren eller vårdcentralen kan erbjuda. Vägen till specialiserad vård i Sverige går via flera olika spår – remiss, egenremiss, offentlig och privat vård – och det är inte alltid självklart vilket som passar just din situation bäst.",
     "Den här guiden går igenom allt du behöver veta för att komma vidare: vad en specialistläkare egentligen är, hur du tar dig dit, vad det kan kosta och hur du väljer en mottagning du känner förtroende för. Vi länkar också vidare till mer djupgående artiklar för dig som vill veta mer om ett specifikt ämne.",
-    "Tanken är att du efter att ha läst ska ha en tydlig bild av dina möjligheter och kunna ta nästa steg med trygghet. Specialistdirekt är en kostnadsfri tjänst som hjälper dig att [hitta rätt specialistläkare](/sa-fungerar-det) – men oavsett om du använder oss eller inte vill vi att du ska kunna fatta ett välgrundat beslut. Notera att den här guiden ger allmän vägledning och inte ersätter en individuell medicinsk bedömning. Vid akuta eller allvarliga besvär ska du alltid kontakta vården direkt eller ringa 112.",
+    "Tanken är att du efter att ha läst ska ha en tydlig bild av dina möjligheter och kunna ta nästa steg med trygghet. Via Specialistdirekt kan du [boka specialistläkare](/sa-fungerar-det) – men oavsett om du använder oss eller inte vill vi att du ska kunna fatta ett välgrundat beslut. Notera att den här guiden ger allmän vägledning och inte ersätter en individuell medicinsk bedömning. Vid akuta eller allvarliga besvär ska du alltid kontakta vården direkt eller ringa 112.",
   ],
   sections: [
     {
@@ -123,9 +123,9 @@ export const article: Article = {
     },
     {
       id: "sa-hjalper-specialistdirekt",
-      heading: "Så hjälper Specialistdirekt dig vidare",
+      heading: "Så går du vidare",
       body: [
-        "Att navigera mellan remiss, regioner, köer och mottagningar tar tid och energi – tid som du kanske hellre lägger på annat. Specialistdirekt är en **kostnadsfri** boknings- och informationstjänst som tar bort krånglet. Du beskriver dina besvär och dina önskemål och skickar en förfrågan. Vi återkommer med besked om hur du kan gå vidare.",
+        "Att navigera mellan remiss, regioner, köer och mottagningar tar tid och energi – tid som du kanske hellre lägger på annat. Via Specialistdirekt slipper du det krånglet: det är **kostnadsfritt** att skicka en förfrågan. Du beskriver dina besvär och dina önskemål och skickar en förfrågan. Vi återkommer med besked om hur du kan gå vidare.",
         "Det kostar inget att skicka in en förfrågan. Du får besked om vilka bokningsmöjligheter som finns och vad som gäller för den aktuella tjänsten.",
         "Att hitta rätt specialistläkare behöver alltså inte vara komplicerat. Med rätt information om remiss, väntetider, kostnader och dina valmöjligheter står du betydligt tryggare när du tar nästa steg. Och behöver du en hjälpande hand på vägen finns vi här.",
         "Vill du komma igång kan du [skicka in en kostnadsfri förfrågan](/kontakt) redan idag. Undrar du över hur processen ser ut steg för steg förklarar vi det under [så fungerar det](/sa-fungerar-det), och fler svar hittar du bland [våra vanliga frågor](/vanliga-fragor).",

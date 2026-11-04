@@ -42,7 +42,7 @@ export const article: Article = {
   ],
   intro: [
     "Hudbesvär kan vara synliga, irriterande och oroande – nya eller förändrade födelsemärken, utslag, klåda, akne, eksem, psoriasis, rosacea, håravfall, sår som inte läker eller oro för hudcancer. Många börjar hos vårdcentralen. Om besvären återkommer, inte blir bättre eller om du vill ha specialistbedömning snabbare kan en hudläkare (dermatolog) bli aktuell.",
-    "Specialistdirekt hjälper dig hitta rätt väg till privat specialistvård. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en relevant mottagning. Läs mer om [hur det fungerar](/sa-fungerar-det).",
+    "Via Specialistdirekt kan du skicka en kostnadsfri bokningsförfrågan för ett privat specialistbesök. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en relevant mottagning. Läs mer om [hur det fungerar](/sa-fungerar-det).",
   ],
   sections: [
     {
@@ -216,14 +216,14 @@ export const article: Article = {
     },
     {
       id: "sa-hjalper-vi",
-      heading: "Så hjälper Specialistdirekt dig",
+      heading: "Så bokar du via Specialistdirekt",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Så fungerar det:",
+        "Så fungerar det:",
       ],
       bullets: [
         "Du beskriver dina hudbesvär.",
         "Du anger stad eller område.",
-        "Vi hjälper dig vidare till en relevant mottagning.",
+        "Du får besked om möjlig tid och pris.",
         "Mottagningen bedömer vårdbehovet.",
       ],
     },
@@ -249,7 +249,7 @@ export const article: Article = {
       heading: "Sammanfattning",
       body: [
         "Det kan vara aktuellt med en privat hudläkare vid hudförändringar, födelsemärken, akne, eksem, psoriasis, rosacea, håravfall, nagelbesvär eller sår som inte läker. Ett besök eller en bedömning kostar ofta **från cirka 3 000 kr** och uppåt; med dermatoskopi, biopsi, provtagning, operation eller uppföljning kan totalpriset bli högre, ofta **5 000–15 000 kr eller mer**.",
-        "I vissa fall kan sjukvårdsförsäkring täcka kostnaden. Du beskriver dina besvär, anger önskat område och skickar en [bokningsförfrågan](/kontakt) – vi hjälper dig vidare till en relevant mottagning.",
+        "I vissa fall kan sjukvårdsförsäkring täcka kostnaden. Du beskriver dina besvär, anger önskat område och skickar en [bokningsförfrågan](/kontakt) och får besked om möjlig tid och pris.",
       ],
     },
   ],
@@ -294,7 +294,7 @@ export const article: Article = {
     {
       question: "Kan Specialistdirekt bedöma bilder på hudförändringar?",
       answer:
-        "Nej, vi ställer ingen diagnos och bedömer inga bilder. Vi hjälper dig med vägledning och bokningsförfrågan till relevant privat mottagning.",
+        "Nej, vi ställer ingen diagnos och bedömer inga bilder. Du kan skicka en kostnadsfri bokningsförfrågan och få besked om möjlig tid och pris.",
     },
     {
       question: "När ska jag söka akut?",

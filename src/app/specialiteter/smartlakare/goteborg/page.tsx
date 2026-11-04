@@ -259,8 +259,8 @@ export default function SmartlakareGoteborgPage() {
                 >
                   Andrabedömning.se
                 </a>
-                . Specialistdirekt är en boknings- och informationstjänst; den medicinska
-                bedömningen görs av Dr. Masoud Sorkhabi.
+                . Den medicinska bedömningen görs av Dr. Masoud
+                Sorkhabi.
               </div>
 
               <section className="mt-10">

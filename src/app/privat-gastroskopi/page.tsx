@@ -58,7 +58,7 @@ const faqs: Faq[] = [
   {
     question: "Hur lång är väntetiden för en privat gastroskopi?",
     answer:
-      "Privata tider kan ofta erbjudas snabbare än inom regionfinansierad vård, men exakt väntetid varierar mellan mottagningar och beror på efterfrågan. Vi kan inte garantera en viss tid, men hjälper dig att hitta en mottagning.",
+      "Privata tider kan ofta erbjudas snabbare än inom regionfinansierad vård, men exakt väntetid varierar mellan mottagningar och beror på efterfrågan. Vi kan inte garantera en viss tid, men du får besked om den tidigaste tid som finns.",
   },
   {
     question: "Hur förbereder jag mig inför en gastroskopi?",
@@ -139,7 +139,7 @@ export default function PrivatGastroskopiPage() {
             </h2>
             <Prose
               paragraphs={[
-                "En av de vanligaste anledningarna att välja en privat gastroskopi är väntetiden. Privata tider kan ofta erbjudas snabbare än inom regionfinansierad vård, men hur mycket snabbare varierar mellan mottagningar och beror på efterfrågan. Vi lovar ingen specifik tid, men hjälper dig att hitta en mottagning som kan ta emot dig.",
+                "En av de vanligaste anledningarna att välja en privat gastroskopi är väntetiden. Privata tider kan ofta erbjudas snabbare än inom regionfinansierad vård, men hur mycket snabbare varierar mellan mottagningar och beror på efterfrågan. Vi lovar ingen specifik tid, men du får besked om den tidigaste tid som finns.",
               ]}
             />
 
@@ -190,7 +190,7 @@ export default function PrivatGastroskopiPage() {
             </h2>
             <Prose
               paragraphs={[
-                "Specialistdirekt är en kostnadsfri boknings- och informationstjänst. Du beskriver ditt behov, så hjälper vi dig att hitta en privat mottagning för gastroskopi. Tillgång och pris beror på mottagningen, och vi ger ingen medicinsk rådgivning. Vill du läsa mer om specialisten bakom undersökningen? Se [privat gastroenterolog](/privat-gastroenterolog). Ska även tjocktarmen undersökas kan en [koloskopi](/privat-koloskopi) vara aktuell.",
+                "Det kostar inget att skicka en bokningsförfrågan för gastroskopi via Specialistdirekt. Du beskriver ditt behov och får besked om möjlig tid och pris. Den medicinska bedömningen görs av läkaren vid undersökningen. Vill du läsa mer om specialisten bakom undersökningen? Se [privat gastroenterolog](/privat-gastroenterolog). Ska även tjocktarmen undersökas kan en [koloskopi](/privat-koloskopi) vara aktuell.",
               ]}
             />
             <div className="mt-6">

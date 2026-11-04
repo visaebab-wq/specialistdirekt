@@ -44,7 +44,7 @@ export const article: Article = {
   intro: [
     "Kirurgiska besvär kan se ut på många sätt. Det kan handla om ett ljumskbråck som buktar ut, gallstensbesvär med smärta under höger revbensbåge, hemorrojder eller andra anala besvär, hudförändringar som behöver tas bort, cystor, lipom och andra knutor under huden eller oklara bukbesvär.",
     "Många börjar hos sin vårdcentral, som gör en första bedömning och vid behov skriver remiss vidare. Men i vissa situationer vill man snabbare hitta rätt privat kirurgmottagning, särskilt om besvären påverkar vardagen eller om man redan vet att man behöver en specialistbedömning eller ett kirurgiskt ingrepp.",
-    "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
+    "Via Specialistdirekt kan du skicka en kostnadsfri bokningsförfrågan för ett privat specialistbesök. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
   ],
   sections: [
     {
@@ -187,14 +187,14 @@ export const article: Article = {
     },
     {
       id: "sa-hjalper-vi",
-      heading: "Så hjälper Specialistdirekt dig",
+      heading: "Så bokar du via Specialistdirekt",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Vi gör ingen medicinsk bedömning. Så fungerar det:",
+        "Den medicinska bedömningen görs av läkaren vid besöket. Så fungerar det:",
       ],
       bullets: [
         "Du beskriver dina besvär i en kort bokningsförfrågan.",
         "Du anger stad eller område där du helst vill få hjälp.",
-        "Vi hjälper dig vidare till en privat mottagning som kan vara relevant utifrån specialitet, ort och tillgänglighet.",
+        "Du får besked om möjlig tid och pris utifrån specialitet, ort och tillgänglighet.",
         "Det är alltid mottagningen som bedömer om de kan ta emot dig och vilken vård som är medicinskt lämplig.",
       ],
     },
@@ -210,7 +210,7 @@ export const article: Article = {
       heading: "Sammanfattning",
       body: [
         "Det kan vara aktuellt med en privat kirurg vid bråck, gallstensbesvär, hemorrojder, cystor, lipom, knutor eller hudförändringar som behöver tas bort. Ett första besök kostar ofta **från cirka 3 000 kr**, en **mindre åtgärd kostar ofta 5 000–20 000 kr eller mer** och en **större operation ofta 20 000–80 000 kr eller mer** – och med privat sjukvårdsförsäkring kan du ofta få hjälp med betalningen. Läs gärna mer om [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
-        "Du väljer specialist, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Vi hjälper dig vidare till en privat mottagning som kan vara relevant för ditt behov.",
+        "Du väljer specialist, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Du får besked om möjlig tid och pris för ditt behov.",
       ],
     },
   ],
@@ -238,7 +238,7 @@ export const article: Article = {
     {
       question: "Kan Specialistdirekt säga om jag behöver operation?",
       answer:
-        "Nej. Specialistdirekt ställer ingen diagnos och gör ingen medicinsk bedömning. Det är alltid kirurgen som bedömer om en operation är aktuell. Vi hjälper dig med vägledning och bokningsförfrågan till relevant privat mottagning.",
+        "Nej. Diagnos och medicinsk bedömning görs inte via webbplatsen. Det är alltid kirurgen som bedömer om en operation är aktuell. Du kan skicka en kostnadsfri bokningsförfrågan och få besked om möjlig tid och pris.",
     },
     {
       question: "När ska jag söka akut i stället?",

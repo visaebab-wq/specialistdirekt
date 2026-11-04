@@ -29,7 +29,7 @@ export const article: Article = {
     "Vanliga metoder är laser, radiofrekvens, skumbehandling, flebektomi, limbehandling eller kombinationer.",
     "En seriös bedömning görs ofta av kärlkirurg och kan inkludera ultraljud av venerna.",
     "Sjukvårdsförsäkring kan ibland täcka utredning eller behandling om besvären är medicinskt motiverade, men kosmetiska åtgärder täcks ofta inte.",
-    "[Specialistdirekt](/kontakt) gör ingen medicinsk bedömning och utför ingen behandling. Vi hjälper dig vidare till relevant privat mottagning.",
+    "Via [Specialistdirekt](/kontakt) kan du skicka en kostnadsfri bokningsförfrågan. Bedömning och behandling görs av den privata mottagning du besöker.",
   ],
   priceTable: [
     { label: "Kärlkirurgisk konsultation / bedömning", price: "ofta från cirka 3 000 kr och uppåt" },
@@ -49,7 +49,7 @@ export const article: Article = {
   ],
   intro: [
     "Åderbråck är vidgade, synliga vener som ofta sitter på benen och uppstår när klaffarna i venerna inte fungerar som de ska. De kan vara mest kosmetiskt störande, men kan också ge tyngdkänsla, värk, svullnad eller hudförändringar. Många söker privat behandling för kortare väntetid eller för att kunna använda en sjukvårdsförsäkring.",
-    "Specialistdirekt är en vägledningstjänst. Vi ställer ingen diagnos, gör ingen medicinsk bedömning och utför ingen behandling. Vi hjälper dig vidare med en [bokningsförfrågan](/kontakt) till relevant privat kärlmottagning.",
+    "Bedömning och behandling görs av den privata kärlmottagning du besöker. Du kan skicka en [bokningsförfrågan](/kontakt) för ett besök.",
   ],
   sections: [
     {
@@ -221,9 +221,9 @@ export const article: Article = {
     },
     {
       id: "sa-hjalper-vi",
-      heading: "Så hjälper Specialistdirekt dig",
+      heading: "Så bokar du via Specialistdirekt",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård och behandlingar via externa mottagningar. Vi gör ingen medicinsk bedömning. Du beskriver dina besvär, anger önskat område, och vi hjälper dig vidare till en privat mottagning eller kärlkirurg som kan vara relevant. Det är alltid mottagningen som avgör om åderbråcksbehandling är lämplig och vilken metod som passar.",
+        "Bedömning och behandling görs av den privata mottagning du besöker. Du beskriver dina besvär, anger önskat område, och får besked om möjlig tid och pris. Det är alltid mottagningen som avgör om åderbråcksbehandling är lämplig och vilken metod som passar.",
       ],
     },
     {
@@ -238,7 +238,7 @@ export const article: Article = {
       heading: "Sammanfattning",
       body: [
         "Det kan vara aktuellt med en privat åderbråcksbehandling om du har synliga åderbråck med tyngdkänsla, svullnad, värk, klåda, hudförändringar eller vill få en kärlkirurgisk bedömning.",
-        "Privat behandling av ett ben kostar ofta cirka **13 500–29 000 kr**, medan båda benen ofta kan ligga runt 18 500–36 500 kr eller mer. I vissa fall kan sjukvårdsförsäkring täcka utredning eller behandling, men kosmetiska åtgärder täcks ofta inte. Specialistdirekt hjälper dig vidare – skicka en [bokningsförfrågan](/kontakt) till relevant privat kärlmottagning. Läs gärna mer om [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
+        "Privat behandling av ett ben kostar ofta cirka **13 500–29 000 kr**, medan båda benen ofta kan ligga runt 18 500–36 500 kr eller mer. I vissa fall kan sjukvårdsförsäkring täcka utredning eller behandling, men kosmetiska åtgärder täcks ofta inte. Skicka en kostnadsfri [bokningsförfrågan](/kontakt) för ett besök på en privat kärlmottagning. Läs gärna mer om [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
       ],
     },
   ],
@@ -276,7 +276,7 @@ export const article: Article = {
     {
       question: "Kan Specialistdirekt säga vilken behandling jag behöver?",
       answer:
-        "Nej. Specialistdirekt ställer ingen diagnos och avgör inte behandlingsmetod. Vi hjälper dig med vägledning och bokningsförfrågan till relevant privat mottagning.",
+        "Nej. Specialistdirekt ställer ingen diagnos och avgör inte behandlingsmetod. Du kan skicka en kostnadsfri bokningsförfrågan och få besked om möjlig tid och pris.",
     },
     {
       question: "När ska jag söka akut?",

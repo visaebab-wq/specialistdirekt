@@ -45,7 +45,7 @@ export const article: Article = {
   intro: [
     "Besvär i hand, fingrar och handled kan påverka nästan allt du gör – från att knäppa en skjorta till att arbeta, träna eller sova. Det kan handla om domningar, stickningar, smärta, låsningar eller svaghet, och bakom besvären kan ligga allt från karpaltunnelsyndrom, triggerfinger och Dupuytrens kontraktur till ganglion, tumbasartros, andra handledsbesvär eller besvär efter en skada.",
     "Många börjar hos vårdcentralen, en fysioterapeut eller en [ortoped](/specialiteter/ortoped) som gör en första bedömning. I vissa situationer vill man dock snabbare få hjälp att hitta rätt privat handkirurgisk mottagning, särskilt om besvären inte ger med sig, återkommer eller påverkar vardagen och arbetsförmågan.",
-    "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
+    "Via Specialistdirekt kan du skicka en kostnadsfri bokningsförfrågan för ett privat specialistbesök. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
   ],
   sections: [
     {
@@ -215,14 +215,14 @@ export const article: Article = {
     },
     {
       id: "sa-hjalper-vi",
-      heading: "Så hjälper Specialistdirekt dig",
+      heading: "Så bokar du via Specialistdirekt",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Vi gör ingen medicinsk bedömning. Så fungerar det:",
+        "Den medicinska bedömningen görs av läkaren vid besöket. Så fungerar det:",
       ],
       bullets: [
         "Du beskriver dina besvär i en kort bokningsförfrågan.",
         "Du anger stad eller område där du helst vill få hjälp.",
-        "Vi hjälper dig vidare till en privat mottagning som kan vara relevant utifrån specialitet, ort och tillgänglighet.",
+        "Du får besked om möjlig tid och pris utifrån specialitet, ort och tillgänglighet.",
         "Det är alltid mottagningen som bedömer om de kan ta emot dig och vilken vård som är medicinskt lämplig.",
       ],
     },
@@ -238,7 +238,7 @@ export const article: Article = {
       heading: "Sammanfattning",
       body: [
         "Det kan vara aktuellt med en privat handkirurg vid besvär i hand, handled, fingrar, nerver och senor – till exempel karpaltunnelsyndrom, triggerfinger, Dupuytrens kontraktur, ganglion, tumbasartros eller besvär efter skada. En första bedömning kostar ofta från cirka **3 000 kr**, en mindre åtgärd kostar ungefär **8 000–25 000 kr eller mer** och en operation ofta **12 000–40 000 kr eller mer**. Med privat sjukvårdsförsäkring kan du ofta få hjälp med betalningen. Vissa besvär ska bedömas akut, och remisskrav och väntetid skiljer sig mellan mottagningar.",
-        "Du väljer specialist, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Vi hjälper dig vidare till en privat mottagning som kan vara relevant för ditt behov. Vill du läsa mer om skillnaderna mellan privat och offentlig vård finns vår guide om [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
+        "Du väljer specialist, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Du får besked om möjlig tid och pris för ditt behov. Vill du läsa mer om skillnaderna mellan privat och offentlig vård finns vår guide om [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
       ],
     },
   ],

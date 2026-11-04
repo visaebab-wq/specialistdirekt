@@ -27,7 +27,7 @@ export const article: Article = {
     "Vid **vanlig ryggsmärta utan varningstecken** är en **fysioterapeut** eller vårdcentral ofta ett bra första steg – de flesta ryggbesvär blir bättre med tid, rörelse och rätt belastning.",
     "En **ortoped** (eller annan läkare) blir mer aktuell vid **nervrelaterad, utstrålande smärta**, tydlig kraftnedsättning eller besvär som inte förbättras trots rimliga åtgärder.",
     "Vissa symtom är **röda flaggor** – då ska du söka vård direkt, inte boka en planerad tid.",
-    "[Specialistdirekt](/kontakt) är en boknings- och informationstjänst; den medicinska bedömningen görs av mottagningen.",
+    "Via [Specialistdirekt](/kontakt) kan du boka tid; den medicinska bedömningen görs av läkaren vid besöket.",
   ],
   suitableFor: [
     "har ont i ryggen och vet inte om du ska boka fysioterapeut eller läkare",
@@ -149,7 +149,7 @@ export const article: Article = {
     {
       question: "Kostar det något att skicka en tidsförfrågan?",
       answer:
-        "Nej. Det kostar inget att skicka en tidsförfrågan via Specialistdirekt. Du får besked om möjlig tid och pris. Specialistdirekt är en boknings- och informationstjänst.",
+        "Nej. Det kostar inget att skicka en tidsförfrågan via Specialistdirekt. Du får besked om möjlig tid och pris.",
     },
   ],
 };

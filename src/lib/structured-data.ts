@@ -70,8 +70,8 @@ export function organizationSchema() {
   });
 }
 
-// MedicalBusiness-schemat är borttaget. Specialistdirekt är inte vårdgivare och
-// koordinator; vården ges av mottagningen. MedicalBusiness beskriver en enhet
+// MedicalBusiness-schemat är borttaget. Vården ges av läkaren/mottagningen som
+// utför besöket. MedicalBusiness beskriver en enhet
 // som själv bedriver vård, och att typa sajten så vore felaktig strukturerad
 // data på en YMYL-sajt. Sajtentiteten beskrivs enbart som Organization + WebSite.
 
@@ -104,7 +104,7 @@ export function howToSchema(steps: { title: string; text: string }[]) {
   return {
     "@context": "https://schema.org",
     "@type": "HowTo",
-    name: "Så hittar du rätt specialistläkare med Specialistdirekt",
+    name: "Så bokar du en specialistläkare via Specialistdirekt",
     description: site.description,
     step: steps.map((s, i) => ({
       "@type": "HowToStep",
@@ -334,12 +334,12 @@ export function citySpecialtyServiceSchema(specialty: Specialty, city: City, pat
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: `Bokning och information om privat ${title} i ${city.name}`,
-    serviceType: "Boknings- och informationstjänst",
+    name: `Bokningsförfrågan för privat ${title} i ${city.name}`,
+    serviceType: "Bokningsförfrågan",
     provider: { "@id": `${site.url}/#organization` },
     areaServed: { "@type": "City", name: city.name },
     url: abs(path),
-    description: `Specialistdirekt hjälper dig till privat ${title} i ${city.name}. Specialistdirekt är en boknings- och informationstjänst.`,
+    description: `Skicka en kostnadsfri bokningsförfrågan för ett privat besök hos ${title} i ${city.name} och få besked om möjlig tid och pris.`,
     offers: {
       "@type": "Offer",
       price: "0",

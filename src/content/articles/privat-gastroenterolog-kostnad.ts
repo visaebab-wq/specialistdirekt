@@ -48,7 +48,7 @@ export const article: Article = {
   intro: [
     "Mag- och tarmbesvär kan vara svåra att förstå själv. Det kan handla om återkommande magsmärta, uppblåsthet, diarré, förstoppning, reflux, illamående, blod i avföringen eller oro för att något inte står rätt till.",
     "Många börjar hos vårdcentralen. Men om besvären återkommer, påverkar vardagen eller kräver vidare utredning kan en gastroenterolog – alltså en specialist inom mag- och tarmsjukdomar – bli aktuell. Läs mer om vad en [privat gastroenterolog](/privat-gastroenterolog) gör, eller vår guide om [ont i magen – vilken läkare?](/artiklar/ont-i-magen-vilken-lakare).",
-    "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort.",
+    "Via Specialistdirekt kan du skicka en kostnadsfri bokningsförfrågan för ett privat specialistbesök. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort.",
   ],
   sections: [
     {
@@ -188,14 +188,14 @@ export const article: Article = {
     },
     {
       id: "sa-hjalper-vi",
-      heading: "Så hjälper Specialistdirekt dig",
+      heading: "Så bokar du via Specialistdirekt",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Vi gör ingen medicinsk bedömning. Så fungerar det:",
+        "Den medicinska bedömningen görs av läkaren vid besöket. Så fungerar det:",
       ],
       bullets: [
         "Du beskriver dina besvär i en kort bokningsförfrågan.",
         "Du anger stad eller område där du helst vill få hjälp.",
-        "Vi hjälper dig vidare till en privat mottagning som kan vara relevant utifrån specialitet, ort och tillgänglighet.",
+        "Du får besked om möjlig tid och pris utifrån specialitet, ort och tillgänglighet.",
         "Det är alltid mottagningen som bedömer om de kan ta emot dig och vilken vård eller undersökning som är medicinskt lämplig.",
       ],
     },

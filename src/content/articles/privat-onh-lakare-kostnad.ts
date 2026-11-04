@@ -47,7 +47,7 @@ export const article: Article = {
   intro: [
     "Besvär från öron, näsa och hals kan påverka sömn, balans, andning, röst och vardag – återkommande öroninflammationer, nästäppa, bihålebesvär, halsproblem, snarkning, tinnitus, hörselbesvär, yrsel eller lock för örat.",
     "Många börjar hos vårdcentralen, men om besvären återkommer, inte går över eller kräver specialistbedömning kan en ÖNH-läkare (specialist inom öron-, näs- och halssjukdomar) bli aktuell.",
-    "Specialistdirekt hjälper dig hitta rätt väg till privat specialistvård. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en relevant mottagning. Läs mer om [hur det fungerar](/sa-fungerar-det).",
+    "Via Specialistdirekt kan du skicka en kostnadsfri bokningsförfrågan för ett privat specialistbesök. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en relevant mottagning. Läs mer om [hur det fungerar](/sa-fungerar-det).",
   ],
   sections: [
     {
@@ -213,14 +213,14 @@ export const article: Article = {
     },
     {
       id: "sa-hjalper-vi",
-      heading: "Så hjälper Specialistdirekt dig",
+      heading: "Så bokar du via Specialistdirekt",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Vi gör ingen medicinsk bedömning. Så fungerar det:",
+        "Den medicinska bedömningen görs av läkaren vid besöket. Så fungerar det:",
       ],
       bullets: [
         "Du beskriver dina besvär i en kort bokningsförfrågan.",
         "Du anger stad eller område där du helst vill få hjälp.",
-        "Vi hjälper dig vidare till en relevant mottagning.",
+        "Du får besked om möjlig tid och pris.",
         "Det är alltid mottagningen som bedömer vårdbehovet och vad som är medicinskt lämpligt.",
       ],
     },
@@ -236,7 +236,7 @@ export const article: Article = {
       heading: "Sammanfattning",
       body: [
         "Det kan vara aktuellt med en privat ÖNH-läkare vid återkommande öronbesvär, hörselnedsättning, tinnitus, yrsel, nästäppa, bihålebesvär, halsproblem, heshet, sväljbesvär eller snarkning. Ett besök kostar ofta **från cirka 3 000 kr** och uppåt; med kameraundersökning, hörseltest, provtagning, balansutredning eller uppföljning kan totalpriset bli högre.",
-        "I vissa fall kan sjukvårdsförsäkring täcka kostnaden. Du beskriver dina besvär, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Vi hjälper dig vidare till en relevant privat mottagning. Läs gärna mer om [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
+        "I vissa fall kan sjukvårdsförsäkring täcka kostnaden. Du beskriver dina besvär, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Du får besked om möjlig tid och pris. Läs gärna mer om [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
       ],
     },
   ],
@@ -269,7 +269,7 @@ export const article: Article = {
     {
       question: "Kan Specialistdirekt säga om jag behöver ÖNH?",
       answer:
-        "Nej. Specialistdirekt ställer ingen diagnos och gör ingen medicinsk bedömning. Vi hjälper dig med vägledning och bokningsförfrågan.",
+        "Nej. Diagnos och medicinsk bedömning görs av läkaren vid besöket, inte via webbplatsen. Du kan skicka en kostnadsfri bokningsförfrågan och få besked om möjlig tid och pris.",
     },
     {
       question: "När ska jag söka akut?",

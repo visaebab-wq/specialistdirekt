@@ -20,11 +20,11 @@ export const city: City = {
     ortoped:
       "Har du besvär i leder, skelett eller efter en idrottsskada finns ortopedisk kompetens i Mölndal, med Mölndals sjukhus som nav och privata mottagningar i området. Specialistdirekt hjälper dig kostnadsfritt att hitta en ortoped.",
     hudlakare:
-      "För hudbesvär som eksem, utslag eller bedömning av födelsemärken kan du vända dig till hudmottagningar i Mölndal och Göteborg. Det korta avståndet ger dig fler alternativ att välja mellan. Vi guidar dig kostnadsfritt till rätt dermatolog.",
+      "För hudbesvär som eksem, utslag eller bedömning av födelsemärken kan du vända dig till hudmottagningar i Mölndal och Göteborg. Det korta avståndet ger dig fler alternativ att välja mellan. Du kan kostnadsfritt skicka en förfrågan om ett besök hos dermatolog.",
     gynekolog:
-      "Söker du en gynekolog i Mölndal finns vård inom kvinnohälsa både i regionens vård och hos privata mottagningar, med Göteborgs utbud nära. Specialistdirekt tar emot förfrågningar kostnadsfritt.",
+      "Söker du en gynekolog i Mölndal finns vård inom kvinnohälsa både i regionens vård och hos privata mottagningar, med Göteborgs utbud nära. Det är kostnadsfritt att skicka en förfrågan via Specialistdirekt.",
     psykiater:
-      "Inom psykisk hälsa finns psykiatrisk kompetens i Mölndal och i angränsande Göteborg, både i regionens vård och hos privatpraktiserande psykiatrer. Vi hjälper dig kostnadsfritt att komma i kontakt med en psykiater.",
+      "Inom psykisk hälsa finns psykiatrisk kompetens i Mölndal och i angränsande Göteborg, både i regionens vård och hos privatpraktiserande psykiatrer. Du kan kostnadsfritt skicka en förfrågan om ett besök hos psykiater.",
   },
   specialtyLocal: {
     kardiolog: {
@@ -66,7 +66,7 @@ export const city: City = {
           id: "goco-health-innovation-city-molndal",
           heading: "GoCo Health Innovation City – vårdklustret i Mölndal",
           body: [
-            "En stor del av den privata specialistvården i Mölndal finns samlad i **GoCo Health Innovation City** vid Vetenskapens gränd. Det är ett life science-område där specialistmottagningar, diagnostik, kirurgi och forskning ligger på samma plats, strax söder om Göteborg. Flera av mottagningarna vi tar emot förfrågningar om finns här.",
+            "En stor del av den privata specialistvården i Mölndal finns samlad i **GoCo Health Innovation City** vid Vetenskapens gränd. Det är ett life science-område där specialistmottagningar, diagnostik, kirurgi och forskning ligger på samma plats, strax söder om Göteborg.",
             "Praktiskt betyder det två saker för dig. Dels att flera vårdgivare ligger inom samma område, så att ett byte av mottagning sällan innebär en ny resa åt ett helt annat håll. Dels att området nås enkelt från både Mölndals centrum och södra Göteborg – för många i södra Göteborg är det närmare hit än in till centrum.",
             "Specialistdirekt är fristående och har ingen koppling till GoCo Health Innovation City, och vi driver ingen verksamhet där. Via webbplatsen kan du skicka en kostnadsfri förfrågan om privata alternativ i området. Vilka vårdgivare som finns på plats förändras över tid – hör av dig så återkommer vi med vad som är aktuellt för dina besvär.",
           ],
@@ -76,7 +76,7 @@ export const city: City = {
           heading: "När hjärtbesvär är akuta",
           body: [
             "Vissa symtom ska inte vänta på en bokad tid. Ring **112** vid bröstsmärta eller tryck över bröstet som inte går över – särskilt med andfåddhet, illamående eller kallsvettning – vid plötslig svår andnöd, eller vid svimning med hjärtklappning. Läs mer i [bröstsmärta – kardiolog eller akut vård?](/artiklar/brostsmarta-kardiolog-eller-akut-vard).",
-            "En planerad kardiologbedömning är till för besvär som inte är akuta. Specialistdirekt ger inte medicinsk rådgivning och bedömer inte hur brådskande dina besvär är. Är du osäker når du **1177** dygnet runt.",
+            "En planerad kardiologbedömning är till för besvär som inte är akuta. Webbplatsen ger inte medicinsk rådgivning och kan inte bedöma hur brådskande dina besvär är. Är du osäker når du **1177** dygnet runt.",
           ],
         },
       ],
@@ -84,12 +84,12 @@ export const city: City = {
         {
           question: "Hur bokar jag tid hos en privat kardiolog i Mölndal?",
           answer:
-            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi kontaktar flera anslutna mottagningar och återkommer med den tidigaste tid vi hittar. Det medicinska ansvaret för vården ligger hos mottagningen.",
+            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi återkommer med besked om den tidigaste tid som finns. Det medicinska ansvaret för vården ligger hos mottagningen.",
         },
         {
           question: "Kan jag träffa en kardiolog i Mölndal utan remiss?",
           answer:
-            "Ja. Som självbetalande kan du hos många privata mottagningar boka utan remiss, via egen vårdbegäran. Inom regionfinansierad vård krävs oftast remiss från vårdcentralen. Vad som gäller beror på mottagning och finansiering – vi hjälper dig kostnadsfritt att reda ut vägen in.",
+            "Ja. Som självbetalande kan du hos många privata mottagningar boka utan remiss, via egen vårdbegäran. Inom regionfinansierad vård krävs oftast remiss från vårdcentralen. Vad som gäller beror på mottagning och finansiering – du får besked om vad som gäller när du skickar en förfrågan.",
         },
         {
           question: "Vad kostar ett privat besök hos en kardiolog i Mölndal?",
@@ -109,7 +109,7 @@ export const city: City = {
         {
           question: "Finns det privata specialistmottagningar i GoCo i Mölndal?",
           answer:
-            "Ja. GoCo Health Innovation City vid Vetenskapens gränd i Mölndal är ett life science-område där flera privata specialistmottagningar, diagnostik och forskning finns samlade. Flera av mottagningarna vi tar emot förfrågningar om ligger där. Specialistdirekt är fristående och har ingen koppling till GoCo – vi driver ingen verksamhet i området. Beskriv dina besvär i en kostnadsfri förfrågan, så återkommer vi med förslag.",
+            "Ja. GoCo Health Innovation City vid Vetenskapens gränd i Mölndal är ett life science-område där flera privata specialistmottagningar, diagnostik och forskning finns samlade. Specialistdirekt är fristående och har ingen koppling till GoCo – vi driver ingen verksamhet i området. Beskriv dina besvär i en kostnadsfri förfrågan, så återkommer vi med förslag.",
         },
         {
           question: "När ska jag söka akut i stället för att boka kardiolog?",
@@ -157,7 +157,7 @@ export const city: City = {
           id: "goco-health-innovation-city-molndal",
           heading: "GoCo Health Innovation City – vårdklustret i Mölndal",
           body: [
-            "En stor del av den privata specialistvården i Mölndal finns samlad i **GoCo Health Innovation City** vid Vetenskapens gränd. Det är ett life science-område där specialistmottagningar, diagnostik, kirurgi och forskning ligger på samma plats, strax söder om Göteborg. Flera av mottagningarna vi tar emot förfrågningar om finns här.",
+            "En stor del av den privata specialistvården i Mölndal finns samlad i **GoCo Health Innovation City** vid Vetenskapens gränd. Det är ett life science-område där specialistmottagningar, diagnostik, kirurgi och forskning ligger på samma plats, strax söder om Göteborg.",
             "Praktiskt betyder det två saker för dig. Dels att flera vårdgivare ligger inom samma område, så att ett byte av mottagning sällan innebär en ny resa åt ett helt annat håll. Dels att området nås enkelt från både Mölndals centrum och södra Göteborg – för många i södra Göteborg är det närmare hit än in till centrum.",
             "Specialistdirekt är fristående och har ingen koppling till GoCo Health Innovation City, och vi driver ingen verksamhet där. Via webbplatsen kan du skicka en kostnadsfri förfrågan om privata alternativ i området. Vilka vårdgivare som finns på plats förändras över tid – hör av dig så återkommer vi med vad som är aktuellt för dina besvär.",
           ],
@@ -167,7 +167,7 @@ export const city: City = {
           heading: "När neurologiska symtom är akuta",
           body: [
             "Vissa symtom ska aldrig vänta på en planerad tid. Ring **112** vid plötslig svaghet eller domning i ansikte, arm eller ben, hängande mungipa, sluddrigt tal, akut synbortfall eller en plötslig och mycket kraftig huvudvärk – det kan vara tecken på stroke, där varje minut räknas. Det gäller även om symtomen är milda eller har gått över.",
-            "En planerad neurologtid är till för besvär som inte är akut livshotande. Specialistdirekt gör ingen medicinsk bedömning eller triage. Är du osäker når du **1177** dygnet runt.",
+            "En planerad neurologtid är till för besvär som inte är akut livshotande. Webbplatsen kan inte bedöma hur brådskande besvären är. Är du osäker når du **1177** dygnet runt.",
           ],
         },
       ],
@@ -175,12 +175,12 @@ export const city: City = {
         {
           question: "Hur bokar jag tid hos en privat neurolog i Mölndal?",
           answer:
-            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi kontaktar flera anslutna mottagningar och återkommer med den tidigaste tid vi hittar. Det medicinska ansvaret för vården ligger hos mottagningen.",
+            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi återkommer med besked om den tidigaste tid som finns. Det medicinska ansvaret för vården ligger hos mottagningen.",
         },
         {
           question: "Kan jag träffa en neurolog i Mölndal utan remiss?",
           answer:
-            "Ja. Som självbetalande kan du hos många privata mottagningar boka utan remiss, via egen vårdbegäran. Inom regionfinansierad vård krävs oftast remiss från vårdcentralen. Vi hjälper dig kostnadsfritt att reda ut vägen in.",
+            "Ja. Som självbetalande kan du hos många privata mottagningar boka utan remiss, via egen vårdbegäran. Inom regionfinansierad vård krävs oftast remiss från vårdcentralen. Du får besked om vad som gäller när du skickar en förfrågan.",
         },
         {
           question: "Vad kostar ett privat neurologbesök i Mölndal?",
@@ -200,7 +200,7 @@ export const city: City = {
         {
           question: "Finns det privata specialistmottagningar i GoCo i Mölndal?",
           answer:
-            "Ja. GoCo Health Innovation City vid Vetenskapens gränd i Mölndal är ett life science-område där flera privata specialistmottagningar, diagnostik och forskning finns samlade. Flera av mottagningarna vi tar emot förfrågningar om ligger där. Specialistdirekt är fristående och har ingen koppling till GoCo – vi driver ingen verksamhet i området. Beskriv dina besvär i en kostnadsfri förfrågan, så återkommer vi med förslag.",
+            "Ja. GoCo Health Innovation City vid Vetenskapens gränd i Mölndal är ett life science-område där flera privata specialistmottagningar, diagnostik och forskning finns samlade. Specialistdirekt är fristående och har ingen koppling till GoCo – vi driver ingen verksamhet i området. Beskriv dina besvär i en kostnadsfri förfrågan, så återkommer vi med förslag.",
         },
         {
           question: "När ska jag söka akut i stället för att boka neurolog?",
@@ -248,7 +248,7 @@ export const city: City = {
           id: "goco-health-innovation-city-molndal",
           heading: "GoCo Health Innovation City – vårdklustret i Mölndal",
           body: [
-            "En stor del av den privata specialistvården i Mölndal finns samlad i **GoCo Health Innovation City** vid Vetenskapens gränd. Det är ett life science-område där specialistmottagningar, diagnostik, kirurgi och forskning ligger på samma plats, strax söder om Göteborg. Flera av mottagningarna vi tar emot förfrågningar om finns här.",
+            "En stor del av den privata specialistvården i Mölndal finns samlad i **GoCo Health Innovation City** vid Vetenskapens gränd. Det är ett life science-område där specialistmottagningar, diagnostik, kirurgi och forskning ligger på samma plats, strax söder om Göteborg.",
             "Praktiskt betyder det två saker för dig. Dels att flera vårdgivare ligger inom samma område, så att ett byte av mottagning sällan innebär en ny resa åt ett helt annat håll. Dels att området nås enkelt från både Mölndals centrum och södra Göteborg – för många i södra Göteborg är det närmare hit än in till centrum.",
             "Specialistdirekt är fristående och har ingen koppling till GoCo Health Innovation City, och vi driver ingen verksamhet där. Via webbplatsen kan du skicka en kostnadsfri förfrågan om privata alternativ i området. Vilka vårdgivare som finns på plats förändras över tid – hör av dig så återkommer vi med vad som är aktuellt för dina besvär.",
           ],
@@ -258,7 +258,7 @@ export const city: City = {
           heading: "När du ska söka akut i stället",
           body: [
             "En planerad läkartid är till för besvär som inte är akuta. Ring **112** vid akuta eller livshotande symtom – till exempel bröstsmärta som inte går över, kraftig andnöd, plötslig svaghet, sluddrigt tal eller kraftigt påverkat allmäntillstånd.",
-            "Specialistdirekt ger inte medicinsk rådgivning och bedömer inte hur brådskande dina besvär är. Är du osäker når du **1177** dygnet runt.",
+            "Webbplatsen ger inte medicinsk rådgivning och kan inte bedöma hur brådskande dina besvär är. Är du osäker når du **1177** dygnet runt.",
           ],
         },
       ],
@@ -266,12 +266,12 @@ export const city: City = {
         {
           question: "Hur bokar jag tid hos en privat allmänläkare i Mölndal?",
           answer:
-            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi kontaktar flera anslutna mottagningar och återkommer med den tidigaste tid vi hittar. Det medicinska ansvaret för vården ligger hos mottagningen.",
+            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi återkommer med besked om den tidigaste tid som finns. Det medicinska ansvaret för vården ligger hos mottagningen.",
         },
         {
           question: "Kan jag boka privat allmänläkare i Mölndal utan remiss?",
           answer:
-            "Ja. Som självbetalande kan du oftast boka direkt, utan remiss. Har du en sjukvårdsförsäkring går du normalt via försäkringsbolaget. Reglerna varierar mellan mottagningar – vi hjälper dig kostnadsfritt att reda ut vägen in.",
+            "Ja. Som självbetalande kan du oftast boka direkt, utan remiss. Har du en sjukvårdsförsäkring går du normalt via försäkringsbolaget. Reglerna varierar mellan mottagningar – du får besked om vad som gäller när du skickar en förfrågan.",
         },
         {
           question: "Vad kostar ett besök hos en privat allmänläkare i Mölndal?",
@@ -291,7 +291,7 @@ export const city: City = {
         {
           question: "Finns det privata specialistmottagningar i GoCo i Mölndal?",
           answer:
-            "Ja. GoCo Health Innovation City vid Vetenskapens gränd i Mölndal är ett life science-område där flera privata specialistmottagningar, diagnostik och forskning finns samlade. Flera av mottagningarna vi tar emot förfrågningar om ligger där. Specialistdirekt är fristående och har ingen koppling till GoCo – vi driver ingen verksamhet i området. Beskriv dina besvär i en kostnadsfri förfrågan, så återkommer vi med förslag.",
+            "Ja. GoCo Health Innovation City vid Vetenskapens gränd i Mölndal är ett life science-område där flera privata specialistmottagningar, diagnostik och forskning finns samlade. Specialistdirekt är fristående och har ingen koppling till GoCo – vi driver ingen verksamhet i området. Beskriv dina besvär i en kostnadsfri förfrågan, så återkommer vi med förslag.",
         },
         {
           question: "När ska jag boka allmänläkare och när söka akut?",
@@ -311,7 +311,7 @@ export const city: City = {
           body: [
             "Mölndal är en egen kommun med drygt 70 000 invånare, men ligger tätt inpå Göteborg – och just det gör valet av mottagning till en praktisk fråga snarare än en medicinsk. **Mölndals sjukhus** är sedan länge en del av Sahlgrenska Universitetssjukhuset, vilket betyder att den regionfinansierade mag- och tarmvården på orten hänger ihop med Göteborgs. För dig som söker privat är upptagningsområdet i praktiken hela Göteborgsregionen.",
             "Det innebär att du sällan behöver begränsa dig till mottagningar med Mölndals-adress. Många som bor i Mölndal, Kållered eller Lindome har kortare restid till en mottagning i södra Göteborg än till centrala Mölndal. Vår rekommendation: väg restid mot hur snart mottagningen kan ta emot dig, och låt inte kommungränsen styra. Bor du närmare centrum kan du jämföra med [gastroenterolog i Göteborg](/specialiteter/gastroenterolog/goteborg).",
-            "Specialistdirekt är fristående och har ingen koppling till Sahlgrenska eller Västra Götalandsregionen. Vi hjälper dig kostnadsfritt att hitta en relevant privat mottagning i området.",
+            "Specialistdirekt är fristående och har ingen koppling till Sahlgrenska eller Västra Götalandsregionen. Du kan kostnadsfritt skicka en förfrågan om ett privat besök i området.",
           ],
         },
         {
@@ -357,7 +357,7 @@ export const city: City = {
           heading: "När magbesvär inte kan vänta",
           body: [
             "Vissa symtom ska inte vänta på en planerad tid. Sök akut vård eller ring **112** vid kraftig eller ihållande buksmärta, blodiga kräkningar, svart eller tjärliknande avföring, större mängder blod i avföringen, eller hög feber tillsammans med buksmärta.",
-            "En planerad specialistbedömning är till för besvär som inte är akuta. Specialistdirekt ger inte medicinsk rådgivning och bedömer inte hur brådskande dina besvär är. Är du osäker når du **1177** dygnet runt.",
+            "En planerad specialistbedömning är till för besvär som inte är akuta. Webbplatsen ger inte medicinsk rådgivning och kan inte bedöma hur brådskande dina besvär är. Är du osäker når du **1177** dygnet runt.",
           ],
         },
       ],
@@ -370,17 +370,17 @@ export const city: City = {
         {
           question: "Hur bokar jag tid hos en privat gastroenterolog i Mölndal?",
           answer:
-            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi kontaktar flera anslutna mottagningar och återkommer med den tidigaste tid vi hittar. Det medicinska ansvaret för vården ligger hos mottagningen.",
+            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi återkommer med besked om den tidigaste tid som finns. Det medicinska ansvaret för vården ligger hos mottagningen.",
         },
         {
           question: "Kan jag träffa en gastroenterolog i Mölndal utan remiss?",
           answer:
-            "Som självbetalande kan du hos många privata mottagningar boka utan remiss, via egen vårdbegäran. Med sjukvårdsförsäkring går du vanligtvis via försäkringsbolaget, och inom regionfinansierad vård krävs oftast remiss. Reglerna varierar mellan mottagningar – vi hjälper dig kostnadsfritt att reda ut vad som gäller.",
+            "Som självbetalande kan du hos många privata mottagningar boka utan remiss, via egen vårdbegäran. Med sjukvårdsförsäkring går du vanligtvis via försäkringsbolaget, och inom regionfinansierad vård krävs oftast remiss. Reglerna varierar mellan mottagningar – du får besked om vad som gäller när du skickar en förfrågan.",
         },
         {
           question: "Hör Mölndals sjukhus till Sahlgrenska?",
           answer:
-            "Ja, Mölndals sjukhus är en del av Sahlgrenska Universitetssjukhuset inom Västra Götalandsregionen. Det gäller den regionfinansierade vården. Specialistdirekt är fristående och har ingen koppling till Sahlgrenska eller regionen – vi tar emot förfrågningar om privata mottagningar.",
+            "Ja, Mölndals sjukhus är en del av Sahlgrenska Universitetssjukhuset inom Västra Götalandsregionen. Det gäller den regionfinansierade vården. Specialistdirekt är fristående och har ingen koppling till Sahlgrenska eller regionen – via oss kan du skicka en förfrågan för ett privat besök.",
         },
         {
           question: "Vad bör jag förbereda inför besöket?",

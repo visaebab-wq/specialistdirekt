@@ -45,7 +45,7 @@ export const article: Article = {
   intro: [
     "Långvarig smärta kan påverka hela livet. Privat smärtvård kan bli aktuell vid exempelvis långvarig rygg- eller nacksmärta, nervrelaterad smärta, ledsmärta eller mer sammansatta smärttillstånd som inte förbättrats trots tidigare insatser.",
     "Många börjar på en vårdcentral eller hos en fysioterapeut, [ortoped](/specialiteter/ortoped) eller [neurolog](/specialiteter/neurolog). Men om smärtan är långvarig, komplex eller svår att förstå kan en smärtläkare eller smärtspecialist bli aktuell. Osäker på vilken läkare du ska söka? Se [långvarig smärta – vilken läkare?](/artiklar/langvarig-smarta-vilken-lakare) och [smärtläkare och smärtmottagning](/specialiteter/smartlakare).",
-    "Specialistdirekt hjälper dig hitta rätt väg till privat specialistvård. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en relevant mottagning. Läs mer om [hur det fungerar](/sa-fungerar-det).",
+    "Via Specialistdirekt kan du skicka en kostnadsfri bokningsförfrågan för ett privat specialistbesök. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en relevant mottagning. Läs mer om [hur det fungerar](/sa-fungerar-det).",
   ],
   sections: [
     {
@@ -220,14 +220,14 @@ export const article: Article = {
     },
     {
       id: "sa-hjalper-vi",
-      heading: "Så hjälper Specialistdirekt dig",
+      heading: "Så bokar du via Specialistdirekt",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Så fungerar det:",
+        "Så fungerar det:",
       ],
       bullets: [
         "Du beskriver besvären (var smärtan sitter och hur länge den funnits).",
         "Du anger stad eller område där du helst vill få hjälp.",
-        "Vi hjälper dig vidare till en relevant mottagning.",
+        "Du får besked om möjlig tid och pris.",
         "Det är alltid mottagningen som bedömer vårdbehovet.",
       ],
     },
@@ -243,7 +243,7 @@ export const article: Article = {
       heading: "Sammanfattning",
       body: [
         "Det kan vara aktuellt med en privat smärtläkare vid långvarig smärta, ryggsmärta, nervsmärta, smärta efter operation eller komplex värk. Ett besök kostar ofta **från cirka 3 000 kr** och uppåt; en mer omfattande utredning eller behandling kan kosta **5 000–20 000 kr eller mer**. I vissa fall kan sjukvårdsförsäkring täcka kostnaden.",
-        "Du beskriver besvären, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Vi hjälper dig vidare till en privat mottagning som passar ditt behov. Vill du läsa mer om skillnaderna kan du börja med [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
+        "Du beskriver besvären, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Du får besked om möjlig tid och pris. Vill du läsa mer om skillnaderna kan du börja med [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
       ],
     },
   ],
@@ -276,7 +276,7 @@ export const article: Article = {
     {
       question: "Kan Specialistdirekt säga vilken behandling jag behöver?",
       answer:
-        "Nej. Specialistdirekt ställer ingen diagnos och gör ingen medicinsk bedömning. Vi hjälper dig med vägledning och bokningsförfrågan.",
+        "Nej. Diagnos och medicinsk bedömning görs av läkaren vid besöket, inte via webbplatsen. Du kan skicka en kostnadsfri bokningsförfrågan och få besked om möjlig tid och pris.",
     },
     {
       question: "När ska jag söka akut?",

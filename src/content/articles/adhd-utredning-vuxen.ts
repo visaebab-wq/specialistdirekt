@@ -133,9 +133,9 @@ export const article: Article = {
     },
     {
       id: "specialistdirekt",
-      heading: "Så hjälper Specialistdirekt dig vidare",
+      heading: "Så går du vidare",
       body: [
-        "Specialistdirekt är en **kostnadsfri** boknings- och informationstjänst. Du beskriver kort din situation och skickar en förfrågan, så återkommer vi med besked om hur du kan gå vidare. Vi ställer inga diagnoser och ger ingen medicinsk rådgivning; via Specialistdirekt kan du skicka en förfrågan om en privat mottagning och få besked om tid och pris.",
+        "Det är **kostnadsfritt** att skicka en förfrågan via Specialistdirekt. Du beskriver kort din situation och skickar en förfrågan, så återkommer vi med besked om hur du kan gå vidare. Du får besked om möjlig tid och pris; diagnos och medicinsk bedömning görs av läkaren vid besöket.",
         "Vill du se hur tjänsten fungerar steg för steg kan du läsa [så fungerar det](/sa-fungerar-det). Är du redo att ta nästa steg fyller du i en förfrågan via [kontaktsidan](/kontakt) så återkommer vi med förslag. Du kan också läsa mer på vår [sida om psykiater](/specialiteter/psykiater).",
         "Söker du specifikt i Örebro-området har vi samlat information om privat psykiatri och neuropsykiatrisk utredning på vår sida om [psykiater i Örebro](/specialiteter/psykiater/orebro).",
         "Kom ihåg att uppgifterna om väntetid och kostnad i den här guiden är ungefärliga och varierar. Det säkraste är alltid att be den aktuella mottagningen om bekräftade besked innan du bokar.",

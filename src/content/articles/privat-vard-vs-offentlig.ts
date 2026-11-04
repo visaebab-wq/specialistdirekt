@@ -29,7 +29,7 @@ export const article: Article = {
     "**Helt privat vård** ger ofta kortare väntetid men du betalar fullt pris, och högkostnadsskyddet gäller inte.",
     "En **sjukvårdsförsäkring** ändrar kalkylen rejält eftersom försäkringsbolaget bär kostnaden för den privata vården.",
     "Privat lönar sig oftast vid försäkring, lång väntetid eller akut behov av besked – mindre ofta utan försäkring vid icke-brådskande besvär.",
-    "[Specialistdirekt](/kontakt) hjälper dig hitta rätt specialist och skicka en bokningsförfrågan.",
+    "Via [Specialistdirekt](/kontakt) kan du skicka en kostnadsfri bokningsförfrågan till en privat specialist.",
   ],
   priceTable: [
     { label: "Patientavgift specialistbesök (offentlig vård)", price: "ca 200–400 kr" },
@@ -128,7 +128,7 @@ export const article: Article = {
       id: "sa-hjalper-vi",
       heading: "Så kan Specialistdirekt hjälpa – oavsett väg",
       body: [
-        "**Specialistdirekt** är en **kostnadsfri boknings- och informationstjänst**. Du skickar en förfrågan och får besked om hur du kan gå vidare. Vi säljer ingen vård och tjänar inget på att du väljer dyrare alternativ – vårt jobb är att hjälpa dig hitta rätt, oavsett om du landar i offentlig eller privat vård.",
+        "Via **Specialistdirekt** kan du skicka en **kostnadsfri bokningsförfrågan** för ett privat specialistbesök och få besked om möjlig tid och pris. Om offentlig vård passar dig bättre är det också ett bra val – det viktiga är att du hamnar rätt.",
         "Du beskriver dina symtom och din situation, så hjälper vi dig vidare till en lämplig mottagning och förklarar vad som gäller kring kostnad och väntetid. Se vilka områden vi täcker under [våra specialiteter](/specialiteter), läs mer om [hur det går till](/sa-fungerar-det) eller [kontakta oss](/kontakt) så hjälper vi dig att ta nästa steg.",
       ],
     },
@@ -162,7 +162,7 @@ export const article: Article = {
     {
       question: "Hjälper Specialistdirekt även om jag vill stanna i offentlig vård?",
       answer:
-        "Ja. Vi är en kostnadsfri boknings- och informationstjänst och hjälper dig hitta rätt specialist oavsett om du väljer offentlig eller privat väg. Hör av dig via kontaktsidan så guidar vi dig vidare.",
+        "Ja. Du kan skicka en kostnadsfri bokningsförfrågan för ett privat specialistbesök via [kontaktsidan](/kontakt) och få besked om möjlig tid och pris.",
     },
   ],
 };

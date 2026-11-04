@@ -31,7 +31,7 @@ export const article: Article = {
     "Det är inte alltid bäst att börja med MR – ofta är det bättre att först träffa ortoped, neurolog eller smärtläkare.",
     "Vissa aktörer erbjuder MR utan traditionell remiss via egen medicinsk bedömning, andra kräver remiss.",
     "Sjukvårdsförsäkring kan ibland täcka MR rygg om undersökningen bedöms medicinskt motiverad och godkänns.",
-    "[Specialistdirekt](/kontakt) gör ingen medicinsk bedömning. Vi hjälper dig hitta rätt väg och skicka en bokningsförfrågan till relevant privat mottagning eller specialist.",
+    "Via [Specialistdirekt](/kontakt) kan du skicka en kostnadsfri bokningsförfrågan. Den medicinska bedömningen görs av läkaren vid besöket.",
   ],
   priceTable: [
     { label: "MR ländrygg", price: "cirka 8 000–12 500 kr eller mer" },
@@ -50,7 +50,7 @@ export const article: Article = {
   ],
   intro: [
     "MR rygg, eller magnetkamera av ryggen, ger detaljerade bilder av diskar, nerver, ryggmärg och andra strukturer. MR använder magnetfält och radiovågor, inte vanlig röntgenstrålning. Många söker privat MR rygg för att slippa lång väntetid eller för att de har en sjukvårdsförsäkring som kan användas.",
-    "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård och diagnostik. Vi ställer ingen diagnos och utför ingen undersökning. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning eller specialist som kan vara relevant för ditt behov och din ort.",
+    "Via Specialistdirekt kan du skicka en kostnadsfri bokningsförfrågan för privat specialistvård och diagnostik. Vi ställer ingen diagnos och utför ingen undersökning. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning eller specialist som kan vara relevant för ditt behov och din ort.",
   ],
   sections: [
     {
@@ -235,9 +235,9 @@ export const article: Article = {
     },
     {
       id: "sa-hjalper-vi",
-      heading: "Så hjälper Specialistdirekt dig",
+      heading: "Så bokar du via Specialistdirekt",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård och diagnostik. Vi gör ingen medicinsk bedömning. Du beskriver dina ryggbesvär, anger önskat område, och vi hjälper dig vidare till rätt väg: privat MR, specialistbedömning eller en mottagning som kan avgöra nästa steg. Det är alltid mottagningen som avgör om MR är rätt undersökning. Se även vår översikt om [privat MR](/artiklar/privat-mr-kostnad).",
+        "Den medicinska bedömningen görs av läkaren vid besöket. Du beskriver dina ryggbesvär, anger önskat område, och får besked om möjliga vägar: privat MR, specialistbedömning eller en mottagning som kan avgöra nästa steg. Det är alltid mottagningen som avgör om MR är rätt undersökning. Se även vår översikt om [privat MR](/artiklar/privat-mr-kostnad).",
       ],
     },
     {
@@ -252,7 +252,7 @@ export const article: Article = {
       heading: "Sammanfattning",
       body: [
         "Det kan vara aktuellt med en privat MR rygg vid långvarig ryggsmärta, misstänkt diskbråck, ischias, nervpåverkan, domningar, svaghet eller behov av specialistbedömning. En riktad privat MR rygg kostar ofta från cirka **8 000 kr och uppåt**, medan mer omfattande undersökningar som helrygg kan kosta betydligt mer. I vissa fall kan sjukvårdsförsäkring täcka hela eller delar av kostnaden.",
-        "Specialistdirekt hjälper dig vidare. Du beskriver dina besvär, anger önskat område och skickar en [bokningsförfrågan](/kontakt) till relevant privat mottagning eller specialist.",
+        "Du beskriver dina besvär, anger önskat område och skickar en [bokningsförfrågan](/kontakt) – du får besked om möjlig tid och pris.",
       ],
     },
   ],
@@ -285,7 +285,7 @@ export const article: Article = {
     {
       question: "Kan Specialistdirekt tolka mitt MR-svar?",
       answer:
-        "Nej. Specialistdirekt tolkar inte MR-bilder eller utlåtanden och gör ingen medicinsk bedömning. Vi kan hjälpa dig vidare till relevant specialist eller mottagning.",
+        "Nej. MR-bilder och utlåtanden tolkas av läkaren vid besöket, inte via webbplatsen. Du kan skicka en kostnadsfri bokningsförfrågan och få besked om möjlig tid och pris.",
     },
     {
       question: "När ska jag söka akut?",

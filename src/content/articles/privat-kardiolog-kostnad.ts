@@ -44,7 +44,7 @@ export const article: Article = {
   intro: [
     "Hjärtbesvär kan skapa mycket oro – hjärtklappning, bröstsmärta, tryck över bröstet, andfåddhet, högt blodtryck, yrsel, svimningskänsla eller oro efter avvikande EKG eller blodprover.",
     "Många börjar hos vårdcentralen, men om besvären återkommer, påverkar vardagen eller kräver specialistbedömning kan en kardiolog bli aktuell.",
-    "Specialistdirekt hjälper dig hitta rätt väg till privat specialistvård. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en relevant mottagning. Läs mer om [hur det fungerar](/sa-fungerar-det).",
+    "Via Specialistdirekt kan du skicka en kostnadsfri bokningsförfrågan för ett privat specialistbesök. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en relevant mottagning. Läs mer om [hur det fungerar](/sa-fungerar-det).",
   ],
   sections: [
     {
@@ -217,14 +217,14 @@ export const article: Article = {
     },
     {
       id: "sa-hjalper-vi",
-      heading: "Så hjälper Specialistdirekt dig",
+      heading: "Så bokar du via Specialistdirekt",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Vi gör ingen medicinsk bedömning. Så fungerar det:",
+        "Den medicinska bedömningen görs av läkaren vid besöket. Så fungerar det:",
       ],
       bullets: [
         "Du beskriver dina besvär i en kort bokningsförfrågan.",
         "Du anger stad eller område där du helst vill få hjälp.",
-        "Vi hjälper dig vidare till en relevant privat mottagning.",
+        "Du får besked om möjlig tid och pris.",
         "Det är alltid mottagningen som bedömer vårdbehovet.",
       ],
     },
@@ -268,7 +268,7 @@ export const article: Article = {
     {
       question: "Kan Specialistdirekt säga om jag behöver kardiolog?",
       answer:
-        "Nej. Specialistdirekt ställer ingen diagnos och gör ingen medicinsk bedömning. Vi hjälper dig med vägledning och bokningsförfrågan till relevant privat mottagning.",
+        "Nej. Diagnos och medicinsk bedömning görs av läkaren vid besöket, inte via webbplatsen. Du kan skicka en kostnadsfri bokningsförfrågan och få besked om möjlig tid och pris.",
     },
     {
       question: "När ska jag söka akut?",

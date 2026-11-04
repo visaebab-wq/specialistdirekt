@@ -36,12 +36,12 @@ export const city: City = {
     allmanmedicin:
       "Som Sveriges näst största stad har Göteborg ett brett utbud av privata läkarmottagningar där du kan få en bred medicinsk bedömning. En specialist i allmänmedicin kan hjälpa dig när symtomen är oklara eller berör flera områden, och vägleda dig rätt vidare. Specialistdirekt hjälper dig kostnadsfritt att hitta en mottagning i Göteborg.",
     kardiolog:
-      "Genom Specialistdirekt kan du skicka en tidsförfrågan till ansluten privat kardiologisk specialistkompetens i Göteborg. Den anslutna mottagningen erbjuder kardiologbesök samt EKG, hjärtultraljud, arbets-EKG, långtids-EKG och 24-timmars blodtrycksmätning. Du kan söka som självbetalande patient, och mottagningen kan även ta emot försäkringspatienter efter godkännande från försäkringsbolaget. Priset beror på vilken konsultation eller undersökning som bokas och lämnas innan du bestämmer dig. Specialistdirekt är en boknings- och informationstjänst – undersökningar, medicinsk bedömning och behandling utförs av den mottagning som tar emot dig.",
+      "Du kan skicka en tidsförfrågan för ett privat kardiologbesök i Göteborg. Kardiologmottagningen erbjuder kardiologbesök samt EKG, hjärtultraljud, arbets-EKG, långtids-EKG och 24-timmars blodtrycksmätning. Du kan söka som självbetalande patient, och mottagningen kan även ta emot försäkringspatienter efter godkännande från försäkringsbolaget. Priset beror på vilken konsultation eller undersökning som bokas och lämnas innan du bestämmer dig. Undersökningar, medicinsk bedömning och behandling utförs av kardiologmottagningen.",
     ortoped: `Söker du en privat ortoped i Göteborg? Hos oss träffar du Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi med över 20 års erfarenhet av ortopedi och kirurgi. Besöket är ${ORTOPED_MINUTER}, kostar ${ORTOPED_PRIS} och kräver ingen remiss. Du väljer tid direkt i kalendern och betalar på plats vid besöket.`,
     hudlakare:
       "Hudbesvär, från återkommande utslag till födelsemärken du vill få kontrollerade, kan bedömas av en hudläkare på någon av Göteborgs många dermatologiska mottagningar. Här samsas offentlig vård med ett flertal privata aktörer, vilket ger valfrihet. Skicka en kostnadsfri förfrågan så återkommer vi med besked.",
     gynekolog:
-      "I Göteborg är tillgången till gynekologer god, med mottagningar inom såväl den regiondrivna vården som hos privata vårdgivare. Det gör att du som söker en gynekolog ofta har flera mottagningar att välja mellan i närheten. Specialistdirekt tar emot förfrågningar kostnadsfritt så att du snabbare kan komma vidare.",
+      "I Göteborg är tillgången till gynekologer god, med mottagningar inom såväl den regiondrivna vården som hos privata vårdgivare. Det gör att du som söker en gynekolog ofta har flera mottagningar att välja mellan i närheten. Det är kostnadsfritt att skicka en förfrågan via Specialistdirekt.",
     psykiater:
       "För psykisk ohälsa erbjuder Göteborg specialistvård hos psykiatriker både inom den offentliga vården och hos privata mottagningar runt om i staden. Att det finns flera alternativ kan göra det lättare att hitta en mottagning som känns rätt för just dig. Specialistdirekt hjälper dig att komma i kontakt med en psykiater utan kostnad.",
     neurolog:
@@ -79,11 +79,10 @@ export const city: City = {
           value: `${recoSummary.rating} av 5 · ${recoSummary.count} omdömen på ${recoSummary.source} (NOPAINCLINIC)`,
         },
         { label: "Avbokning", value: "Kostnadsfritt fram till 3 timmar före besöket" },
-        { label: "Roll", value: "Specialistdirekt är boknings- och informationstjänst" },
-      ],
+              ],
       redFlag: {
         heading: "När ska du söka akut vård i stället?",
-        body: "Specialistdirekt är inte en akuttjänst och bedömer inte hur brådskande dina besvär är. Sök vård direkt – ring **112** vid livshotande tillstånd – vid till exempel:",
+        body: "Specialistdirekt är inte en akuttjänst, och webbplatsen kan inte bedöma hur brådskande dina besvär är. Sök vård direkt – ring **112** vid livshotande tillstånd – vid till exempel:",
         bullets: [
           "misstänkt fraktur eller kraftigt våld mot huvud, nacke eller rygg",
           "plötslig svår ryggsmärta med domningar kring underlivet, svårt att kissa eller förlorad kontroll över urin eller avföring",
@@ -100,7 +99,7 @@ export const city: City = {
           heading: "Om Dr. Masoud Sorkhabi – ortoped i Göteborg",
           body: [
             "Hos Specialistdirekt kan du boka tid hos **Dr. Masoud Sorkhabi**, specialist i ortopedi och ryggkirurgi i Göteborg med **över 20 års erfarenhet av ortopedi och kirurgi**. Inriktningen omfattar bland annat nack- och ryggbesvär, diskbråck, höft- och knäsmärta samt smärta som blivit kronisk eller är oförklarlig.",
-            "Du **bokar tid direkt i kalendern** och bekräftar tiden via en länk i mejlet; avbokning är kostnadsfri fram till 3 timmar före besöket. Den medicinska bedömningen och behandlingen utförs av Dr. Masoud Sorkhabi; Specialistdirekt hanterar bokningen. Läs mer om [Dr. Masoud Sorkhabi](/lakare/masoud-sorkhabi).",
+            "Du **bokar tid direkt i kalendern** och bekräftar tiden via en länk i mejlet; avbokning är kostnadsfri fram till 3 timmar före besöket. Hos oss träffar du Dr. Masoud Sorkhabi, som gör den medicinska bedömningen och behandlingen. Läs mer om [Dr. Masoud Sorkhabi](/lakare/masoud-sorkhabi).",
           ],
         },
         {
@@ -289,7 +288,7 @@ export const city: City = {
         {
           question: "Vem är läkaren jag träffar?",
           answer:
-            "Du träffar Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi i Göteborg med över 20 års erfarenhet av ortopedi och kirurgi, med inriktning på bland annat nack- och ryggbesvär, diskbråck samt kronisk och oförklarlig smärta. Den medicinska bedömningen och behandlingen utförs av läkaren; Specialistdirekt hanterar bokningen.",
+            "Du träffar Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi i Göteborg med över 20 års erfarenhet av ortopedi och kirurgi, med inriktning på bland annat nack- och ryggbesvär, diskbråck samt kronisk och oförklarlig smärta. Den medicinska bedömningen och behandlingen görs av Dr. Masoud Sorkhabi vid besöket.",
         },
         {
           question: "Kan jag boka tid direkt hos ortopeden?",
@@ -348,7 +347,7 @@ export const city: City = {
         {
           question: "Vilken roll har Specialistdirekt?",
           answer:
-            "Vi hanterar bokningen – vården ges av Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi, på hans mottagning i Göteborg.",
+            "Hos oss träffar du Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi, på mottagningen i Göteborg.",
         },
         {
           question: "Vem ansvarar för den medicinska bedömningen?",
@@ -371,7 +370,7 @@ export const city: City = {
           id: "privat-gastroenterolog-goteborg",
           heading: "Privat gastroenterolog i Göteborg – vägen in",
           body: [
-            "Vid långvariga mag- och tarmbesvär finns i Göteborg både regionens vård – med **Sahlgrenska Universitetssjukhuset**, **Östra sjukhuset** och **Mölndals sjukhus** – och privata mag- och tarmmottagningar. Som storstad kan du ofta jämföra flera vårdgivare innan du bestämmer dig. Specialistdirekt är fristående och har ingen koppling till Sahlgrenska eller Västra Götalandsregionen, utan hjälper dig kostnadsfritt att hitta en relevant privat mottagning.",
+            "Vid långvariga mag- och tarmbesvär finns i Göteborg både regionens vård – med **Sahlgrenska Universitetssjukhuset**, **Östra sjukhuset** och **Mölndals sjukhus** – och privata mag- och tarmmottagningar. Som storstad kan du ofta jämföra flera vårdgivare innan du bestämmer dig. Specialistdirekt är fristående och har ingen koppling till Sahlgrenska eller Västra Götalandsregionen, men via oss kan du kostnadsfritt skicka en förfrågan för ett privat besök.",
             "En **gastroenterolog** (magspecialist, mag- och tarmläkare) utreder hela matsmältningskanalen samt lever, gallvägar och bukspottkörtel. Vägen in beror på finansieringen: som självbetalande kan du hos många privata mottagningar boka utan remiss, medan regionfinansierad vård oftast kräver remiss från vårdcentralen. Läs mer på [privat gastroenterolog](/privat-gastroenterolog).",
           ],
         },
@@ -404,7 +403,7 @@ export const city: City = {
           heading: "När du ska söka vård direkt",
           body: [
             "Vissa symtom ska inte vänta på en planerad tid. Sök akut vård eller ring **112** vid kraftig eller ihållande buksmärta, blodiga kräkningar, svart eller tjärliknande avföring, större mängder blod i avföringen, eller hög feber tillsammans med buksmärta.",
-            "En planerad specialistbedömning är till för besvär som inte är akuta. Specialistdirekt ger inte medicinsk rådgivning och bedömer inte hur brådskande dina besvär är. Är du osäker når du **1177** dygnet runt.",
+            "En planerad specialistbedömning är till för besvär som inte är akuta. Webbplatsen ger inte medicinsk rådgivning och kan inte bedöma hur brådskande dina besvär är. Är du osäker når du **1177** dygnet runt.",
           ],
         },
       ],
@@ -412,12 +411,12 @@ export const city: City = {
         {
           question: "Hur bokar jag tid hos en privat gastroenterolog i Göteborg?",
           answer:
-            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi kontaktar flera anslutna mottagningar och återkommer med den tidigaste tid vi hittar. Det medicinska ansvaret för vården ligger hos mottagningen.",
+            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi återkommer med besked om den tidigaste tid som finns. Det medicinska ansvaret för vården ligger hos mottagningen.",
         },
         {
           question: "Kan jag träffa en gastroenterolog i Göteborg utan remiss?",
           answer:
-            "Som självbetalande kan du hos många privata mottagningar boka utan remiss, via egen vårdbegäran. Med sjukvårdsförsäkring går du vanligtvis via försäkringsbolaget, och inom regionfinansierad vård krävs oftast remiss. Reglerna varierar mellan mottagningar – vi hjälper dig kostnadsfritt att reda ut vad som gäller. Se [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
+            "Som självbetalande kan du hos många privata mottagningar boka utan remiss, via egen vårdbegäran. Med sjukvårdsförsäkring går du vanligtvis via försäkringsbolaget, och inom regionfinansierad vård krävs oftast remiss. Reglerna varierar mellan mottagningar – du får besked om vad som gäller när du skickar en förfrågan. Se [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
         },
         {
           question: "Vad kostar en privat gastroenterolog i Göteborg?",
@@ -487,7 +486,7 @@ export const city: City = {
           heading: "När du ska söka akut i stället",
           body: [
             "En planerad läkartid är till för besvär som inte är akuta. Ring **112** vid akuta eller livshotande symtom – till exempel bröstsmärta som inte går över, kraftig andnöd, plötslig svaghet, sluddrigt tal eller kraftigt påverkat allmäntillstånd.",
-            "Specialistdirekt ger inte medicinsk rådgivning och bedömer inte hur brådskande dina besvär är. Är du osäker når du **1177** dygnet runt för sjukvårdsrådgivning.",
+            "Webbplatsen ger inte medicinsk rådgivning och kan inte bedöma hur brådskande dina besvär är. Är du osäker når du **1177** dygnet runt för sjukvårdsrådgivning.",
           ],
         },
       ],
@@ -495,7 +494,7 @@ export const city: City = {
         {
           question: "Behöver jag remiss till en privat allmänläkare i Göteborg?",
           answer:
-            "Som självbetalande kan du oftast boka direkt, utan remiss. Har du en sjukvårdsförsäkring går du normalt via försäkringsbolaget. Reglerna varierar mellan mottagningar – vi hjälper dig kostnadsfritt att reda ut vägen in.",
+            "Som självbetalande kan du oftast boka direkt, utan remiss. Har du en sjukvårdsförsäkring går du normalt via försäkringsbolaget. Reglerna varierar mellan mottagningar – du får besked om vad som gäller när du skickar en förfrågan.",
         },
         {
           question: "Vad är skillnaden mot att gå till en organspecialist?",
@@ -574,7 +573,7 @@ export const city: City = {
           heading: "När neurologiska symtom är akuta",
           body: [
             "Vissa symtom ska aldrig vänta på en planerad tid. Ring **112** vid plötslig svaghet eller domning i ansikte, arm eller ben, hängande mungipa, sluddrigt tal, akut synbortfall eller en plötslig och mycket kraftig huvudvärk – det kan vara tecken på stroke, där varje minut räknas.",
-            "En planerad neurologtid är till för besvär som inte är akut livshotande. Specialistdirekt ger inte medicinsk rådgivning och bedömer inte hur brådskande dina symtom är. Vid akuta symtom söker du alltid akut vård; för rådgivning dygnet runt når du **1177**.",
+            "En planerad neurologtid är till för besvär som inte är akut livshotande. Webbplatsen ger inte medicinsk rådgivning och kan inte bedöma hur brådskande dina symtom är. Vid akuta symtom söker du alltid akut vård; för rådgivning dygnet runt når du **1177**.",
           ],
         },
       ],
@@ -582,17 +581,17 @@ export const city: City = {
         {
           question: "Hur bokar jag tid hos en privat neurolog i Göteborg?",
           answer:
-            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi kontaktar flera anslutna mottagningar och återkommer med den tidigaste tid vi hittar. Det medicinska ansvaret för vården ligger hos mottagningen.",
+            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi återkommer med besked om den tidigaste tid som finns. Det medicinska ansvaret för vården ligger hos mottagningen.",
         },
         {
           question: "Kan jag träffa en neurolog utan remiss?",
           answer:
-            "Ja. Som självbetalande kan du hos många privata mottagningar boka utan remiss, via egen vårdbegäran. Inom regionfinansierad vård i Västra Götalandsregionen krävs oftast en remiss från vårdcentralen. Vad som gäller beror på mottagning och finansiering – vi hjälper dig kostnadsfritt att reda ut vägen in. Se även [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
+            "Ja. Som självbetalande kan du hos många privata mottagningar boka utan remiss, via egen vårdbegäran. Inom regionfinansierad vård i Västra Götalandsregionen krävs oftast en remiss från vårdcentralen. Vad som gäller beror på mottagning och finansiering – du får besked om vad som gäller när du skickar en förfrågan. Se även [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
         },
         {
           question: "Kan jag betala själv eller använda sjukvårdsförsäkring?",
           answer:
-            "Som självbetalande bokar du och betalar direkt hos mottagningen. Har du en sjukvårdsförsäkring går du normalt via försäkringsbolaget, som avgör vad som täcks och ibland kräver en bedömning först. Vilka betalningsvägar som gäller varierar mellan mottagningar – vi hjälper dig att reda ut det innan du bokar.",
+            "Som självbetalande bokar du och betalar direkt hos mottagningen. Har du en sjukvårdsförsäkring går du normalt via försäkringsbolaget, som avgör vad som täcks och ibland kräver en bedömning först. Vilka betalningsvägar som gäller varierar mellan mottagningar – du får besked om vad som gäller innan du bokar.",
         },
         {
           question: "Kan jag boka neurolog för migrän eller långvarig huvudvärk?",
@@ -649,8 +648,7 @@ export const city: City = {
         { label: "Försäkring", value: "Mottagningen kan ta emot försäkringspatienter efter godkännande" },
         { label: "Pris", value: "Per konsultation/undersökning – lämnas innan bokning" },
         { label: "Tidsförfrågan", value: "Kostnadsfri" },
-        { label: "Roll", value: "Specialistdirekt är boknings- och informationstjänst" },
-      ],
+              ],
       redFlag: {
         heading: "När ska du ringa 112 i stället?",
         body: "Specialistdirekt är inte en akuttjänst. En planerad kardiologbedömning är till för besvär som inte är akuta. Ring **112** direkt vid till exempel:",
@@ -668,8 +666,8 @@ export const city: City = {
           id: "privat-kardiolog-goteborg",
           heading: "Privat kardiolog i Göteborg – vägen in",
           body: [
-            "Göteborg är Sveriges näst största stad, och det märks på hjärtsjukvården. Regionens tyngdpunkt ligger vid **Sahlgrenska Universitetssjukhuset**, ett av Nordens största sjukhus, med ytterligare vård vid **Östra sjukhuset** och **Mölndals sjukhus**. Vid sidan av den regiondrivna vården finns flera privata hjärtmottagningar i staden. Specialistdirekt är en fristående boknings- och informationstjänst utan koppling till Sahlgrenska eller Västra Götalandsregionen.",
-            "Genom Specialistdirekt skickas din förfrågan till **ansluten privat kardiologisk specialistkompetens i Göteborg** – du behöver inte ringa runt själv, och resvägen blir sällan lång oavsett stadsdel. Vägen in beror på finansieringen: som **självbetalande** patient behöver du ingen remiss för den aktuella tidsförfrågan, medan **regionfinansierad** vård i Västra Götalandsregionen oftast går via en remiss från vårdcentralen. Har du en **sjukvårdsförsäkring** går du normalt via försäkringsbolaget, som kan kräva ett godkännande först. Läs mer på vår [översikt om kardiolog](/specialiteter/kardiolog).",
+            "Göteborg är Sveriges näst största stad, och det märks på hjärtsjukvården. Regionens tyngdpunkt ligger vid **Sahlgrenska Universitetssjukhuset**, ett av Nordens största sjukhus, med ytterligare vård vid **Östra sjukhuset** och **Mölndals sjukhus**. Vid sidan av den regiondrivna vården finns flera privata hjärtmottagningar i staden. Specialistdirekt har ingen koppling till Sahlgrenska eller Västra Götalandsregionen.",
+            "Din förfrågan gäller ett **privat kardiologbesök i Göteborg** – du behöver inte ringa runt själv, och resvägen blir sällan lång oavsett stadsdel. Vägen in beror på finansieringen: som **självbetalande** patient behöver du ingen remiss för den aktuella tidsförfrågan, medan **regionfinansierad** vård i Västra Götalandsregionen oftast går via en remiss från vårdcentralen. Har du en **sjukvårdsförsäkring** går du normalt via försäkringsbolaget, som kan kräva ett godkännande först. Läs mer på vår [översikt om kardiolog](/specialiteter/kardiolog).",
             "En praktisk sak värd att veta: **Mölndal** gränsar direkt till Göteborg, och för många i södra Göteborg är en mottagning där lika nära som en i centrum. Låt inte kommungränsen begränsa dig när du jämför – se [kardiolog i Mölndal](/specialiteter/kardiolog/molndal).",
           ],
         },
@@ -678,7 +676,7 @@ export const city: City = {
           heading: "Hjärtundersökningar som kan bokas",
           body: [
             "En kardiologisk bedömning börjar med ett samtal om dina symtom och en kroppsundersökning. Vilka undersökningar som är relevanta avgörs utifrån frågeställningen och den medicinska bedömningen – allt görs inte rutinmässigt för alla. **Varje undersökning har ett separat pris**, och du får information om kostnaden innan bokningen bekräftas.",
-            "Den anslutna mottagningen kan erbjuda bland annat:",
+            "Kardiologmottagningen kan erbjuda bland annat:",
           ],
           bullets: [
             "**EKG (vilo-EKG)** – registrerar hjärtats elektriska aktivitet, ofta ett första steg vid hjärtklappning eller rytmbesvär.",
@@ -692,7 +690,7 @@ export const city: City = {
           id: "remiss-och-pris-goteborg",
           heading: "Remiss och vad som påverkar priset",
           body: [
-            "Behöver du remiss? Som självbetalande patient behöver du ingen remiss för den aktuella tidsförfrågan till den anslutna mottagningen. Inom regionfinansierad vård i Västra Götalandsregionen krävs oftast en remiss från vårdcentralen. Se även [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
+            "Behöver du remiss? Som självbetalande patient behöver du ingen remiss för den aktuella tidsförfrågan. Inom regionfinansierad vård i Västra Götalandsregionen krävs oftast en remiss från vårdcentralen. Se även [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
             "Priset beror på vilken konsultation eller undersökning som bokas. Utöver kardiologbesöket prissätts undersökningar som EKG, hjärtultraljud, långtids-EKG eller arbets-EKG separat, så slutsumman beror på vad som behövs i ditt fall. Du får alltid information om aktuellt pris innan bokningen bekräftas. En generell guide finns i [privat kardiolog: kostnad](/artiklar/privat-kardiolog-kostnad).",
           ],
         },
@@ -700,7 +698,7 @@ export const city: City = {
           id: "forsakring-kardiolog-goteborg",
           heading: "Kan jag använda privat sjukvårdsförsäkring?",
           body: [
-            "Den anslutna mottagningen kan ta emot patienter via privat sjukvårdsförsäkring. Kontakta först ditt försäkringsbolag för medicinsk rådgivning och godkännande av ärendet. Försäkringsbolaget avgör vilka besök och undersökningar som omfattas och om en betalningsförbindelse krävs.",
+            "Kardiologmottagningen kan ta emot patienter via privat sjukvårdsförsäkring. Kontakta först ditt försäkringsbolag för medicinsk rådgivning och godkännande av ärendet. Försäkringsbolaget avgör vilka besök och undersökningar som omfattas och om en betalningsförbindelse krävs.",
             "Försäkringsärendet och den medicinska vården hanteras av den mottagning som tar emot dig. Specialistdirekt hanterar tidsförfrågan.",
           ],
         },
@@ -709,25 +707,25 @@ export const city: City = {
           heading: "När hjärtbesvär är akuta",
           body: [
             "Vissa symtom ska inte vänta på en bokad tid. Ring **112** vid bröstsmärta eller tryck över bröstet som inte går över – särskilt med andfåddhet, illamående eller kallsvettning – vid plötslig svår andnöd, eller vid svimning med hjärtklappning. Läs mer i vår guide [bröstsmärta – kardiolog eller akut vård?](/artiklar/brostsmarta-kardiolog-eller-akut-vard).",
-            "En planerad kardiologbedömning är till för besvär som inte är akuta. Specialistdirekt ger inte medicinsk rådgivning och bedömer inte hur brådskande dina besvär är. Vid akuta symtom ska du alltid söka akut vård; är du osäker når du 1177 dygnet runt.",
+            "En planerad kardiologbedömning är till för besvär som inte är akuta. Webbplatsen ger inte medicinsk rådgivning och kan inte bedöma hur brådskande dina besvär är. Vid akuta symtom ska du alltid söka akut vård; är du osäker når du 1177 dygnet runt.",
           ],
         },
       ],
       leadCta: {
         heading: "Skicka en kostnadsfri tidsförfrågan",
-        body: "Beskriv kort dina besvär eller vilken undersökning du är intresserad av, och vilka tider som passar. Vi återkommer så snart som möjligt med besked om möjlig tid och aktuellt pris. Specialistdirekt är en boknings- och informationstjänst.",
+        body: "Beskriv kort dina besvär eller vilken undersökning du är intresserad av, och vilka tider som passar. Vi återkommer så snart som möjligt med besked om möjlig tid och aktuellt pris.",
         buttonLabel: "Skicka tidsförfrågan",
       },
       faqs: [
         {
           question: "Kan jag boka privat kardiolog i Göteborg utan remiss?",
           answer:
-            "Ja. Som självbetalande patient kan du skicka en tidsförfrågan till ansluten privat kardiologisk specialistkompetens i Göteborg utan remiss. Du får information om möjlig tid, relevant undersökning och aktuellt pris innan du bestämmer dig.",
+            "Ja. Som självbetalande patient kan du skicka en tidsförfrågan för ett privat kardiologbesök i Göteborg utan remiss. Du får information om möjlig tid, relevant undersökning och aktuellt pris innan du bestämmer dig.",
         },
         {
           question: "Var kan jag göra en privat hjärtundersökning i Göteborg?",
           answer:
-            "Den anslutna mottagningen kan erbjuda kardiologbesök samt EKG, hjärtultraljud, arbets-EKG, långtids-EKG och 24-timmars blodtrycksmätning. Vilka undersökningar som är relevanta avgörs av frågeställningen och den medicinska bedömningen.",
+            "Kardiologmottagningen kan erbjuda kardiologbesök samt EKG, hjärtultraljud, arbets-EKG, långtids-EKG och 24-timmars blodtrycksmätning. Vilka undersökningar som är relevanta avgörs av frågeställningen och den medicinska bedömningen.",
         },
         {
           question: "Ingår EKG i ett privat kardiologbesök?",
@@ -737,12 +735,12 @@ export const city: City = {
         {
           question: "Kan jag boka hjärtultraljud, arbets-EKG eller långtids-EKG?",
           answer:
-            "Ja, den anslutna mottagningen kan erbjuda dessa undersökningar. Vilken som är relevant avgörs av frågeställningen och den medicinska bedömningen, och varje undersökning har ett separat pris som du får veta innan bokning.",
+            "Ja, kardiologmottagningen kan erbjuda dessa undersökningar. Vilken som är relevant avgörs av frågeställningen och den medicinska bedömningen, och varje undersökning har ett separat pris som du får veta innan bokning.",
         },
         {
           question: "Tar mottagningen emot privat sjukvårdsförsäkring?",
           answer:
-            "Ja, den anslutna mottagningen kan ta emot försäkringspatienter. Kontakta först ditt försäkringsbolag för godkännande av ärendet. Försäkringsärendet hanteras av mottagningen – Specialistdirekt hanterar tidsförfrågan.",
+            "Ja, kardiologmottagningen kan ta emot försäkringspatienter. Kontakta först ditt försäkringsbolag för godkännande av ärendet. Försäkringsärendet hanteras av mottagningen – Specialistdirekt hanterar tidsförfrågan.",
         },
         {
           question: "Kan kardiologen utreda hjärtklappning, andfåddhet eller yrsel?",
@@ -755,14 +753,14 @@ export const city: City = {
             "Ja. Du får alltid information om aktuellt pris för den konsultation eller undersökning som är aktuell innan bokningen bekräftas.",
         },
         {
-          question: "Vilken roll har Specialistdirekt?",
+          question: "Hur bokar jag en kardiolog i Göteborg?",
           answer:
-            "Specialistdirekt är en boknings- och informationstjänst. Vi tar emot din tidsförfrågan för ansluten kardiologisk specialistkompetens i Göteborg – den medicinska bedömningen görs av mottagningen som tar emot dig.",
+            "Du skickar en kostnadsfri tidsförfrågan för ett privat kardiologbesök i Göteborg och får besked om möjlig tid och pris. Den medicinska bedömningen görs av kardiologmottagningen.",
         },
         {
           question: "Behöver jag remiss till en privat kardiolog i Göteborg?",
           answer:
-            "Det beror på mottagning och finansiering. Som självbetalande kan du hos många privata mottagningar boka mer direkt eller via egen vårdbegäran, medan regionfinansierad vård i Västra Götalandsregionen oftast kräver remiss från vårdcentralen. Vi hjälper dig kostnadsfritt att reda ut vägen in – läs även [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
+            "Det beror på mottagning och finansiering. Som självbetalande kan du hos många privata mottagningar boka mer direkt eller via egen vårdbegäran, medan regionfinansierad vård i Västra Götalandsregionen oftast kräver remiss från vårdcentralen. Du får besked om vad som gäller när du skickar en förfrågan – läs även [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
         },
         {
           question: "Vad kostar en privat kardiolog i Göteborg?",
@@ -777,7 +775,7 @@ export const city: City = {
         {
           question: "Hur snabbt kan jag få en tid i Göteborg?",
           answer:
-            "Privata tider kan ofta erbjudas snabbare än regionfinansierad vård, och som storstad har Göteborg flera vårdgivare att jämföra. Exakt väntetid varierar mellan mottagningar och beror på efterfrågan – vi kan inte garantera en viss tid, men hjälper dig att hitta en mottagning.",
+            "Privata tider kan ofta erbjudas snabbare än regionfinansierad vård, och som storstad har Göteborg flera vårdgivare att jämföra. Exakt väntetid varierar mellan mottagningar och beror på efterfrågan – vi kan inte garantera en viss tid, men du får besked om den tidigaste tid som finns.",
         },
         {
           question: "När ska jag söka akut i stället för att boka kardiolog?",

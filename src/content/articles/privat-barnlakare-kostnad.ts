@@ -5,7 +5,7 @@ export const article: Article = {
   title: "Privat barnläkare: kostnad, väntetid och boka barnspecialist",
   metaTitle: "Privat barnläkare: kostnad, väntetid & boka tid",
   metaDescription:
-    "Privat barnläkare: vanliga barnbesvär, kostnad från cirka 3 000 kr, remiss, sjukvårdsförsäkring och hur Specialistdirekt hjälper er vidare.",
+    "Privat barnläkare: vanliga barnbesvär, kostnad från cirka 3 000 kr, remiss, sjukvårdsförsäkring och hur ni bokar via Specialistdirekt.",
   category: "Barnmedicin",
   primaryKeyword: "privat barnläkare",
   keywords: [
@@ -44,7 +44,7 @@ export const article: Article = {
   intro: [
     "När ett barn har återkommande eller svårtolkade besvär kan oron växa snabbt. Det kan handla om täta infektioner, allergi, astma och andningsbesvär, magbesvär och förstoppning, envisa hudproblem, störd sömn, frågor om tillväxt och vikt, huvudvärk eller en trötthet som inte vill ge med sig. Som förälder vill ni förstå vad som ligger bakom och få en tydlig plan framåt.",
     "De flesta barn ska först bedömas i den ordinarie barnsjukvården. Vårdcentralen, BVC och skolhälsovården gör en första bedömning, och vid akuta besvär finns barnakuten. Ibland vill ni ändå snabbare hitta rätt till en privat barnläkare, särskilt om besvären drar ut på tiden, om ni redan vet att barnet behöver en specialistbedömning eller om ni har en sjukvårdsförsäkring som kan hjälpa till.",
-    "Specialistdirekt hjälper er att hitta rätt väg till privat specialistvård. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa er vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för barnets behov och er ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
+    "Via Specialistdirekt kan ni skicka en kostnadsfri bokningsförfrågan för ett privat specialistbesök. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa er vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för barnets behov och er ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
   ],
   sections: [
     {
@@ -174,7 +174,7 @@ export const article: Article = {
       heading: "Privat barnläkare vid magbesvär",
       body: [
         "Magbesvär hos barn är vanligt och kan vara svåra att tolka. Det kan handla om återkommande ont i magen, förstoppning, diarré, gaser eller besvär som påverkar aptit, sömn och skolgång. Ibland finns en koppling till kost, stress eller en bakomliggande orsak som behöver utredas.",
-        "En barnläkare kan gå igenom barnets symtom och matvanor, undersöka magen och vid behov ta prover. Många magbesvär hos barn är ofarliga och går att lindra, men det är viktigt att utesluta orsaker som kräver vidare utredning. Hör gärna med oss om ni vill ha hjälp att hitta rätt mottagning.",
+        "En barnläkare kan gå igenom barnets symtom och matvanor, undersöka magen och vid behov ta prover. Många magbesvär hos barn är ofarliga och går att lindra, men det är viktigt att utesluta orsaker som kräver vidare utredning. Ni kan skicka en kostnadsfri [bokningsförfrågan](/kontakt) för ett besök hos barnläkare.",
       ],
     },
     {
@@ -210,14 +210,14 @@ export const article: Article = {
     },
     {
       id: "sa-hjalper-vi",
-      heading: "Så hjälper Specialistdirekt er",
+      heading: "Så bokar ni via Specialistdirekt",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Vi gör ingen medicinsk bedömning. Så fungerar det:",
+        "Den medicinska bedömningen görs av läkaren vid besöket. Så fungerar det:",
       ],
       bullets: [
         "Ni beskriver barnets besvär i en kort bokningsförfrågan.",
         "Ni anger stad eller område där ni helst vill få hjälp.",
-        "Vi hjälper er vidare till en privat mottagning som kan vara relevant utifrån specialitet, barnets ålder, ort och tillgänglighet.",
+        "Ni får besked om möjlig tid och pris utifrån specialitet, barnets ålder, ort och tillgänglighet.",
         "Det är alltid mottagningen som bedömer om de kan ta emot barnet och vilken vård som är medicinskt lämplig.",
       ],
     },
@@ -233,7 +233,7 @@ export const article: Article = {
       heading: "Sammanfattning",
       body: [
         "En privat barnläkare kan vara aktuell vid återkommande infektioner, allergi och astma, magbesvär, hudproblem, frågor om tillväxt och vikt eller en trötthet som inte ger med sig. Kostnaden varierar, men ett första privatbesök börjar ofta runt **3 000 kr**, medan en mer omfattande utredning kan kosta **5 000–20 000 kr eller mer**. Med en privat sjukvårdsförsäkring kan ni ofta få hjälp med betalningen. Remisskrav och väntetid skiljer sig mellan olika mottagningar.",
-        "Vid akuta eller snabbt försämrade symtom ska ni alltid söka akut vård eller ringa 112. I lugnare lägen kan ni beskriva barnets besvär, ange önskat område och skicka en [bokningsförfrågan](/kontakt). Vi hjälper er vidare till en privat mottagning som kan vara relevant för barnets behov.",
+        "Vid akuta eller snabbt försämrade symtom ska ni alltid söka akut vård eller ringa 112. I lugnare lägen kan ni beskriva barnets besvär, ange önskat område och skicka en [bokningsförfrågan](/kontakt). Ni får besked om möjlig tid och pris för barnets behov.",
       ],
     },
   ],
@@ -261,7 +261,7 @@ export const article: Article = {
     {
       question: "Kan Specialistdirekt säga om barnet behöver barnläkare?",
       answer:
-        "Nej. Specialistdirekt ställer ingen diagnos och gör ingen medicinsk bedömning. Vi hjälper er med vägledning och bokningsförfrågan till en relevant privat mottagning.",
+        "Nej. Diagnos och medicinsk bedömning görs av läkaren vid besöket, inte via webbplatsen. Ni kan skicka en kostnadsfri bokningsförfrågan och få besked om möjlig tid och pris.",
     },
     {
       question: "När ska vi söka akut vård i stället?",

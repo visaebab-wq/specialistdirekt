@@ -15,10 +15,10 @@ export const city: City = {
     gastroenterolog:
       "I Uppsala finns mag- och tarmkompetens kopplad till Akademiska sjukhuset och hos privata mottagningar. Specialistdirekt hjälper dig kostnadsfritt att komma i kontakt med en gastroenterolog.",
     allmanmedicin:
-      "Uppsala har både universitetsvård och privata mottagningar där du kan få en bred medicinsk bedömning. En allmänläkare kan väga samman symtom, prover och sjukhistoria när bilden är oklar. Specialistdirekt hjälper dig kostnadsfritt att hitta rätt mottagning.",
+      "Uppsala har både universitetsvård och privata mottagningar där du kan få en bred medicinsk bedömning. En allmänläkare kan väga samman symtom, prover och sjukhistoria när bilden är oklar. Skicka en kostnadsfri förfrågan för ett privat specialistbesök.",
     kardiolog:
       "Söker du en kardiolog i Uppsala finns både hjärtsjukvård vid Akademiska sjukhuset och privata mottagningar i staden. " +
-      "Vi hjälper dig kostnadsfritt att hitta en hjärtspecialist som passar dina behov och din situation. " +
+      "Du kan kostnadsfritt skicka en förfrågan om ett besök hos hjärtspecialist utifrån dina behov. " +
       "Du får hjälp att jämföra alternativ utan att själv behöva ringa runt.",
     ortoped:
       "Behöver du träffa en ortoped i Uppsala kan du skicka en förfrågan om specialister på leder, skelett och idrottsskador. " +
@@ -30,7 +30,7 @@ export const city: City = {
       "Du skickar en förfrågan och får besked om hur du kan gå vidare.",
     gynekolog:
       "Letar du efter en gynekolog i Uppsala finns ett brett utbud av specialister inom kvinnosjukvård i staden. " +
-      "Vi tar emot förfrågningar om mottagningar som passar just det du behöver hjälp med. " +
+      "Beskriv vad du behöver hjälp med i en kostnadsfri förfrågan. " +
       "Tjänsten är alltid kostnadsfri och anpassad efter dig.",
     psykiater:
       "Söker du en psykiater i Uppsala kan vi hjälpa dig att hitta rätt inom psykiatrisk specialistvård. " +

@@ -110,7 +110,7 @@ const faqs = [
   {
     question: "Kan jag använda privat sjukvårdsförsäkring för koloskopi?",
     answer:
-      "Det beror på ditt försäkringsbolag och dina villkor. Kontakta bolaget för godkännande först. Vi hjälper dig att reda ut vad som gäller innan bokningen.",
+      "Det beror på ditt försäkringsbolag och dina villkor. Kontakta bolaget för godkännande först. Du får besked om vad som gäller innan du bokar.",
   },
   {
     question: "Jag har blod i avföringen – behöver jag koloskopi?",
@@ -417,7 +417,7 @@ export default function KoloskopiGoteborgPage() {
             "@context": "https://schema.org",
             "@type": "Service",
             name: "Tidsförfrågan för privat koloskopi i Göteborg",
-            serviceType: "Boknings- och informationstjänst",
+            serviceType: "Bokningsförfrågan",
             provider: { "@id": `${site.url}/#organization` },
             areaServed: { "@type": "City", name: "Göteborg" },
             url: abs(PATH),

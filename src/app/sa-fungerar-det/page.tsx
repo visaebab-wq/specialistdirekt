@@ -20,21 +20,21 @@ const crumbs = [
 
 const visual = {
   src: "/page-visuals/static-sa-fungerar-det.webp",
-  alt: "Så fungerar Specialistdirekt - realistisk vårdbild med patient och vårdkoordinator",
+  alt: "Så fungerar Specialistdirekt – patient i samtal inför ett specialistbesök",
 };
 
 const details = [
   {
-    q: "Vad händer efter att jag skickat in?",
-    a: "En av våra koordinatorer läser din förfrågan och letar upp en eller flera specialister som passar ditt behov och din ort.",
+    q: "Vad är skillnaden mellan direktbokning och bokningsförfrågan?",
+    a: "Vid direktbokning – i dag ortopedbesök hos Dr. Masoud Sorkhabi i Göteborg – väljer du en ledig tid i kalendern och bekräftar den via länken i mejlet. En bokningsförfrågan är ingen bokad tid: du beskriver ditt behov och får besked om möjlig tid och pris innan något bokas.",
   },
   {
-    q: "Hur får jag förslagen?",
-    a: "Vi hör av oss via e-post eller telefon – det sätt du föredrar – med konkreta förslag och hur du går vidare för att boka tid.",
+    q: "Vad händer efter att jag skickat en bokningsförfrågan?",
+    a: "Vi läser din förfrågan och hör av oss via e-post eller telefon – det sätt du föredrar – med besked om möjlig tid, pris och hur du bokar.",
   },
   {
     q: "Vad kostar det?",
-    a: "Vår tjänst är helt kostnadsfri. Du betalar bara för själva vårdbesöket, enligt mottagningens ordinarie priser eller patientavgift.",
+    a: "Det kostar inget att skicka en bokningsförfrågan. Du betalar bara för själva läkarbesöket, och priset framgår innan du bokar. Ortopedbesöket i Göteborg kostar 2 000 kr och betalas på plats.",
   },
 ];
 
@@ -46,8 +46,8 @@ export default function HowItWorksPage() {
           <Breadcrumbs items={crumbs} />
           <h1 className="internal-hero-title mt-6">Så fungerar det</h1>
           <p className="internal-hero-text">
-            Vägen från behov till rätt specialist ska vara enkel. Så här går det till – från det
-            att du fyller i formuläret tills du har en tid bokad.
+            Så bokar du ett specialistläkarbesök via Specialistdirekt – från val av specialistområde
+            till besöket hos läkaren.
           </p>
           <PageVisual visual={visual} className="mt-10 max-w-3xl" priority />
         </div>

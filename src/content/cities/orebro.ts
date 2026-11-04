@@ -7,20 +7,20 @@ export const city: City = {
   county: "Örebro län",
   hospitals: ["Universitetssjukhuset Örebro (USÖ)"],
   intro:
-    "Örebro ligger centralt i Mellansverige och fungerar som ett naturligt vårdnav för regionen. Här finns Universitetssjukhuset Örebro (USÖ), som samlar bred specialistkompetens och bedriver både vård och forskning. Vid sidan av den offentliga vården finns även privata mottagningar i staden, vilket ger fler vägar in till specialisthjälp. Specialistdirekt hjälper dig kostnadsfritt att hitta rätt specialistläkare i Örebro utifrån dina behov.",
+    "Örebro ligger centralt i Mellansverige och fungerar som ett naturligt vårdnav för regionen. Här finns Universitetssjukhuset Örebro (USÖ), som samlar bred specialistkompetens och bedriver både vård och forskning. Vid sidan av den offentliga vården finns även privata mottagningar i staden, vilket ger fler vägar in till specialisthjälp. Hitta privat specialistläkare i Örebro och skicka en kostnadsfri förfrågan utifrån dina behov.",
   specialtyIntros: {
     gastroenterolog:
       "I Örebro finns mag- och tarmkompetens vid Universitetssjukhuset Örebro (USÖ) och hos privata mottagningar. Specialistdirekt hjälper dig kostnadsfritt att hitta en gastroenterolog i staden.",
     allmanmedicin:
-      "I Örebro kan du få en bred medicinsk bedömning hos privata läkarmottagningar, som komplement till regionens vård. En allmänläkare ser helheten och hjälper dig hitta rätt väg vidare. Specialistdirekt tar emot förfrågningar kostnadsfritt.",
+      "I Örebro kan du få en bred medicinsk bedömning hos privata läkarmottagningar, som komplement till regionens vård. En allmänläkare ser helheten och hjälper dig hitta rätt väg vidare. Det är kostnadsfritt att skicka en förfrågan via Specialistdirekt.",
     kardiolog:
       "Vid hjärt- och kärlbesvär kan du i Örebro vända dig till specialistkompetens kopplad till Universitetssjukhuset Örebro samt till privata mottagningar i staden. Utredning av hjärtat kräver ibland särskild utrustning, vilket gör det värt att jämföra alternativen. Skicka en kostnadsfri förfrågan så återkommer vi med besked.",
     ortoped:
       "Har du besvär i leder, skelett eller en idrottsskada finns ortopedisk kompetens i Örebro, både inom regionens vård och hos privata aktörer. Som ett vårdnav i Mellansverige tar staden emot patienter från ett större upptagningsområde. Genom Specialistdirekt kommer du snabbt i kontakt med en ortoped som passar just dina besvär.",
     hudlakare:
-      "För hudbesvär som eksem, utslag eller bedömning av födelsemärken kan du träffa en hudläkare i Örebro via såväl offentlig som privat mottagning. Det centrala läget gör staden lättillgänglig även för dig som bor i kringliggande orter. Vi guidar dig kostnadsfritt till rätt dermatolog.",
+      "För hudbesvär som eksem, utslag eller bedömning av födelsemärken kan du träffa en hudläkare i Örebro via såväl offentlig som privat mottagning. Det centrala läget gör staden lättillgänglig även för dig som bor i kringliggande orter. Du kan kostnadsfritt skicka en förfrågan om ett besök hos dermatolog.",
     gynekolog:
-      "Söker du en gynekolog i Örebro finns vård inom kvinnohälsa kopplad till Universitetssjukhuset Örebro och till privata mottagningar i staden. Det kan vara svårt att veta vilken mottagning som passar bäst för just dina frågor. Specialistdirekt hjälper dig att hitta en gynekolog utifrån dina önskemål och behov.",
+      "Söker du en gynekolog i Örebro finns vård inom kvinnohälsa kopplad till Universitetssjukhuset Örebro och till privata mottagningar i staden. Det kan vara svårt att veta vilken mottagning som passar bäst för just dina frågor. Skicka en kostnadsfri förfrågan om ett gynekologbesök utifrån dina önskemål och behov.",
     psykiater:
       "Inom psykisk hälsa, inklusive utredning av exempelvis ADHD, finns psykiatrisk kompetens i Örebro genom regionens vård och privatpraktiserande psykiatrer. Vägen in i den psykiatriska vården kan ibland upplevas som otydlig. På Specialistdirekt kan du läsa om psykiatri och skicka en förfrågan i Örebro.",
     neurolog:
@@ -36,7 +36,7 @@ export const city: City = {
           id: "privat-psykiatri-orebro",
           heading: "Privat psykiatri i Örebro – vägen in",
           body: [
-            "I Örebro finns psykiatrisk kompetens både inom den regiondrivna vården, med Universitetssjukhuset Örebro (USÖ) som nav, och hos privatpraktiserande psykiatrer i staden. En privat mottagning är fristående från regionens psykiatri – Specialistdirekt har ingen koppling till USÖ eller Region Örebro län, utan hjälper dig kostnadsfritt att hitta en privat **psykiater** i Örebro som passar dina behov.",
+            "I Örebro finns psykiatrisk kompetens både inom den regiondrivna vården, med Universitetssjukhuset Örebro (USÖ) som nav, och hos privatpraktiserande psykiatrer i staden. En privat mottagning är fristående från regionens psykiatri – Specialistdirekt har ingen koppling till USÖ eller Region Örebro län, men via oss kan du kostnadsfritt skicka en förfrågan för ett besök hos en privat **psykiater** i Örebro.",
             "Vägen in ser olika ut. I offentlig vård börjar du oftast på **vårdcentralen**, som gör en första bedömning och vid behov skriver en **remiss** till psykiatrin. Hos många privata mottagningar kan du i stället boka mer direkt, ibland via en egen vårdbegäran. Hur det fungerar att söka på egen hand beskriver vi i [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
             "Läs mer om vad en psykiater gör på vår [översikt om psykiater](/specialiteter/psykiater), eller om vad vården kan kosta i guiden [privat psykiater: kostnad](/artiklar/privat-psykiater-kostnad).",
           ],
@@ -61,7 +61,7 @@ export const city: City = {
           heading: "När psykisk ohälsa behöver akut hjälp",
           body: [
             "En planerad psykiaterkontakt är till för besvär som inte är akuta. Vid **allvarliga tankar på att skada dig själv eller andra, eller vid en psykiatrisk kris**, ska du inte vänta – ring **112** eller kontakta närmaste psykiatriska akutmottagning. För sjukvårdsrådgivning dygnet runt når du **1177**.",
-            "Specialistdirekt ger inte medicinsk rådgivning, ställer inga diagnoser och erbjuder ingen akut hjälp eller triage. Vi hjälper dig att hitta rätt privat mottagning för en planerad bedömning.",
+            "Webbplatsen ger inte medicinsk rådgivning, ställer inga diagnoser och erbjuder ingen akut hjälp. Du kan skicka en kostnadsfri förfrågan om en planerad bedömning.",
           ],
         },
       ],
@@ -69,7 +69,7 @@ export const city: City = {
         {
           question: "Behöver jag remiss för en ADHD-utredning i Örebro?",
           answer:
-            "I offentlig vård börjar du oftast på vårdcentralen, som vid behov skriver en remiss till en specialiserad enhet. Hos många privata mottagningar kan en ADHD- eller NPF-utredning påbörjas mer direkt. Vad som gäller varierar mellan mottagningar – vi hjälper dig kostnadsfritt att reda ut vägen in. Läs mer om att [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
+            "I offentlig vård börjar du oftast på vårdcentralen, som vid behov skriver en remiss till en specialiserad enhet. Hos många privata mottagningar kan en ADHD- eller NPF-utredning påbörjas mer direkt. Vad som gäller varierar mellan mottagningar – du får besked om vad som gäller när du skickar en förfrågan. Läs mer om att [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
         },
         {
           question: "Vad påverkar priset för en privat ADHD-utredning?",
@@ -92,7 +92,7 @@ export const city: City = {
           id: "privat-kardiolog-orebro",
           heading: "Privat kardiolog i Örebro – utredning av hjärtat",
           body: [
-            "Vid hjärt- och kärlbesvär finns i Örebro kardiologisk kompetens både kopplad till Universitetssjukhuset Örebro (USÖ) och hos privata mottagningar. En privat mottagning är fristående från regionens vård – Specialistdirekt tar emot förfrågningar och har ingen koppling till USÖ. En **kardiolog** utreder besvär som hjärtklappning, bröstobehag, andfåddhet, högt blodtryck och avvikande EKG.",
+            "Vid hjärt- och kärlbesvär finns i Örebro kardiologisk kompetens både kopplad till Universitetssjukhuset Örebro (USÖ) och hos privata mottagningar. En privat mottagning är fristående från regionens vård – Specialistdirekt har ingen koppling till USÖ. En **kardiolog** utreder besvär som hjärtklappning, bröstobehag, andfåddhet, högt blodtryck och avvikande EKG.",
             "En kardiologisk bedömning börjar med ett samtal och en kroppsundersökning, och kompletteras vid behov med undersökningar. Vilka som blir aktuella avgör läkaren utifrån dina symtom. Läs mer på vår [översikt om kardiolog](/specialiteter/kardiolog).",
           ],
           bullets: [
@@ -123,7 +123,7 @@ export const city: City = {
         {
           question: "Behöver jag remiss till en privat kardiolog i Örebro?",
           answer:
-            "Det beror på mottagning och finansiering. Vissa mottagningar tar emot egen vårdbegäran eller privat bokning, medan regionfinansierad vård och vissa försäkringar kan kräva remiss. Vi hjälper dig kostnadsfritt att hitta rätt väg – läs även [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
+            "Det beror på mottagning och finansiering. Vissa mottagningar tar emot egen vårdbegäran eller privat bokning, medan regionfinansierad vård och vissa försäkringar kan kräva remiss. Du får besked om vad som gäller när du skickar en förfrågan – läs även [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
         },
         {
           question: "Vad påverkar priset för en privat hjärtutredning?",
@@ -146,7 +146,7 @@ export const city: City = {
           id: "privat-ortoped-orebro",
           heading: "Privat ortoped i Örebro – besvär i leder och skelett",
           body: [
-            "Har du besvär i leder, skelett eller efter en idrottsskada finns ortopedisk kompetens i Örebro både inom regionens vård, med Universitetssjukhuset Örebro (USÖ) som nav, och hos privata mottagningar. En privat mottagning är fristående från regionvården – Specialistdirekt tar emot förfrågningar. En **ortoped** utreder rörelseapparaten: skelett, leder, muskler och senor.",
+            "Har du besvär i leder, skelett eller efter en idrottsskada finns ortopedisk kompetens i Örebro både inom regionens vård, med Universitetssjukhuset Örebro (USÖ) som nav, och hos privata mottagningar. En privat mottagning är fristående från regionvården. En **ortoped** utreder rörelseapparaten: skelett, leder, muskler och senor.",
             "Ett ortopedbesök börjar med ett samtal och en klinisk undersökning där läkaren testar rörlighet, kraft och stabilitet. Vid behov kompletteras det med bilddiagnostik. Läs mer på vår [översikt om ortoped](/specialiteter/ortoped).",
           ],
           bullets: [
@@ -169,7 +169,7 @@ export const city: City = {
           heading: "När en skada behöver akut vård",
           body: [
             "Vid en akut, kraftig skada – till exempel misstänkt benbrott med felställning, oförmåga att stödja på benet, kraftig svullnad direkt efter ett trauma eller domningar och bortfall efter en olycka – ska du söka akut vård. En planerad ortopedbedömning är till för besvär som inte är akuta.",
-            "Specialistdirekt ger inte medicinsk rådgivning och bedömer inte hur brådskande dina besvär är. Vid akuta skador ska du alltid söka akut vård eller ringa 1177 för rådgivning.",
+            "Webbplatsen ger inte medicinsk rådgivning och kan inte bedöma hur brådskande dina besvär är. Vid akuta skador ska du alltid söka akut vård eller ringa 1177 för rådgivning.",
           ],
         },
       ],
@@ -177,7 +177,7 @@ export const city: City = {
         {
           question: "Behöver jag remiss till en privat ortoped i Örebro?",
           answer:
-            "Många privata ortopedmottagningar tar emot utan remiss, så du kan ofta boka tid själv. I vissa fall krävs ändå remiss för att en sjukvårdsförsäkring eller regionen ska täcka kostnaden. Vi hjälper dig kostnadsfritt att reda ut vad som gäller.",
+            "Många privata ortopedmottagningar tar emot utan remiss, så du kan ofta boka tid själv. I vissa fall krävs ändå remiss för att en sjukvårdsförsäkring eller regionen ska täcka kostnaden. Du får besked om vad som gäller när du skickar en förfrågan.",
         },
         {
           question: "Vad kostar det att gå till en privat ortoped?",
@@ -200,7 +200,7 @@ export const city: City = {
           id: "privat-neurolog-orebro",
           heading: "Privat neurolog i Örebro – utredning av nervsystemet",
           body: [
-            "Vid besvär från nervsystemet finns i Örebro neurologisk kompetens både vid Universitetssjukhuset Örebro (USÖ) och hos privata mottagningar. En privat mottagning är fristående från regionvården – Specialistdirekt tar emot förfrågningar och har ingen koppling till USÖ. En **neurolog** utreder sjukdomar i hjärna, ryggmärg och nerver, och en bedömning bygger på ett samtal och ett så kallat neurologiskt status där läkaren testar reflexer, känsel, styrka och balans.",
+            "Vid besvär från nervsystemet finns i Örebro neurologisk kompetens både vid Universitetssjukhuset Örebro (USÖ) och hos privata mottagningar. En privat mottagning är fristående från regionvården – Specialistdirekt har ingen koppling till USÖ. En **neurolog** utreder sjukdomar i hjärna, ryggmärg och nerver, och en bedömning bygger på ett samtal och ett så kallat neurologiskt status där läkaren testar reflexer, känsel, styrka och balans.",
             "Bland de vanligaste anledningarna att söka neurolog är återkommande **migrän** och svår huvudvärk, **yrsel** och balansbesvär samt **domningar** och stickningar. Vid behov kompletteras bedömningen med undersökningar som MR av hjärnan, EEG eller nervmätning. Läs mer på vår [översikt om neurolog](/specialiteter/neurolog).",
           ],
           bullets: [
@@ -223,7 +223,7 @@ export const city: City = {
           heading: "När neurologiska symtom är akuta",
           body: [
             "Vissa symtom kräver akut vård. Ring **112** vid plötslig svaghet eller domning i ansikte, arm eller ben, hängande mungipa, sluddrigt tal, akut synbortfall eller en plötslig, mycket svår huvudvärk – det kan vara tecken på stroke. En planerad neurologbedömning är till för besvär som inte är akut livshotande.",
-            "Specialistdirekt ger inte medicinsk rådgivning och bedömer inte hur brådskande dina symtom är. Vid akuta symtom ska du alltid söka akut vård.",
+            "Webbplatsen ger inte medicinsk rådgivning och kan inte bedöma hur brådskande dina symtom är. Vid akuta symtom ska du alltid söka akut vård.",
           ],
         },
       ],
@@ -231,7 +231,7 @@ export const city: City = {
         {
           question: "Behöver jag remiss till en privat neurolog i Örebro?",
           answer:
-            "I offentlig vård krävs ofta en remiss från vårdcentralen, medan du hos många privata mottagningar kan boka tid själv. Reglerna varierar mellan mottagningar och finansiering – vi hjälper dig kostnadsfritt att hitta rätt väg.",
+            "I offentlig vård krävs ofta en remiss från vårdcentralen, medan du hos många privata mottagningar kan boka tid själv. Reglerna varierar mellan mottagningar och finansiering – du får besked om vad som gäller när du skickar en förfrågan.",
         },
         {
           question: "Kan en neurolog i Örebro hjälpa vid migrän?",

@@ -99,8 +99,8 @@ export default function SmartlakareHubPage() {
           <p className="internal-hero-text">
             En smärtläkare eller smärtmottagning arbetar med bedömning och behandling av smärta,
             särskilt långvarig eller komplex smärta. Men rätt vårdkontakt beror på typen av besvär –
-            ibland är en ortoped, neurolog eller reumatolog en bättre väg. Specialistdirekt hjälper
-            dig att hitta rätt privat specialist eller mottagning att kontakta.
+            ibland är en ortoped, neurolog eller reumatolog en bättre väg. Här ser du vilken
+            specialist som passar och kan boka tid eller skicka en kostnadsfri förfrågan.
           </p>
           <PageVisual visual={visual} className="mt-10 max-w-3xl" priority />
         </div>
@@ -204,7 +204,7 @@ export default function SmartlakareHubPage() {
                   Har du redan fått en bedömning du vill ompröva?
                 </h2>
                 <p className="mt-2 text-ink-600">
-                  Den här sidan hjälper dig hitta en läkare eller mottagning att söka nu. Vill du i
+                  Den här sidan handlar om att boka ett nytt läkarbesök. Vill du i
                   stället få en tidigare bedömning, diagnos eller behandling omprövad söker du en
                   annan typ av tjänst – läs om andra bedömning vid långvarig smärta på{" "}
                   <a
@@ -259,13 +259,13 @@ export default function SmartlakareHubPage() {
           {
             "@context": "https://schema.org",
             "@type": "Service",
-            name: "Bokning och information om privat smärtläkare",
-            serviceType: "Boknings- och informationstjänst",
+            name: "Bokningsförfrågan för privat smärtläkare",
+            serviceType: "Bokningsförfrågan",
             provider: { "@id": `${site.url}/#organization` },
             areaServed: { "@type": "Country", name: "Sverige" },
             url: abs(PATH),
             description:
-              "Specialistdirekt hjälper dig att hitta rätt privat specialist eller mottagning vid smärta. Specialistdirekt är en boknings- och informationstjänst.",
+              "Skicka en kostnadsfri bokningsförfrågan för ett besök hos privat smärtläkare eller annan specialist vid smärta.",
           },
           faqSchema(faqs),
         ]}

@@ -29,7 +29,7 @@ export const article: Article = {
     "Vid yrsel är **vårdcentralen** oftast rätt första kontakt – läkaren mäter blodtryck, bedömer och remitterar vidare vid behov.",
     "Beroende på orsak kan en **neurolog** (nervsystemet), en ÖNH-specialist (innerörat) eller en kardiolog (hjärta och blodtryck) bli aktuell.",
     "Varningssignal: ring 112 vid plötslig yrsel med talsvårigheter, svaghet, domningar eller hängande mungipa – det kan vara tecken på stroke.",
-    "[Specialistdirekt](/kontakt) hjälper dig hitta rätt specialist och skicka en bokningsförfrågan.",
+    "Via [Specialistdirekt](/kontakt) kan du skicka en kostnadsfri bokningsförfrågan till en privat specialist.",
   ],
   suitableFor: [
     "har haft yrsel eller ostadighet i flera veckor",
@@ -122,10 +122,10 @@ export const article: Article = {
     },
     {
       id: "specialistdirekt",
-      heading: "Så hjälper Specialistdirekt dig vidare",
+      heading: "Så går du vidare",
       body: [
-        "Specialistdirekt är en **kostnadsfri** boknings- och informationstjänst. Du beskriver kort dina besvär och skickar en förfrågan. Vi återkommer med besked om hur du kan gå vidare. Vi ställer inga diagnoser och ger ingen medicinsk rådgivning; via Specialistdirekt kan du skicka en förfrågan om en privat mottagning och få besked om tid och pris.",
-        "Vill du veta hur tjänsten fungerar steg för steg kan du läsa [så fungerar det](/sa-fungerar-det). Är du redo att komma vidare, fyll i en förfrågan via [kontaktsidan](/kontakt) så återkommer vi med förslag på lämplig specialist.",
+        "Det är **kostnadsfritt** att skicka en förfrågan via Specialistdirekt. Du beskriver kort dina besvär och skickar en förfrågan. Vi återkommer med besked om hur du kan gå vidare. Du får besked om möjlig tid och pris; diagnos och medicinsk bedömning görs av läkaren vid besöket.",
+        "Vill du veta hur tjänsten fungerar steg för steg kan du läsa [så fungerar det](/sa-fungerar-det). Är du redo att komma vidare, fyll i en förfrågan via [kontaktsidan](/kontakt) så återkommer vi med besked om möjlig tid och pris.",
         "Priserna i guiden är ungefärliga och kan ha ändrats – be alltid kliniken om ett bekräftat pris innan du bokar. Och vid plötslig yrsel med talsvårigheter eller svaghet: vänta inte på en tid, ring 112.",
       ],
     },

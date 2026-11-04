@@ -343,7 +343,7 @@ export default function PrivatMrPage() {
             "@context": "https://schema.org",
             "@type": "Service",
             name: "Privat MR – bedömning, remiss vid behov och undersökning på röntgenmottagning",
-            serviceType: "Boknings- och informationstjänst",
+            serviceType: "Bokningsförfrågan",
             provider: { "@id": `${site.url}/#organization` },
             url: abs(PATH),
             description:

@@ -71,7 +71,7 @@ export const extra: SpecialtyExtra = {
     {
       question: "Behöver jag remiss för att träffa en ortoped?",
       answer:
-        "Det beror på vägen. I den offentliga vården går du oftast via vårdcentral, som vid behov skriver en remiss till ortoped. Hos privata mottagningar kan du i många fall boka en tid själv utan remiss. Specialistdirekt är en kostnadsfri förfrågan och hjälper dig att hitta rätt – kontakta oss via [kontakt](/kontakt) så guidar vi dig.",
+        "Det beror på vägen. I den offentliga vården går du oftast via vårdcentral, som vid behov skriver en remiss till ortoped. Hos privata mottagningar kan du i många fall boka en tid själv utan remiss. Ortopedbesök hos Dr. Masoud Sorkhabi i Göteborg kan du [boka direkt](/boka-tid) utan remiss.",
     },
     {
       question: "Vad kostar det att gå till en privat ortoped?",
@@ -81,7 +81,7 @@ export const extra: SpecialtyExtra = {
     {
       question: "Hur lång är väntetiden till en ortoped?",
       answer:
-        "Väntetiden varierar kraftigt beroende på region, mottagning och hur akut besväret bedöms vara. I offentlig vård kan väntan på ett planerat besök ibland sträcka sig över flera veckor till månader, medan privata mottagningar ofta har kortare väntetid. Alla tider är ungefärliga – vi hjälper dig gärna att hitta ett snabbare alternativ.",
+        "Väntetiden varierar kraftigt beroende på region, mottagning och hur akut besväret bedöms vara. I offentlig vård kan väntan på ett planerat besök ibland sträcka sig över flera veckor till månader, medan privata mottagningar ofta har kortare väntetid. Alla tider är ungefärliga – i Göteborg kan du [se lediga tider](/boka-tid) direkt i kalendern.",
     },
     {
       question: "Måste jag göra röntgen innan jag träffar ortopeden?",

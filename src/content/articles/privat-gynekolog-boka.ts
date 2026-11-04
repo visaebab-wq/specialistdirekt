@@ -42,7 +42,7 @@ export const article: Article = {
   ],
   intro: [
     "Gynekologiska besvär kan vara både fysiskt påfrestande och känsliga – smärta, blödningsrubbningar, mellanblödningar, klimakteriebesvär, misstänkt infektion, cellförändringar, fertilitetsfrågor, urinläckage eller behov av gynekologiskt ultraljud. Många börjar på en vårdcentral, barnmorskemottagning eller ungdomsmottagning. Om besvären återkommer, påverkar vardagen eller kräver specialistbedömning kan en gynekolog bli aktuell.",
-    "Specialistdirekt hjälper dig hitta rätt väg till privat specialistvård. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en relevant mottagning. Läs gärna mer om [hur det fungerar](/sa-fungerar-det).",
+    "Via Specialistdirekt kan du skicka en kostnadsfri bokningsförfrågan för ett privat specialistbesök. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en relevant mottagning. Läs gärna mer om [hur det fungerar](/sa-fungerar-det).",
   ],
   sections: [
     {
@@ -230,14 +230,14 @@ export const article: Article = {
     },
     {
       id: "sa-hjalper-vi",
-      heading: "Så hjälper Specialistdirekt dig",
+      heading: "Så bokar du via Specialistdirekt",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Så fungerar det:",
+        "Så fungerar det:",
       ],
       bullets: [
         "Du beskriver dina besvär i en kort bokningsförfrågan.",
         "Du anger stad eller område.",
-        "Vi hjälper dig vidare till en relevant mottagning.",
+        "Du får besked om möjlig tid och pris.",
         "Det är alltid mottagningen som bedömer vårdbehovet.",
       ],
     },
@@ -265,7 +265,7 @@ export const article: Article = {
       heading: "Sammanfattning",
       body: [
         "Det kan vara aktuellt med en privat gynekolog vid blödningsrubbningar, underlivssmärta, klimakteriebesvär, vaginalt ultraljud, fertilitetsfrågor, urinläckage eller cellförändringar. Ett besök eller en bedömning kostar ofta **från cirka 3 000 kr** och uppåt; med ultraljud, provtagning, uppföljning eller åtgärder kan totalpriset bli högre, och en omfattande utredning kan hamna på **5 000–15 000 kr eller mer**. I vissa fall kan sjukvårdsförsäkring täcka kostnaden.",
-        "Du beskriver dina besvär, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Vi hjälper dig vidare till en privat mottagning som kan vara relevant för ditt behov.",
+        "Du beskriver dina besvär, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Du får besked om möjlig tid och pris för ditt behov.",
       ],
     },
   ],
@@ -293,7 +293,7 @@ export const article: Article = {
     {
       question: "Kan Specialistdirekt säga om jag behöver gynekolog?",
       answer:
-        "Nej. Specialistdirekt ställer ingen diagnos och gör ingen medicinsk bedömning. Vi hjälper dig med vägledning och bokningsförfrågan till relevant privat mottagning.",
+        "Nej. Diagnos och medicinsk bedömning görs av läkaren vid besöket, inte via webbplatsen. Du kan skicka en kostnadsfri bokningsförfrågan och få besked om möjlig tid och pris.",
     },
     {
       question: "När ska jag söka akut?",

@@ -10,7 +10,7 @@ import { createPageMetadata } from "@/lib/page-metadata";
 export const metadata = createPageMetadata({
   title: "Kontakt – skicka din förfrågan",
   description:
-    "Skicka en kostnadsfri förfrågan så hjälper vi dig att hitta rätt specialistläkare. Vi återkommer normalt inom en arbetsdag.",
+    "Skicka en kostnadsfri bokningsförfrågan för ett privat specialistläkarbesök. Vi återkommer normalt inom en arbetsdag.",
   path: "/kontakt",
 });
 

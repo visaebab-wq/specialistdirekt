@@ -12,7 +12,7 @@ export const city: City = {
     "S:t Görans sjukhus",
   ],
   intro:
-    "Stockholm har ett av landets bredaste utbud av specialistvård, med både offentliga sjukhusmottagningar och ett stort antal privata kliniker spridda över hela storstadsområdet. Det betyder att du ofta har många alternativ att välja mellan – men det innebär också att väntetiderna till vissa specialiteter kan variera och att det kan vara svårt att överblicka vart man ska vända sig. Specialistdirekt hjälper dig kostnadsfritt att hitta rätt specialistläkare i Stockholm utifrån dina behov.",
+    "Stockholm har ett av landets bredaste utbud av specialistvård, med både offentliga sjukhusmottagningar och ett stort antal privata kliniker spridda över hela storstadsområdet. Det betyder att du ofta har många alternativ att välja mellan – men det innebär också att väntetiderna till vissa specialiteter kan variera och att det kan vara svårt att överblicka vart man ska vända sig. Hitta privat specialistläkare i Stockholm och skicka en kostnadsfri förfrågan utifrån dina behov.",
   specialtyIntros: {
     gastroenterolog:
       "I Stockholm finns ett stort utbud av privata mag- och tarmmottagningar vid sidan av regionens vård. Det gör att du som söker en gastroenterolog ofta har flera alternativ att välja mellan. Specialistdirekt vägleder dig kostnadsfritt vidare.",
@@ -23,9 +23,9 @@ export const city: City = {
     ortoped:
       "I Stockholm finns gott om ortopeder som tar emot patienter med besvär i leder, skelett och idrottsskador. Tillgången är god, men efterfrågan är samtidigt hög i en storstad där många är fysiskt aktiva. Genom Specialistdirekt får du hjälp att snabbt komma i kontakt med en ortoped som passar just dina besvär.",
     hudlakare:
-      "Vill du träffa en hudläkare i Stockholm för till exempel eksem, hudutslag eller bedömning av födelsemärken finns både offentliga och privata hudmottagningar att välja mellan. Utbudet är stort, vilket gör det enklare att hitta en tid som passar dig. Vi guidar dig kostnadsfritt till rätt dermatolog i staden.",
+      "Vill du träffa en hudläkare i Stockholm för till exempel eksem, hudutslag eller bedömning av födelsemärken finns både offentliga och privata hudmottagningar att välja mellan. Utbudet är stort, vilket gör det enklare att hitta en tid som passar dig. Du kan kostnadsfritt skicka en förfrågan om ett besök hos dermatolog i staden.",
     gynekolog:
-      "Behöver du en gynekolog i Stockholm möter du ett brett utbud av mottagningar inriktade på kvinnohälsa, från allmän gynekologi till mer specialiserad vård. I en stad av Stockholms storlek kan det dock vara svårt att veta vilken mottagning som passar bäst. Specialistdirekt hjälper dig att hitta en gynekolog utifrån dina önskemål och behov.",
+      "Behöver du en gynekolog i Stockholm möter du ett brett utbud av mottagningar inriktade på kvinnohälsa, från allmän gynekologi till mer specialiserad vård. I en stad av Stockholms storlek kan det dock vara svårt att veta vilken mottagning som passar bäst. Skicka en kostnadsfri förfrågan om ett gynekologbesök utifrån dina önskemål och behov.",
     psykiater:
       "Inom psykisk hälsa, inklusive utredning av ADHD, finns i Stockholm ett stort antal psykiatriska mottagningar och privatpraktiserande psykiatrer. Eftersom efterfrågan är hög kan väntetiderna skilja sig åt mellan olika aktörer. På Specialistdirekt kan du läsa om psykiatri och privata alternativ i Stockholm.",
     neurolog:

@@ -43,7 +43,7 @@ export const article: Article = {
   intro: [
     "Neurologiska besvär kan vara svåra att tolka och ofta oroväckande. Det kan handla om huvudvärk eller migrän, yrsel, domningar, stickningar, nervsmärta, svaghet i armar eller ben, tremor (skakningar), balansproblem eller en allmän känsla av att kroppen inte fungerar som vanligt. Många känner också oro efter att ha fått ett MR-svar de inte riktigt förstår.",
     "De flesta börjar i vårdcentralen, som gör en första bedömning och avgör om besvären behöver utredas vidare av en specialist. I vissa situationer vill man dock snabbare hitta rätt väg till en privat neurologmottagning, särskilt om symtomen påverkar vardagen eller om man redan vet att man behöver specialistbedömning.",
-    "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
+    "Via Specialistdirekt kan du skicka en kostnadsfri bokningsförfrågan för ett privat specialistbesök. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
   ],
   sections: [
     {
@@ -213,14 +213,14 @@ export const article: Article = {
     },
     {
       id: "sa-hjalper-vi",
-      heading: "Så hjälper Specialistdirekt dig",
+      heading: "Så bokar du via Specialistdirekt",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Vi gör ingen medicinsk bedömning. Så fungerar det:",
+        "Den medicinska bedömningen görs av läkaren vid besöket. Så fungerar det:",
       ],
       bullets: [
         "Du beskriver dina besvär i en kort bokningsförfrågan.",
         "Du anger stad eller område där du helst vill få hjälp.",
-        "Vi hjälper dig vidare till en privat mottagning som kan vara relevant utifrån specialitet, ort och tillgänglighet.",
+        "Du får besked om möjlig tid och pris utifrån specialitet, ort och tillgänglighet.",
         "Det är alltid mottagningen som bedömer om de kan ta emot dig och vilken vård som är medicinskt lämplig.",
       ],
     },
@@ -236,7 +236,7 @@ export const article: Article = {
       heading: "Sammanfattning",
       body: [
         "Det kan vara aktuellt med en privat neurolog vid besvär som huvudvärk, migrän, yrsel, domningar, stickningar, nervsmärta, svaghet, tremor eller frågor kring ett MR-svar. Ett första privatbesök börjar **från cirka 3 000 kr**, och en **omfattande utredning kan kosta 5 000–20 000 kr eller mer**. Med privat sjukvårdsförsäkring kan du ofta få hjälp med betalningen. Vid plötsliga, allvarliga symtom ska du alltid söka akut vård eller ringa 112.",
-        "Du väljer specialist, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Vi hjälper dig vidare till en privat mottagning som kan vara relevant för ditt behov. Vill du förstå skillnaderna mellan privat och offentlig vård kan du läsa mer om [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
+        "Du väljer specialist, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Du får besked om möjlig tid och pris för ditt behov. Vill du förstå skillnaderna mellan privat och offentlig vård kan du läsa mer om [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
       ],
     },
   ],
@@ -281,7 +281,7 @@ export const article: Article = {
     {
       question: "Kan Specialistdirekt säga om jag behöver neurolog?",
       answer:
-        "Nej. Specialistdirekt ställer ingen diagnos och gör ingen medicinsk bedömning. Vi hjälper dig med vägledning och bokningsförfrågan till en relevant privat mottagning.",
+        "Nej. Diagnos och medicinsk bedömning görs av läkaren vid besöket, inte via webbplatsen. Du kan skicka en kostnadsfri bokningsförfrågan och få besked om möjlig tid och pris.",
     },
     {
       question: "När ska jag söka akut i stället?",

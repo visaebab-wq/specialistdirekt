@@ -31,7 +31,7 @@ export const article: Article = {
     "Gastroskopi kan vara aktuellt vid sväljsvårigheter, långvarig reflux, magsmärta, illamående, misstanke om magsår, järnbrist eller behov av vidare mag- och tarmutredning.",
     "Vissa mottagningar kräver remiss, andra kan göra en egen medicinsk bedömning innan bokning.",
     "Privat sjukvårdsförsäkring kan i vissa fall täcka gastroskopi, men försäkringsbolaget behöver ofta godkänna ärendet först.",
-    "[Specialistdirekt](/kontakt) gör ingen medicinsk bedömning. Vi hjälper dig hitta rätt väg och skicka en bokningsförfrågan till relevant privat mottagning.",
+    "Via [Specialistdirekt](/kontakt) kan du skicka en kostnadsfri bokningsförfrågan. Den medicinska bedömningen görs av läkaren vid besöket.",
   ],
   priceTable: [
     { label: "Gastroskopi utan vävnadsprover", price: "från cirka 6 400–6 600 kr" },
@@ -49,7 +49,7 @@ export const article: Article = {
   ],
   intro: [
     "Gastroskopi är en undersökning av matstrupe, magsäck och övre delen av tunntarmen, med ett gastroskop – en mjuk slang med kamera som förs in via munnen. Många söker privat gastroskopi för att slippa lång väntetid, få snabbare besked eller för att de har en sjukvårdsförsäkring som kan användas. Läs mer om [privat gastroskopi utan remiss](/privat-gastroskopi).",
-    "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård och diagnostik. Vi ställer ingen diagnos och utför ingen undersökning. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort.",
+    "Via Specialistdirekt kan du skicka en kostnadsfri bokningsförfrågan för privat specialistvård och diagnostik. Vi ställer ingen diagnos och utför ingen undersökning. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort.",
   ],
   sections: [
     {
@@ -226,9 +226,9 @@ export const article: Article = {
     },
     {
       id: "sa-hjalper-vi",
-      heading: "Så hjälper Specialistdirekt dig",
+      heading: "Så bokar du via Specialistdirekt",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård och diagnostik. Vi gör ingen medicinsk bedömning. Du beskriver ditt behov, anger önskat område, och vi hjälper dig vidare till en privat mottagning eller specialist som kan vara relevant. Det är alltid mottagningen som avgör om de kan ta emot dig och om gastroskopi är rätt undersökning.",
+        "Den medicinska bedömningen görs av läkaren vid besöket. Du beskriver ditt behov, anger önskat område, och får besked om möjlig tid och pris. Det är alltid mottagningen som avgör om de kan ta emot dig och om gastroskopi är rätt undersökning.",
       ],
     },
     {
@@ -243,7 +243,7 @@ export const article: Article = {
       heading: "Sammanfattning",
       body: [
         "Det kan vara aktuellt med en privat gastroskopi vid sväljsvårigheter, långvarig reflux, halsbränna, magsmärta i övre magen, illamående, misstänkt magsår, järnbrist eller behov av vidare mag- och tarmutredning.",
-        "Privat gastroskopi kostar ofta från cirka **6 400 kr och uppåt**. Om vävnadsprover, sedering, narkos eller uppföljning tillkommer kan totalpriset bli högre. I vissa fall kan sjukvårdsförsäkring täcka hela eller delar av kostnaden. Specialistdirekt hjälper dig vidare – skicka en [bokningsförfrågan](/kontakt) till relevant privat mottagning.",
+        "Privat gastroskopi kostar ofta från cirka **6 400 kr och uppåt**. Om vävnadsprover, sedering, narkos eller uppföljning tillkommer kan totalpriset bli högre. I vissa fall kan sjukvårdsförsäkring täcka hela eller delar av kostnaden. Skicka en kostnadsfri [bokningsförfrågan](/kontakt).",
       ],
     },
   ],

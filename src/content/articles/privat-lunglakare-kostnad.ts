@@ -44,7 +44,7 @@ export const article: Article = {
   intro: [
     "Andningsbesvär kan vara både skrämmande och svåra att tolka. Det kan handla om andfåddhet vid ansträngning eller i vila, långvarig hosta, pip i bröstet, misstänkt astma eller KOL, återkommande luftvägsinfektioner, allergiska besvär eller sömnrelaterad andning. Många av dessa symtom är vanliga, men de förtjänar ändå en ordentlig bedömning.",
     "De flesta börjar hos sin vårdcentral, som gör en första bedömning och ofta kan inleda en utredning. Ibland vill man dock snabbare hitta rätt privat lungmottagning, särskilt om besvären påverkar vardagen, om de inte går över eller om man redan vet att man behöver en specialistbedömning av lungor och luftvägar.",
-    "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
+    "Via Specialistdirekt kan du skicka en kostnadsfri bokningsförfrågan för ett privat specialistbesök. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
   ],
   sections: [
     {
@@ -210,14 +210,14 @@ export const article: Article = {
     },
     {
       id: "sa-hjalper-vi",
-      heading: "Så hjälper Specialistdirekt dig",
+      heading: "Så bokar du via Specialistdirekt",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Vi gör ingen medicinsk bedömning. Så fungerar det:",
+        "Den medicinska bedömningen görs av läkaren vid besöket. Så fungerar det:",
       ],
       bullets: [
         "Du beskriver dina besvär i en kort bokningsförfrågan.",
         "Du anger stad eller område där du helst vill få hjälp.",
-        "Vi hjälper dig vidare till en privat mottagning som kan vara relevant utifrån specialitet, ort och tillgänglighet.",
+        "Du får besked om möjlig tid och pris utifrån specialitet, ort och tillgänglighet.",
         "Det är alltid mottagningen som bedömer om de kan ta emot dig och vilken vård som är medicinskt lämplig.",
       ],
     },
@@ -233,7 +233,7 @@ export const article: Article = {
       heading: "Sammanfattning",
       body: [
         "Det kan vara aktuellt med en privat lungläkare vid andfåddhet, långvarig hosta, pip i bröstet, misstänkt astma eller KOL, återkommande luftvägsinfektioner eller sömnrelaterad andning. Kostnaden varierar, men ett första privatbesök börjar ofta från **cirka 3 000 kr**, medan en omfattande utredning kan kosta **5 000–20 000 kr eller mer** – och med privat sjukvårdsförsäkring kan du ofta få hjälp med betalningen. Remisskrav och väntetid skiljer sig mellan olika mottagningar. Läs gärna mer om [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
-        "Du väljer specialist, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Vi hjälper dig vidare till en privat mottagning som kan vara relevant för ditt behov.",
+        "Du väljer specialist, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Du får besked om möjlig tid och pris för ditt behov.",
       ],
     },
   ],

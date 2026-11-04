@@ -86,14 +86,14 @@ const faqs = [
       "The booking flow does not guarantee a consultation in English. Contact Specialistdirekt before booking if you need to confirm language availability with the clinic.",
   },
   {
-    question: "What is Specialistdirekt's role?",
+    question: "Who will I see?",
     answer:
-      "Specialistdirekt provides the booking service. Dr. Masoud Sorkhabi, a specialist in orthopedics and spine surgery in Gothenburg, makes the medical assessment.",
+      "With Specialistdirekt you book an appointment with Dr. Masoud Sorkhabi, a specialist in orthopedics and spine surgery in Gothenburg, who makes the medical assessment.",
   },
   {
     question: "Who is responsible for my medical care?",
     answer:
-      "The medical assessment, treatment and medical responsibility lie with Dr. Masoud Sorkhabi, who conducts the appointment. Specialistdirekt does not give medical advice.",
+      "The medical assessment, treatment and medical responsibility lie with Dr. Masoud Sorkhabi, who conducts the appointment. The website does not give medical advice.",
   },
 ];
 
@@ -108,8 +108,7 @@ const quickFacts = [
   { label: "Patient type", value: "Self-paying" },
   { label: "Referral", value: "Not required" },
   { label: "Booking", value: "Choose a time directly in the calendar" },
-  { label: "Role", value: "Specialistdirekt provides the booking service" },
-];
+  ];
 
 export default function EnglishOrthopedistGothenburgPage() {
   const specialty = getSpecialty("ortoped");
@@ -188,7 +187,7 @@ export default function EnglishOrthopedistGothenburgPage() {
                 confirm the appointment through the link sent by e-mail.
               </p>
               <p className="mt-3">
-                <strong>Specialistdirekt provides the booking service.</strong>{" "}
+                <strong>You see Dr. Masoud Sorkhabi in person.</strong>{" "}
                 The medical assessment and treatment are provided by the doctor.
               </p>
 

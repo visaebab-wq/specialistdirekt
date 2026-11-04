@@ -46,7 +46,7 @@ export const article: Article = {
   ],
   intro: [
     "MR (magnetkamera) används för att undersöka kroppens mjukdelar, leder, rygg, hjärna, buk, prostata och andra områden mer detaljerat. Många söker privat MR vid långvariga besvär, för snabbare besked eller tydligare bild inför specialistbedömning – t.ex. ryggsmärta, knäbesvär, axelproblem, huvudvärk, misstänkt diskbråck, idrottsskada eller prostatabesvär.",
-    "Specialistdirekt hjälper dig hitta rätt väg till privat specialistvård och diagnostik. Vi ställer ingen diagnos och utför ingen undersökning. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en relevant mottagning/klinik. Läs mer om [hur det fungerar](/sa-fungerar-det).",
+    "Via Specialistdirekt kan du skicka en kostnadsfri bokningsförfrågan för privat specialistvård och diagnostik. Vi ställer ingen diagnos och utför ingen undersökning. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en relevant mottagning/klinik. Läs mer om [hur det fungerar](/sa-fungerar-det).",
   ],
   sections: [
     {
@@ -184,14 +184,14 @@ export const article: Article = {
     },
     {
       id: "sa-hjalper-vi",
-      heading: "Så hjälper Specialistdirekt dig",
+      heading: "Så bokar du via Specialistdirekt",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård och diagnostik. Vi gör ingen medicinsk bedömning. Så fungerar det:",
+        "Den medicinska bedömningen görs av läkaren vid besöket. Så fungerar det:",
       ],
       bullets: [
         "Du beskriver behovet (kroppsdel, besvär, remiss).",
         "Du anger stad eller område.",
-        "Vi hjälper dig vidare till privat MR, specialistbedömning eller en mottagning som kan avgöra nästa steg.",
+        "Du får besked om möjlig tid och pris för privat MR eller specialistbedömning.",
         "Det är alltid mottagningen eller radiologen som avgör upplägget.",
       ],
     },
@@ -248,7 +248,7 @@ export const article: Article = {
     {
       question: "Kan Specialistdirekt säga vilken MR jag behöver?",
       answer:
-        "Nej. Specialistdirekt ställer ingen diagnos och gör ingen medicinsk bedömning. Vi hjälper dig med vägledning och bokningsförfrågan till relevant klinik eller mottagning.",
+        "Nej. Diagnos och medicinsk bedömning görs av läkaren vid besöket, inte via webbplatsen. Du kan skicka en kostnadsfri bokningsförfrågan och få besked om möjlig tid och pris.",
     },
     {
       question: "När ska jag söka akut?",

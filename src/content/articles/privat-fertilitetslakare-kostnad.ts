@@ -46,7 +46,7 @@ export const article: Article = {
   intro: [
     "Att det dröjer att bli gravid kan väcka många frågor och mycket oro. Det kan handla om att graviditet uteblir trots försök under lång tid, oregelbunden eller utebliven ägglossning, upprepade missfall, frågor kopplade till stigande ålder, nedsatt spermiekvalitet, endometrios eller PCOS. Andra söker för att förstå sina möjligheter inför framtiden, exempelvis genom äggfrysning.",
     "Många börjar i vårdcentralen, hos sin gynekolog eller i den offentligt finansierade fertilitetsvården. Men i vissa situationer vill man snabbare hitta rätt privat fertilitetsläkare eller fertilitetsklinik, särskilt om väntetiderna är långa, om tiden känns kort på grund av ålder eller om man vill påbörja en utredning utan dröjsmål.",
-    "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
+    "Via Specialistdirekt kan du skicka en kostnadsfri bokningsförfrågan för ett privat specialistbesök. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
   ],
   sections: [
     {
@@ -221,14 +221,14 @@ export const article: Article = {
     },
     {
       id: "sa-hjalper-vi",
-      heading: "Så hjälper Specialistdirekt dig",
+      heading: "Så bokar du via Specialistdirekt",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Vi gör ingen medicinsk bedömning. Så fungerar det:",
+        "Den medicinska bedömningen görs av läkaren vid besöket. Så fungerar det:",
       ],
       bullets: [
         "Du beskriver din situation i en kort bokningsförfrågan.",
         "Du anger stad eller område där du helst vill få hjälp.",
-        "Vi hjälper dig vidare till en privat mottagning eller fertilitetsklinik som kan vara relevant utifrån behov, ort och tillgänglighet.",
+        "Du får besked om möjlig tid och pris utifrån behov, ort och tillgänglighet.",
         "Det är alltid mottagningen som bedömer om de kan ta emot dig och vilken vård som är medicinskt lämplig.",
       ],
     },
@@ -244,7 +244,7 @@ export const article: Article = {
       heading: "Sammanfattning",
       body: [
         "Det kan vara aktuellt med en privat fertilitetsläkare om graviditet dröjer, vid besvär som kan påverka fertiliteten eller om du vill förstå dina möjligheter inför framtiden. En första bedömning kostar ofta **3 000–5 000 kr** och en komplett utredning **4 000–8 000 kr eller mer**. IVF kostar ofta **45 000–60 000 kr per behandling** och paket **90 000–120 000 kr eller mer**, medan äggfrysning ofta ligger på **35 000–45 000 kr** per omgång. Sjukvårdsförsäkring kan ibland täcka delar av en bedömning, men IVF är ofta undantaget. Vill du jämföra alternativen kan du läsa mer om [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig).",
-        "Du beskriver din situation, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Vi hjälper dig vidare till en privat mottagning eller fertilitetsklinik som kan vara relevant för ditt behov.",
+        "Du beskriver din situation, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Du får besked om möjlig tid och pris för ditt behov.",
       ],
     },
   ],
@@ -282,7 +282,7 @@ export const article: Article = {
     {
       question: "Kan Specialistdirekt säga om jag behöver fertilitetsbehandling?",
       answer:
-        "Nej. Specialistdirekt ställer ingen diagnos och gör ingen medicinsk bedömning. Vi hjälper dig med vägledning och bokningsförfrågan till en relevant privat mottagning eller fertilitetsklinik.",
+        "Nej. Diagnos och medicinsk bedömning görs av läkaren vid besöket, inte via webbplatsen. Du kan skicka en kostnadsfri bokningsförfrågan och få besked om möjlig tid och pris.",
     },
   ],
 };

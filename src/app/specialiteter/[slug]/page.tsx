@@ -145,7 +145,7 @@ export default async function SpecialtyPage({
             </ul>
 
             <div className="soft-info-card mt-8 p-6">
-              <h2 className="text-xl font-bold text-ink-900">Så hjälper Specialistdirekt dig</h2>
+              <h2 className="text-xl font-bold text-ink-900">Så bokar du</h2>
               <p className="mt-2 text-ink-600">
                 Beskriv ditt behov i formuläret och skicka en kostnadsfri förfrågan
                 – normalt återkommer vi inom en arbetsdag med besked om hur du kan gå vidare.

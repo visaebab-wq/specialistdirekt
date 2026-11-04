@@ -117,7 +117,7 @@ export default async function CitySpecialtyPage({
 
   const pairIntro =
     city.specialtyIntros[slug] ??
-    `Söker du en ${specialty.title.toLowerCase()} i ${city.name}? Vi hjälper dig hitta rätt specialist inom ${specialty.name.toLowerCase()}.`;
+    `Söker du en ${specialty.title.toLowerCase()} i ${city.name}? Skicka en kostnadsfri bokningsförfrågan för ett privat besök inom ${specialty.name.toLowerCase()}.`;
 
   const path = `/specialiteter/${specialty.slug}/${city.slug}`;
 

@@ -31,7 +31,7 @@ export const article: Article = {
     "Koloskopi kan vara aktuellt vid blod i avföringen, långvarig diarré, förändrade avföringsvanor, tidigare polyper eller misstanke om inflammatorisk tarmsjukdom.",
     "Vissa mottagningar kräver remiss, andra kan göra en egen medicinsk bedömning innan bokning.",
     "Privat sjukvårdsförsäkring kan i vissa fall täcka koloskopi, men försäkringsbolaget behöver ofta godkänna ärendet först.",
-    "[Specialistdirekt](/kontakt) gör ingen medicinsk bedömning. Vi hjälper dig hitta rätt väg och skicka en bokningsförfrågan till relevant privat mottagning.",
+    "Via [Specialistdirekt](/kontakt) kan du skicka en kostnadsfri bokningsförfrågan. Den medicinska bedömningen görs av läkaren vid besöket.",
   ],
   priceTable: [
     { label: "Koloskopi utan vävnadsprover", price: "från cirka 8 800 kr" },
@@ -49,7 +49,7 @@ export const article: Article = {
   ],
   intro: [
     "Koloskopi är en undersökning av tjocktarmen, och ibland sista delen av tunntarmen, med ett koloskop – en mjuk slang med kamera som förs in via ändtarmen. Många söker privat koloskopi för att slippa lång väntetid, få snabbare besked eller för att de har en privat sjukvårdsförsäkring som kan användas. Läs mer om [privat koloskopi utan remiss](/privat-koloskopi).",
-    "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård och diagnostik. Vi ställer ingen diagnos och utför ingen undersökning. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort.",
+    "Via Specialistdirekt kan du skicka en kostnadsfri bokningsförfrågan för privat specialistvård och diagnostik. Vi ställer ingen diagnos och utför ingen undersökning. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort.",
   ],
   sections: [
     {
@@ -269,14 +269,14 @@ export const article: Article = {
     },
     {
       id: "sa-hjalper-vi",
-      heading: "Så hjälper Specialistdirekt dig",
+      heading: "Så bokar du via Specialistdirekt",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Så fungerar det:",
+        "Så fungerar det:",
       ],
       bullets: [
         "Du beskriver ditt behov i en kort bokningsförfrågan.",
         "Du anger önskat område eller ort.",
-        "Vi hjälper dig vidare till en relevant privat mottagning eller specialist.",
+        "Du får besked om möjlig tid och pris.",
         "Mottagningen avgör om de kan ta emot dig och om koloskopi är rätt undersökning.",
       ],
     },
@@ -293,7 +293,7 @@ export const article: Article = {
       heading: "Sammanfattning",
       body: [
         "Det kan vara aktuellt med en privat koloskopi vid blod i avföringen, långvarig diarré, förändrade avföringsvanor, misstänkta polyper, uppföljning, järnbrist eller vidare mag- och tarmutredning. Priset ligger ofta på minst **8 800 kr**, och tillägg som vävnadsprover, polypborttagning, sedering, narkos och uppföljning kan göra det högre.",
-        "Sjukvårdsförsäkring kan i vissa fall täcka kostnaden. Specialistdirekt ställer ingen diagnos, men hjälper dig vidare med en [bokningsförfrågan](/kontakt) till en relevant privat mottagning för ditt behov och din ort.",
+        "Sjukvårdsförsäkring kan i vissa fall täcka kostnaden. Diagnos ställs av läkaren vid besöket. Du kan skicka en [bokningsförfrågan](/kontakt) utifrån ditt behov och din ort.",
       ],
     },
   ],
@@ -341,7 +341,7 @@ export const article: Article = {
     {
       question: "Kan Specialistdirekt säga om jag behöver koloskopi?",
       answer:
-        "Nej. Specialistdirekt ställer ingen diagnos och gör ingen medicinsk bedömning. Vi hjälper dig med vägledning och en bokningsförfrågan till en relevant privat mottagning, som avgör om koloskopi är rätt.",
+        "Nej. Diagnos och medicinsk bedömning görs av läkaren vid besöket, inte via webbplatsen. Du kan skicka en kostnadsfri bokningsförfrågan; läkaren avgör vid besöket om koloskopi är rätt.",
     },
   ],
 };

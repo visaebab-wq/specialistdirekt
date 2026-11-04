@@ -29,7 +29,7 @@ export const article: Article = {
     "Vid domningar i händer och fötter är **vårdcentralen** oftast rätt första kontakt – läkaren bedömer, tar prover och remitterar vidare vid behov.",
     "Vid utbredda, ihållande eller försämrade domningar blir en **neurolog** aktuell; är besvären kopplade till nacke, rygg eller handled kan en ortoped vara rätt.",
     "Varningssignal: ring 112 vid plötsliga domningar eller svaghet i ena kroppshalvan, hängande mungipa, talsvårigheter eller synrubbning – det kan vara stroke.",
-    "[Specialistdirekt](/kontakt) hjälper dig hitta rätt specialist och skicka en bokningsförfrågan.",
+    "Via [Specialistdirekt](/kontakt) kan du skicka en kostnadsfri bokningsförfrågan till en privat specialist.",
   ],
   suitableFor: [
     "har haft domningar eller stickningar i flera veckor",
@@ -121,10 +121,10 @@ export const article: Article = {
     },
     {
       id: "specialistdirekt",
-      heading: "Så hjälper Specialistdirekt dig vidare",
+      heading: "Så går du vidare",
       body: [
-        "Specialistdirekt är en **kostnadsfri** boknings- och informationstjänst. Du beskriver kort dina besvär och skickar en förfrågan. Vi återkommer med besked om hur du kan gå vidare. Vi ställer inga diagnoser och ger ingen medicinsk rådgivning; via Specialistdirekt kan du skicka en förfrågan om en privat mottagning och få besked om tid och pris.",
-        "Vill du veta hur tjänsten fungerar steg för steg kan du läsa [så fungerar det](/sa-fungerar-det). Är du redo att komma vidare, fyll i en förfrågan via [kontaktsidan](/kontakt) så återkommer vi med förslag på lämplig neurolog.",
+        "Det är **kostnadsfritt** att skicka en förfrågan via Specialistdirekt. Du beskriver kort dina besvär och skickar en förfrågan. Vi återkommer med besked om hur du kan gå vidare. Du får besked om möjlig tid och pris; diagnos och medicinsk bedömning görs av läkaren vid besöket.",
+        "Vill du veta hur tjänsten fungerar steg för steg kan du läsa [så fungerar det](/sa-fungerar-det). Är du redo att komma vidare, fyll i en förfrågan via [kontaktsidan](/kontakt) så återkommer vi med besked om möjlig tid och pris.",
         "Priserna i den här guiden är ungefärliga och kan ha ändrats – be alltid kliniken om ett bekräftat pris innan du bokar. Och vid plötsliga, akuta symtom ska du alltid ringa 112.",
       ],
     },

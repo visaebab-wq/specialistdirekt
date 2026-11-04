@@ -29,7 +29,7 @@ export const article: Article = {
     "Vid hjärtklappning är **vårdcentralen** oftast rätt första kontakt – läkaren tar EKG, lyssnar på hjärtat och tar prover.",
     "Vid återkommande eller svårförklarade besvär blir en **kardiolog** aktuell, ofta med långtidsregistrering (Holter) av hjärtrytmen.",
     "Varningssignal: ring 112 om hjärtklappningen följs av bröstsmärta, andnöd eller svimning, eller om du blir kraftigt allmänpåverkad.",
-    "[Specialistdirekt](/kontakt) hjälper dig hitta rätt specialist och skicka en bokningsförfrågan.",
+    "Via [Specialistdirekt](/kontakt) kan du skicka en kostnadsfri bokningsförfrågan till en privat specialist.",
   ],
   suitableFor: [
     "har haft återkommande hjärtklappning under en tid",
@@ -128,10 +128,10 @@ export const article: Article = {
     },
     {
       id: "specialistdirekt",
-      heading: "Så hjälper Specialistdirekt dig vidare",
+      heading: "Så går du vidare",
       body: [
-        "Specialistdirekt är en **kostnadsfri** boknings- och informationstjänst. Du beskriver kort dina besvär och skickar en förfrågan. Vi återkommer med besked om hur du kan gå vidare. Vi ställer inga diagnoser och ger ingen medicinsk rådgivning; via Specialistdirekt kan du skicka en förfrågan om en privat mottagning och få besked om tid och pris.",
-        "Vill du veta exakt hur tjänsten fungerar steg för steg kan du läsa [så fungerar det](/sa-fungerar-det). Är du redo att komma vidare, fyll i en förfrågan via [kontaktsidan](/kontakt) så återkommer vi med förslag på lämplig kardiolog.",
+        "Det är **kostnadsfritt** att skicka en förfrågan via Specialistdirekt. Du beskriver kort dina besvär och skickar en förfrågan. Vi återkommer med besked om hur du kan gå vidare. Du får besked om möjlig tid och pris; diagnos och medicinsk bedömning görs av läkaren vid besöket.",
+        "Vill du veta exakt hur tjänsten fungerar steg för steg kan du läsa [så fungerar det](/sa-fungerar-det). Är du redo att komma vidare, fyll i en förfrågan via [kontaktsidan](/kontakt) så återkommer vi med besked om möjlig tid och pris.",
         "Kom ihåg att priserna i den här guiden är ungefärliga och kan ha ändrats. Det säkraste är alltid att be den aktuella kliniken om ett bekräftat pris innan du bokar – och att vid akuta symtom som bröstsmärta, andnöd eller svimning alltid ringa 112.",
       ],
     },

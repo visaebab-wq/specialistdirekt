@@ -45,7 +45,7 @@ export const article: Article = {
   ],
   intro: [
     "Kost och näring påverkar många delar av hälsan – vikt, magbesvär, IBS, diabetes, högt kolesterol, högt blodtryck, undervikt, aptitproblem, idrott, graviditet eller behov av en mer strukturerad kostplan. Många söker information på egen hand, men ibland räcker generella råd inte. Då kan en legitimerad dietist hjälpa till med en individuell bedömning och en plan som utgår från din hälsa, dina mål och din vardag.",
-    "Specialistdirekt hjälper dig hitta rätt väg vidare till privat vård och hälsorelaterad rådgivning. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en relevant mottagning eller legitimerad yrkesperson. Läs mer om [hur det fungerar](/sa-fungerar-det).",
+    "Via Specialistdirekt kan du skicka en kostnadsfri bokningsförfrågan. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en relevant mottagning eller legitimerad yrkesperson. Läs mer om [hur det fungerar](/sa-fungerar-det).",
   ],
   sections: [
     {
@@ -178,14 +178,14 @@ export const article: Article = {
     },
     {
       id: "sa-hjalper-vi",
-      heading: "Så hjälper Specialistdirekt dig",
+      heading: "Så bokar du via Specialistdirekt",
       body: [
-        "Specialistdirekt hjälper dig hitta rätt väg vidare. Så fungerar det:",
+        "Så fungerar det:",
       ],
       bullets: [
         "Du beskriver vad du vill ha hjälp med (vikt, IBS, diabetes, kolesterol, kostplan).",
         "Du anger stad eller område, eller om du vill ha digital kontakt.",
-        "Vi hjälper dig skicka en bokningsförfrågan till relevant mottagning eller legitimerad dietist.",
+        "Du skickar en bokningsförfrågan och får besked om möjlig tid och pris.",
         "Mottagningen avgör upplägg, pris och om de kan ta emot dig.",
       ],
     },
@@ -227,7 +227,7 @@ export const article: Article = {
     {
       question: "Kan Specialistdirekt säga vilken kostplan jag behöver?",
       answer:
-        "Nej, vi gör ingen medicinsk bedömning och tar inte fram kostplaner.",
+        "Nej, webbplatsen gör ingen bedömning och tar inte fram kostplaner.",
     },
   ],
 };

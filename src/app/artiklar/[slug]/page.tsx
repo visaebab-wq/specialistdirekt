@@ -357,8 +357,7 @@ export default async function ArticlePage({
           <div className="warning-card mt-10 p-5 text-sm">
             <strong>Observera:</strong> Den här artikeln är allmän information och ersätter inte
             individuell medicinsk bedömning. Vid akuta besvär – ring 112. För sjukvårdsrådgivning,
-            ring 1177. Specialistdirekt är en kostnadsfri boknings- och informationstjänst och ger inte medicinsk
-            rådgivning.
+            ring 1177.
           </div>
 
           {reviewer && <RecoTrust />}
@@ -407,7 +406,7 @@ export default async function ArticlePage({
                 ? article.cta.heading
                 : specialty
                   ? `Behöver du en ${specialty.title.toLowerCase()}?`
-                  : "Behöver du hjälp att hitta rätt specialist?"}
+                  : "Vill du boka en specialistläkare?"}
             </h2>
             <p className="mx-auto mt-2 max-w-md text-brand-50">
               {article.cta?.body ??

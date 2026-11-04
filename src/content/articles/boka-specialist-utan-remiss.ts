@@ -29,7 +29,7 @@ export const article: Article = {
     "Om remiss krävs beror på **specialiteten, regionen** och om vården är offentligt finansierad eller helt privat.",
     "En egenremiss ska innehålla dina symtom, hur länge de pågått, hur de påverkar din vardag och vilken mottagning du önskar.",
     "Egenremiss i offentlig vård ger **patientavgift och högkostnadsskydd**, medan helt privat vård innebär fullt pris utan högkostnadsskydd.",
-    "[Specialistdirekt](/kontakt) hjälper dig hitta rätt specialist och skicka en bokningsförfrågan.",
+    "Via [Specialistdirekt](/kontakt) kan du skicka en kostnadsfri bokningsförfrågan till en privat specialist.",
   ],
   suitableFor: [
     "Dig som vill slippa onödigt remisskrångel och söka specialist direkt.",
@@ -98,7 +98,7 @@ export const article: Article = {
       ],
       bullets: [
         "**1. Beskriv dina symtom** kort för dig själv – vad, hur länge och hur det påverkar dig.",
-        "**2. Avgör rätt specialitet.** Är du osäker, läs [hitta rätt specialistläkare](/artiklar/hitta-ratt-specialistlakare-guide) eller låt oss hjälpa dig.",
+        "**2. Avgör rätt specialitet.** Är du osäker, läs [hitta rätt specialistläkare](/artiklar/hitta-ratt-specialistlakare-guide) eller skicka en [kostnadsfri förfrågan](/kontakt).",
         "**3. Kontrollera remisskravet** för den specialiteten i din region via 1177 eller mottagningen.",
         "**4. Välj väg:** egenremiss i offentlig vård eller direktbokning på privat mottagning.",
         "**5. Skriv egenremissen** (om det behövs) med uppgifterna i listan ovan, eller boka tid direkt.",
@@ -122,9 +122,9 @@ export const article: Article = {
     },
     {
       id: "sa-hjalper-vi",
-      heading: "Så hjälper Specialistdirekt dig hitta rätt",
+      heading: "Så bokar du rätt specialist",
       body: [
-        "**Specialistdirekt** är en **kostnadsfri boknings- och informationstjänst**. Du skickar en förfrågan och får besked om hur du kan gå vidare. Vi hjälper dig att reda ut om du behöver remiss eller kan söka direkt, och guidar dig till en lämplig mottagning utifrån dina besvär.",
+        "Via **Specialistdirekt** kan du skicka en **kostnadsfri bokningsförfrågan**. Du får besked om möjlig tid och pris, och om du behöver remiss eller kan söka direkt.",
         "Du beskriver din situation, så hjälper vi dig vidare – utan att du behöver tolka regelverket på egen hand. Vill du veta mer om hur det går till kan du läsa [så fungerar det](/sa-fungerar-det), eller [kontakta oss](/kontakt) så tar vi nästa steg tillsammans. Är väntetiden ett bekymmer hittar du även information om dina rättigheter i [väntetid hos specialist och vårdgarantin](/artiklar/vantetid-specialist-vardgaranti).",
       ],
     },
@@ -158,7 +158,7 @@ export const article: Article = {
     {
       question: "Hur kan Specialistdirekt hjälpa mig?",
       answer:
-        "Vi är en kostnadsfri boknings- och informationstjänst som hjälper dig avgöra om du behöver remiss eller kan söka direkt. Beskriv din situation via kontaktsidan så guidar vi dig vidare.",
+        "Beskriv din situation i en kostnadsfri förfrågan via [kontaktsidan](/kontakt), så får du besked om du behöver remiss eller kan söka direkt.",
     },
   ],
 };

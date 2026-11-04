@@ -31,7 +31,7 @@ export const article: Article = {
     "**Fettlever är en vanlig orsak.** Enligt 1177 är övervikt och typ 2-diabetes numera vanligare orsaker än hög alkoholkonsumtion.",
     "Levern ger sällan symtom tidigt – därför upptäcks avvikelser ofta i ett prov taget av **helt andra skäl**.",
     "Utredningen görs av **gastroenterolog** (magspecialist); vid mer komplexa leversjukdomar av en **hepatolog**, som är en leverinriktad gastroenterolog.",
-    "[Specialistdirekt](/kontakt) hjälper dig kostnadsfritt att hitta rätt specialist och skicka en förfrågan.",
+    "Via [Specialistdirekt](/kontakt) kan du skicka en kostnadsfri bokningsförfrågan till en privat specialist.",
   ],
   suitableFor: [
     "Dig som fått ett provsvar med förhöjda levervärden och inte vet vad det betyder.",
@@ -124,7 +124,7 @@ export const article: Article = {
       heading: "När du ska söka vård direkt",
       body: [
         "En planerad utredning av förhöjda levervärden är till för besvär som inte är akuta. Kontakta en vårdcentral om huden eller ögonvitorna blir gula. Sök vård genast vid blodiga kräkningar, svart eller tjärliknande avföring, snabbt tilltagande buksvullnad eller om du blir förvirrad, extremt trött eller svimfärdig. Ring **112** vid ett livshotande tillstånd.",
-        "Specialistdirekt är en boknings- och informationstjänst och bedömer inte hur brådskande dina besvär är. Är du osäker kan du ringa **1177** dygnet runt för sjukvårdsrådgivning.",
+        "Webbplatsen kan inte bedöma hur brådskande dina besvär är. Är du osäker kan du ringa **1177** dygnet runt för sjukvårdsrådgivning.",
       ],
     },
     {
@@ -169,7 +169,7 @@ export const article: Article = {
     {
       question: "Kan jag boka en privat leverutredning utan remiss?",
       answer:
-        "Som självbetalande kan du hos många privata mottagningar boka utan remiss, via egen vårdbegäran. Med sjukvårdsförsäkring går du vanligtvis via försäkringsbolaget, och inom regionfinansierad vård krävs oftast remiss. Reglerna varierar mellan mottagningar – vi hjälper dig kostnadsfritt att reda ut vad som gäller.",
+        "Som självbetalande kan du hos många privata mottagningar boka utan remiss, via egen vårdbegäran. Med sjukvårdsförsäkring går du vanligtvis via försäkringsbolaget, och inom regionfinansierad vård krävs oftast remiss. Reglerna varierar mellan mottagningar – du får besked om vad som gäller när du skickar en förfrågan.",
     },
     {
       question: "Vad kostar en privat bedömning av levervärden?",

@@ -1,26 +1,38 @@
-// Stegen i bokningsflödet. Återanvänds på startsidan och /sa-fungerar-det.
+// Patientens väg i bokningsflödet. Används på /sa-fungerar-det och i dess
+// HowTo-schema. Direktbokning och bokningsförfrågan hålls isär: en förfrågan
+// är aldrig en bekräftad bokning.
 
 export const steps = [
   {
     icon: "01",
-    title: "Beskriv ditt behov",
-    text: "Fyll i ett kort formulär och berätta vad du söker hjälp med. Det tar bara någon minut.",
+    title: "Välj specialistområde",
+    text: "Välj det område du behöver hjälp med, till exempel ortopedi, kardiologi eller neurologi.",
   },
   {
     icon: "02",
-    title: "Vi går igenom förfrågan",
-    text: "Vi läser din förfrågan och återkommer med besked om hur du kan gå vidare.",
+    title: "Läs om besöket och läkaren",
+    text: "Se vad besöket gäller och, när det är känt, vilken läkare du träffar, var besöket sker och vad det kostar.",
   },
   {
     icon: "03",
-    title: "Besked om bokning",
-    text: "Du får besked om möjlig tid och kan boka enligt informationen du får. Det kostar inget att skicka en förfrågan.",
+    title: "Välj tid eller skicka förfrågan",
+    text: "Ortopedbesök hos Dr. Masoud Sorkhabi i Göteborg bokar du direkt i kalendern. För andra specialiteter skickar du en kostnadsfri bokningsförfrågan.",
+  },
+  {
+    icon: "04",
+    title: "Få bekräftelse",
+    text: "Vid direktbokning bekräftar du tiden via länken i mejlet. Efter en bokningsförfrågan får du besked om möjlig tid och pris – tiden är bokad först när den bekräftats.",
+  },
+  {
+    icon: "05",
+    title: "Besök specialistläkaren",
+    text: "Du träffar läkaren, som gör den medicinska bedömningen vid besöket.",
   },
 ];
 
 export function HowItWorks() {
   return (
-    <ol className="grid gap-6 md:grid-cols-3">
+    <ol className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
       {steps.map((step, i) => (
         <li
           key={step.title}

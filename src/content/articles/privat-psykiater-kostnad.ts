@@ -46,7 +46,7 @@ export const article: Article = {
   intro: [
     "Psykiska besvär kan påverka arbete, relationer, sömn och hela vardagen – ångest, depression, sömnproblem, stressrelaterade besvär, misstänkt ADHD, läkemedelsfrågor eller behov av specialistbedömning inom psykiatri.",
     "Många börjar hos vårdcentralen, men om besvären är långvariga, komplexa eller kräver bedömning av en specialistläkare kan en psykiater bli aktuell.",
-    "Specialistdirekt hjälper dig hitta rätt väg till privat specialistvård. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en relevant mottagning. Läs mer om [hur det fungerar](/sa-fungerar-det).",
+    "Via Specialistdirekt kan du skicka en kostnadsfri bokningsförfrågan för ett privat specialistbesök. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en relevant mottagning. Läs mer om [hur det fungerar](/sa-fungerar-det).",
   ],
   sections: [
     {
@@ -216,14 +216,14 @@ export const article: Article = {
     },
     {
       id: "sa-hjalper-vi",
-      heading: "Så hjälper Specialistdirekt dig",
+      heading: "Så bokar du via Specialistdirekt",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Vi gör ingen medicinsk bedömning. Så fungerar det:",
+        "Den medicinska bedömningen görs av läkaren vid besöket. Så fungerar det:",
       ],
       bullets: [
         "Du beskriver dina besvär i en kort bokningsförfrågan.",
         "Du anger stad eller område, eller om digitalt besök fungerar.",
-        "Vi hjälper dig vidare till en relevant mottagning.",
+        "Du får besked om möjlig tid och pris.",
         "Det är alltid mottagningen som bedömer vårdbehovet.",
       ],
     },
@@ -239,7 +239,7 @@ export const article: Article = {
       heading: "Sammanfattning",
       body: [
         "Det kan vara aktuellt med en privat psykiater vid depression, ångest, ADHD-frågor, läkemedelsbedömning eller andra besvär där specialistbedömning behövs. Ett besök kostar ofta **från cirka 3 000 kr** och uppåt; omfattande utredningar, ADHD-bedömningar eller intyg kan kosta **betydligt mer (5 000–20 000 kr eller mer)**. I vissa fall kan sjukvårdsförsäkring täcka kostnaden.",
-        "Du beskriver dina besvär, anger önskat område eller digitalt besök och skickar en [bokningsförfrågan](/kontakt). Vi hjälper dig vidare till en privat mottagning som kan vara relevant för ditt behov.",
+        "Du beskriver dina besvär, anger önskat område eller digitalt besök och skickar en [bokningsförfrågan](/kontakt). Du får besked om möjlig tid och pris för ditt behov.",
       ],
     },
   ],
@@ -267,7 +267,7 @@ export const article: Article = {
     {
       question: "Kan Specialistdirekt säga om jag behöver psykiater?",
       answer:
-        "Nej. Specialistdirekt ställer ingen diagnos och gör ingen medicinsk bedömning. Vi hjälper dig med vägledning och bokningsförfrågan till relevant privat mottagning.",
+        "Nej. Diagnos och medicinsk bedömning görs av läkaren vid besöket, inte via webbplatsen. Du kan skicka en kostnadsfri bokningsförfrågan och få besked om möjlig tid och pris.",
     },
     {
       question: "Kan jag få ADHD-utredning privat?",

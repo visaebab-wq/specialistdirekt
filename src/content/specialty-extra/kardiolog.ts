@@ -64,7 +64,7 @@ export const extra: SpecialtyExtra = {
     {
       question: "Behöver jag remiss för att träffa en kardiolog?",
       answer:
-        "Det varierar. Hos vissa privata mottagningar kan du boka tid utan remiss, medan andra vårdgivare och regionfinansierad vård ofta vill ha en remiss från exempelvis vårdcentralen. Specialistdirekt hjälper dig att hitta rätt väg utifrån din situation – hör av dig via [/kontakt](/kontakt) så guidar vi dig.",
+        "Det varierar. Hos vissa privata mottagningar kan du boka tid utan remiss, medan andra vårdgivare och regionfinansierad vård ofta vill ha en remiss från exempelvis vårdcentralen. Skicka en kostnadsfri förfrågan via [kontaktsidan](/kontakt), så får du besked om vad som gäller i din situation.",
     },
     {
       question: "Vad kostar ett besök hos en privat kardiolog?",

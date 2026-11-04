@@ -24,7 +24,7 @@ export const specialties: Specialty[] = [
     title: "Kardiolog",
     short: "Hjärt- och kärlsjukdomar, högt blodtryck och hjärtklappning.",
     intro:
-      "En kardiolog är specialist på hjärtat och blodkärlen. Vi hjälper dig att hitta en kardiolog för utredning av hjärtklappning, bröstsmärta, högt blodtryck eller uppföljning av en känd hjärtsjukdom – utan långa väntetider.",
+      "En kardiolog är specialist på hjärtat och blodkärlen. Du kan skicka en kostnadsfri bokningsförfrågan för utredning av hjärtklappning, bröstsmärta, högt blodtryck eller uppföljning av en känd hjärtsjukdom – utan långa väntetider.",
     reasons: [
       "Hjärtklappning eller oregelbunden puls",
       "Bröstsmärta eller andfåddhet vid ansträngning",
@@ -54,7 +54,7 @@ export const specialties: Specialty[] = [
     title: "Hudläkare",
     short: "Hudåkommor, eksem, akne, födelsemärken och hudcancerkontroll.",
     intro:
-      "En hudläkare (dermatolog) utreder och behandlar sjukdomar i hud, hår och naglar. Vi hjälper dig att snabbt få tid för bedömning av misstänkta födelsemärken, eksem, akne, psoriasis eller andra hudbesvär.",
+      "En hudläkare (dermatolog) utreder och behandlar sjukdomar i hud, hår och naglar. Du kan skicka en kostnadsfri bokningsförfrågan för bedömning av misstänkta födelsemärken, eksem, akne, psoriasis eller andra hudbesvär.",
     reasons: [
       "Förändrade födelsemärken och hudkontroll",
       "Eksem, psoriasis eller nässelutslag",
@@ -84,7 +84,7 @@ export const specialties: Specialty[] = [
     title: "Neurolog",
     short: "Sjukdomar i hjärna, nerver och nervsystem – migrän, yrsel m.m.",
     intro:
-      "En neurolog utreder sjukdomar i nervsystemet, hjärnan och ryggmärgen. Vi hjälper dig att hitta en neurolog för utredning av återkommande huvudvärk, migrän, yrsel, domningar eller minnesbesvär.",
+      "En neurolog utreder sjukdomar i nervsystemet, hjärnan och ryggmärgen. Du kan skicka en kostnadsfri bokningsförfrågan för utredning av återkommande huvudvärk, migrän, yrsel, domningar eller minnesbesvär.",
     reasons: [
       "Migrän och svår återkommande huvudvärk",
       "Yrsel och balansproblem",
@@ -114,7 +114,7 @@ export const specialties: Specialty[] = [
     title: "Ögonläkare",
     short: "Syn, ögonsjukdomar, grå starr och torra ögon.",
     intro:
-      "En ögonläkare (oftalmolog) utreder och behandlar sjukdomar och besvär i ögat. Vi hjälper dig att hitta en ögonläkare för synförändringar, torra ögon, grå starr eller kontroll av ögonbottnen.",
+      "En ögonläkare (oftalmolog) utreder och behandlar sjukdomar och besvär i ögat. Du kan skicka en kostnadsfri bokningsförfrågan för synförändringar, torra ögon, grå starr eller kontroll av ögonbottnen.",
     reasons: [
       "Försämrad eller dimmig syn",
       "Torra eller irriterade ögon",
@@ -144,7 +144,7 @@ export const specialties: Specialty[] = [
     title: "Urolog",
     short: "Urinvägar, prostata, njurar och vattenkastningsbesvär.",
     intro:
-      "En urolog är specialist på urinvägarna och de manliga könsorganen. Vi hjälper dig att hitta en urolog för besvär med vattenkastning, prostata, njursten eller andra urologiska frågor.",
+      "En urolog är specialist på urinvägarna och de manliga könsorganen. Du kan skicka en kostnadsfri bokningsförfrågan för besvär med vattenkastning, prostata, njursten eller andra urologiska frågor.",
     reasons: [
       "Täta trängningar eller svårt att kissa",
       "Prostatabesvär och PSA-kontroll",
@@ -174,7 +174,7 @@ export const specialties: Specialty[] = [
     title: "Endokrinolog",
     short: "Hormoner och ämnesomsättning – sköldkörtel och diabetes.",
     intro:
-      "En endokrinolog är specialist på hormoner och ämnesomsättning. Vi hjälper dig att hitta en endokrinolog för utredning av sköldkörtelproblem, diabetes, trötthet eller hormonella obalanser.",
+      "En endokrinolog är specialist på hormoner och ämnesomsättning. Du kan skicka en kostnadsfri bokningsförfrågan för utredning av sköldkörtelproblem, diabetes, trötthet eller hormonella obalanser.",
     reasons: [
       "Sköldkörtelbesvär (hög eller låg)",
       "Diabetes och blodsockerkontroll",
@@ -219,7 +219,7 @@ export const specialties: Specialty[] = [
     title: "Hematolog",
     short: "Blodsjukdomar, blodvärden, blodbrist och koagulationsfrågor.",
     intro:
-      "En hematolog är specialist på blodet, benmärgen och sjukdomar som påverkar blodbildning och koagulation. Vi hjälper dig att hitta rätt privat specialist för planerad bedömning av exempelvis avvikande blodvärden, blodbrist eller uppföljning efter tidigare utredning.",
+      "En hematolog är specialist på blodet, benmärgen och sjukdomar som påverkar blodbildning och koagulation. Du kan skicka en kostnadsfri bokningsförfrågan för planerad bedömning av exempelvis avvikande blodvärden, blodbrist eller uppföljning efter tidigare utredning.",
     reasons: [
       "Avvikande blodvärden som behöver bedömas",
       "Blodbrist eller järnbrist som inte förklarats",

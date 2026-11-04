@@ -44,7 +44,7 @@ export const article: Article = {
   intro: [
     "Allergibesvär kan påverka vardagen mer än man tror. Det kan handla om pollenallergi, allergi mot pälsdjur eller kvalster, reaktioner på vissa födoämnen, nässelutslag, astma, eksem, svullnad och klåda. För vissa är besvären lindriga och säsongsbundna, för andra är de återkommande, svårförklarade eller påverkar både sömn, arbete och livskvalitet.",
     "Många börjar i vårdcentralen, som ofta kan utreda och behandla vanliga allergier. Men i vissa situationer vill man snabbare få hjälp att hitta rätt privat allergolog, särskilt vid komplexa besvär, oklara reaktioner, flera samtidiga allergier eller när man redan vet att man behöver en specialistbedömning.",
-    "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
+    "Via Specialistdirekt kan du skicka en kostnadsfri bokningsförfrågan för ett privat specialistbesök. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
   ],
   sections: [
     {
@@ -219,14 +219,14 @@ export const article: Article = {
     },
     {
       id: "sa-hjalper-vi",
-      heading: "Så hjälper Specialistdirekt dig",
+      heading: "Så bokar du via Specialistdirekt",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Vi gör ingen medicinsk bedömning. Så fungerar det:",
+        "Den medicinska bedömningen görs av läkaren vid besöket. Så fungerar det:",
       ],
       bullets: [
         "Du beskriver dina allergibesvär i en kort bokningsförfrågan.",
         "Du anger stad eller område där du helst vill få hjälp.",
-        "Vi hjälper dig vidare till en privat mottagning som kan vara relevant utifrån specialitet, ort och tillgänglighet.",
+        "Du får besked om möjlig tid och pris utifrån specialitet, ort och tillgänglighet.",
         "Det är alltid mottagningen som bedömer om de kan ta emot dig och vilken vård som är medicinskt lämplig.",
       ],
     },
@@ -242,7 +242,7 @@ export const article: Article = {
       heading: "Sammanfattning",
       body: [
         "Det kan vara aktuellt med en privat allergolog vid pollenallergi, allergi mot pälsdjur eller kvalster, födoämnesallergi, nässelutslag, astma, eksem, svullnad och klåda. Ett första besök kostar ofta **från cirka 3 000 kr**, medan en mer **omfattande utredning kan kosta 5 000–15 000 kr eller mer** – och med privat sjukvårdsförsäkring kan du ofta få hjälp med betalningen.",
-        "Vill du jämföra fördelar och kostnader kan vår guide om [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig) vara till hjälp. När du är redo väljer du specialist, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Vi hjälper dig vidare till en privat mottagning som kan vara relevant för ditt behov.",
+        "Vill du jämföra fördelar och kostnader kan vår guide om [privat vård vs offentlig](/artiklar/privat-vard-vs-offentlig) vara till hjälp. När du är redo väljer du specialist, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Du får besked om möjlig tid och pris för ditt behov.",
       ],
     },
   ],

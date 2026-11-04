@@ -7,7 +7,7 @@ export const city: City = {
   county: "Värmlands län",
   hospitals: ["Centralsjukhuset i Karlstad (CSK)"],
   intro:
-    "Karlstad är Värmlands residensstad och länets vårdnav, med Centralsjukhuset i Karlstad (CSK) som bas för den regionfinansierade specialistvården. Som länets största sjukhus samlar CSK en bred specialistkompetens, vilket gör att många värmlänningar reser hit för utredning och behandling. Vid sidan av regionens vård finns även privata specialistmottagningar i staden och i regionen, vilket ger dig fler vägar in. Specialistdirekt hjälper dig kostnadsfritt att hitta rätt specialistläkare i Karlstad utifrån just dina behov.",
+    "Karlstad är Värmlands residensstad och länets vårdnav, med Centralsjukhuset i Karlstad (CSK) som bas för den regionfinansierade specialistvården. Som länets största sjukhus samlar CSK en bred specialistkompetens, vilket gör att många värmlänningar reser hit för utredning och behandling. Vid sidan av regionens vård finns även privata specialistmottagningar i staden och i regionen, vilket ger dig fler vägar in. Hitta privat specialistläkare i Karlstad och skicka en kostnadsfri förfrågan utifrån dina behov.",
   specialtyIntros: {
     gastroenterolog:
       "Vid långvariga mag- och tarmbesvär finns i Karlstad både regionens vård via Centralsjukhuset i Karlstad (CSK) och privata mottagningar. En gastroenterolog utreder hela matsmältningskanalen samt lever, gallvägar och bukspottkörtel. Specialistdirekt vägleder dig kostnadsfritt till rätt magspecialist.",
@@ -18,11 +18,11 @@ export const city: City = {
     ortoped:
       "Har du besvär i leder, skelett eller efter en idrottsskada kan en ortoped i Karlstad hjälpa dig vidare. Ortopedisk vård finns både vid Centralsjukhuset i Karlstad (CSK) och hos privata aktörer i Värmland. Genom Specialistdirekt kommer du i kontakt med en ortoped som passar dina besvär.",
     hudlakare:
-      "Vill du träffa en hudläkare i Karlstad för exempelvis eksem, hudutslag eller en bedömning av födelsemärken finns både regionens hudvård och privata mottagningar att vända sig till. Vi guidar dig kostnadsfritt till rätt dermatolog på orten.",
+      "Vill du träffa en hudläkare i Karlstad för exempelvis eksem, hudutslag eller en bedömning av födelsemärken finns både regionens hudvård och privata mottagningar att vända sig till. Du kan kostnadsfritt skicka en förfrågan om ett besök hos dermatolog på orten.",
     gynekolog:
-      "Behöver du en gynekolog i Karlstad möter du mottagningar inriktade på kvinnohälsa, från allmän gynekologi till mer specialiserad vård kopplad till Centralsjukhuset i Karlstad (CSK). Specialistdirekt hjälper dig att hitta en gynekolog utifrån dina önskemål och behov.",
+      "Behöver du en gynekolog i Karlstad möter du mottagningar inriktade på kvinnohälsa, från allmän gynekologi till mer specialiserad vård kopplad till Centralsjukhuset i Karlstad (CSK). Skicka en kostnadsfri förfrågan om ett gynekologbesök utifrån dina önskemål och behov.",
     psykiater:
-      "Inom psykisk hälsa, inklusive utredning av ADHD, finns i Karlstad psykiatrisk kompetens både i den regiondrivna vården och hos privatpraktiserande psykiatrer. Att hitta rätt väg in kan kännas svårt när man mår dåligt. Vi hjälper dig att komma i kontakt med en psykiater i Karlstad.",
+      "Inom psykisk hälsa, inklusive utredning av ADHD, finns i Karlstad psykiatrisk kompetens både i den regiondrivna vården och hos privatpraktiserande psykiatrer. Att hitta rätt väg in kan kännas svårt när man mår dåligt. Du kan skicka en kostnadsfri förfrågan om ett besök hos psykiater i Karlstad.",
     neurolog:
       "För besvär från nervsystemet, som migrän, yrsel eller domningar, finns neurologisk kompetens vid Centralsjukhuset i Karlstad (CSK) och hos privata mottagningar i regionen. Neurologi är ett område där en tidig och rätt utredning kan göra skillnad. Genom Specialistdirekt kommer du kostnadsfritt i kontakt med en neurolog i Karlstad.",
   },
@@ -36,7 +36,7 @@ export const city: City = {
           id: "privat-gastroenterolog-karlstad",
           heading: "Privat gastroenterolog i Karlstad – vägen in",
           body: [
-            "I Värmland är den regionfinansierade mag- och tarmvården samlad kring **Centralsjukhuset i Karlstad (CSK)**, länets största sjukhus. Att utbudet är koncentrerat till ett nav gör att vägen in i regionvården ofta går via remiss från vårdcentralen. Som självbetalande kan du i stället vända dig till en privat mottagning, ofta utan remiss. Specialistdirekt är fristående och har ingen koppling till CSK eller Region Värmland – vi hjälper dig kostnadsfritt att hitta en relevant privat mottagning.",
+            "I Värmland är den regionfinansierade mag- och tarmvården samlad kring **Centralsjukhuset i Karlstad (CSK)**, länets största sjukhus. Att utbudet är koncentrerat till ett nav gör att vägen in i regionvården ofta går via remiss från vårdcentralen. Som självbetalande kan du i stället vända dig till en privat mottagning, ofta utan remiss. Specialistdirekt är fristående och har ingen koppling till CSK eller Region Värmland – via oss kan du kostnadsfritt skicka en förfrågan för ett privat besök.",
             "En **gastroenterolog** (magspecialist, mag- och tarmläkare) utreder hela matsmältningskanalen samt lever, gallvägar och bukspottkörtel. Det är alltså samma specialitet som utreder både halsbränna, långvarig diarré och förhöjda levervärden. Läs mer på [privat gastroenterolog](/privat-gastroenterolog).",
           ],
         },
@@ -80,7 +80,7 @@ export const city: City = {
           heading: "När du ska söka vård direkt",
           body: [
             "Vissa symtom ska inte vänta på en planerad tid. Sök akut vård eller ring **112** vid kraftig eller ihållande buksmärta, blodiga kräkningar, svart eller tjärliknande avföring, större mängder blod i avföringen, eller hög feber tillsammans med buksmärta.",
-            "En planerad specialistbedömning är till för besvär som inte är akuta. Specialistdirekt ger inte medicinsk rådgivning och bedömer inte hur brådskande dina besvär är. Är du osäker når du 1177 dygnet runt.",
+            "En planerad specialistbedömning är till för besvär som inte är akuta. Webbplatsen ger inte medicinsk rådgivning och kan inte bedöma hur brådskande dina besvär är. Är du osäker når du 1177 dygnet runt.",
           ],
         },
       ],
@@ -93,12 +93,12 @@ export const city: City = {
         {
           question: "Hur bokar jag tid hos en privat gastroenterolog i Karlstad?",
           answer:
-            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi kontaktar flera anslutna mottagningar och återkommer med den tidigaste tid vi hittar. Det medicinska ansvaret för vården ligger hos mottagningen.",
+            "Du skickar en kostnadsfri förfrågan här på sidan och beskriver kort dina besvär. Vi återkommer med besked om den tidigaste tid som finns. Det medicinska ansvaret för vården ligger hos mottagningen.",
         },
         {
           question: "Kan jag träffa en gastroenterolog i Karlstad utan remiss?",
           answer:
-            "Som självbetalande kan du hos många privata mottagningar boka utan remiss, via egen vårdbegäran. Med sjukvårdsförsäkring går du vanligtvis via försäkringsbolaget, och inom regionfinansierad vård i Värmland krävs oftast remiss från vårdcentralen. Reglerna varierar mellan mottagningar – vi hjälper dig kostnadsfritt att reda ut vad som gäller. Se [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
+            "Som självbetalande kan du hos många privata mottagningar boka utan remiss, via egen vårdbegäran. Med sjukvårdsförsäkring går du vanligtvis via försäkringsbolaget, och inom regionfinansierad vård i Värmland krävs oftast remiss från vårdcentralen. Reglerna varierar mellan mottagningar – du får besked om vad som gäller när du skickar en förfrågan. Se [boka specialist utan remiss](/artiklar/boka-specialist-utan-remiss).",
         },
         {
           question: "Varför får jag inget fast totalpris i förväg?",

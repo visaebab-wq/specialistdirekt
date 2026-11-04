@@ -31,7 +31,7 @@ export const article: Article = {
     "Urolog kan vara relevant om PSA är förhöjt, stiger över tid, om du har prostatabesvär eller om vården rekommenderat vidare utredning.",
     "Privat prostatakontroll kostar ofta från cirka **3 000 kr**; MR prostata, biopsi eller mer omfattande utredning kan kosta betydligt mer.",
     "Privat sjukvårdsförsäkring kan ibland täcka urologisk bedömning eller utredning, men försäkringsbolaget behöver ofta godkänna ärendet först.",
-    "[Specialistdirekt](/kontakt) gör ingen medicinsk bedömning och tolkar inte PSA-värden. Vi hjälper dig vidare till relevant privat mottagning.",
+    "PSA-värdet tolkas av läkaren vid besöket. Via [Specialistdirekt](/kontakt) kan du skicka en kostnadsfri bokningsförfrågan.",
   ],
   priceTable: [
     { label: "Privat urologbesök / prostatabedömning", price: "från cirka 3 000 kr" },
@@ -50,7 +50,7 @@ export const article: Article = {
   ],
   intro: [
     "PSA är ett protein som bildas i prostatan, och ett PSA-prov mäter nivån i blodet. Ett förhöjt PSA-värde kan väcka oro, men betyder inte automatiskt prostatacancer. Den här guiden hjälper dig förstå vad ett högt PSA kan betyda, när du bör träffa urolog och vad en privat prostatakontroll kan innehålla.",
-    "Specialistdirekt är en vägledningstjänst. Vi tolkar inte PSA-värden och gör ingen medicinsk bedömning. Vi hjälper dig vidare med en [bokningsförfrågan](/kontakt) till relevant privat mottagning.",
+    "PSA-värdet tolkas av läkaren vid besöket. Du kan skicka en [bokningsförfrågan](/kontakt) för ett privat besök.",
   ],
   sections: [
     {
@@ -174,9 +174,9 @@ export const article: Article = {
     },
     {
       id: "sa-hjalper-vi",
-      heading: "Så hjälper Specialistdirekt dig",
+      heading: "Så bokar du via Specialistdirekt",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård och diagnostik. Vi gör ingen medicinsk bedömning. Du beskriver din situation (PSA-värde, prostatabesvär, urinbesvär eller tidigare utredning), anger önskat område, och vi hjälper dig vidare till en relevant privat mottagning. Det är alltid mottagningen som avgör om de kan ta emot dig och vilken utredning som är medicinskt lämplig.",
+        "Den medicinska bedömningen görs av läkaren vid besöket. Du beskriver din situation (PSA-värde, prostatabesvär, urinbesvär eller tidigare utredning), anger önskat område, och får besked om möjlig tid och pris. Det är alltid mottagningen som avgör om de kan ta emot dig och vilken utredning som är medicinskt lämplig.",
       ],
     },
     {
@@ -191,7 +191,7 @@ export const article: Article = {
       heading: "Sammanfattning",
       body: [
         "Högt PSA betyder inte automatiskt prostatacancer, men det bör bedömas på rätt sätt. PSA kan vara förhöjt vid godartad prostataförstoring, urinvägsinfektion, prostatainflammation eller prostatacancer.",
-        "Urolog kan vara relevant om PSA är över gränsvärdet, stiger över tid eller om du har urinbesvär, ärftlighet eller oro efter provsvar. Privat prostatakontroll kostar ofta från cirka **3 000 kr och uppåt**, medan MR prostata, biopsi och mer omfattande utredning kan kosta betydligt mer. Specialistdirekt hjälper dig vidare – skicka en [bokningsförfrågan](/kontakt).",
+        "Urolog kan vara relevant om PSA är över gränsvärdet, stiger över tid eller om du har urinbesvär, ärftlighet eller oro efter provsvar. Privat prostatakontroll kostar ofta från cirka **3 000 kr och uppåt**, medan MR prostata, biopsi och mer omfattande utredning kan kosta betydligt mer. Skicka en kostnadsfri [bokningsförfrågan](/kontakt).",
       ],
     },
   ],
@@ -241,7 +241,7 @@ export const article: Article = {
     {
       question: "Kan Specialistdirekt tolka mitt PSA-värde?",
       answer:
-        "Nej. Specialistdirekt tolkar inte PSA-värden och gör ingen medicinsk bedömning. Vi hjälper dig med vägledning och bokningsförfrågan till relevant privat mottagning.",
+        "Nej. PSA-värdet tolkas av läkaren vid besöket, inte via webbplatsen. Du kan skicka en kostnadsfri bokningsförfrågan och få besked om möjlig tid och pris.",
     },
     {
       question: "När ska jag söka akut?",

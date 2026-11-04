@@ -1,17 +1,17 @@
 # Specialistdirekt
 
-> Specialistdirekt är en boknings- och informationstjänst om privat specialistvård i Sverige. På webbplatsen finns information om medicinska specialiteter och möjlighet att boka en tillgänglig tid eller skicka en tidsförfrågan. Specialistdirekt ger inte medicinsk rådgivning, ställer inga diagnoser och är inte vårdgivare. Medicinsk bedömning och behandling utförs av den läkare eller mottagning som tar emot patienten.
+> Specialistdirekt är en webbplats för privat specialistvård i Sverige. Ortopedbesök hos Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi, bokas direkt i kalendern (fysiskt besök i Göteborg, 40 minuter, 2 000 kr, ingen remiss för självbetalande). För andra specialiteter skickar patienten en kostnadsfri bokningsförfrågan och får besked om möjlig tid och pris. Medicinsk bedömning och behandling utförs av läkaren vid besöket. Webbplatsen ger inte medicinsk rådgivning.
 
 ## Viktigt att veta
-- Tjänsten är kostnadsfri.
+- Det kostar inget att skicka en bokningsförfrågan. Läkarbesöket betalas på plats.
 - Detta är INTE en akuttjänst. Vid livshotande tillstånd ska 112 ringas; för sjukvårdsrådgivning 1177.
 - Personuppgifter hanteras enligt GDPR och delas endast med vald specialist.
 
 ## Sidor
-- [Startsida](/): Översikt, så fungerar det och formulär för att hitta specialist.
+- [Startsida](/): Översikt, så fungerar det och bokning av specialistläkare.
 - [Så fungerar det](/sa-fungerar-det): Stegen från förfrågan till bokad tid.
 - [Specialiteter](/specialiteter): Information om medicinska specialiteter.
-- [Om oss](/om-oss): Om boknings- och informationstjänsten och dess värderingar.
+- [Om oss](/om-oss): Vilka vi är och hur vi arbetar.
 - [Vanliga frågor](/vanliga-fragor): Svar på vanliga frågor.
 - [Kontakt](/kontakt): Skicka en förfrågan eller kontakta oss direkt.
 - [Integritetspolicy](/integritetspolicy): Hur personuppgifter behandlas enligt GDPR.

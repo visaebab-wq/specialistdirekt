@@ -141,8 +141,8 @@ export default function HomePage() {
               <span className="block text-brand-300">enkelt och tryggt</span>
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-sky-100/90">
-              Välj kroppsdel, välj område och skicka en bokningsförfrågan. Specialistdirekt
-              hjälper dig vidare till rätt privata mottagning.
+              Välj kroppsdel och område, och boka tid eller skicka en kostnadsfri bokningsförfrågan.
+              Ortopedbesök hos Dr. Masoud Sorkhabi i Göteborg bokar du direkt i kalendern.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               {/* Egna tider finns bara hos ortopeden – knappen får inte antyda
@@ -238,7 +238,7 @@ export default function HomePage() {
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-lg text-ink-600">
               Klicka på en kroppsdel eller välj ett område i listan. Vi visar vilken specialist
-              som är rätt första väg och hjälper dig vidare.
+              som är rätt första väg, och du kan boka tid eller skicka en förfrågan direkt.
             </p>
           </div>
           <div className="home-anatomy-explorer mx-auto mt-8">

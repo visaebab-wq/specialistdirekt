@@ -303,8 +303,8 @@ export default function KnaLaserSigPage() {
               ))}
             </ol>
             <p className="mt-4 text-sm text-ink-600">
-              Specialistdirekt hanterar bokningen. Den medicinska bedömningen
-              görs av läkaren vid besöket.
+              Den medicinska bedömningen görs av Dr. Masoud Sorkhabi
+              vid besöket.
             </p>
 
             <h2 className="article-section-title mt-10 text-2xl font-bold">Behövs MR?</h2>

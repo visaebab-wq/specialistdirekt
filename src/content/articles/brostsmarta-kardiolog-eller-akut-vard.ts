@@ -31,7 +31,7 @@ export const article: Article = {
     "Privat kardiolog kan vara relevant vid återkommande, icke-akuta bröstbesvär, oro efter EKG, [högt blodtryck](/artiklar/hogt-blodtryck-nar-behovs-kardiolog) eller hjärtklappning.",
     "Ett privat kardiologbesök kostar ofta från cirka **3 000 kr**; en mer komplett hjärtutredning kan kosta 5 000–20 000 kr eller mer.",
     "Sjukvårdsförsäkring kan ibland täcka privat kardiolog eller hjärtutredning.",
-    "[Specialistdirekt](/kontakt) är inte en akut tjänst och gör ingen medicinsk bedömning. Vi hjälper dig vidare till relevant privat mottagning när ärendet inte är akut.",
+    "[Specialistdirekt](/kontakt) är inte en akut tjänst. När besvären inte är akuta kan du skicka en kostnadsfri bokningsförfrågan; den medicinska bedömningen görs av läkaren vid besöket.",
   ],
   priceTable: [
     { label: "Kardiologbesök", price: "från cirka 3 000 kr" },
@@ -50,7 +50,7 @@ export const article: Article = {
   ],
   intro: [
     "Bröstsmärta ska alltid tas på allvar. Den kan vara ofarlig och bero på muskler, stress eller magen – men kan också vara tecken på allvarlig hjärtsjukdom. Den här guiden hjälper dig skilja på när du ska söka **akut vård** och när en **privat kardiolog** kan vara rätt väg vid icke-akuta besvär.",
-    "Specialistdirekt är en vägledningstjänst och **inte en akut tjänst**. Vi ställer ingen diagnos och gör ingen medicinsk bedömning. Vid akuta symtom ska du alltid söka akut vård. Vid icke-akuta besvär hjälper vi dig vidare med en [bokningsförfrågan](/kontakt) till relevant privat mottagning.",
+    "Specialistdirekt är **inte en akut tjänst**, och webbplatsen ställer ingen diagnos. Vid akuta symtom ska du alltid söka akut vård. Vid icke-akuta besvär kan du skicka en [bokningsförfrågan](/kontakt) för ett privat besök.",
   ],
   sections: [
     {
@@ -169,9 +169,9 @@ export const article: Article = {
     },
     {
       id: "sa-hjalper-vi",
-      heading: "Så hjälper Specialistdirekt dig",
+      heading: "Så bokar du via Specialistdirekt",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård och gör ingen medicinsk bedömning. Vi kan hjälpa dig vidare när ärendet **inte är akut**: du beskriver dina besvär, anger önskat område, och vi hjälper dig vidare till en relevant privat mottagning. Det är alltid mottagningen som avgör om de kan ta emot dig och vilka undersökningar som är medicinskt lämpliga.",
+        "Den medicinska bedömningen görs av läkaren vid besöket. När besvären **inte är akuta** kan du skicka en bokningsförfrågan: du beskriver dina besvär, anger önskat område, och får besked om möjlig tid och pris. Det är alltid mottagningen som avgör om de kan ta emot dig och vilka undersökningar som är medicinskt lämpliga.",
       ],
     },
     {
@@ -186,7 +186,7 @@ export const article: Article = {
       heading: "Sammanfattning",
       body: [
         "Bröstsmärta ska alltid tas på allvar. Vid stark, tryckande, ihållande eller nytillkommen bröstsmärta med andfåddhet, kallsvettning, illamående, svimningskänsla eller utstrålning ska du söka akut vård eller ringa **112**.",
-        "Det kan vara aktuellt med en privat kardiolog vid återkommande eller icke-akuta bröstbesvär, hjärtklappning, avvikande EKG eller högt blodtryck. Ett besök kostar ofta från cirka 3 000 kr och uppåt. Specialistdirekt hjälper dig vidare när ärendet inte är akut – skicka en [bokningsförfrågan](/kontakt) så hjälper vi dig till relevant privat mottagning.",
+        "Det kan vara aktuellt med en privat kardiolog vid återkommande eller icke-akuta bröstbesvär, hjärtklappning, avvikande EKG eller högt blodtryck. Ett besök kostar ofta från cirka 3 000 kr och uppåt. När besvären inte är akuta kan du skicka en [bokningsförfrågan](/kontakt).",
       ],
     },
   ],
@@ -236,7 +236,7 @@ export const article: Article = {
     {
       question: "Kan Specialistdirekt säga om min bröstsmärta är farlig?",
       answer:
-        "Nej. Specialistdirekt gör ingen medicinsk bedömning. Vid osäkerhet, stark smärta eller akuta symtom ska du kontakta vården, ringa 1177 eller ringa 112 vid akut fara.",
+        "Nej. Webbplatsen kan inte bedöma dina besvär. Vid osäkerhet, stark smärta eller akuta symtom ska du kontakta vården, ringa 1177 eller ringa 112 vid akut fara.",
     },
   ],
 };

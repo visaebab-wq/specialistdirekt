@@ -51,8 +51,8 @@ export default function SpecialtiesPage() {
         <div className="soft-info-card mt-12 p-8 text-center">
           <h2 className="text-xl font-bold text-ink-900">Hittar du inte din specialitet?</h2>
           <p className="mx-auto mt-2 max-w-xl text-ink-600">
-            Listan visar de vanligaste områdena, men vi hjälper till med fler. Beskriv ditt behov
-            så guidar vi dig rätt.
+            Listan visar de vanligaste områdena, men du kan skicka en förfrågan även inom andra.
+            Beskriv ditt behov så får du besked om hur du går vidare.
           </p>
           <Link
             href="/kontakt"

@@ -47,7 +47,7 @@ export const article: Article = {
   intro: [
     "Synen är något många inte vill vänta med. Om du har synförändringar, ögonsmärta, återkommande besvär, misstänkt grå starr, ögoninflammation som inte går över eller oro efter en optikerundersökning kan det vara aktuellt att träffa ögonläkare.",
     "En optiker kan ofta hjälpa till med synundersökning, glasögon och vissa kontroller. Men vid medicinska ögonbesvär, ögonsjukdomar eller behov av specialistbedömning kan en ögonläkare behövas.",
-    "Specialistdirekt hjälper dig att hitta rätt väg till privat specialistvård. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
+    "Via Specialistdirekt kan du skicka en kostnadsfri bokningsförfrågan för ett privat specialistbesök. Vi ställer ingen diagnos och utför ingen behandling. Vår roll är att hjälpa dig vidare med en [bokningsförfrågan](/kontakt) till en mottagning som kan vara relevant för ditt behov och din ort. Läs mer om [hur det fungerar](/sa-fungerar-det).",
   ],
   sections: [
     {
@@ -217,14 +217,14 @@ export const article: Article = {
     },
     {
       id: "sa-hjalper-vi",
-      heading: "Så hjälper Specialistdirekt dig",
+      heading: "Så bokar du via Specialistdirekt",
       body: [
-        "Specialistdirekt är en vägledningstjänst för privat specialistvård. Så fungerar det:",
+        "Så fungerar det:",
       ],
       bullets: [
         "Du beskriver dina besvär i en kort bokningsförfrågan.",
         "Du anger stad eller område.",
-        "Vi hjälper dig vidare till en relevant privat mottagning.",
+        "Du får besked om möjlig tid och pris.",
         "Mottagningen bedömer vårdbehovet.",
       ],
     },
@@ -240,7 +240,7 @@ export const article: Article = {
       heading: "Sammanfattning",
       body: [
         "Det kan vara aktuellt med en privat ögonläkare vid synförändringar, misstänkt grå starr, ögontrycksproblem, ögonsmärta, återkommande inflammation eller diabetesrelaterade ögonbesvär. En privat ögonutredning kostar ofta från cirka **3 000 kr** och uppåt. Operationer, linsbyte och ögonlaser kan kosta från tiotusentals kronor per öga. I vissa fall kan sjukvårdsförsäkring täcka kostnaden.",
-        "Du beskriver dina besvär, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Vi hjälper dig vidare till en privat mottagning som kan vara relevant för ditt behov.",
+        "Du beskriver dina besvär, anger önskat område och skickar en [bokningsförfrågan](/kontakt). Du får besked om möjlig tid och pris för ditt behov.",
       ],
     },
   ],

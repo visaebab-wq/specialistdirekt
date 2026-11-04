@@ -44,7 +44,7 @@ const faqs: Faq[] = [
   {
     question: "Kan jag träffa en gastroenterolog utan remiss?",
     answer:
-      "Som självbetalande kan du oftast kontakta en privat mottagning direkt, utan remiss. Har du en sjukvårdsförsäkring går du vanligtvis via försäkringsbolaget, och inom regionfinansierad vård krävs oftast en remiss från vårdcentralen. Vad som gäller varierar mellan mottagningar – vi hjälper dig kostnadsfritt att reda ut vägen in.",
+      "Som självbetalande kan du oftast kontakta en privat mottagning direkt, utan remiss. Har du en sjukvårdsförsäkring går du vanligtvis via försäkringsbolaget, och inom regionfinansierad vård krävs oftast en remiss från vårdcentralen. Vad som gäller varierar mellan mottagningar – du får besked om vad som gäller när du skickar en förfrågan.",
   },
   {
     question: "Vad kostar ett besök hos en privat gastroenterolog?",
@@ -69,7 +69,7 @@ const faqs: Faq[] = [
   {
     question: "Hur snabbt kan jag få en tid hos en privat specialist?",
     answer:
-      "Privata tider kan ofta erbjudas snabbare än regionfinansierad vård, men exakt väntetid varierar mellan mottagningar och beror på efterfrågan. Vi kan inte garantera en viss tid, men hjälper dig att hitta en mottagning som kan ta emot dig.",
+      "Privata tider kan ofta erbjudas snabbare än regionfinansierad vård, men exakt väntetid varierar mellan mottagningar och beror på efterfrågan. Vi kan inte garantera en viss tid, men du får besked om den tidigaste tid som finns.",
   },
 ];
 
@@ -127,7 +127,7 @@ export default function PrivatGastroenterologPage() {
             <Prose
               paragraphs={[
                 "Vägen in i vården ser olika ut beroende på hur besöket finansieras. Som **självbetalande** patient kan du oftast kontakta en privat mottagning direkt, utan att först gå via vårdcentralen. Har du en **sjukvårdsförsäkring** går du normalt via försäkringsbolaget, som avgör vad som täcks och ibland kräver en bedömning först. Inom **regionfinansierad vård** krävs vanligtvis en remiss och besöket följer regionens regler och avgifter.",
-                "Reglerna kan skilja sig åt mellan mottagningar, så kontrollera alltid vad som gäller innan du bokar. Vi hjälper dig kostnadsfritt att förstå vilka alternativ som passar dig bäst.",
+                "Reglerna kan skilja sig åt mellan mottagningar, så kontrollera alltid vad som gäller innan du bokar. Du får besked om vad som gäller när du skickar en förfrågan.",
               ]}
             />
 
@@ -232,7 +232,7 @@ export default function PrivatGastroenterologPage() {
             </h2>
             <Prose
               paragraphs={[
-                "Specialistdirekt är en kostnadsfri boknings- och informationstjänst. Du beskriver ditt behov, så hjälper vi dig att hitta relevant privat specialistvård inom mage och tarm. Tillgång och pris beror på de mottagningar som tar emot dig, och vi ställer inga diagnoser och ger ingen medicinsk rådgivning. Specialistdirekt är inte en akutverksamhet.",
+                "Det kostar inget att skicka en bokningsförfrågan via Specialistdirekt. Du beskriver ditt behov och får besked om möjlig tid och pris för privat specialistvård inom mage och tarm. Diagnos och medicinsk bedömning görs av läkaren vid besöket. Specialistdirekt är inte en akutverksamhet.",
                 "Vill du hellre läsa mer om specialiteten först? Se vår översikt om [gastroenterologi](/specialiteter/gastroenterolog).",
               ]}
             />
