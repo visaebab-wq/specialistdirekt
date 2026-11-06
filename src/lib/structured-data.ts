@@ -265,9 +265,9 @@ export function webPageSchema(opts: {
  * Göteborg, kardiolog i Lund).
  *
  *  - Med `providerProfilePath` (vår egen läkare, publicerad profilsida) är
- *    läkaren `provider`.
- *  - Utan den är mottagningen inte namngiven, och Specialistdirekt står som
- *    `broker` – aldrig som provider för någon annans mottagning.
+ *    läkaren och Specialistdirekt `provider` ("hos oss", ägaren 2026-10-28).
+ *  - Utan den sätts ingen provider. Ingen `broker`: sajten beskrivs aldrig som
+ *    förmedlare (ägaren 2026-11-06).
  *
  * Priset måste vara samma siffra som syns på sidan – schema som inte motsvarar
  * synligt innehåll är fel enligt Googles egna riktlinjer. Ingen adress, inga
@@ -294,9 +294,8 @@ export function localServiceSchema(opts: {
     url,
     areaServed: { "@type": "City", name: opts.areaServed },
     provider: opts.providerProfilePath
-      ? { "@id": `${abs(opts.providerProfilePath)}#person` }
+      ? [{ "@id": `${abs(opts.providerProfilePath)}#person` }, { "@id": `${site.url}/#organization` }]
       : undefined,
-    broker: opts.providerProfilePath ? undefined : { "@id": `${site.url}/#organization` },
     audience: { "@type": "Patient" },
     offers: opts.price
       ? {

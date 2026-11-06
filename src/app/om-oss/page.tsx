@@ -66,10 +66,10 @@ export default function AboutPage() {
             Specialistdirekt grundades {site.foundingYear} för att lösa det problemet.
           </p>
           <p>
-            Specialistdirekt samlar information om privat specialistvård och erbjuder bokning eller
-            tidsförfrågan för de tjänster som presenteras på webbplatsen. Webbplatsen ger inte
-            medicinsk rådgivning och ställer inga diagnoser. Medicinsk bedömning och behandling
-            utförs alltid av den läkare eller mottagning som tar emot patienten.
+            Hos oss träffar du ortoped Dr. Masoud Sorkhabi i Göteborg och bokar tid direkt i
+            kalendern. För andra specialiteter skickar du en kostnadsfri tidsförfrågan. Webbplatsen
+            ger inte medicinsk rådgivning och ställer inga diagnoser. Medicinsk bedömning och
+            behandling görs alltid av läkaren vid besöket.
           </p>
           <p>
             Webbplatsen ersätter inte kontakt med vården vid akuta besvär. Det medicinska ansvaret

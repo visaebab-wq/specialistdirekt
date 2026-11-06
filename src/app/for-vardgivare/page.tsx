@@ -11,6 +11,8 @@ export const metadata = createPageMetadata({
   description:
     "Är du specialist eller driver en mottagning? Anslut dig till Specialistdirekt och få kontakt med patienter som söker just din specialitet – utan bindningstid.",
   path: "/for-vardgivare",
+  // B2B-sida: ska inte visas i sök eller AI-svar (ägaren 2026-11-06).
+  robots: { index: false, follow: true },
 });
 
 const crumbs = [
@@ -69,8 +71,7 @@ export default function ForProvidersPage() {
             Ta emot fler patienter – utan krångel
           </h1>
           <p className="mt-5 max-w-2xl text-lg text-ink-600">
-            Specialistdirekt kopplar ihop patienter med rätt specialist. Är du specialistläkare
-            eller driver en mottagning? Anslut dig så skickar vi relevanta patientförfrågningar
+            Är du specialistläkare eller driver en mottagning? Anslut dig så skickar vi relevanta patientförfrågningar
             till dig.
           </p>
           <PageVisual visual={visual} className="mt-10 max-w-3xl" priority />

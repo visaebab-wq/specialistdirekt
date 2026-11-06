@@ -180,7 +180,7 @@ export const article: Article = {
   outro: [
     "Söker du för ditt barn? Läs om [ortopedisk bedömning för barn](/artiklar/barnortopedi).",
     "Informationen hjälper dig att förstå kostnader och förbereda ett besök. Den ersätter inte en individuell medicinsk bedömning.",
-    "**Källunderlag:** 1177 – Patientavgifter och högkostnadsskydd. Uppgifter om vårt besök hämtas från mottagningens aktuella bokningsinformation.",
+    "**Källa:** 1177 – Patientavgifter och högkostnadsskydd.",
   ],
   // Avslutande bokningsruta ("Boka ortoped i Göteborg").
   cta: {

@@ -1,11 +1,11 @@
 # Specialistdirekt
 
-> Specialistdirekt är en webbplats för privat specialistvård i Sverige. Ortopedbesök hos Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi, bokas direkt i kalendern (fysiskt besök i Göteborg, 40 minuter, 2 000 kr, ingen remiss för självbetalande). För andra specialiteter skickar patienten en kostnadsfri bokningsförfrågan och får besked om möjlig tid och pris. Medicinsk bedömning och behandling utförs av läkaren vid besöket. Webbplatsen ger inte medicinsk rådgivning.
+> Specialistdirekt erbjuder privat specialistvård i Sverige. Hos oss träffar du Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi. Ortopedbesöket bokas direkt i kalendern (fysiskt besök i Göteborg, 40 minuter, 2 000 kr, ingen remiss för självbetalande). För andra specialiteter skickar patienten en kostnadsfri bokningsförfrågan och får besked om möjlig tid och pris. Medicinsk bedömning och behandling utförs av läkaren vid besöket. Webbplatsen ger inte medicinsk rådgivning.
 
 ## Viktigt att veta
 - Det kostar inget att skicka en bokningsförfrågan. Läkarbesöket betalas på plats.
 - Detta är INTE en akuttjänst. Vid livshotande tillstånd ska 112 ringas; för sjukvårdsrådgivning 1177.
-- Personuppgifter hanteras enligt GDPR och delas endast med vald specialist.
+- Personuppgifter hanteras enligt GDPR.
 
 ## Sidor
 - [Startsida](/): Översikt, så fungerar det och bokning av specialistläkare.
@@ -15,6 +15,13 @@
 - [Vanliga frågor](/vanliga-fragor): Svar på vanliga frågor.
 - [Kontakt](/kontakt): Skicka en förfrågan eller kontakta oss direkt.
 - [Integritetspolicy](/integritetspolicy): Hur personuppgifter behandlas enligt GDPR.
+
+## Ortoped i Göteborg
+- [Ortoped i Göteborg](/specialiteter/ortoped/goteborg): Hos oss träffar du Dr. Masoud Sorkhabi – fysiskt besök, 40 minuter, 2 000 kr, ingen remiss.
+- [Boka ortopedbesök](/boka-tid): Lediga tider direkt i kalendern.
+- [Boka för barn och ungdomar](/boka-tid/barn): Ortopedisk bedömning för barn och ungdomar 0–17 år – 40 minuter, 2 000 kr, utan remiss.
+- [Ortoped för barn i Göteborg](/artiklar/barnortopedi): När barn kan behöva ortoped, bedömning och förberedelser.
+- [Dr. Masoud Sorkhabi](/lakare/masoud-sorkhabi): Specialist i ortopedi och ryggkirurgi.
 
 ## Specialiteter
 - [Kardiolog](/specialiteter/kardiolog): Hjärt- och kärlsjukdomar.
@@ -70,4 +77,4 @@ Sidor med fördjupat lokalt innehåll (inte enbart mall):
 - [Domningar i händer och fötter](/artiklar/domningar-hander-fotter-vilken-lakare): Vägen till neurolog.
 
 ## Kontakt
-- E-post: kontakt@specialistdirekt.se
+- E-post: info@specialistdirekt.se

@@ -254,7 +254,7 @@ export default function HomePage() {
             Välj område som passar dig
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-center text-ink-600">
-            Välj specialist och stad så visar vi rätt mottagningar i ditt område.
+            Välj specialist och stad för att läsa mer och boka eller skicka en tidsförfrågan.
           </p>
           <div className="mt-10 rounded-3xl border border-ink-200 bg-white p-6 shadow-sm sm:p-8">
             <AreaSelector />

@@ -181,7 +181,7 @@ export const city: City = {
           id: "ortoped-for-barn-goteborg",
           heading: "Ortoped för barn i Göteborg",
           body: [
-            `**Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi, tar även emot barn och ungdomar – ${BARN_SCOPE.label} (${BARN_SCOPE.short}) – på mottagningen i Göteborg.** Vi kallar honom inte barnortoped: den dokumenterade specialistkompetensen är ortopedi och ryggkirurgi. Från 18 års ålder bokas besöket som vuxen.`,
+            `**Dr. Masoud Sorkhabi, specialist i ortopedi och ryggkirurgi, tar även emot barn och ungdomar – ${BARN_SCOPE.label} (${BARN_SCOPE.short}) – på mottagningen i Göteborg.** Från 18 års ålder bokas besöket som vuxen.`,
             "Ingen remiss behövs för den privata självbetalarvägen, och ett fysiskt besök kostar 2 000 kr – samma pris som för vuxna. [Se lediga tider och boka ortopedisk bedömning för barn](/boka-tid/barn).",
             "Vanliga skäl att söka ortopedisk bedömning för ett barn:",
           ],

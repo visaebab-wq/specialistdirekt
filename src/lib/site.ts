@@ -14,7 +14,7 @@ export const site = {
   country: "SE",
   tagline: "Hitta rätt specialistläkare – snabbt och tryggt",
   description:
-    "Specialistdirekt samlar information om privat specialistvård. Vissa tjänster kan bokas direkt; för andra kan du skicka en kostnadsfri tidsförfrågan.",
+    "Privat specialistvård. Hos oss träffar du ortoped Dr. Masoud Sorkhabi i Göteborg och bokar tid direkt. För andra specialiteter skickar du en kostnadsfri tidsförfrågan.",
   // Kontakt. Telefonnummer och postadress publicerades tidigare inte alls, i
   // väntan på verifierade företagsuppgifter. De uppgifterna finns nu:
   // postadressen är bolagets postadress och numret är en separat arbetslinje,

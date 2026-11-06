@@ -63,7 +63,7 @@ export function Footer() {
               Boka ortopedbesök
             </Link>{" "}
             direkt i kalendern i Göteborg. För andra specialiteter skickar du en kostnadsfri
-            tidsförfrågan till rätt specialistläkare i Sverige.
+            tidsförfrågan.
           </p>
         </div>
 
