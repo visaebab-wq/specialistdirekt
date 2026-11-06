@@ -52,6 +52,12 @@ export function isSensitivePath(pathname: string | null | undefined): boolean {
  * känsligt innehåll i anropet är filtret en ren genomsläppning.
  *
  * Täcker sendBeacon, fetch, XMLHttpRequest och bild-pixlar (img.src).
+ *
+ * KROPPAR SOM INTE ÄR TEXT (2026-11-06): URLSearchParams, FormData och
+ * ArrayBuffer/typade vyer läses synkront. En Blob går bara att läsa
+ * asynkront: anropet hålls tills texten är granskad och skickas sedan med
+ * samma innehåll – eller kastas. Okända kroppstyper (t.ex. strömmar) kastas.
+ * Tidigare granskades bara strängar, så sendBeacon(url, Blob) passerade orört.
  */
 export function outboundFilterSnippet(): string {
   return `(function(){
@@ -63,17 +69,41 @@ export function outboundFilterSnippet(): string {
   function hereSens(){ var p=location.pathname;
     for(var i=0;i<SENS.length;i++){ if(p===SENS[i]||p.indexOf(SENS[i]+'/')===0) return true; } return false; }
   function isTracker(u){ try{ return HOSTS.test(new URL(String(u), location.href).hostname); }catch(e){ return false; } }
-  function drop(u, body){ if(!isTracker(u)) return false;
-    var d = hereSens() || hasSens(u) || (typeof body==='string' && hasSens(body));
-    if(d) window.__sdDropped = (window.__sdDropped||0)+1; return d; }
+  function isBlob(b){ return typeof Blob!=='undefined' && b instanceof Blob; }
+  // Text of a request body, read synchronously; null = cannot be read now.
+  function bodyText(b){ if(b==null) return ''; if(typeof b==='string') return b;
+    try{
+      if(typeof URLSearchParams!=='undefined' && b instanceof URLSearchParams) return b.toString();
+      if(typeof FormData!=='undefined' && b instanceof FormData){ var a=[]; b.forEach(function(v,k){ a.push(k+'='+(typeof v==='string'?v:'')); }); return a.join('&'); }
+      if(b instanceof ArrayBuffer || ArrayBuffer.isView(b)) return new TextDecoder().decode(b);
+    }catch(e){}
+    return null; }
+  function count(){ window.__sdDropped = (window.__sdDropped||0)+1; }
+  // 'pass' | 'drop' | 'blob' (a Blob body that must be read before sending).
+  function verdict(u, body){ if(!isTracker(u)) return 'pass';
+    if(hereSens() || hasSens(u)) { count(); return 'drop'; }
+    var t = bodyText(body);
+    if(t===null){ if(isBlob(body)) return 'blob'; count(); return 'drop'; }
+    if(hasSens(t)) { count(); return 'drop'; }
+    return 'pass'; }
+  function drop(u, body){ return verdict(u, body)!=='pass'; }
+  function checkedBlob(b){ return b.text().then(function(t){ if(hasSens(t)) { count(); return null; } return new Blob([t], {type:b.type}); }); }
   if (navigator.sendBeacon) { var ob = navigator.sendBeacon.bind(navigator);
-    navigator.sendBeacon = function(u, data){ if(drop(u, data)) return true; return ob(u, data); }; }
+    navigator.sendBeacon = function(u, data){ var v = verdict(u, data);
+      if(v==='blob'){ checkedBlob(data).then(function(c){ if(c) ob(u, c); }, function(){ count(); }); return true; }
+      if(v==='drop') return true; return ob(u, data); }; }
   if (window.fetch) { var of = window.fetch;
     window.fetch = function(input, init){ var u = (typeof input==='string'||input instanceof URL) ? input : (input&&input.url);
-      if(drop(u, init&&init.body)) return Promise.resolve(new Response(null, {status:204})); return of.apply(this, arguments); }; }
+      var v = verdict(u, init&&init.body);
+      if(v==='blob'){ var self=this, args=Array.prototype.slice.call(arguments);
+        return checkedBlob(init.body).then(function(c){ if(!c) return new Response(null, {status:204});
+          args[1] = Object.assign({}, init, {body:c}); return of.apply(self, args); }, function(){ count(); return new Response(null, {status:204}); }); }
+      if(v==='drop') return Promise.resolve(new Response(null, {status:204})); return of.apply(this, arguments); }; }
   var xo = XMLHttpRequest.prototype.open, xs = XMLHttpRequest.prototype.send;
   XMLHttpRequest.prototype.open = function(m, u){ this.__sdUrl = u; return xo.apply(this, arguments); };
-  XMLHttpRequest.prototype.send = function(body){ if(drop(this.__sdUrl, body)){ try{ this.abort(); }catch(e){} return; } return xs.apply(this, arguments); };
+  XMLHttpRequest.prototype.send = function(body){ var v = verdict(this.__sdUrl, body), x = this;
+    if(v==='blob'){ checkedBlob(body).then(function(c){ if(c) xs.call(x, c); else { try{ x.abort(); }catch(e){} } }, function(){ count(); try{ x.abort(); }catch(e){} }); return; }
+    if(v==='drop'){ try{ this.abort(); }catch(e){} return; } return xs.apply(this, arguments); };
   var idesc = Object.getOwnPropertyDescriptor(HTMLImageElement.prototype, 'src');
   if (idesc && idesc.set) { Object.defineProperty(HTMLImageElement.prototype, 'src', { configurable:true, enumerable:idesc.enumerable,
     get: idesc.get, set: function(v){ if(drop(v)) return; idesc.set.call(this, v); } }); }
