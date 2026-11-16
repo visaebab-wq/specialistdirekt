@@ -460,7 +460,7 @@ export async function submitBooking(
       errors.personnummer = "Barnet behöver vara 0–17 år vid bokningen.";
     }
   }
-  if (!consent) errors.consent = "Du behöver godkänna villkoren för att boka.";
+  if (!consent) errors.consent = "Du behöver godkänna villkoren.";
   if (Object.keys(errors).length > 0) {
     return {
       status: "error",

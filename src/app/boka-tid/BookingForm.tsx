@@ -12,7 +12,7 @@ import {
 import { useRouter } from "next/navigation";
 import { submitBooking, type BookingState } from "@/app/actions";
 import { TrackEvent } from "@/components/TrackEvent";
-import { BOOKING_FREE_CANCEL_HOURS, formatPrice } from "@/lib/booking-slots";
+import { formatPrice } from "@/lib/booking-slots";
 
 const initial: BookingState = {
   status: "idle",
@@ -483,11 +483,8 @@ export function BookingForm({
             className="mt-0.5 h-5 w-5 shrink-0 accent-brand-600"
           />
           <span>
-            Jag bokar tiden och godkänner priset {priceLabel} kr (betalas på plats vid besöket),
-            att avbokning är kostnadsfri senast {BOOKING_FREE_CANCEL_HOURS} timmar före besöket, och att{" "}
-            {patientType === "child" ? "barnets och mina" : "mina"} uppgifter, inklusive personnummer,
-            behandlas för att boka och genomföra besöket enligt{" "}
-            <a href="/integritetspolicy" className="font-medium text-brand-700 underline">integritetspolicyn</a>.
+            Jag godkänner att {patientType === "child" ? "barnets och mina" : "mina"} uppgifter behandlas för att boka besöket, och att priset är{" "}
+            {priceLabel} kr.
           </span>
         </label>
         {state.errors.consent && (
