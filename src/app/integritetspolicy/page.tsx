@@ -59,6 +59,8 @@ export default function PrivacyPage() {
           <p className="mt-2">
             När du skickar en förfrågan samlar vi in de uppgifter du själv lämnar, till exempel
             namn, e-postadress, telefonnummer, ort och den beskrivning av ditt behov du anger.
+            När du bokar ett besök samlar vi även in patientens personnummer, som behövs för att
+            identifiera patienten och journalföra besöket.
           </p>
         </section>
 

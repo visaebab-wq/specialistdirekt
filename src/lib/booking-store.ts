@@ -7,8 +7,8 @@
 //    spela upp loggen. Går e-postutskicket fel finns bokningen ändå kvar.
 // 2. INGEN DUBBELBOKNING. Att ta en lucka sker under ett exklusivt fillås, så
 //    att två samtidiga bokningar av samma tid inte kan lyckas båda två.
-// 3. En obekräftad bokning håller sin lucka i BOOKING_PENDING_TTL_MS och släpps
-//    sedan. Annars skulle en person som ångrar sig blockera tiden för alltid.
+// 3. Äldre obekräftade bokningar håller sin lucka i BOOKING_PENDING_TTL_MS och
+//    släpps sedan. Nya bokningar bekräftas direkt i formuläret.
 
 import {
   appendFileSync,
@@ -50,6 +50,8 @@ export type BookingRecord = {
   bookingType?: "adult" | "child";
   childName?: string;
   childBirthDate?: string;
+  /** Patientens (vid barnbokning barnets) personnummer, 12 siffror. Äldre poster saknar det. */
+  personnummer?: string;
   /** Villkor vid bokningstillfället. Äldre poster saknar dem och använder fallback. */
   priceSek?: number;
   freeCancelHours?: number;
@@ -120,6 +122,7 @@ function isEvent(value: unknown): value is Event {
       value.bookingType === "child") &&
     isOptionalString(value.childName) &&
     isOptionalString(value.childBirthDate) &&
+    isOptionalString(value.personnummer) &&
     isOptionalNumber(value.priceSek) &&
     isOptionalNumber(value.freeCancelHours) &&
     (value.status === "pending" ||
@@ -365,8 +368,8 @@ function bookingLimitReason(input: { email: string }, now: Date): "contact-limit
 }
 
 /**
- * Tar en lucka och skriver ner bokningen. Under lås, så att två samtidiga
- * bokningar av samma tid inte båda kan lyckas.
+ * Tar en lucka, bekräftar den och skriver ner bokningen. Allt sker under samma
+ * lås, så att två samtidiga bokningar av samma tid inte båda kan lyckas.
  */
 export function claimSlot(input: {
   slot: string;
@@ -377,6 +380,7 @@ export function claimSlot(input: {
   bookingType?: "adult" | "child";
   childName?: string;
   childBirthDate?: string;
+  personnummer?: string;
 }): ClaimResult {
   try {
     return withLock(() => {
@@ -399,10 +403,12 @@ export function claimSlot(input: {
         bookingType: input.bookingType ?? "adult",
         ...(input.childName ? { childName: input.childName } : {}),
         ...(input.childBirthDate ? { childBirthDate: input.childBirthDate } : {}),
+        ...(input.personnummer ? { personnummer: input.personnummer } : {}),
         priceSek: BOOKING_PRICE_SEK,
         freeCancelHours: BOOKING_FREE_CANCEL_HOURS,
-        status: "pending",
+        status: "verified",
         createdAt: now.toISOString(),
+        verifiedAt: now.toISOString(),
       };
       append({ type: "created", ...record });
       return { ok: true, record };

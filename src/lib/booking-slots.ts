@@ -18,7 +18,7 @@ export const BOOKING_START_HOUR = 10;
 export const BOOKING_END_HOUR = 16;
 export const BOOKING_SLOT_MINUTES = 40;
 
-/** Priset patienten godkänner i bekräftelsemejlet. */
+/** Priset patienten godkänner i bokningsformuläret. */
 export const BOOKING_PRICE_SEK = 2000;
 
 /**

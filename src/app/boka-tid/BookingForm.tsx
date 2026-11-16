@@ -12,7 +12,7 @@ import {
 import { useRouter } from "next/navigation";
 import { submitBooking, type BookingState } from "@/app/actions";
 import { TrackEvent } from "@/components/TrackEvent";
-import { formatPrice } from "@/lib/booking-slots";
+import { BOOKING_FREE_CANCEL_HOURS, formatPrice } from "@/lib/booking-slots";
 
 const initial: BookingState = {
   status: "idle",
@@ -79,7 +79,7 @@ export function BookingSteps({ patientType = "adult" }: { patientType?: "adult" 
   const steps = [
     ["1", "Välj tid"],
     ["2", patientType === "child" ? "Barnets uppgifter" : "Dina uppgifter"],
-    ["3", "Bekräfta bokningen"],
+    ["3", "Boka tiden"],
   ];
   const currentStep = state.status === "success" ? 2 : slot ? 1 : 0;
 
@@ -143,6 +143,24 @@ export function BookingForm({
   const [selectedDay, setSelectedDay] = useState(days[0]?.key ?? "");
   const [showAllDays, setShowAllDays] = useState(false);
   const priceLabel = formatPrice(price);
+  const pnrInput = (
+    <input
+      id="bk-pnr"
+      name="personnummer"
+      required
+      maxLength={20}
+      inputMode="numeric"
+      placeholder="ÅÅÅÅMMDD-NNNN"
+      defaultValue={state.values?.personnummer ?? ""}
+      aria-invalid={Boolean(state.errors.personnummer)}
+      aria-describedby={state.errors.personnummer ? "bk-pnr-help bk-pnr-error" : "bk-pnr-help"}
+      className={field}
+      autoComplete="off"
+    />
+  );
+  const pnrError = state.errors.personnummer && (
+    <p id="bk-pnr-error" role="alert" className="mt-1 text-sm text-red-700">{state.errors.personnummer}</p>
+  );
   const activeDay = days.find((day) => day.key === selectedDay) ?? days[0];
   const { firstWeek, later } = splitFirstWeek(days);
   // Utökningen går bara åt ett håll: ett valt datum kan aldrig försvinna ur listan.
@@ -205,13 +223,13 @@ export function BookingForm({
         tabIndex={-1}
         className="soft-info-card p-6 focus:outline-none sm:p-8"
       >
-        {/* Bokningen är skickad (tiden reserverad, ej bekräftad ännu). */}
+        {/* Bokningen är sparad och tiden är bokad. */}
         {state.bookingPersisted && <TrackEvent name="booking_submitted" />}
         <h2 className="text-xl font-bold text-ink-900">Tack!</h2>
         <p className="mt-3 text-ink-700">{state.message}</p>
         {state.confirmationEmailSent && (
           <p className="mt-4 text-sm text-ink-500">
-            Hittar du inte mejlet? Titta i skräpposten. Tiden är preliminär tills du bekräftat den.
+            Hittar du inte mejlet? Titta i skräpposten. Där finns även din avbokningslänk.
           </p>
         )}
       </div>
@@ -356,21 +374,12 @@ export function BookingForm({
               {state.errors.childName && <p id="bk-child-name-error" role="alert" className="mt-1 text-sm text-red-700">{state.errors.childName}</p>}
             </div>
             <div>
-              <label htmlFor="bk-child-birth" className="mb-1 block text-sm font-medium text-ink-700">
-                Barnets födelsedatum <span className="text-red-500">*</span>
+              <label htmlFor="bk-pnr" className="mb-1 block text-sm font-medium text-ink-700">
+                Barnets personnummer <span className="text-red-500">*</span>
               </label>
-              <input
-                id="bk-child-birth"
-                name="childBirthDate"
-                type="date"
-                required
-                defaultValue={state.values?.childBirthDate ?? ""}
-                aria-invalid={Boolean(state.errors.childBirthDate)}
-                aria-describedby={state.errors.childBirthDate ? "bk-child-birth-help bk-child-birth-error" : "bk-child-birth-help"}
-                className={field}
-              />
-              <p id="bk-child-birth-help" className="mt-1 text-xs text-ink-500">Barn och ungdomar 0–17 år tas emot.</p>
-              {state.errors.childBirthDate && <p id="bk-child-birth-error" role="alert" className="mt-1 text-sm text-red-700">{state.errors.childBirthDate}</p>}
+              {pnrInput}
+              <p id="bk-pnr-help" className="mt-1 text-xs text-ink-500">ÅÅÅÅMMDD-NNNN. Barn och ungdomar 0–17 år tas emot.</p>
+              {pnrError}
             </div>
           </div>
         )}
@@ -395,6 +404,16 @@ export function BookingForm({
             />
             {state.errors.name && <p id="bk-name-error" role="alert" className="mt-1 text-sm text-red-700">{state.errors.name}</p>}
           </div>
+          {patientType !== "child" && (
+            <div>
+              <label htmlFor="bk-pnr" className="mb-1 block text-sm font-medium text-ink-700">
+                Personnummer <span className="text-red-500">*</span>
+              </label>
+              {pnrInput}
+              <p id="bk-pnr-help" className="mt-1 text-xs text-ink-500">ÅÅÅÅMMDD-NNNN</p>
+              {pnrError}
+            </div>
+          )}
           <div>
             <label htmlFor="bk-phone" className="mb-1 block text-sm font-medium text-ink-700">
               Telefon <span className="text-red-500">*</span>
@@ -429,7 +448,7 @@ export function BookingForm({
             className={field}
             autoComplete="email"
           />
-          <p id="bk-email-help" className="mt-1 text-xs text-ink-500">Bekräftelselänken skickas hit.</p>
+          <p id="bk-email-help" className="mt-1 text-xs text-ink-500">Bokningsbekräftelsen och avbokningslänken skickas hit.</p>
           {state.errors.email && <p id="bk-email-error" role="alert" className="mt-1 text-sm text-red-700">{state.errors.email}</p>}
         </div>
         <div>
@@ -464,8 +483,11 @@ export function BookingForm({
             className="mt-0.5 h-5 w-5 shrink-0 accent-brand-600"
           />
           <span>
-            Jag godkänner att {patientType === "child" ? "barnets och mina" : "mina"} uppgifter behandlas för att boka besöket, och att priset är{" "}
-            {priceLabel} kr.
+            Jag bokar tiden och godkänner priset {priceLabel} kr (betalas på plats vid besöket),
+            att avbokning är kostnadsfri senast {BOOKING_FREE_CANCEL_HOURS} timmar före besöket, och att{" "}
+            {patientType === "child" ? "barnets och mina" : "mina"} uppgifter, inklusive personnummer,
+            behandlas för att boka och genomföra besöket enligt{" "}
+            <a href="/integritetspolicy" className="font-medium text-brand-700 underline">integritetspolicyn</a>.
           </span>
         </label>
         {state.errors.consent && (
@@ -488,8 +510,7 @@ export function BookingForm({
           {pending ? "Skickar…" : "Boka tiden"}
         </button>
         <p className="mt-3 text-sm text-ink-500">
-          Tiden är preliminär tills du bekräftat den via mejl. Inte en akuttjänst – ring 112 vid
-          nödfall.
+          När du trycker på knappen bokas tiden direkt. Inte en akuttjänst – ring 112 vid nödfall.
         </p>
       </div>
     </form>

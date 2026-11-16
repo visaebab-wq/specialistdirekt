@@ -1,16 +1,13 @@
 // Mejlutskick för direktbokning. Körs ENDAST på servern.
 //
-// Tre utskick:
-//   1. Till patienten – bekräftelselänk med tid och pris.
-//   2. Till mottagaren – direkt när en tid tagits (obekräftad).
-//   3. Till mottagaren – när patienten klickat i bekräftelselänken.
-//
-// Utskick två finns för att ingen bokning ska kunna gå förlorad om patienten
-// aldrig hinner bekräfta. Loggen på disk är den yttersta garantin, men ett mejl
-// direkt gör att det syns utan att någon läser filer.
+// Patienten får en enkel bokningsbekräftelse med sin personliga avbokningslänk.
+// Mottagaren får en notis direkt när bokningen sparats och en ny notis om
+// patienten senare avbokar. Äldre väntande bokningar kan fortfarande använda
+// den tidigare bekräftelsevägen tills deras länkar har löpt ut.
 
 import { site } from "./site";
 import { sendMail } from "./smtp";
+import { formatPersonnummer } from "./personnummer";
 import {
   BOOKING_SLOT_MINUTES,
   formatSlot,
@@ -73,10 +70,6 @@ function signedBookingUrl(pathname: string, rec: BookingRecord): string {
   return url.toString();
 }
 
-export function confirmUrl(rec: BookingRecord): string {
-  return signedBookingUrl("/boka-tid/bekrafta", rec);
-}
-
 /**
  * Avbokningslänken leder till en sida där avbokningen måste bekräftas med en
  * knapp – den avbokar aldrig bara av att länken öppnas. Både för att mejlklienter
@@ -87,46 +80,8 @@ export function cancelUrl(rec: BookingRecord): string {
   return signedBookingUrl("/boka-tid/avboka", rec);
 }
 
-function googleCalendarUrl(rec: BookingRecord): string {
-  const start = new Date(rec.slot);
-  const end = new Date(start.getTime() + BOOKING_SLOT_MINUTES * 60_000);
-  const compactUtc = (date: Date) => date.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}Z$/, "Z");
-  const params = new URLSearchParams({
-    action: "TEMPLATE",
-    text: `Besök hos ${DOCTOR}`,
-    dates: `${compactUtc(start)}/${compactUtc(end)}`,
-    details: `${SPECIALTY}. Boknings-id: ${rec.id}`,
-    location: `${CLINIC}, ${CLINIC_ADDRESS}`,
-  });
-  return `https://calendar.google.com/calendar/render?${params.toString()}`;
-}
-
 function mapUrl(): string {
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CLINIC_ADDRESS)}`;
-}
-
-function calendarFile(rec: BookingRecord): string {
-  const start = new Date(rec.slot);
-  const end = new Date(start.getTime() + BOOKING_SLOT_MINUTES * 60_000);
-  const utc = (date: Date) => date.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}Z$/, "Z");
-  const ics = (value: string) => value.replace(/\\/g, "\\\\").replace(/,/g, "\\,").replace(/;/g, "\\;").replace(/\n/g, "\\n");
-  return [
-    "BEGIN:VCALENDAR",
-    "VERSION:2.0",
-    "PRODID:-//Specialistdirekt//Bokning//SV",
-    "CALSCALE:GREGORIAN",
-    "METHOD:PUBLISH",
-    "BEGIN:VEVENT",
-    `UID:${rec.id}@specialistdirekt.se`,
-    `DTSTAMP:${utc(new Date())}`,
-    `DTSTART:${utc(start)}`,
-    `DTEND:${utc(end)}`,
-    `SUMMARY:${ics(`Besök hos ${DOCTOR}`)}`,
-    `DESCRIPTION:${ics(`${SPECIALTY}. Boknings-id: ${rec.id}`)}`,
-    `LOCATION:${ics(`${CLINIC}, ${CLINIC_ADDRESS}`)}`,
-    "END:VEVENT",
-    "END:VCALENDAR",
-  ].join("\r\n");
 }
 
 type Mail = {
@@ -152,42 +107,34 @@ export async function sendPatientConfirmation(rec: BookingRecord) {
   const when = formatSlot(rec.slot);
   const price = bookingPriceSek(rec);
   const freeCancelHours = bookingFreeCancelHours(rec);
-  const url = confirmUrl(rec);
   const cancel = cancelUrl(rec);
-  const calendar = googleCalendarUrl(rec);
   const map = mapUrl();
   const childLine = rec.bookingType === "child" && rec.childName
     ? `Barn: ${rec.childName}${rec.childBirthDate ? ` (${rec.childBirthDate})` : ""}`
     : "";
-  const confirmHref = escapeHtml(url);
   const cancelHref = escapeHtml(cancel);
-  const calendarHref = escapeHtml(calendar);
   const mapHref = escapeHtml(map);
   const text = [
     `Hej ${rec.name},`,
     "",
-    `Du har fått en tid hos ${DOCTOR}:`,
+    "Din bokning är bekräftad:",
     "",
-    `    ${when}`,
-    `    Pris: ${price} kr`,
-    `    Mottagning: ${CLINIC}`,
-    `    Adress: ${CLINIC_ADDRESS}`,
-    ...(childLine ? [`    ${childLine}`] : []),
+    `Datum och tid: ${when}`,
+    `Läkare: ${DOCTOR}`,
+    `Besök: ${SPECIALTY}`,
+    `Längd: ${BOOKING_SLOT_MINUTES} minuter`,
+    `Pris: ${price} kr`,
+    `Mottagning: ${CLINIC}`,
+    `Adress: ${CLINIC_ADDRESS}`,
+    ...(childLine ? [childLine] : []),
     "",
-    "Tiden är preliminär tills du bekräftat den. Godkänner du tiden och priset,",
-    "klicka på länken nedan:",
-    "",
-    url,
-    "",
-    `Lägg till i kalendern: ${calendar}`,
     `Visa vägbeskrivning: ${map}`,
     "",
-    "Bekräftelselänken gäller i två timmar. Därefter släpps reservationen och du behöver välja en ny tid.",
-    "",
-    `Kan du inte komma? Fram till ${freeCancelHours} timmar före besöket avbokar du`,
-    "kostnadsfritt här (du får bekräfta avbokningen på sidan):",
+    `Kan du inte komma? Avboka kostnadsfritt senast ${freeCancelHours} timmar före besöket:`,
     "",
     cancel,
+    "",
+    "Tiden avbokas först när du bekräftar på nästa sida.",
     "",
     `${site.name} – ${site.url}`,
     "Inte en akuttjänst – ring 112 vid nödfall.",
@@ -197,61 +144,63 @@ export async function sendPatientConfirmation(rec: BookingRecord) {
     <style>
       @media only screen and (max-width:480px) {
         .email-shell { width:100% !important; }
-        .mobile-pad { padding-left:18px !important; padding-right:18px !important; }
-        .mobile-action { display:block !important; width:100% !important; box-sizing:border-box !important; }
-        .mobile-gap { display:block !important; width:100% !important; height:8px !important; line-height:8px !important; }
-        .mobile-title { font-size:22px !important; line-height:28px !important; }
+        .mobile-pad { padding-left:20px !important; padding-right:20px !important; }
+        .mobile-title { font-size:25px !important; line-height:31px !important; }
+        .mobile-date { font-size:20px !important; line-height:27px !important; }
       }
     </style></head>
-  <body style="margin:0;padding:0;background-color:#eef3f6">
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#eef3f6">
-      <tr><td align="center" style="padding:24px 10px">
-        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" class="email-shell" style="width:100%;max-width:600px;background-color:#ffffff;font-family:Arial,Helvetica,sans-serif;color:#172033">
-          <tr><td bgcolor="#18324e" class="mobile-pad" style="padding:24px 28px;background-color:#18324e;color:#ffffff">
-            <div style="font-size:12px;font-weight:bold;letter-spacing:1.5px;color:#5eead4">SPECIALISTDIREKT</div>
-            <div class="mobile-title" style="padding-top:10px;font-size:25px;line-height:31px;font-weight:bold">Bekräfta din tid</div>
-            <div style="padding-top:4px;font-size:14px;line-height:20px;color:#d6ecf4">Tiden är reserverad i två timmar</div>
+  <body style="margin:0;padding:0;background-color:#edf3f5">
+    <div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent">Din tid är bokad. I mejlet finns också din personliga avbokningslänk.</div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#edf3f5">
+      <tr><td align="center" style="padding:32px 10px">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" class="email-shell" style="width:100%;max-width:620px;background-color:#ffffff;border:1px solid #dce6e9;border-radius:18px;overflow:hidden;font-family:Arial,Helvetica,sans-serif;color:#172033;box-shadow:0 12px 32px rgba(15,50,72,0.08)">
+          <tr><td style="height:5px;background-color:#14b8a6;font-size:0;line-height:0">&nbsp;</td></tr>
+          <tr><td bgcolor="#15324a" class="mobile-pad" style="padding:28px 34px 30px;background-color:#15324a;color:#ffffff">
+            <div style="font-size:13px;font-weight:bold;letter-spacing:1.7px;color:#5eead4">SPECIALISTDIREKT</div>
+            <div class="mobile-title" style="padding-top:16px;font-size:29px;line-height:36px;font-weight:bold">Din tid är bokad</div>
+            <div style="padding-top:7px;font-size:15px;line-height:22px;color:#d6e9ef">Här är din bokningsbekräftelse.</div>
           </td></tr>
-          <tr><td class="mobile-pad" style="padding:24px 28px 8px;font-size:16px;line-height:24px">Hej ${escapeHtml(rec.name)},</td></tr>
-          <tr><td class="mobile-pad" style="padding:0 28px 20px;font-size:15px;line-height:23px;color:#475569">
-            Vi har reserverat en tid hos <strong style="color:#172033">${DOCTOR}</strong><br>${SPECIALTY}${childLine ? `<br><strong>Barn:</strong> ${escapeHtml(rec.childName || "")}${rec.childBirthDate ? ` (${escapeHtml(rec.childBirthDate)})` : ""}` : ""}
+
+          <tr><td class="mobile-pad" style="padding:28px 34px 10px;font-size:16px;line-height:25px;color:#172033">Hej ${escapeHtml(rec.name)},</td></tr>
+          <tr><td class="mobile-pad" style="padding:0 34px 24px;font-size:15px;line-height:24px;color:#526273">
+            Vi har bokat följande besökstid åt dig.
           </td></tr>
-          <tr><td class="mobile-pad" style="padding:0 28px 20px">
-            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#f0fdfa" style="background-color:#f0fdfa;border:1px solid #cde9e5">
-              <tr><td style="padding:16px 18px 5px;font-size:11px;font-weight:bold;letter-spacing:1px;color:#0f766e">DATUM OCH TID</td></tr>
-              <tr><td style="padding:0 18px 12px;font-size:19px;line-height:26px;font-weight:bold;color:#172033">${escapeHtml(when)}</td></tr>
-              <tr><td style="padding:12px 18px;border-top:1px solid #cde9e5;font-size:14px;color:#334155">${BOOKING_SLOT_MINUTES} minuter&nbsp;&nbsp;•&nbsp;&nbsp;<strong>${price} kr</strong></td></tr>
-            </table>
-          </td></tr>
-          <tr><td class="mobile-pad" style="padding:0 28px 12px;font-size:15px;line-height:23px;color:#334155">Bekräfta tiden och priset för att slutföra bokningen.</td></tr>
-          <tr><td align="center" class="mobile-pad" style="padding:4px 28px 20px">
-            <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td bgcolor="#0d9488" style="background-color:#0d9488;padding:13px 28px">
-              <a href="${confirmHref}" style="display:inline-block;color:#ffffff;font-size:16px;font-weight:bold;text-decoration:none">Bekräfta min tid</a>
-            </td></tr></table>
-          </td></tr>
-          <tr><td class="mobile-pad" style="padding:0 28px 20px">
-            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
-              <td width="49%" align="center" class="mobile-action" style="padding:11px 4px;border:1px solid #0d9488"><a href="${calendarHref}" style="display:block;color:#0f766e;font-size:13px;font-weight:bold;text-decoration:none">Add to calendar</a></td>
-              <td width="2%" class="mobile-gap">&nbsp;</td>
-              <td width="49%" align="center" class="mobile-action" style="padding:11px 4px;border:1px solid #0d9488"><a href="${mapHref}" style="display:block;color:#0f766e;font-size:13px;font-weight:bold;text-decoration:none">Open in Maps</a></td>
-            </tr></table>
-          </td></tr>
-          <tr><td class="mobile-pad" style="padding:0 28px 20px">
-            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#f8fafc" style="background-color:#f8fafc;border:1px solid #e2e8f0">
-              <tr><td style="padding:14px 16px;font-size:14px;line-height:21px;color:#334155">
-                <span style="font-size:11px;font-weight:bold;letter-spacing:1px;color:#64748b">BESÖKSADRESS</span><br>
-                <strong style="color:#172033">${CLINIC}</strong><br>
+
+          <tr><td class="mobile-pad" style="padding:0 34px 22px">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#effcf9" style="background-color:#effcf9;border:1px solid #bdece3;border-radius:14px">
+              <tr><td style="padding:18px 20px 6px;font-size:11px;font-weight:bold;letter-spacing:1.2px;color:#0f766e">DATUM OCH TID</td></tr>
+              <tr><td class="mobile-date" style="padding:0 20px 16px;font-size:22px;line-height:30px;font-weight:bold;color:#12283c">${escapeHtml(when)}</td></tr>
+              <tr><td style="padding:14px 20px;border-top:1px solid #cceee7;font-size:14px;line-height:21px;color:#334155">
+                <strong>${BOOKING_SLOT_MINUTES} minuter</strong><span style="color:#94a3b8"> &nbsp;•&nbsp; </span><strong>${price} kr</strong>
+              </td></tr>
+              <tr><td style="padding:14px 20px;border-top:1px solid #cceee7;font-size:14px;line-height:22px;color:#334155">
+                <strong style="color:#172033">${DOCTOR}</strong><br>
+                ${SPECIALTY}<br>
+                ${childLine ? `<strong>Barn:</strong> ${escapeHtml(rec.childName || "")}${rec.childBirthDate ? ` (${escapeHtml(rec.childBirthDate)})` : ""}<br>` : ""}
+                <strong>${CLINIC}</strong><br>
                 <a href="${mapHref}" style="color:#0f766e;text-decoration:underline">${CLINIC_ADDRESS}</a>
               </td></tr>
             </table>
           </td></tr>
-          <tr><td class="mobile-pad" style="padding:0 28px 18px;font-size:12px;line-height:19px;color:#9a3412">Bekräftelselänken gäller i två timmar. Därefter släpps reservationen och du behöver välja en ny tid.</td></tr>
-          <tr><td class="mobile-pad" style="padding:16px 28px;border-top:1px solid #e2e8f0;font-size:12px;line-height:19px;color:#64748b">
-            Kan du inte komma? Fram till <strong>${freeCancelHours} timmar</strong> före besöket kan du
-            <a href="${cancelHref}" style="color:#64748b;text-decoration:underline">avboka kostnadsfritt</a>.
+
+          <tr><td class="mobile-pad" style="padding:0 34px 30px">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#f8fafc" style="background-color:#f8fafc;border:1px solid #e1e8ec;border-radius:14px">
+              <tr><td style="padding:17px 18px 7px;font-size:14px;font-weight:bold;color:#334155">Kan du inte komma?</td></tr>
+              <tr><td style="padding:0 18px 13px;font-size:13px;line-height:21px;color:#64748b">
+                Avboka kostnadsfritt senast ${freeCancelHours} timmar före besöket.
+              </td></tr>
+              <tr><td style="padding:0 18px 9px">
+                <a href="${cancelHref}" style="display:inline-block;padding:11px 16px;border:1px solid #f0b8b8;border-radius:9px;color:#b42318;font-size:13px;font-weight:bold;text-decoration:none">Avboka tiden</a>
+              </td></tr>
+              <tr><td style="padding:0 18px 17px;font-size:11px;line-height:18px;color:#7c8996">
+                Tiden avbokas först när du bekräftar på nästa sida.
+              </td></tr>
+            </table>
           </td></tr>
-          <tr><td bgcolor="#f8fafc" class="mobile-pad" style="padding:14px 28px;background-color:#f8fafc;font-size:11px;line-height:18px;color:#94a3b8">
-            ${site.name} · <a href="${escapeHtml(site.url)}" style="color:#64748b">${site.url}</a><br>Inte en akuttjänst – ring 112 vid nödfall.
+
+          <tr><td bgcolor="#f5f8fa" class="mobile-pad" style="padding:17px 34px;background-color:#f5f8fa;border-top:1px solid #e1e8ec;font-size:11px;line-height:18px;color:#7c8996">
+            ${site.name} · <a href="${escapeHtml(site.url)}" style="color:#516b7b;text-decoration:underline">${site.url}</a><br>
+            Inte en akuttjänst – ring 112 vid nödfall.
           </td></tr>
         </table>
       </td></tr>
@@ -260,16 +209,9 @@ export async function sendPatientConfirmation(rec: BookingRecord) {
 
   return send({
     to: rec.email,
-    subject: `Bekräfta din tid ${when} – ${DOCTOR}`,
+    subject: `Bokningsbekräftelse – ${when}`,
     html,
     text,
-    attachments: [
-      {
-        filename: "specialistdirekt-bokning.ics",
-        content: calendarFile(rec),
-        contentType: "text/calendar; charset=utf-8; method=PUBLISH",
-      },
-    ],
   });
 }
 
@@ -283,6 +225,10 @@ function ownerRows(rec: BookingRecord): [string, string][] {
           ["Barnets födelsedatum", rec.childBirthDate || "(saknas)"],
         ] as [string, string][])
       : []),
+    [
+      rec.bookingType === "child" ? "Barnets personnummer" : "Personnummer",
+      rec.personnummer ? formatPersonnummer(rec.personnummer) : "(saknas)",
+    ],
     ["E-post", rec.email],
     ["Telefon", rec.phone],
     ["Ärende", rec.message || "(inget angivet)"],
@@ -399,7 +345,7 @@ function cancelledText(rec: BookingRecord, free: boolean): string {
   ].join("\n");
 }
 
-/** 2. Notis när en tid tagits men ännu inte bekräftats. */
+/** Äldre flöde: notis för en väntande bokning som ännu inte bekräftats. */
 export async function sendOwnerPending(rec: BookingRecord) {
   const heading = `Ny tid tagen (ej bekräftad) – ${formatSlot(rec.slot)}`;
   const note = "Bokningen är sparad som preliminär och är ännu inte bekräftad av patienten.";
@@ -412,7 +358,7 @@ export async function sendOwnerPending(rec: BookingRecord) {
   });
 }
 
-/** 3. Notis när patienten bekräftat tiden och priset. */
+/** Notis när en bokning är bekräftad. */
 export async function sendOwnerVerified(rec: BookingRecord, conflict: boolean) {
   const heading = `BEKRÄFTAD av patienten – ${formatSlot(rec.slot)}`;
   const note = conflict

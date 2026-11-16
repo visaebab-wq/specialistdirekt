@@ -6,6 +6,7 @@ import type { LeadFormValues, LeadState } from "@/lib/lead";
 import { deliverLead } from "@/lib/lead-delivery";
 import { isValidPreferredDate } from "@/lib/lead-dates";
 import { isChildBirthDate } from "@/lib/booking-patient";
+import { parsePersonnummer } from "@/lib/personnummer";
 
 const validSpecialtySlugs = new Set([
   ...specialties.map((s) => s.slug),
@@ -19,6 +20,7 @@ const MAX = {
   name: 100,
   email: 160,
   phone: 40,
+  personnummer: 20,
   city: 80,
   specialty: 40,
   message: 2000,
@@ -338,6 +340,7 @@ export type BookingFormValues = {
   message: string;
   childName: string;
   childBirthDate: string;
+  personnummer: string;
   consent: boolean;
 };
 
@@ -367,7 +370,7 @@ export async function submitBooking(
   const attempt = nextAttempt(previous);
   const { isValidSlot } = await import("@/lib/booking-slots");
   const { bookingSigningConfigured, claimSlot } = await import("@/lib/booking-store");
-  const { sendPatientConfirmation, sendOwnerPending } = await import("@/lib/booking-email");
+  const { sendPatientConfirmation, sendOwnerVerified } = await import("@/lib/booking-email");
 
   if (formString(formData, "company")) {
     return {
@@ -388,7 +391,10 @@ export async function submitBooking(
   const bookingTypeInput = formString(formData, "bookingType");
   const bookingType = bookingTypeInput === "child" ? "child" : "adult";
   const childName = formString(formData, "childName");
-  const childBirthDate = formString(formData, "childBirthDate");
+  const personnummerInput = formString(formData, "personnummer");
+  const pnr = parsePersonnummer(personnummerInput);
+  // Barnets födelsedatum läses ur barnets personnummer – ett fält mindre att fylla i.
+  const childBirthDate = bookingType === "child" ? (pnr?.birthDate ?? "") : "";
   const consent = formData.get("consent") === "on";
   const values: BookingFormValues = {
     slot: slot.slice(0, 40),
@@ -400,6 +406,7 @@ export async function submitBooking(
     message: message.slice(0, MAX.message),
     childName: childName.slice(0, MAX.name),
     childBirthDate: safeDateValue(childBirthDate),
+    personnummer: personnummerInput.slice(0, MAX.personnummer),
     consent,
   };
 
@@ -440,14 +447,20 @@ export async function submitBooking(
     errors.phone = "Fyll i ett telefonnummer.";
   if (message.length > MAX.message)
     errors.message = `Beskrivningen får vara högst ${MAX.message} tecken.`;
+  if (personnummerInput.length > MAX.personnummer || !pnr) {
+    errors.personnummer =
+      bookingType === "child"
+        ? "Fyll i barnets personnummer (ÅÅÅÅMMDD-NNNN)."
+        : "Fyll i ett giltigt personnummer (ÅÅÅÅMMDD-NNNN).";
+  }
   if (bookingType === "child") {
     if (childName.length < 2 || childName.length > MAX.name)
       errors.childName = "Fyll i barnets namn.";
-    if (!isChildBirthDate(childBirthDate)) {
-      errors.childBirthDate = "Barnet behöver vara 0–17 år vid bokningen.";
+    if (pnr && !isChildBirthDate(childBirthDate)) {
+      errors.personnummer = "Barnet behöver vara 0–17 år vid bokningen.";
     }
   }
-  if (!consent) errors.consent = "Du behöver godkänna villkoren.";
+  if (!consent) errors.consent = "Du behöver godkänna villkoren för att boka.";
   if (Object.keys(errors).length > 0) {
     return {
       status: "error",
@@ -481,6 +494,7 @@ export async function submitBooking(
     phone,
     message,
     bookingType,
+    personnummer: pnr?.digits ?? "",
     ...(bookingType === "child" ? { childName, childBirthDate } : {}),
   });
   if (!claim.ok) {
@@ -545,7 +559,7 @@ export async function submitBooking(
   };
   const [toPatient, toOwner] = await Promise.all([
     sendSafely(() => sendPatientConfirmation(rec)),
-    sendSafely(() => sendOwnerPending(rec)),
+    sendSafely(() => sendOwnerVerified(rec, false)),
   ]);
 
   if (!toOwner.sent) {
@@ -562,7 +576,7 @@ export async function submitBooking(
     return {
       status: "success",
       message:
-        "Din tid är preliminärt reserverad, men bekräftelsemejlet kunde inte skickas. Kontakta oss så snart som möjligt för att bekräfta bokningen.",
+        "Din tid är bokad, men bekräftelsemejlet kunde inte skickas. Kontakta oss så hjälper vi dig med bokningsuppgifterna.",
       errors: {},
       attempt,
       confirmationEmailSent: false,
@@ -572,8 +586,7 @@ export async function submitBooking(
 
   return {
     status: "success",
-    message:
-      "Tack! Vi har skickat ett mejl till dig. Klicka på länken i mejlet för att bekräfta tiden och priset.",
+    message: "Din tid är bokad. Vi har skickat en bekräftelse med avbokningslänk till din e-post.",
     errors: {},
     attempt,
     confirmationEmailSent: true,
