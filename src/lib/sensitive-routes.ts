@@ -1,9 +1,12 @@
 /**
- * Vyer som bär en bokningsnyckel i URL:en och därför aldrig får mätas.
+ * Privata bokningsvyer som aldrig får mätas.
  *
  * BAKGRUND. Bekräftelse- och avbokningslänkarna ser ut så här:
  *   /boka-tid/bekrafta?id=<boknings-id>&sig=<signatur>
  *   /boka-tid/avboka?id=<boknings-id>&sig=<signatur>
+ * Efter en ny bokning visas /boka-tid/bokad med en signerad HttpOnly-cookie i
+ * stället för URL-parametrar. Den innehåller ändå patientspecifika uppgifter och
+ * är därför lika strikt avstängd från tredjepartsmätning.
  *
  * Google-taggen skickar automatiskt hela sidadressen som `page_location` (fältet
  * `dl`). Då hamnar både id och signatur hos GA4 och Google Ads. Servern kräver
@@ -20,6 +23,7 @@
  * mätning där hade varit en bred avstängning utan att lösa läckaget.
  */
 export const SENSITIVE_PATH_PREFIXES = [
+  "/boka-tid/bokad",
   "/boka-tid/bekrafta",
   "/boka-tid/avboka",
 ] as const;

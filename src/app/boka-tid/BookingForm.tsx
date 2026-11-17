@@ -202,6 +202,21 @@ export function BookingForm({
 
   useEffect(() => {
     if (
+      state.status !== "success" ||
+      !state.bookingPersisted ||
+      !state.confirmationPageReady
+    ) {
+      return;
+    }
+
+    // TrackEvent hinner registrera utfallet på den tokenfria bokningssidan.
+    // Själva kvittosidan är privat och laddar därför aldrig tredjepartsmätning.
+    const timer = window.setTimeout(() => router.replace("/boka-tid/bokad"), 400);
+    return () => window.clearTimeout(timer);
+  }, [router, state.bookingPersisted, state.confirmationPageReady, state.status]);
+
+  useEffect(() => {
+    if (
       state.status !== "error" ||
       !state.errors.slot ||
       refreshedSlotErrorAttempt.current === state.attempt
@@ -227,6 +242,14 @@ export function BookingForm({
         {state.bookingPersisted && <TrackEvent name="booking_submitted" />}
         <h2 className="text-xl font-bold text-ink-900">Tack!</h2>
         <p className="mt-3 text-ink-700">{state.message}</p>
+        {state.confirmationPageReady && (
+          <p className="mt-4 text-sm font-semibold text-brand-800">
+            Öppnar din bokningsbekräftelse… {" "}
+            <a href="/boka-tid/bokad" className="underline">
+              Visa bekräftelsen
+            </a>
+          </p>
+        )}
         {state.confirmationEmailSent && (
           <p className="mt-4 text-sm text-ink-500">
             Hittar du inte mejlet? Titta i skräpposten. Där finns även din avbokningslänk.

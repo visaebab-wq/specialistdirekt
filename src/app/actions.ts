@@ -351,6 +351,8 @@ export type BookingState = {
   attempt: number;
   confirmationEmailSent: boolean;
   bookingPersisted: boolean;
+  /** En kortlivad HttpOnly-kvittens finns och den privata bekräftelsesidan kan öppnas. */
+  confirmationPageReady?: boolean;
   values?: BookingFormValues;
 };
 
@@ -568,6 +570,19 @@ export async function submitBooking(
     });
   }
 
+  let confirmationPageReady = false;
+  try {
+    const { writeBookingReceipt } = await import("@/lib/booking-receipt");
+    await writeBookingReceipt(rec, toPatient.sent);
+    confirmationPageReady = true;
+  } catch {
+    // Bokningen och eventuellt mejlet är redan klara. En misslyckad webbkvitto-
+    // cookie får därför bara ge inline-bekräftelsen, aldrig ett 500-svar.
+    console.error("[booking] Bekräftelsesidan kunde inte förberedas", {
+      code: "receipt-cookie-error",
+    });
+  }
+
   if (!toPatient.sent) {
     // Bokningen ÄR sparad. Säg det rakt ut i stället för att låtsas att allt gick bra.
     console.error("[booking] Bekräftelsemejl kunde inte skickas", {
@@ -581,6 +596,7 @@ export async function submitBooking(
       attempt,
       confirmationEmailSent: false,
       bookingPersisted: true,
+      confirmationPageReady,
     };
   }
 
@@ -591,5 +607,6 @@ export async function submitBooking(
     attempt,
     confirmationEmailSent: true,
     bookingPersisted: true,
+    confirmationPageReady,
   };
 }

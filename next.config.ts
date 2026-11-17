@@ -18,8 +18,8 @@ const securityHeaders = [
   },
 ];
 
-// Skärpta headers för de vyer som bär en bokningsnyckel i URL:en
-// (/boka-tid/bekrafta och /boka-tid/avboka).
+// Skärpta headers för privata bokningsvyer. /boka-tid/bokad får sin signerade
+// nyckel via HttpOnly-cookie; bekräfta/avboka bär nyckeln i URL:en.
 //
 // Referrer-Policy: no-referrer – annars följer hela adressen, inklusive id och
 // sig, med som Referer när besökaren klickar vidare, och hamnar då i nästa sidas
@@ -60,6 +60,8 @@ const nextConfig: NextConfig = {
       { source: "/boka-tid/bekrafta/:path*", headers: sensitiveHeaders },
       { source: "/boka-tid/avboka", headers: sensitiveHeaders },
       { source: "/boka-tid/avboka/:path*", headers: sensitiveHeaders },
+      { source: "/boka-tid/bokad", headers: sensitiveHeaders },
+      { source: "/boka-tid/bokad/:path*", headers: sensitiveHeaders },
     ];
   },
   async redirects() {

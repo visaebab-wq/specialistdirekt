@@ -9,7 +9,15 @@ import { site } from "./site";
 import { sendMail } from "./smtp";
 import { formatPersonnummer } from "./personnummer";
 import {
+  BOOKING_CLINIC,
+  BOOKING_CLINIC_ADDRESS,
+  BOOKING_DOCTOR,
+  BOOKING_SPECIALTY,
+  bookingMapUrl,
+} from "./booking-appointment";
+import {
   BOOKING_SLOT_MINUTES,
+  formatPrice,
   formatSlot,
 } from "./booking-slots";
 import type { BookingRecord } from "./booking-store";
@@ -18,11 +26,6 @@ import {
   bookingPriceSek,
   signBookingId,
 } from "./booking-store";
-
-const DOCTOR = "Dr Masoud Sorkhabi";
-const SPECIALTY = "Specialist i ortopedi och ryggkirurgi";
-const CLINIC = "NoPainClinic";
-const CLINIC_ADDRESS = "Karl Johansgatan 100, 414 55 Göteborg";
 
 function escapeHtml(s: string): string {
   return s
@@ -80,10 +83,6 @@ export function cancelUrl(rec: BookingRecord): string {
   return signedBookingUrl("/boka-tid/avboka", rec);
 }
 
-function mapUrl(): string {
-  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CLINIC_ADDRESS)}`;
-}
-
 type Mail = {
   to: string;
   subject: string;
@@ -105,10 +104,10 @@ async function send(mail: Mail): Promise<{ sent: boolean; error?: string }> {
 /** 1. Bekräftelsemejl till patienten. */
 export async function sendPatientConfirmation(rec: BookingRecord) {
   const when = formatSlot(rec.slot);
-  const price = bookingPriceSek(rec);
+  const price = formatPrice(bookingPriceSek(rec));
   const freeCancelHours = bookingFreeCancelHours(rec);
   const cancel = cancelUrl(rec);
-  const map = mapUrl();
+  const map = bookingMapUrl();
   const childLine = rec.bookingType === "child" && rec.childName
     ? `Barn: ${rec.childName}${rec.childBirthDate ? ` (${rec.childBirthDate})` : ""}`
     : "";
@@ -120,12 +119,13 @@ export async function sendPatientConfirmation(rec: BookingRecord) {
     "Din bokning är bekräftad:",
     "",
     `Datum och tid: ${when}`,
-    `Läkare: ${DOCTOR}`,
-    `Besök: ${SPECIALTY}`,
+    `Läkare: ${BOOKING_DOCTOR}`,
+    `Besök: ${BOOKING_SPECIALTY}`,
     `Längd: ${BOOKING_SLOT_MINUTES} minuter`,
     `Pris: ${price} kr`,
-    `Mottagning: ${CLINIC}`,
-    `Adress: ${CLINIC_ADDRESS}`,
+    "Betalning: På plats vid besöket",
+    `Mottagning: ${BOOKING_CLINIC}`,
+    `Adress: ${BOOKING_CLINIC_ADDRESS}`,
     ...(childLine ? [childLine] : []),
     "",
     `Visa vägbeskrivning: ${map}`,
@@ -171,14 +171,15 @@ export async function sendPatientConfirmation(rec: BookingRecord) {
               <tr><td style="padding:18px 20px 6px;font-size:11px;font-weight:bold;letter-spacing:1.2px;color:#0f766e">DATUM OCH TID</td></tr>
               <tr><td class="mobile-date" style="padding:0 20px 16px;font-size:22px;line-height:30px;font-weight:bold;color:#12283c">${escapeHtml(when)}</td></tr>
               <tr><td style="padding:14px 20px;border-top:1px solid #cceee7;font-size:14px;line-height:21px;color:#334155">
-                <strong>${BOOKING_SLOT_MINUTES} minuter</strong><span style="color:#94a3b8"> &nbsp;•&nbsp; </span><strong>${price} kr</strong>
+                <strong>${BOOKING_SLOT_MINUTES} minuter</strong><span style="color:#94a3b8"> &nbsp;•&nbsp; </span><strong>${price} kr</strong><br>
+                <span style="color:#64748b">Betalas på plats vid besöket</span>
               </td></tr>
               <tr><td style="padding:14px 20px;border-top:1px solid #cceee7;font-size:14px;line-height:22px;color:#334155">
-                <strong style="color:#172033">${DOCTOR}</strong><br>
-                ${SPECIALTY}<br>
+                <strong style="color:#172033">${BOOKING_DOCTOR}</strong><br>
+                ${BOOKING_SPECIALTY}<br>
                 ${childLine ? `<strong>Barn:</strong> ${escapeHtml(rec.childName || "")}${rec.childBirthDate ? ` (${escapeHtml(rec.childBirthDate)})` : ""}<br>` : ""}
-                <strong>${CLINIC}</strong><br>
-                <a href="${mapHref}" style="color:#0f766e;text-decoration:underline">${CLINIC_ADDRESS}</a>
+                <strong>${BOOKING_CLINIC}</strong><br>
+                <a href="${mapHref}" style="color:#0f766e;text-decoration:underline">${BOOKING_CLINIC_ADDRESS}</a>
               </td></tr>
             </table>
           </td></tr>
