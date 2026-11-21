@@ -105,7 +105,9 @@ export async function sendMail(mail: SmtpMail, tag = "mail"): Promise<SmtpResult
   }
 
   const message = {
-    from: `"${site.name}" <${process.env.SMTP_USER}>`,
+    // SMTP_FROM: synlig avsändare när inloggningskontot (t.ex. Zoho) är ett
+    // annat än sajtens adress. Utan den används inloggningen som tidigare.
+    from: `"${site.name}" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
     to: mail.to,
     ...(mail.replyTo ? { replyTo: mail.replyTo } : {}),
     subject: mail.subject,

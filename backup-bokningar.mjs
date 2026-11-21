@@ -54,6 +54,9 @@ const TO =
 const SMTP_HOST = process.env.SMTP_HOST || env.SMTP_HOST;
 const SMTP_PORT = process.env.SMTP_PORT || env.SMTP_PORT || "587";
 const SMTP_USER = process.env.SMTP_USER || env.SMTP_USER;
+// Avsändaradress. Behövs när inloggningskontot (t.ex. Zoho) skiljer sig från
+// adressen patienten ska se; utan SMTP_FROM används inloggningen som förut.
+const SMTP_FROM = process.env.SMTP_FROM || env.SMTP_FROM || SMTP_USER;
 const SMTP_PASS = process.env.SMTP_PASS || env.SMTP_PASS;
 const configuredPath = (value, fallback) => resolve(PROJECT, value || fallback);
 const sources = [
@@ -360,7 +363,7 @@ if (!TO || !SMTP_HOST || !SMTP_USER || !SMTP_PASS) {
 }
 
 const message = {
-  from: `"Specialistdirekt" <${SMTP_USER}>`,
+  from: `"Specialistdirekt" <${SMTP_FROM}>`,
   to: TO,
   subject,
   text,
