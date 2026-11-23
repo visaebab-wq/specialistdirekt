@@ -32,7 +32,7 @@ const TEXT: Record<"sv" | "en", { rubrik: string; oppna: string; titel: string; 
         ],
         lankar: [
           { text: "Boka ortopedbesök →", href: "/boka-tid" },
-          { text: "Hitta annan specialist →", href: "/#valj-specialist" },
+          { text: "Hitta annan specialist →", href: "/#valj-omrade" },
         ],
       },
       {
@@ -179,7 +179,13 @@ export function RobotHelp() {
           </svg>
           </span>
         </summary>
-        <div className="rh__panel">
+        <div
+          className="rh__panel"
+          onClick={(e) => {
+            // Länk i rutan (även ankare på samma sida): stäng så att målet syns.
+            if ((e.target as Element).closest("a") && ruta.current) ruta.current.open = false;
+          }}
+        >
           <p className="rh__rubrik">{t.rubrik}</p>
           {t.fragor.map((f) => {
             return (
