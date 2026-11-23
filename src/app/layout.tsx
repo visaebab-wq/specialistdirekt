@@ -9,6 +9,7 @@ import { LocaleShell } from "@/components/LocaleShell";
 import { JsonLd } from "@/components/JsonLd";
 import { Analytics } from "@/components/Analytics";
 import { CookieConsent } from "@/components/CookieConsent";
+import { RobotHelp } from "@/components/RobotHelp";
 import { site } from "@/lib/site";
 import { organizationSchema, websiteSchema } from "@/lib/structured-data";
 
@@ -95,6 +96,7 @@ export default function RootLayout({
         <JsonLd data={[organizationSchema(), websiteSchema()]} />
         <Analytics />
         <CookieConsent />
+        <RobotHelp />
       </body>
     </html>
   );
